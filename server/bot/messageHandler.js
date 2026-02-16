@@ -5,6 +5,22 @@ import path from "path";
 
 const CONFIG_FILE = path.join(process.cwd(), "server", "bot", "bot_config.json");
 
+const floodMap = new Map();
+const FLOOD_LIMIT = 10;
+const FLOOD_WINDOW = 5000;
+
+function isFlooding(sender) {
+  const now = Date.now();
+  if (!floodMap.has(sender)) {
+    floodMap.set(sender, [now]);
+    return false;
+  }
+  const timestamps = floodMap.get(sender).filter(t => now - t < FLOOD_WINDOW);
+  timestamps.push(now);
+  floodMap.set(sender, timestamps);
+  return timestamps.length > FLOOD_LIMIT;
+}
+
 function loadConfig() {
   const defaults = {
     prefix: ".",
@@ -81,6 +97,9 @@ export function setupMessageHandler(logger) {
 
       const config = loadConfig();
 
+      const sender = msg.key.participant || msg.key.remoteJid || "";
+      if (isFlooding(sender)) continue;
+
       if (!body.startsWith(config.prefix)) continue;
 
       const fullCmd = body.slice(config.prefix.length).trim();
@@ -92,17 +111,7 @@ export function setupMessageHandler(logger) {
       const command = commandLoader.findCommand(cmdName);
       if (!command) continue;
 
-      if (config.mode === "silent") {
-        continue;
-      }
-
-      if (config.mode === "maintenance" && !isOwner(msg, config)) {
-        const sock = botConnection.getSocket();
-        if (sock) {
-          await sock.sendMessage(msg.key.remoteJid, {
-            text: "Bot is under maintenance. Please try again later.",
-          }, { quoted: msg });
-        }
+      if (config.mode === "private" && !isOwner(msg, config)) {
         continue;
       }
 
@@ -110,7 +119,7 @@ export function setupMessageHandler(logger) {
         continue;
       }
 
-      if (config.mode === "private" && !isOwner(msg, config)) {
+      if (config.mode === "dms-only" && msg.key.remoteJid?.endsWith("@g.us")) {
         continue;
       }
 
