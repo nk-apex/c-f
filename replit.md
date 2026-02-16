@@ -9,11 +9,11 @@ Foxy Bot is a WhatsApp bot that runs entirely in the terminal/console. It connec
 Preferred communication style: Simple, everyday language.
 No web dashboard - everything runs in the console/terminal.
 Orange-themed console output with box-drawing borders (┌─⧭ style).
-Files use plain JavaScript (no TypeScript types), kept as .ts extension for tsx compatibility.
+Files use plain JavaScript (.js extension), run via tsx.
 
 ## System Architecture
 
-### Console Application (server/index.ts)
+### Console Application (server/index.js)
 - Pure terminal-based bot with readline prompts
 - Connection menu: pair code or session ID
 - Console commands: status, config, commands, restart, stop, exit, help
@@ -24,9 +24,9 @@ Files use plain JavaScript (no TypeScript types), kept as .ts extension for tsx 
 - Console.log suppressed during command loading for clean output
 
 ### Bot Engine (server/bot/)
-- **Connection** (`connection.ts`): WhatsApp connection via `@whiskeysockets/baileys`, supports pair code and session ID auth, reconnection with exponential backoff, session stored in `session/` directory
-- **Command Loader** (`commandLoader.ts`): Dynamically loads .js command files from `server/bot/commands/` organized by category directories. Exposes `getCommandsMap()` for Map access with `.size`
-- **Message Handler** (`messageHandler.ts`): Processes WhatsApp messages, routes commands based on prefix, enforces 5 bot modes, accepts console logger callback for incoming message display
+- **Connection** (`connection.js`): WhatsApp connection via `@whiskeysockets/baileys`, supports pair code and session ID auth, reconnection with exponential backoff, session stored in `session/` directory
+- **Command Loader** (`commandLoader.js`): Dynamically loads .js command files from `server/bot/commands/` organized by category directories. Exposes `getCommandsMap()` for Map access with `.size`
+- **Message Handler** (`messageHandler.js`): Processes WhatsApp messages, routes commands based on prefix, enforces 5 bot modes, unwraps ephemeral/viewOnce message types, accepts console logger callback for incoming message display
 - **Config**: Bot configuration in `server/bot/bot_config.json` (prefix, mode, owner number, bot name)
 - **Utils** (`server/bot/utils/`): foxEconomy, foxGames, foxGroup, foxMaster, standalonePermissions
 - **Handlers** (`server/bot/handlers/`): prefixHandler
@@ -80,7 +80,7 @@ Menu uses ┌─⧭ box-drawing style with sections: FOX-CORE header, AI MODULES
 - **typescript**: Type checking (LSP only, not used at runtime)
 
 ## Running
-- `npm run dev` starts the console bot via `tsx server/index.ts`
+- `npm run dev` starts the console bot via `tsx server/index.js`
 - The bot prompts for connection method in the terminal
 - Type `help` for available console commands while running
 - Incoming messages appear in orange-bordered boxes with sender info
