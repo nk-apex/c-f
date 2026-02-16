@@ -2,31 +2,28 @@ import fs from "fs";
 import path from "path";
 import { botConnection } from "./connection";
 
-export interface BotCommand {
-  name: string;
-  alias: string[];
-  category: string;
-  description: string;
-  ownerOnly: boolean;
-  execute: (sock: any, msg: any, args: string[], prefix: string, extra: any) => Promise<void>;
-}
-
 const COMMANDS_DIR = path.join(process.cwd(), "server", "bot", "commands");
 
 class CommandLoader {
-  private commands: Map<string, BotCommand> = new Map();
-  private aliases: Map<string, string> = new Map();
+  constructor() {
+    this.commands = new Map();
+    this.aliases = new Map();
+  }
 
-  getCommands(): BotCommand[] {
+  getCommands() {
     return Array.from(this.commands.values());
   }
 
-  getCommandCount(): number {
+  getCommandsMap() {
+    return this.commands;
+  }
+
+  getCommandCount() {
     return this.commands.size;
   }
 
-  getCategories(): Record<string, BotCommand[]> {
-    const categories: Record<string, BotCommand[]> = {};
+  getCategories() {
+    const categories = {};
     for (const cmd of this.commands.values()) {
       const cat = cmd.category || "uncategorized";
       if (!categories[cat]) categories[cat] = [];
@@ -35,7 +32,7 @@ class CommandLoader {
     return categories;
   }
 
-  findCommand(name: string): BotCommand | undefined {
+  findCommand(name) {
     const lower = name.toLowerCase();
     if (this.commands.has(lower)) return this.commands.get(lower);
     const aliasTarget = this.aliases.get(lower);
@@ -43,16 +40,16 @@ class CommandLoader {
     return undefined;
   }
 
-  private async loadCommandFile(filePath: string, category: string, fileName: string) {
+  async loadCommandFile(filePath, category, fileName) {
     try {
       const mod = await import(filePath);
       const cmd = mod.default || mod;
 
       if (!cmd || !cmd.name) return;
 
-      const command: BotCommand = {
+      const command = {
         name: cmd.name.toLowerCase(),
-        alias: (cmd.alias || []).map((a: string) => a.toLowerCase()),
+        alias: (cmd.alias || []).map((a) => a.toLowerCase()),
         category: cmd.category || category,
         description: cmd.description || "No description",
         ownerOnly: cmd.ownerOnly || false,
@@ -64,7 +61,7 @@ class CommandLoader {
       for (const alias of command.alias) {
         this.aliases.set(alias, command.name);
       }
-    } catch (err: any) {
+    } catch (err) {
       botConnection.addLog("warn", `Failed to load ${category}/${fileName}: ${err.message}`);
     }
   }
@@ -95,11 +92,8 @@ class CommandLoader {
       }
     }
 
-    const categories = new Set(Array.from(this.commands.values()).map(c => c.category));
-    botConnection.addLog(
-      "info",
-      `Loaded ${this.commands.size} commands from ${categories.size} categories`
-    );
+    const categories = new Set(Array.from(this.commands.values()).map((c) => c.category));
+    botConnection.addLog("info", `Loaded ${this.commands.size} commands from ${categories.size} categories`);
   }
 }
 

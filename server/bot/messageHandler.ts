@@ -5,15 +5,8 @@ import path from "path";
 
 const CONFIG_FILE = path.join(process.cwd(), "server", "bot", "bot_config.json");
 
-interface BotConfig {
-  prefix: string;
-  mode: string;
-  ownerNumber: string;
-  botName: string;
-}
-
-function loadConfig(): BotConfig {
-  const defaults: BotConfig = {
+function loadConfig() {
+  const defaults = {
     prefix: ".",
     mode: "public",
     ownerNumber: "",
@@ -28,22 +21,22 @@ function loadConfig(): BotConfig {
   return defaults;
 }
 
-function saveConfig(config: BotConfig) {
+function saveConfig(config) {
   fs.writeFileSync(CONFIG_FILE, JSON.stringify(config, null, 2));
 }
 
-export function getConfig(): BotConfig {
+export function getConfig() {
   return loadConfig();
 }
 
-export function updateConfig(updates: Partial<BotConfig>) {
+export function updateConfig(updates) {
   const config = loadConfig();
   const updated = { ...config, ...updates };
   saveConfig(updated);
   return updated;
 }
 
-function isOwner(msg: any, config: BotConfig): boolean {
+function isOwner(msg, config) {
   if (msg.key.fromMe) return true;
   const sender = (msg.key.participant || msg.key.remoteJid || "")
     .split("@")[0]
@@ -51,8 +44,12 @@ function isOwner(msg: any, config: BotConfig): boolean {
   return sender === config.ownerNumber;
 }
 
-export function setupMessageHandler() {
-  botConnection.on("messages", async ({ messages, type }: any) => {
+let consoleLogger = null;
+
+export function setupMessageHandler(logger) {
+  consoleLogger = logger || null;
+
+  botConnection.on("messages", async ({ messages, type }) => {
     if (type !== "notify") return;
 
     for (const msg of messages) {
@@ -60,6 +57,10 @@ export function setupMessageHandler() {
       if (msg.key.fromMe) continue;
 
       botConnection.incrementReceived();
+
+      if (consoleLogger) {
+        try { consoleLogger(msg); } catch {}
+      }
 
       const body =
         msg.message?.conversation ||
@@ -100,7 +101,6 @@ export function setupMessageHandler() {
       }
 
       if (config.mode === "private" && !isOwner(msg, config)) {
-        botConnection.addLog("info", `Blocked (private mode): ${cmdName} from ${msg.key.remoteJid}`);
         continue;
       }
 
@@ -114,14 +114,12 @@ export function setupMessageHandler() {
         continue;
       }
 
-      botConnection.addLog("info", `Command: ${config.prefix}${cmdName} from ${msg.key.remoteJid?.split("@")[0]}`);
-
       const sock = botConnection.getSocket();
       if (!sock) continue;
 
       const jidManager = {
-        isOwner: (m: any) => isOwner(m, config),
-        cleanJid: (jid: string) => {
+        isOwner: (m) => isOwner(m, config),
+        cleanJid: (jid) => {
           const clean = jid.split("@")[0].split(":")[0];
           return { cleanJid: jid, cleanNumber: clean, isLid: jid.includes(":") };
         },
@@ -136,7 +134,7 @@ export function setupMessageHandler() {
           updateConfig({ prefix: "." });
           return { message: "Prefix reset to default (.)", newPrefix: "." };
         },
-        setPrefix: (newPrefix: string) => {
+        setPrefix: (newPrefix) => {
           updateConfig({ prefix: newPrefix });
           return { message: `Prefix changed to ${newPrefix}`, newPrefix };
         },
@@ -147,18 +145,17 @@ export function setupMessageHandler() {
         prefixHandler,
         isOwner: isOwner(msg, config),
         BOT_NAME: config.botName,
-        commands: commandLoader.getCommands(),
+        commands: commandLoader.getCommandsMap(),
       };
 
       try {
         await command.execute(sock, msg, args, config.prefix, extra);
         botConnection.incrementSent();
-      } catch (error: any) {
-        botConnection.addLog("error", `Command ${cmdName} error: ${error.message}`);
+      } catch (error) {
         try {
           await sock.sendMessage(
             msg.key.remoteJid,
-            { text: `Error executing command: ${error.message}` },
+            { text: `Error: ${error.message}` },
             { quoted: msg }
           );
         } catch {}

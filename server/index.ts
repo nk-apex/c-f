@@ -12,74 +12,54 @@ const httpServer = http.createServer((_req, res) => {
 });
 httpServer.listen(PORT, "0.0.0.0");
 
-const COLORS = {
+const C = {
   reset: "\x1b[0m",
   bright: "\x1b[1m",
   dim: "\x1b[2m",
-  red: "\x1b[31m",
-  green: "\x1b[32m",
-  yellow: "\x1b[33m",
-  blue: "\x1b[34m",
-  magenta: "\x1b[35m",
-  cyan: "\x1b[36m",
+  orange: "\x1b[38;5;208m",
+  orangeBright: "\x1b[38;5;214m",
+  orangeDark: "\x1b[38;5;202m",
+  orangeBg: "\x1b[48;5;208m",
   white: "\x1b[37m",
-  bgRed: "\x1b[41m",
+  green: "\x1b[32m",
+  red: "\x1b[31m",
+  yellow: "\x1b[33m",
+  cyan: "\x1b[36m",
   bgGreen: "\x1b[42m",
-  bgYellow: "\x1b[43m",
-  bgBlue: "\x1b[44m",
-  bgMagenta: "\x1b[45m",
-  bgCyan: "\x1b[46m",
+  gray: "\x1b[90m",
 };
 
-function c(color: string, text: string) {
-  return `${color}${text}${COLORS.reset}`;
+function c(color, text) {
+  return `${color}${text}${C.reset}`;
 }
 
 function printBanner() {
-  console.log(c(COLORS.cyan, `
-  ╔══════════════════════════════════════╗
-  ║                                      ║
-  ║      ${c(COLORS.bright + COLORS.yellow, "FOXY BOT")}${c(COLORS.cyan, " - WhatsApp Bot")}        ║
-  ║                                      ║
-  ╚══════════════════════════════════════╝
+  console.clear();
+  console.log(c(C.orange, `
+  ┌─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┐
+  │                                      │
+  │     ${c(C.bright + C.orangeBright, "FOXY BOT")}${c(C.orange, " - WhatsApp Bot")}          │
+  │                                      │
+  └─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘
   `));
 }
 
-function printLog(level: string, message: string) {
-  const time = new Date().toLocaleTimeString();
-  let levelStr: string;
-  switch (level) {
-    case "info":
-      levelStr = c(COLORS.green, "[INFO] ");
-      break;
-    case "warn":
-      levelStr = c(COLORS.yellow, "[WARN] ");
-      break;
-    case "error":
-      levelStr = c(COLORS.red, "[ERROR]");
-      break;
-    default:
-      levelStr = c(COLORS.dim, `[${level.toUpperCase()}]`);
-  }
-  console.log(`  ${c(COLORS.dim, time)} ${levelStr} ${message}`);
-}
-
-function printPairingCode(code: string) {
+function printPairingCode(code) {
   console.log("");
-  console.log(c(COLORS.bgGreen + COLORS.bright, "  ═══════════════════════════════════  "));
-  console.log(c(COLORS.bgGreen + COLORS.bright, `       PAIRING CODE: ${code}        `));
-  console.log(c(COLORS.bgGreen + COLORS.bright, "  ═══════════════════════════════════  "));
+  console.log(c(C.orangeBg + C.bright, "  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  "));
+  console.log(c(C.orangeBg + C.bright, `       PAIRING CODE: ${code}            `));
+  console.log(c(C.orangeBg + C.bright, "  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  "));
   console.log("");
-  console.log(c(COLORS.yellow, "  How to pair:"));
-  console.log(c(COLORS.white, "  1. Open WhatsApp on your phone"));
-  console.log(c(COLORS.white, "  2. Go to Settings > Linked Devices"));
-  console.log(c(COLORS.white, "  3. Tap 'Link a Device'"));
-  console.log(c(COLORS.white, "  4. Choose 'Link with phone number instead'"));
-  console.log(c(COLORS.white, "  5. Enter the 8-digit code above"));
+  console.log(c(C.orangeBright, "  How to pair:"));
+  console.log(c(C.white, "  1. Open WhatsApp on your phone"));
+  console.log(c(C.white, "  2. Go to Settings > Linked Devices"));
+  console.log(c(C.white, "  3. Tap 'Link a Device'"));
+  console.log(c(C.white, "  4. Choose 'Link with phone number instead'"));
+  console.log(c(C.white, "  5. Enter the 8-digit code above"));
   console.log("");
 }
 
-function ask(rl: readline.Interface, question: string): Promise<string> {
+function ask(rl, question) {
   return new Promise((resolve) => {
     rl.question(question, (answer) => {
       resolve(answer.trim());
@@ -87,25 +67,74 @@ function ask(rl: readline.Interface, question: string): Promise<string> {
   });
 }
 
-async function showMainMenu(rl: readline.Interface) {
+function printIncomingMessage(msg) {
+  const chatId = msg.key.remoteJid || "";
+  const isGroup = chatId.endsWith("@g.us");
+  const sender = msg.key.participant || msg.key.remoteJid || "";
+  const senderNumber = sender.split("@")[0].split(":")[0];
+  const pushName = msg.pushName || senderNumber;
+
+  const body =
+    msg.message?.conversation ||
+    msg.message?.extendedTextMessage?.text ||
+    msg.message?.imageMessage?.caption ||
+    msg.message?.videoMessage?.caption ||
+    "";
+
+  let msgType = "TEXT";
+  if (msg.message?.imageMessage) msgType = "IMAGE";
+  else if (msg.message?.videoMessage) msgType = "VIDEO";
+  else if (msg.message?.audioMessage) msgType = "AUDIO";
+  else if (msg.message?.stickerMessage) msgType = "STICKER";
+  else if (msg.message?.documentMessage) msgType = "DOCUMENT";
+  else if (msg.message?.contactMessage) msgType = "CONTACT";
+  else if (msg.message?.locationMessage) msgType = "LOCATION";
+  else if (msg.message?.reactionMessage) return;
+  else if (msg.message?.protocolMessage) return;
+
+  const time = new Date().toLocaleTimeString("en-US", { hour12: true, hour: "2-digit", minute: "2-digit" });
+
+  const config = getConfig();
+  const ownerNum = config.ownerNumber || "";
+  const isOwner = senderNumber === ownerNum || msg.key.fromMe;
+
+  let label = "DM";
+  if (isGroup) label = "GROUP";
+  if (isOwner) label = "OWNER";
+
+  const groupId = isGroup ? chatId.split("@")[0] : "";
+
+  const displayBody = body.length > 80 ? body.substring(0, 80) + "..." : body;
+
+  console.log(c(C.orange, `  ┌─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`));
+  console.log(c(C.orange, `  │ `) + c(C.bright + C.orangeBright, `[${label}]`) + c(C.orange, ` │ `) + c(C.white, `+${senderNumber}`) + c(C.gray, ` (${pushName})`));
+  if (isGroup) {
+    console.log(c(C.orange, `  │ `) + c(C.gray, `Group: ${groupId}`));
+  }
+  console.log(c(C.orange, `  │ `) + c(C.orangeBright, `[${msgType}]`) + c(C.white, ` ${displayBody || "(no text)"}`));
+  console.log(c(C.orange, `  │ `) + c(C.gray, time));
+  console.log(c(C.orange, `  └─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`));
+}
+
+async function showMainMenu(rl) {
   const config = getConfig();
 
   console.log("");
-  console.log(c(COLORS.cyan, "  ─── Connection Method ───"));
+  console.log(c(C.orange, "  ┌─⧭ Connection Method ⧭─┐"));
   console.log("");
-  console.log(c(COLORS.white, "  1) ") + c(COLORS.green, "Pair Code") + c(COLORS.dim, " (phone number → WhatsApp sends 8-digit code)"));
-  console.log(c(COLORS.white, "  2) ") + c(COLORS.blue, "Session ID") + c(COLORS.dim, " (paste FOXY:~... or base64 session string)"));
+  console.log(c(C.white, "  1) ") + c(C.orangeBright, "Pair Code") + c(C.gray, " (phone number → 8-digit code)"));
+  console.log(c(C.white, "  2) ") + c(C.orange, "Session ID") + c(C.gray, " (paste FOXY:~... or base64)"));
 
   const hasSession = botConnection.hasExistingSession();
   if (hasSession) {
-    console.log(c(COLORS.white, "  3) ") + c(COLORS.yellow, "Reconnect") + c(COLORS.dim, " (use existing saved session)"));
+    console.log(c(C.white, "  3) ") + c(C.orangeDark, "Reconnect") + c(C.gray, " (saved session)"));
   }
 
   console.log("");
-  console.log(c(COLORS.dim, `  Current config: prefix="${config.prefix}" mode="${config.mode}" bot="${config.botName}"`));
+  console.log(c(C.gray, `  prefix="${config.prefix}" mode="${config.mode}" bot="${config.botName}"`));
   console.log("");
 
-  const choice = await ask(rl, c(COLORS.cyan, "  Choose [1/2" + (hasSession ? "/3" : "") + "]: "));
+  const choice = await ask(rl, c(C.orange, "  Choose [1/2" + (hasSession ? "/3" : "") + "]: "));
 
   if (choice === "1") {
     await startWithPairCode(rl);
@@ -114,133 +143,136 @@ async function showMainMenu(rl: readline.Interface) {
   } else if (choice === "3" && hasSession) {
     await reconnectExisting();
   } else {
-    console.log(c(COLORS.red, "  Invalid choice. Try again."));
+    console.log(c(C.red, "  Invalid choice."));
     await showMainMenu(rl);
   }
 }
 
-async function startWithPairCode(rl: readline.Interface) {
+async function startWithPairCode(rl) {
   console.log("");
-  const phone = await ask(rl, c(COLORS.green, "  Enter phone number (country code + number, e.g. 254788710904): "));
+  const phone = await ask(rl, c(C.orangeBright, "  Enter phone number (e.g. 254788710904): "));
 
   const cleaned = phone.replace(/[^0-9]/g, "");
   if (cleaned.length < 10) {
-    console.log(c(COLORS.red, "  Invalid phone number. Must be at least 10 digits with country code."));
+    console.log(c(C.red, "  Invalid phone number. Must be at least 10 digits with country code."));
     await startWithPairCode(rl);
     return;
   }
 
   console.log("");
-  printLog("info", `Connecting with phone number: ${cleaned}`);
-  console.log(c(COLORS.dim, "  Waiting for pairing code from WhatsApp..."));
+  console.log(c(C.orange, `  Connecting with: ${cleaned}`));
+  console.log(c(C.gray, "  Waiting for pairing code..."));
   console.log("");
 
   try {
     await botConnection.connect("pair", cleaned);
-  } catch (error: any) {
-    printLog("error", `Connection failed: ${error.message}`);
+  } catch (error) {
+    console.log(c(C.red, `  Connection failed: ${error.message}`));
   }
 }
 
-async function startWithSessionId(rl: readline.Interface) {
+async function startWithSessionId(rl) {
   console.log("");
-  const sessionId = await ask(rl, c(COLORS.blue, "  Paste your Session ID (FOXY:~... or base64): "));
+  const sessionId = await ask(rl, c(C.orange, "  Paste Session ID: "));
 
   if (!sessionId.trim()) {
-    console.log(c(COLORS.red, "  Session ID cannot be empty."));
+    console.log(c(C.red, "  Session ID cannot be empty."));
     await startWithSessionId(rl);
     return;
   }
 
   console.log("");
-  printLog("info", "Connecting with Session ID...");
+  console.log(c(C.orange, "  Connecting with Session ID..."));
 
   try {
     await botConnection.connect("session", sessionId);
-  } catch (error: any) {
-    printLog("error", `Connection failed: ${error.message}`);
+  } catch (error) {
+    console.log(c(C.red, `  Connection failed: ${error.message}`));
   }
 }
 
 async function reconnectExisting() {
   console.log("");
-  printLog("info", "Reconnecting with saved session...");
+  console.log(c(C.orange, "  Reconnecting with saved session..."));
 
   try {
     await botConnection.connect("pair");
-  } catch (error: any) {
-    printLog("error", `Reconnection failed: ${error.message}`);
+  } catch (error) {
+    console.log(c(C.red, `  Reconnection failed: ${error.message}`));
   }
 }
 
-function setupConsoleCommands(rl: readline.Interface) {
+function setupConsoleCommands(rl) {
   rl.on("line", async (input) => {
     const cmd = input.trim().toLowerCase();
 
     if (cmd === "help" || cmd === "h") {
       console.log("");
-      console.log(c(COLORS.cyan, "  ─── Console Commands ───"));
-      console.log(c(COLORS.white, "  status    ") + c(COLORS.dim, "Show bot connection status"));
-      console.log(c(COLORS.white, "  config    ") + c(COLORS.dim, "Show current bot config"));
-      console.log(c(COLORS.white, "  commands  ") + c(COLORS.dim, "List loaded bot commands"));
-      console.log(c(COLORS.white, "  restart   ") + c(COLORS.dim, "Restart the bot connection"));
-      console.log(c(COLORS.white, "  stop      ") + c(COLORS.dim, "Stop and disconnect the bot"));
-      console.log(c(COLORS.white, "  exit      ") + c(COLORS.dim, "Exit the application"));
+      console.log(c(C.orange, "  ┌─⧭ Console Commands ⧭─┐"));
+      console.log(c(C.white, "  status    ") + c(C.gray, "Show bot connection status"));
+      console.log(c(C.white, "  config    ") + c(C.gray, "Show current bot config"));
+      console.log(c(C.white, "  commands  ") + c(C.gray, "List loaded bot commands"));
+      console.log(c(C.white, "  restart   ") + c(C.gray, "Restart the bot connection"));
+      console.log(c(C.white, "  stop      ") + c(C.gray, "Stop and disconnect the bot"));
+      console.log(c(C.white, "  exit      ") + c(C.gray, "Exit the application"));
       console.log("");
     } else if (cmd === "status" || cmd === "s") {
       const status = botConnection.getStatus();
       console.log("");
-      console.log(c(COLORS.cyan, "  ─── Bot Status ───"));
-      console.log(c(COLORS.white, `  State:        ${status.state}`));
-      console.log(c(COLORS.white, `  Name:         ${status.name || "N/A"}`));
-      console.log(c(COLORS.white, `  Phone:        ${status.phoneNumber || "N/A"}`));
-      console.log(c(COLORS.white, `  Uptime:       ${status.uptime}s`));
-      console.log(c(COLORS.white, `  Msgs In:      ${status.messagesReceived}`));
-      console.log(c(COLORS.white, `  Msgs Out:     ${status.messagesSent}`));
+      console.log(c(C.orange, "  ┌─⧭ Bot Status ⧭─┐"));
+      console.log(c(C.orange, "  ├◆ ") + c(C.white, `State: ${status.state}`));
+      console.log(c(C.orange, "  ├◆ ") + c(C.white, `Name: ${status.name || "N/A"}`));
+      console.log(c(C.orange, "  ├◆ ") + c(C.white, `Phone: ${status.phoneNumber || "N/A"}`));
+      console.log(c(C.orange, "  ├◆ ") + c(C.white, `Uptime: ${status.uptime}s`));
+      console.log(c(C.orange, "  ├◆ ") + c(C.white, `Msgs In: ${status.messagesReceived}`));
+      console.log(c(C.orange, "  ├◆ ") + c(C.white, `Msgs Out: ${status.messagesSent}`));
+      console.log(c(C.orange, "  └─⧭"));
       console.log("");
     } else if (cmd === "config" || cmd === "c") {
       const config = getConfig();
       console.log("");
-      console.log(c(COLORS.cyan, "  ─── Bot Config ───"));
-      console.log(c(COLORS.white, `  Bot Name:     ${config.botName}`));
-      console.log(c(COLORS.white, `  Prefix:       ${config.prefix}`));
-      console.log(c(COLORS.white, `  Mode:         ${config.mode}`));
-      console.log(c(COLORS.white, `  Owner:        ${config.ownerNumber || "Not set"}`));
+      console.log(c(C.orange, "  ┌─⧭ Bot Config ⧭─┐"));
+      console.log(c(C.orange, "  ├◆ ") + c(C.white, `Bot Name: ${config.botName}`));
+      console.log(c(C.orange, "  ├◆ ") + c(C.white, `Prefix: ${config.prefix}`));
+      console.log(c(C.orange, "  ├◆ ") + c(C.white, `Mode: ${config.mode}`));
+      console.log(c(C.orange, "  ├◆ ") + c(C.white, `Owner: ${config.ownerNumber || "Not set"}`));
+      console.log(c(C.orange, "  └─⧭"));
       console.log("");
     } else if (cmd === "commands" || cmd === "cmd") {
       const cmds = commandLoader.getCommands();
       const categories = commandLoader.getCategories();
       console.log("");
-      console.log(c(COLORS.cyan, `  ─── ${cmds.length} Commands ───`));
+      console.log(c(C.orange, `  ┌─⧭ ${cmds.length} Commands ⧭─┐`));
       for (const [cat, catCmds] of Object.entries(categories)) {
-        console.log(c(COLORS.yellow, `  ${cat} (${catCmds.length}):`));
+        console.log(c(C.orangeBright, `  ├─ ${cat} (${catCmds.length}):`));
         const names = catCmds.map((cc) => cc.name).join(", ");
-        console.log(c(COLORS.dim, `    ${names}`));
+        console.log(c(C.gray, `  │  ${names}`));
       }
+      console.log(c(C.orange, "  └─⧭"));
       console.log("");
     } else if (cmd === "restart" || cmd === "r") {
-      printLog("info", "Restarting bot...");
+      console.log(c(C.orange, "  Restarting bot..."));
       try {
         await botConnection.restart();
-      } catch (error: any) {
-        printLog("error", `Restart failed: ${error.message}`);
+      } catch (error) {
+        console.log(c(C.red, `  Restart failed: ${error.message}`));
       }
     } else if (cmd === "stop") {
-      printLog("info", "Stopping bot...");
+      console.log(c(C.orange, "  Stopping bot..."));
       try {
         await botConnection.disconnect();
-        printLog("info", "Bot stopped. Type 'exit' to quit or connect again.");
-      } catch (error: any) {
-        printLog("error", `Stop failed: ${error.message}`);
+        console.log(c(C.orange, "  Bot stopped. Type 'exit' to quit."));
+      } catch (error) {
+        console.log(c(C.red, `  Stop failed: ${error.message}`));
       }
     } else if (cmd === "exit" || cmd === "quit" || cmd === "q") {
-      printLog("info", "Shutting down...");
+      console.log(c(C.orange, "  Shutting down..."));
       try {
         await botConnection.disconnect();
       } catch {}
       process.exit(0);
     } else if (cmd) {
-      console.log(c(COLORS.dim, `  Unknown command: "${cmd}". Type "help" for available commands.`));
+      console.log(c(C.gray, `  Unknown: "${cmd}" — type "help"`));
     }
   });
 }
@@ -253,11 +285,7 @@ async function main() {
     output: process.stdout,
   });
 
-  botConnection.on("log", (entry: any) => {
-    printLog(entry.level, entry.message);
-  });
-
-  botConnection.on("pairing_code", (code: string) => {
+  botConnection.on("pairing_code", (code) => {
     printPairingCode(code);
   });
 
@@ -265,15 +293,15 @@ async function main() {
     const status = botConnection.getStatus();
     const config = getConfig();
     console.log("");
-    console.log(c(COLORS.bgGreen + COLORS.bright, "  ═══════════════════════════════════  "));
-    console.log(c(COLORS.bgGreen + COLORS.bright, "         CONNECTED SUCCESSFULLY         "));
-    console.log(c(COLORS.bgGreen + COLORS.bright, "  ═══════════════════════════════════  "));
+    console.log(c(C.orangeBg + C.bright, "  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  "));
+    console.log(c(C.orangeBg + C.bright, "         CONNECTED SUCCESSFULLY         "));
+    console.log(c(C.orangeBg + C.bright, "  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  "));
     console.log("");
-    if (status.name) console.log(c(COLORS.green, `  Name:   ${status.name}`));
-    if (status.phoneNumber) console.log(c(COLORS.green, `  Phone:  +${status.phoneNumber}`));
-    console.log(c(COLORS.green, `  Prefix: ${config.prefix}`));
+    if (status.name) console.log(c(C.orangeBright, `  Name:   ${status.name}`));
+    if (status.phoneNumber) console.log(c(C.orangeBright, `  Phone:  +${status.phoneNumber}`));
+    console.log(c(C.orangeBright, `  Prefix: ${config.prefix}`));
     console.log("");
-    console.log(c(COLORS.dim, "  Type 'help' for console commands."));
+    console.log(c(C.gray, "  Type 'help' for console commands."));
     console.log("");
 
     try {
@@ -283,32 +311,35 @@ async function main() {
         const cmds = commandLoader.getCommands();
         const successMsg = `┌─⧭ FOX-CORE ONLINE
 ├◆ Status: Connected
-├◆ Name: ${status.name || 'Foxy Bot'}
+├◆ Name: ${status.name || "Foxy Bot"}
 ├◆ Prefix: ${config.prefix}
 ├◆ Commands: ${cmds.length}
 ├◆ Mode: ${config.mode}
 └─⧭`;
         await sock.sendMessage(botJid, { text: successMsg });
-        printLog("info", "Success message sent to WhatsApp");
       }
-    } catch (err: any) {
-      printLog("warn", `Could not send success message: ${err.message}`);
-    }
+    } catch (err) {}
   });
 
-  botConnection.on("disconnected", (reason: string) => {
+  botConnection.on("disconnected", (reason) => {
     if (reason === "logged_out") {
-      console.log(c(COLORS.red, "\n  Session expired. You need to connect again.\n"));
+      console.log(c(C.red, "\n  Session expired. Connect again.\n"));
     }
   });
 
-  printLog("info", "Loading commands...");
+  const originalLog = console.log;
+  const originalWarn = console.warn;
+  console.log = () => {};
+  console.warn = () => {};
   await commandLoader.loadCommands();
-  setupMessageHandler();
+  console.log = originalLog;
+  console.warn = originalWarn;
+  setupMessageHandler(printIncomingMessage);
 
   const cmds = commandLoader.getCommands();
   const categories = commandLoader.getCategories();
-  printLog("info", `Loaded ${cmds.length} commands from ${Object.keys(categories).length} categories`);
+  console.log(c(C.orange, `  ┌─⧭ Loaded ${cmds.length} commands from ${Object.keys(categories).length} categories ⧭─┐`));
+  console.log("");
 
   await showMainMenu(rl);
 
