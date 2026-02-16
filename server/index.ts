@@ -261,18 +261,39 @@ async function main() {
     printPairingCode(code);
   });
 
-  botConnection.on("connected", () => {
+  botConnection.on("connected", async () => {
     const status = botConnection.getStatus();
+    const config = getConfig();
     console.log("");
     console.log(c(COLORS.bgGreen + COLORS.bright, "  ═══════════════════════════════════  "));
     console.log(c(COLORS.bgGreen + COLORS.bright, "         CONNECTED SUCCESSFULLY         "));
     console.log(c(COLORS.bgGreen + COLORS.bright, "  ═══════════════════════════════════  "));
     console.log("");
-    if (status.name) console.log(c(COLORS.green, `  Name:  ${status.name}`));
-    if (status.phoneNumber) console.log(c(COLORS.green, `  Phone: +${status.phoneNumber}`));
+    if (status.name) console.log(c(COLORS.green, `  Name:   ${status.name}`));
+    if (status.phoneNumber) console.log(c(COLORS.green, `  Phone:  +${status.phoneNumber}`));
+    console.log(c(COLORS.green, `  Prefix: ${config.prefix}`));
     console.log("");
     console.log(c(COLORS.dim, "  Type 'help' for console commands."));
     console.log("");
+
+    try {
+      const sock = botConnection.getSocket();
+      if (sock && status.phoneNumber) {
+        const botJid = status.phoneNumber.includes("@") ? status.phoneNumber : `${status.phoneNumber}@s.whatsapp.net`;
+        const cmds = commandLoader.getCommands();
+        const successMsg = `┌─⧭ FOX-CORE ONLINE
+├◆ Status: Connected
+├◆ Name: ${status.name || 'Foxy Bot'}
+├◆ Prefix: ${config.prefix}
+├◆ Commands: ${cmds.length}
+├◆ Mode: ${config.mode}
+└─⧭`;
+        await sock.sendMessage(botJid, { text: successMsg });
+        printLog("info", "Success message sent to WhatsApp");
+      }
+    } catch (err: any) {
+      printLog("warn", `Could not send success message: ${err.message}`);
+    }
   });
 
   botConnection.on("disconnected", (reason: string) => {
