@@ -1,8 +1,8 @@
 export default {
-  name: 'mute',
-  alias: ['silence'],
+  name: 'unmute',
+  alias: ['unsilence'],
   category: 'group',
-  description: 'Mute the group',
+  description: 'Unmute the group',
   
   async execute(sock, msg, args, PREFIX, extra) {
     const jid = msg.key.remoteJid;
@@ -27,18 +27,18 @@ export default {
 
     try {
       await sock.sendMessage(jid, {
-        react: { text: "\uD83D\uDD07", key: msg.key }
+        react: { text: "\uD83D\uDD0A", key: msg.key }
       });
       
-      await sock.groupSettingUpdate(jid, 'announcement');
+      await sock.groupSettingUpdate(jid, 'not_announcement');
       
       await sock.sendMessage(jid, { 
-        text: 'Group has been muted. Only admins can send messages.' 
+        text: 'Group has been unmuted. Everyone can send messages.' 
       }, { quoted: msg });
       
     } catch (error) {
       await sock.sendMessage(jid, { 
-        text: 'Failed to mute group.' 
+        text: 'Failed to unmute group.' 
       }, { quoted: msg });
     }
   }

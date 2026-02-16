@@ -2,52 +2,41 @@ export default {
   name: "setprefix",
   alias: ["prefix", "changeprefix", "resetprefix"],
   description: "Change or reset the bot's command prefix",
-  category: "Config",
-  usage: ".setprefix <new_prefix>\n.setprefix reset\nExample: .setprefix !\nExample: .setprefix reset",
+  category: "owner",
+  ownerOnly: true,
   
   async execute(sock, m, args, PREFIX, extra) {
     const chatId = m.key.remoteJid;
-    const { jidManager, prefixHandler } = extra; // Now uses prefixHandler
+    const { prefixHandler } = extra;
     
     const sendMessage = async (text) => {
       return await sock.sendMessage(chatId, { text }, { quoted: m });
     };
     
-    await sock.sendMessage(chatId, {
-      react: { text: "⚙️", key: m.key }
-    });
-    
     try {
       const action = args[0]?.toLowerCase();
       
-      // Show help if no args
       if (!action) {
         await sendMessage(
-          `⚙️ *Prefix Configuration*\n\n` +
+          `*Prefix Configuration*\n\n` +
           `*Current Prefix:* \`${PREFIX}\`\n\n` +
           `*Usage:*\n` +
-          `• ${PREFIX}setprefix <new_symbol> - Change prefix\n` +
-          `• ${PREFIX}setprefix reset - Reset to default (.)\n` +
-          `• ${PREFIX}setprefix info - Show current prefix\n\n` +
+          `${PREFIX}setprefix <new_symbol> - Change prefix\n` +
+          `${PREFIX}setprefix reset - Reset to default (.)\n` +
+          `${PREFIX}setprefix info - Show current prefix\n\n` +
           `*Examples:*\n` +
-          `• ${PREFIX}setprefix !\n` +
-          `• ${PREFIX}setprefix /\n` +
-          `• ${PREFIX}setprefix reset\n\n` +
+          `${PREFIX}setprefix !\n` +
+          `${PREFIX}setprefix /\n` +
+          `${PREFIX}setprefix reset\n\n` +
           `*Valid Symbols:* ! . / $ # * ~ & % + - = ?`
         );
         return;
       }
       
-      // Handle reset
       if (action === 'reset') {
-        const result = prefixHandler.resetPrefix(chatId);
-        
-        await sock.sendMessage(chatId, {
-          react: { text: "🔄", key: m.key }
-        });
-        
+        const result = prefixHandler.resetPrefix();
         await sendMessage(
-          `🔄 *Prefix Reset*\n\n` +
+          `*Prefix Reset*\n\n` +
           `${result.message}\n\n` +
           `Now use: ${result.newPrefix}command\n` +
           `Example: ${result.newPrefix}play Believer`
@@ -55,9 +44,33 @@ export default {
         return;
       }
       
-      // Handle info
       if (action === 'info' || action === 'status') {
-        const currentPrefix = prefixHandler.getPrefix(chatId);
-        
+        const currentPrefix = prefixHandler.getPrefix();
         await sendMessage(
-          `ℹ️ *Prefix Information*\n\n` +
+          `*Prefix Information*\n\n` +
+          `Current Prefix: \`${currentPrefix}\``
+        );
+        return;
+      }
+      
+      const validPrefixes = ['!', '.', '/', '$', '#', '*', '~', '&', '%', '+', '-', '=', '?'];
+      if (!validPrefixes.includes(action) && action.length > 3) {
+        await sendMessage(
+          `Invalid prefix. Use one of: ${validPrefixes.join(' ')}\nOr any symbol up to 3 characters.`
+        );
+        return;
+      }
+      
+      const result = prefixHandler.setPrefix(action);
+      await sendMessage(
+        `*Prefix Changed*\n\n` +
+        `${result.message}\n\n` +
+        `Now use: ${result.newPrefix}command\n` +
+        `Example: ${result.newPrefix}help`
+      );
+      
+    } catch (error) {
+      await sendMessage(`Error: ${error.message}`);
+    }
+  }
+};
