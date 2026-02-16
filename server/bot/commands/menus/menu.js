@@ -2,11 +2,12 @@ import fs from 'fs';
 import path from 'path';
 import os from 'os';
 import { fileURLToPath } from 'url';
+import axios from 'axios';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-import { getCurrentMenuStyle } from './menustyle.js';
+const MENU_IMAGE_URL = 'https://i.ibb.co/b5Jx5Trp/63a1f423d038.jpg';
 
 function getCurrentDateTime() {
     const now = new Date();
@@ -31,147 +32,210 @@ function getCurrentDateTime() {
     };
 }
 
-function getPlaceInfo() {
-    const platform = os.platform();
-    const arch = os.arch();
-    let placeInfo = '';
-    if (process.env.COUNTRY || process.env.REGION) {
-        const country = process.env.COUNTRY || 'Unknown';
-        const region = process.env.REGION || 'Unknown';
-        placeInfo = `${region}, ${country}`;
+function getSystemInfo(startTime) {
+    const mem = process.memoryUsage();
+    const usedMB = Math.round(mem.rss / 1024 / 1024);
+    const totalMem = os.totalmem();
+    const freeMem = os.freemem();
+    const usedSysMem = totalMem - freeMem;
+    const totalGB = (totalMem / (1024 * 1024 * 1024)).toFixed(0);
+    const ramPercent = Math.round((usedSysMem / totalMem) * 100);
+    const filledBlocks = Math.round(ramPercent / 10);
+    const emptyBlocks = 10 - filledBlocks;
+    const ramBar = '\u2588'.repeat(filledBlocks) + '\u2591'.repeat(emptyBlocks);
+
+    let platform = 'Unknown';
+    if (process.env.REPL_ID || process.env.REPLIT_DEV_DOMAIN) {
+        platform = 'Replit';
+    } else if (process.env.RAILWAY_ENVIRONMENT) {
+        platform = 'Railway';
+    } else if (process.env.RENDER) {
+        platform = 'Render';
+    } else if (process.env.HEROKU_APP_NAME) {
+        platform = 'Heroku';
+    } else if (process.env.VERCEL) {
+        platform = 'Vercel';
     } else {
-        const placeMap = {
-            'win32': 'Windows',
-            'darwin': 'macOS',
-            'linux': 'Linux',
-            'android': 'Android'
-        };
-        placeInfo = `${placeMap[platform] || platform} | ${arch}`;
+        const p = os.platform();
+        if (p === 'win32') platform = 'Windows';
+        else if (p === 'darwin') platform = 'macOS';
+        else if (p === 'linux') platform = 'Linux';
+        else if (p === 'android') platform = 'Android';
+        else platform = p;
     }
-    return placeInfo;
+
+    let uptimeStr = '';
+    if (startTime) {
+        const diff = Math.floor((Date.now() - startTime) / 1000);
+        const days = Math.floor(diff / 86400);
+        const hrs = Math.floor((diff % 86400) / 3600);
+        const mins = Math.floor((diff % 3600) / 60);
+        const secs = diff % 60;
+        if (days > 0) uptimeStr += `${days}d `;
+        if (hrs > 0) uptimeStr += `${hrs}h `;
+        uptimeStr += `${mins}m ${secs}s`;
+    } else {
+        const upSec = Math.floor(process.uptime());
+        const mins = Math.floor(upSec / 60);
+        const secs = upSec % 60;
+        uptimeStr = `${mins}m ${secs}s`;
+    }
+
+    return { usedMB, totalGB, ramPercent, ramBar, platform, uptimeStr };
 }
 
-function buildFoxCoreCaption(prefix, version, context, timeInfo, placeInfo, isOwner) {
-    return `┌─⧭ FOX-CORE v${version}
-├◆ Time: ${timeInfo.full}
-├◆ Location: ${placeInfo}
-├◆ Commands: ${context.commands?.size || 0}
-└─⧭
+function buildFoxCoreCaption(prefix, version, context, timeInfo, sysInfo, isOwner, ownerNumber, mode) {
+    const ownerDisplay = ownerNumber ? `+${ownerNumber}` : 'Not Set!';
+    const cmdCount = context.commands?.size || 0;
 
-┌─⧭ AI MODULES
-├─ character
-├─ flux
-├─ foxy
-├─ gpt
-├─ teacher
-├─ room
-├─ story
-└─⧭
+    return `\u250C\u2500\u29ED FOX-CORE v${version}
+\u251C\u25C6 Time: ${timeInfo.full}
+\u251C\u25C6 Commands: ${cmdCount}
+\u2514\u2500\u29ED
 
-┌─⧭ MEDIA HUB
-├─ image
-├─ instagram
-├─ sticker
-├─ video
-├─ wallpaper
-├─ ytmp4
-├─ attp
-├─ meme
-├─ take
-├─ getpp
-├─ imgbb
-├─ logo
-├─ tosticker
-├─ vv
-└─⧭
+\u250C\u2500\u29ED BOT INFO
+\u251C Owner: ${ownerDisplay}
+\u251C Mode: ${mode}
+\u251C Host: ${sysInfo.platform}
+\u251C Speed: ${sysInfo.speed || '...'} ms
+\u251C Prefix: [${prefix}]
+\u251C Uptime: ${sysInfo.uptimeStr}
+\u251C Version: ${version}
+\u251C Usage: ${sysInfo.usedMB} MB of ${sysInfo.totalGB} GB
+\u251C RAM: ${sysInfo.ramBar} ${sysInfo.ramPercent}%
+\u2514\u2500\u29ED
 
-┌─⧭ AUTO PILOT
-├─ autoreact
-├─ autoread
-├─ autotyping
-├─ autorecording
-├─ autostatus
-├─ autoviewstatus
-├─ antidelete
-├─ autorec
-├─ autotype
-└─⧭
+\u250C\u2500\u29ED AI MODULES
+\u251C\u2500 character
+\u251C\u2500 flux
+\u251C\u2500 foxy
+\u251C\u2500 gpt
+\u251C\u2500 teacher
+\u251C\u2500 room
+\u251C\u2500 story
+\u2514\u2500\u29ED
 
-┌─⧭ PLAYGROUND
-├─ compliment
-├─ debate
-├─ 8ball
-├─ fact
-├─ flip
-├─ hangman
-├─ hug
-├─ joke
-├─ quote
-├─ roll
-├─ tictactoe
-├─ trivia
-├─ slap
-└─⧭
+\u250C\u2500\u29ED MEDIA HUB
+\u251C\u2500 image
+\u251C\u2500 instagram
+\u251C\u2500 sticker
+\u251C\u2500 video
+\u251C\u2500 wallpaper
+\u251C\u2500 ytmp4
+\u251C\u2500 attp
+\u251C\u2500 meme
+\u251C\u2500 take
+\u251C\u2500 getpp
+\u251C\u2500 imgbb
+\u251C\u2500 logo
+\u251C\u2500 tosticker
+\u251C\u2500 vv
+\u2514\u2500\u29ED
 
-┌─⧭ UTILITIES
-├─ menu
-├─ help
-├─ goodmorning
-├─ status
-├─ uptime
-├─ warn
-├─ bible
-├─ quran
-├─ wiki
-├─ lyrics
-├─ ping
-├─ time
-├─ timer
-├─ translate
-├─ tts
-├─ weather
-└─⧭
+\u250C\u2500\u29ED AUTO PILOT
+\u251C\u2500 autoreact
+\u251C\u2500 autoread
+\u251C\u2500 autotyping
+\u251C\u2500 autorecording
+\u251C\u2500 autostatus
+\u251C\u2500 autoviewstatus
+\u251C\u2500 antidelete
+\u251C\u2500 autorec
+\u251C\u2500 autotype
+\u2514\u2500\u29ED
 
-┌─⧭ GROUP OPS
-├─ add
-├─ antilink
-├─ demote
-├─ goodbye
-├─ groupinfo
-├─ group
-├─ hidetag
-├─ kick
-├─ listadmins
-├─ mute
-├─ poll
-├─ promote
-├─ rules
-├─ setdesc
-├─ setname
-├─ tagall
-├─ togstatus
-└─⧭
+\u250C\u2500\u29ED PLAYGROUND
+\u251C\u2500 compliment
+\u251C\u2500 debate
+\u251C\u2500 8ball
+\u251C\u2500 fact
+\u251C\u2500 flip
+\u251C\u2500 hangman
+\u251C\u2500 hug
+\u251C\u2500 joke
+\u251C\u2500 quote
+\u251C\u2500 roll
+\u251C\u2500 tictactoe
+\u251C\u2500 trivia
+\u251C\u2500 slap
+\u2514\u2500\u29ED
 
-┌─⧭ TOOLKIT
-├─ play
-├─ calc
-├─ logo
-├─ setpp
-├─ stopwatch
-├─ story
-└─⧭
+\u250C\u2500\u29ED UTILITIES
+\u251C\u2500 menu
+\u251C\u2500 help
+\u251C\u2500 goodmorning
+\u251C\u2500 status
+\u251C\u2500 uptime
+\u251C\u2500 warn
+\u251C\u2500 bible
+\u251C\u2500 quran
+\u251C\u2500 wiki
+\u251C\u2500 lyrics
+\u251C\u2500 ping
+\u251C\u2500 time
+\u251C\u2500 timer
+\u251C\u2500 translate
+\u251C\u2500 tts
+\u251C\u2500 weather
+\u2514\u2500\u29ED
 
-┌─⧭ SYSTEM
-${isOwner ? 
-`├─ setprefix
-├─ mode` : 
-'├─ [OWNER PANEL]'}
-└─⧭
+\u250C\u2500\u29ED GROUP OPS
+\u251C\u2500 add
+\u251C\u2500 antilink
+\u251C\u2500 demote
+\u251C\u2500 goodbye
+\u251C\u2500 groupinfo
+\u251C\u2500 group
+\u251C\u2500 hidetag
+\u251C\u2500 kick
+\u251C\u2500 listadmins
+\u251C\u2500 mute
+\u251C\u2500 poll
+\u251C\u2500 promote
+\u251C\u2500 rules
+\u251C\u2500 setdesc
+\u251C\u2500 setname
+\u251C\u2500 tagall
+\u251C\u2500 togstatus
+\u2514\u2500\u29ED
 
-┌─⧭ INFO
-├◆ Version: ${version}
-├◆ Help: ${prefix}help [command]
-└─⧭`;
+\u250C\u2500\u29ED TOOLKIT
+\u251C\u2500 play
+\u251C\u2500 calc
+\u251C\u2500 logo
+\u251C\u2500 setpp
+\u251C\u2500 stopwatch
+\u251C\u2500 story
+\u2514\u2500\u29ED
+
+\u250C\u2500\u29ED SYSTEM
+${isOwner ?
+`\u251C\u2500 setprefix
+\u251C\u2500 setbotname
+\u251C\u2500 mode` :
+'\u251C\u2500 [OWNER PANEL]'}
+\u2514\u2500\u29ED
+
+\u250C\u2500\u29ED INFO
+\u251C\u25C6 Version: ${version}
+\u251C\u25C6 Help: ${prefix}help [command]
+\u2514\u2500\u29ED`;
+}
+
+let cachedImageBuffer = null;
+
+async function fetchMenuImage() {
+    if (cachedImageBuffer) return cachedImageBuffer;
+    try {
+        const response = await axios.get(MENU_IMAGE_URL, {
+            responseType: 'arraybuffer',
+            timeout: 15000,
+        });
+        cachedImageBuffer = Buffer.from(response.data);
+        return cachedImageBuffer;
+    } catch (err) {
+        return null;
+    }
 }
 
 export default {
@@ -184,96 +248,51 @@ export default {
     async execute(sock, msg, args, prefix, context) {
         const chatId = msg.key.remoteJid;
         const isOwner = context?.isOwner || false;
-        const version = '2.0.0';
-        const menuStyle = getCurrentMenuStyle();
+        const version = '1.0.8';
         const timeInfo = getCurrentDateTime();
-        const placeInfo = getPlaceInfo();
 
-        const categories = {
-            'ai': ['character', 'flux', 'foxy', 'gpt', 'teacher', 'room', 'story'],
-            'media': ['image', 'instagram', 'sticker', 'video', 'wallpaper', 'ytmp4', 'attp', 'meme', 'take', 'getpp', 'imgbb', 'logo', 'tosticker', 'vv'],
-            'automation': ['autoreact', 'autoread', 'autotyping', 'autorecording', 'autostatus', 'autoviewstatus', 'antidelete', 'autorec', 'autotype'],
-            'fun': ['compliment', 'debate', '8ball', 'fact', 'flip', 'hangman', 'hug', 'joke', 'quote', 'roll', 'tictactoe', 'trivia', 'slap'],
-            'general': ['menu', 'help', 'goodmorning', 'status', 'uptime', 'warn', 'bible', 'quran', 'wiki', 'lyrics', 'ping', 'time', 'timer', 'translate', 'tts', 'weather'],
-            'group': ['add', 'antilink', 'demote', 'goodbye', 'groupinfo', 'group', 'hidetag', 'kick', 'listadmins', 'mute', 'poll', 'promote', 'rules', 'setdesc', 'setname', 'tagall', 'togstatus'],
-            'tools': ['play', 'calc', 'logo', 'setpp', 'stopwatch', 'story'],
-            'system': ['setprefix', 'mode']
-        };
-
-        if (args[0] && args[0].toLowerCase() !== 'image') {
-            const category = args[0].toLowerCase();
-            if (categories[category]) {
-                const categoryCommands = categories[category];
-                const categoryMenu = `┌─⧭ FOX-CORE v${version}
-├◆ Category: ${category.toUpperCase()}
-├◆ Prefix: ${prefix}
-└─⧭
-
-┌─⧭ ${category.toUpperCase()} COMMANDS
-${categoryCommands.map(cmd => {
-    if (category === 'system' && !isOwner) return '';
-    return `├─ ${cmd}`;
-}).filter(cmd => cmd).join('\n')}
-└─⧭
-
-┌─⧭ INFO
-├◆ Commands: ${categoryCommands.length}
-├◆ Full menu: ${prefix}menu
-└─⧭`;
-
-                await sock.sendMessage(chatId, { text: categoryMenu }, { quoted: msg });
-                return;
+        const CONFIG_FILE = path.join(process.cwd(), 'server', 'bot', 'bot_config.json');
+        let config = { prefix: '.', mode: 'public', ownerNumber: '', botName: 'Foxy Bot' };
+        try {
+            if (fs.existsSync(CONFIG_FILE)) {
+                config = JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf-8'));
             }
-        }
+        } catch {}
+
+        const startTime = context?.startTime || null;
+        const sysInfo = getSystemInfo(startTime);
+
+        const speedStart = Date.now();
+        const loadingMsg = await sock.sendMessage(chatId, {
+            text: `\u250C\u2500\u29ED *Loading Menu...* \u29ED\u2500\u2510\n\u2502 Please wait...\n\u2514\u2500\u29ED\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u29ED\u2500\u2518`
+        }, { quoted: msg });
+        const speedEnd = Date.now();
+        sysInfo.speed = speedEnd - speedStart;
+
+        const caption = buildFoxCoreCaption(prefix, version, context, timeInfo, sysInfo, isOwner, config.ownerNumber, config.mode);
 
         try {
-            console.log(`[MENU] Command from: ${chatId} | Style: ${menuStyle}`);
-            const caption = buildFoxCoreCaption(prefix, version, context, timeInfo, placeInfo, isOwner);
+            const imageBuffer = await fetchMenuImage();
 
-            switch(menuStyle) {
-                case 1:
-                case 4: {
-                    await this.sendImageMenu(sock, chatId, msg, caption);
-                    break;
-                }
-                default: {
-                    await sock.sendMessage(chatId, { text: caption }, { quoted: msg });
-                    break;
-                }
-            }
-
-            console.log("Menu sent successfully");
-        } catch (error) {
-            console.error("[MENU] ERROR:", error);
-            const fallback = buildFoxCoreCaption(prefix, version, context, timeInfo, placeInfo, isOwner);
-            await sock.sendMessage(chatId, { text: fallback }, { quoted: msg });
-        }
-    },
-
-    async sendImageMenu(sock, chatId, msg, caption) {
-        try {
-            const imgPath1 = path.join(__dirname, 'media', 'foxybot.jpg');
-            const imgPath2 = path.join(__dirname, '../media', 'foxybot.jpg');
-            const fallbackPath = path.join(__dirname, 'media', 'leonbot.jpg');
-
-            let imagePath = null;
-            if (fs.existsSync(imgPath1)) imagePath = imgPath1;
-            else if (fs.existsSync(imgPath2)) imagePath = imgPath2;
-            else if (fs.existsSync(fallbackPath)) imagePath = fallbackPath;
-
-            if (imagePath) {
-                const buffer = fs.readFileSync(imagePath);
+            if (imageBuffer) {
                 await sock.sendMessage(chatId, {
-                    image: buffer,
+                    image: imageBuffer,
                     caption: caption,
-                    mimetype: "image/jpeg"
+                    mimetype: 'image/jpeg'
                 }, { quoted: msg });
             } else {
                 await sock.sendMessage(chatId, { text: caption }, { quoted: msg });
             }
+
+            try {
+                await sock.sendMessage(chatId, { delete: loadingMsg.key });
+            } catch {}
+
         } catch (error) {
-            console.error("Image menu error:", error);
-            throw error;
+            try {
+                await sock.sendMessage(chatId, { delete: loadingMsg.key });
+            } catch {}
+            await sock.sendMessage(chatId, { text: caption }, { quoted: msg });
         }
     }
 };

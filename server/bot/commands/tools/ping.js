@@ -1,4 +1,3 @@
-// commands/tools/ping.js
 import { foxCanUse, foxMode } from '../../utils/foxMaster.js';
 
 export default {
@@ -6,29 +5,24 @@ export default {
     alias: ['pong', 'speed', 'latency'],
     category: 'tools',
     description: 'Check bot response time',
-    
+
     async execute(sock, msg, args, prefix) {
         if (!foxCanUse(msg, 'ping')) {
             const message = foxMode.getMessage();
             if (message) await sock.sendMessage(msg.key.remoteJid, { text: message });
             return;
         }
-        
+
         const start = Date.now();
-        
-        // Send "Pinging..." message first
+
         const sentMsg = await sock.sendMessage(msg.key.remoteJid, {
-            text: `🏓 *Pinging...* 🦊`
-        });
-        
-        const end = Date.now();
-        const latency = end - start;
-        
-        // Edit the message to show PONG! with response time
+            text: `\u250C\u2500\u29ED *Pinging...*\n\u2502 Measuring speed...\n\u2514\u2500\u29ED`
+        }, { quoted: msg });
+
+        const latency = Date.now() - start;
+
         await sock.sendMessage(msg.key.remoteJid, {
-            text: `🏓 *PONG!*\n` +
-                  `*Response Time:* ${latency}ms ok I'm active now what..are you using me or what? 🦊\n` +
-                  `🦊`,
+            text: `\u250C\u2500\u29ED *Foxy Speed*\n\u2502 Response: ${latency}ms\n\u2514\u2500\u29ED`,
             edit: sentMsg.key
         });
     }
