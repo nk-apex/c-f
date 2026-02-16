@@ -1,4 +1,3 @@
-// commands/fun/ascii.js
 export default {
     name: "ascii",
     alias: ["asciiart", "textart"],
@@ -9,15 +8,16 @@ export default {
         
         if (!args.length) {
             return sock.sendMessage(jid, {
-                text: `🎨 *ASCII ART* 🎨\n\n` +
-                      `Usage: ${PREFIX}ascii <text>\n` +
-                      `${PREFIX}ascii <emoji/object>\n\n` +
-                      `Examples:\n` +
-                      `• ${PREFIX}ascii hello\n` +
-                      `• ${PREFIX}ascii heart\n` +
-                      `• ${PREFIX}ascii cat\n` +
-                      `• ${PREFIX}ascii robot\n` +
-                      `• ${PREFIX}ascii 🐱`
+                text: `\u250C\u2500\u29ED *ASCII Art*\n` +
+                      `\u2502 Usage: ${PREFIX}ascii <text>\n` +
+                      `\u2502 ${PREFIX}ascii <emoji/object>\n` +
+                      `\u2502\n` +
+                      `\u2502 Examples:\n` +
+                      `\u2502 ${PREFIX}ascii hello\n` +
+                      `\u2502 ${PREFIX}ascii heart\n` +
+                      `\u2502 ${PREFIX}ascii cat\n` +
+                      `\u2502 ${PREFIX}ascii robot\n` +
+                      `\u2514\u2500\u29ED`
             }, { quoted: m });
         }
         
@@ -25,7 +25,7 @@ export default {
         
         try {
             await sock.sendMessage(jid, {
-                text: `🎨 Creating ASCII art...`
+                text: `\u250C\u2500\u29ED *Processing...*\n\u2502 Creating ASCII art...\n\u2514\u2500\u29ED`
             }, { quoted: m });
             
             const axios = (await import('axios')).default;
@@ -49,15 +49,14 @@ export default {
             const asciiArt = response.data?.result || response.data?.response;
             
             await sock.sendMessage(jid, {
-                text: `🎨 *ASCII ART: ${text}*\n\n\`\`\`\n${asciiArt}\n\`\`\`\n\n✨ Text Art Created`
+                text: `\u250C\u2500\u29ED *ASCII Art: ${text}*\n\u2502\n\`\`\`\n${asciiArt}\n\`\`\`\n\u2502\n\u2502 Text Art Created\n\u2514\u2500\u29ED`
             }, { quoted: m });
             
         } catch (error) {
             console.error("ASCII error:", error);
             
-            // Simple fallback ASCII
             const simpleAscii = {
-                'heart': `❤️\n♡♡♡♡♡\n♡♡♡♡♡\n♡♡♡♡♡\n  ♡♡♡\n    ♡`,
+                'heart': `/\\_/\\\n( o.o )\n > ^ <`,
                 'cat': `/\\_/\\\n( o.o )\n > ^ <`,
                 'smile': `:-)`,
                 'hello': `H   H  EEEE  L     L      OOO\nH   H  E     L     L     O   O\nHHHHH  EEE   L     L     O   O\nH   H  E     L     L     O   O\nH   H  EEEE  LLLL  LLLL   OOO`
@@ -66,11 +65,11 @@ export default {
             const lowerText = text.toLowerCase();
             if (simpleAscii[lowerText]) {
                 await sock.sendMessage(jid, {
-                    text: `🎨 *ASCII: ${text}*\n\n\`\`\`\n${simpleAscii[lowerText]}\n\`\`\``
+                    text: `\u250C\u2500\u29ED *ASCII: ${text}*\n\u2502\n\`\`\`\n${simpleAscii[lowerText]}\n\`\`\`\n\u2514\u2500\u29ED`
                 }, { quoted: m });
             } else {
                 await sock.sendMessage(jid, {
-                    text: `❌ ASCII art failed\nTry: ${PREFIX}ascii heart`
+                    text: `\u250C\u2500\u29ED *Error*\n\u2502 ASCII art failed\n\u2502 Try: ${PREFIX}ascii heart\n\u2514\u2500\u29ED`
                 }, { quoted: m });
             }
         }

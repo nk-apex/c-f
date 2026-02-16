@@ -1,4 +1,3 @@
-// File: commands/ai/qwenai.js
 import axios from 'axios';
 
 export default {
@@ -10,20 +9,9 @@ export default {
   
   async execute(sock, m, args, PREFIX, extra) {
     const chatId = m.key.remoteJid;
-    const { jidManager } = extra;
     
     const sendMessage = async (text) => {
       return await sock.sendMessage(chatId, { text }, { quoted: m });
-    };
-    
-    const sendReaction = async (emoji) => {
-      try {
-        await sock.sendMessage(chatId, {
-          react: { text: emoji, key: m.key }
-        });
-      } catch (err) {
-        console.log('Reaction failed:', err.message);
-      }
     };
     
     try {
@@ -31,22 +19,22 @@ export default {
       
       if (!q) {
         return sendMessage(
-          `🤖 *Qwen AI (Alibaba)*\n\n` +
-          `Qwen is Alibaba's large language model\n\n` +
-          `📝 *Usage:*\n` +
-          `▸ ${PREFIX}qwenai <your question>\n\n` +
-          `🔍 *Examples:*\n` +
-          `▸ ${PREFIX}qwenai What is artificial intelligence?\n` +
-          `▸ ${PREFIX}qwenai Explain quantum computing\n` +
-          `▸ ${PREFIX}qwenai Write a poem about nature\n\n` +
-          `💡 *Powered by:* Alibaba Qwen LLM`
+          `\u250C\u2500\u29ED *Qwen AI (Alibaba)*\n` +
+          `\u2502 Alibaba's large language model\n` +
+          `\u2502\n` +
+          `\u2502 Usage:\n` +
+          `\u2502 ${PREFIX}qwenai <your question>\n` +
+          `\u2502\n` +
+          `\u2502 Examples:\n` +
+          `\u2502 ${PREFIX}qwenai What is AI?\n` +
+          `\u2502 ${PREFIX}qwenai Write a poem\n` +
+          `\u2502 about nature\n` +
+          `\u2514\u2500\u29ED`
         );
       }
       
-      // Start processing
-      await sendReaction("🤖");
+      await sendMessage(`\u250C\u2500\u29ED *Processing...*\n\u2502 Asking Qwen AI...\n\u2514\u2500\u29ED`);
       
-      // Send API request to Qwen endpoint
       const encodedQuery = encodeURIComponent(q);
       const apiUrl = `https://apiskeith.vercel.app/ai/qwenai?q=${encodedQuery}`;
       
@@ -58,24 +46,17 @@ export default {
         }
       });
       
-      // Process the response - remove <think> tags and extract clean response
       let answer = response.data?.result || response.data?.response || response.data || "No response";
       
-      // Clean the response by removing thinking tags
       if (typeof answer === 'string') {
-        // Remove <think>...</think> tags and content between them
         answer = answer.replace(/<think>[\s\S]*?<\/think>/gi, '').trim();
-        
-        // Remove other XML/HTML tags if present
         answer = answer.replace(/<[^>]*>/g, '').trim();
         
-        // If answer is empty after cleaning, use default
         if (!answer || answer.length < 2) {
           answer = response.data?.result || response.data?.response || "I received your message but the response was empty.";
         }
       }
       
-      // If answer is an object, try to stringify it
       if (typeof answer === 'object') {
         try {
           answer = JSON.stringify(answer, null, 2);
@@ -84,48 +65,36 @@ export default {
         }
       }
       
-      // Truncate if too long for WhatsApp
-      const maxLength = 4000; // WhatsApp message limit
+      const maxLength = 4000;
       if (answer.length > maxLength) {
         answer = answer.substring(0, maxLength - 100) + 
-                `\n\n... (truncated, ${answer.length - maxLength + 100} more characters)\n` +
-                `💡 *Tip:* Ask shorter questions for full responses.`;
+                `\n\n... (truncated, ${answer.length - maxLength + 100} more characters)`;
       }
       
-      // Send the response
       await sendMessage(
-        `🤖 *Qwen AI Response*\n\n` +
-        `❓ *Question:* ${q}\n\n` +
-        `💡 *Answer:*\n${answer}\n\n` +
-        `━━━━━━━━━━━━━━━━━━━━\n` +
-        `*Powered by Alibaba Qwen*`
+        `\u250C\u2500\u29ED *Qwen AI*\n` +
+        `\u2502\n` +
+        `\u2502 Question: ${q}\n` +
+        `\u2502\n` +
+        `\u2502 Answer:\n` +
+        `\u2502 ${answer.split('\n').join('\n\u2502 ')}\n` +
+        `\u2514\u2500\u29ED`
       );
-      
-      await sendReaction("✅");
       
     } catch (error) {
       console.error('Qwen AI error:', error);
-      await sendReaction("❌");
       
-      let errorMsg = "❌ Qwen AI is currently unavailable.";
+      let errorDetail = "Qwen AI is currently unavailable.";
       
       if (error.message?.includes('timeout')) {
-        errorMsg = "❌ Request timeout. Try again with a shorter question.";
+        errorDetail = "Request timeout. Try a shorter question.";
       } else if (error.message?.includes('Network Error')) {
-        errorMsg = "❌ Network error. Check your connection.";
-      } else if (error.response?.status === 404) {
-        errorMsg = "❌ Qwen AI endpoint not found.";
+        errorDetail = "Network error. Check connection.";
       } else if (error.response?.status === 429) {
-        errorMsg = "❌ Rate limited. Please wait a minute.";
+        errorDetail = "Rate limited. Please wait a minute.";
       }
       
-      await sendMessage(
-        `${errorMsg}\n\n` +
-        `💡 *Try:*\n` +
-        `• Different question\n` +
-        `• Shorter query\n` +
-        `• Try again in a minute`
-      );
+      await sendMessage(`\u250C\u2500\u29ED *Error*\n\u2502 ${errorDetail}\n\u2502 Try again later\n\u2514\u2500\u29ED`);
     }
   }
 };

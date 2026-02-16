@@ -1,4 +1,3 @@
-// File: commands/downloader/instagram.js
 import axios from 'axios';
 
 export default {
@@ -31,39 +30,39 @@ export default {
       
       if (!q) {
         return sendMessage(
-          `📸 *Instagram Video Downloader* 🦊\n\n` +
-          `Download videos from Instagram\n\n` +
-          `📝 *Usage:*\n` +
-          `▸ ${PREFIX}instagram <instagram_url>\n\n` +
-          `🔗 *Examples:*\n` +
-          `▸ ${PREFIX}instagram https://www.instagram.com/reel/xyz/\n` +
-          `▸ ${PREFIX}instagram https://www.instagram.com/p/xyz/\n` +
-          `▸ ${PREFIX}instagram https://www.instagram.com/tv/xyz/\n\n` +
-          `💡 *Supported:*\n` +
-          `• Reels\n• Posts\n• IGTV\n• Stories`
+          `\u250C\u2500\u29ED *Instagram Downloader*\n` +
+          `\u2502 Download videos from Instagram\n` +
+          `\u2502\n` +
+          `\u2502 Usage:\n` +
+          `\u2502 ${PREFIX}instagram <instagram_url>\n` +
+          `\u2502\n` +
+          `\u2502 Examples:\n` +
+          `\u2502 ${PREFIX}ig https://instagram.com/reel/xyz/\n` +
+          `\u2502 ${PREFIX}ig https://instagram.com/p/xyz/\n` +
+          `\u2502\n` +
+          `\u2502 Supported: Reels, Posts, IGTV, Stories\n` +
+          `\u2514\u2500\u29ED`
         );
       }
       
-      // Validate Instagram URL
       const instaRegex = /^(https?:\/\/)?(www\.)?instagram\.com\/(reel|p|tv|stories)\/[a-zA-Z0-9_-]+\/?/i;
       
       if (!instaRegex.test(q)) {
         return sendMessage(
-          `❌ *Invalid Instagram URL*\n\n` +
-          `Please provide a valid Instagram URL.\n\n` +
-          `✅ *Valid formats:*\n` +
-          `• https://www.instagram.com/reel/xyz/\n` +
-          `• https://www.instagram.com/p/xyz/\n` +
-          `• https://www.instagram.com/tv/xyz/\n` +
-          `• https://www.instagram.com/stories/username/xyz/`
+          `\u250C\u2500\u29ED *Error*\n` +
+          `\u2502 Invalid Instagram URL\n` +
+          `\u2502\n` +
+          `\u2502 Valid formats:\n` +
+          `\u2502 instagram.com/reel/xyz/\n` +
+          `\u2502 instagram.com/p/xyz/\n` +
+          `\u2502 instagram.com/tv/xyz/\n` +
+          `\u2514\u2500\u29ED`
         );
       }
       
-      // Start downloading
-      await sendReaction("📥");
-      await sendMessage(`📥 *Processing Instagram link...*\n\n🔗 ${q}`);
+      await sendReaction("\uD83D\uDCE5");
+      await sendMessage(`\u250C\u2500\u29ED *Processing...*\n\u2502 Downloading Instagram video...\n\u2514\u2500\u29ED`);
       
-      // Try multiple endpoints
       let videoUrl = null;
       const endpoints = [
         `https://apiskeith.vercel.app/download/instadl?url=${encodeURIComponent(q)}`,
@@ -74,16 +73,14 @@ export default {
       
       for (const endpoint of endpoints) {
         try {
-          console.log(`Trying Instagram endpoint: ${endpoint}`);
           const response = await axios.get(endpoint, {
-            timeout: 60000, // 1 minute timeout
+            timeout: 60000,
             headers: {
               'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
               'Accept': 'application/json'
             }
           });
           
-          // Check different response structures
           if (response.data?.result) {
             videoUrl = response.data.result;
             break;
@@ -97,100 +94,84 @@ export default {
             videoUrl = response.data.downloadUrl;
             break;
           } else if (response.data?.links && Array.isArray(response.data.links)) {
-            // Multiple quality options
             const videos = response.data.links.filter(link => 
               link.quality && link.url.includes('.mp4')
             );
             if (videos.length > 0) {
-              videoUrl = videos[0].url; // Take highest quality first
+              videoUrl = videos[0].url;
               break;
             }
           }
         } catch (err) {
-          console.log(`Instagram endpoint failed: ${err.message}`);
           continue;
         }
       }
       
       if (!videoUrl) {
-        await sendReaction("❌");
         return sendMessage(
-          `❌ *Failed to download Instagram video*\n\n` +
-          `Possible reasons:\n` +
-          `• Video is private\n` +
-          `• Account is private\n` +
-          `• Instagram rate limit\n` +
-          `• Video too large\n\n` +
-          `💡 *Try:*\n` +
-          `• Public videos only\n` +
-          `• Try again later\n` +
-          `• Different video`
+          `\u250C\u2500\u29ED *Error*\n` +
+          `\u2502 Failed to download video\n` +
+          `\u2502\n` +
+          `\u2502 Possible reasons:\n` +
+          `\u2502 - Video is private\n` +
+          `\u2502 - Account is private\n` +
+          `\u2502 - Rate limited\n` +
+          `\u2502\n` +
+          `\u2502 Try public videos only\n` +
+          `\u2514\u2500\u29ED`
         );
       }
       
-      // Send the video
-      await sendReaction("🚀");
-      await sendMessage(`✅ *Video found!*\n\n📤 Sending video...`);
+      await sendMessage(`\u250C\u2500\u29ED *Sending...*\n\u2502 Video found! Sending...\n\u2514\u2500\u29ED`);
       
       try {
         await sock.sendMessage(chatId, {
           video: { 
             url: videoUrl,
             mimetype: "video/mp4",
-            caption: `📸 *Instagram Video*\n\n` +
-                     `🔗 *Original:* ${q}\n` +
-                     `⬇️ Downloaded via Keith Bot 🦊`
+            caption: `\u250C\u2500\u29ED *Instagram Video*\n\u2502 Source: ${q}\n\u2514\u2500\u29ED`
           },
           gifPlayback: false
         }, { quoted: m });
         
-        await sendReaction("✅");
-        
-        // Log success
-        const senderJid = m.key.participant || chatId;
-        const cleaned = jidManager.cleanJid(senderJid);
-        console.log(`✅ Instagram video downloaded by: ${cleaned.cleanNumber || 'Unknown'}`);
+        await sendReaction("\u2705");
         
       } catch (sendError) {
         console.error('Video send error:', sendError);
         
-        // Check error type
         if (sendError.message?.includes('too large') || sendError.message?.includes('size')) {
-          await sendReaction("📦");
           await sendMessage(
-            `❌ *Video too large for WhatsApp*\n\n` +
-            `WhatsApp limit: 64MB\n\n` +
-            `🔗 *Download link:*\n${videoUrl}\n\n` +
-            `💡 *Try:*\n` +
-            `• Shorter video\n` +
-            `• Copy link above\n` +
-            `• Download manually`
+            `\u250C\u2500\u29ED *Error*\n` +
+            `\u2502 Video too large for WhatsApp\n` +
+            `\u2502 WhatsApp limit: 64MB\n` +
+            `\u2502\n` +
+            `\u2502 Download link:\n` +
+            `\u2502 ${videoUrl}\n` +
+            `\u2514\u2500\u29ED`
           );
         } else {
-          await sendReaction("❌");
           await sendMessage(
-            `❌ *Failed to send video*\n\n` +
-            `🔗 *Direct download link:*\n${videoUrl}\n\n` +
-            `💡 Copy the link above to download manually.`
+            `\u250C\u2500\u29ED *Error*\n` +
+            `\u2502 Failed to send video\n` +
+            `\u2502\n` +
+            `\u2502 Direct download link:\n` +
+            `\u2502 ${videoUrl}\n` +
+            `\u2514\u2500\u29ED`
           );
         }
       }
       
     } catch (error) {
       console.error('Instagram command error:', error);
-      await sendReaction("❌");
       
-      let errorMsg = "❌ Failed to download Instagram video.";
-      
+      let errorDetail = "Failed to download Instagram video.";
       if (error.message?.includes('timeout')) {
-        errorMsg = "❌ Request timeout. Try again.";
+        errorDetail = "Request timeout. Try again.";
       } else if (error.message?.includes('Network Error')) {
-        errorMsg = "❌ Network error. Check your connection.";
-      } else if (error.message?.includes('ENOTFOUND')) {
-        errorMsg = "❌ Server unavailable. Try again later.";
+        errorDetail = "Network error. Check connection.";
       }
       
-      await sendMessage(`${errorMsg}\n\n💡 Make sure the Instagram URL is correct and the video is public.`);
+      await sendMessage(`\u250C\u2500\u29ED *Error*\n\u2502 ${errorDetail}\n\u2502 Make sure the URL is correct\n\u2514\u2500\u29ED`);
     }
   }
 };

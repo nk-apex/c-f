@@ -1,4 +1,3 @@
-// commands/tools/image.js
 import { foxCanUse, foxMode } from '../../utils/foxMaster.js';
 import axios from 'axios';
 
@@ -18,24 +17,25 @@ export default {
         
         const API_KEY = "Jwc395ntZZYJfjsLIaAWLUZjfVchFbLVzE7DbDBbCeCNSQBx7q7FowDw";
         
-        // Parse arguments
         let query = '';
         let count = 1;
         
         if (!args.length) {
             return await sock.sendMessage(msg.key.remoteJid, {
-                text: `📸 *FOXY IMAGE SEARCH*\n\n` +
-                      `*Usage:* ${prefix}image <query> [number]\n\n` +
-                      `*Examples:*\n` +
-                      `${prefix}image cat\n` +
-                      `${prefix}image sunset 3\n` +
-                      `${prefix}img nature\n\n` +
-                      `*Limit:* 1-5 images per request\n` +
-                      `🦊 Powered by Pexels API`
+                text: `\u250C\u2500\u29ED *Foxy Image Search*\n` +
+                      `\u2502 Usage: ${prefix}image <query> [number]\n` +
+                      `\u2502\n` +
+                      `\u2502 Examples:\n` +
+                      `\u2502 ${prefix}image cat\n` +
+                      `\u2502 ${prefix}image sunset 3\n` +
+                      `\u2502 ${prefix}img nature\n` +
+                      `\u2502\n` +
+                      `\u2502 Limit: 1-5 images per request\n` +
+                      `\u2502 Powered by Pexels API\n` +
+                      `\u2514\u2500\u29ED`
             });
         }
         
-        // Check if last argument is a number
         const lastArg = args[args.length - 1];
         const parsedCount = parseInt(lastArg);
         
@@ -49,19 +49,15 @@ export default {
         
         if (!query.trim()) {
             return await sock.sendMessage(msg.key.remoteJid, {
-                text: `❌ *Please provide a search query*\n\n` +
-                      `${prefix}image <your search term> [1-5]`
+                text: `\u250C\u2500\u29ED *Error*\n\u2502 Please provide a search query\n\u2502 ${prefix}image <search term> [1-5]\n\u2514\u2500\u29ED`
             });
         }
         
-        // Show searching message
         const searchMsg = await sock.sendMessage(msg.key.remoteJid, {
-            text: `🔍 *FOXY searching for "${query}"...*\n` +
-                  `📦 *Sending ${count} image${count > 1 ? 's' : ''}*`
+            text: `\u250C\u2500\u29ED *Searching...*\n\u2502 Query: "${query}"\n\u2502 Sending ${count} image${count > 1 ? 's' : ''}...\n\u2514\u2500\u29ED`
         });
         
         try {
-            // Fetch images from Pexels
             const response = await axios.get(
                 `https://api.pexels.com/v1/search?query=${encodeURIComponent(query)}&per_page=${count}`,
                 { 
@@ -76,60 +72,47 @@ export default {
             
             if (!photos || photos.length === 0) {
                 return await sock.sendMessage(msg.key.remoteJid, {
-                    text: `❌ *No images found for "${query}"*\n\n` +
-                          `Try different keywords:\n` +
-                          `${prefix}image nature\n` +
-                          `${prefix}image animals\n` +
-                          `${prefix}image landscape`
+                    text: `\u250C\u2500\u29ED *Error*\n\u2502 No images found for "${query}"\n\u2502 Try different keywords\n\u2514\u2500\u29ED`
                 });
             }
             
-            // Send images
             const photosToSend = photos.slice(0, count);
             
             for (let i = 0; i < photosToSend.length; i++) {
                 const photo = photosToSend[i];
                 await sock.sendMessage(msg.key.remoteJid, {
                     image: { url: photo.src.large },
-                    caption: `📸 *FOXY IMAGE*\n\n` +
-                            `*Search:* ${query}\n` +
-                            `*Photographer:* ${photo.photographer}\n` +
-                            `*Size:* ${photo.width}x${photo.height}\n\n` +
-                            `🦊 ${i+1}/${photosToSend.length}`
+                    caption: `\u250C\u2500\u29ED *Foxy Image*\n` +
+                            `\u2502 Search: ${query}\n` +
+                            `\u2502 Photographer: ${photo.photographer}\n` +
+                            `\u2502 Size: ${photo.width}x${photo.height}\n` +
+                            `\u2502 ${i+1}/${photosToSend.length}\n` +
+                            `\u2514\u2500\u29ED`
                 });
                 
-                // Small delay between images
                 if (i < photosToSend.length - 1) {
                     await new Promise(resolve => setTimeout(resolve, 1000));
                 }
             }
             
-            // Completion message for multiple images
             if (count > 1) {
                 await sock.sendMessage(msg.key.remoteJid, {
-                    text: `✅ *FOXY sent ${photosToSend.length} images for "${query}"*\n\n` +
-                          `🦊 Search again: ${prefix}image <query> [1-5]`
+                    text: `\u250C\u2500\u29ED *Done*\n\u2502 Sent ${photosToSend.length} images for "${query}"\n\u2502 Search again: ${prefix}image <query> [1-5]\n\u2514\u2500\u29ED`
                 });
             }
             
         } catch (error) {
             console.error('Image search error:', error.message);
             
-            let errorMsg = `❌ *FOXY image search failed*\n\n`;
-            
+            let errorDetail = error.message || 'API error';
             if (error.response?.status === 429) {
-                errorMsg += `*Error:* API rate limit reached\n`;
-                errorMsg += `Try again in 1 hour`;
+                errorDetail = 'API rate limit reached. Try again in 1 hour';
             } else if (error.code === 'ECONNABORTED') {
-                errorMsg += `*Error:* Request timeout\n`;
-                errorMsg += `Try a simpler query`;
-            } else {
-                errorMsg += `*Error:* ${error.message || 'API error'}\n`;
-                errorMsg += `Try: ${prefix}image cat`;
+                errorDetail = 'Request timeout. Try a simpler query';
             }
             
             await sock.sendMessage(msg.key.remoteJid, {
-                text: errorMsg
+                text: `\u250C\u2500\u29ED *Error*\n\u2502 Image search failed\n\u2502 ${errorDetail}\n\u2514\u2500\u29ED`
             });
         }
     }

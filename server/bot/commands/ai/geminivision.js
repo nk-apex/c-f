@@ -1,4 +1,3 @@
-// File: commands/ai/geminivision.js
 import axios from 'axios';
 import { downloadMediaMessage } from '@whiskeysockets/baileys';
 
@@ -28,7 +27,6 @@ export default {
     };
     
     try {
-      // Check if replied to an image
       const quotedMsg = m.message?.extendedTextMessage?.contextInfo?.quotedMessage;
       const hasQuotedImage = quotedMsg?.imageMessage;
       const hasQuotedDocument = quotedMsg?.documentMessage?.mimetype?.includes('image');
@@ -36,38 +34,36 @@ export default {
       let imageUrl = '';
       let question = args.join(' ').trim();
       
-      // If no question provided
       if (!question && (hasQuotedImage || hasQuotedDocument)) {
         question = "What's in this image?";
       }
       
       if (!question) {
         return sendMessage(
-          `👁️ *Gemini Vision AI* 🦊\n\n` +
-          `Analyze images with Gemini AI\n\n` +
-          `📸 *How to use:*\n` +
-          `1. Reply to an image\n` +
-          `2. Type: \`${PREFIX}geminivision What is this?\`\n\n` +
-          `🔗 *Or with URL:*\n` +
-          `\`${PREFIX}geminivision https://example.com/image.jpg What is this?\`\n\n` +
-          `📝 *Example Questions:*\n` +
-          `• What animal is this?\n` +
-          `• Describe this scene\n` +
-          `• What text is in this image?\n` +
-          `• Analyze this photo\n\n` +
-          `💡 *Note:* Images are automatically uploaded to ImgBB`
+          `\u250C\u2500\u29ED *Gemini Vision AI*\n` +
+          `\u2502 Analyze images with Gemini AI\n` +
+          `\u2502\n` +
+          `\u2502 How to use:\n` +
+          `\u2502 1. Reply to an image\n` +
+          `\u2502 2. Type: ${PREFIX}geminivision What is this?\n` +
+          `\u2502\n` +
+          `\u2502 Or with URL:\n` +
+          `\u2502 ${PREFIX}geminivision <url> <question>\n` +
+          `\u2502\n` +
+          `\u2502 Example Questions:\n` +
+          `\u2502 - What animal is this?\n` +
+          `\u2502 - Describe this scene\n` +
+          `\u2502 - What text is in this image?\n` +
+          `\u2514\u2500\u29ED`
         );
       }
       
-      // Start processing
-      await sendReaction("👁️");
+      await sendReaction("\uD83D\uDC41\uFE0F");
       
-      // Check if first argument is a URL
       const urlRegex = /^(https?:\/\/[^\s]+)$/i;
       const firstArg = args[0];
       
       if (urlRegex.test(firstArg)) {
-        // User provided a URL
         imageUrl = firstArg;
         question = args.slice(1).join(' ').trim();
         
@@ -75,16 +71,12 @@ export default {
           question = "What's in this image?";
         }
         
-        console.log(`Using provided URL: ${imageUrl}`);
-        await sendMessage(`🔗 Using provided image URL...`);
+        await sendMessage(`\u250C\u2500\u29ED *Processing...*\n\u2502 Using provided image URL...\n\u2514\u2500\u29ED`);
         
       } else if (hasQuotedImage || hasQuotedDocument) {
-        // User replied to an image - download and upload to ImgBB
-        await sendMessage(`📥 Downloading image from WhatsApp...`);
-        await sendReaction("📥");
+        await sendMessage(`\u250C\u2500\u29ED *Processing...*\n\u2502 Downloading image...\n\u2514\u2500\u29ED`);
         
         try {
-          // Download the image
           const messageObj = {
             key: m.key,
             message: { ...quotedMsg }
@@ -104,45 +96,34 @@ export default {
             throw new Error("Empty image buffer");
           }
           
-          console.log(`✅ Downloaded ${imageBuffer.length} bytes`);
-          
-          // Upload to ImgBB (using your imgbb upload function)
-          await sendMessage(`📤 Uploading to ImgBB...`);
-          await sendReaction("📤");
+          await sendMessage(`\u250C\u2500\u29ED *Processing...*\n\u2502 Uploading to ImgBB...\n\u2514\u2500\u29ED`);
           
           const imgbbUrl = await uploadToImgBB(imageBuffer);
           
           if (!imgbbUrl) {
-            await sendReaction("❌");
-            return sendMessage("❌ Failed to upload image to ImgBB. Try again.");
+            return sendMessage(`\u250C\u2500\u29ED *Error*\n\u2502 Failed to upload image to ImgBB\n\u2502 Try again\n\u2514\u2500\u29ED`);
           }
           
           imageUrl = imgbbUrl;
-          console.log(`✅ Image uploaded to ImgBB: ${imgbbUrl}`);
-          
-          await sendMessage(`✅ Image uploaded successfully!`);
-          await sendReaction("✅");
           
         } catch (uploadError) {
           console.error('Image upload error:', uploadError);
-          await sendReaction("❌");
-          return sendMessage("❌ Failed to process image. Make sure you replied to a valid image.");
+          return sendMessage(`\u250C\u2500\u29ED *Error*\n\u2502 Failed to process image\n\u2502 Make sure you replied to a valid image\n\u2514\u2500\u29ED`);
         }
       } else {
-        // No image provided
-        await sendReaction("❌");
         return sendMessage(
-          `❌ *No image provided!*\n\n` +
-          `You need to either:\n` +
-          `1. Reply to an image with \`${PREFIX}geminivision <question>\`\n` +
-          `2. Provide an image URL: \`${PREFIX}geminivision <url> <question>\`\n\n` +
-          `Example:\n${PREFIX}geminivision What animal is this? (reply to image)`
+          `\u250C\u2500\u29ED *Error*\n` +
+          `\u2502 No image provided!\n` +
+          `\u2502\n` +
+          `\u2502 You need to either:\n` +
+          `\u2502 1. Reply to an image with\n` +
+          `\u2502    ${PREFIX}geminivision <question>\n` +
+          `\u2502 2. Provide an image URL\n` +
+          `\u2514\u2500\u29ED`
         );
       }
       
-      // Now analyze with Gemini Vision
-      await sendMessage(`🤖 Analyzing image with Gemini AI...`);
-      await sendReaction("🤖");
+      await sendMessage(`\u250C\u2500\u29ED *Analyzing...*\n\u2502 Processing with Gemini AI...\n\u2514\u2500\u29ED`);
       
       const encodedImageUrl = encodeURIComponent(imageUrl);
       const encodedQuestion = encodeURIComponent(question);
@@ -158,44 +139,38 @@ export default {
         throw new Error("Empty response from Gemini");
       }
       
-      // Send the analysis result
       await sendMessage(
-        `👁️ *Gemini Vision Analysis* 🦊\n\n` +
-        `📸 *Image URL:* ${imageUrl}\n\n` +
-        `❓ *Question:* ${question}\n\n` +
-        `💡 *Analysis:*\n${answer}\n\n` +
-        `━━━━━━━━━━━━━━━━━━━━\n` +
-        `🔗 *Direct Image:* ${imageUrl}`
+        `\u250C\u2500\u29ED *Gemini Vision Analysis*\n` +
+        `\u2502\n` +
+        `\u2502 Question: ${question}\n` +
+        `\u2502\n` +
+        `\u2502 Analysis:\n` +
+        `\u2502 ${answer.split('\n').join('\n\u2502 ')}\n` +
+        `\u2514\u2500\u29ED`
       );
       
-      await sendReaction("✅");
+      await sendReaction("\u2705");
       
     } catch (error) {
       console.error('Gemini Vision error:', error);
-      await sendReaction("❌");
       
-      let errorMsg = "❌ Gemini Vision analysis failed.";
+      let errorDetail = "Gemini Vision analysis failed.";
       
       if (error.message?.includes('timeout')) {
-        errorMsg = "❌ Request timeout. Try again.";
+        errorDetail = "Request timeout. Try again.";
       } else if (error.message?.includes('Network Error')) {
-        errorMsg = "❌ Network error. Check your connection.";
+        errorDetail = "Network error. Check connection.";
       } else if (error.message?.includes('ENOTFOUND')) {
-        errorMsg = "❌ API unavailable. Try again later.";
+        errorDetail = "API unavailable. Try later.";
       }
       
-      await sendMessage(`${errorMsg}\n\n💡 Try:\n• Different image\n• Simpler question\n• Try again in a minute`);
+      await sendMessage(`\u250C\u2500\u29ED *Error*\n\u2502 ${errorDetail}\n\u2502 Try a different image or question\n\u2514\u2500\u29ED`);
     }
   }
 };
 
-// ============================================
-// EMBEDDED IMGBB UPLOAD FUNCTION
-// ============================================
-
 async function uploadToImgBB(buffer) {
   try {
-    // Your ImgBB API key (embedded)
     const getImgBBKey = () => {
       const keyCodes = [
         54, 48, 99, 51, 101, 53, 101, 51,
@@ -210,13 +185,11 @@ async function uploadToImgBB(buffer) {
     const apiKey = getImgBBKey();
     const base64 = buffer.toString("base64");
     
-    // Create form data
     const formData = new URLSearchParams();
     formData.append("key", apiKey);
     formData.append("image", base64);
-    formData.append("expiration", "0"); // Never expire
+    formData.append("expiration", "0");
     
-    // Upload to ImgBB
     const response = await axios.post(
       "https://api.imgbb.com/1/upload",
       formData.toString(),
@@ -241,39 +214,25 @@ async function uploadToImgBB(buffer) {
   }
 }
 
-// ============================================
-// VALIDATE IMAGE FUNCTION
-// ============================================
-
 function isValidImage(buffer) {
   if (!buffer || buffer.length < 100) return false;
   
   const hex = buffer.slice(0, 8).toString('hex').toUpperCase();
   
-  // JPEG
   if (hex.startsWith('FFD8FF')) return true;
-  
-  // PNG
   if (hex.startsWith('89504E470D0A1A0A')) return true;
-  
-  // GIF
   if (hex.startsWith('47494638')) return true;
-  
-  // WebP
   if (hex.startsWith('52494646') && buffer.includes('WEBP')) return true;
   
   return false;
 }
 
-// Export if needed
 export const geminiUtils = {
   analyzeImage: async (buffer, question) => {
     try {
-      // Upload to ImgBB first
       const imgbbUrl = await uploadToImgBB(buffer);
       if (!imgbbUrl) throw new Error("Upload failed");
       
-      // Then analyze with Gemini
       const encodedUrl = encodeURIComponent(imgbbUrl);
       const encodedQuestion = encodeURIComponent(question);
       

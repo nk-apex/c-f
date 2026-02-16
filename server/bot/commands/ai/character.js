@@ -1,4 +1,3 @@
-// commands/ai/character.js
 export default {
     name: "character",
     alias: ["createchar", "hero"],
@@ -8,44 +7,41 @@ export default {
         const jid = m.key.remoteJid;
         
         if (!args.length) {
-            const examples = [
-                "🎭 *AI CHARACTER CREATOR*",
-                "",
-                "*Usage:*",
-                `${prefix}character warrior elf`,
-                `${prefix}character cyberpunk hacker`,
-                `${prefix}character wizard with staff`,
-                "",
-                "*Races:* elf, human, orc, dwarf, alien",
-                "*Classes:* warrior, mage, rogue, archer, knight",
-                "*Themes:* cyberpunk, fantasy, steampunk, sci-fi",
-                "",
-                "*Example:*",
-                `${prefix}character female elf archer in forest`
-            ].join('\n');
-            
-            return sock.sendMessage(jid, { text: examples });
+            return sock.sendMessage(jid, {
+                text: `\u250C\u2500\u29ED *AI Character Creator*\n` +
+                      `\u2502\n` +
+                      `\u2502 Usage:\n` +
+                      `\u2502 ${prefix}character warrior elf\n` +
+                      `\u2502 ${prefix}character cyberpunk hacker\n` +
+                      `\u2502 ${prefix}character wizard with staff\n` +
+                      `\u2502\n` +
+                      `\u2502 Races: elf, human, orc, dwarf, alien\n` +
+                      `\u2502 Classes: warrior, mage, rogue, archer\n` +
+                      `\u2502 Themes: cyberpunk, fantasy, steampunk\n` +
+                      `\u2514\u2500\u29ED`
+            });
         }
         
         const prompt = `character design of ${args.join(' ')}, detailed, fantasy art, concept art, full body`;
         
         try {
             await sock.sendMessage(jid, {
-                text: `🎭 Creating character: ${args.join(' ')}...`
+                text: `\u250C\u2500\u29ED *Processing...*\n\u2502 Creating character: ${args.join(' ')}...\n\u2514\u2500\u29ED`
             });
             
             const url = `https://apiskeith.vercel.app/ai/flux?q=${encodeURIComponent(prompt)}`;
             
             await sock.sendMessage(jid, {
                 image: { url: url },
-                caption: `🎭 *CHARACTER CREATED*\n\n` +
-                        `*Description:* ${args.join(' ')}\n\n` +
-                        `✨ Use this character in your stories!`
+                caption: `\u250C\u2500\u29ED *Character Created*\n` +
+                        `\u2502 Description: ${args.join(' ')}\n` +
+                        `\u2502 Use this character in your stories!\n` +
+                        `\u2514\u2500\u29ED`
             });
             
         } catch (error) {
             await sock.sendMessage(jid, {
-                text: `❌ Failed to create character\nTry: ${prefix}character warrior`
+                text: `\u250C\u2500\u29ED *Error*\n\u2502 Failed to create character\n\u2502 Try: ${prefix}character warrior\n\u2514\u2500\u29ED`
             });
         }
     }

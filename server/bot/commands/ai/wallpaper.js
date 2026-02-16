@@ -1,18 +1,15 @@
-// commands/media/wallpaper.js
 export default {
   name: "wallpaper",
   alias: ["wall", "wp", "background", "wallpapers"],
-  description: "Get beautiful wallpapers for your device 🖼️",
+  description: "Get beautiful wallpapers for your device",
   category: "media",
   ownerOnly: false,
 
   async execute(sock, m, args, PREFIX, extra) {
     const jid = m.key.remoteJid;
     
-    // Your Unsplash Access Key
     const UNSPLASH_ACCESS_KEY = 'rC69KjCifd7vgF5GQv4OsW7pcgT71aWV4UJ22WbojEQ';
     
-    // Wallpaper categories
     const categories = {
       "anime": ["anime", "animu", "animewall"],
       "nature": ["nature", "forest", "mountain", "landscape"],
@@ -30,28 +27,30 @@ export default {
     
     if (args.length === 0 || args[0] === 'help') {
       const categoryList = Object.keys(categories).map(cat => 
-        `• *${cat}* - ${categories[cat].slice(0, 3).join(', ')}`
+        `\u2502 - ${cat}`
       ).join('\n');
       
       return sock.sendMessage(jid, {
-        text: `🦊 *FOXY WALLPAPER* 🖼️\n\n` +
-              `*Usage:*\n` +
-              `${PREFIX}wallpaper anime\n` +
-              `${PREFIX}wall nature 5\n` +
-              `${PREFIX}wallpaper random\n\n` +
-              `*Available Categories:*\n${categoryList}\n\n` +
-              `*Options:*\n` +
-              `• Add a number to get multiple wallpapers (max 10)\n` +
-              `• Example: ${PREFIX}wallpaper nature 3\n` +
-              `• ${PREFIX}wallpaper categories - Show all categories`
+        text: `\u250C\u2500\u29ED *Foxy Wallpaper*\n` +
+              `\u2502\n` +
+              `\u2502 Usage:\n` +
+              `\u2502 ${PREFIX}wallpaper anime\n` +
+              `\u2502 ${PREFIX}wall nature 5\n` +
+              `\u2502 ${PREFIX}wallpaper random\n` +
+              `\u2502\n` +
+              `\u2502 Categories:\n` +
+              `${categoryList}\n` +
+              `\u2502\n` +
+              `\u2502 Add number for multiple (max 10)\n` +
+              `\u2502 Example: ${PREFIX}wallpaper nature 3\n` +
+              `\u2514\u2500\u29ED`
       }, { quoted: m });
     }
     
     if (args[0].toLowerCase() === 'categories') {
       const allCats = Object.keys(categories).join(', ');
       return sock.sendMessage(jid, {
-        text: `📁 *ALL WALLPAPER CATEGORIES*\n\n${allCats}\n\n` +
-              `💡 Use: ${PREFIX}wallpaper <category>`
+        text: `\u250C\u2500\u29ED *All Wallpaper Categories*\n\u2502 ${allCats}\n\u2502\n\u2502 Use: ${PREFIX}wallpaper <category>\n\u2514\u2500\u29ED`
       }, { quoted: m });
     }
     
@@ -73,7 +72,7 @@ export default {
       }
       
       await sock.sendMessage(jid, {
-        text: `🦊 *Searching ${actualCategory} wallpapers...* 🖼️`
+        text: `\u250C\u2500\u29ED *Searching...*\n\u2502 Finding ${actualCategory} wallpapers...\n\u2514\u2500\u29ED`
       }, { quoted: m });
       
       let wallpapers = [];
@@ -93,11 +92,12 @@ export default {
         
         await sock.sendMessage(jid, {
           image: { url: wallpaper.url },
-          caption: `🦊 *FOXY WALLPAPER*\n\n` +
-                   `*Category:* ${actualCategory.toUpperCase()}\n` +
-                   `*Resolution:* ${wallpaper.width || 'Unknown'}x${wallpaper.height || 'Unknown'}\n` +
-                   `*Source:* ${wallpaper.source || 'Unknown'}\n\n` +
-                   `📁 ${i + 1}/${Math.min(wallpapers.length, count)}`
+          caption: `\u250C\u2500\u29ED *Foxy Wallpaper*\n` +
+                   `\u2502 Category: ${actualCategory.toUpperCase()}\n` +
+                   `\u2502 Resolution: ${wallpaper.width || 'Unknown'}x${wallpaper.height || 'Unknown'}\n` +
+                   `\u2502 Source: ${wallpaper.source || 'Unknown'}\n` +
+                   `\u2502 ${i + 1}/${Math.min(wallpapers.length, count)}\n` +
+                   `\u2514\u2500\u29ED`
         }, { quoted: i === 0 ? m : null });
         
         if (count > 1 && i < count - 1) {
@@ -109,9 +109,11 @@ export default {
       console.error("Wallpaper error:", error);
       
       await sock.sendMessage(jid, {
-        text: `❌ *Failed to fetch wallpapers!*\n\n` +
-              `Try: ${PREFIX}wallpaper categories\n` +
-              `Or: ${PREFIX}wallpaper random`
+        text: `\u250C\u2500\u29ED *Error*\n` +
+              `\u2502 Failed to fetch wallpapers!\n` +
+              `\u2502 Try: ${PREFIX}wallpaper categories\n` +
+              `\u2502 Or: ${PREFIX}wallpaper random\n` +
+              `\u2514\u2500\u29ED`
       }, { quoted: m });
     }
   }

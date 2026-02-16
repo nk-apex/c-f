@@ -1,8 +1,7 @@
-// commands/media/sticker.js
 export default {
   name: "sticker",
   alias: ["s", "stickerize", "stik"],
-  description: "Convert images/videos to stickers ✂️",
+  description: "Convert images/videos to stickers",
   category: "media",
   ownerOnly: false,
 
@@ -13,21 +12,24 @@ export default {
     
     if (!isQuotedImage && !isQuotedVideo && !m.message?.imageMessage) {
       return sock.sendMessage(jid, {
-        text: `✂️ *FOXY STICKER MAKER*\n\n` +
-              `*Usage:*\n` +
-              `• Send/reply to an image with: ${PREFIX}sticker\n` +
-              `• Send/reply to a video with: ${PREFIX}sticker\n` +
-              `• Add text: ${PREFIX}sticker Foxy\n\n` +
-              `*Options:*\n` +
-              `${PREFIX}sticker crop - Crop sticker\n` +
-              `${PREFIX}sticker circle - Circular sticker\n` +
-              `${PREFIX}sticker removebg - Remove background`
+        text: `\u250C\u2500\u29ED *Foxy Sticker Maker*\n` +
+              `\u2502\n` +
+              `\u2502 Usage:\n` +
+              `\u2502 Send/reply to image: ${PREFIX}sticker\n` +
+              `\u2502 Send/reply to video: ${PREFIX}sticker\n` +
+              `\u2502 Add text: ${PREFIX}sticker Foxy\n` +
+              `\u2502\n` +
+              `\u2502 Options:\n` +
+              `\u2502 ${PREFIX}sticker crop - Crop sticker\n` +
+              `\u2502 ${PREFIX}sticker circle - Circular\n` +
+              `\u2502 ${PREFIX}sticker removebg - Remove BG\n` +
+              `\u2514\u2500\u29ED`
       }, { quoted: m });
     }
     
     try {
       await sock.sendMessage(jid, {
-        text: `🦊 *Creating sticker...*`
+        text: `\u250C\u2500\u29ED *Processing...*\n\u2502 Creating sticker...\n\u2514\u2500\u29ED`
       }, { quoted: m });
       
       let buffer;
@@ -42,7 +44,6 @@ export default {
         throw new Error("Failed to download media");
       }
       
-      // Get pack and author name
       const packName = args[0] || 'Foxy Bot';
       const authorName = args[1] || 'Foxy Sticker';
       
@@ -56,11 +57,14 @@ export default {
     } catch (error) {
       console.error("Sticker error:", error);
       await sock.sendMessage(jid, {
-        text: `❌ *Failed to create sticker!*\n\n` +
-              `Make sure:\n` +
-              `• Image/video is not too large\n` +
-              `• Media is supported format\n` +
-              `• Try with a different image`
+        text: `\u250C\u2500\u29ED *Error*\n` +
+              `\u2502 Failed to create sticker!\n` +
+              `\u2502\n` +
+              `\u2502 Make sure:\n` +
+              `\u2502 - Image/video is not too large\n` +
+              `\u2502 - Media is supported format\n` +
+              `\u2502 - Try with a different image\n` +
+              `\u2514\u2500\u29ED`
       }, { quoted: m });
     }
   }
