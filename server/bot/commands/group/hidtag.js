@@ -1,6 +1,6 @@
 export default {
   name: "hidtag",
-  alias: ["hidetag", "stealthtag", "tagall"],
+  alias: ["hidetag", "stealthtag"],
   description: "Tag all members without showing mentions",
   category: "group",
   ownerOnly: false,

@@ -2,7 +2,7 @@
 
 ## Overview
 
-Foxy Bot is a WhatsApp bot that runs entirely in the terminal/console. It connects to WhatsApp using the Baileys library with two authentication methods: **pair code** (phone number → 8-digit code from WhatsApp) or **session ID** (FOXY:~<base64> format). The bot has 159 commands across 25 categories.
+Foxy Bot is a WhatsApp bot that runs entirely in the terminal/console. It connects to WhatsApp using the Baileys library with two authentication methods: **pair code** (phone number → 8-digit code from WhatsApp) or **session ID** (FOXY:~<base64> format). The bot has 196 commands across 25 categories.
 
 ## User Preferences
 

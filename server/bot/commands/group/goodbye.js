@@ -1,6 +1,6 @@
 export default {
   name: "goodbye",
-  alias: ["farewell", "leave"],
+  alias: ["farewell", "goodbyemsg"],
   description: "Set goodbye message for leaving members",
   category: "group",
   ownerOnly: false,

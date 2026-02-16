@@ -1,6 +1,6 @@
 export default {
   name: 'add',
-  alias: ['invite', 'adduser'],
+  alias: ['adduser'],
   category: 'group',
   description: 'Add members to group',
   

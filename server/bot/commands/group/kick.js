@@ -1,6 +1,6 @@
 export default {
   name: 'kick',
-  alias: ['remove', 'ban'],
+  alias: ['remove'],
   category: 'group',
   description: 'Remove member from group',
   
