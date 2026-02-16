@@ -108,30 +108,38 @@ function buildFoxCoreCaption(prefix, version, context, timeInfo, sysInfo, isOwne
 \u2514\u2500\u29ED
 ${READMORE}
 \u250C\u2500\u29ED AI MODULES
+\u251C\u2500 ascii
+\u251C\u2500 aisong
+\u251C\u2500 blackbox
 \u251C\u2500 character
+\u251C\u2500 deepseek
 \u251C\u2500 flux
 \u251C\u2500 foxy
+\u251C\u2500 geminivision
 \u251C\u2500 gpt
-\u251C\u2500 teacher
-\u251C\u2500 room
-\u251C\u2500 story
+\u251C\u2500 grok
+\u251C\u2500 image
+\u251C\u2500 instagram
+\u251C\u2500 llama
+\u251C\u2500 logo
+\u251C\u2500 metaai
+\u251C\u2500 qwenai
+\u251C\u2500 sticker
+\u251C\u2500 teach
+\u251C\u2500 wallpaper
 \u2514\u2500\u29ED
 
 \u250C\u2500\u29ED MEDIA HUB
-\u251C\u2500 image
-\u251C\u2500 instagram
-\u251C\u2500 sticker
-\u251C\u2500 video
-\u251C\u2500 wallpaper
+\u251C\u2500 play
+\u251C\u2500 playdoc
+\u251C\u2500 7clouds
 \u251C\u2500 ytmp4
+\u251C\u2500 trailer
+\u251C\u2500 shazam
+\u251C\u2500 removebg
 \u251C\u2500 attp
 \u251C\u2500 meme
 \u251C\u2500 take
-\u251C\u2500 getpp
-\u251C\u2500 imgbb
-\u251C\u2500 logo
-\u251C\u2500 tosticker
-\u251C\u2500 vv
 \u2514\u2500\u29ED
 
 \u250C\u2500\u29ED AUTO PILOT
@@ -139,11 +147,8 @@ ${READMORE}
 \u251C\u2500 autoread
 \u251C\u2500 autotyping
 \u251C\u2500 autorecording
-\u251C\u2500 autostatus
+\u251C\u2500 autoreactstatus
 \u251C\u2500 autoviewstatus
-\u251C\u2500 antidelete
-\u251C\u2500 autorec
-\u251C\u2500 autotype
 \u2514\u2500\u29ED
 
 \u250C\u2500\u29ED PLAYGROUND
@@ -164,58 +169,147 @@ ${READMORE}
 
 \u250C\u2500\u29ED UTILITIES
 \u251C\u2500 menu
-\u251C\u2500 help
+\u251C\u2500 alive
 \u251C\u2500 goodmorning
+\u251C\u2500 goodnight
 \u251C\u2500 status
 \u251C\u2500 uptime
-\u251C\u2500 warn
 \u251C\u2500 bible
 \u251C\u2500 quran
 \u251C\u2500 wiki
-\u251C\u2500 lyrics
-\u251C\u2500 ping
-\u251C\u2500 time
-\u251C\u2500 timer
-\u251C\u2500 translate
-\u251C\u2500 tts
-\u251C\u2500 weather
+\u251C\u2500 loc
 \u2514\u2500\u29ED
 
 \u250C\u2500\u29ED GROUP OPS
 \u251C\u2500 add
-\u251C\u2500 antilink
+\u251C\u2500 kick
+\u251C\u2500 promote
 \u251C\u2500 demote
+\u251C\u2500 mute
+\u251C\u2500 unmute
+\u251C\u2500 hidtag
+\u251C\u2500 tagall
+\u251C\u2500 poll
+\u251C\u2500 setname
+\u251C\u2500 setdesc
+\u251C\u2500 setgpp
+\u251C\u2500 rules
+\u251C\u2500 welcome
 \u251C\u2500 goodbye
 \u251C\u2500 groupinfo
-\u251C\u2500 group
-\u251C\u2500 hidetag
-\u251C\u2500 kick
 \u251C\u2500 listadmins
-\u251C\u2500 mute
-\u251C\u2500 poll
-\u251C\u2500 promote
-\u251C\u2500 rules
-\u251C\u2500 setdesc
-\u251C\u2500 setname
-\u251C\u2500 tagall
+\u251C\u2500 onlyadmins
 \u251C\u2500 togstatus
+\u251C\u2500 vcf
 \u2514\u2500\u29ED
 
-\u250C\u2500\u29ED TOOLKIT
-\u251C\u2500 play
-\u251C\u2500 calc
-\u251C\u2500 logo
-\u251C\u2500 setpp
-\u251C\u2500 stopwatch
+\u250C\u2500\u29ED GROUP ADMIN
+\u251C\u2500 promoteall
+\u251C\u2500 demoteall
+\u251C\u2500 kickall
+\u251C\u2500 ban
+\u251C\u2500 unban
+\u251C\u2500 clearbanlist
+\u251C\u2500 ex
+\u251C\u2500 warn
+\u251C\u2500 resetwarn
+\u251C\u2500 setwarn
+\u251C\u2500 warnings
+\u251C\u2500 gctime
+\u251C\u2500 antileave
+\u251C\u2500 leave
+\u251C\u2500 creategroup
+\u2514\u2500\u29ED
+
+\u250C\u2500\u29ED AUTO-MOD
+\u251C\u2500 antilink
+\u251C\u2500 antisticker
+\u251C\u2500 antiimage
+\u251C\u2500 antivideo
+\u251C\u2500 antiaudio
+\u251C\u2500 antimention
+\u251C\u2500 antistatusmention
+\u251C\u2500 antigrouplink
+\u251C\u2500 antidemote
+\u251C\u2500 antipromote
+\u251C\u2500 antiviewonce
+\u2514\u2500\u29ED
+
+\u250C\u2500\u29ED GROUP TOOLS
+\u251C\u2500 grouplink
+\u251C\u2500 gclink
+\u251C\u2500 invite
+\u251C\u2500 revoke
+\u251C\u2500 tagadmin
+\u251C\u2500 fangtrace
+\u251C\u2500 getgpp
+\u251C\u2500 getparticipants
+\u251C\u2500 listonline
+\u251C\u2500 listinactive
+\u251C\u2500 approveall
+\u251C\u2500 rejectall
+\u251C\u2500 stickerpack
+\u2514\u2500\u29ED
+
+\u250C\u2500\u29ED CREATIVE
 \u251C\u2500 story
 \u2514\u2500\u29ED
 
 \u250C\u2500\u29ED SYSTEM
 ${isOwner ?
 `\u251C\u2500 setprefix
-\u251C\u2500 setbotname
-\u251C\u2500 mode` :
+\u251C\u2500 mode
+\u251C\u2500 connect
+\u251C\u2500 clean
+\u251C\u2500 ultimatefix` :
 '\u251C\u2500 [OWNER PANEL]'}
+\u2514\u2500\u29ED
+
+\u250C\u2500\u29ED OWNER PANEL
+${isOwner ?
+`\u251C\u2500 setbotname
+\u251C\u2500 resetbotname
+\u251C\u2500 setowner
+\u251C\u2500 resetowner
+\u251C\u2500 iamowner
+\u251C\u2500 about
+\u251C\u2500 owner
+\u251C\u2500 block
+\u251C\u2500 unblock
+\u251C\u2500 blockdetect
+\u251C\u2500 silent
+\u251C\u2500 anticall
+\u251C\u2500 antiedit
+\u251C\u2500 antideletestatus
+\u251C\u2500 chatbot
+\u251C\u2500 setfooter
+\u251C\u2500 repo
+\u251C\u2500 pair
+\u251C\u2500 shutdown
+\u251C\u2500 restart
+\u251C\u2500 reloadenv
+\u251C\u2500 getsettings
+\u251C\u2500 setsetting
+\u251C\u2500 disk
+\u251C\u2500 hostip
+\u251C\u2500 findcommands
+\u251C\u2500 latestupdates
+\u251C\u2500 panel
+\u251C\u2500 debugchat
+\u251C\u2500 test
+\u251C\u2500 workingreload
+\u251C\u2500 online
+\u251C\u2500 privacy
+\u251C\u2500 receipt
+\u251C\u2500 profilepic
+\u251C\u2500 viewer` :
+'\u251C\u2500 [OWNER ONLY]'}
+\u2514\u2500\u29ED
+
+\u250C\u2500\u29ED MENU SETTINGS
+\u251C\u2500 menustyle
+\u251C\u2500 setmenuimage
+\u251C\u2500 restoremenuimage
 \u2514\u2500\u29ED
 
 \u250C\u2500\u29ED INFO
