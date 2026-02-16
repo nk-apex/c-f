@@ -30,7 +30,7 @@ const stateConfig: Record<
 > = {
   disconnected: { label: "Disconnected", color: "bg-gray-400 dark:bg-gray-600" },
   connecting: { label: "Connecting", color: "bg-yellow-500" },
-  qr: { label: "Awaiting QR Scan", color: "bg-yellow-500" },
+  pairing: { label: "Awaiting Pairing Code", color: "bg-yellow-500" },
   connected: { label: "Connected", color: "bg-green-500" },
 };
 

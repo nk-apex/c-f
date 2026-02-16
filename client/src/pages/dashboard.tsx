@@ -2,14 +2,13 @@ import { useWebSocket } from "@/lib/useWebSocket";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { queryClient, apiRequest } from "@/lib/queryClient";
 import { StatusPanel } from "@/components/status-panel";
-import { QRCodePanel } from "@/components/qr-panel";
+import { ConnectPanel } from "@/components/connect-panel";
 import { CommandsPanel } from "@/components/commands-panel";
 import { LogsPanel } from "@/components/logs-panel";
 import { SettingsPanel } from "@/components/settings-panel";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import {
-  Play,
   Square,
   RotateCcw,
   Wifi,
@@ -22,7 +21,7 @@ import {
 import type { BotConfig, BotCommand } from "@shared/schema";
 
 export default function Dashboard() {
-  const { status, qrCode, logs, connected } = useWebSocket();
+  const { status, pairingCode, logs, connected } = useWebSocket();
 
   const { data: commands = [] } = useQuery<BotCommand[]>({
     queryKey: ["/api/bot/commands"],
@@ -30,11 +29,6 @@ export default function Dashboard() {
 
   const { data: config } = useQuery<BotConfig>({
     queryKey: ["/api/bot/config"],
-  });
-
-  const startBot = useMutation({
-    mutationFn: () => apiRequest("POST", "/api/bot/start"),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["/api/bot/status"] }),
   });
 
   const stopBot = useMutation({
@@ -47,7 +41,7 @@ export default function Dashboard() {
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["/api/bot/status"] }),
   });
 
-  const isLoading = startBot.isPending || stopBot.isPending || restartBot.isPending;
+  const isLoading = stopBot.isPending || restartBot.isPending;
 
   return (
     <div className="min-h-screen bg-background">
@@ -73,18 +67,7 @@ export default function Dashboard() {
               <span>{connected ? "Live" : "Offline"}</span>
             </div>
 
-            {status.state === "disconnected" && (
-              <Button
-                data-testid="button-start-bot"
-                size="sm"
-                onClick={() => startBot.mutate()}
-                disabled={isLoading}
-              >
-                <Play className="w-4 h-4 mr-1.5" />
-                Start Bot
-              </Button>
-            )}
-            {(status.state === "connected" || status.state === "qr") && (
+            {(status.state === "connected" || status.state === "pairing") && (
               <>
                 <Button
                   data-testid="button-restart-bot"
@@ -140,8 +123,8 @@ export default function Dashboard() {
 
           <TabsContent value="overview" className="space-y-6">
             <StatusPanel status={status} />
-            {(status.state === "qr" || qrCode) && status.state !== "connected" && (
-              <QRCodePanel qrCode={qrCode} />
+            {status.state !== "connected" && (
+              <ConnectPanel pairingCode={pairingCode} state={status.state} />
             )}
           </TabsContent>
 

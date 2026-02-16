@@ -5,26 +5,22 @@ import { Input } from "@/components/ui/input";
 import { Search, Lock, Hash } from "lucide-react";
 import type { BotCommand } from "@shared/schema";
 
-const categoryIcons: Record<string, string> = {
-  fun: "F",
-  games: "G",
-  general: "GN",
-  group: "GR",
-  menus: "M",
-  system: "S",
-  tools: "T",
-  "religious.js": "R",
-};
-
 const categoryColors: Record<string, string> = {
+  ai: "bg-violet-500/10 text-violet-600 dark:text-violet-400",
+  automation: "bg-amber-500/10 text-amber-600 dark:text-amber-400",
+  creative: "bg-rose-500/10 text-rose-600 dark:text-rose-400",
+  downloaders: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
   fun: "bg-pink-500/10 text-pink-600 dark:text-pink-400",
   games: "bg-purple-500/10 text-purple-600 dark:text-purple-400",
   general: "bg-blue-500/10 text-blue-600 dark:text-blue-400",
   group: "bg-green-500/10 text-green-600 dark:text-green-400",
+  media: "bg-sky-500/10 text-sky-600 dark:text-sky-400",
   menus: "bg-orange-500/10 text-orange-600 dark:text-orange-400",
+  religious: "bg-indigo-500/10 text-indigo-600 dark:text-indigo-400",
+  search: "bg-teal-500/10 text-teal-600 dark:text-teal-400",
   system: "bg-red-500/10 text-red-600 dark:text-red-400",
+  text: "bg-slate-500/10 text-slate-600 dark:text-slate-400",
   tools: "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400",
-  "religious.js": "bg-indigo-500/10 text-indigo-600 dark:text-indigo-400",
 };
 
 export function CommandsPanel({
@@ -125,7 +121,7 @@ export function CommandsPanel({
                         categoryColors[cmd.category] || "bg-muted text-muted-foreground"
                       }`}
                     >
-                      {categoryIcons[cmd.category] || cmd.category.charAt(0).toUpperCase()}
+                      {cmd.category.charAt(0).toUpperCase()}
                     </span>
                     <code className="text-sm font-mono font-semibold" data-testid={`text-cmd-${cmd.name}`}>
                       {prefix}{cmd.name}

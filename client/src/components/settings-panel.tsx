@@ -19,7 +19,9 @@ import type { BotConfig } from "@shared/schema";
 const modes = [
   { value: "public", label: "Public", desc: "Everyone can use the bot" },
   { value: "private", label: "Private", desc: "Owner only" },
+  { value: "silent", label: "Silent", desc: "Bot runs but does not respond" },
   { value: "group-only", label: "Group Only", desc: "Works in groups only" },
+  { value: "maintenance", label: "Maintenance", desc: "Under maintenance, limited access" },
 ];
 
 export function SettingsPanel({ config }: { config?: BotConfig }) {

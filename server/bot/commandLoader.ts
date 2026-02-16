@@ -43,6 +43,32 @@ class CommandLoader {
     return undefined;
   }
 
+  private async loadCommandFile(filePath: string, category: string, fileName: string) {
+    try {
+      const mod = await import(filePath);
+      const cmd = mod.default || mod;
+
+      if (!cmd || !cmd.name) return;
+
+      const command: BotCommand = {
+        name: cmd.name.toLowerCase(),
+        alias: (cmd.alias || []).map((a: string) => a.toLowerCase()),
+        category: cmd.category || category,
+        description: cmd.description || "No description",
+        ownerOnly: cmd.ownerOnly || false,
+        execute: cmd.execute,
+      };
+
+      this.commands.set(command.name, command);
+
+      for (const alias of command.alias) {
+        this.aliases.set(alias, command.name);
+      }
+    } catch (err: any) {
+      botConnection.addLog("warn", `Failed to load ${category}/${fileName}: ${err.message}`);
+    }
+  }
+
   async loadCommands() {
     this.commands.clear();
     this.aliases.clear();
@@ -52,45 +78,27 @@ class CommandLoader {
       return;
     }
 
-    const categories = fs.readdirSync(COMMANDS_DIR).filter((f) => {
-      return fs.statSync(path.join(COMMANDS_DIR, f)).isDirectory();
-    });
+    const entries = fs.readdirSync(COMMANDS_DIR);
 
-    for (const category of categories) {
-      const catDir = path.join(COMMANDS_DIR, category);
-      const files = fs.readdirSync(catDir).filter((f) => f.endsWith(".js"));
+    for (const entry of entries) {
+      const entryPath = path.join(COMMANDS_DIR, entry);
+      const stat = fs.statSync(entryPath);
 
-      for (const file of files) {
-        try {
-          const filePath = path.join(catDir, file);
-          const mod = await import(filePath);
-          const cmd = mod.default || mod;
-
-          if (!cmd || !cmd.name) continue;
-
-          const command: BotCommand = {
-            name: cmd.name.toLowerCase(),
-            alias: (cmd.alias || []).map((a: string) => a.toLowerCase()),
-            category: cmd.category || category,
-            description: cmd.description || "No description",
-            ownerOnly: cmd.ownerOnly || false,
-            execute: cmd.execute,
-          };
-
-          this.commands.set(command.name, command);
-
-          for (const alias of command.alias) {
-            this.aliases.set(alias, command.name);
-          }
-        } catch (err: any) {
-          botConnection.addLog("warn", `Failed to load ${category}/${file}: ${err.message}`);
+      if (stat.isDirectory()) {
+        const categoryName = entry.replace(/\.js$/, "");
+        const files = fs.readdirSync(entryPath).filter((f) => f.endsWith(".js"));
+        for (const file of files) {
+          await this.loadCommandFile(path.join(entryPath, file), categoryName, file);
         }
+      } else if (entry.endsWith(".js")) {
+        await this.loadCommandFile(entryPath, "general", entry);
       }
     }
 
+    const categories = new Set(Array.from(this.commands.values()).map(c => c.category));
     botConnection.addLog(
       "info",
-      `Loaded ${this.commands.size} commands from ${categories.length} categories`
+      `Loaded ${this.commands.size} commands from ${categories.size} categories`
     );
   }
 }

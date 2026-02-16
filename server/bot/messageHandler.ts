@@ -81,6 +81,24 @@ export function setupMessageHandler() {
       const command = commandLoader.findCommand(cmdName);
       if (!command) continue;
 
+      if (config.mode === "silent") {
+        continue;
+      }
+
+      if (config.mode === "maintenance" && !isOwner(msg, config)) {
+        const sock = botConnection.getSocket();
+        if (sock) {
+          await sock.sendMessage(msg.key.remoteJid, {
+            text: "Bot is under maintenance. Please try again later.",
+          }, { quoted: msg });
+        }
+        continue;
+      }
+
+      if (config.mode === "group-only" && !msg.key.remoteJid?.endsWith("@g.us")) {
+        continue;
+      }
+
       if (config.mode === "private" && !isOwner(msg, config)) {
         botConnection.addLog("info", `Blocked (private mode): ${cmdName} from ${msg.key.remoteJid}`);
         continue;

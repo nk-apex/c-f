@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const botConfigSchema = z.object({
-  prefix: z.string().min(1).max(3),
+  prefix: z.string().min(1).max(5),
   mode: z.enum(["public", "private", "silent", "group-only", "maintenance"]),
   ownerNumber: z.string(),
   botName: z.string(),
@@ -10,8 +10,8 @@ export const botConfigSchema = z.object({
 export type BotConfig = z.infer<typeof botConfigSchema>;
 
 export interface BotStatus {
-  state: "disconnected" | "connecting" | "qr" | "connected";
-  qrCode: string | null;
+  state: "disconnected" | "connecting" | "pairing" | "connected";
+  pairingCode: string | null;
   phoneNumber: string | null;
   name: string | null;
   uptime: number;
