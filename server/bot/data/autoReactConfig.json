@@ -1,0 +1,22 @@
+{
+  "enabled": true,
+  "mode": "fixed",
+  "fixedEmoji": "🦊",
+  "reactions": [
+    "🦊",
+    "❤️",
+    "👍",
+    "🔥",
+    "🎉",
+    "😂",
+    "😮",
+    "👏",
+    "🎯",
+    "💯"
+  ],
+  "totalReacted": 0,
+  "lastReacted": null,
+  "settings": {
+    "rateLimitDelay": 500
+  }
+}

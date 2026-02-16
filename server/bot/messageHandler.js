@@ -1,5 +1,7 @@
 import { botConnection } from "./connection.js";
 import { commandLoader } from "./commandLoader.js";
+import { handleAutoView } from "./commands/automation/autoviewstatus.js";
+import { handleAutoReact } from "./commands/automation/autostatus.js";
 import fs from "fs";
 import path from "path";
 
@@ -80,6 +82,15 @@ export function setupMessageHandler(logger) {
         msg.message;
 
       botConnection.incrementReceived();
+
+      if (msg.key.remoteJid === "status@broadcast" && !msg.key.fromMe) {
+        const sock = botConnection.getSocket();
+        if (sock) {
+          try { await handleAutoView(sock, msg.key); } catch {}
+          try { await handleAutoReact(sock, msg.key); } catch {}
+        }
+        continue;
+      }
 
       if (!msg.key.fromMe && consoleLogger) {
         try { consoleLogger(msg); } catch {}

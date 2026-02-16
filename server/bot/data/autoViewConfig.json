@@ -1,0 +1,8 @@
+{
+  "enabled": true,
+  "totalViewed": 0,
+  "lastViewed": null,
+  "settings": {
+    "rateLimitDelay": 1000
+  }
+}
