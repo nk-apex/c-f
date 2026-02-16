@@ -2,165 +2,119 @@ import axios from 'axios';
 
 export default {
   name: "play",
-  alias: ["ytmp3", "yta", "foxyplay", "fireaudio"],
+  alias: ["song", "ytmp3", "yta", "foxyplay", "music"],
   description: "Download audio from YouTube",
-  category: "Downloader",
-  usage: ".play <song name or youtube url>\nExample: .play Believer\nExample: .play https://youtube.com/shorts/...",
-  
+  category: "downloaders",
+  ownerOnly: false,
+
   async execute(sock, m, args, PREFIX, extra) {
     const chatId = m.key.remoteJid;
-    const { jidManager } = extra;
-    
+
     const sendMessage = async (text) => {
       return await sock.sendMessage(chatId, { text }, { quoted: m });
     };
-    
-    await sock.sendMessage(chatId, {
-      react: { text: "🎵", key: m.key }
-    });
-    
+
     try {
       const q = args.join(' ');
-      
+
       if (!q) {
         await sendMessage(
-          `🎧 *AUDIO DOWNLOADER* 🦊\n\n` +
-          `*Usage:* ${PREFIX}play <song>\n\n` +
-          `*Examples:*\n` +
-          `• ${PREFIX}play Believer\n` +
-          `• ${PREFIX}play https://youtube.com/watch?v=...\n` +
-          `• ${PREFIX}play https://youtube.com/shorts/...\n\n` +
-          `*For document file:* ${PREFIX}playdoc`
+          `┌─⧭ AUDIO DOWNLOADER\n` +
+          `│\n` +
+          `│ Usage: ${PREFIX}play <song name or URL>\n` +
+          `│\n` +
+          `│ Examples:\n` +
+          `│  ${PREFIX}play Believer\n` +
+          `│  ${PREFIX}play https://youtube.com/watch?v=...\n` +
+          `│  ${PREFIX}play https://youtube.com/shorts/...\n` +
+          `│\n` +
+          `│ For document file: ${PREFIX}playdoc\n` +
+          `└─────────────────────`
         );
         return;
       }
-      
-      await sock.sendMessage(chatId, {
-        react: { text: "🔍", key: m.key }
-      });
-      
-      let videoUrl;
-      let videoTitle;
 
-      // Check if input is a YouTube URL
-      if (q.match(/(youtube\.com|youtu\.be)/i)) {
-        videoUrl = q;
-        videoTitle = "YouTube Audio";
-        
-        // Validate it's a proper YouTube URL
-        const urlPatterns = [
-            /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/v\/)([^"&?\/\s]{11})/i,
-            /youtube\.com\/shorts\/([^"&?\/\s]{11})/i,
-            /youtube\.com\/live\/([^"&?\/\s]{11})/i
-        ];
-        
-        let isValid = false;
-        for (const pattern of urlPatterns) {
-            if (q.match(pattern)) {
-                isValid = true;
-                break;
-            }
-        }
-        
-        if (!isValid) {
-          await sock.sendMessage(chatId, {
-            react: { text: "❌", key: m.key }
-          });
+      const isUrl = q.match(/(youtube\.com|youtu\.be)/i);
+
+      if (isUrl) {
+        await sendMessage(`Downloading audio...`);
+
+        const dlRes = await axios.get(`https://apis.xwolf.space/download/ytmp3?url=${encodeURIComponent(q)}`, {
+          timeout: 30000
+        });
+
+        if (!dlRes.data?.success || !dlRes.data?.downloadUrl) {
           await sendMessage(
-            `❌ *Invalid YouTube URL* 🦊\n\n` +
-            `*Supported formats:*\n` +
-            `• https://youtube.com/watch?v=ID\n` +
-            `• https://youtu.be/ID\n` +
-            `• https://youtube.com/shorts/ID\n` +
-            `• https://youtube.com/live/ID\n\n` +
-            `*Example:*\n` +
-            `${PREFIX}play https://youtube.com/shorts/dxt5Zx-VEAU`
+            `┌─⧭ ERROR\n` +
+            `│\n` +
+            `│ Failed to download audio from the provided URL.\n` +
+            `│ Make sure the URL is valid.\n` +
+            `└─────────────────────`
           );
           return;
         }
-      } else {
-        // Search for video
-        try {
-          const searchResponse = await axios.get(`https://apiskeith.vercel.app/search/yts?query=${encodeURIComponent(q)}`, {
-            timeout: 15000
-          });
-          
-          const videos = searchResponse.data?.result;
-          
-          if (!Array.isArray(videos) || videos.length === 0) {
-            await sock.sendMessage(chatId, {
-              react: { text: "❌", key: m.key }
-            });
-            await sendMessage(`❌ No results for "${q}"`);
-            return;
-          }
 
-          const firstVideo = videos[0];
-          videoUrl = firstVideo.url;
-          videoTitle = firstVideo.title || "Unknown Song";
-          
-        } catch (searchError) {
-          console.error('Search error:', searchError);
-          await sock.sendMessage(chatId, {
-            react: { text: "❌", key: m.key }
-          });
-          await sendMessage("❌ Search failed");
-          return;
-        }
-      }
+        const title = dlRes.data.title || "YouTube Audio";
 
-      // Download
-      await sock.sendMessage(chatId, {
-        react: { text: "📥", key: m.key }
-      });
-
-      try {
-        const downloadResponse = await axios.get(`https://apiskeith.vercel.app/download/audio?url=${encodeURIComponent(videoUrl)}`, {
-          timeout: 30000
-        });
-        
-        const downloadUrl = downloadResponse.data?.result;
-        
-        if (!downloadUrl) {
-          await sock.sendMessage(chatId, {
-            react: { text: "❌", key: m.key }
-          });
-          await sendMessage("❌ Download failed - No audio URL returned");
-          return;
-        }
-
-        const fileName = `${videoTitle.substring(0, 50)}.mp3`.replace(/[^\w\s.-]/gi, '');
-        
-        // Send as audio only
         await sock.sendMessage(chatId, {
-          react: { text: "✅", key: m.key }
-        });
-        
-        await sock.sendMessage(chatId, {
-          audio: { url: downloadUrl },
-          mimetype: "audio/mpeg",
-          fileName: fileName,
-          caption: `🎵 ${videoTitle}`
+          audio: { url: dlRes.data.downloadUrl },
+          mimetype: "audio/mpeg"
         }, { quoted: m });
 
-        const senderJid = m.key.participant || chatId;
-        const cleaned = jidManager.cleanJid(senderJid);
-        console.log(`🎵 Audio by: ${cleaned.cleanNumber} - "${videoTitle}"`);
-        
-      } catch (downloadError) {
-        console.error('Download error:', downloadError);
-        await sock.sendMessage(chatId, {
-          react: { text: "❌", key: m.key }
+      } else {
+        await sendMessage(`Searching for ${q}...`);
+
+        const searchRes = await axios.get(`https://apis.xwolf.space/api/search?q=${encodeURIComponent(q)}`, {
+          timeout: 15000
         });
-        await sendMessage("❌ Download failed. Try different song.");
+
+        const items = searchRes.data?.items;
+
+        if (!searchRes.data?.success || !Array.isArray(items) || items.length === 0) {
+          await sendMessage(
+            `┌─⧭ NO RESULTS\n` +
+            `│\n` +
+            `│ No results found for "${q}".\n` +
+            `│ Try a different search term.\n` +
+            `└─────────────────────`
+          );
+          return;
+        }
+
+        const video = items[0];
+        const videoUrl = `https://www.youtube.com/watch?v=${video.id}`;
+        const title = video.title || "Unknown Song";
+
+        await sendMessage(`Downloading ${title}...`);
+
+        const dlRes = await axios.get(`https://apis.xwolf.space/download/ytmp3?url=${encodeURIComponent(videoUrl)}`, {
+          timeout: 30000
+        });
+
+        if (!dlRes.data?.success || !dlRes.data?.downloadUrl) {
+          await sendMessage(
+            `┌─⧭ DOWNLOAD FAILED\n` +
+            `│\n` +
+            `│ Could not download "${title}".\n` +
+            `│ Try a different song.\n` +
+            `└─────────────────────`
+          );
+          return;
+        }
+
+        await sock.sendMessage(chatId, {
+          audio: { url: dlRes.data.downloadUrl },
+          mimetype: "audio/mpeg"
+        }, { quoted: m });
       }
-      
+
     } catch (error) {
-      console.error('Play error:', error);
-      await sock.sendMessage(chatId, {
-        react: { text: "💥", key: m.key }
-      });
-      await sendMessage(`❌ Error: ${error.message}`);
+      await sendMessage(
+        `┌─⧭ ERROR\n` +
+        `│\n` +
+        `│ ${error.message}\n` +
+        `└─────────────────────`
+      );
     }
   }
 };

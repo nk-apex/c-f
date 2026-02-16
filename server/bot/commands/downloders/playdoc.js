@@ -2,163 +2,124 @@ import axios from 'axios';
 
 export default {
   name: "playdoc",
-  alias: ["ytdoc", "audiodoc", "mp3doc", "foxyplaydoc"],
+  alias: ["ytdoc", "audiodoc", "mp3doc"],
   description: "Download audio from YouTube as document file",
-  category: "Downloader",
-  usage: ".playdoc <song name or youtube url>\nExample: .playdoc Believer",
-  
+  category: "downloaders",
+  ownerOnly: false,
+
   async execute(sock, m, args, PREFIX, extra) {
     const chatId = m.key.remoteJid;
-    const { jidManager } = extra;
-    
+
     const sendMessage = async (text) => {
       return await sock.sendMessage(chatId, { text }, { quoted: m });
     };
-    
-    // Start reaction
-    await sock.sendMessage(chatId, {
-      react: { text: "📁", key: m.key }
-    });
-    
+
     try {
       const q = args.join(' ');
-      
+
       if (!q) {
         await sendMessage(
-          `📁 *AUDIO DOCUMENT DOWNLOADER* 🦊\n\n` +
-          `*Usage:* ${PREFIX}playdoc <song>\n\n` +
-          `*Examples:*\n` +
-          `• ${PREFIX}playdoc Believer\n` +
-          `• ${PREFIX}playdoc https://youtube.com/...\n` +
-          `• ${PREFIX}playdoc https://youtube.com/shorts/...\n\n` +
-          `*Downloads as MP3 document file*`
+          `┌─⧭ AUDIO DOCUMENT DOWNLOADER\n` +
+          `│\n` +
+          `│ Usage: ${PREFIX}playdoc <song name or URL>\n` +
+          `│\n` +
+          `│ Examples:\n` +
+          `│  ${PREFIX}playdoc Believer\n` +
+          `│  ${PREFIX}playdoc https://youtube.com/watch?v=...\n` +
+          `│  ${PREFIX}playdoc https://youtube.com/shorts/...\n` +
+          `│\n` +
+          `│ Downloads as MP3 document file\n` +
+          `└─────────────────────`
         );
         return;
       }
-      
-      // Searching
-      await sock.sendMessage(chatId, {
-        react: { text: "🔍", key: m.key }
-      });
-      
-      let videoUrl;
-      let videoTitle;
-      let videoId;
 
-      // Check if input is a YouTube URL
-      if (q.match(/(youtube\.com|youtu\.be)/i)) {
-        videoUrl = q;
-        
-        // Extract video ID from various YouTube URL formats
-        const urlPatterns = [
-            /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/v\/)([^"&?\/\s]{11})/i,
-            /youtube\.com\/shorts\/([^"&?\/\s]{11})/i,
-            /youtube\.com\/live\/([^"&?\/\s]{11})/i,
-            /youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)([^"&?\/\s]{11})/i
-        ];
-        
-        for (const pattern of urlPatterns) {
-            const match = q.match(pattern);
-            if (match && match[1]) {
-                videoId = match[1];
-                break;
-            }
-        }
-        
-        if (!videoId) {
-          await sock.sendMessage(chatId, {
-            react: { text: "❌", key: m.key }
-          });
-          await sendMessage("❌ Invalid YouTube URL format\n\nSupported:\n• youtube.com/watch?v=...\n• youtu.be/...\n• youtube.com/shorts/...\n• youtube.com/live/...");
-          return;
-        }
-        
-        videoTitle = "YouTube Audio";
-      } else {
-        // Search for video
-        try {
-          const searchResponse = await axios.get(`https://apiskeith.vercel.app/search/yts?query=${encodeURIComponent(q)}`, {
-            timeout: 15000
-          });
-          
-          const videos = searchResponse.data?.result;
-          
-          if (!Array.isArray(videos) || videos.length === 0) {
-            await sock.sendMessage(chatId, {
-              react: { text: "❌", key: m.key }
-            });
-            await sendMessage(`❌ No results for "${q}"`);
-            return;
-          }
+      const isUrl = q.match(/(youtube\.com|youtu\.be)/i);
 
-          const firstVideo = videos[0];
-          videoUrl = firstVideo.url;
-          videoTitle = firstVideo.title || "Unknown Song";
-          
-        } catch (searchError) {
-          console.error('Search error:', searchError);
-          await sock.sendMessage(chatId, {
-            react: { text: "❌", key: m.key }
-          });
-          await sendMessage("❌ Search failed. Try again.");
-          return;
-        }
-      }
+      if (isUrl) {
+        await sendMessage(`Downloading audio document...`);
 
-      // Download
-      await sock.sendMessage(chatId, {
-        react: { text: "📥", key: m.key }
-      });
-
-      try {
-        const downloadResponse = await axios.get(`https://apiskeith.vercel.app/download/audio?url=${encodeURIComponent(videoUrl)}`, {
+        const dlRes = await axios.get(`https://apis.xwolf.space/download/dlmp3?url=${encodeURIComponent(q)}`, {
           timeout: 30000
         });
-        
-        const downloadUrl = downloadResponse.data?.result;
-        
-        if (!downloadUrl) {
-          await sock.sendMessage(chatId, {
-            react: { text: "❌", key: m.key }
-          });
-          await sendMessage("❌ Download failed - API returned no audio URL");
+
+        if (!dlRes.data?.success || !dlRes.data?.downloadUrl) {
+          await sendMessage(
+            `┌─⧭ ERROR\n` +
+            `│\n` +
+            `│ Failed to download audio from the provided URL.\n` +
+            `│ Make sure the URL is valid.\n` +
+            `└─────────────────────`
+          );
           return;
         }
 
-        // Clean filename
-        const fileName = `${videoTitle.substring(0, 50)}.mp3`.replace(/[^\w\s.-]/gi, '');
-        
-        // Send as document
+        const title = dlRes.data.title || "YouTube Audio";
+        const fileName = `${title.substring(0, 50).replace(/[^\w\s.-]/gi, '')}.mp3`;
+
         await sock.sendMessage(chatId, {
-          react: { text: "✅", key: m.key }
-        });
-        
-        await sock.sendMessage(chatId, {
-          document: { url: downloadUrl },
+          document: { url: dlRes.data.downloadUrl },
           mimetype: "audio/mpeg",
-          fileName: fileName,
-          caption: `📁 ${videoTitle}`
+          fileName: fileName
         }, { quoted: m });
 
-        // Log
-        const senderJid = m.key.participant || chatId;
-        const cleaned = jidManager.cleanJid(senderJid);
-        console.log(`📁 Audio doc by: ${cleaned.cleanNumber} - "${videoTitle}"`);
-        
-      } catch (downloadError) {
-        console.error('Download error:', downloadError);
-        await sock.sendMessage(chatId, {
-          react: { text: "❌", key: m.key }
+      } else {
+        await sendMessage(`Searching for ${q}...`);
+
+        const searchRes = await axios.get(`https://apis.xwolf.space/api/search?q=${encodeURIComponent(q)}`, {
+          timeout: 15000
         });
-        await sendMessage("❌ Download failed. Try different song.");
+
+        const items = searchRes.data?.items;
+
+        if (!searchRes.data?.success || !Array.isArray(items) || items.length === 0) {
+          await sendMessage(
+            `┌─⧭ NO RESULTS\n` +
+            `│\n` +
+            `│ No results found for "${q}".\n` +
+            `│ Try a different search term.\n` +
+            `└─────────────────────`
+          );
+          return;
+        }
+
+        const video = items[0];
+        const videoUrl = `https://www.youtube.com/watch?v=${video.id}`;
+        const title = video.title || "Unknown Song";
+
+        await sendMessage(`Downloading ${title}...`);
+
+        const dlRes = await axios.get(`https://apis.xwolf.space/download/dlmp3?url=${encodeURIComponent(videoUrl)}`, {
+          timeout: 30000
+        });
+
+        if (!dlRes.data?.success || !dlRes.data?.downloadUrl) {
+          await sendMessage(
+            `┌─⧭ DOWNLOAD FAILED\n` +
+            `│\n` +
+            `│ Could not download "${title}".\n` +
+            `│ Try a different song.\n` +
+            `└─────────────────────`
+          );
+          return;
+        }
+
+        const fileName = `${title.substring(0, 50).replace(/[^\w\s.-]/gi, '')}.mp3`;
+
+        await sock.sendMessage(chatId, {
+          document: { url: dlRes.data.downloadUrl },
+          mimetype: "audio/mpeg",
+          fileName: fileName
+        }, { quoted: m });
       }
-      
+
     } catch (error) {
-      console.error('Playdoc error:', error);
-      await sock.sendMessage(chatId, {
-        react: { text: "💥", key: m.key }
-      });
-      await sendMessage(`❌ Error: ${error.message}`);
+      await sendMessage(
+        `┌─⧭ ERROR\n` +
+        `│\n` +
+        `│ ${error.message}\n` +
+        `└─────────────────────`
+      );
     }
   }
 };

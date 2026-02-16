@@ -2,7 +2,7 @@
 
 ## Overview
 
-Foxy Bot is a WhatsApp bot that runs entirely in the terminal/console. It connects to WhatsApp using the Baileys library with two authentication methods: **pair code** (phone number → 8-digit code from WhatsApp) or **session ID** (FOXY:~<base64> format). The bot has 123 commands across 24 categories.
+Foxy Bot is a WhatsApp bot that runs entirely in the terminal/console. It connects to WhatsApp using the Baileys library with two authentication methods: **pair code** (phone number → 8-digit code from WhatsApp) or **session ID** (FOXY:~<base64> format). The bot has 159 commands across 25 categories.
 
 ## User Preferences
 
@@ -39,9 +39,8 @@ Files use plain JavaScript (.js extension), run via tsx.
 ### Bot Modes
 - public: Everyone can use the bot
 - private: Owner only
-- silent: Bot runs but does not respond
 - group-only: Works in groups only
-- maintenance: Under maintenance, limited access (owner can still use)
+- dms-only: DMs only, ignores groups
 
 ### Bot Command Structure
 Commands are JavaScript files in `server/bot/commands/{category}/` folders. Each exports:
@@ -58,8 +57,19 @@ The `extra` parameter includes:
 ### Menu Format (FOX-CORE)
 Menu uses ┌─⧭ box-drawing style with sections: FOX-CORE header, AI MODULES, MEDIA HUB, AUTO PILOT, PLAYGROUND, UTILITIES, GROUP OPS, TOOLKIT, SYSTEM, INFO.
 
+### Download APIs (xwolf)
+- Search: `https://apis.xwolf.space/api/search?q=QUERY` → {items: [{title, id, size, duration}]}
+- YT MP3: `https://apis.xwolf.space/download/ytmp3?url=URL` → {downloadUrl, title, streamUrl}
+- DL MP3: `https://apis.xwolf.space/download/dlmp3?url=URL` → same as ytmp3
+- MP4: `https://apis.xwolf.space/download/mp4?url=URL` → {downloadUrl, title} (slower, 60s timeout)
+
+### Owner Commands (server/bot/commands/owner/)
+Core Management: setbotname, resetbotname, setowner, resetowner, iamowner, about, owner, block, unblock, blockdetect, silent, anticall, mode, setfooter, repo, pair, antidelete, antideletestatus, antiedit, chatbot, shutdown
+System & Maintenance: restart, workingreload, reloadenv, getsettings, setsetting, test, disk, hostip, findcommands, latestupdates, panel, debugchat
+Privacy Controls: online, privacy, receipt, profilepic, viewer
+
 ### Data Storage
-- **Bot Config**: JSON file at `server/bot/bot_config.json`
+- **Bot Config**: JSON file at `server/bot/bot_config.json` (prefix, mode, ownerNumber, botName, plus toggle flags: antidelete, antiedit, anticall, chatbot, readReceipts, autoStatusView, footer)
 - **Auth Session**: Filesystem at `session/` directory using Baileys' `useMultiFileAuthState`
 - **No database required** for core functionality
 
