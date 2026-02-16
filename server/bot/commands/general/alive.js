@@ -1,7 +1,7 @@
 export default {
-  name: "uptime",
-  alias: ["runtime", "online"],
-  description: "Check bot uptime",
+  name: "alive",
+  alias: ["bot", "isalive"],
+  description: "Check if bot is alive",
   category: "general",
   ownerOnly: false,
 
@@ -11,7 +11,7 @@ export default {
     const start = Date.now();
 
     const sentMsg = await sock.sendMessage(chatId, {
-      text: `\u250C\u2500\u29ED *Checking...*\n\u2502 Calculating uptime...\n\u2514\u2500\u29ED`
+      text: `\u250C\u2500\u29ED *Checking...*\n\u2502 Testing connection...\n\u2514\u2500\u29ED`
     }, { quoted: m });
 
     const latency = Date.now() - start;
@@ -27,11 +27,8 @@ export default {
     if (hours > 0) uptimeStr += `${hours}h `;
     uptimeStr += `${minutes}m ${seconds}s`;
 
-    const mem = process.memoryUsage();
-    const usedMB = Math.round(mem.rss / 1024 / 1024);
-
     await sock.sendMessage(chatId, {
-      text: `\u250C\u2500\u29ED *Foxy Uptime*\n\u2502 Status: Online\n\u2502 Uptime: ${uptimeStr}\n\u2502 Memory: ${usedMB} MB\n\u2502 Speed: ${latency}ms\n\u2514\u2500\u29ED`,
+      text: `\u250C\u2500\u29ED *Foxy is Alive*\n\u2502 Status: Running\n\u2502 Uptime: ${uptimeStr}\n\u2502 Speed: ${latency}ms\n\u2514\u2500\u29ED`,
       edit: sentMsg.key
     });
   }

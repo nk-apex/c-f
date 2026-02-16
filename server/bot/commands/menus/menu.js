@@ -84,6 +84,8 @@ function getSystemInfo(startTime) {
     return { usedMB, totalGB, ramPercent, ramBar, platform, uptimeStr };
 }
 
+const READMORE = '\u200E'.repeat(4001);
+
 function buildFoxCoreCaption(prefix, version, context, timeInfo, sysInfo, isOwner, ownerNumber, mode) {
     const ownerDisplay = ownerNumber ? `+${ownerNumber}` : 'Not Set!';
     const cmdCount = context.commands?.size || 0;
@@ -104,7 +106,7 @@ function buildFoxCoreCaption(prefix, version, context, timeInfo, sysInfo, isOwne
 \u251C Usage: ${sysInfo.usedMB} MB of ${sysInfo.totalGB} GB
 \u251C RAM: ${sysInfo.ramBar} ${sysInfo.ramPercent}%
 \u2514\u2500\u29ED
-
+${READMORE}
 \u250C\u2500\u29ED AI MODULES
 \u251C\u2500 character
 \u251C\u2500 flux
@@ -263,8 +265,8 @@ export default {
         const sysInfo = getSystemInfo(startTime);
 
         const speedStart = Date.now();
-        const loadingMsg = await sock.sendMessage(chatId, {
-            text: `\u250C\u2500\u29ED *Loading Menu...* \u29ED\u2500\u2510\n\u2502 Please wait...\n\u2514\u2500\u29ED\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u29ED\u2500\u2518`
+        await sock.sendMessage(chatId, {
+            text: `Loading menu, please wait...`
         }, { quoted: msg });
         const speedEnd = Date.now();
         sysInfo.speed = speedEnd - speedStart;
@@ -283,15 +285,7 @@ export default {
             } else {
                 await sock.sendMessage(chatId, { text: caption }, { quoted: msg });
             }
-
-            try {
-                await sock.sendMessage(chatId, { delete: loadingMsg.key });
-            } catch {}
-
         } catch (error) {
-            try {
-                await sock.sendMessage(chatId, { delete: loadingMsg.key });
-            } catch {}
             await sock.sendMessage(chatId, { text: caption }, { quoted: msg });
         }
     }
