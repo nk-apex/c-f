@@ -15,8 +15,8 @@ const LOGO_EFFECTS = [
 
 export default {
   name: "logo3d",
-  alias: ["3dlogo", "logoeffect", "metallogo"],
-  description: "Generate 3D logo text effects",
+  alias: ["3dlogo", "logoeffect", "alllogo"],
+  description: "Generate 3D logo text effects (random or by ID)",
   category: "ephoto",
   ownerOnly: false,
 

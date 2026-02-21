@@ -47,8 +47,8 @@ const TD_EFFECTS = [
 
 export default {
   name: "3deffect",
-  alias: ["3de", "threedeffect", "3dtexteffect"],
-  description: "Generate 3D text effects",
+  alias: ["3de", "all3d", "threedeffect"],
+  description: "Generate 3D text effects (random or by ID)",
   category: "ephoto",
   ownerOnly: false,
 

@@ -2,7 +2,7 @@
 
 ## Overview
 
-Foxy Bot is a WhatsApp bot that runs entirely in the terminal/console. It connects to WhatsApp using the Baileys library with two authentication methods: **pair code** (phone number → 8-digit code from WhatsApp) or **session ID** (FOXY:~<base64> format). The bot has 204 commands across 25 categories.
+Foxy Bot is a WhatsApp bot that runs entirely in the terminal/console. It connects to WhatsApp using the Baileys library with two authentication methods: **pair code** (phone number → 8-digit code from WhatsApp) or **session ID** (FOXY:~<base64> format). The bot has 263 commands across 25 categories.
 
 ## User Preferences
 
@@ -59,12 +59,9 @@ Menu uses ┌─⧭ box-drawing style with sections: FOX-CORE header, AI MODULES
 
 ### Ephoto 360 Commands (server/bot/commands/ephoto/)
 - **ephoto.js**: Master command - `ephoto <id> <text>` - Lists all 59 effects (neon + 3D)
-- **neon.js**: 19 neon text effects - `neon <text>` (random) or `neon <id> <text>`
-- **3deffect.js**: 40 3D text effects - `3deffect <text>` (random) or `3deffect <id> <text>`
-- **glow.js**: 7 glow effects - `glow <text>` (random) or `glow <id> <text>`
-- **logo3d.js**: 8 3D logo effects - `logo3d <text>` (random) or `logo3d <id> <text>`
-- **glitch.js**: 4 glitch/hacker effects - `glitch <text>` (random) or `glitch <id> <text>`
-- **christmas.js**: 7 holiday effects - `christmas <text>` (random) or `christmas <id> <text>`
+- **19 Neon effect commands**: neontext, colorfulglow, advancedglow, neononline, blueneon, neonlight, neonlighttext, greenneon, greenneonlight, blueneonlogo, galaxyneon, retroneon, neonsign, hackerneon, devilwings, glowtext, blackpink, neonglitch, colorfulneon
+- **40 3D effect commands**: wooden3d, cubic3d, woodentext3d, water3d, cuongthi, 3dtexteffect, graffiti3d, silver3d, 3dstyle, metal3d, ruby3d, birthday3d, metallogo, cute3d, avengers3d, hologram, gradient3d, stone3d, space3d, sand3d, gradienttext3d, lightbulb3d, snow3d, papercut3d, underwater3d, shinymetallic, gradient3dtext, beach3d, crack3d, wood3d, americanflag, sparkles3d, nigeriaflag, christmassnow, goldenglitter, decorativemetal, paint3d, glossysilver, balloon3d, comic3d
+- Each command: `<command> <text>` to generate effect
 - API: `https://apis.xwolf.space/api/ephoto-360/generate?effectId=ID&text=TEXT`
 
 ### Download APIs (xwolf)

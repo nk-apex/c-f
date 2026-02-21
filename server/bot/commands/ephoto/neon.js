@@ -26,8 +26,8 @@ const NEON_EFFECTS = [
 
 export default {
   name: "neon",
-  alias: ["neontext", "neonglow", "neoneffect"],
-  description: "Generate neon text effects",
+  alias: ["neoneffect", "allneon"],
+  description: "Generate neon text effects (random or by ID)",
   category: "ephoto",
   ownerOnly: false,
 

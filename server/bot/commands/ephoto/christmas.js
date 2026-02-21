@@ -14,8 +14,8 @@ const CHRISTMAS_EFFECTS = [
 
 export default {
   name: "christmas",
-  alias: ["xmas", "holiday", "festive", "birthday"],
-  description: "Generate Christmas and holiday text effects",
+  alias: ["xmas", "holiday", "festive", "allholiday"],
+  description: "Generate Christmas and holiday text effects (random or by ID)",
   category: "ephoto",
   ownerOnly: false,
 

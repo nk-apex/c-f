@@ -14,8 +14,8 @@ const GLOW_EFFECTS = [
 
 export default {
   name: "glow",
-  alias: ["glowtext", "gloweffect", "glowing"],
-  description: "Generate glowing text effects",
+  alias: ["gloweffect", "glowing", "allglow"],
+  description: "Generate glowing text effects (random or by ID)",
   category: "ephoto",
   ownerOnly: false,
 

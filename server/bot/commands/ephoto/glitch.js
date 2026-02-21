@@ -11,8 +11,8 @@ const GLITCH_EFFECTS = [
 
 export default {
   name: "glitch",
-  alias: ["glitchneon", "hacker", "devilwings"],
-  description: "Generate glitch and hacker style text effects",
+  alias: ["glitcheffect", "allglitch"],
+  description: "Generate glitch and hacker style text effects (random or by ID)",
   category: "ephoto",
   ownerOnly: false,
 
