@@ -30,17 +30,19 @@ export default {
       const isUrl = q.match(/(youtube\.com|youtu\.be)/i);
       const params = isUrl ? `url=${encodeURIComponent(q)}` : `q=${encodeURIComponent(q)}`;
       const dlRes = await axios.get(`${API_BASE}/download/dlmp3?${params}`, { timeout: 30000 });
+      const data = dlRes.data;
 
-      if (!dlRes.data?.success || !dlRes.data?.downloadUrl) {
+      const audioUrl = data?.downloadUrl || data?.streamUrl;
+      if (!audioUrl) {
         await react("❌");
         return;
       }
 
-      const title = dlRes.data.title || "Audio";
+      const title = data?.title || data?.searchResult?.title || "Audio";
       const fileName = `${title.substring(0, 50).replace(/[^\w\s.-]/gi, '')}.mp3`;
 
       await sock.sendMessage(chatId, {
-        document: { url: dlRes.data.downloadUrl },
+        document: { url: audioUrl },
         mimetype: "audio/mpeg",
         fileName: fileName
       }, { quoted: m });

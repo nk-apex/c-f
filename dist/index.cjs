@@ -1,8 +1,10 @@
-const { spawn } = require('child_process');
+const { spawn, execSync } = require('child_process');
 const path = require('path');
 const fs = require('fs');
 
-const envPath = path.join(__dirname, '..', '.env');
+const rootDir = path.join(__dirname, '..');
+const envPath = path.join(rootDir, '.env');
+
 if (fs.existsSync(envPath)) {
     const lines = fs.readFileSync(envPath, 'utf-8').split('\n');
     for (const line of lines) {
@@ -18,12 +20,35 @@ if (fs.existsSync(envPath)) {
     }
 }
 
-const child = spawn('npx', ['tsx', path.join(__dirname, '..', 'server', 'index.js')], {
-    stdio: 'inherit',
-    env: process.env,
-    cwd: path.join(__dirname, '..')
-});
+const serverFile = path.join(rootDir, 'server', 'index.js');
 
-child.on('exit', (code) => {
-    process.exit(code || 0);
-});
+let tsxPath;
+try {
+    tsxPath = require.resolve('tsx/cli', { paths: [rootDir] });
+} catch {
+    try {
+        tsxPath = execSync('which tsx', { encoding: 'utf-8' }).trim();
+    } catch {
+        const localTsx = path.join(rootDir, 'node_modules', '.bin', 'tsx');
+        if (fs.existsSync(localTsx)) {
+            tsxPath = localTsx;
+        }
+    }
+}
+
+if (tsxPath) {
+    const child = spawn(process.execPath, [tsxPath, serverFile], {
+        stdio: 'inherit',
+        env: process.env,
+        cwd: rootDir
+    });
+    child.on('exit', (code) => process.exit(code || 0));
+} else {
+    const child = spawn('npx', ['tsx', serverFile], {
+        stdio: 'inherit',
+        env: process.env,
+        cwd: rootDir,
+        shell: true
+    });
+    child.on('exit', (code) => process.exit(code || 0));
+}
