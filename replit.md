@@ -2,7 +2,7 @@
 
 ## Overview
 
-Foxy Bot is a WhatsApp bot that runs entirely in the terminal/console. It connects to WhatsApp using the Baileys library with two authentication methods: **pair code** (phone number → 8-digit code from WhatsApp) or **session ID** (FOXY:~<base64> format). The bot has 196 commands across 25 categories.
+Foxy Bot is a WhatsApp bot that runs entirely in the terminal/console. It connects to WhatsApp using the Baileys library with two authentication methods: **pair code** (phone number → 8-digit code from WhatsApp) or **session ID** (FOXY:~<base64> format). The bot has 204 commands across 25 categories.
 
 ## User Preferences
 
@@ -56,6 +56,16 @@ The `extra` parameter includes:
 
 ### Menu Format (FOX-CORE)
 Menu uses ┌─⧭ box-drawing style with sections: FOX-CORE header, AI MODULES, MEDIA HUB, AUTO PILOT, PLAYGROUND, UTILITIES, GROUP OPS, TOOLKIT, SYSTEM, INFO.
+
+### Ephoto 360 Commands (server/bot/commands/ephoto/)
+- **ephoto.js**: Master command - `ephoto <id> <text>` - Lists all 59 effects (neon + 3D)
+- **neon.js**: 19 neon text effects - `neon <text>` (random) or `neon <id> <text>`
+- **3deffect.js**: 40 3D text effects - `3deffect <text>` (random) or `3deffect <id> <text>`
+- **glow.js**: 7 glow effects - `glow <text>` (random) or `glow <id> <text>`
+- **logo3d.js**: 8 3D logo effects - `logo3d <text>` (random) or `logo3d <id> <text>`
+- **glitch.js**: 4 glitch/hacker effects - `glitch <text>` (random) or `glitch <id> <text>`
+- **christmas.js**: 7 holiday effects - `christmas <text>` (random) or `christmas <id> <text>`
+- API: `https://apis.xwolf.space/api/ephoto-360/generate?effectId=ID&text=TEXT`
 
 ### Download APIs (xwolf)
 - Search: `https://apis.xwolf.space/api/search?q=QUERY` → {items: [{title, id, size, duration}]}

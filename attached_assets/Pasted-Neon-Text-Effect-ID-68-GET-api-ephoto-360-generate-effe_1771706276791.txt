@@ -1,0 +1,412 @@
+Neon Text Effect
+ID: 68
+GET
+/api/ephoto-360/generate?effectId=68&text=YOUR_TEXT
+
+
+#69
+Colorful Glowing Text Effect
+ID: 69
+GET
+/api/ephoto-360/generate?effectId=69&text=YOUR_TEXT
+
+
+#74
+Advanced Glow Effects
+ID: 74
+GET
+/api/ephoto-360/generate?effectId=74&text=YOUR_TEXT
+
+
+#78
+Neon Text Effect Online
+ID: 78
+GET
+/api/ephoto-360/generate?effectId=78&text=YOUR_TEXT
+
+
+#117
+Blue Neon Text Effect
+ID: 117
+GET
+/api/ephoto-360/generate?effectId=117&text=YOUR_TEXT
+
+
+#171
+Neon Text Effect
+ID: 171
+GET
+/api/ephoto-360/generate?effectId=171&text=YOUR_TEXT
+
+
+#200
+Neon Text Effect Light
+ID: 200
+GET
+/api/ephoto-360/generate?effectId=200&text=YOUR_TEXT
+
+
+#395
+Green Neon Text Effect
+ID: 395
+GET
+/api/ephoto-360/generate?effectId=395&text=YOUR_TEXT
+
+
+#429
+Create Light Effects Green Neon Online
+ID: 429
+GET
+/api/ephoto-360/generate?effectId=429&text=YOUR_TEXT
+
+
+#507
+Create Blue Neon Logo Online
+ID: 507
+GET
+/api/ephoto-360/generate?effectId=507&text=YOUR_TEXT
+
+
+#521
+Making Neon Light Text Effect With Galaxy Style
+ID: 521
+GET
+/api/ephoto-360/generate?effectId=521&text=YOUR_TEXT
+
+
+#538
+Free Retro Neon Text Effect Online
+ID: 538
+GET
+/api/ephoto-360/generate?effectId=538&text=YOUR_TEXT
+
+
+#591
+Create Multicolored Neon Light Signatures
+ID: 591
+GET
+/api/ephoto-360/generate?effectId=591&text=YOUR_TEXT
+
+
+#677
+Create Anonymous Hacker Avatars Cyan Neon
+ID: 677
+GET
+/api/ephoto-360/generate?effectId=677&text=YOUR_TEXT
+
+
+#683
+Neon Devil Wings Text Effect Online
+ID: 683
+GET
+/api/ephoto-360/generate?effectId=683&text=YOUR_TEXT
+
+
+#706
+Create Glowing Text Effects Online
+ID: 706
+GET
+/api/ephoto-360/generate?effectId=706&text=YOUR_TEXT
+
+
+#710
+Create A Blackpink Neon Logo Text Effect Online
+ID: 710
+GET
+/api/ephoto-360/generate?effectId=710&text=YOUR_TEXT
+
+
+#768
+Create Impressive Neon Glitch Text Effects Online
+ID: 768
+GET
+/api/ephoto-360/generate?effectId=768&text=YOUR_TEXT
+
+
+#797
+Create Colorful Neon Light Text Effects Online
+ID: 797
+GET
+/api/ephoto-360/generate?effectId=797&text=YOUR_TEXT
+
+
+3D Effects
+40
+#59
+Wooden 3D Text Effect
+ID: 59
+GET
+/api/ephoto-360/generate?effectId=59&text=YOUR_TEXT
+
+
+#88
+3D Cubic Text Effect Online
+ID: 88
+GET
+/api/ephoto-360/generate?effectId=88&text=YOUR_TEXT
+
+
+#104
+3D Wooden Text Effects Online
+ID: 104
+GET
+/api/ephoto-360/generate?effectId=104&text=YOUR_TEXT
+
+
+#126
+Water 3D Text Effect Online
+ID: 126
+GET
+/api/ephoto-360/generate?effectId=126&text=YOUR_TEXT
+
+
+#143
+Text 3D Cuong Thi
+ID: 143
+GET
+/api/ephoto-360/generate?effectId=143&text=YOUR_TEXT
+
+
+#172
+3D Text Effect
+ID: 172
+GET
+/api/ephoto-360/generate?effectId=172&text=YOUR_TEXT
+
+
+#208
+Text Graffiti 3D
+ID: 208
+GET
+/api/ephoto-360/generate?effectId=208&text=YOUR_TEXT
+
+
+#273
+3D Silver Text Effect
+ID: 273
+GET
+/api/ephoto-360/generate?effectId=273&text=YOUR_TEXT
+
+
+#274
+3D Text Effects Style
+ID: 274
+GET
+/api/ephoto-360/generate?effectId=274&text=YOUR_TEXT
+
+
+#277
+Text Metal 3D
+ID: 277
+GET
+/api/ephoto-360/generate?effectId=277&text=YOUR_TEXT
+
+
+#281
+3D Ruby Stone Text
+ID: 281
+GET
+/api/ephoto-360/generate?effectId=281&text=YOUR_TEXT
+
+
+#373
+Create Birthday Cards By 3D Names
+ID: 373
+GET
+/api/ephoto-360/generate?effectId=373&text=YOUR_TEXT
+
+
+#374
+Create Logo 3D Metal Online
+ID: 374
+GET
+/api/ephoto-360/generate?effectId=374&text=YOUR_TEXT
+
+
+#397
+Lovely Cute 3D Text Effect With Pig
+ID: 397
+GET
+/api/ephoto-360/generate?effectId=397&text=YOUR_TEXT
+
+
+#427
+Create Logo 3D Style Avengers Online
+ID: 427
+GET
+/api/ephoto-360/generate?effectId=427&text=YOUR_TEXT
+
+
+#441
+Free Create A 3D Hologram Text Effect
+ID: 441
+GET
+/api/ephoto-360/generate?effectId=441&text=YOUR_TEXT
+
+
+#476
+Create Gradient Logo 3D Online
+ID: 476
+GET
+/api/ephoto-360/generate?effectId=476&text=YOUR_TEXT
+
+
+#508
+Create 3D Stone Text Effect Online
+ID: 508
+GET
+/api/ephoto-360/generate?effectId=508&text=YOUR_TEXT
+
+
+#559
+Latest Space 3D Text Effect Online
+ID: 559
+GET
+/api/ephoto-360/generate?effectId=559&text=YOUR_TEXT
+
+
+#580
+Realistic 3D Sand Text Effect Online
+ID: 580
+GET
+/api/ephoto-360/generate?effectId=580&text=YOUR_TEXT
+
+
+#600
+Create 3D Gradient Text Effect Online
+ID: 600
+GET
+/api/ephoto-360/generate?effectId=600&text=YOUR_TEXT
+
+
+#608
+Create Realistic Vintage 3D Light Bulb
+ID: 608
+GET
+/api/ephoto-360/generate?effectId=608&text=YOUR_TEXT
+
+
+#621
+Create A Snow 3D Text Effect Free Online
+ID: 621
+GET
+/api/ephoto-360/generate?effectId=621&text=YOUR_TEXT
+
+
+#658
+Multicolor 3D Paper Cut Style Text Effect
+ID: 658
+GET
+/api/ephoto-360/generate?effectId=658&text=YOUR_TEXT
+
+
+#682
+3D Underwater Text Effect Online
+ID: 682
+GET
+/api/ephoto-360/generate?effectId=682&text=YOUR_TEXT
+
+
+#685
+Create A 3D Shiny Metallic Text Effect Online
+ID: 685
+GET
+/api/ephoto-360/generate?effectId=685&text=YOUR_TEXT
+
+
+#686
+Create 3D Gradient Text Effect Online
+ID: 686
+GET
+/api/ephoto-360/generate?effectId=686&text=YOUR_TEXT
+
+
+#688
+Create 3D Text Effect On The Beach Online
+ID: 688
+GET
+/api/ephoto-360/generate?effectId=688&text=YOUR_TEXT
+
+
+#704
+Create 3D Crack Text Effect Online
+ID: 704
+GET
+/api/ephoto-360/generate?effectId=704&text=YOUR_TEXT
+
+
+#705
+Create 3D Wood Text Effects Online Free
+ID: 705
+GET
+/api/ephoto-360/generate?effectId=705&text=YOUR_TEXT
+
+
+#725
+Free Online American Flag 3D Text Effect Generator
+ID: 725
+GET
+/api/ephoto-360/generate?effectId=725&text=YOUR_TEXT
+
+
+#727
+Create Sparkles 3D Christmas Text Effect Online
+ID: 727
+GET
+/api/ephoto-360/generate?effectId=727&text=YOUR_TEXT
+
+
+#753
+Nigeria 3D Flag Text Effect Online Free
+ID: 753
+GET
+/api/ephoto-360/generate?effectId=753&text=YOUR_TEXT
+
+
+#793
+Create A Beautiful 3D Christmas Snow Text Effect
+ID: 793
+GET
+/api/ephoto-360/generate?effectId=793&text=YOUR_TEXT
+
+
+#794
+Christmas And New Year Glittering 3D Golden Text Effect
+ID: 794
+GET
+/api/ephoto-360/generate?effectId=794&text=YOUR_TEXT
+
+
+#798
+Impressive Decorative 3D Metal Text Effect
+ID: 798
+GET
+/api/ephoto-360/generate?effectId=798&text=YOUR_TEXT
+
+
+#801
+Create 3D Colorful Paint Text Effect Online
+ID: 801
+GET
+/api/ephoto-360/generate?effectId=801&text=YOUR_TEXT
+
+
+#802
+Create Glossy Silver 3D Text Effect Online
+ID: 802
+GET
+/api/ephoto-360/generate?effectId=802&text=YOUR_TEXT
+
+
+#803
+Beautiful 3D Foil Balloon Effects For Holidays And Birthday
+ID: 803
+GET
+/api/ephoto-360/generate?effectId=803&text=YOUR_TEXT
+
+
+#817
+Create Online 3D Comic Style Text Effects
+ID: 817
+GET
+/api/ephoto-360/generate?effectId=817&text=YOUR_TEXT
