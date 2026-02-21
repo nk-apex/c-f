@@ -29,7 +29,7 @@ export default {
 
       const isUrl = q.match(/(youtube\.com|youtu\.be)/i);
       const params = isUrl ? `url=${encodeURIComponent(q)}` : `q=${encodeURIComponent(q)}`;
-      const dlRes = await axios.get(`${API_BASE}/download/mp3?${params}`, { timeout: 30000 });
+      const dlRes = await axios.get(`${API_BASE}/download/ytmp3?${params}`, { timeout: 30000 });
       const data = dlRes.data;
 
       const audioUrl = data?.downloadUrl || data?.streamUrl;
