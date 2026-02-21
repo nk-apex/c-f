@@ -73,16 +73,30 @@ Menu uses ┌─⧭ box-drawing style with sections: FOX-CORE header, AI MODULES
 - Each command: `<command> <text>` to generate effect
 - API: `https://apis.xwolf.space/api/ephoto-360/generate?effectId=ID&text=TEXT`
 
-### Download APIs (xwolf)
-- Search: `https://apis.xwolf.space/api/search?q=QUERY` → {items: [{title, id, size, duration}]}
-- YT MP3: `https://apis.xwolf.space/download/ytmp3?url=URL` → {downloadUrl, title, streamUrl}
-- DL MP3: `https://apis.xwolf.space/download/dlmp3?url=URL` → same as ytmp3
-- MP4: `https://apis.xwolf.space/download/mp4?url=URL` → {downloadUrl, title} (slower, 60s timeout)
+### Download Commands (server/bot/commands/downloders/)
+All downloaders use `https://apis.xwolf.space` API with reactions only (no processing messages):
+- **play**: Audio download via `/download/mp3` (supports `url` or `q` search)
+- **song**: Audio download via `/download/audio`
+- **playdoc**: Audio as document via `/download/dlmp3`
+- **ytmp3**: YouTube to MP3 via `/download/ytmp3`
+- **ytmp4**: YouTube to MP4 via `/download/mp4`
+- **mp3**: Direct MP3 via `/download/dlmp3`
+- **mp4**: Direct MP4 via `/download/mp4`
+- **video**: Video download via `/download/mp4`
+- **videodoc**: Video as document via `/download/mp4`
+- **7clouds**, **trailer**, **shazam**, **removebg**: Specialized downloaders
+
+### Privacy Commands (server/bot/commands/privacy/)
+- **privacy**: View all WhatsApp privacy settings (last seen, profile photo, about, online, read receipts, group add)
+- **receipt**: Toggle read receipts on/off
+- **profilepic**: Toggle who can see profile picture (all/contacts/none)
+- **viewers**: Toggle who can see WhatsApp statuses (all/contacts/none)
+- **bio**: View or set WhatsApp bio/about
+- **autobio**: Toggle auto bio with uptime (default text: "FOXY online")
 
 ### Owner Commands (server/bot/commands/owner/)
 Core Management: setbotname, resetbotname, setowner, resetowner, iamowner, about, owner, block, unblock, blockdetect, silent, anticall, mode, setfooter, repo, pair, antidelete, antideletestatus, antiedit, chatbot, shutdown
-System & Maintenance: restart, workingreload, reloadenv, getsettings, setsetting, test, disk, hostip, findcommands, latestupdates, panel, debugchat
-Privacy Controls: online, privacy, receipt, profilepic, viewer
+System & Maintenance: restart, workingreload, reloadenv, getsettings, setsetting, test, disk, hostip, findcommands, latestupdates, panel, debugchat, online
 
 ### Data Storage
 - **Bot Config**: JSON file at `server/bot/bot_config.json` (prefix, mode, ownerNumber, botName, plus toggle flags: antidelete, antiedit, anticall, chatbot, readReceipts, autoStatusView, footer)

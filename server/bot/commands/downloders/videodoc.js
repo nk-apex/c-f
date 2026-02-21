@@ -3,9 +3,9 @@ import axios from 'axios';
 const API_BASE = 'https://apis.xwolf.space';
 
 export default {
-  name: "playdoc",
-  alias: ["audiodoc", "mp3doc"],
-  description: "Download audio as document file",
+  name: "videodoc",
+  alias: ["viddoc", "mp4doc"],
+  description: "Download video as document file",
   category: "downloaders",
   ownerOnly: false,
 
@@ -20,28 +20,28 @@ export default {
       if (!q) {
         await react("❓");
         await sock.sendMessage(chatId, {
-          text: `┌─⧭ PLAYDOC\n│\n│ Usage: ${PREFIX}playdoc <song name or URL>\n│ Example: ${PREFIX}playdoc Believer\n│\n│ Downloads as MP3 document file\n└─────────────────────`
+          text: `┌─⧭ VIDEODOC\n│\n│ Usage: ${PREFIX}videodoc <video name or URL>\n│ Example: ${PREFIX}videodoc Believer\n│\n│ Downloads as MP4 document file\n└─────────────────────`
         }, { quoted: m });
         return;
       }
 
-      await react("🎵");
+      await react("🎬");
 
       const isUrl = q.match(/(youtube\.com|youtu\.be)/i);
       const params = isUrl ? `url=${encodeURIComponent(q)}` : `q=${encodeURIComponent(q)}`;
-      const dlRes = await axios.get(`${API_BASE}/download/dlmp3?${params}`, { timeout: 30000 });
+      const dlRes = await axios.get(`${API_BASE}/download/mp4?${params}`, { timeout: 60000 });
 
       if (!dlRes.data?.success || !dlRes.data?.downloadUrl) {
         await react("❌");
         return;
       }
 
-      const title = dlRes.data.title || "Audio";
-      const fileName = `${title.substring(0, 50).replace(/[^\w\s.-]/gi, '')}.mp3`;
+      const title = dlRes.data.title || "Video";
+      const fileName = `${title.substring(0, 50).replace(/[^\w\s.-]/gi, '')}.mp4`;
 
       await sock.sendMessage(chatId, {
         document: { url: dlRes.data.downloadUrl },
-        mimetype: "audio/mpeg",
+        mimetype: "video/mp4",
         fileName: fileName
       }, { quoted: m });
 

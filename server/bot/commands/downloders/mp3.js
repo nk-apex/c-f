@@ -3,9 +3,9 @@ import axios from 'axios';
 const API_BASE = 'https://apis.xwolf.space';
 
 export default {
-  name: "playdoc",
-  alias: ["audiodoc", "mp3doc"],
-  description: "Download audio as document file",
+  name: "mp3",
+  alias: ["dlmp3", "directmp3"],
+  description: "Direct MP3 download by name or URL",
   category: "downloaders",
   ownerOnly: false,
 
@@ -20,7 +20,7 @@ export default {
       if (!q) {
         await react("❓");
         await sock.sendMessage(chatId, {
-          text: `┌─⧭ PLAYDOC\n│\n│ Usage: ${PREFIX}playdoc <song name or URL>\n│ Example: ${PREFIX}playdoc Believer\n│\n│ Downloads as MP3 document file\n└─────────────────────`
+          text: `┌─⧭ MP3\n│\n│ Usage: ${PREFIX}mp3 <song name or URL>\n│ Example: ${PREFIX}mp3 Blinding Lights\n└─────────────────────`
         }, { quoted: m });
         return;
       }
@@ -36,13 +36,9 @@ export default {
         return;
       }
 
-      const title = dlRes.data.title || "Audio";
-      const fileName = `${title.substring(0, 50).replace(/[^\w\s.-]/gi, '')}.mp3`;
-
       await sock.sendMessage(chatId, {
-        document: { url: dlRes.data.downloadUrl },
-        mimetype: "audio/mpeg",
-        fileName: fileName
+        audio: { url: dlRes.data.downloadUrl },
+        mimetype: "audio/mpeg"
       }, { quoted: m });
 
       await react("✅");

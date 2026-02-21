@@ -131,9 +131,15 @@ ${READMORE}
 
 \u250C\u2500\u29ED MEDIA HUB
 \u251C\u2500 play
+\u251C\u2500 song
 \u251C\u2500 playdoc
-\u251C\u2500 7clouds
+\u251C\u2500 ytmp3
 \u251C\u2500 ytmp4
+\u251C\u2500 mp3
+\u251C\u2500 mp4
+\u251C\u2500 video
+\u251C\u2500 videodoc
+\u251C\u2500 7clouds
 \u251C\u2500 trailer
 \u251C\u2500 shazam
 \u251C\u2500 removebg
@@ -317,6 +323,15 @@ ${READMORE}
 \u251C\u2500 comic3d
 \u2514\u2500\u29ED
 
+\u250C\u2500\u29ED PRIVACY
+\u251C\u2500 privacy
+\u251C\u2500 receipt
+\u251C\u2500 profilepic
+\u251C\u2500 viewers
+\u251C\u2500 bio
+\u251C\u2500 autobio
+\u2514\u2500\u29ED
+
 \u250C\u2500\u29ED CREATIVE
 \u251C\u2500 story
 \u2514\u2500\u29ED
@@ -364,11 +379,7 @@ ${isOwner ?
 \u251C\u2500 debugchat
 \u251C\u2500 test
 \u251C\u2500 workingreload
-\u251C\u2500 online
-\u251C\u2500 privacy
-\u251C\u2500 receipt
-\u251C\u2500 profilepic
-\u251C\u2500 viewer` :
+\u251C\u2500 online` :
 '\u251C\u2500 [OWNER ONLY]'}
 \u2514\u2500\u29ED
 
