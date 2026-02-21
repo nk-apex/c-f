@@ -349,7 +349,38 @@ async function main() {
   console.log(c(C.orange, `  ┌─⧭ Loaded ${cmds.length} commands from ${Object.keys(categories).length} categories ⧭─┐`));
   console.log("");
 
-  await showMainMenu(rl);
+  const envSessionId = process.env.SESSION_ID || "";
+
+  if (envSessionId) {
+    console.log(c(C.orange, "  ┌─⧭ Auto-Connect ⧭─┐"));
+    console.log(c(C.orangeBright, "  │ SESSION_ID found in environment"));
+    console.log(c(C.orange, "  │ Connecting automatically..."));
+    console.log(c(C.orange, "  └─⧭"));
+    console.log("");
+
+    try {
+      await botConnection.connect("session", envSessionId);
+    } catch (error) {
+      console.log(c(C.red, `  Auto-connect failed: ${error.message}`));
+      console.log(c(C.gray, "  Falling back to manual connection..."));
+      console.log("");
+      await showMainMenu(rl);
+    }
+  } else if (botConnection.hasExistingSession()) {
+    console.log(c(C.orange, "  ┌─⧭ Existing session found ⧭─┐"));
+    console.log(c(C.orangeBright, "  │ Reconnecting automatically..."));
+    console.log(c(C.orange, "  └─⧭"));
+    console.log("");
+
+    try {
+      await botConnection.connect("pair");
+    } catch (error) {
+      console.log(c(C.red, `  Reconnect failed: ${error.message}`));
+      await showMainMenu(rl);
+    }
+  } else {
+    await showMainMenu(rl);
+  }
 
   setupConsoleCommands(rl);
 }

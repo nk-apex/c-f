@@ -14,8 +14,12 @@
     "🎯",
     "💯"
   ],
-  "totalReacted": 0,
-  "lastReacted": null,
+  "totalReacted": 4,
+  "lastReacted": {
+    "sender": "254112984149",
+    "emoji": "🦊",
+    "timestamp": 1771708435869
+  },
   "settings": {
     "rateLimitDelay": 500
   }

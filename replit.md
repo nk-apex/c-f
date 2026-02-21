@@ -34,7 +34,16 @@ Files use plain JavaScript (.js extension), run via tsx.
 ### Connection Methods
 1. **Pair Code**: Enter phone number (country code + digits), WhatsApp sends 8-digit code to link device
 2. **Session ID**: Paste a session string in formats: FOXY:~<base64>, FOXY-BOT:<base64>, WOLF-BOT:<base64>, or plain base64
-3. **Reconnect**: If a previous session exists in `session/`, can reconnect automatically
+3. **Environment Variable**: Set `SESSION_ID` in .env or platform env vars for auto-connect on startup (headless deployment)
+4. **Reconnect**: If a previous session exists in `session/`, can reconnect automatically
+
+### Deployment Compatibility
+- **Replit**: Runs via `npm run dev`, auto-connects with SESSION_ID env var or existing session
+- **Heroku**: `Procfile` included (worker dyno), set SESSION_ID in Config Vars
+- **Railway**: `railway.json` + `nixpacks.toml` included, set SESSION_ID in Variables
+- **Render**: `render.yaml` included, set SESSION_ID in Environment
+- **Any platform**: Set `SESSION_ID` environment variable and run `npx tsx server/index.js`
+- **`.env.example`**: Reference file showing required environment variables
 
 ### Bot Modes
 - public: Everyone can use the bot

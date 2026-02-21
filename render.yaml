@@ -1,0 +1,11 @@
+services:
+  - type: worker
+    name: foxy-bot
+    runtime: node
+    buildCommand: npm install
+    startCommand: npx tsx server/index.js
+    envVars:
+      - key: SESSION_ID
+        sync: false
+      - key: NODE_ENV
+        value: production
