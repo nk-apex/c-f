@@ -28,7 +28,7 @@ function loadConfig() {
     prefix: ".",
     mode: "public",
     ownerNumber: "",
-    botName: "Foxy Bot",
+    botName: "Fox Bot",
   };
   try {
     if (fs.existsSync(CONFIG_FILE)) {

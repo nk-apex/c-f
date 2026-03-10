@@ -24,7 +24,7 @@ const PORT = parseInt(process.env.PORT || "5000", 10);
 const httpServer = http.createServer((_req, res) => {
   const status = botConnection.getStatus();
   res.writeHead(200, { "Content-Type": "text/plain" });
-  res.end(`Foxy Bot is running.\nState: ${status.state}\nCommands loaded: ${commandLoader.getCommands().length}\n`);
+  res.end(`Fox Bot is running.\nState: ${status.state}\nCommands loaded: ${commandLoader.getCommands().length}\n`);
 });
 httpServer.listen(PORT, "0.0.0.0");
 
@@ -54,7 +54,7 @@ function printBanner() {
   console.log(c(C.orange, `
   ┌─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┐
   │                                      │
-  │     ${c(C.bright + C.orangeBright, "FOXY BOT")}${c(C.orange, " - WhatsApp Bot")}          │
+  │     ${c(C.bright + C.orangeBright, "FOX BOT")}${c(C.orange, " - WhatsApp Bot")}           │
   │                                      │
   └─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘
   `));
@@ -147,7 +147,7 @@ async function showMainMenu(rl) {
   console.log(c(C.orange, "  ┌─⧭ Connection Method ⧭─┐"));
   console.log("");
   console.log(c(C.white, "  1) ") + c(C.orangeBright, "Pair Code") + c(C.gray, " (phone number → 8-digit code)"));
-  console.log(c(C.white, "  2) ") + c(C.orange, "Session ID") + c(C.gray, " (paste FOXY:~... or base64)"));
+  console.log(c(C.white, "  2) ") + c(C.orange, "Session ID") + c(C.gray, " (paste FOX-BOT:~... or base64)"));
 
   const hasSession = botConnection.hasExistingSession();
   if (hasSession) {
@@ -335,7 +335,7 @@ async function main() {
         const cmds = commandLoader.getCommands();
         const successMsg = `┌─⧭ FOX-CORE ONLINE
 ├◆ Status: Connected
-├◆ Name: ${status.name || "Foxy Bot"}
+├◆ Name: ${status.name || "Fox Bot"}
 ├◆ Prefix: ${config.prefix}
 ├◆ Commands: ${cmds.length}
 ├◆ Mode: ${config.mode}

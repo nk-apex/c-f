@@ -15,6 +15,16 @@ const SESSION_DIR = path.join(process.cwd(), "session");
 function parseFoxySession(sessionString) {
   let cleaned = sessionString.trim().replace(/^["']|["']$/g, "");
 
+  if (cleaned.startsWith("FOX-BOT:~")) {
+    const base64Part = cleaned.substring(9).trim();
+    if (!base64Part) throw new Error("No data found after FOX-BOT:~");
+    try {
+      return JSON.parse(Buffer.from(base64Part, "base64").toString("utf8"));
+    } catch {
+      return JSON.parse(base64Part);
+    }
+  }
+
   if (cleaned.startsWith("FOXY:~")) {
     const base64Part = cleaned.substring(6).trim();
     if (!base64Part) throw new Error("No data found after FOXY:~");

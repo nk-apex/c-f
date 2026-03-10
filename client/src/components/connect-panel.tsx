@@ -204,10 +204,10 @@ export function ConnectPanel({ pairingCode, state }: ConnectPanelProps) {
                 data-testid="input-session-id"
                 value={sessionId}
                 onChange={(e) => setSessionId(e.target.value)}
-                placeholder="FOXY:~eyJhbGci..."
+                placeholder="FOX-BOT:~eyJhbGci..."
               />
               <p className="text-xs text-muted-foreground">
-                Paste your session ID (FOXY:~... or plain base64)
+                Paste your session ID (FOX-BOT:~... or plain base64)
               </p>
             </div>
             <Button

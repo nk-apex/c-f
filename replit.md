@@ -1,8 +1,8 @@
-# Foxy Bot - WhatsApp Bot (Console)
+# FOX BOT - WhatsApp Bot (Console)
 
 ## Overview
 
-Foxy Bot is a WhatsApp bot that runs entirely in the terminal/console. It connects to WhatsApp using the Baileys library with two authentication methods: **pair code** (phone number → 8-digit code from WhatsApp) or **session ID** (FOXY:~<base64> format). The bot has 263 commands across 25 categories.
+Fox Bot is a WhatsApp bot that runs entirely in the terminal/console. It connects to WhatsApp using the Baileys library with two authentication methods: **pair code** (phone number → 8-digit code from WhatsApp) or **session ID** (FOX-BOT:~<base64> format). The bot has 567 commands across 70 categories.
 
 ## User Preferences
 
@@ -30,10 +30,11 @@ Files use plain JavaScript (.js extension), run via tsx.
 - **Config**: Bot configuration in `server/bot/bot_config.json` (prefix, mode, owner number, bot name)
 - **Utils** (`server/bot/utils/`): foxEconomy, foxGames, foxGroup, foxMaster, standalonePermissions
 - **Handlers** (`server/bot/handlers/`): prefixHandler
+- **Lib** (`server/bot/lib/`): botname, menuHelper, logo-watermark, audioEffects, supabase (SQLite), actionSession, musicSession, sudo-store, warnings-store, chat-state, buttonMode, platformDetect, xwolfApi, wolfai, and more (copied from n7-apex/n7)
 
 ### Connection Methods
 1. **Pair Code**: Enter phone number (country code + digits), WhatsApp sends 8-digit code to link device
-2. **Session ID**: Paste a session string in formats: FOXY:~<base64>, FOXY-BOT:<base64>, WOLF-BOT:<base64>, or plain base64
+2. **Session ID**: Paste a session string in formats: FOX-BOT:~<base64> (primary), FOXY:~<base64>, FOXY-BOT:<base64>, WOLF-BOT:<base64>, or plain base64
 3. **Environment Variable**: Set `SESSION_ID` in .env or platform env vars for auto-connect on startup (headless deployment)
 4. **Reconnect**: If a previous session exists in `session/`, can reconnect automatically
 
