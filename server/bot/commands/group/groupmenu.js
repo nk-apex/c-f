@@ -20,6 +20,7 @@ export default {
 ├◆  • kickall
 ├◆  • ban
 ├◆  • unban
+├◆  • ex
 ├◆  • clearbanlist
 ├◆  • warn
 ├◆  • resetwarn
@@ -27,15 +28,19 @@ export default {
 ├◆  • warnings
 ├◆  • mute
 ├◆  • unmute
+├◆  • gctime
+├◆  • antileave
+├◆  • antilink
+├◆  • addbadword
+├◆  • removebadword
+├◆  • listbadword
 ├◆  • welcome
 ├◆  • goodbye
 ├◆  • leave
-├◆  • join
 ├◆  • creategroup
 └─⧭⊷
 
 ┌─⧭⊷ *🚫 AUTO-MODERATION*
-├◆  • antilink
 ├◆  • antisticker
 ├◆  • antiimage
 ├◆  • antivideo
@@ -45,25 +50,32 @@ export default {
 ├◆  • antigrouplink
 ├◆  • antidemote
 ├◆  • antipromote
-├◆  • antileave
+├◆  • antiviewonce
+├◆  • antibadword
+├◆  • antigroupcall
 └─⧭⊷
 
 ┌─⧭⊷ *📊 GROUP INFO & TOOLS*
 ├◆  • groupinfo
 ├◆  • grouplink
-├◆  • tagall
 ├◆  • tagadmin
+├◆  • tagall
 ├◆  • hidetag
 ├◆  • link
+├◆  • invite
 ├◆  • revoke
 ├◆  • setdesc
+├◆  • fangtrace
+├◆  • getgpp
+├◆  • togroupstatus
 ├◆  • getparticipants
 ├◆  • listonline
 ├◆  • listinactive
 ├◆  • approveall
 ├◆  • rejectall
+├◆  • stickerpack
 └─⧭⊷`;
 
-    await sendSubMenu(sock, jid, '🏠 GROUP MENU', commandsText, m, PREFIX);
+    await sendSubMenu(sock, jid, '🏠 GROUP MANAGEMENT', commandsText, m, PREFIX);
   }
 };
