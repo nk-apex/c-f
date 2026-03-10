@@ -1,7 +1,9 @@
 import { botConnection } from "./connection.js";
 import { commandLoader } from "./commandLoader.js";
-import { handleAutoView } from "./commands/automation/autoviewstatus.js";
-import { handleAutoReact } from "./commands/automation/autostatus.js";
+import { handleAutoView } from "./commands/n7-automation/autoviewstatus.js";
+import { handleAutoReact } from "./commands/n7-automation/autoreactstatus.js";
+import { initAntidelete, antideleteStoreMessage, antideleteHandleUpdate, updateAntideleteSock } from "./commands/n7-owner/antidelete.js";
+import { initStatusAntidelete, statusAntideleteStoreMessage, statusAntideleteHandleUpdate, updateStatusAntideleteSock } from "./commands/n7-owner/antideletestatus.js";
 import fs from "fs";
 import path from "path";
 
@@ -63,9 +65,30 @@ function isOwner(msg, config) {
 }
 
 let consoleLogger = null;
+const attachedSockets = new WeakSet();
+
+function attachMessagesUpdateListener(sock) {
+  if (!sock || attachedSockets.has(sock)) return;
+  attachedSockets.add(sock);
+  sock.ev.on("messages.update", async (updates) => {
+    for (const update of updates) {
+      try { await antideleteHandleUpdate(update); } catch {}
+      try { await statusAntideleteHandleUpdate(update); } catch {}
+    }
+  });
+}
 
 export function setupMessageHandler(logger) {
   consoleLogger = logger || null;
+
+  botConnection.on("connected", async () => {
+    const sock = botConnection.getSocket();
+    if (sock) {
+      try { await initAntidelete(sock); } catch (e) { console.error("initAntidelete error:", e.message); }
+      try { await initStatusAntidelete(sock); } catch (e) { console.error("initStatusAntidelete error:", e.message); }
+      attachMessagesUpdateListener(sock);
+    }
+  });
 
   botConnection.on("messages", async ({ messages, type }) => {
     if (type !== "notify") return;
@@ -86,14 +109,18 @@ export function setupMessageHandler(logger) {
       if (msg.key.remoteJid === "status@broadcast" && !msg.key.fromMe) {
         const sock = botConnection.getSocket();
         if (sock) {
-          try { await handleAutoView(sock, msg.key); } catch {}
+          try { await handleAutoView(sock, msg.key, msg.message); } catch {}
           try { await handleAutoReact(sock, msg.key); } catch {}
+          try { await statusAntideleteStoreMessage(msg); } catch {}
         }
         continue;
       }
 
-      if (!msg.key.fromMe && consoleLogger) {
-        try { consoleLogger(msg); } catch {}
+      if (!msg.key.fromMe) {
+        try { await antideleteStoreMessage(msg); } catch {}
+        if (consoleLogger) {
+          try { consoleLogger(msg); } catch {}
+        }
       }
 
       const body =

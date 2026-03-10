@@ -88,7 +88,6 @@ export default {
         `\u251C\u25C6 Status: ${config.enabled ? 'ON' : 'OFF'}\n` +
         `\u251C\u25C6 Total Viewed: ${config.totalViewed || 0}\n` +
         `\u251C\u25C6 Delay: ${config.settings?.rateLimitDelay || 1000}ms\n` +
-        `\u2502\n` +
         `\u251C\u25C6 Commands:\n` +
         `\u251C\u25C6 ${PREFIX}autoview on - Enable\n` +
         `\u251C\u25C6 ${PREFIX}autoview off - Disable\n` +

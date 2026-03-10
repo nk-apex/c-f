@@ -18,8 +18,8 @@ function initConfig() {
             enabled: true,
             viewMode: 'view+react',
             mode: 'fixed',
-            fixedEmoji: '🐺',
-            reactions: ["🐺", "❤️", "👍", "🔥", "🎉", "😂", "😮", "👏", "🎯", "💯", "🌟", "✨", "⚡", "💥", "🫶"],
+            fixedEmoji: '🦊',
+            reactions: ["🦊", "❤️", "👍", "🔥", "🎉", "😂", "😮", "👏", "🎯", "💯", "🌟", "✨", "⚡", "💥", "🫶"],
             excludedContacts: [],
             logs: [],
             totalReacted: 0,
@@ -69,8 +69,8 @@ class AutoReactManager {
             return config;
         } catch {
             return {
-                enabled: true, viewMode: 'view+react', mode: 'fixed', fixedEmoji: '🐺',
-                reactions: ["🐺", "❤️", "👍", "🔥", "🎉", "😂", "😮", "👏", "🎯", "💯", "🌟", "✨", "⚡", "💥", "🫶"],
+                enabled: true, viewMode: 'view+react', mode: 'fixed', fixedEmoji: '🦊',
+                reactions: ["🦊", "❤️", "👍", "🔥", "🎉", "😂", "😮", "👏", "🎯", "💯", "🌟", "✨", "⚡", "💥", "🫶"],
                 excludedContacts: [],
                 logs: [], totalReacted: 0, lastReacted: null, consecutiveReactions: 0,
                 lastSender: null, lastReactionTime: 0, reactedStatuses: [],
@@ -200,7 +200,7 @@ class AutoReactManager {
     }
 
     resetReactions() {
-        this.config.reactions = ["🐺", "❤️", "👍", "🔥", "🎉", "😂", "😮", "👏", "🎯", "💯", "🌟", "✨", "⚡", "💥", "🫶"];
+        this.config.reactions = ["🦊", "❤️", "👍", "🔥", "🎉", "😂", "😮", "👏", "🎯", "💯", "🌟", "✨", "⚡", "💥", "🫶"];
         this.saveConfig();
     }
 
@@ -237,7 +237,7 @@ class AutoReactManager {
 
     getReaction() {
         if (this.config.mode === 'fixed') return this.config.fixedEmoji;
-        if (!this.config.reactions.length) return '🐺';
+        if (!this.config.reactions.length) return '🦊';
         return this.config.reactions[Math.floor(Math.random() * this.config.reactions.length)];
     }
 
@@ -322,7 +322,7 @@ export { autoReactManager };
 export default {
     name: "autoreactstatus",
     alias: ["reactstatus", "statusreact", "sr", "reacts"],
-    desc: "Automatically react to WhatsApp statuses 🐺",
+    desc: "Automatically react to WhatsApp statuses 🦊",
     category: "Status",
     ownerOnly: false,
 
@@ -333,8 +333,8 @@ export default {
 
             if (args.length === 0) {
                 const s = autoReactManager.getStats();
-                const vmLabel = s.viewMode === 'view+react' ? '👁️ + 🐺 view then react' : '🐺 react only';
-                let text = `┌─⧭ 🐺 *AUTOREACTSTATUS* \n`;
+                const vmLabel = s.viewMode === 'view+react' ? '👁️ + 🦊 view then react' : '🦊 react only';
+                let text = `┌─⧭ 🦊 *AUTOREACTSTATUS* \n`;
                 text += `├◆ Status    : ${s.enabled ? '✅ ACTIVE' : '❌ INACTIVE'}\n`;
                 text += `├◆ View Mode : ${vmLabel}\n`;
                 text += `├◆ Emoji Mode: ${s.mode === 'fixed' ? `Fixed (${s.fixedEmoji})` : 'Random'}\n`;
@@ -359,7 +359,7 @@ export default {
                 case 'on': case 'enable': case 'start': {
                     if (!isOwner) { await reply("❌ Owner only!"); return; }
                     autoReactManager.toggle(false);
-                    await reply(`✅ *AUTOREACTSTATUS ENABLED*\n\n🐺 Will now ${autoReactManager.viewMode === 'view+react' ? 'view then react to' : 'react to'} ALL statuses!\n\nView Mode: ${autoReactManager.viewMode}\nEmoji: ${autoReactManager.fixedEmoji}\nMode: ${autoReactManager.mode}`);
+                    await reply(`✅ *AUTOREACTSTATUS ENABLED*\n\n🦊 Will now ${autoReactManager.viewMode === 'view+react' ? 'view then react to' : 'react to'} ALL statuses!\n\nView Mode: ${autoReactManager.viewMode}\nEmoji: ${autoReactManager.fixedEmoji}\nMode: ${autoReactManager.mode}`);
                     break;
                 }
 
@@ -389,7 +389,7 @@ export default {
                     if (!num) { await reply(`Usage: *${prefix}sr include <number>*`); return; }
                     if (autoReactManager.includeContact(num)) {
                         const clean = num.replace(/[^0-9]/g, '');
-                        await reply(`✅ *Removed from skip list*\n\n🐺 ${clean} will now be auto-reacted again.`);
+                        await reply(`✅ *Removed from skip list*\n\n🦊 ${clean} will now be auto-reacted again.`);
                     } else {
                         await reply(`⚠️ ${num.replace(/[^0-9]/g, '')} was not on the skip list.`);
                     }
@@ -412,14 +412,14 @@ export default {
                 case 'view+react': case 'viewreact': {
                     if (!isOwner) { await reply("❌ Owner only!"); return; }
                     autoReactManager.setViewMode('view+react');
-                    await reply(`👁️ + 🐺 *VIEW+REACT MODE*\n\nWill view the status first, then react.\nSender sees you in their viewers list.`);
+                    await reply(`👁️ + 🦊 *VIEW+REACT MODE*\n\nWill view the status first, then react.\nSender sees you in their viewers list.`);
                     break;
                 }
 
                 case 'react-only': case 'reactonly': {
                     if (!isOwner) { await reply("❌ Owner only!"); return; }
                     autoReactManager.setViewMode('react-only');
-                    await reply(`🐺 *REACT-ONLY MODE*\n\nWill react without marking as viewed.\nSender will NOT see you in their viewers list.`);
+                    await reply(`🦊 *REACT-ONLY MODE*\n\nWill react without marking as viewed.\nSender will NOT see you in their viewers list.`);
                     break;
                 }
 
@@ -436,7 +436,7 @@ export default {
                 }
 
                 case 'emoji': {
-                    if (!args[1]) { await reply(`Current emoji: ${autoReactManager.fixedEmoji}\n\nUsage: *${prefix}sr emoji 🐺*`); return; }
+                    if (!args[1]) { await reply(`Current emoji: ${autoReactManager.fixedEmoji}\n\nUsage: *${prefix}sr emoji 🦊*`); return; }
                     const emoji = args[1];
                     if (autoReactManager.setFixedEmoji(emoji)) {
                         autoReactManager.setMode('fixed');
@@ -449,12 +449,12 @@ export default {
 
                 case 'stats': case 'statistics': case 'info': {
                     const s = autoReactManager.getStats();
-                    const vmLabel = s.viewMode === 'view+react' ? '👁️ + 🐺 View then React' : '🐺 React only';
+                    const vmLabel = s.viewMode === 'view+react' ? '👁️ + 🦊 View then React' : '🦊 React only';
                     let text = `📊 *AUTOREACTSTATUS STATS*\n\n`;
                     text += `🟢 Status      : ${s.enabled ? 'ACTIVE ✅' : 'INACTIVE ❌'}\n`;
                     text += `👁️ View Mode   : ${vmLabel}\n`;
                     text += `🎭 Emoji Mode  : ${s.mode === 'fixed' ? `FIXED (${s.fixedEmoji})` : 'RANDOM'}\n`;
-                    text += `🐺 Total       : *${s.totalReacted}*\n`;
+                    text += `🦊 Total       : *${s.totalReacted}*\n`;
                     text += `📝 Tracked     : ${s.reactedStatusesCount}\n`;
                     text += `🔄 Consecutive : ${s.consecutiveReactions}\n`;
                     text += `🚫 Excluded    : ${s.excludedCount}\n`;
@@ -496,7 +496,7 @@ export default {
                 case 'reset': case 'clear': {
                     if (!isOwner) { await reply("❌ Owner only!"); return; }
                     autoReactManager.clearLogs();
-                    await reply(`🔄 All data reset. Fresh start! 🐺`);
+                    await reply(`🔄 All data reset. Fresh start! 🦊`);
                     break;
                 }
 
@@ -508,7 +508,7 @@ export default {
                 }
 
                 default:
-                    await reply(`┌─⧭ ❓ *AUTOREACTSTATUS* \n├◆ *${prefix}sr on / off*\n├◆ *${prefix}sr exclude <number>*\n├◆ *${prefix}sr include <number>*\n├◆ *${prefix}sr excluded*\n├◆ *${prefix}sr view+react*\n├◆ *${prefix}sr react-only*\n├◆ *${prefix}sr random / fixed*\n├◆ *${prefix}sr emoji 🐺*\n├◆ *${prefix}sr stats*\n└─⧭`);
+                    await reply(`┌─⧭ ❓ *AUTOREACTSTATUS* \n├◆ *${prefix}sr on / off*\n├◆ *${prefix}sr exclude <number>*\n├◆ *${prefix}sr include <number>*\n├◆ *${prefix}sr excluded*\n├◆ *${prefix}sr view+react*\n├◆ *${prefix}sr react-only*\n├◆ *${prefix}sr random / fixed*\n├◆ *${prefix}sr emoji 🦊*\n├◆ *${prefix}sr stats*\n└─⧭`);
             }
 
         } catch (error) {
