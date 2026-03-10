@@ -22,6 +22,7 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { execSync } from "child_process";
+import axios from "axios";
 import { getCurrentMenuStyle } from "./menustyle.js";
 import { setLastMenu, getAllFieldsStatus } from "../menus/menuToggles.js";
 import { getBotName as _getBotName } from '../../lib/botname.js';
@@ -31,7 +32,7 @@ import { generateWAMessageFromContent } from '@whiskeysockets/baileys';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const DEFAULT_MENU_IMAGE_URL = "https://i.ibb.co/Gvkt4q9d/Chat-GPT-Image-Feb-21-2026-12-47-33-AM.png";
+const DEFAULT_MENU_IMAGE_URL = "https://i.ibb.co/PGYDVrqk/7aa433284119.jpg";
 
 let _cachedMenuImage = null;
 let _cachedMenuImageTime = 0;
@@ -39,7 +40,7 @@ let _cachedMenuGif = null;
 let _cachedMenuGifMp4 = null;
 const CACHE_TTL = 10 * 60 * 1000;
 
-function getMenuMedia() {
+async function getMenuMedia() {
   const now = Date.now();
   const gifPath1 = path.join(__dirname, "media", "wolfbot.gif");
   const gifPath2 = path.join(__dirname, "../media/wolfbot.gif");
@@ -77,6 +78,16 @@ function getMenuMedia() {
     }
     return { type: 'image', buffer: _cachedMenuImage };
   }
+
+  // Fallback: fetch from URL
+  if (!_cachedMenuImage || (now - _cachedMenuImageTime > CACHE_TTL)) {
+    try {
+      const res = await axios.get(DEFAULT_MENU_IMAGE_URL, { responseType: 'arraybuffer', timeout: 15000 });
+      _cachedMenuImage = Buffer.from(res.data);
+      _cachedMenuImageTime = now;
+    } catch {}
+  }
+  if (_cachedMenuImage) return { type: 'image', buffer: _cachedMenuImage };
 
   return null;
 }
@@ -2030,7 +2041,7 @@ case 1: {
   finalCaption = createReadMoreEffect(fadedInfoSection, commandsText);
   // ========== END "READ MORE" EFFECT ==========
 
-  const media = getMenuMedia();
+  const media = await getMenuMedia();
   if (!media) {
     await sock.sendMessage(jid, { text: "⚠️ Menu media not found!" }, { quoted: fkontak });
     return;
@@ -6897,7 +6908,7 @@ case 6: {
   // Combine info section and commands with read more effect
   finalCaption = `${infoSection}${readMoreSep}\n${commandsText}`;
 
-  const media = getMenuMedia();
+  const media = await getMenuMedia();
   if (!media) {
     await sock.sendMessage(jid, { text: "⚠️ Menu media not found!" }, { quoted: m });
     return;
@@ -8621,7 +8632,7 @@ case 7: {
   const commandsText = categorySections.join(`\n${readMoreSep}\n`);
   finalCaption = `${infoSection}${readMoreSep}\n${commandsText}`;
 
-  const media = getMenuMedia();
+  const media = await getMenuMedia();
   if (!media) {
     await sock.sendMessage(jid, { text: "⚠️ Menu media not found!" }, { quoted: m });
     return;
