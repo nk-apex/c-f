@@ -12,19 +12,12 @@
 </a>
 
 <p align="center">
-  <img style="width: 500px; height: 500px; border-radius: 20px; box-shadow: 0 0 30px #ff6600, 0 0 50px rgba(255, 102, 0, 0.3);" src="https://i.ibb.co/PGYDVrqk/7aa433284119.jpg" alt="FOXY Bot" />
+  <img style="width: 480px; border-radius: 20px; box-shadow: 0 0 30px #ff6600, 0 0 50px rgba(255, 102, 0, 0.3);" src="https://i.ibb.co/PGYDVrqk/7aa433284119.jpg" alt="FOXY Bot" />
 </p>
-
-<h1 style="color: #ff6600; text-shadow: 0 0 10px #ff6600, 0 0 20px #ff6600;">
-<br>
-  <span style="font-size: 42px;"><b></b></span>
-</h1>
 
 <p align="center" style="color: #ff6600; text-shadow: 0 0 5px #ff6600;">
   <i>"The fox watches..."</i>
 </p>
-
-<br>
 
 **DEPLOY FOXY**
 <br>
