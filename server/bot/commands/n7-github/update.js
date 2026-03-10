@@ -1323,9 +1323,9 @@ const __dirname = path.dirname(__filename);
 const require = createRequire(import.meta.url);
 
 /* -------------------- Configuration -------------------- */
-const UPDATE_ZIP_URL = "https://github.com/nk-apex/n7/archive/refs/heads/main.zip";
-const GIT_REPO_URL = "https://github.com/nk-apex/n7.git";
-const OWNER_REPO_URL = "https://github.com/7silent-wolf/silentwolf.git";
+const UPDATE_ZIP_URL = "https://github.com/7silent-wolf/FOXY/archive/refs/heads/main.zip";
+const GIT_REPO_URL = "https://github.com/7silent-wolf/FOXY.git";
+const OWNER_REPO_URL = "https://github.com/7silent-wolf/FOXY.git";
 
 // Timeout configurations
 const DOWNLOAD_TIMEOUT = 120000;
@@ -1454,8 +1454,8 @@ async function deepCleanGitHistory(options = {}) {
     // Initialize fresh repository
     console.log('Initializing fresh Git repository...');
     await run('git init');
-    await run('git config user.email "bot@silentwolf.com"');
-    await run('git config user.name "SilentWolf Bot"');
+    await run('git config user.email "bot@foxy.com"');
+    await run('git config user.name "FOXY Bot"');
     
     // Copy files back from temp directory
     console.log('Restoring essential files...');

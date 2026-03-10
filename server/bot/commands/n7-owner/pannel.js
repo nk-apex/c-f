@@ -163,9 +163,9 @@ export default {
 `.trim();
 
       // Get GitHub info for thumbnail
-      let githubAvatar = "https://raw.githubusercontent.com/777Wolf-dot/Silent-Wolf/main/.github/images/logo.png";
-      let githubName = "Silent Wolf Bot";
-      let githubUrl = "https://github.com/777Wolf-dot";
+      let githubAvatar = "https://avatars.githubusercontent.com/u/10639145";
+      let githubName = "FOXY Bot";
+      let githubUrl = "https://github.com/7silent-wolf/FOXY";
       
       try {
         // Use cached approach to avoid API limits

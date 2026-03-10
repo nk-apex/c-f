@@ -63,8 +63,8 @@ export default {
       const githubOwner = "7silent-wolf";
       let githubData = {
         avatar_url: "https://avatars.githubusercontent.com/u/10639145",
-        html_url: `https://github.com/${githubOwner}`,
-        name: "Silent Wolf"
+        html_url: `https://github.com/7silent-wolf/FOXY`,
+        name: "FOXY"
       };
       
       try {
@@ -113,7 +113,7 @@ export default {
               mediaType: 1,
               thumbnailUrl: githubData.avatar_url,
               sourceUrl: githubData.html_url,
-              mediaUrl: `https://github.com/7silent-wolf/silentwolf`,
+              mediaUrl: `https://github.com/7silent-wolf/FOXY`,
               renderLargerThumbnail: true
             },
           },
@@ -133,8 +133,8 @@ export default {
 
 ├◆  📡 *Response Time:* Calculating...
 ├◆  💻 *Status:* Operational
-├◆  🐺 *Developer:* 7silent-wolf
-├◆  🔗 *GitHub:* 7silent-wolf/silentwolf
+├◆  🦊 *Developer:* 7silent-wolf
+├◆  🔗 *GitHub:* github.com/7silent-wolf/FOXY
 
 └─⧭╯
 `.trim();
@@ -150,7 +150,7 @@ export default {
                 body: "Bot is online • Basic metrics",
                 mediaType: 1,
                 thumbnailUrl: "https://avatars.githubusercontent.com/u/10639145",
-                sourceUrl: "https://github.com/7silent-wolf/silentwolf"
+                sourceUrl: "https://github.com/7silent-wolf/FOXY"
               }
             }
           },

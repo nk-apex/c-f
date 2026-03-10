@@ -289,17 +289,167 @@
       "reaction": "🦊",
       "statusId": "AC9220F7D7927CD5347A81C098D879F7",
       "timestamp": 1773154205380
+    },
+    {
+      "sender": "195253743132878",
+      "reaction": "🦊",
+      "statusId": "AC080E715A286C7CEA31C8EFEFE7DDA4",
+      "timestamp": 1773154208697
+    },
+    {
+      "sender": "196362264125644",
+      "reaction": "🦊",
+      "statusId": "AC777D9BD61168F1639B85E36632E1F1",
+      "timestamp": 1773154230356
+    },
+    {
+      "sender": "195253743132878",
+      "reaction": "🦊",
+      "statusId": "ACEA0288A500142380A96428888DCB32",
+      "timestamp": 1773154261509
+    },
+    {
+      "sender": "196362264125644",
+      "reaction": "🦊",
+      "statusId": "AC16F915C4214D3E6D02BD7DDF9FDB9E",
+      "timestamp": 1773154263397
+    },
+    {
+      "sender": "219576394592470",
+      "reaction": "🦊",
+      "statusId": "AC755EDDAED295FDAA350FC20D0819CC",
+      "timestamp": 1773154608695
+    },
+    {
+      "sender": "159039015125054",
+      "reaction": "🦊",
+      "statusId": "AC4820CD032AACD3FD21A7E8430FA36C",
+      "timestamp": 1773154761617
+    },
+    {
+      "sender": "165507219083469",
+      "reaction": "🦊",
+      "statusId": "AC9566F6FE52BA801B55E99F441EAA14",
+      "timestamp": 1773155016258
+    },
+    {
+      "sender": "267078850363417",
+      "reaction": "🦊",
+      "statusId": "AC9566F6FE52BA801B55E99F441EAA14",
+      "timestamp": 1773155016362
+    },
+    {
+      "sender": "254723278526",
+      "reaction": "🦊",
+      "statusId": "GIFTED-25F8A405454E964673",
+      "timestamp": 1773155016575
+    },
+    {
+      "sender": "254723278526",
+      "reaction": "🦊",
+      "statusId": "GIFTED-9AA584563B5780D564",
+      "timestamp": 1773155037660
+    },
+    {
+      "sender": "254723278526",
+      "reaction": "🦊",
+      "statusId": "GIFTED-A4FC81EF41AE39F788",
+      "timestamp": 1773155037719
+    },
+    {
+      "sender": "254723278526",
+      "reaction": "🦊",
+      "statusId": "GIFTED-CB4FCB845009DF42E3",
+      "timestamp": 1773155039675
+    },
+    {
+      "sender": "254723278526",
+      "reaction": "🦊",
+      "statusId": "GIFTED-5DDBBAA7A8B3AB1554",
+      "timestamp": 1773155040499
+    },
+    {
+      "sender": "254723278526",
+      "reaction": "🦊",
+      "statusId": "GIFTED-92BAF4C200CC68D02A",
+      "timestamp": 1773155041070
+    },
+    {
+      "sender": "254723278526",
+      "reaction": "🦊",
+      "statusId": "GIFTED-E315FEF3B0D3801D4A",
+      "timestamp": 1773155046298
+    },
+    {
+      "sender": "254723278526",
+      "reaction": "🦊",
+      "statusId": "GIFTED-ED490F4D535F35571A",
+      "timestamp": 1773155047159
+    },
+    {
+      "sender": "254723278526",
+      "reaction": "🦊",
+      "statusId": "GIFTED-21F4D2F6200BE2C196",
+      "timestamp": 1773155049901
+    },
+    {
+      "sender": "165507219083469",
+      "reaction": "🦊",
+      "statusId": "A5945AAAD443A6EA5965B7BC6BB1DA45",
+      "timestamp": 1773155069862
+    },
+    {
+      "sender": "100309699436773",
+      "reaction": "🦊",
+      "statusId": "ACCDD46A589DD00B1F3A189D8B9311FC",
+      "timestamp": 1773155155883
+    },
+    {
+      "sender": "25701654761608",
+      "reaction": "🦊",
+      "statusId": "A59154FC57F9AC8FD85698C562D0D3BF",
+      "timestamp": 1773155156771
+    },
+    {
+      "sender": "165507219083469",
+      "reaction": "🦊",
+      "statusId": "A58908C23C97F0D8CBF18A33D98A4D9C",
+      "timestamp": 1773155366020
+    },
+    {
+      "sender": "187699298312395",
+      "reaction": "🦊",
+      "statusId": "AC8CAE056EE57849FBCB4D05C2B6F56D",
+      "timestamp": 1773155399085
+    },
+    {
+      "sender": "101941652758725",
+      "reaction": "🦊",
+      "statusId": "AC1837A409F6050907128A4D255B4B56",
+      "timestamp": 1773155496280
+    },
+    {
+      "sender": "24258562506755",
+      "reaction": "🦊",
+      "statusId": "ACD3D3B7EF9DF0489DB8630724D6BD2C",
+      "timestamp": 1773155506397
+    },
+    {
+      "sender": "101941652758725",
+      "reaction": "🦊",
+      "statusId": "ACE3F7B5F3270415904DFF058A9EA332",
+      "timestamp": 1773155517191
     }
   ],
-  "totalReacted": 45,
+  "totalReacted": 70,
   "lastReacted": {
-    "sender": "195253743132878",
+    "sender": "101941652758725",
     "reaction": "🦊",
-    "statusId": "AC9220F7D7927CD5347A81C098D879F7",
-    "timestamp": 1773154205380
+    "statusId": "ACE3F7B5F3270415904DFF058A9EA332",
+    "timestamp": 1773155517191
   },
-  "consecutiveReactions": 2,
-  "lastSender": "195253743132878",
+  "consecutiveReactions": 1,
+  "lastSender": "101941652758725",
   "settings": {
     "rateLimitDelay": 500,
     "reactToAll": true,
@@ -351,9 +501,34 @@
     "182592498303229@lid|AC4A556E72EC7E47FFBBE21ADB62992E|1773154124650",
     "182592498303229@lid|AC33B33B9DB587D43450B2A25D9CE606|1773154130048",
     "195253743132878@lid|AC1EDEE4EF4919944DDB731A79E93CD8|1773154176814",
-    "195253743132878@lid|AC9220F7D7927CD5347A81C098D879F7|1773154205379"
+    "195253743132878@lid|AC9220F7D7927CD5347A81C098D879F7|1773154205379",
+    "195253743132878@lid|AC080E715A286C7CEA31C8EFEFE7DDA4|1773154208696",
+    "196362264125644@lid|AC777D9BD61168F1639B85E36632E1F1|1773154230356",
+    "195253743132878@lid|ACEA0288A500142380A96428888DCB32|1773154261508",
+    "196362264125644@lid|AC16F915C4214D3E6D02BD7DDF9FDB9E|1773154263397",
+    "219576394592470@lid|AC755EDDAED295FDAA350FC20D0819CC|1773154608694",
+    "159039015125054@lid|AC4820CD032AACD3FD21A7E8430FA36C|1773154761617",
+    "165507219083469@lid|AC9566F6FE52BA801B55E99F441EAA14|1773155016257",
+    "267078850363417@lid|AC9566F6FE52BA801B55E99F441EAA14|1773155016362",
+    "254723278526@s.whatsapp.net|GIFTED-25F8A405454E964673|1773155016574",
+    "254723278526@s.whatsapp.net|GIFTED-9AA584563B5780D564|1773155037659",
+    "254723278526@s.whatsapp.net|GIFTED-A4FC81EF41AE39F788|1773155037719",
+    "254723278526@s.whatsapp.net|GIFTED-CB4FCB845009DF42E3|1773155039674",
+    "254723278526@s.whatsapp.net|GIFTED-5DDBBAA7A8B3AB1554|1773155040498",
+    "254723278526@s.whatsapp.net|GIFTED-92BAF4C200CC68D02A|1773155041069",
+    "254723278526@s.whatsapp.net|GIFTED-E315FEF3B0D3801D4A|1773155046296",
+    "254723278526@s.whatsapp.net|GIFTED-ED490F4D535F35571A|1773155047158",
+    "254723278526@s.whatsapp.net|GIFTED-21F4D2F6200BE2C196|1773155049900",
+    "165507219083469@lid|A5945AAAD443A6EA5965B7BC6BB1DA45|1773155069862",
+    "100309699436773@lid|ACCDD46A589DD00B1F3A189D8B9311FC|1773155155882",
+    "25701654761608@lid|A59154FC57F9AC8FD85698C562D0D3BF|1773155156771",
+    "165507219083469@lid|A58908C23C97F0D8CBF18A33D98A4D9C|1773155366019",
+    "187699298312395@lid|AC8CAE056EE57849FBCB4D05C2B6F56D|1773155399085",
+    "101941652758725@lid|AC1837A409F6050907128A4D255B4B56|1773155496279",
+    "24258562506755@lid|ACD3D3B7EF9DF0489DB8630724D6BD2C|1773155506396",
+    "101941652758725@lid|ACE3F7B5F3270415904DFF058A9EA332|1773155517191"
   ],
-  "lastReactionTime": 1773154205379,
+  "lastReactionTime": 1773155517191,
   "viewMode": "view+react",
   "excludedContacts": []
 }

@@ -14,9 +14,9 @@ export default {
 
     async execute(sock, m, args, PREFIX, extras) {
         const chatId = m.key.remoteJid;
-        const repoUrl = 'https://github.com/7silent-wolf/silentwolf';
-        const repoFullName = '7silent-wolf/silentwolf';
-        const repoName = 'silentwolf';
+        const repoUrl = 'https://github.com/7silent-wolf/FOXY';
+        const repoFullName = '7silent-wolf/FOXY';
+        const repoName = 'FOXY';
 
         try {
             try { await sock.sendMessage(chatId, { react: { text: '⏳', key: m.key } }); } catch {}
