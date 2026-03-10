@@ -15,7 +15,7 @@ export default {
 
     if (args.length === 0 || args[0].toLowerCase() === 'help') {
       return sock.sendMessage(jid, {
-        text: `┌─⧭ 🏎️ *FORMULA 1* \n├◆ *${PREFIX}f1 results*\n├◆  └⊷ Latest race results\n├◆ *${PREFIX}f1 standings*\n├◆  └⊷ Driver standings\n├◆ *${PREFIX}f1 schedule*\n├◆  └⊷ Upcoming races\n├◆ *${PREFIX}formula1*\n├◆  └⊷ Alias for f1\n└─⧭`
+        text: `┌─⧭ 🏎️ *FORMULA 1* \n├◆ Usage: *${PREFIX}f1 [results|standings|schedule]*\n├◆ Get Formula 1 racing results and standings\n├◆ Aliases: *${PREFIX}formula1*, *${PREFIX}racing*\n└─⧭`
       }, { quoted: m });
     }
 
@@ -49,8 +49,8 @@ export default {
           const status = ev.status?.type?.shortDetail || '';
           const circuit = ev.circuit?.fullName || '';
           text += `├◆ *${name}*\n`;
-          if (circuit) text += `│  └⊷ 📍 ${circuit}\n`;
-          text += `│  └⊷ ${date} • ${status}\n`;
+          if (circuit) text += `│\n`;
+          text += `│\n`;
         });
         text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
         await sock.sendMessage(jid, { text }, { quoted: m });

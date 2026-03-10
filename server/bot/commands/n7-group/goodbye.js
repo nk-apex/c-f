@@ -44,7 +44,7 @@ export default {
 
         if (!action || action === 'help') {
             return sock.sendMessage(chatId, {
-                text: `┌─⧭ 👋 *GOODBYE SYSTEM* \n├◆ *${PREFIX}goodbye on*\n├◆  └⊷ Enable goodbye\n├◆ *${PREFIX}goodbye off*\n├◆  └⊷ Disable goodbye\n├◆ *${PREFIX}goodbye set <message>*\n├◆  └⊷ Set custom message\n├◆ *${PREFIX}goodbye reset*\n├◆  └⊷ Reset to default\n├◆ *${PREFIX}goodbye preview*\n├◆  └⊷ Preview message\n├◆ *${PREFIX}goodbye status*\n├◆  └⊷ Check status\n└─⧭`
+                text: `┌─⧭ 👋 *GOODBYE SYSTEM* \n├◆ Usage: *${PREFIX}goodbye <text>*\n├◆ Send goodbye messages when members leave the group\n├◆ Aliases: *${PREFIX}goodbyemsg*, *${PREFIX}setgoodbye*, *${PREFIX}bye*, *${PREFIX}farewell*\n└─⧭`
             }, { quoted: msg });
         }
         
@@ -126,7 +126,7 @@ export default {
                     
                 default:
                     await sock.sendMessage(chatId, {
-                        text: `┌─⧭ ❌ *GOODBYE* \n├◆ *${PREFIX}goodbye help*\n├◆  └⊷ View help\n└─⧭`
+                        text: `┌─⧭ ❌ *GOODBYE* \n├◆ Usage: *${PREFIX}goodbye <text>*\n├◆ Send goodbye messages when members leave the group\n├◆ Aliases: *${PREFIX}goodbyemsg*, *${PREFIX}setgoodbye*, *${PREFIX}bye*, *${PREFIX}farewell*\n└─⧭`
                     }, { quoted: msg });
             }
         } catch (error) {

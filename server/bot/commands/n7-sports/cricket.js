@@ -15,7 +15,7 @@ export default {
 
     if (args.length === 0 || args[0].toLowerCase() === 'help') {
       return sock.sendMessage(jid, {
-        text: `┌─⧭ 🏏 *CRICKET* \n├◆ *${PREFIX}cricket scores*\n├◆  └⊷ Live cricket scores\n├◆ *${PREFIX}cricket schedule*\n├◆  └⊷ Upcoming matches\n├◆ *${PREFIX}ipl scores*\n├◆  └⊷ Alias for cricket\n└─⧭`
+        text: `┌─⧭ 🏏 *CRICKET* \n├◆ Usage: *${PREFIX}cricket [scores|schedule]*\n├◆ Get live cricket scores and matches\n├◆ Aliases: *${PREFIX}ipl*, *${PREFIX}cricketscores*\n└─⧭`
       }, { quoted: m });
     }
 
@@ -37,9 +37,9 @@ export default {
         teams.forEach(t => {
           const teamName = t.team?.abbreviation || t.team?.shortDisplayName || '???';
           const score = t.score || '-';
-          text += `│  └⊷ ${teamName}: *${score}*\n`;
+          text += `│\n`;
         });
-        text += `│  └⊷ ${status}\n`;
+        text += `│\n`;
       });
       text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
 

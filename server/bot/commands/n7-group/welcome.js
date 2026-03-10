@@ -58,7 +58,7 @@ export default {
 
         if (!action || action === 'help') {
             return sock.sendMessage(chatId, {
-                text: `┌─⧭ 🎉 *WELCOME SYSTEM* \n├◆ *${PREFIX}welcome on*\n├◆  └⊷ Enable welcome\n├◆ *${PREFIX}welcome off*\n├◆  └⊷ Disable welcome\n├◆ *${PREFIX}welcome set <message>*\n├◆  └⊷ Set custom message\n├◆ *${PREFIX}welcome reset*\n├◆  └⊷ Reset to default\n├◆ *${PREFIX}welcome preview*\n├◆  └⊷ Preview message\n├◆ *${PREFIX}welcome status*\n├◆  └⊷ Check status\n└─⧭`
+                text: `┌─⧭ 🎉 *WELCOME SYSTEM* \n├◆ Usage: *${PREFIX}welcome <text>*\n├◆ Welcome new group members with their profile picture\n├◆ Aliases: *${PREFIX}welcomemsg*, *${PREFIX}setwelcome*, *${PREFIX}welcomeon*\n└─⧭`
             }, { quoted: msg });
         }
         
@@ -140,7 +140,7 @@ export default {
                     
                 default:
                     await sock.sendMessage(chatId, {
-                        text: `┌─⧭ ❌ *WELCOME* \n├◆ *${PREFIX}welcome help*\n├◆  └⊷ View help\n└─⧭`
+                        text: `┌─⧭ ❌ *WELCOME* \n├◆ Usage: *${PREFIX}welcome <text>*\n├◆ Welcome new group members with their profile picture\n├◆ Aliases: *${PREFIX}welcomemsg*, *${PREFIX}setwelcome*, *${PREFIX}welcomeon*\n└─⧭`
                     }, { quoted: msg });
             }
         } catch (error) {

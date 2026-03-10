@@ -18,7 +18,7 @@ export default {
       query = quoted.text;
     } else {
       await sock.sendMessage(jid, { 
-        text: `┌─⧭ 🧠 *CLAUDE AI* \n├◆ *${PREFIX}claudeai <question>*\n├◆  └⊷ Ask Claude anything\n├◆ *${PREFIX}claude <question>*\n├◆  └⊷ Alias for claudeai\n├◆ *${PREFIX}anthropic <question>*\n├◆  └⊷ Alias for claudeai\n└─⧭`}, { quoted: m });
+        text: `┌─⧭ 🧠 *CLAUDE AI* \n├◆ Usage: *${PREFIX}claudeai <text>*\n├◆ Query Claude AI via Keith\n├◆ Aliases: *${PREFIX}claude*, *${PREFIX}anthropic*, *${PREFIX}claude2*, *${PREFIX}claude3*\n└─⧭`}, { quoted: m });
       return;
     }
 

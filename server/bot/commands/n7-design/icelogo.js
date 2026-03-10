@@ -11,7 +11,7 @@ export default {
     try {
       if (args.length === 0) {
         await sock.sendMessage(jid, { 
-          text: `┌─⧭ ❄️ *ICE LOGO* \n├◆ *icelogo*\n├◆  └⊷ icelogo <text>\n├◆ *Example:*\n├◆  └⊷ icelogo WOLF\n├◆  └⊷ icelogo FROST\n├◆  └⊷ icelogo ICE\n└─⧭` 
+          text: `┌─⧭ ❄️ *ICE LOGO* \n├◆ Usage: *${PREFIX}icelogo <text>*\n├◆ Create frozen ice crystal text logos\n└─⧭` 
         }, { quoted: m });
         return;
       }
@@ -20,7 +20,7 @@ export default {
       
       if (text.length > 12) {
         await sock.sendMessage(jid, { 
-          text: `┌─⧭ ❌ *ERROR* \n├◆ Text too long!\n├◆  └⊷ Maximum 12 characters\n├◆  └⊷ Your text: "${text}" (${text.length} chars)\n└─⧭` 
+          text: `┌─⧭ ❌ *ERROR* \n├◆ Usage: *${PREFIX}icelogo <text>*\n├◆ Create frozen ice crystal text logos\n└─⧭` 
         }, { quoted: m });
         return;
       }
@@ -41,7 +41,7 @@ export default {
     } catch (error) {
       console.error("❌ [ICELOGO] ERROR:", error);
       await sock.sendMessage(jid, { 
-        text: `┌─⧭ ❌ *ERROR* \n├◆ ${error.message}\n├◆  └⊷ Please try again with shorter text\n└─⧭` 
+        text: `┌─⧭ ❌ *ERROR* \n├◆ Usage: *${PREFIX}icelogo <text>*\n├◆ Create frozen ice crystal text logos\n└─⧭` 
       }, { quoted: m });
     }
   },

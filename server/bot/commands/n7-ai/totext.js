@@ -43,7 +43,7 @@ export default {
 
         if (!quotedMessage) {
             return sock.sendMessage(jid, {
-                text: `┌─⧭ 🎤 *TRANSCRIBE* \n├◆ *${PREFIX}totext (reply to audio)*\n├◆  └⊷ Convert speech to text\n├◆ *${PREFIX}transcribe (reply to audio)*\n├◆  └⊷ Alias for totext\n└─⧭`
+                text: `┌─⧭ 🎤 *TRANSCRIBE* \n├◆ Usage: *${PREFIX}totext <text>*\n├◆ Convert audio/video to text using AI transcription\n└─⧭`
             }, { quoted: m });
         }
 

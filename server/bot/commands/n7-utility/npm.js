@@ -23,7 +23,7 @@ export default {
 
         if (!args.length) {
             return await sock.sendMessage(chatId, {
-                text: `┌─⧭ 📦 *NPM PACKAGE MANAGER* \n├◆ *${PREFIX}npm install*\n├◆  └⊷ Install all dependencies\n├◆ *${PREFIX}npm install <pkg>*\n├◆  └⊷ Install a specific package\n├◆ *${PREFIX}npm install <p1> <p2>*\n├◆  └⊷ Install multiple packages\n├◆ *${PREFIX}npm uninstall <pkg>*\n├◆  └⊷ Remove a package\n├◆ *${PREFIX}npm update*\n├◆  └⊷ Update all packages\n├◆ *${PREFIX}npm update <pkg>*\n├◆  └⊷ Update a specific package\n├◆ *${PREFIX}npm list*\n├◆  └⊷ Show installed packages\n├◆ *${PREFIX}npm outdated*\n├◆  └⊷ Check for outdated packages\n├◆ *Examples:*\n├◆  └⊷ ${PREFIX}npm install dotenv\n├◆  └⊷ ${PREFIX}npm install mumaker axios\n├◆  └⊷ ${PREFIX}npm uninstall chalk\n├◆  └⊷ ${PREFIX}npm list\n└─⧭\n> *${getBotName()}*`
+                text: `┌─⧭ 📦 *NPM PACKAGE MANAGER* \n├◆ Usage: *${PREFIX}npm install <package> | npm uninstall <package> | npm list | npm update*\n├◆ Install or manage npm packages\n├◆ Aliases: *${PREFIX}npmi*, *${PREFIX}install*, *${PREFIX}npminstall*, *${PREFIX}dependency*\n└─⧭\n> *${getBotName()}*`
             }, { quoted: msg });
         }
 

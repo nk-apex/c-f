@@ -329,7 +329,7 @@ export default {
         return sock.sendMessage(
           jid,
           {
-            text: `┌─⧭ 🎨 *REMOVE BG* \n├◆ Reply to image with *${PREFIX}removebg*\n├◆  └⊷ Remove image background\n├◆ *${PREFIX}rmbg*\n├◆  └⊷ Alias for removebg\n└─⧭`
+            text: `┌─⧭ 🎨 *REMOVE BG* \n├◆ Usage: *${PREFIX}removebg <text>*\n├◆ Remove background from image\n├◆ Aliases: *${PREFIX}rmbg*, *${PREFIX}bgremove*, *${PREFIX}nobg*, *${PREFIX}transparentbg*\n└─⧭`
           },
           { quoted: m }
         );

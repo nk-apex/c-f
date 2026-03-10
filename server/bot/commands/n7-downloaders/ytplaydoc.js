@@ -661,7 +661,7 @@ export default {
 
       if (args.length === 0) {
         await sock.sendMessage(jid, { 
-          text: `┌─⧭ 🎬 *VIDEO2 DOWNLOADER* \n├◆ *video2 <video name>*\n├◆  └⊷ Download video\n├◆ *video2 <YouTube URL>*\n├◆  └⊷ Download from link\n├◆ *video2 <name> -low*\n├◆  └⊷ Smaller file size\n└─⧭`
+          text: `┌─⧭ 🎬 *VIDEO2 DOWNLOADER* \n├◆ Usage: *${PREFIX}ytplaydoc <text>*\n├◆ Download YouTube audio as document file\n├◆ Aliases: *${PREFIX}vid2*, *${PREFIX}ytv2*, *${PREFIX}ytvideo2*, *${PREFIX}video2*\n└─⧭`
         }, { quoted: m });
         return;
       }

@@ -264,11 +264,11 @@ export default {
                 let text = `┌─⧭ 👁️ *AUTOVIEWSTATUS* \n`;
                 text += `│ Status   : ${s.enabled ? '✅ ACTIVE' : '❌ INACTIVE'}\n`;
                 text += `│ Excluded : ${s.excludedCount} contact(s)\n`;
-                text += `├◆ *${prefix}autoviewstatus on/off*\n├◆  └⊷ Enable / disable\n`;
-                text += `├◆ *${prefix}autoviewstatus exclude <number>*\n├◆  └⊷ Skip a contact\n`;
-                text += `├◆ *${prefix}autoviewstatus include <number>*\n├◆  └⊷ Remove from skip list\n`;
-                text += `├◆ *${prefix}autoviewstatus excluded*\n├◆  └⊷ Show skip list\n`;
-                text += `├◆ *${prefix}autoviewstatus stats*\n├◆  └⊷ Statistics\n`;
+                text += `├◆ *${prefix}autoviewstatus on/off*\n`;
+                text += `├◆ *${prefix}autoviewstatus exclude <number>*\n`;
+                text += `├◆ *${prefix}autoviewstatus include <number>*\n`;
+                text += `├◆ *${prefix}autoviewstatus excluded*\n`;
+                text += `├◆ *${prefix}autoviewstatus stats*\n`;
                 text += `└─⧭`;
                 await reply(text);
                 return;

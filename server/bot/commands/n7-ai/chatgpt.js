@@ -12,7 +12,7 @@ export default {
       const query = args.join(" ");
       if (!query) {
         return sock.sendMessage(m.key.remoteJid, {
-          text: `┌─⧭ 🤖 *CHATGPT AI* \n├◆ *.chatgpt <question>*\n├◆  └⊷ Chat with GPT models\n├◆ *.gpt <question>*\n├◆  └⊷ Alias for chatgpt\n├◆ *.gpt4 <question>*\n├◆  └⊷ Alias for chatgpt\n└─⧭`
+          text: `┌─⧭ 🤖 *CHATGPT AI* \n├◆ Usage: *${PREFIX}chatgpt <your question>*\n├◆ Chat with OpenAI GPT models (GPT-3.5 to GPT-4) 🤖\n├◆ Aliases: *${PREFIX}gpt*, *${PREFIX}gpt4*, *${PREFIX}openai*\n└─⧭`
         }, { quoted: m });
       }
 

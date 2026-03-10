@@ -78,7 +78,7 @@ export default {
       
       // Show usage if no action specified
       if (!action) {
-        const usageText = `┌─⧭ 📋 *GROUP LINK* \n├◆ *link*\n├◆  └⊷ Get current invite link\n├◆ *link reset*\n├◆  └⊷ Generate new link\n├◆ *link revoke*\n├◆  └⊷ Revoke current link\n├◆ *link info*\n├◆  └⊷ Show link info\n└─⧭`;
+        const usageText = `┌─⧭ 📋 *GROUP LINK* \n├◆ Usage: *${PREFIX}link <text>*\n├◆ Get the group invite link\n└─⧭`;
         
         await sock.sendMessage(sender, { 
           text: usageText
@@ -128,7 +128,7 @@ export default {
             message += `📅 *Created:* ${creationDate}\n`;
             message += `👑 *Admins:* ${adminsCount}\n`;
             message += `🆔 *Group ID:* ${sender.split('@')[0]}\n\n`;
-            message += `\n┌─⧭ 💡 *COMMANDS* \n├◆ *link reset*\n├◆  └⊷ Generate new link\n├◆ *link revoke*\n├◆  └⊷ Delete current link\n└─⧭`;
+            message += `\n┌─⧭ 💡 *COMMANDS* \n├◆ Usage: *${PREFIX}link <text>*\n├◆ Get the group invite link\n└─⧭`;
           } catch (error) {
             if (error.message?.includes('not authorized') || error.message?.includes('401')) {
               message = '🔗 *No Active Link*\n\nThere is no active invite link for this group or the bot lacks permissions.\n\nGenerate one with: *link reset*';
@@ -146,7 +146,7 @@ export default {
             
             message = `🐺 *Group Invite Link*\n\n`;
             message += `🔗 *Link:* ${link}\n\n`;
-            message += `\n┌─⧭ 📋 *USAGE* \n├◆ *link reset*\n├◆  └⊷ Generate new link\n├◆ *link revoke*\n├◆  └⊷ Delete current link\n└─⧭`;
+            message += `\n┌─⧭ 📋 *USAGE* \n├◆ Usage: *${PREFIX}link <text>*\n├◆ Get the group invite link\n└─⧭`;
           } catch (error) {
             // No active link, generate one
             try {

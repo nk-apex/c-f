@@ -11,7 +11,7 @@ export default {
     try {
       if (args.length === 0) {
         await sock.sendMessage(jid, { 
-          text: `┌─⧭ 🟫 *BRONZE LOGO* \n├◆ *bronzelogo*\n├◆  └⊷ bronzelogo <text>\n├◆ *Example:*\n├◆  └⊷ bronzelogo WOLF\n├◆  └⊷ bronzelogo BRONZE\n├◆  └⊷ bronzelogo ANCIENT\n└─⧭` 
+          text: `┌─⧭ 🟫 *BRONZE LOGO* \n├◆ Usage: *${PREFIX}bronzelogo <text>*\n├◆ Create authentic bronze metallic text logos with patina effects\n└─⧭` 
         }, { quoted: m });
         return;
       }
@@ -20,7 +20,7 @@ export default {
       
       if (text.length > 15) {
         await sock.sendMessage(jid, { 
-          text: `┌─⧭ ❌ *ERROR* \n├◆ Text too long!\n├◆  └⊷ Maximum 15 characters\n├◆  └⊷ Your text: "${text}" (${text.length} chars)\n└─⧭` 
+          text: `┌─⧭ ❌ *ERROR* \n├◆ Usage: *${PREFIX}bronzelogo <text>*\n├◆ Create authentic bronze metallic text logos with patina effects\n└─⧭` 
         }, { quoted: m });
         return;
       }
@@ -41,7 +41,7 @@ export default {
     } catch (error) {
       console.error("❌ [BRONZELOGO] ERROR:", error);
       await sock.sendMessage(jid, { 
-        text: `┌─⧭ ❌ *ERROR* \n├◆ ${error.message}\n├◆  └⊷ Please try again with shorter text\n└─⧭` 
+        text: `┌─⧭ ❌ *ERROR* \n├◆ Usage: *${PREFIX}bronzelogo <text>*\n├◆ Create authentic bronze metallic text logos with patina effects\n└─⧭` 
       }, { quoted: m });
     }
   },

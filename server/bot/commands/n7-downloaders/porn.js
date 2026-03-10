@@ -100,11 +100,11 @@ export default {
     } else {
       const helpText = 
         `┌─⧭ 🐺 *WOLF VIDEO DOWNLOADER* \n` +
-        `├◆ *.wolf <search query>*\n├◆  └⊷ Downloads educational wolf content from YouTube\n` +
+        `├◆ *.wolf <search query>*\n` +
         `├◆ *Examples:*\n` +
-        `│  └⊷ .wolf hunting\n` +
-        `│  └⊷ .wolf pack behavior\n` +
-        `│  └⊷ .wolf https://youtube.com/...\n` +
+        `│\n` +
+        `│\n` +
+        `│\n` +
         `└─⧭`;
       
       await sock.sendMessage(jid, { text: helpText }, { quoted: m });

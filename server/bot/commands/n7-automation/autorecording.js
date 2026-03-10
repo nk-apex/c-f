@@ -372,13 +372,9 @@ export default {
 ├◆ Auto-Recording: ${status.enabled ? 'ON 🟢' : 'OFF 🔴'}
 ├◆ Duration: ${status.duration}s | Active: ${status.activeSessions}
 ├◆ *${PREFIX}autorecording on*
-├◆  └⊷ Enable recording
 ├◆ *${PREFIX}autorecording off*
-├◆  └⊷ Disable recording
 ├◆ *${PREFIX}autorecording <duration>*
-├◆  └⊷ Set duration (1-120s)
 ├◆ *${PREFIX}autorecording status*
-├◆  └⊷ Detailed info
 └─⧭`
         }, { quoted: m });
         return;
@@ -468,9 +464,7 @@ ${ownerOnly ?
 }
 
 ├◆ *${PREFIX}autorecording users add @user*
-├◆  └⊷ Add allowed user
 ├◆ *${PREFIX}autorecording users list*
-├◆  └⊷ View allowed users
 └─⧭`
         }, { quoted: m });
         return;
@@ -492,9 +486,9 @@ ${ownerOnly ?
             });
           }
           
-          userList += `\n├◆ *${PREFIX}autorecording users add @user*\n├◆  └⊷ Add a user\n`;
-          userList += `├◆ *${PREFIX}autorecording users remove @user*\n├◆  └⊷ Remove a user\n`;
-          userList += `├◆ *${PREFIX}autorecording users clear*\n├◆  └⊷ Clear all users\n`;
+          userList += `\n`;
+          userList += `├◆ *${PREFIX}autorecording users remove @user*\n`;
+          userList += `├◆ *${PREFIX}autorecording users clear*\n`;
           userList += `└─⧭`;
           
           return sock.sendMessage(targetJid, {
@@ -533,7 +527,7 @@ ${ownerOnly ?
         
         // Invalid user command
         await sock.sendMessage(targetJid, {
-          text: `┌─⧭ ❓ *RECORDING USERS* \n├◆ *${PREFIX}autorecording users list*\n├◆  └⊷ View allowed users\n├◆ *${PREFIX}autorecording users add @user*\n├◆  └⊷ Add a user\n├◆ *${PREFIX}autorecording users remove @user*\n├◆  └⊷ Remove a user\n├◆ *${PREFIX}autorecording users clear*\n├◆  └⊷ Clear all users\n└─⧭`
+          text: `┌─⧭ ❓ *RECORDING USERS* \n├◆ Usage: *${PREFIX}autorecording [on/off/duration/status/mode/users]*\n├◆ Toggle auto fake recording when someone messages you 🎤\n└─⧭`
         }, { quoted: m });
         return;
       }
@@ -570,7 +564,7 @@ Maximum recording time is 2 minutes (120 seconds).`
         
         if (isNaN(manualDuration) || manualDuration < 1 || manualDuration > 300) {
           await sock.sendMessage(targetJid, {
-            text: `┌─⧭ ❌ *INVALID DURATION* \n├◆ *${PREFIX}autorecording manual 15*\n├◆  └⊷ Use 1-300 seconds\n└─⧭`
+            text: `┌─⧭ ❌ *INVALID DURATION* \n├◆ Usage: *${PREFIX}autorecording [on/off/duration/status/mode/users]*\n├◆ Toggle auto fake recording when someone messages you 🎤\n└─⧭`
           }, { quoted: m });
           return;
         }
@@ -591,19 +585,12 @@ I'll show 'recording...' for ${manualDuration} seconds!`
       await sock.sendMessage(targetJid, {
         text: `┌─⧭ 🎤 *AUTO-RECORDING* 
 ├◆ *${PREFIX}autorecording on*
-├◆  └⊷ Enable recording
 ├◆ *${PREFIX}autorecording off*
-├◆  └⊷ Disable recording
 ├◆ *${PREFIX}autorecording <1-120>*
-├◆  └⊷ Set duration
 ├◆ *${PREFIX}autorecording mode*
-├◆  └⊷ Toggle access mode
 ├◆ *${PREFIX}autorecording users*
-├◆  └⊷ Manage users
 ├◆ *${PREFIX}autorecording status*
-├◆  └⊷ Detailed info
 ├◆ *${PREFIX}autorecording manual 10*
-├◆  └⊷ Manual recording
 └─⧭`
       }, { quoted: m });
       

@@ -458,7 +458,7 @@ export default {
     try {
       if (!args[0]) {
         await sock.sendMessage(jid, { 
-          text: `┌─⧭ 🎨 *AI IMAGE GENERATOR* \n├◆ *imagine <prompt>*\n├◆  └⊷ Generate AI images with multiple styles\n├◆ *imagine style:<name> prompt:<text>*\n├◆  └⊷ Use specific style (anime, cyberpunk, fantasy, etc.)\n├◆ *imagine list*\n├◆  └⊷ Show all available styles\n├◆ *Examples:*\n├◆  └⊷ imagine anime girl with blue hair\n├◆  └⊷ imagine style:cyberpunk futuristic city\n└─⧭` 
+          text: `┌─⧭ 🎨 *AI IMAGE GENERATOR* \n├◆ Usage: *${PREFIX}imagine <prompt> | .imagine style:anime prompt:a cat | .imagine list*\n├◆ Generate AI images with multiple styles\n├◆ Aliases: *${PREFIX}generate*, *${PREFIX}create*, *${PREFIX}aiart*, *${PREFIX}aiimage*\n└─⧭` 
         }, { quoted: m });
         return;
       }
@@ -497,7 +497,7 @@ export default {
       // Check prompt length
       if (prompt.length < 3) {
         await sock.sendMessage(jid, { 
-          text: `┌─⧭ ❌ *PROMPT TOO SHORT* \n├◆ *imagine <detailed prompt>*\n├◆  └⊷ imagine a beautiful sunset over mountains\n├◆  └⊷ imagine style:cyberpunk futuristic city\n└─⧭` 
+          text: `┌─⧭ ❌ *PROMPT TOO SHORT* \n├◆ Usage: *${PREFIX}imagine <prompt> | .imagine style:anime prompt:a cat | .imagine list*\n├◆ Generate AI images with multiple styles\n├◆ Aliases: *${PREFIX}generate*, *${PREFIX}create*, *${PREFIX}aiart*, *${PREFIX}aiimage*\n└─⧭` 
         }, { quoted: m });
         return;
       }

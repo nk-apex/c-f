@@ -58,11 +58,11 @@ export default {
                      `├◆ *Current:* ${modeText}\n` +
                      `│\n` +
                      `├◆ *${prefix}vvmode image*\n` +
-                     `│  └⊷ Send as normal image/video\n` +
+                     `│\n` +
                      `├◆ *${prefix}vvmode sticker*\n` +
-                     `│  └⊷ Send as sticker\n` +
+                     `│\n` +
                      `├◆ *${prefix}vvmode toggle*\n` +
-                     `│  └⊷ Switch between modes\n` +
+                     `│\n` +
                      `└─⧭`
             }, { quoted: msg });
             return;
@@ -115,11 +115,11 @@ export default {
                     text: `┌─⧭ 🖼️ *VIEW-ONCE MODE* \n` +
                          `│\n` +
                          `├◆ *${prefix}vvmode image*\n` +
-                         `│  └⊷ Send as normal image\n` +
+                         `│\n` +
                          `├◆ *${prefix}vvmode sticker*\n` +
-                         `│  └⊷ Send as sticker\n` +
+                         `│\n` +
                          `├◆ *${prefix}vvmode toggle*\n` +
-                         `│  └⊷ Switch between modes\n` +
+                         `│\n` +
                          `└─⧭`
                 }, { quoted: msg });
             }

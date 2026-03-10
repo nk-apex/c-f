@@ -17,7 +17,7 @@ export default {
       return sock.sendMessage(jid, {
         text: `┌─⧭ 📰 *TEAM NEWS* \n` +
           `├◆ *${PREFIX}teamnews <team>*\n` +
-          `│  └⊷ Get news for a specific team\n` +
+          `│\n` +
           `│\n` +
           `├◆ 💡 *Examples:*\n` +
           `│  ⊷ ${PREFIX}teamnews arsenal\n` +
@@ -52,8 +52,8 @@ export default {
         const shortSummary = summary.length > 100 ? summary.substring(0, 97) + '...' : summary;
 
         text += `├◆ *${i + 1}. ${title}*\n`;
-        if (shortSummary) text += `│  └⊷ ${shortSummary}\n`;
-        if (source || dateStr) text += `│  └⊷ ${source}${source && dateStr ? ' │ ' : ''}${dateStr}\n`;
+        if (shortSummary) text += `│\n`;
+        if (source || dateStr) text += `│\n`;
       });
       text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
       await sock.sendMessage(jid, { text }, { quoted: m });

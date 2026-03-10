@@ -21,7 +21,7 @@ export default {
 
         if (!linkText) {
             return sock.sendMessage(chatId, {
-                text: '┌─⧭ 🔗 *JOIN GROUP* \n├◆ Reply to a WhatsApp group\n├◆  └⊷ invite link with *.join*\n├◆ Or: *.join [link]*\n└─⧭'
+                text: '┌─⧭ 🔗 *JOIN GROUP* \n├◆ Or: *.join [link]*\n└─⧭'
             }, { quoted: msg });
         }
 

@@ -62,7 +62,7 @@ export default {
 
         if (args.length > 0 && args[0].toLowerCase() === 'help') {
             return sock.sendMessage(jid, {
-                text: `┌─⧭ 👁️ *VISION AI* \n├◆ *${PREFIX}vision <question>*\n├◆  └⊷ Reply to image to analyze it\n├◆ *${PREFIX}vision describe*\n├◆  └⊷ Send image with caption to describe\n├◆ *${PREFIX}vision*\n├◆  └⊷ Reply to image for auto-analyze\n├◆ 📁 *Supported:* JPG, PNG, GIF, WebP\n└─⧭`
+                text: `┌─⧭ 👁️ *VISION AI* \n├◆ 📁 *Supported:* JPG, PNG, GIF, WebP\n└─⧭`
             }, { quoted: m });
         }
 

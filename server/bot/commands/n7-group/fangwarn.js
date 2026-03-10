@@ -39,7 +39,7 @@ export default {
 
         if (!targetUser) {
             return sock.sendMessage(jid, {
-                text: `┌─⧭ ⚠️ *WARN* \n├◆ *${PREFIX}warn* (reply)\n├◆  └⊷ Warn via reply\n├◆ *${PREFIX}warn @user*\n├◆  └⊷ Warn via mention\n├◆ *${PREFIX}warn @user spamming*\n├◆  └⊷ Warn with reason\n└─⧭`
+                text: `┌─⧭ ⚠️ *WARN* \n├◆ Usage: *${PREFIX}warn <text>*\n├◆ Warn a user in the group (reply or mention). Auto-kicks at warn limit.\n├◆ Aliases: *${PREFIX}fangwarn*, *${PREFIX}warning*\n└─⧭`
             }, { quoted: msg });
         }
 

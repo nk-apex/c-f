@@ -11,7 +11,7 @@ export default {
     try {
       if (args.length === 0) {
         await sock.sendMessage(jid, { 
-          text: `┌─⧭ 🔘 *TITANIUM LOGO* \n├◆ *titaniumlogo*\n├◆  └⊷ titaniumlogo <text>\n├◆ *Example:*\n├◆  └⊷ titaniumlogo WOLF\n├◆  └⊷ titaniumlogo TITANIUM\n├◆  └⊷ titaniumlogo ELITE\n└─⧭` 
+          text: `┌─⧭ 🔘 *TITANIUM LOGO* \n├◆ Usage: *${PREFIX}titaniumlogo <text>*\n├◆ Create premium titanium metallic text logos with anodized effects\n└─⧭` 
         }, { quoted: m });
         return;
       }
@@ -20,7 +20,7 @@ export default {
       
       if (text.length > 15) {
         await sock.sendMessage(jid, { 
-          text: `┌─⧭ ❌ *ERROR* \n├◆ Text too long!\n├◆  └⊷ Maximum 15 characters\n├◆  └⊷ Your text: "${text}" (${text.length} chars)\n└─⧭` 
+          text: `┌─⧭ ❌ *ERROR* \n├◆ Usage: *${PREFIX}titaniumlogo <text>*\n├◆ Create premium titanium metallic text logos with anodized effects\n└─⧭` 
         }, { quoted: m });
         return;
       }
@@ -41,7 +41,7 @@ export default {
     } catch (error) {
       console.error("❌ [TITANIUMLOGO] ERROR:", error);
       await sock.sendMessage(jid, { 
-        text: `┌─⧭ ❌ *ERROR* \n├◆ ${error.message}\n├◆  └⊷ Please try again with shorter text\n└─⧭` 
+        text: `┌─⧭ ❌ *ERROR* \n├◆ Usage: *${PREFIX}titaniumlogo <text>*\n├◆ Create premium titanium metallic text logos with anodized effects\n└─⧭` 
       }, { quoted: m });
     }
   },

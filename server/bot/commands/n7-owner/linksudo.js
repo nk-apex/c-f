@@ -83,14 +83,14 @@ export default {
                     }
                 }
                 return sock.sendMessage(chatId, {
-                    text: `┌─⧭ ⚠️ *LINK SUDO* \n├◆ *Reply + ${PREFIX}linksudo <number>*\n├◆  └⊷ Link sudo number\n└─⧭`
+                    text: `┌─⧭ ⚠️ *LINK SUDO* \n├◆ Usage: *${PREFIX}linksudo <text>*\n├◆ Scan group to link sudo users WhatsApp IDs automatically\n├◆ Aliases: *${PREFIX}sudolink*\n└─⧭`
                 }, { quoted: msg });
             }
         }
 
         if (!isGroup) {
             return sock.sendMessage(chatId, {
-                text: `┌─⧭ 📋 *LINK SUDO* \n├◆ *${PREFIX}linksudo*\n├◆  └⊷ Auto-scan members\n├◆ *Reply + ${PREFIX}linksudo*\n├◆  └⊷ Link specific sudo user\n└─⧭`
+                text: `┌─⧭ 📋 *LINK SUDO* \n├◆ Usage: *${PREFIX}linksudo <text>*\n├◆ Scan group to link sudo users WhatsApp IDs automatically\n├◆ Aliases: *${PREFIX}sudolink*\n└─⧭`
             }, { quoted: msg });
         }
 

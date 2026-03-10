@@ -31,15 +31,15 @@ export default {
         text: `┌─⧭ ⚽ *FOOTBALL / SOCCER* \n` +
           `│\n` +
           `├◆ *${PREFIX}football scores*\n` +
-          `│  └⊷ Live/recent match scores\n` +
+          `│\n` +
           `├◆ *${PREFIX}football standings [league]*\n` +
-          `│  └⊷ League table (default: EPL)\n` +
+          `│\n` +
           `├◆ *${PREFIX}football fixtures*\n` +
-          `│  └⊷ Upcoming fixtures\n` +
+          `│\n` +
           `├◆ *${PREFIX}football topscorers [league]*\n` +
-          `│  └⊷ Top goal scorers\n` +
+          `│\n` +
           `├◆ *${PREFIX}football stats [league]*\n` +
-          `│  └⊷ League statistics\n` +
+          `│\n` +
           `│\n` +
           `├◆ 📋 *Available Leagues:*\n` +
           `│  ⊷ epl / eng - Premier League\n` +
@@ -77,7 +77,7 @@ export default {
           const league = match?.league?.name || match?.competition?.name || '';
           const matchId = match?.id || match?.matchId || match?.match_id || '';
           text += `├◆ ${home} *${homeScore}* - *${awayScore}* ${away}\n`;
-          text += `│  └⊷ ${status}${league ? ` │ ${league}` : ''}${matchId ? ` │ ID: ${matchId}` : ''}\n`;
+          text += `│` │ ${league}` : ''}${matchId ? ` │ ID: ${matchId}` : ''}\n`;
         });
         text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
         await sock.sendMessage(jid, { text }, { quoted: m });
@@ -129,7 +129,7 @@ export default {
             try { dateStr = new Date(date).toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' }); } catch { dateStr = date; }
           }
           text += `├◆ ${home} vs ${away}\n`;
-          text += `│  └⊷ ${dateStr}${league ? ` │ ${league}` : ''}${venue ? ` │ ${venue}` : ''}\n`;
+          text += `│` │ ${league}` : ''}${venue ? ` │ ${venue}` : ''}\n`;
         });
         text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
         await sock.sendMessage(jid, { text }, { quoted: m });

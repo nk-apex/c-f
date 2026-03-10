@@ -11,7 +11,7 @@ export default {
     try {
       if (args.length === 0) {
         await sock.sendMessage(jid, { 
-          text: `┌─⧭ 🌙 *MOON LOGO* \n├◆ *moonlogo*\n├◆  └⊷ moonlogo <text>\n├◆ *Example:*\n├◆  └⊷ moonlogo LUNA\n├◆  └⊷ moonlogo MOON\n├◆  └⊷ moonlogo NIGHT\n└─⧭` 
+          text: `┌─⧭ 🌙 *MOON LOGO* \n├◆ Usage: *${PREFIX}moonlogo <text>*\n├◆ Create stunning text logos with realistic moon background and cosmic effects\n└─⧭` 
         }, { quoted: m });
         return;
       }
@@ -20,7 +20,7 @@ export default {
       
       if (text.length > 10) {
         await sock.sendMessage(jid, { 
-          text: `┌─⧭ ❌ *ERROR* \n├◆ Text too long!\n├◆  └⊷ Maximum 10 characters\n├◆  └⊷ Your text: "${text}" (${text.length} chars)\n└─⧭` 
+          text: `┌─⧭ ❌ *ERROR* \n├◆ Usage: *${PREFIX}moonlogo <text>*\n├◆ Create stunning text logos with realistic moon background and cosmic effects\n└─⧭` 
         }, { quoted: m });
         return;
       }
@@ -41,7 +41,7 @@ export default {
     } catch (error) {
       console.error("❌ [MOONLOGO] ERROR:", error);
       await sock.sendMessage(jid, { 
-        text: `┌─⧭ ❌ *ERROR* \n├◆ ${error.message}\n├◆  └⊷ Please try again with shorter text\n└─⧭` 
+        text: `┌─⧭ ❌ *ERROR* \n├◆ Usage: *${PREFIX}moonlogo <text>*\n├◆ Create stunning text logos with realistic moon background and cosmic effects\n└─⧭` 
       }, { quoted: m });
     }
   },

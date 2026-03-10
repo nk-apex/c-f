@@ -609,12 +609,12 @@ export default {
 // │  ├⊷ *Prefix:* [ ${botPrefix} ]
 // │  ├⊷ *Version:* ${botVersion}
 // │  ├⊷ *Platform:* ${deploymentPlatform.name}
-// │  └⊷ *Status:* ${deploymentPlatform.status}
+// │
 // │
 // ├◆ *📈 SYSTEM STATUS*
 // │  ├⊷ *Uptime:* ${formatUptime(process.uptime())}
 // │  ├⊷ *RAM Usage:* ${getRAMUsage()}%
-// │  └⊷ *Speed:* ${(performance.now() - performance.now()).toFixed(2)}ms
+// │
 // │
 // └─⧭⊷`;
 

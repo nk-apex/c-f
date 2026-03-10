@@ -30,7 +30,7 @@ export default {
       
       if (!isImage && !isVideo && !isDocument && !isText && !query) {
         return sock.sendMessage(chatId, {
-          text: `┌─⧭ 📊 *CONTENT ANALYZER* \n├◆ *.analyze <text>*\n├◆  └⊷ Analyze text content\n├◆ *.analyze (reply to image)*\n├◆  └⊷ Analyze image with AI vision\n├◆ *.analyze (reply to video)*\n├◆  └⊷ Analyze video content\n├◆ *.analyze (reply to document)*\n├◆  └⊷ Analyze document content\n└─⧭`
+          text: `┌─⧭ 📊 *CONTENT ANALYZER* \n├◆ Usage: *${PREFIX}analyze <image/document/text> or reply .analyze to media*\n├◆ ${imageDescription}\n├◆ Aliases: *${PREFIX}analyzer*, *${PREFIX}analysis*\n└─⧭`
         }, { quoted: m });
       }
 

@@ -14,11 +14,11 @@ export default {
       // Show help if no arguments
       if (args.length === 0 || args[0]?.toLowerCase() === 'help') {
         const helpText = `┌─⧭ 📊 *TIKTOK ACCOUNT INFO* \n` +
-          `├◆ *${PREFIX}tiktokinfo <username>*\n├◆  └⊷ Get TikTok account information\n` +
-          `├◆ *${PREFIX}ttinfo @username*\n├◆  └⊷ Alias for tiktokinfo\n` +
+          `├◆ *${PREFIX}tiktokinfo <username>*\n` +
+          `├◆ *${PREFIX}ttinfo @username*\n` +
           `├◆ *Examples:*\n` +
-          `│  └⊷ ${PREFIX}tiktokinfo khaby.lame\n` +
-          `│  └⊷ ${PREFIX}ttinfo @zachking\n` +
+          `│\n` +
+          `│\n` +
           `└─⧭`;
         
         return sock.sendMessage(jid, { text: helpText }, { quoted: m });

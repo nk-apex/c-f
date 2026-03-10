@@ -186,7 +186,7 @@ export default {
         text += `├◆ *💾 SIZE BREAKDOWN*\n`;
         text += `│  ├⊷ 📄 Files: ${analysis.summary.estimatedFiles}\n`;
         text += `│  ├⊷ 📂 Dirs: ${analysis.directories.length}\n`;
-        text += `│  └⊷ 🏷️ Types: ${Object.keys(analysis.fileTypes).length}\n`;
+        text += `│\n`;
         text += `│\n`;
         
         if (topFileTypes.length > 0) {

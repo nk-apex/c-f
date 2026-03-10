@@ -352,7 +352,7 @@ export default {
             
             if (!mode || !['warn', 'delete', 'kick'].includes(mode)) {
                 return sock.sendMessage(chatId, { 
-                    text: '┌─⧭ ⚙️ *ANTI-STICKER SETUP* \n├◆ *.antisticker on warn*\n├◆  └⊷ Warn senders\n├◆ *.antisticker on delete*\n├◆  └⊷ Auto-delete stickers\n├◆ *.antisticker on kick*\n├◆  └⊷ Kick senders\n└─⧭' 
+                    text: '┌─⧭ ⚙️ *ANTI-STICKER SETUP* \n├◆ Usage: *${PREFIX}antisticker <text>*\n├◆ Enable or disable sticker blocking for non-admins in the group\n└─⧭' 
                 }, { quoted: msg });
             }
 
@@ -479,7 +479,7 @@ export default {
         }
         else {
             // Show help
-            const helpText = `┌─⧭ 🎭 *ANTI-STICKER* \n├◆ *.antisticker on <warn|delete|kick>*\n├◆  └⊷ Enable with mode\n├◆ *.antisticker off*\n├◆  └⊷ Disable protection\n├◆ *.antisticker exemptadmins [on/off]*\n├◆  └⊷ Toggle admin exemption\n├◆ *.antisticker status*\n├◆  └⊷ View current status\n└─⧭`;
+            const helpText = `┌─⧭ 🎭 *ANTI-STICKER* \n├◆ Usage: *${PREFIX}antisticker <text>*\n├◆ Enable or disable sticker blocking for non-admins in the group\n└─⧭`;
             
             await sock.sendMessage(chatId, { text: helpText }, { quoted: msg });
         }

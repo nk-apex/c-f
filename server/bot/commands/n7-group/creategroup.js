@@ -35,7 +35,7 @@ export default {
 
     // ====== HELP SECTION ======
     if (args.length === 0 || args[0].toLowerCase() === "help") {
-      const helpText = `┌─⧭ 👥 *CREATE GROUP* \n├◆ *${PREFIX}creategroup GroupName*\n├◆  └⊷ Create new group\n├◆ *${PREFIX}creategroup GroupName 254xxx 254yyy*\n├◆  └⊷ Create with members\n├◆ *-d "description"*\n├◆  └⊷ Set description\n├◆ *-a*\n├◆  └⊷ Announce only\n├◆ *-r*\n├◆  └⊷ Admin-only settings\n└─⧭`;
+      const helpText = `┌─⧭ 👥 *CREATE GROUP* \n├◆ Usage: *${PREFIX}<name> [participants...]*\n├◆ Create WhatsApp groups automatically\n├◆ Aliases: *${PREFIX}cg*, *${PREFIX}makegroup*, *${PREFIX}newgroup*\n└─⧭`;
       
       return sock.sendMessage(jid, { text: helpText }, { quoted: m });
     }

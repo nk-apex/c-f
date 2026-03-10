@@ -199,7 +199,7 @@ export default {
     try {
       if (args.length === 0) {
         return sock.sendMessage(msg.key.remoteJid, {
-          text: '┌─⧭ 🔍 *YTS SEARCH* \n├◆ *yts <search query>*\n├◆  └⊷ Search YouTube videos\n└─⧭'
+          text: '┌─⧭ 🔍 *YTS SEARCH* \n├◆ Usage: *${PREFIX}yts [search query]*\n├◆ Search YouTube videos with detailed information\n└─⧭'
         }, { quoted: msg });
       }
 

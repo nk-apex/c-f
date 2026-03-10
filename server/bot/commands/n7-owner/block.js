@@ -13,7 +13,7 @@ export default {
       const mentioned = message?.extendedTextMessage?.contextInfo?.mentionedJid;
       if (!mentioned || mentioned.length === 0) {
         return await sock.sendMessage(key.remoteJid, {
-          text: '┌─⧭ 🐺 *BLOCK* \n├◆ *Tag a user*\n├◆  └⊷ Block via mention\n└─⧭',
+          text: '┌─⧭ 🐺 *BLOCK* \n├◆ Usage: *${PREFIX}block <text>*\n├◆ Block a user (tag in group or auto-block in DM)\n└─⧭',
         }, { quoted: msg });
       }
       target = mentioned[0];

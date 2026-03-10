@@ -1029,7 +1029,7 @@ export default {
     // Help section
     if (args.length === 0 || args[0].toLowerCase() === 'help') {
       return sock.sendMessage(jid, {
-        text: `┌─⧭ 🔬 *AI SCANNER* \n├◆ *${PREFIX}aiscanner <text>*\n├◆  └⊷ Detect AI-generated text\n├◆ Reply to message with *${PREFIX}aiscanner*\n├◆  └⊷ Scan quoted text\n└─⧭`
+        text: `┌─⧭ 🔬 *AI SCANNER* \n├◆ Usage: *${PREFIX}aiscanner [text or reply to image/video]*\n├◆ AI-powered content scanner for text, images, and videos\n├◆ Aliases: *${PREFIX}scan*, *${PREFIX}scanai*, *${PREFIX}contentcheck*, *${PREFIX}moderate*\n└─⧭`
       }, { quoted: m });
     }
 

@@ -86,7 +86,7 @@ export default {
       searchQuery = quoted.text.trim();
         } else {
       const helpText = 
-        `┌─⧭ 🎬 *MOVIE TRAILER* \n├◆ *.trailer <movie name>*\n├◆  └⊷ Download official movie trailer\n├◆ *.trailer <YouTube URL>*\n├◆  └⊷ Download trailer from URL\n├◆ *Examples:*\n├◆  └⊷ .trailer Interstellar\n├◆  └⊷ .trailer John Wick 4\n└─⧭`;
+        `┌─⧭ 🎬 *MOVIE TRAILER* \n├◆ Usage: *${PREFIX}trailer <text>*\n├◆ Search for a movie and send its trailer video\n└─⧭`;
       
       await sock.sendMessage(jid, { text: helpText }, { quoted: m });
       return;

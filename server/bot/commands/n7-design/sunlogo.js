@@ -11,7 +11,7 @@ export default {
     try {
       if (args.length === 0) {
         await sock.sendMessage(jid, { 
-          text: `┌─⧭ ☀️ *SUN LOGO* \n├◆ *sunlogo*\n├◆  └⊷ sunlogo <text>\n├◆ *Example:*\n├◆  └⊷ sunlogo SUN\n├◆  └⊷ sunlogo LIGHT\n├◆  └⊷ sunlogo SOLAR\n└─⧭` 
+          text: `┌─⧭ ☀️ *SUN LOGO* \n├◆ Usage: *${PREFIX}sunlogo <text>*\n├◆ Create radiant sun text logos with brilliant light and solar flare effects\n└─⧭` 
         }, { quoted: m });
         return;
       }
@@ -20,7 +20,7 @@ export default {
       
       if (text.length > 10) {
         await sock.sendMessage(jid, { 
-          text: `┌─⧭ ❌ *ERROR* \n├◆ Text too long!\n├◆  └⊷ Maximum 10 characters\n├◆  └⊷ Your text: "${text}" (${text.length} chars)\n└─⧭` 
+          text: `┌─⧭ ❌ *ERROR* \n├◆ Usage: *${PREFIX}sunlogo <text>*\n├◆ Create radiant sun text logos with brilliant light and solar flare effects\n└─⧭` 
         }, { quoted: m });
         return;
       }
@@ -41,7 +41,7 @@ export default {
     } catch (error) {
       console.error("❌ [SUNLOGO] ERROR:", error);
       await sock.sendMessage(jid, { 
-        text: `┌─⧭ ❌ *ERROR* \n├◆ ${error.message}\n├◆  └⊷ Please try again with shorter text\n└─⧭` 
+        text: `┌─⧭ ❌ *ERROR* \n├◆ Usage: *${PREFIX}sunlogo <text>*\n├◆ Create radiant sun text logos with brilliant light and solar flare effects\n└─⧭` 
       }, { quoted: m });
     }
   },

@@ -11,7 +11,7 @@ export default {
     try {
       if (args.length === 0) {
         await sock.sendMessage(jid, { 
-          text: `┌─⧭ 👻 *SHADOW LOGO* \n├◆ *shadowlogo*\n├◆  └⊷ shadowlogo <text>\n├◆ *Example:*\n├◆  └⊷ shadowlogo WOLF\n├◆  └⊷ shadowlogo SHADOW\n├◆  └⊷ shadowlogo DARK\n└─⧭` 
+          text: `┌─⧭ 👻 *SHADOW LOGO* \n├◆ Usage: *${PREFIX}shadowlogo <text>*\n├◆ Create logos with dramatic shadow and 3D effects\n└─⧭` 
         }, { quoted: m });
         return;
       }
@@ -20,7 +20,7 @@ export default {
       
       if (text.length > 12) {
         await sock.sendMessage(jid, { 
-          text: `┌─⧭ ❌ *ERROR* \n├◆ Text too long!\n├◆  └⊷ Maximum 12 characters\n├◆  └⊷ Your text: "${text}" (${text.length} chars)\n└─⧭` 
+          text: `┌─⧭ ❌ *ERROR* \n├◆ Usage: *${PREFIX}shadowlogo <text>*\n├◆ Create logos with dramatic shadow and 3D effects\n└─⧭` 
         }, { quoted: m });
         return;
       }

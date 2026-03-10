@@ -14,7 +14,7 @@ export default {
     
     // ====== HELP SECTION ======
     if (args.length === 0 || args[0].toLowerCase() === 'help') {
-      const helpText = `┌─⧭ 🤖 *GPT-5 AI* \n├◆ *${PREFIX}gpt <question>*\n├◆  └⊷ Ask GPT-5 anything\n├◆ *${PREFIX}gpt5 <question>*\n├◆  └⊷ Alias for gpt\n├◆ *${PREFIX}ai5 <question>*\n├◆  └⊷ Alias for gpt\n└─⧭`;
+      const helpText = `┌─⧭ 🤖 *GPT-5 AI* \n├◆ Usage: *${PREFIX}gpt [question] or [command]*\n├◆ GPT-5 AI assistant for advanced conversations\n├◆ Aliases: *${PREFIX}gpt5*, *${PREFIX}ai5*, *${PREFIX}askgpt*, *${PREFIX}wolfai*\n└─⧭`;
       
       return sock.sendMessage(jid, { text: helpText }, { quoted: m });
     }

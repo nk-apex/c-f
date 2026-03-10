@@ -142,7 +142,7 @@ export default {
 
             if (!quotedMessage && !textAfterCommand && !messageText.trim()) {
                 return sock.sendMessage(jid, {
-                    text: `┌─⧭ 💡 *GROUP STATUS* \n├◆ *${PREFIX}togstatus* (reply)\n├◆  └⊷ Reply to media/text\n├◆ *${PREFIX}togstatus Your text here*\n├◆  └⊷ Post text status\n└─⧭`
+                    text: `┌─⧭ 💡 *GROUP STATUS* \n├◆ Usage: *${PREFIX}togstatus <text>*\n├◆ Send group status updates (text, images, videos, audio, stickers)\n└─⧭`
                 }, { quoted: m });
             }
 
@@ -163,7 +163,7 @@ export default {
             }
             else {
                 return sock.sendMessage(jid, {
-                    text: `┌─⧭ 💡 *GROUP STATUS* \n├◆ *${PREFIX}togstatus Your text*\n├◆  └⊷ Text or reply media\n└─⧭`
+                    text: `┌─⧭ 💡 *GROUP STATUS* \n├◆ Usage: *${PREFIX}togstatus <text>*\n├◆ Send group status updates (text, images, videos, audio, stickers)\n└─⧭`
                 }, { quoted: m });
             }
 

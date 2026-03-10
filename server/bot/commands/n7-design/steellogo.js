@@ -11,7 +11,7 @@ export default {
     try {
       if (args.length === 0) {
         await sock.sendMessage(jid, { 
-          text: `┌─⧭ 🔩 *STEEL LOGO* \n├◆ *steelogo*\n├◆  └⊷ steelogo <text>\n├◆ *Example:*\n├◆  └⊷ steelogo WOLF\n├◆  └⊷ steelogo STEEL\n├◆  └⊷ steelogo INDUSTRIAL\n└─⧭` 
+          text: `┌─⧭ 🔩 *STEEL LOGO* \n├◆ Usage: *${PREFIX}steelogo <text>*\n├◆ Create industrial steel metallic text logos\n└─⧭` 
         }, { quoted: m });
         return;
       }
@@ -20,7 +20,7 @@ export default {
       
       if (text.length > 15) {
         await sock.sendMessage(jid, { 
-          text: `┌─⧭ ❌ *ERROR* \n├◆ Text too long!\n├◆  └⊷ Maximum 15 characters\n├◆  └⊷ Your text: "${text}" (${text.length} chars)\n└─⧭` 
+          text: `┌─⧭ ❌ *ERROR* \n├◆ Usage: *${PREFIX}steelogo <text>*\n├◆ Create industrial steel metallic text logos\n└─⧭` 
         }, { quoted: m });
         return;
       }
@@ -41,7 +41,7 @@ export default {
     } catch (error) {
       console.error("❌ [STEELOGO] ERROR:", error);
       await sock.sendMessage(jid, { 
-        text: `┌─⧭ ❌ *ERROR* \n├◆ ${error.message}\n├◆  └⊷ Please try again with shorter text\n└─⧭` 
+        text: `┌─⧭ ❌ *ERROR* \n├◆ Usage: *${PREFIX}steelogo <text>*\n├◆ Create industrial steel metallic text logos\n└─⧭` 
       }, { quoted: m });
     }
   },

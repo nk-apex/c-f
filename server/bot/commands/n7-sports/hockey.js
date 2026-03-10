@@ -15,7 +15,7 @@ export default {
 
     if (args.length === 0 || args[0].toLowerCase() === 'help') {
       return sock.sendMessage(jid, {
-        text: `┌─⧭ 🏒 *NHL HOCKEY* \n├◆ *${PREFIX}hockey scores*\n├◆  └⊷ Today's NHL scores\n├◆ *${PREFIX}hockey standings*\n├◆  └⊷ NHL standings\n├◆ *${PREFIX}nhl scores*\n├◆  └⊷ Alias for hockey\n└─⧭`
+        text: `┌─⧭ 🏒 *NHL HOCKEY* \n├◆ Usage: *${PREFIX}hockey [scores|standings]*\n├◆ Get NHL hockey scores and standings\n├◆ Aliases: *${PREFIX}nhl*, *${PREFIX}icehockey*\n└─⧭`
       }, { quoted: m });
     }
 
@@ -41,7 +41,7 @@ export default {
               const l = s.find(x => x.name === 'losses')?.value || 0;
               const pts = s.find(x => x.name === 'points')?.value || 0;
               const name = team.team?.abbreviation || '???';
-              text += `│  └⊷ *${i + 1}.* ${name} │ ${pts}pts ${w}W-${l}L\n`;
+              text += `│\n`;
             });
           }
         }
@@ -60,7 +60,7 @@ export default {
           const away = teams.find(t => t.homeAway === 'away');
           const status = ev.status?.type?.shortDetail || '';
           text += `├◆ ${away?.team?.abbreviation || '???'} *${away?.score || '0'}* @ ${home?.team?.abbreviation || '???'} *${home?.score || '0'}*\n`;
-          text += `│  └⊷ ${status}\n`;
+          text += `│\n`;
         });
         text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
         await sock.sendMessage(jid, { text }, { quoted: m });

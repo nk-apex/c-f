@@ -15,7 +15,7 @@ export default {
 
     if (args.length === 0 || args[0].toLowerCase() === 'help') {
       return sock.sendMessage(jid, {
-        text: `┌─⧭ ⛳ *PGA GOLF* \n├◆ *${PREFIX}golf leaderboard*\n├◆  └⊷ Current tournament leaderboard\n├◆ *${PREFIX}golf schedule*\n├◆  └⊷ Upcoming tournaments\n├◆ *${PREFIX}pga leaderboard*\n├◆  └⊷ Alias for golf\n└─⧭`
+        text: `┌─⧭ ⛳ *PGA GOLF* \n├◆ Usage: *${PREFIX}golf [leaderboard|schedule]*\n├◆ Get PGA golf tournament results and leaderboard\n├◆ Aliases: *${PREFIX}pga*, *${PREFIX}golfscores*\n└─⧭`
       }, { quoted: m });
     }
 
@@ -34,7 +34,7 @@ export default {
         const date = ev.date ? new Date(ev.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : '';
         const status = ev.status?.type?.shortDetail || '';
         text += `├◆ *${name}*\n`;
-        text += `│  └⊷ 📅 ${date} • ${status}\n`;
+        text += `│\n`;
 
         const comp = ev.competitions?.[0];
         const players = comp?.competitors || [];

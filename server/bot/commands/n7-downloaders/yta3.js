@@ -54,7 +54,7 @@ export default {
 
     if (!searchQuery) {
       return sock.sendMessage(jid, {
-        text: `┌─⧭ 🎵 *YTA DOWNLOADER* \n├◆ *${prefix}yta3 <song name or URL>*\n├◆  └⊷ Download audio\n├◆ *Reply to a text message*\n├◆  └⊷ Uses replied text as search\n└─⧭`
+        text: `┌─⧭ 🎵 *YTA DOWNLOADER* \n├◆ Usage: *${PREFIX}yta3 <url or song name>*\n├◆ Download audio with fallback APIs\n├◆ Aliases: *${PREFIX}wolfyta3*, *${PREFIX}yta2*\n└─⧭`
       }, { quoted: m });
     }
 

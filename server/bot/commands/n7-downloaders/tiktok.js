@@ -28,7 +28,7 @@ export default {
     try {
       if (!args[0]) {
         await sock.sendMessage(jid, {
-          text: `┌─⧭ 🎵 *TIKTOK DOWNLOADER* \n├◆ *${PREFIX}tiktok <url>*\n├◆  └⊷ Download without watermark\n├◆ *Examples:*\n├◆  └⊷ ${PREFIX}tiktok https://vt.tiktok.com/xyz\n├◆  └⊷ ${PREFIX}tt https://www.tiktok.com/@user/video/123\n└─⧭`
+          text: `┌─⧭ 🎵 *TIKTOK DOWNLOADER* \n├◆ Usage: *${PREFIX}tiktok <text>*\n├◆ Download TikTok videos without watermark\n├◆ Aliases: *${PREFIX}tt*, *${PREFIX}tikdown*, *${PREFIX}ttdl*\n└─⧭`
         }, { quoted: m });
         return;
       }

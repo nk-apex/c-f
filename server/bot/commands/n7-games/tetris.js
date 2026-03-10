@@ -980,25 +980,15 @@ function updateLeaderboard(userId, userName, score) {
 async function showHelp(sock, m, chatId) {
     const helpText = `┌─⧭ 🎮 *TETRIS* 
 ├◆ *.t*
-├◆  └⊷ Start/continue game
 ├◆ *.t a / d*
-├◆  └⊷ Move left / right
 ├◆ *.t s*
-├◆  └⊷ Move down
 ├◆ *.t w*
-├◆  └⊷ Rotate piece
 ├◆ *.t space*
-├◆  └⊷ Hard drop
 ├◆ *.t 1 / 2 / 3*
-├◆  └⊷ Choose piece
 ├◆ *.t pause / resume*
-├◆  └⊷ Pause or resume game
 ├◆ *.t stop*
-├◆  └⊷ End game
 ├◆ *.t stats*
-├◆  └⊷ Your statistics
 ├◆ *.t leaderboard*
-├◆  └⊷ High scores
 ├◆ 🎮 🟦I 🟨O 🟪T 🟩S 🟥Z 🟫J 🟧L
 └─⧭`;
     

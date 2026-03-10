@@ -48,7 +48,7 @@ export default {
         try {
             if (args.length === 0) {
                 return sock.sendMessage(jid, {
-                    text: `┌─⧭ 🎬 *LOGO INTRO VIDEO* \n├◆ *${prefix}introvideo <text>*\n├◆  └⊷ Create logo intro video (max 30 chars)\n├◆ *Example:*\n├◆  └⊷ ${prefix}introvideo WOLF\n└─⧭`
+                    text: `┌─⧭ 🎬 *LOGO INTRO VIDEO* \n├◆ Usage: *${PREFIX}introvideo <text>*\n├◆ Create logo intro video with your text\n├◆ Aliases: *${PREFIX}intro*, *${PREFIX}logointro*, *${PREFIX}introanimation*, *${PREFIX}videointro*\n└─⧭`
                 }, { quoted: m });
             }
 

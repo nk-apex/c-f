@@ -105,7 +105,7 @@ export default {
 
         if (subcommand === 'help') {
             return await sock.sendMessage(chatId, {
-                text: `┌─⧭ 🔍 *DEPENDENCY CHECKER* \n├◆ *${PREFIX}missingdeps*\n├◆  └⊷ Scan for missing packages\n├◆ *${PREFIX}missingdeps fix*\n├◆  └⊷ Auto-install missing packages\n├◆ *${PREFIX}missingdeps full*\n├◆  └⊷ Full report with all details\n├◆ *Aliases:* checkdeps, deps\n└─⧭\n> *${getBotName()}*`
+                text: `┌─⧭ 🔍 *DEPENDENCY CHECKER* \n├◆ *Aliases:* checkdeps, deps\n└─⧭\n> *${getBotName()}*`
             }, { quoted: msg });
         }
 

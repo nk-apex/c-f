@@ -777,25 +777,25 @@ export default {
             if (action === 'off' || action === 'disable') {
                 antieditState.gc.enabled = false;
                 await sock.sendMessage(chatId, {
-                    text: `┌─⧭ ❌ *ANTIEDIT GC: OFF* \n└─⧭`
+                    text: `┌─⧭ ❌ *ANTIEDIT GC: OFF* \n├◆ Usage: *${PREFIX}antiedit <text>*\n├◆ Capture edited messages - public/private/off modes\n├◆ Aliases: *${PREFIX}editdetect*, *${PREFIX}edited*, *${PREFIX}ae*\n└─⧭`
                 }, { quoted: msg });
             } else if (['private', 'prvt', 'priv', 'pm'].includes(action)) {
                 antieditState.gc.enabled = true;
                 antieditState.gc.mode = 'private';
                 await sock.sendMessage(chatId, {
-                    text: `┌─⧭ ✅ *ANTIEDIT GC: PRIVATE* \n└─⧭`
+                    text: `┌─⧭ ✅ *ANTIEDIT GC: PRIVATE* \n├◆ Usage: *${PREFIX}antiedit <text>*\n├◆ Capture edited messages - public/private/off modes\n├◆ Aliases: *${PREFIX}editdetect*, *${PREFIX}edited*, *${PREFIX}ae*\n└─⧭`
                 }, { quoted: msg });
             } else if (['chat', 'cht', 'public'].includes(action)) {
                 antieditState.gc.enabled = true;
                 antieditState.gc.mode = 'chat';
                 await sock.sendMessage(chatId, {
-                    text: `┌─⧭ ✅ *ANTIEDIT GC: PUBLIC* \n└─⧭`
+                    text: `┌─⧭ ✅ *ANTIEDIT GC: PUBLIC* \n├◆ Usage: *${PREFIX}antiedit <text>*\n├◆ Capture edited messages - public/private/off modes\n├◆ Aliases: *${PREFIX}editdetect*, *${PREFIX}edited*, *${PREFIX}ae*\n└─⧭`
                 }, { quoted: msg });
             } else if (['both', 'all'].includes(action)) {
                 antieditState.gc.enabled = true;
                 antieditState.gc.mode = 'both';
                 await sock.sendMessage(chatId, {
-                    text: `┌─⧭ ✅ *ANTIEDIT GC: BOTH* \n└─⧭`
+                    text: `┌─⧭ ✅ *ANTIEDIT GC: BOTH* \n├◆ Usage: *${PREFIX}antiedit <text>*\n├◆ Capture edited messages - public/private/off modes\n├◆ Aliases: *${PREFIX}editdetect*, *${PREFIX}edited*, *${PREFIX}ae*\n└─⧭`
                 }, { quoted: msg });
             } else {
                 await sock.sendMessage(chatId, {
@@ -806,25 +806,25 @@ export default {
             if (action === 'off' || action === 'disable') {
                 antieditState.pm.enabled = false;
                 await sock.sendMessage(chatId, {
-                    text: `┌─⧭ ❌ *ANTIEDIT PM: OFF* \n└─⧭`
+                    text: `┌─⧭ ❌ *ANTIEDIT PM: OFF* \n├◆ Usage: *${PREFIX}antiedit <text>*\n├◆ Capture edited messages - public/private/off modes\n├◆ Aliases: *${PREFIX}editdetect*, *${PREFIX}edited*, *${PREFIX}ae*\n└─⧭`
                 }, { quoted: msg });
             } else if (['private', 'prvt', 'priv'].includes(action)) {
                 antieditState.pm.enabled = true;
                 antieditState.pm.mode = 'private';
                 await sock.sendMessage(chatId, {
-                    text: `┌─⧭ ✅ *ANTIEDIT PM: PRIVATE* \n└─⧭`
+                    text: `┌─⧭ ✅ *ANTIEDIT PM: PRIVATE* \n├◆ Usage: *${PREFIX}antiedit <text>*\n├◆ Capture edited messages - public/private/off modes\n├◆ Aliases: *${PREFIX}editdetect*, *${PREFIX}edited*, *${PREFIX}ae*\n└─⧭`
                 }, { quoted: msg });
             } else if (['chat', 'cht', 'public'].includes(action)) {
                 antieditState.pm.enabled = true;
                 antieditState.pm.mode = 'chat';
                 await sock.sendMessage(chatId, {
-                    text: `┌─⧭ ✅ *ANTIEDIT PM: PUBLIC* \n└─⧭`
+                    text: `┌─⧭ ✅ *ANTIEDIT PM: PUBLIC* \n├◆ Usage: *${PREFIX}antiedit <text>*\n├◆ Capture edited messages - public/private/off modes\n├◆ Aliases: *${PREFIX}editdetect*, *${PREFIX}edited*, *${PREFIX}ae*\n└─⧭`
                 }, { quoted: msg });
             } else if (['both', 'all'].includes(action)) {
                 antieditState.pm.enabled = true;
                 antieditState.pm.mode = 'both';
                 await sock.sendMessage(chatId, {
-                    text: `┌─⧭ ✅ *ANTIEDIT PM: BOTH* \n└─⧭`
+                    text: `┌─⧭ ✅ *ANTIEDIT PM: BOTH* \n├◆ Usage: *${PREFIX}antiedit <text>*\n├◆ Capture edited messages - public/private/off modes\n├◆ Aliases: *${PREFIX}editdetect*, *${PREFIX}edited*, *${PREFIX}ae*\n└─⧭`
                 }, { quoted: msg });
             } else {
                 await sock.sendMessage(chatId, {
@@ -835,7 +835,7 @@ export default {
             antieditState.gc.enabled = false;
             antieditState.pm.enabled = false;
             await sock.sendMessage(chatId, {
-                text: `┌─⧭ ❌ *ANTIEDIT: OFF* \n└─⧭`
+                text: `┌─⧭ ❌ *ANTIEDIT: OFF* \n├◆ Usage: *${PREFIX}antiedit <text>*\n├◆ Capture edited messages - public/private/off modes\n├◆ Aliases: *${PREFIX}editdetect*, *${PREFIX}edited*, *${PREFIX}ae*\n└─⧭`
             }, { quoted: msg });
         } else if (['private', 'prvt', 'priv'].includes(scope)) {
             antieditState.gc.enabled = true;
@@ -843,7 +843,7 @@ export default {
             antieditState.pm.enabled = true;
             antieditState.pm.mode = 'private';
             await sock.sendMessage(chatId, {
-                text: `┌─⧭ ✅ *ANTIEDIT: PRIVATE* \n└─⧭`
+                text: `┌─⧭ ✅ *ANTIEDIT: PRIVATE* \n├◆ Usage: *${PREFIX}antiedit <text>*\n├◆ Capture edited messages - public/private/off modes\n├◆ Aliases: *${PREFIX}editdetect*, *${PREFIX}edited*, *${PREFIX}ae*\n└─⧭`
             }, { quoted: msg });
         } else if (['chat', 'cht', 'public'].includes(scope)) {
             antieditState.gc.enabled = true;
@@ -851,7 +851,7 @@ export default {
             antieditState.pm.enabled = true;
             antieditState.pm.mode = 'chat';
             await sock.sendMessage(chatId, {
-                text: `┌─⧭ ✅ *ANTIEDIT: PUBLIC* \n└─⧭`
+                text: `┌─⧭ ✅ *ANTIEDIT: PUBLIC* \n├◆ Usage: *${PREFIX}antiedit <text>*\n├◆ Capture edited messages - public/private/off modes\n├◆ Aliases: *${PREFIX}editdetect*, *${PREFIX}edited*, *${PREFIX}ae*\n└─⧭`
             }, { quoted: msg });
         } else if (['both', 'all'].includes(scope)) {
             antieditState.gc.enabled = true;
@@ -859,7 +859,7 @@ export default {
             antieditState.pm.enabled = true;
             antieditState.pm.mode = 'both';
             await sock.sendMessage(chatId, {
-                text: `┌─⧭ ✅ *ANTIEDIT: BOTH* \n└─⧭`
+                text: `┌─⧭ ✅ *ANTIEDIT: BOTH* \n├◆ Usage: *${PREFIX}antiedit <text>*\n├◆ Capture edited messages - public/private/off modes\n├◆ Aliases: *${PREFIX}editdetect*, *${PREFIX}edited*, *${PREFIX}ae*\n└─⧭`
             }, { quoted: msg });
         } else if (scope === 'status' || scope === 'stats') {
             const isGroup = chatId.endsWith('@g.us');

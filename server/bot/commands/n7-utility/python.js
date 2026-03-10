@@ -36,7 +36,7 @@ export default {
 
         if (!args.length) {
             return await sock.sendMessage(chatId, {
-                text: `┌─⧭ 🐍 *PYTHON EXECUTOR* \n├◆ *${PREFIX}py <code>*\n├◆  └⊷ Run Python code\n├◆ *Examples:*\n├◆  └⊷ ${PREFIX}py print("Hello World")\n├◆  └⊷ ${PREFIX}py import math; print(math.pi)\n├◆  └⊷ ${PREFIX}py [x**2 for x in range(10)]\n├◆ *Features:*\n├◆  └⊷ 15s timeout\n├◆  └⊷ Auto-prints last expression\n└─⧭\n> *${getBotName()}*`
+                text: `┌─⧭ 🐍 *PYTHON EXECUTOR* \n├◆ Usage: *${PREFIX}python <code>*\n├◆ Execute Python code\n├◆ Aliases: *${PREFIX}py*, *${PREFIX}python3*, *${PREFIX}runpy*\n└─⧭\n> *${getBotName()}*`
             }, { quoted: msg });
         }
 

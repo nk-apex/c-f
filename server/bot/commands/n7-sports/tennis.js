@@ -15,7 +15,7 @@ export default {
 
     if (args.length === 0 || args[0].toLowerCase() === 'help') {
       return sock.sendMessage(jid, {
-        text: `┌─⧭ 🎾 *TENNIS* \n├◆ *${PREFIX}tennis scores*\n├◆  └⊷ Live tennis scores\n├◆ *${PREFIX}tennis rankings*\n├◆  └⊷ ATP/WTA rankings\n├◆ *${PREFIX}atp scores*\n├◆  └⊷ Alias for tennis\n└─⧭`
+        text: `┌─⧭ 🎾 *TENNIS* \n├◆ Usage: *${PREFIX}tennis [scores|rankings]*\n├◆ Get live tennis scores and results\n├◆ Aliases: *${PREFIX}atp*, *${PREFIX}wta*\n└─⧭`
       }, { quoted: m });
     }
 
@@ -42,7 +42,7 @@ export default {
           const w2 = players[1]?.winner ? '🏆' : '';
           text += `├◆ ${w1}${p1.length > 18 ? p1.substring(0, 16) + '..' : p1} *${s1}*\n`;
           text += `│  ⊷ ${w2}${p2.length > 18 ? p2.substring(0, 16) + '..' : p2} *${s2}*\n`;
-          text += `│  └⊷ ${status}\n`;
+          text += `│\n`;
         }
       });
       text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;

@@ -11,7 +11,7 @@ export default {
     try {
       if (args.length === 0) {
         await sock.sendMessage(jid, { 
-          text: `┌─⧭ ✨ *GLOW LOGO* \n├◆ *glowlogo*\n├◆  └⊷ glowlogo <text>\n├◆ *Example:*\n├◆  └⊷ glowlogo WOLF\n├◆  └⊷ glowlogo GLOW\n├◆  └⊷ glowlogo LIGHT\n└─⧭` 
+          text: `┌─⧭ ✨ *GLOW LOGO* \n├◆ Usage: *${PREFIX}glowlogo <text>*\n├◆ Create intense glowing text logos with vibrant light effects\n└─⧭` 
         }, { quoted: m });
         return;
       }
@@ -20,7 +20,7 @@ export default {
       
       if (text.length > 12) {
         await sock.sendMessage(jid, { 
-          text: `┌─⧭ ❌ *ERROR* \n├◆ Text too long!\n├◆  └⊷ Maximum 12 characters\n├◆  └⊷ Your text: "${text}" (${text.length} chars)\n└─⧭` 
+          text: `┌─⧭ ❌ *ERROR* \n├◆ Usage: *${PREFIX}glowlogo <text>*\n├◆ Create intense glowing text logos with vibrant light effects\n└─⧭` 
         }, { quoted: m });
         return;
       }
@@ -41,7 +41,7 @@ export default {
     } catch (error) {
       console.error("❌ [GLOWLOGO] ERROR:", error);
       await sock.sendMessage(jid, { 
-        text: `┌─⧭ ❌ *ERROR* \n├◆ ${error.message}\n├◆  └⊷ Please try again with shorter text\n└─⧭` 
+        text: `┌─⧭ ❌ *ERROR* \n├◆ Usage: *${PREFIX}glowlogo <text>*\n├◆ Create intense glowing text logos with vibrant light effects\n└─⧭` 
       }, { quoted: m });
     }
   },

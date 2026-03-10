@@ -9,7 +9,7 @@ export default {
     try {
       if (args.length === 0) {
         await sock.sendMessage(jid, { 
-          text: `┌─⧭ 🎨 *LOGO MAKER* \n├◆ *logo*\n├◆  └⊷ ${global.prefix}logo <text>\n├◆ *Other Styles:*\n├◆  └⊷ ${global.prefix}neonlogo <text>\n├◆  └⊷ ${global.prefix}firelogo <text>\n├◆  └⊷ ${global.prefix}goldlogo <text>\n├◆  └⊷ ${global.prefix}shadowlogo <text>\n├◆  └⊷ ${global.prefix}gradientlogo <text>\n├◆ *Example:*\n├◆  └⊷ ${global.prefix}logo WOLF\n└─⧭` 
+          text: `┌─⧭ 🎨 *LOGO MAKER* \n├◆ Usage: *${PREFIX}logo <text>*\n├◆ Create stylish text logos\n└─⧭` 
         }, { quoted: m });
         return;
       }

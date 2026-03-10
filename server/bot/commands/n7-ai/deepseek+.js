@@ -21,7 +21,7 @@ export default {
       
       if (!query && !quoted) {
         return sock.sendMessage(jid, {
-          text: `┌─⧭ 📎 *DEEPSEEK+ AI* 🧠 \n├◆ *.deepseek+ <question> (reply to file)*\n├◆  └⊷ Analyze file with DeepSeek\n├◆ *.ds+ <question> (reply to file)*\n├◆  └⊷ Alias for deepseek+\n├◆ *.deepseek+ --code <question>*\n├◆  └⊷ Use DeepSeek Coder model\n├◆ *.deepseek+ --vision <question>*\n├◆  └⊷ Use Gemini Pro Vision model\n└─⧭`
+          text: `┌─⧭ 📎 *DEEPSEEK+ AI* 🧠 \n├◆ Usage: *${PREFIX}deepseek+ <question> [reply to file]*\n├◆ DeepSeek AI with file upload via OpenRouter 📎 (Images, PDF, TXT, etc.)\n├◆ Aliases: *${PREFIX}ds+*, *${PREFIX}deepseekfile*, *${PREFIX}deepfile*, *${PREFIX}wolfvision*\n└─⧭`
         }, { quoted: m });
       }
 

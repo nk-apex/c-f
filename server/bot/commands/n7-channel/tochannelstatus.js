@@ -565,7 +565,7 @@ function isChannelJid(jid) {
 
 // 📌 Get help text
 function getHelpText() {
-    return `┌─⧭ 📢 *CHANNEL STATUS UPDATE* \n├◆ Posts to channel status (Updates tab)\n├◆ *.channelstatus Your text here*\n├◆  └⊷ Send text only\n├◆ *.channelstatus Caption here* + 📷 Image\n├◆  └⊷ Send image with caption\n├◆ *.channelstatus* + 🎥 Video\n├◆  └⊷ Send video\n├◆ *.channelstatus* + 🎤 Voice note\n├◆  └⊷ Send voice note\n├◆ *.channelstatus* + 😀 Sticker\n├◆  └⊷ Send sticker\n└─⧭\n_Bot must be in the channel • Media must be fully loaded_`;
+    return `┌─⧭ 📢 *CHANNEL STATUS UPDATE* \n├◆ Usage: *${PREFIX}channel <text>*\n├◆ Send messages to WhatsApp Channel (no owner check)\n└─⧭\n_Bot must be in the channel • Media must be fully loaded_`;
 }
 
 // 📌 Parse command

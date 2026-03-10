@@ -28,7 +28,7 @@ export default {
     // Check if prompt is provided
     if (args.length === 0) {
       return sock.sendMessage(jid, {
-        text: `┌─⧭ 🎨 *AI IMAGE GENERATOR* \n├◆ *${PREFIX}bing <prompt>*\n├◆  └⊷ Generate AI image\n├◆ *${PREFIX}bing <prompt> | <resolution>*\n├◆  └⊷ Generate with resolution (landscape/portrait/ultra/hd)\n└─⧭`
+        text: `┌─⧭ 🎨 *AI IMAGE GENERATOR* \n├◆ Usage: *${PREFIX}bing <text>*\n├◆ Generate AI image from text prompt\n└─⧭`
       }, { quoted: m });
     }
 
@@ -43,7 +43,7 @@ export default {
     if (!reso[resolution]) {
       const validResolutions = Object.keys(reso).join(', ');
       return sock.sendMessage(jid, {
-        text: `┌─⧭ ❌ *INVALID RESOLUTION* \n├◆ "${resolution}" is not valid.\n├◆ ✅ Available: ${validResolutions}\n├◆ *${PREFIX}bing <prompt> | <resolution>*\n├◆  └⊷ Use a valid resolution\n└─⧭`
+        text: `┌─⧭ ❌ *INVALID RESOLUTION* \n├◆ Usage: *${PREFIX}bing <text>*\n├◆ Generate AI image from text prompt\n└─⧭`
       }, { quoted: m });
     }
 
@@ -142,7 +142,7 @@ export default {
       errorMessage += `• Specify colors, lighting, mood\n`;
       errorMessage += `• Keep prompts under 200 characters\n\n`;
       
-      errorMessage += `┌─⧭ 📌 *USAGE* \n├◆ *${PREFIX}bing <prompt> | <resolution>*\n├◆  └⊷ Generate AI image\n└─⧭`;
+      errorMessage += `┌─⧭ 📌 *USAGE* \n├◆ Usage: *${PREFIX}bing <text>*\n├◆ Generate AI image from text prompt\n└─⧭`;
       
       await sock.sendMessage(jid, {
         text: errorMessage

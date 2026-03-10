@@ -219,7 +219,7 @@ export default {
         } catch (error) {
             console.error("Hug command error:", error);
             await sock.sendMessage(m.key.remoteJid, {
-                text: `┌─⧭ ❌ *HUG ERROR* \n├◆ ${error.message}\n├◆  └⊷ Use *.hug help* for instructions\n└─⧭`
+                text: `┌─⧭ ❌ *HUG ERROR* \n├◆ Usage: *${PREFIX}hug - Random hug\n.hug @user - Hug a user\n.hug [type] - Specific hug type\n.hug types - List all hug types\n.hug stats - Your hug statistics*\n├◆ Send different hugs to someone!\n├◆ Aliases: *${PREFIX}hugme*, *${PREFIX}hugs*, *${PREFIX}cuddle*, *${PREFIX}embrace*\n└─⧭`
             }, { quoted: m });
         }
     }
@@ -604,13 +604,13 @@ async function showHugTypes(sock, m, chatId) {
     const typesArray = Object.keys(HUG_TYPES);
     
     for (const type of typesArray) {
-        typesText += `├◆ *.hug ${type}*\n├◆  └⊷ ${formatHugTypeName(type)}\n`;
+        typesText += `├◆ *.hug ${type}*\n`;
     }
     
-    typesText += `│\n├◆ *.hug @user*\n├◆  └⊷ Random hug for user\n`;
-    typesText += `├◆ *.hug anime @friend*\n├◆  └⊷ Anime hug\n`;
-    typesText += `├◆ *.hug bear*\n├◆  └⊷ Bear hug for yourself\n`;
-    typesText += `├◆ *.hug*\n├◆  └⊷ Random hug for everyone\n`;
+    typesText += `│\n`;
+    typesText += `├◆ *.hug anime @friend*\n`;
+    typesText += `├◆ *.hug bear*\n`;
+    typesText += `├◆ *.hug*\n`;
     
     typesText += `└─⧭ 💖 *Each type gives different hugs every time!* 💖`;
     
@@ -677,19 +677,19 @@ async function showStats(sock, m, chatId, userId) {
 
 async function showHelp(sock, m, chatId) {
     const helpText = `┌─⧭ 🤗 *HUG HELP* 🤗 \n` +
-        `├◆ *.hug*\n├◆  └⊷ Send random hug to everyone\n` +
-        `├◆ *.hug @user*\n├◆  └⊷ Hug a specific user\n` +
-        `├◆ *.hug [type]*\n├◆  └⊷ Specific hug type\n` +
-        `├◆ *.hug types*\n├◆  └⊷ List all 15+ hug types\n` +
-        `├◆ *.hug stats*\n├◆  └⊷ Your hug statistics & variety score\n` +
-        `├◆ *.hug help*\n├◆  └⊷ This help menu\n` +
+        `├◆ *.hug*\n` +
+        `├◆ *.hug @user*\n` +
+        `├◆ *.hug [type]*\n` +
+        `├◆ *.hug types*\n` +
+        `├◆ *.hug stats*\n` +
+        `├◆ *.hug help*\n` +
         `│ ✨ *Popular Types:*\n` +
-        `├◆ *anime*\n├◆  └⊷ Anime-style hugs\n` +
-        `├◆ *bear*\n├◆  └⊷ Bear hugs\n` +
-        `├◆ *cat*\n├◆  └⊷ Cat cuddles\n` +
-        `├◆ *dog*\n├◆  └⊷ Doggy hugs\n` +
-        `├◆ *group*\n├◆  └⊷ Group hugs\n` +
-        `├◆ *virtual*\n├◆  └⊷ Digital hugs\n` +
+        `├◆ *anime*\n` +
+        `├◆ *bear*\n` +
+        `├◆ *cat*\n` +
+        `├◆ *dog*\n` +
+        `├◆ *group*\n` +
+        `├◆ *virtual*\n` +
         `└─⧭ 💝 *Every hug is unique! Try the same type multiple times!* 💝`;
     
     await sock.sendMessage(chatId, { text: helpText }, { quoted: m });

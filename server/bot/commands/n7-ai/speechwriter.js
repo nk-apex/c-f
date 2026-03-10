@@ -18,7 +18,7 @@ export default {
       topic = quoted.text;
     } else {
       await sock.sendMessage(jid, { 
-        text: `┌─⧭ 🎤 *AI SPEECH WRITER* \n├◆ *${PREFIX}speechwriter <topic>*\n├◆  └⊷ Generate a speech\n├◆ *${PREFIX}speechwriter <topic> -long -formal*\n├◆  └⊷ With length/type/tone options\n├◆ *${PREFIX}speech <topic>*\n├◆  └⊷ Alias for speechwriter\n└─⧭`
+        text: `┌─⧭ 🎤 *AI SPEECH WRITER* \n├◆ Usage: *${PREFIX}speechwriter <text>*\n├◆ Generate professional speeches using AI\n├◆ Aliases: *${PREFIX}speech*, *${PREFIX}writer*, *${PREFIX}speechwrite*\n└─⧭`
       }, { quoted: m });
       return;
     }

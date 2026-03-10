@@ -431,7 +431,7 @@ export default {
                 targetJid = args[1].includes('@s.whatsapp.net') ? args[1] : args[1] + '@s.whatsapp.net';
             } else {
                 return sock.sendMessage(chatId, { 
-                    text: '┌─⧭ ⚠️ *BAN* \n├◆ *.ban --unban @user*\n├◆  └⊷ Unban a user\n└─⧭' 
+                    text: '┌─⧭ ⚠️ *BAN* \n├◆ Usage: *${PREFIX}ban <text>*\n├◆ Ban a user from the group\n└─⧭' 
                 }, { quoted: msg });
             }
             
@@ -464,7 +464,7 @@ export default {
             mentionedJid = args[0].includes('@s.whatsapp.net') ? args[0] : args[0] + '@s.whatsapp.net';
         } else {
             return sock.sendMessage(chatId, { 
-                text: '┌─⧭ ⚠️ *BAN* \n├◆ *.ban @user*\n├◆  └⊷ Ban a user\n├◆ *.ban --list*\n├◆  └⊷ Show banned users\n├◆ *.ban --unban @user*\n├◆  └⊷ Unban a user\n└─⧭' 
+                text: '┌─⧭ ⚠️ *BAN* \n├◆ Usage: *${PREFIX}ban <text>*\n├◆ Ban a user from the group\n└─⧭' 
             }, { quoted: msg });
         }
 

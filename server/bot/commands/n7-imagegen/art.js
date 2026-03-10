@@ -35,7 +35,7 @@ export default {
     try {
       if (!args[0]) {
         await sock.sendMessage(jid, { 
-          text: `┌─⧭ 🎨 *ART IMAGE GEN* \n├◆ *art <prompt>*\n├◆  └⊷ Generate artistic AI images\n├◆ *Examples:*\n├◆  └⊷ art impressionist painting of a garden\n├◆  └⊷ art watercolor portrait of a wizard\n├◆ 🎭 *Styles:* Impressionism, Surrealism, Watercolor, Digital Art\n├◆ 🎨 *Artists:* Van Gogh, Picasso, Monet, Dali\n└─⧭` 
+          text: `┌─⧭ 🎨 *ART IMAGE GEN* \n├◆ 🎭 *Styles:* Impressionism, Surrealism, Watercolor, Digital Art\n├◆ 🎨 *Artists:* Van Gogh, Picasso, Monet, Dali\n└─⧭` 
         }, { quoted: m });
         return;
       }

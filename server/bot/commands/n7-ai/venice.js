@@ -18,7 +18,7 @@ export default {
       query = quoted.text;
     } else {
       await sock.sendMessage(jid, { 
-        text: `┌─⧭ 🎭 *VENICE AI* \n├◆ *${PREFIX}venice <question>*\n├◆  └⊷ Ask Venice anything\n├◆ *${PREFIX}veniceai <question>*\n├◆  └⊷ Alias for venice\n├◆ *${PREFIX}vai <question>*\n├◆  └⊷ Alias for venice\n└─⧭`
+        text: `┌─⧭ 🎭 *VENICE AI* \n├◆ Usage: *${PREFIX}venice <text>*\n├◆ Query Venice AI via Keith\n├◆ Aliases: *${PREFIX}veniceai*, *${PREFIX}vai*, *${PREFIX}ven*\n└─⧭`
       }, { quoted: m });
       return;
     }

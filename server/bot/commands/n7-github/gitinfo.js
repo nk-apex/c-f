@@ -159,7 +159,7 @@ export default {
         text += `│  ├⊷ 📝 Issues: ${repo.open_issues_count.toLocaleString()}\n`;
         text += `│  ├⊷ 👥 Contributors: ${contributors.length}\n`;
         text += `│  ├⊷ 🚀 Releases: ${releases.length}\n`;
-        text += `│  └⊷ 📦 Size: ${sizeLabel}\n`;
+        text += `│\n`;
         text += `│\n`;
         
         if (languageStats.length > 0) {
@@ -176,7 +176,7 @@ export default {
         text += `│  ├⊷ 🎉 Created: ${created}\n`;
         text += `│  ├⊷ 🔄 Updated: ${updated}\n`;
         text += `│  ├⊷ 📤 Last Commit: ${lastCommit}\n`;
-        text += `│  └⊷ ${activityEmoji} ${activityText} (${daysSinceUpdate}d)\n`;
+        text += `│\n`;
         text += `│\n`;
         text += `│ 📄 License: ${repo.license?.name || 'None'}\n`;
         text += `│ 🏷️ Branch: ${repo.default_branch}\n`;

@@ -17,7 +17,7 @@ export default {
       return sock.sendMessage(jid, {
         text: `┌─⧭ 📊 *MATCH STATISTICS* \n` +
           `├◆ *${PREFIX}matchstats <matchId>*\n` +
-          `│  └⊷ Get detailed stats for a match\n` +
+          `│\n` +
           `│\n` +
           `├◆ 💡 *Example:*\n` +
           `│  ⊷ ${PREFIX}matchstats 551333\n` +

@@ -127,14 +127,14 @@ export default {
       let styleList = `┌─⧭ 🎨 *MENU STYLE* \n`;
       styleList += `│  📊 Current: Style ${currentStyle}\n`;
       styleList += `├◆ *${PREFIX}menustyle <1-8>*\n`;
-      styleList += `│  └⊷ 1️⃣ Image Menu\n`;
-      styleList += `│  └⊷ 2️⃣ Text Only\n`;
-      styleList += `│  └⊷ 3️⃣ Full Descriptions\n`;
-      styleList += `│  └⊷ 4️⃣ Ad Style\n`;
-      styleList += `│  └⊷ 5️⃣ Faded\n`;
-      styleList += `│  └⊷ 6️⃣ Faded + Image\n`;
-      styleList += `│  └⊷ 7️⃣ Image + Text\n`;
-      styleList += `│  └⊷ 8️⃣ Buttons (Interactive)\n`;
+      styleList += `│\n`;
+      styleList += `│\n`;
+      styleList += `│\n`;
+      styleList += `│\n`;
+      styleList += `│\n`;
+      styleList += `│\n`;
+      styleList += `│\n`;
+      styleList += `│\n`;
       styleList += `└─⧭`;
       
       return sock.sendMessage(jid, { 
@@ -150,7 +150,7 @@ export default {
       return sock.sendMessage(
         jid,
         {
-          text: `┌─⧭ ❌ *INVALID STYLE* \n├◆ *${PREFIX}menustyle <1-8>*\n├◆  └⊷ Valid styles: 1 to 8\n├◆ *Example:*\n├◆  └⊷ ${PREFIX}menustyle 3\n└─⧭`
+          text: `┌─⧭ ❌ *INVALID STYLE* \n├◆ Usage: *${PREFIX}menustyle <text>*\n├◆ Switch between Wolf menu styles (1–7)\n├◆ Aliases: *${PREFIX}setmenustyle*, *${PREFIX}changemenustyle*\n└─⧭`
         },
         { 
           quoted: m // Reply format

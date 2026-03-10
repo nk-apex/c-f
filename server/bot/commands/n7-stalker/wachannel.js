@@ -14,7 +14,7 @@ export default {
 
     if (!args || !args[0]) {
       return sock.sendMessage(jid, {
-        text: `┌─⧭ 🔍 *WHATSAPP CHANNEL STALKER* \n├◆ *${prefix}wachannel <channel URL>*\n├◆  └⊷ Stalk a WhatsApp channel\n├◆ *Example:*\n├◆  └⊷ ${prefix}wachannel https://whatsapp.com/channel/...\n└─⧭\n> *${getBotName()} STALKER*`
+        text: `┌─⧭ 🔍 *WHATSAPP CHANNEL STALKER* \n├◆ Usage: *${PREFIX}wachannel <text>*\n├◆ Stalk a WhatsApp Channel\n├◆ Aliases: *${PREFIX}channelstalk*, *${PREFIX}wachannelstalk*, *${PREFIX}wacs*\n└─⧭\n> *${getBotName()} STALKER*`
       }, { quoted: m });
     }
 
@@ -41,7 +41,7 @@ export default {
         } catch {}
       }
 
-      const caption = `┌─⧭ 📢 *WHATSAPP CHANNEL INFO* \n├◆ *👥 Followers:* ${followers || 'N/A'}\n├◆ *📝 Description:*\n├◆  └⊷ ${description || 'N/A'}\n├◆ *🔗 URL:* ${url}\n└─⧭\n> 🐺 *${getBotName()} STALKER*`;
+      const caption = `┌─⧭ 📢 *WHATSAPP CHANNEL INFO* \n├◆ *🔗 URL:* ${url}\n└─⧭\n> 🐺 *${getBotName()} STALKER*`;
 
       if (profileBuffer) {
         await sock.sendMessage(jid, { image: profileBuffer, caption }, { quoted: m });

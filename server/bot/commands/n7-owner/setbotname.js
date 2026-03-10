@@ -21,7 +21,7 @@ export default {
         if (!args[0]) {
             const currentName = getBotName();
             return sock.sendMessage(chatId, {
-                text: `┌─⧭ 🤖 *SET BOT NAME* \n├◆ 📝 Current: *${currentName}*\n├◆ *${PREFIX}setbotname <new_name>*\n├◆  └⊷ Change bot name\n└─⧭`
+                text: `┌─⧭ 🤖 *SET BOT NAME* \n├◆ Usage: *${PREFIX}setbotname <text>*\n├◆ Change the bot display name\n└─⧭`
             }, { quoted: msg });
         }
         

@@ -64,7 +64,7 @@ export default {
       
       if (!imageMessage) {
         await sock.sendMessage(jid, { 
-          text: `┌─⧭ 🎨 *IMAGE TO STICKER* \n├◆ *${prefix}tosticker*\n├◆  └⊷ Reply to an image to convert to sticker\n├◆ *Send image with caption ${prefix}tosticker*\n├◆  └⊷ Supported: JPG, PNG, GIF, WebP (max 3MB)\n└─⧭`
+          text: `┌─⧭ 🎨 *IMAGE TO STICKER* \n├◆ Usage: *${PREFIX}tosticker <text>*\n├◆ Convert image to sticker with ${getBotName()} metadata\n└─⧭`
         }, { quoted: m });
         return;
       }

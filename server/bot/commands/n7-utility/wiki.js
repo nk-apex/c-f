@@ -25,7 +25,7 @@ export default {
 
       if (!searchTerm) {
         return await sock.sendMessage(chatId, {
-          text: `┌─⧭ 🌐 *WIKIPEDIA* \n├◆ *wiki <search term>*\n├◆  └⊷ Search Wikipedia and get a summary\n├◆ *Reply*\n├◆  └⊷ Reply to a message with .wiki\n└─⧭`,
+          text: `┌─⧭ 🌐 *WIKIPEDIA* \n├◆ Usage: *${PREFIX}wiki <text>*\n├◆ Search Wikipedia and get a brief summary\n├◆ Aliases: *${PREFIX}wikipedia*\n└─⧭`,
           quoted: msg
         });
       }

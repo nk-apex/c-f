@@ -188,7 +188,7 @@ export default {
                 };
 
                 return sock.sendMessage(targetJid, {
-                    text: `┌─⧭ 🤖 *AUTO-TYPING* \n├◆ Mode: ${modeLabels[mode] || mode}\n├◆ Duration: ${autoTypingConfig.duration}s\n├◆ Active: ${autoTypingConfig.activeTypers.size}\n├◆ *${PREFIX}autotyping dm*\n├◆  └⊷ DMs only\n├◆ *${PREFIX}autotyping groups*\n├◆  └⊷ Groups only\n├◆ *${PREFIX}autotyping both*\n├◆  └⊷ Both DMs & groups\n├◆ *${PREFIX}autotyping off*\n├◆  └⊷ Disable\n├◆ *${PREFIX}autotyping <1-60>*\n├◆  └⊷ Set duration\n└─⧭`
+                    text: `┌─⧭ 🤖 *AUTO-TYPING* \n├◆ Usage: *${PREFIX}autotyping [dm|groups|both|off|status]*\n├◆ Toggle auto fake typing/recording indicator\n└─⧭`
                 }, { quoted: m });
             }
 
@@ -237,7 +237,7 @@ export default {
             }
 
             return sock.sendMessage(targetJid, {
-                text: `┌─⧭ 🤖 *AUTO-TYPING* \n├◆ *${PREFIX}autotyping dm*\n├◆  └⊷ DMs only\n├◆ *${PREFIX}autotyping groups*\n├◆  └⊷ Groups only\n├◆ *${PREFIX}autotyping both*\n├◆  └⊷ Both DMs & groups\n├◆ *${PREFIX}autotyping off*\n├◆  └⊷ Disable\n├◆ *${PREFIX}autotyping <1-60>*\n├◆  └⊷ Set duration\n└─⧭`
+                text: `┌─⧭ 🤖 *AUTO-TYPING* \n├◆ Usage: *${PREFIX}autotyping [dm|groups|both|off|status]*\n├◆ Toggle auto fake typing/recording indicator\n└─⧭`
             }, { quoted: m });
 
         } catch (err) {

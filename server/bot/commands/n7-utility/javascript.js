@@ -20,7 +20,7 @@ export default {
 
         if (!args.length) {
             return await sock.sendMessage(chatId, {
-                text: `┌─⧭ 💻 *JAVASCRIPT EXECUTOR* \n├◆ *${PREFIX}js <code>*\n├◆  └⊷ Run JavaScript code\n├◆ *Examples:*\n├◆  └⊷ ${PREFIX}js console.log("Hello World")\n├◆  └⊷ ${PREFIX}js Math.random()\n├◆  └⊷ ${PREFIX}js [1,2,3].map(x => x*2)\n├◆ *Features:*\n├◆  └⊷ 15s timeout\n├◆  └⊷ Auto-prints last expression\n└─⧭\n> *${getBotName()}*`
+                text: `┌─⧭ 💻 *JAVASCRIPT EXECUTOR* \n├◆ Usage: *${PREFIX}javascript <code>*\n├◆ Execute JavaScript code\n├◆ Aliases: *${PREFIX}js*, *${PREFIX}eval*, *${PREFIX}node*, *${PREFIX}runjs*\n└─⧭\n> *${getBotName()}*`
             }, { quoted: msg });
         }
 

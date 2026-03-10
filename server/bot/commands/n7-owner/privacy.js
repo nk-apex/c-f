@@ -67,19 +67,19 @@ export default {
             let text = `┌─⧭ 🔒 *PRIVACY & CHAT SETTINGS* \n`;
             text += `├◆  👁️ *PRIVACY SETTINGS* \n`;
             text += `├◆ *👁️ Last Seen*\n`;
-            text += `│  └⊷ ${formatSetting(lastSeen)}\n`;
+            text += `│\n`;
             text += `├◆ *🟢 Online Status*\n`;
-            text += `│  └⊷ ${formatSetting(onlineStatus)}\n`;
+            text += `│\n`;
             text += `├◆ *🖼️ Profile Picture*\n`;
-            text += `│  └⊷ ${formatSetting(profilePic)}\n`;
+            text += `│\n`;
             text += `├◆ *📊 Status Visibility*\n`;
-            text += `│  └⊷ ${formatSetting(statusPrivacy)}\n`;
+            text += `│\n`;
             text += `├◆ *✅ Read Receipts*\n`;
-            text += `│  └⊷ ${readReceipts === 'all' || readReceipts === true ? '🟢 ON' : readReceipts === 'none' || readReceipts === false ? '🔴 OFF' : formatSetting(readReceipts)}\n`;
+            text += `│\n`;
             text += `├◆ *👥 Group Add*\n`;
-            text += `│  └⊷ ${formatSetting(groupAdd)}\n`;
+            text += `│\n`;
             text += `├◆ *🟢 Always Online Bot*\n`;
-            text += `│  └⊷ ${presenceConfig.enabled ? '✅ ACTIVE' : '❌ INACTIVE'}\n`;
+            text += `│\n`;
 
             text += `├◆  💬 *CHAT MANAGEMENT* \n`;
             text += `├◆ *📌 Pinned Groups:* ${pinned.length}\n`;

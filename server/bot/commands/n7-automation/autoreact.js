@@ -1320,15 +1320,10 @@ export default {
 ├◆ ${dmStatus} | ${groupStatus} | ${cmdStatus}
 ├◆ Access: ${modeText}
 ├◆ *${PREFIX}autoreact on/off*
-├◆  └⊷ Toggle auto-react
 ├◆ *${PREFIX}autoreact set <emoji>*
-├◆  └⊷ Set fixed emoji
 ├◆ *${PREFIX}autoreact random toggle*
-├◆  └⊷ Toggle random emoji mode
 ├◆ *${PREFIX}autoreact dms/groups/both*
-├◆  └⊷ Toggle reaction targets
 ├◆ *${PREFIX}autoreact status*
-├◆  └⊷ Detailed status view
 └─⧭`
         }, { quoted: m });
         return;
@@ -1361,10 +1356,10 @@ export default {
         }
         
         statusMsg += `│\n`;
-        statusMsg += `├◆ *${PREFIX}autoreact random add <emoji>*\n├◆  └⊷ Add to random list\n`;
-        statusMsg += `├◆ *${PREFIX}autoreact random list*\n├◆  └⊷ Show all random emojis\n`;
-        statusMsg += `├◆ *${PREFIX}autoreact random clear*\n├◆  └⊷ Reset to default list\n`;
-        statusMsg += `├◆ *${PREFIX}autoreact test*\n├◆  └⊷ Test reaction\n`;
+        statusMsg += `├◆ *${PREFIX}autoreact random add <emoji>*\n`;
+        statusMsg += `├◆ *${PREFIX}autoreact random list*\n`;
+        statusMsg += `├◆ *${PREFIX}autoreact random clear*\n`;
+        statusMsg += `├◆ *${PREFIX}autoreact test*\n`;
         statusMsg += `└─⧭`;
         
         return sock.sendMessage(targetJid, {
@@ -1526,7 +1521,7 @@ Use \`${PREFIX}autoreact on\` to enable again.`
         
         // Invalid random command
         await sock.sendMessage(targetJid, {
-          text: `┌─⧭ 🎲 *RANDOM EMOJI* \n├◆ *${PREFIX}autoreact random toggle*\n├◆  └⊷ Toggle random mode\n├◆ *${PREFIX}autoreact random list*\n├◆  └⊷ Show all emojis\n├◆ *${PREFIX}autoreact random add <emoji>*\n├◆  └⊷ Add emoji to list\n├◆ *${PREFIX}autoreact random remove <emoji>*\n├◆  └⊷ Remove emoji from list\n├◆ *${PREFIX}autoreact random clear*\n├◆  └⊷ Reset to default\n└─⧭`
+          text: `┌─⧭ 🎲 *RANDOM EMOJI* \n├◆ Usage: *${PREFIX}autoreact [on/off/set/dms/groups/both/status/mode/users]*\n├◆ Auto-react to messages with emojis 😂\n├◆ Aliases: *${PREFIX}autoreaction*, *${PREFIX}reactauto*, *${PREFIX}autoemoji*, *${PREFIX}react*\n└─⧭`
         }, { quoted: m });
         return;
       }
@@ -1719,7 +1714,7 @@ ${ownerOnly ?
         
         // Invalid user command
         await sock.sendMessage(targetJid, {
-          text: `┌─⧭ 👥 *USER MANAGEMENT* \n├◆ *${PREFIX}autoreact users list*\n├◆  └⊷ Show allowed users\n├◆ *${PREFIX}autoreact users add @user*\n├◆  └⊷ Add allowed user\n├◆ *${PREFIX}autoreact users remove @user*\n├◆  └⊷ Remove allowed user\n├◆ *${PREFIX}autoreact users clear*\n├◆  └⊷ Remove all users\n└─⧭`
+          text: `┌─⧭ 👥 *USER MANAGEMENT* \n├◆ Usage: *${PREFIX}autoreact [on/off/set/dms/groups/both/status/mode/users]*\n├◆ Auto-react to messages with emojis 😂\n├◆ Aliases: *${PREFIX}autoreaction*, *${PREFIX}reactauto*, *${PREFIX}autoemoji*, *${PREFIX}react*\n└─⧭`
         }, { quoted: m });
         return;
       }
@@ -1773,35 +1768,20 @@ Reacted with ${emoji} to this command!
       await sock.sendMessage(targetJid, {
         text: `┌─⧭ 😂 *AUTO-REACT* 
 ├◆ *${PREFIX}autoreact on*
-├◆  └⊷ Enable auto-react
 ├◆ *${PREFIX}autoreact off*
-├◆  └⊷ Disable auto-react
 ├◆ *${PREFIX}autoreact set <emoji>*
-├◆  └⊷ Set fixed emoji
 ├◆ *${PREFIX}autoreact random toggle*
-├◆  └⊷ Toggle random emoji mode
 ├◆ *${PREFIX}autoreact random list*
-├◆  └⊷ Show random emojis
 ├◆ *${PREFIX}autoreact random add <emoji>*
-├◆  └⊷ Add to random list
 ├◆ *${PREFIX}autoreact dms*
-├◆  └⊷ Toggle DM reactions
 ├◆ *${PREFIX}autoreact groups*
-├◆  └⊷ Toggle group reactions
 ├◆ *${PREFIX}autoreact both*
-├◆  └⊷ React to DMs & groups
 ├◆ *${PREFIX}autoreact commands*
-├◆  └⊷ Toggle command reactions
 ├◆ *${PREFIX}autoreact mode*
-├◆  └⊷ Toggle owner-only/public
 ├◆ *${PREFIX}autoreact users*
-├◆  └⊷ Manage allowed users
 ├◆ *${PREFIX}autoreact status*
-├◆  └⊷ Detailed status
 ├◆ *${PREFIX}autoreact test*
-├◆  └⊷ Test reaction
 ├◆ *${PREFIX}autoreact clear*
-├◆  └⊷ Clear reaction tracking
 └─⧭`
       }, { quoted: m });
       

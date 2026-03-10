@@ -16,7 +16,7 @@ export default {
     if (!args.length) {
       return sock.sendMessage(
         jid,
-        { text: `┌─⧭ 🔗 *URL SHORTENER* \n├◆ *shorturl <URL>*\n├◆  └⊷ Shorten a long URL\n├◆ *Example:*\n├◆  └⊷ \`.shorturl https://example.com\`\n└─⧭` },
+        { text: `┌─⧭ 🔗 *URL SHORTENER* `.shorturl https://example.com\`\n└─⧭` },
         { quoted: m }
       );
     }

@@ -675,7 +675,7 @@ export default {
 
       if (args.length === 0) {
         await sock.sendMessage(jid, { 
-          text: `┌─⧭ 🎵 *YTPLAY COMMAND* \n├◆ *ytplay <song name>*\n├◆  └⊷ Play audio\n├◆ *ytplay <YouTube URL>*\n├◆  └⊷ Play from link\n└─⧭`
+          text: `┌─⧭ 🎵 *YTPLAY COMMAND* \n├◆ Usage: *${PREFIX}ytplay <text>*\n├◆ Download YouTube audio - uses same API as song command\n├◆ Aliases: *${PREFIX}ytaudio*, *${PREFIX}ytmusic*, *${PREFIX}ytsong*\n└─⧭`
         }, { quoted: m });
         return;
       }

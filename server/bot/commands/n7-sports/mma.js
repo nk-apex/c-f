@@ -15,7 +15,7 @@ export default {
 
     if (args.length === 0 || args[0].toLowerCase() === 'help') {
       return sock.sendMessage(jid, {
-        text: `┌─⧭ 🥊 *UFC / MMA* \n├◆ *${PREFIX}mma results*\n├◆  └⊷ Latest fight results\n├◆ *${PREFIX}mma schedule*\n├◆  └⊷ Upcoming fight cards\n├◆ *${PREFIX}ufc results*\n├◆  └⊷ Alias for mma\n└─⧭`
+        text: `┌─⧭ 🥊 *UFC / MMA* \n├◆ Usage: *${PREFIX}mma [results|schedule]*\n├◆ Get UFC/MMA fight results and upcoming events\n├◆ Aliases: *${PREFIX}ufc*, *${PREFIX}fighting*\n└─⧭`
       }, { quoted: m });
     }
 
@@ -42,7 +42,7 @@ export default {
             text += `│  ⊷ ${fighters[0]?.athlete?.displayName || fighters[0]?.team?.displayName || '???'} vs ${fighters[1]?.athlete?.displayName || fighters[1]?.team?.displayName || '???'}\n`;
           }
         }
-        text += `│  └⊷ ${date} • ${status}\n`;
+        text += `│\n`;
       });
       text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
 

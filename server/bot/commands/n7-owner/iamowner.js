@@ -63,7 +63,7 @@ export default {
       // Ask for owner phone verification
       if (!args[0]) {
         await sock.sendMessage(jid, {
-          text: `┌─⧭ 🔐 *VERIFY OWNERSHIP* \n├◆ *.iamowner <full_owner_phone>*\n├◆  └⊷ Verify with number\n└─⧭`
+          text: `┌─⧭ 🔐 *VERIFY OWNERSHIP* \n├◆ Usage: *${PREFIX}iamowner <text>*\n├◆ Force verify yourself as bot owner\n└─⧭`
         }, { quoted: msg });
         return;
       }

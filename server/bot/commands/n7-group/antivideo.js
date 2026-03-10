@@ -109,7 +109,7 @@ export default {
             
             if (!mode || !['warn', 'delete', 'kick'].includes(mode)) {
                 return sock.sendMessage(chatId, { 
-                    text: '┌─⧭ ⚙️ *ANTI-VIDEO SETUP* \n├◆ *.antivideo on warn*\n├◆  └⊷ Warn senders\n├◆ *.antivideo on delete*\n├◆  └⊷ Auto-delete videos\n├◆ *.antivideo on kick*\n├◆  └⊷ Kick senders\n└─⧭' 
+                    text: '┌─⧭ ⚙️ *ANTI-VIDEO SETUP* \n├◆ Usage: *${PREFIX}antivideo <text>*\n├◆ Control video sharing in the group\n└─⧭' 
                 }, { quoted: msg });
             }
 
@@ -237,7 +237,7 @@ export default {
                 
                 if (typesToAdd.length === 0) {
                     return sock.sendMessage(chatId, { 
-                        text: '┌─⧭ 🎬 *ANTI-VIDEO TYPES* \n├◆ *.antivideo types add video*\n├◆  └⊷ Regular videos\n├◆ *.antivideo types add gif*\n├◆  └⊷ GIFs/Animated images\n└─⧭' 
+                        text: '┌─⧭ 🎬 *ANTI-VIDEO TYPES* \n├◆ Usage: *${PREFIX}antivideo <text>*\n├◆ Control video sharing in the group\n└─⧭' 
                     }, { quoted: msg });
                 }
                 
@@ -269,7 +269,7 @@ export default {
                 
                 if (typesToRemove.length === 0) {
                     return sock.sendMessage(chatId, { 
-                        text: '┌─⧭ 🎬 *ANTI-VIDEO TYPES REMOVE* \n├◆ *.antivideo types remove [type]*\n├◆  └⊷ Remove video type\n└─⧭' 
+                        text: '┌─⧭ 🎬 *ANTI-VIDEO TYPES REMOVE* \n├◆ Usage: *${PREFIX}antivideo <text>*\n├◆ Control video sharing in the group\n└─⧭' 
                     }, { quoted: msg });
                 }
                 
@@ -315,7 +315,7 @@ export default {
             }
             else {
                 await sock.sendMessage(chatId, { 
-                    text: '┌─⧭ 📋 *ANTI-VIDEO TYPES* \n├◆ *.antivideo types add [type]*\n├◆  └⊷ Add video type\n├◆ *.antivideo types remove [type]*\n├◆  └⊷ Remove video type\n├◆ *.antivideo types list*\n├◆  └⊷ View blocked types\n└─⧭' 
+                    text: '┌─⧭ 📋 *ANTI-VIDEO TYPES* \n├◆ Usage: *${PREFIX}antivideo <text>*\n├◆ Control video sharing in the group\n└─⧭' 
                 }, { quoted: msg });
             }
         }
@@ -359,7 +359,7 @@ export default {
         }
         else {
             // Show help
-            const helpText = `┌─⧭ 🎬 *ANTI-VIDEO* \n├◆ *.antivideo on <warn|delete|kick>*\n├◆  └⊷ Enable with mode\n├◆ *.antivideo off*\n├◆  └⊷ Disable protection\n├◆ *.antivideo types [add/remove/list]*\n├◆  └⊷ Manage video types\n├◆ *.antivideo exemptadmins [on/off]*\n├◆  └⊷ Toggle admin exemption\n├◆ *.antivideo status*\n├◆  └⊷ View current status\n└─⧭`;
+            const helpText = `┌─⧭ 🎬 *ANTI-VIDEO* \n├◆ Usage: *${PREFIX}antivideo <text>*\n├◆ Control video sharing in the group\n└─⧭`;
             
             await sock.sendMessage(chatId, { text: helpText }, { quoted: msg });
         }

@@ -102,13 +102,13 @@ export default {
                 } catch {}
                 const outputMode = config.sendAsSticker ? '🏷️ Sticker' : '🖼️ Image';
                 await sock.sendMessage(chatId, {
-                    text: `┌─⧭ 🔐 *ANTI-VIEWONCE SETTINGS* \n├◆ *Mode:* ${modeDisplay}\n├◆ *Output:* ${outputMode}\n├◆ *${prefix}av private*\n├◆  └⊷ Send to DM\n├◆ *${prefix}av public*\n├◆  └⊷ Show in chat\n├◆ *${prefix}av off*\n├◆  └⊷ Disable\n├◆ *${prefix}vvmode*\n├◆  └⊷ Toggle image/sticker\n├◆ *${prefix}av settings*\n├◆  └⊷ This menu\n└─⧭`
+                    text: `┌─⧭ 🔐 *ANTI-VIEWONCE SETTINGS* \n├◆ Usage: *${PREFIX}antiviewonce <text>*\n├◆ Anti-ViewOnce: private/public/off modes\n├◆ Aliases: *${PREFIX}av*\n└─⧭`
                 }, { quoted: msg });
                 break;
             }
             default:
                 await sock.sendMessage(chatId, {
-                    text: `┌─⧭ 🔐 *ANTI-VIEWONCE* \n├◆ *${prefix}av private*\n├◆  └⊷ Send to DM\n├◆ *${prefix}av public*\n├◆  └⊷ Show in chat\n├◆ *${prefix}av off*\n├◆  └⊷ Disable\n├◆ *${prefix}av settings*\n├◆  └⊷ Check status\n└─⧭`
+                    text: `┌─⧭ 🔐 *ANTI-VIEWONCE* \n├◆ Usage: *${PREFIX}antiviewonce <text>*\n├◆ Anti-ViewOnce: private/public/off modes\n├◆ Aliases: *${PREFIX}av*\n└─⧭`
                 }, { quoted: msg });
         }
     }

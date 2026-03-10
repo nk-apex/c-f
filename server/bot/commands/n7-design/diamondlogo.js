@@ -11,7 +11,7 @@ export default {
     try {
       if (args.length === 0) {
         await sock.sendMessage(jid, { 
-          text: `┌─⧭ 💎 *DIAMOND LOGO* \n├◆ *diamondlogo*\n├◆  └⊷ diamondlogo <text>\n├◆ *Example:*\n├◆  └⊷ diamondlogo WOLF\n├◆  └⊷ diamondlogo DIAMOND\n├◆  └⊷ diamondlogo CRYSTAL\n└─⧭` 
+          text: `┌─⧭ 💎 *DIAMOND LOGO* \n├◆ Usage: *${PREFIX}diamondlogo <text>*\n├◆ Create brilliant diamond crystal text logos\n└─⧭` 
         }, { quoted: m });
         return;
       }
@@ -20,7 +20,7 @@ export default {
       
       if (text.length > 12) {
         await sock.sendMessage(jid, { 
-          text: `┌─⧭ ❌ *ERROR* \n├◆ Text too long!\n├◆  └⊷ Maximum 12 characters\n├◆  └⊷ Your text: "${text}" (${text.length} chars)\n└─⧭` 
+          text: `┌─⧭ ❌ *ERROR* \n├◆ Usage: *${PREFIX}diamondlogo <text>*\n├◆ Create brilliant diamond crystal text logos\n└─⧭` 
         }, { quoted: m });
         return;
       }
@@ -41,7 +41,7 @@ export default {
     } catch (error) {
       console.error("❌ [DIAMONDLOGO] ERROR:", error);
       await sock.sendMessage(jid, { 
-        text: `┌─⧭ ❌ *ERROR* \n├◆ ${error.message}\n├◆  └⊷ Please try again with shorter text\n└─⧭` 
+        text: `┌─⧭ ❌ *ERROR* \n├◆ Usage: *${PREFIX}diamondlogo <text>*\n├◆ Create brilliant diamond crystal text logos\n└─⧭` 
       }, { quoted: m });
     }
   },

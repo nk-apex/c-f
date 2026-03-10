@@ -14,7 +14,7 @@ export default {
 
     if (!args || !args[0]) {
       return sock.sendMessage(jid, {
-        text: `┌─⧭ 🔍 *NPM PACKAGE STALKER* \n├◆ *${prefix}npmstalk <package name>*\n├◆  └⊷ Look up an NPM package\n├◆ *Example:*\n├◆  └⊷ ${prefix}npmstalk express\n├◆  └⊷ ${prefix}npmstalk gifted-btns\n└─⧭\n> *${getBotName()} STALKER*`
+        text: `┌─⧭ 🔍 *NPM PACKAGE STALKER* \n├◆ Usage: *${PREFIX}npmstalk <text>*\n├◆ Look up an NPM package\n├◆ Aliases: *${PREFIX}npminfo*, *${PREFIX}npmlookup*, *${PREFIX}pkgstalk*\n└─⧭\n> *${getBotName()} STALKER*`
       }, { quoted: m });
     }
 

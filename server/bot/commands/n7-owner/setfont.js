@@ -44,9 +44,9 @@ export default {
                     `│ │   Normal text (no style)`,
                     `│`,
                     `├◆ *${PREFIX}setfont <name>*`,
-                    `│  └⊷ Switch font style`,
+                    `│`,
                     `├◆ *${PREFIX}setfont default*`,
-                    `│  └⊷ Reset to normal text`,
+                    `│`,
                     `└─⧭`
                 ].join('\n')
             }, { quoted: msg });

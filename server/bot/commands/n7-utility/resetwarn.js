@@ -48,7 +48,7 @@ export default {
 
         if (!targetUser) {
             return sock.sendMessage(jid, {
-                text: `┌─⧭ ⚠️ *RESET WARNINGS* \n├◆ *${PREFIX}resetwarn*\n├◆  └⊷ Reply to user to reset their warnings\n├◆ *${PREFIX}resetwarn @user*\n├◆  └⊷ Mention user to reset warnings\n├◆ *${PREFIX}resetwarn all*\n├◆  └⊷ Reset all warnings in group\n└─⧭`
+                text: `┌─⧭ ⚠️ *RESET WARNINGS* \n├◆ Usage: *${PREFIX}resetwarn <text>*\n├◆ Reset warnings for a user or all users (admin only)\n├◆ Aliases: *${PREFIX}clearwarn*, *${PREFIX}unwarn*, *${PREFIX}delwarn*\n└─⧭`
             }, { quoted: msg });
         }
 

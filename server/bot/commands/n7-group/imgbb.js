@@ -18,7 +18,7 @@ export default {
         return sock.sendMessage(
           jid,
           {
-            text: `┌─⧭ 📸 *IMGBB* \n├◆ *.imgbb* (reply to image)\n├◆  └⊷ Upload to ImgBB\n└─⧭`
+            text: `┌─⧭ 📸 *IMGBB* \n├◆ Usage: *${PREFIX}Reply to an image with .imgbb*\n├◆ Convert replied image to ImgBB URL directly\n└─⧭`
           },
           { quoted: m }
         );

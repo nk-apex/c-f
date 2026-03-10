@@ -13,14 +13,14 @@ export default {
     
     // ====== HELP SECTION ======
     if (args.length === 0 || args[0].toLowerCase() === 'help') {
-      const helpText = `┌─⧭ 😂 *${getBotName()} JOKES* \n├◆ *${PREFIX}joke*\n├◆  └⊷ Random joke\n├◆ *${PREFIX}joke daily*\n├◆  └⊷ Daily joke\n├◆ *${PREFIX}joke dark*\n├◆  └⊷ Dark humor\n├◆ *${PREFIX}joke pun*\n├◆  └⊷ Pun jokes\n├◆ *${PREFIX}joke list*\n├◆  └⊷ Show categories\n└─⧭`;
+      const helpText = `┌─⧭ 😂 *${getBotName()} JOKES* \n├◆ Usage: *${PREFIX}joke [category] or joke [command]*\n├◆ Get random jokes and have fun\n├◆ Aliases: *${PREFIX}jokes*, *${PREFIX}funny*, *${PREFIX}laugh*, *${PREFIX}humor*\n└─⧭`;
       
       return sock.sendMessage(jid, { text: helpText }, { quoted: m });
     }
 
     // ====== LIST CATEGORIES ======
     if (args[0].toLowerCase() === 'list') {
-      const categoriesText = `┌─⧭ 📋 *JOKE CATEGORIES* \n├◆ *${PREFIX}joke general*\n├◆  └⊷ General jokes (default)\n├◆ *${PREFIX}joke programming*\n├◆  └⊷ Tech & programming jokes\n├◆ *${PREFIX}joke dark*\n├◆  └⊷ Dark humor (18+)\n├◆ *${PREFIX}joke pun*\n├◆  └⊷ Pun jokes\n├◆ *${PREFIX}joke knock*\n├◆  └⊷ Knock-knock jokes\n├◆ *${PREFIX}joke dad*\n├◆  └⊷ Dad jokes\n├◆ *${PREFIX}joke random*\n├◆  └⊷ Completely random\n└─⧭`;
+      const categoriesText = `┌─⧭ 📋 *JOKE CATEGORIES* \n├◆ Usage: *${PREFIX}joke [category] or joke [command]*\n├◆ Get random jokes and have fun\n├◆ Aliases: *${PREFIX}jokes*, *${PREFIX}funny*, *${PREFIX}laugh*, *${PREFIX}humor*\n└─⧭`;
       
       return sock.sendMessage(jid, { text: categoriesText }, { quoted: m });
     }

@@ -159,7 +159,7 @@ export default {
             query = m.quoted.text;
         } else {
             return sock.sendMessage(jid, {
-                text: `┌─⧭ 📸 *IMAGE SEARCH* \n├◆ *${PREFIX}image <query>*\n├◆  └⊷ Search and download images from the web\n├◆ *${PREFIX}image <query> -limit <n>*\n├◆  └⊷ Set number of results (max 10)\n├◆ *Examples:*\n├◆  └⊷ ${PREFIX}image beautiful sunset\n├◆  └⊷ ${PREFIX}pic cute animals -limit 3\n├◆ *Aliases:* img, pic, photo\n└─⧭`
+                text: `┌─⧭ 📸 *IMAGE SEARCH* \n├◆ *Aliases:* img, pic, photo\n└─⧭`
             }, { quoted: m });
         }
 

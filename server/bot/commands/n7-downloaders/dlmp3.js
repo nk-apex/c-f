@@ -52,7 +52,7 @@ export default {
 
     if (!searchQuery) {
       return sock.sendMessage(jid, {
-        text: `┌─⧭ 🎵 *DLMP3 DOWNLOADER* \n├◆ *${prefix}dlmp3 <song name or URL>*\n├◆  └⊷ Download audio\n├◆ *Reply to a text message*\n├◆  └⊷ Uses replied text as search\n└─⧭`
+        text: `┌─⧭ 🎵 *DLMP3 DOWNLOADER* \n├◆ Usage: *${PREFIX}dlmp3 <url or song name>*\n├◆ Download MP3 audio with fallback APIs\n├◆ Aliases: *${PREFIX}wolfmp3*, *${PREFIX}wdl*\n└─⧭`
       }, { quoted: m });
     }
 

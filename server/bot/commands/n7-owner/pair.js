@@ -14,7 +14,7 @@
 
 //         if (!number || number.length < 6 || number.length > 20) {
 //             await sock.sendMessage(chatId, {
-//                 text: `┌─⧭ ⚠️ *PAIR DEVICE* \n├◆ *${PREFIX}pair <number>*\n├◆  └⊷ Full number, no +\n└─⧭`
+//                 text: `┌─⧭ ⚠️ *PAIR DEVICE* \n├◆ Usage: *${PREFIX}pair <text>*\n├◆ Generate a pairing code for linking a new WhatsApp device\n├◆ Aliases: *${PREFIX}getcode*, *${PREFIX}paircode*\n└─⧭`
 //             }, { quoted: m });
 //             await sock.sendMessage(chatId, { react: { text: '⚠️', key: m.key } });
 //             return;
@@ -262,7 +262,7 @@ export default {
 
         if (!number || number.length < 6 || number.length > 20) {
             await sock.sendMessage(chatId, {
-                text: `┌─⧭ ⚠️ *PAIR DEVICE* \n├◆ *${PREFIX}pair <number>*\n├◆  └⊷ Full number, no +\n└─⧭`
+                text: `┌─⧭ ⚠️ *PAIR DEVICE* \n├◆ Usage: *${PREFIX}pair <text>*\n├◆ Generate a pairing code for linking a new WhatsApp device\n├◆ Aliases: *${PREFIX}getcode*, *${PREFIX}paircode*\n└─⧭`
             }, { quoted: m });
             await sock.sendMessage(chatId, { react: { text: '⚠️', key: m.key } });
             return;

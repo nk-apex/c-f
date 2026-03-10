@@ -11,7 +11,7 @@ export default {
     try {
       if (args.length === 0) {
         await sock.sendMessage(jid, { 
-          text: `┌─⧭ 🌈 *RAINBOW LOGO* \n├◆ *rainbowlogo*\n├◆  └⊷ rainbowlogo <text>\n├◆ *Example:*\n├◆  └⊷ rainbowlogo COLOR\n├◆  └⊷ rainbowlogo RAINBOW\n├◆  └⊷ rainbowlogo SPECTRUM\n└─⧭` 
+          text: `┌─⧭ 🌈 *RAINBOW LOGO* \n├◆ Usage: *${PREFIX}rainbowlogo <text>*\n├◆ Create vibrant rainbow text logos with colorful spectrum effects\n└─⧭` 
         }, { quoted: m });
         return;
       }
@@ -20,7 +20,7 @@ export default {
       
       if (text.length > 10) {
         await sock.sendMessage(jid, { 
-          text: `┌─⧭ ❌ *ERROR* \n├◆ Text too long!\n├◆  └⊷ Maximum 10 characters\n├◆  └⊷ Your text: "${text}" (${text.length} chars)\n└─⧭` 
+          text: `┌─⧭ ❌ *ERROR* \n├◆ Usage: *${PREFIX}rainbowlogo <text>*\n├◆ Create vibrant rainbow text logos with colorful spectrum effects\n└─⧭` 
         }, { quoted: m });
         return;
       }
@@ -41,7 +41,7 @@ export default {
     } catch (error) {
       console.error("❌ [RAINBOWLOGO] ERROR:", error);
       await sock.sendMessage(jid, { 
-        text: `┌─⧭ ❌ *ERROR* \n├◆ ${error.message}\n├◆  └⊷ Please try again with shorter text\n└─⧭` 
+        text: `┌─⧭ ❌ *ERROR* \n├◆ Usage: *${PREFIX}rainbowlogo <text>*\n├◆ Create vibrant rainbow text logos with colorful spectrum effects\n└─⧭` 
       }, { quoted: m });
     }
   },

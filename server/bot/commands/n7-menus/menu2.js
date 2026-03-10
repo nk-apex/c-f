@@ -129,7 +129,7 @@ export default {
 
     let catList = '';
     categories.forEach(cat => {
-      catList += `├◆ *${prefix}${cat.name}*\n├◆  └⊷ ${cat.icon} ${cat.desc}\n`;
+      catList += `├◆ *${prefix}${cat.name}*\n`;
     });
 
     const caption = `${infoHeader}\n\n┌─⧭ 📋 *CATEGORY MENUS* \n${catList}│\n└─⧭⊷ *🐺 ${botName}*`;

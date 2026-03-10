@@ -12,7 +12,7 @@ export default {
         const args = m.message?.conversation?.split(" ").slice(1) || [];
 
         if (!args.length) {
-            return sock.sendMessage(jid, { text: `┌─⧭ 🎨 *IMAGE GENERATOR* \n├◆ *.imagegen <type> <prompt>*\n├◆  └⊷ Generate images from multiple sources\n├◆ *Types:* ai, waifu, neko, meme\n├◆ *Example:*\n├◆  └⊷ .imagegen ai anime wolf\n└─⧭` }, { quoted: m });
+            return sock.sendMessage(jid, { text: `┌─⧭ 🎨 *IMAGE GENERATOR* \n├◆ Usage: *${PREFIX}imagegen <type> <prompt>*\n├◆ Generate images from multiple sources: AI, anime, memes\n├◆ Aliases: *${PREFIX}img*, *${PREFIX}generate*\n└─⧭` }, { quoted: m });
         }
 
         const type = args[0].toLowerCase();

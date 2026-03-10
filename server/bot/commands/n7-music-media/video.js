@@ -43,7 +43,7 @@ export default {
       
       if (!searchQuery) {
         return sock.sendMessage(jid, {
-          text: `┌─⧭ 🎬 *VIDEO DOWNLOADER* \n├◆ *${prefix}video <name/URL>*\n├◆  └⊷ Download video from YouTube\n├◆ *Reply to a text message*\n├◆  └⊷ Uses replied text as search\n├◆ *Examples:*\n├◆  └⊷ ${prefix}video funny cats\n├◆  └⊷ ${prefix}video https://youtube.com/...\n└─⧭`
+          text: `┌─⧭ 🎬 *VIDEO DOWNLOADER* \n├◆ Usage: *${PREFIX}video <text>*\n├◆ Download YouTube videos\n├◆ Aliases: *${PREFIX}vid*\n└─⧭`
         }, { quoted: m });
       }
 

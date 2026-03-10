@@ -13,7 +13,7 @@ export default {
         const args = m.message?.conversation?.split(" ").slice(1) || [];
 
         if (!args.length) {
-            return sock.sendMessage(jid, { text: `┌─⧭ 🎬 *VIDEO GENERATOR* \n├◆ *.videogen <keyword>*\n├◆  └⊷ Generate or fetch short videos\n├◆ *Example:*\n├◆  └⊷ .videogen wolf anime\n└─⧭` }, { quoted: m });
+            return sock.sendMessage(jid, { text: `┌─⧭ 🎬 *VIDEO GENERATOR* \n├◆ Usage: *${PREFIX}videogen <keyword>*\n├◆ Generate or fetch short videos from keywords\n├◆ Aliases: *${PREFIX}video*, *${PREFIX}vgen*\n└─⧭` }, { quoted: m });
         }
 
         const query = args.join(" ");

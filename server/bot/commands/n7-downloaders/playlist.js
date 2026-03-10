@@ -159,7 +159,7 @@ export default {
     try {
       if (args.length === 0) {
         await sock.sendMessage(jid, { 
-          text: `┌─⧭ 🎵 *PLAYLIST DOWNLOADER* \n├◆ *${PREFIX}playlist <search>*\n├◆  └⊷ Search playlists\n├◆ *${PREFIX}playlist <url>*\n├◆  └⊷ Download from link\n└─⧭`
+          text: `┌─⧭ 🎵 *PLAYLIST DOWNLOADER* \n├◆ Usage: *${PREFIX}playlist <text>*\n├◆ Search and download songs from YouTube playlists\n├◆ Aliases: *${PREFIX}pl*, *${PREFIX}plist*, *${PREFIX}playlists*\n└─⧭`
         }, { quoted: m });
         return;
       }

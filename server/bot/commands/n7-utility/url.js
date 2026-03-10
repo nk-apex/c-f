@@ -520,9 +520,9 @@ export default {
             return sock.sendMessage(jid, {
                 text: `┌─⧭ 📤 *URL UPLOAD* \n` +
                       `├◆ *.url* (reply to media)\n` +
-                      `│  └⊷ Upload & get permanent URL\n` +
+                      `│\n` +
                       `├◆ *.url <image_url>*\n` +
-                      `│  └⊷ Re-upload from URL\n` +
+                      `│\n` +
                       `├◆ *Supported:* Images, Videos, Docs, Audio\n` +
                       `└─⧭ *${getBotName()}* ───`
             }, { quoted: m });

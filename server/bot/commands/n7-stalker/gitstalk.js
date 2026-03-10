@@ -14,7 +14,7 @@ export default {
 
     if (!args || !args[0]) {
       return sock.sendMessage(jid, {
-        text: `┌─⧭ 🔍 *GITHUB STALKER* \n├◆ *${prefix}gitstalk <username>*\n├◆  └⊷ Stalk a GitHub profile\n├◆ *Example:*\n├◆  └⊷ ${prefix}gitstalk mauricegift\n└─⧭\n> *${getBotName()} STALKER*`
+        text: `┌─⧭ 🔍 *GITHUB STALKER* \n├◆ Usage: *${PREFIX}gitstalk <text>*\n├◆ Stalk a GitHub user profile\n├◆ Aliases: *${PREFIX}githubstalk*, *${PREFIX}ghstalk*, *${PREFIX}gitinfo*\n└─⧭\n> *${getBotName()} STALKER*`
       }, { quoted: m });
     }
 

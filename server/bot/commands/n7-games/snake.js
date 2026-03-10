@@ -670,19 +670,12 @@ function updateLeaderboard(userId, userName, score) {
 async function showHelp(sock, m, chatId) {
     const helpText = `┌─⧭ 🐍 *SNAKE GAME* 
 ├◆ *.snake start / play*
-├◆  └⊷ Start new game
 ├◆ *.snake up / down / left / right*
-├◆  └⊷ Move direction (or u/d/l/r)
 ├◆ *.snake pause / resume*
-├◆  └⊷ Pause or resume game
 ├◆ *.snake stop*
-├◆  └⊷ End game
 ├◆ *.snake status*
-├◆  └⊷ Show game info
 ├◆ *.snake stats*
-├◆  └⊷ Your statistics
 ├◆ *.snake leaderboard*
-├◆  └⊷ High scores
 ├◆ 🎮 Eat 🍎 to grow, avoid walls & yourself
 ├◆ 📌 Snake moves every 1.5s, can't turn 180°
 └─⧭`;

@@ -43,7 +43,7 @@ export default {
       // ✅ If replying to an image
       const quoted = m.message?.extendedTextMessage?.contextInfo?.quotedMessage;
       if (!quoted) {
-        await sock.sendMessage(chatId, { text: "┌─⧭ 📸 *SET PROFILE PIC* \n├◆ *Reply to image + .setpp*\n├◆  └⊷ Set from image\n├◆ *.setpp <url>*\n├◆  └⊷ Set from URL\n└─⧭" });
+        await sock.sendMessage(chatId, { text: "┌─⧭ 📸 *SET PROFILE PIC* \n├◆ Usage: *${PREFIX}setpp [reply to an image or use URL]*\n├◆ Change bot profile picture 🐺\n├◆ Aliases: *${PREFIX}setprofilepic*, *${PREFIX}wolfpp*\n└─⧭" });
         return;
       }
 

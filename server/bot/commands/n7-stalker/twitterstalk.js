@@ -14,7 +14,7 @@ export default {
 
     if (!args || !args[0]) {
       return sock.sendMessage(jid, {
-        text: `┌─⧭ 🔍 *TWITTER/X STALKER* \n├◆ *${prefix}twitterstalk <username>*\n├◆  └⊷ Stalk a Twitter/X profile\n├◆ *Example:*\n├◆  └⊷ ${prefix}twitterstalk giftedmauriceke\n└─⧭\n> *${getBotName()} STALKER*`
+        text: `┌─⧭ 🔍 *TWITTER/X STALKER* \n├◆ Usage: *${PREFIX}twitterstalk <text>*\n├◆ Stalk a Twitter/X user profile\n├◆ Aliases: *${PREFIX}twstalk*, *${PREFIX}xstalk*, *${PREFIX}twitterinfo*\n└─⧭\n> *${getBotName()} STALKER*`
       }, { quoted: m });
     }
 

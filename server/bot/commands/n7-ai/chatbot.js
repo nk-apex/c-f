@@ -727,24 +727,24 @@ export default {
         `│ ${modeEmoji[config.mode] || '🔴'} Status: ${config.mode.toUpperCase()}\n` +
         `│ ${currentModel.icon} Model: ${currentModel.name}\n` +
         whitelistInfo +
-        `├◆ *${PREFIX}chatbot on*\n├◆  └⊷ Enable everywhere\n` +
-        `├◆ *${PREFIX}chatbot off*\n├◆  └⊷ Disable chatbot\n` +
-        `├◆ *${PREFIX}chatbot groups*\n├◆  └⊷ Groups only\n` +
-        `├◆ *${PREFIX}chatbot dms*\n├◆  └⊷ DMs only\n` +
-        `├◆ *${PREFIX}chatbot both*\n├◆  └⊷ All chats\n` +
-        `├◆ *${PREFIX}chatbot model*\n├◆  └⊷ Switch AI model\n` +
-        `├◆ *${PREFIX}chatbot stats*\n├◆  └⊷ View stats\n` +
-        `├◆ *${PREFIX}chatbot clear*\n├◆  └⊷ Reset history\n` +
-        `├◆ *${PREFIX}chatbot settings*\n├◆  └⊷ View config\n` +
+        `├◆ *${PREFIX}chatbot on*\n` +
+        `├◆ *${PREFIX}chatbot off*\n` +
+        `├◆ *${PREFIX}chatbot groups*\n` +
+        `├◆ *${PREFIX}chatbot dms*\n` +
+        `├◆ *${PREFIX}chatbot both*\n` +
+        `├◆ *${PREFIX}chatbot model*\n` +
+        `├◆ *${PREFIX}chatbot stats*\n` +
+        `├◆ *${PREFIX}chatbot clear*\n` +
+        `├◆ *${PREFIX}chatbot settings*\n` +
         `├◆  📋 *WHITELIST* \n` +
-        `├◆ *${PREFIX}chatbot addgroup*\n├◆  └⊷ Add this group\n` +
-        `├◆ *${PREFIX}chatbot removegroup*\n├◆  └⊷ Remove this group\n` +
-        `├◆ *${PREFIX}chatbot listgroups*\n├◆  └⊷ List allowed groups\n` +
-        `├◆ *${PREFIX}chatbot cleargroups*\n├◆  └⊷ Clear all groups\n` +
-        `├◆ *${PREFIX}chatbot adddm <number>*\n├◆  └⊷ Add a DM\n` +
-        `├◆ *${PREFIX}chatbot removedm <number>*\n├◆  └⊷ Remove a DM\n` +
-        `├◆ *${PREFIX}chatbot listdms*\n├◆  └⊷ List allowed DMs\n` +
-        `├◆ *${PREFIX}chatbot cleardms*\n├◆  └⊷ Clear all DMs\n` +
+        `├◆ *${PREFIX}chatbot addgroup*\n` +
+        `├◆ *${PREFIX}chatbot removegroup*\n` +
+        `├◆ *${PREFIX}chatbot listgroups*\n` +
+        `├◆ *${PREFIX}chatbot cleargroups*\n` +
+        `├◆ *${PREFIX}chatbot adddm <number>*\n` +
+        `├◆ *${PREFIX}chatbot removedm <number>*\n` +
+        `├◆ *${PREFIX}chatbot listdms*\n` +
+        `├◆ *${PREFIX}chatbot cleardms*\n` +
         `└─⧭`;
 
       return sock.sendMessage(jid, { text: helpText }, { quoted: m });

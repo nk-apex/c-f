@@ -27,7 +27,7 @@ export default {
 
     if (!args || !args[0]) {
       return sock.sendMessage(jid, {
-        text: `┌─⧭ 📱 *APK DOWNLOADER* \n├◆ *${prefix}apk <app name>*\n├◆  └⊷ Download APK file\n├◆ *Examples:*\n├◆  └⊷ ${prefix}apk WhatsApp\n├◆  └⊷ ${prefix}apk Telegram\n├◆  └⊷ ${prefix}apk Spotify\n└─⧭\n> *${getBotName()} APK DOWNLOADER*`
+        text: `┌─⧭ 📱 *APK DOWNLOADER* \n├◆ Usage: *${PREFIX}apk <text>*\n├◆ Download APK files from the Play Store\n├◆ Aliases: *${PREFIX}app*, *${PREFIX}apkdownload*, *${PREFIX}apkdl*\n└─⧭\n> *${getBotName()} APK DOWNLOADER*`
       }, { quoted: m });
     }
 

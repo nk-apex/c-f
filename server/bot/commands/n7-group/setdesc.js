@@ -11,7 +11,7 @@ export default {
     }
 
     if (!text) {
-      return sock.sendMessage(jid, { text: '┌─⧭ ✏️ *SETDESC* \n├◆ *.setdesc Your new group description*\n├◆  └⊷ Set description\n└─⧭' }, { quoted: msg });
+      return sock.sendMessage(jid, { text: '┌─⧭ ✏️ *SETDESC* \n├◆ Usage: *${PREFIX}setdesc <text>*\n└─⧭' }, { quoted: msg });
     }
 
     try {

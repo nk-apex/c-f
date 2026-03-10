@@ -630,23 +630,14 @@ async function showHelp(sock, m, chatId, userData) {
     const helpText = `┌─⧭ 🎲 *DICE GAME* 
 ├◆ 💰 *Balance:* ${userData.points} 🪙
 ├◆ *.dice*
-├◆  └⊷ Roll the dice
 ├◆ *.dice 100*
-├◆  └⊷ Bet 100 on a roll
 ├◆ *.dice 100 double*
-├◆  └⊷ Double or nothing mode
 ├◆ *.dice 100 triple*
-├◆  └⊷ Triple mode
 ├◆ *.dice battle @user 200*
-├◆  └⊷ Battle another player
 ├◆ *.dice accept / decline*
-├◆  └⊷ Accept or decline a battle
 ├◆ *.dice stats*
-├◆  └⊷ Your statistics
 ├◆ *.dice leaderboard*
-├◆  └⊷ Top players
 ├◆ *.dice daily*
-├◆  └⊷ Daily free points
 └─⧭`;
     
     await sock.sendMessage(chatId, {

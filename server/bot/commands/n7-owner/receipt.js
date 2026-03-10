@@ -44,7 +44,7 @@ export default {
                 } catch {}
 
                 await sock.sendMessage(chatId, {
-                    text: `┌─⧭ ✅ *READ RECEIPTS* \n├◆ *${PREFIX}receipt on*\n├◆  └⊷ Enable receipts\n├◆ *${PREFIX}receipt off*\n├◆  └⊷ Disable receipts\n└─⧭`
+                    text: `┌─⧭ ✅ *READ RECEIPTS* \n├◆ Usage: *${PREFIX}receipt <text>*\n├◆ Toggle WhatsApp read receipts on/off\n├◆ Aliases: *${PREFIX}readreceipt*, *${PREFIX}readreceipts*, *${PREFIX}bluetics*, *${PREFIX}bluetick*\n└─⧭`
                 }, { quoted: msg });
                 try { await sock.sendMessage(chatId, { react: { text: '📋', key: msg.key } }); } catch {}
             }

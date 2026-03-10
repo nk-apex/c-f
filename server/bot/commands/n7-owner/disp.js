@@ -70,7 +70,7 @@ export default {
       const currentDuration = settings[chatId];
       const currentLabel = Object.entries(durationMap).find(([, v]) => v === currentDuration)?.[0] || 'off';
       return sock.sendMessage(chatId, {
-        text: `┌─⧭ 📌 *DISAPPEARING MESSAGES* \n├◆ Currently: *${currentLabel}*\n├◆ *.disp on [duration]*\n├◆  └⊷ Enable (24h, week, month)\n├◆ *.disp off*\n├◆  └⊷ Disable disappearing messages\n└─⧭`,
+        text: `┌─⧭ 📌 *DISAPPEARING MESSAGES* \n├◆ Usage: *${PREFIX}disp <text>*\n├◆ Toggle disappearing messages for this chat. Usage: .disp on [duration], .disp off\n└─⧭`,
       }, { quoted: msg });
     }
 

@@ -45,7 +45,7 @@ export default {
         if (args.length === 0 || args[0]?.toLowerCase() === 'help') {
             const current = getFooter();
             return sock.sendMessage(chatId, {
-                text: `┌─⧭ 📝 *SET FOOTER* \n├◆ 📌 Current: ${current}\n├◆ *${PREFIX}setfooter <text>*\n├◆  └⊷ Set footer text\n├◆ *${PREFIX}setfooter reset*\n├◆  └⊷ Reset to default\n└─⧭`
+                text: `┌─⧭ 📝 *SET FOOTER* \n├◆ Usage: *${PREFIX}setfooter <text>*\n├◆ Set default footer/caption for downloads (viewonce, tiktok, instagram, video downloads)\n├◆ Aliases: *${PREFIX}footer*, *${PREFIX}setcaption*, *${PREFIX}defaultcaption*\n└─⧭`
             }, { quoted: msg });
         }
 

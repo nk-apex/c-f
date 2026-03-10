@@ -14,7 +14,7 @@ export default {
 
         if (args.length === 0 || args[0].toLowerCase() === 'help') {
             return sock.sendMessage(jid, {
-                text: `┌─⧭ 🤖 *WORMGPT* \n├◆ *${PREFIX}wormgpt <query>*\n├◆  └⊷ Ask WormGPT anything\n├◆ *${PREFIX}wormgpt clear*\n├◆  └⊷ Clear conversation history\n└─⧭`
+                text: `┌─⧭ 🤖 *WORMGPT* \n├◆ Usage: *${PREFIX}wormgpt <text>*\n├◆ WormGPT - Advanced AI assistant with no restrictions\n├◆ Aliases: *${PREFIX}wgpt*, *${PREFIX}evilgpt*, *${PREFIX}darkai*, *${PREFIX}unrestricted*\n└─⧭`
             }, { quoted: m });
         }
 

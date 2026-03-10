@@ -62,7 +62,7 @@ export default {
                 } catch {}
 
                 await sock.sendMessage(chatId, {
-                    text: `┌─⧭ 📊 *STATUS VIEWER PRIVACY* \n├◆ *${PREFIX}viewer everyone*\n├◆  └⊷ Everyone sees\n├◆ *${PREFIX}viewer contacts*\n├◆  └⊷ Contacts only\n├◆ *${PREFIX}viewer except*\n├◆  └⊷ Contacts except\n├◆ *${PREFIX}viewer nobody*\n├◆  └⊷ No one sees\n└─⧭`
+                    text: `┌─⧭ 📊 *STATUS VIEWER PRIVACY* \n├◆ Usage: *${PREFIX}viewer <text>*\n├◆ Toggle who can view your WhatsApp status\n├◆ Aliases: *${PREFIX}statusviewer*, *${PREFIX}statusview*, *${PREFIX}statusprivacy*, *${PREFIX}viewstatus*\n└─⧭`
                 }, { quoted: msg });
                 try { await sock.sendMessage(chatId, { react: { text: '📋', key: msg.key } }); } catch {}
             }
