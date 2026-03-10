@@ -87,16 +87,13 @@ function printBanner() {
 
 function printPairingCode(code) {
   console.log("");
-  console.log(c(C.orangeBg + C.bright, "  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  "));
-  console.log(c(C.orangeBg + C.bright, `       PAIRING CODE: ${code}            `));
-  console.log(c(C.orangeBg + C.bright, "  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  "));
-  console.log("");
-  console.log(c(C.orangeBright, "  How to pair:"));
-  console.log(c(C.white, "  1. Open WhatsApp on your phone"));
-  console.log(c(C.white, "  2. Go to Settings > Linked Devices"));
-  console.log(c(C.white, "  3. Tap 'Link a Device'"));
-  console.log(c(C.white, "  4. Choose 'Link with phone number instead'"));
-  console.log(c(C.white, "  5. Enter the 8-digit code above"));
+  console.log(c(C.orange, "  ┌─⧭ PAIRING CODE"));
+  console.log(c(C.orange, "  ├◆ ") + c(C.bright + C.orangeBright, `Code: ${code}`));
+  console.log(c(C.orange, "  ├◆ ") + c(C.white, "1. Open WhatsApp → Settings → Linked Devices"));
+  console.log(c(C.orange, "  ├◆ ") + c(C.white, "2. Tap 'Link a Device'"));
+  console.log(c(C.orange, "  ├◆ ") + c(C.white, "3. Choose 'Link with phone number instead'"));
+  console.log(c(C.orange, "  ├◆ ") + c(C.white, "4. Enter the 8-digit code above"));
+  console.log(c(C.orange, "  └─⧭"));
   console.log("");
 }
 
@@ -155,14 +152,14 @@ function printIncomingMessage(msg) {
 
   const displayBody = body.length > 80 ? body.substring(0, 80) + "..." : body;
 
-  console.log(c(C.orange, `  ┌─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`));
-  console.log(c(C.orange, `  │ `) + c(C.bright + C.orangeBright, `[${label}]`) + c(C.orange, ` │ `) + c(C.white, `+${senderNumber}`) + c(C.gray, ` (${pushName})`));
+  console.log(c(C.orange, `  ┌─⧭ [${label}] ${isGroup ? groupId : "DM"}`));
+  console.log(c(C.orange, `  ├◆ `) + c(C.white, `+${senderNumber}`) + c(C.gray, ` (${pushName})`));
   if (isGroup) {
-    console.log(c(C.orange, `  │ `) + c(C.gray, `Group: ${groupId}`));
+    console.log(c(C.orange, `  ├◆ `) + c(C.gray, `Group: ${groupId}`));
   }
-  console.log(c(C.orange, `  │ `) + c(C.orangeBright, `[${msgType}]`) + c(C.white, ` ${displayBody || "(no text)"}`));
-  console.log(c(C.orange, `  │ `) + c(C.gray, time));
-  console.log(c(C.orange, `  └─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`));
+  console.log(c(C.orange, `  ├◆ `) + c(C.orangeBright, `[${msgType}]`) + c(C.white, ` ${displayBody || "(no text)"}`));
+  console.log(c(C.orange, `  ├◆ `) + c(C.gray, time));
+  console.log(c(C.orange, `  └─⧭`));
 }
 
 async function showMainMenu(rl) {
@@ -341,16 +338,16 @@ async function main() {
   botConnection.on("connected", async () => {
     const status = botConnection.getStatus();
     const config = getConfig();
+    const cmds = commandLoader.getCommands();
     console.log("");
-    console.log(c(C.orangeBg + C.bright, "  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  "));
-    console.log(c(C.orangeBg + C.bright, "         CONNECTED SUCCESSFULLY         "));
-    console.log(c(C.orangeBg + C.bright, "  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  "));
-    console.log("");
-    if (status.name) console.log(c(C.orangeBright, `  Name:   ${status.name}`));
-    if (status.phoneNumber) console.log(c(C.orangeBright, `  Phone:  +${status.phoneNumber}`));
-    console.log(c(C.orangeBright, `  Prefix: ${config.prefix}`));
-    console.log("");
-    console.log(c(C.gray, "  Type 'help' for console commands."));
+    console.log(c(C.orange, "  ┌─⧭ FOX-CORE ONLINE"));
+    console.log(c(C.orange, "  ├◆ ") + c(C.white, "Status: ") + c(C.bright + C.orangeBright, "Connected ✓"));
+    if (status.name) console.log(c(C.orange, "  ├◆ ") + c(C.white, `Name:   ${status.name}`));
+    if (status.phoneNumber) console.log(c(C.orange, "  ├◆ ") + c(C.white, `Phone:  +${status.phoneNumber}`));
+    console.log(c(C.orange, "  ├◆ ") + c(C.white, `Prefix: ${config.prefix}`));
+    console.log(c(C.orange, "  ├◆ ") + c(C.white, `Commands: ${cmds.length}`));
+    console.log(c(C.orange, "  ├◆ ") + c(C.white, `Mode: ${config.mode}`));
+    console.log(c(C.orange, "  └─⧭"));
     console.log("");
 
     try {
@@ -387,15 +384,17 @@ async function main() {
 
   const cmds = commandLoader.getCommands();
   const categories = commandLoader.getCategories();
-  console.log(c(C.orange, `  ┌─⧭ Loaded ${cmds.length} commands from ${Object.keys(categories).length} categories ⧭─┐`));
+  console.log(c(C.orange, `  ┌─⧭ Commands Loaded`));
+  console.log(c(C.orange, `  ├◆ `) + c(C.white, `${cmds.length} commands across ${Object.keys(categories).length} categories`));
+  console.log(c(C.orange, `  └─⧭`));
   console.log("");
 
   const envSessionId = process.env.SESSION_ID || "";
 
   if (envSessionId) {
-    console.log(c(C.orange, "  ┌─⧭ Auto-Connect ⧭─┐"));
-    console.log(c(C.orangeBright, "  │ SESSION_ID found in environment"));
-    console.log(c(C.orange, "  │ Connecting automatically..."));
+    console.log(c(C.orange, "  ┌─⧭ AUTO-CONNECT"));
+    console.log(c(C.orange, "  ├◆ ") + c(C.white, "SESSION_ID found in environment"));
+    console.log(c(C.orange, "  ├◆ ") + c(C.gray, "Connecting automatically..."));
     console.log(c(C.orange, "  └─⧭"));
     console.log("");
 
@@ -408,8 +407,9 @@ async function main() {
       await showMainMenu(rl);
     }
   } else if (botConnection.hasExistingSession()) {
-    console.log(c(C.orange, "  ┌─⧭ Existing session found ⧭─┐"));
-    console.log(c(C.orangeBright, "  │ Reconnecting automatically..."));
+    console.log(c(C.orange, "  ┌─⧭ SAVED SESSION"));
+    console.log(c(C.orange, "  ├◆ ") + c(C.white, "Existing session found"));
+    console.log(c(C.orange, "  ├◆ ") + c(C.gray, "Reconnecting automatically..."));
     console.log(c(C.orange, "  └─⧭"));
     console.log("");
 
