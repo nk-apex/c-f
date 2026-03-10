@@ -103,7 +103,8 @@ export default {
   name: "menu",
   alias: ["wolfmenu", "n7menu", "help"],
   description: "Shows the Wolf Command Center in various styles",
-  async execute(sock, m, args) {
+  async execute(sock, m, args, PREFIX, extra) {
+    if (PREFIX) global.prefix = PREFIX;
     const jid = m.key.remoteJid;
     let style = getCurrentMenuStyle();
     

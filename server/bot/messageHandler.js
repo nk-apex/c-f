@@ -134,6 +134,7 @@ export function setupMessageHandler(logger) {
         "";
 
       const config = loadConfig();
+      global.prefix = config.prefix;
 
       const sender = msg.key.participant || msg.key.remoteJid || "";
       if (isFlooding(sender)) continue;
