@@ -1,99 +1,62 @@
-import fs from 'fs';
+import { setEnabled, isEnabled } from '../../lib/automodStore.js';
 
-const CONFIG_FILE = './data/antigroupcall.json';
-const handledCalls = new Map();
-let listenerAttached = false;
+let callListenerAttached = false;
 
-function loadConfig() {
-    try {
-        if (fs.existsSync(CONFIG_FILE)) {
-            return JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8'));
+export function initAntiGroupCallListener(sock) {
+  if (callListenerAttached) return;
+  callListenerAttached = true;
+  sock.ev.on('call', async (calls) => {
+    for (const call of calls) {
+      try {
+        const fromJid = call.from || '';
+        const isGroupCall = fromJid.endsWith('@g.us') || call.isGroup === true;
+        if (!isGroupCall) continue;
+        if (isEnabled(fromJid, 'antigroupcall')) {
+          await sock.rejectCall(call.id, call.from);
         }
-    } catch {}
-    return { enabled: false };
-}
-
-function saveConfig(data) {
-    try {
-        fs.writeFileSync(CONFIG_FILE, JSON.stringify(data, null, 2));
-    } catch {}
-}
-
-export function isAntiGroupCallEnabled() {
-    return loadConfig().enabled === true;
-}
-
-function setupAntiGroupCallListener(sock) {
-    if (listenerAttached) return;
-    listenerAttached = true;
-
-    setInterval(() => {
-        const now = Date.now();
-        for (const [id, ts] of handledCalls.entries()) {
-            if (now - ts > 5 * 60 * 1000) handledCalls.delete(id);
-        }
-    }, 60000);
-
-    sock.ev.on('call', async (callArray) => {
-        try {
-            if (!isAntiGroupCallEnabled()) return;
-
-            const calls = Array.isArray(callArray) ? callArray : [callArray];
-
-            for (const call of calls) {
-                if (call.status !== 'offer') continue;
-                if (handledCalls.has(call.id)) continue;
-
-                const fromJid = call.from || '';
-                const isGroupCall = fromJid.endsWith('@g.us') || call.isGroup === true;
-
-                if (!isGroupCall) continue;
-
-                handledCalls.set(call.id, Date.now());
-
-                try {
-                    await sock.rejectCall(call.id, fromJid);
-                } catch {}
-            }
-        } catch {}
-    });
+      } catch {}
+    }
+  });
 }
 
 export default {
-    name: 'antigroupcall',
-    alias: ['antigcall', 'nographcall'],
-    description: 'Auto-ignore/reject incoming group calls',
-    category: 'group',
-    async execute(sock, msg, args) {
-        const chatId = msg.key.remoteJid;
-        const sub = (args[0] || '').toLowerCase();
+  name: 'antigroupcall',
+  alias: ['nogroupcall', 'rejectgroupcall'],
+  description: 'Auto-reject incoming group calls',
+  category: 'group',
+  usage: '.antigroupcall on/off',
 
-        setupAntiGroupCallListener(sock);
+  async execute(sock, msg, args, PREFIX) {
+    const jid = msg.key.remoteJid;
+    if (!jid.endsWith('@g.us'))
+      return sock.sendMessage(jid, { text: '❌ This command only works in groups.' }, { quoted: msg });
 
-        const config = loadConfig();
+    const sender = msg.key.participant || jid;
+    const meta = await sock.groupMetadata(jid);
+    const p = meta.participants.find(x => x.id === sender);
+    if (!p?.admin)
+      return sock.sendMessage(jid, { text: '❌ Only admins can use this command.' }, { quoted: msg });
 
-        if (!sub || sub === 'status') {
-            return sock.sendMessage(chatId, {
-                text: `┌─⧭ 📵 *ANTI GROUP CALL* \n├◆ *Status:* ${config.enabled ? '✅ ON' : '❌ OFF'}\n├◆ When enabled, all incoming group\n├◆  calls are automatically rejected.\n├◆ *Usage:*\n├◆  .antigroupcall on\n├◆  .antigroupcall off\n└─⧭`,
-            }, { quoted: msg });
-        }
+    const action = args[0]?.toLowerCase();
 
-        if (sub === 'on') {
-            saveConfig({ enabled: true });
-            return sock.sendMessage(chatId, {
-                text: `┌─⧭ 📵 *ANTI GROUP CALL* \n├◆ ✅ *ENABLED*\n├◆ Group calls will be automatically\n├◆  rejected/ignored.\n└─⧭`,
-            }, { quoted: msg });
-        }
-
-        if (sub === 'off') {
-            saveConfig({ enabled: false });
-            return sock.sendMessage(chatId, {
-                text: `┌─⧭ 📵 *ANTI GROUP CALL* \n├◆ ❌ *DISABLED*\n├◆ Group calls will come through normally.\n└─⧭`,
-            }, { quoted: msg });
-        }
-
-        return sock.sendMessage(chatId, {
-            text: `┌─⧭ 📵 *ANTI GROUP CALL* \n├◆ *Usage:*\n├◆  .antigroupcall on\n├◆  .antigroupcall off\n├◆  .antigroupcall status\n└─⧭`,
-        }, { quoted: msg });
+    if (action === 'on') {
+      setEnabled(jid, 'antigroupcall', true);
+      initAntiGroupCallListener(sock);
+      return sock.sendMessage(jid, {
+        text: `┌─⧭ 📵 *ANTI-GROUP-CALL*\n├◆ Status: ✅ ON\n├◆ Incoming group calls will be rejected.\n└─⧭`
+      }, { quoted: msg });
     }
+
+    if (action === 'off') {
+      setEnabled(jid, 'antigroupcall', false);
+      return sock.sendMessage(jid, {
+        text: `┌─⧭ 📵 *ANTI-GROUP-CALL*\n├◆ Status: ❌ OFF\n├◆ Group calls are now allowed.\n└─⧭`
+      }, { quoted: msg });
+    }
+
+    const current = isEnabled(jid, 'antigroupcall') ? '✅ ON' : '❌ OFF';
+    return sock.sendMessage(jid, {
+      text: `┌─⧭ 📵 *ANTI-GROUP-CALL*\n├◆ Current: ${current}\n├◆ Usage: ${PREFIX}antigroupcall on/off\n└─⧭`
+    }, { quoted: msg });
+  }
 };

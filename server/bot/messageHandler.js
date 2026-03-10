@@ -4,6 +4,7 @@ import { handleAutoView } from "./commands/automation/autoviewstatus.js";
 import { handleAutoReact } from "./commands/automation/autoreactstatus.js";
 import { initAntidelete, antideleteStoreMessage, antideleteHandleUpdate, updateAntideleteSock } from "./commands/owner/antidelete.js";
 import { initStatusAntidelete, statusAntideleteStoreMessage, statusAntideleteHandleUpdate, updateStatusAntideleteSock } from "./commands/owner/antideletestatus.js";
+import { initAutomodEnforcer } from "./lib/automodEnforcer.js";
 import fs from "fs";
 import path from "path";
 
@@ -86,6 +87,7 @@ export function setupMessageHandler(logger) {
     if (sock) {
       try { await initAntidelete(sock); } catch (e) { console.error("initAntidelete error:", e.message); }
       try { await initStatusAntidelete(sock); } catch (e) { console.error("initStatusAntidelete error:", e.message); }
+      try { initAutomodEnforcer(sock); } catch (e) { console.error("initAutomodEnforcer error:", e.message); }
       attachMessagesUpdateListener(sock);
     }
   });

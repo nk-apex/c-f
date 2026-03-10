@@ -1,0 +1,153 @@
+ADMIN & MODERATION
+Member Management
+
+add – Adds a user to the group.
+
+promote – Promotes a member to admin.
+
+promoteall – Makes all members admins.
+
+demote – Removes admin rights from a member.
+
+demoteall – Removes admin rights from all admins except the owner.
+
+kick – Removes a member from the group.
+
+kickall – Removes all members from the group.
+
+Ban System
+
+ban – Prevents a user from using the bot.
+
+unban – Allows the banned user to use the bot again.
+
+ex – Usually removes expired bans or clears temporary bans.
+
+clearbanlist – Clears the entire banned users list.
+
+Warning System
+
+warn – Gives a warning to a member.
+
+resetwarn – Removes warnings from a user.
+
+setwarn – Sets the maximum warning limit before punishment.
+
+warnings – Shows a user’s warning count.
+
+Example:
+If warn limit = 3 → user gets kicked automatically after 3 warnings.
+
+Group Control
+
+mute – Restricts members so only admins can send messages.
+
+unmute – Allows everyone to send messages again.
+
+gctime – Sets time-based group restrictions (example: night mute).
+
+Protection Systems
+
+antileave – Prevents users from leaving (bot re-adds them).
+
+antilink – Deletes messages containing group links.
+
+Bad Word Filter
+
+addbadword – Adds a banned word to the filter list.
+
+removebadword – Removes a word from the filter.
+
+listbadword – Shows all filtered words.
+
+Group Events
+
+welcome – Enables welcome messages for new members.
+
+goodbye – Sends a message when someone leaves.
+
+Group Actions
+
+leave – Makes the bot leave the group.
+
+creategroup – Creates a new WhatsApp group.
+
+AUTO-MODERATION
+
+These automatically detect and control certain message types.
+
+antisticker – Blocks stickers.
+
+antiimage – Blocks images.
+
+antivideo – Blocks videos.
+
+antiaudio – Blocks voice notes or audio.
+
+antimention – Blocks @mentions.
+
+antistatusmention – Prevents users from mentioning the group in status.
+
+antigrouplink – Blocks other WhatsApp group invite links.
+
+antidemote – Prevents admins from demoting each other.
+
+antipromote – Prevents unauthorized admin promotions.
+
+antiviewonce – Disables view-once media (bot converts it to normal).
+
+antibadword – Activates the bad word filter.
+
+antigroupcall – Blocks WhatsApp group call invitations.
+
+GROUP INFO & TOOLS
+
+These commands provide information or utilities for group management.
+
+Information
+
+groupinfo – Shows group details (members, admins, creation date).
+
+grouplink – Displays the group invite link.
+
+getparticipants – Lists all group members.
+
+listonline – Shows currently online members.
+
+listinactive – Shows inactive users.
+
+Tagging Tools
+
+tagadmin – Mentions all admins.
+
+tagall – Mentions everyone in the group.
+
+hidetag – Mentions everyone but hides the mention message.
+
+Invite & Link Control
+
+link – Gets the invite link.
+
+invite – Invites a user via link.
+
+revoke – Resets the group invite link.
+
+Group Settings
+
+setdesc – Changes the group description.
+
+getgpp – Gets the group profile picture.
+
+togstatus – Toggles group status features.
+
+Member Approval
+
+approveall – Approves all pending join requests.
+
+rejectall – Rejects all pending requests.
+
+Extra Tools
+
+fangtrace – Usually tracks a user’s activity or number history.
+
+stickerpack – Sets or retrieves group sticker packs.
