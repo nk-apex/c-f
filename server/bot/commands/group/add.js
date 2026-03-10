@@ -13,7 +13,7 @@
 //       return await sock.sendMessage(groupId, { text: '❌ This command can only be used in packs(Groups).' }, { quoted: msg });
 //     }
 
-//     const participants = metadata?.participants || [];
+//     const participants = extra?.participants || [];
 
 //     const isUserAdmin = participants.find(p => p.id === senderId)?.admin !== null;
 //     const isBotAdmin = participants.find(p => p.id === botNumber)?.admin !== null;
@@ -383,7 +383,7 @@ export default {
     const ownerJid = ownerData?.OWNER_JID || '254703397679@s.whatsapp.net';
     const ownerNumber = ownerData?.OWNER_NUMBER || '254703397679';
     
-    const participants = metadata?.participants || [];
+    const participants = extra?.participants || [];
     const isUserAdmin = participants.find(p => p.id === senderId)?.admin !== null;
     const isBotAdmin = participants.find(p => p.id === botNumber)?.admin !== null;
     

@@ -89,7 +89,7 @@
 //             botIsAdmin = botParticipant?.admin === 'admin' || botParticipant?.admin === 'superadmin';
             
 //         } catch (error) {
-//             console.error('Error fetching group metadata:', error);
+//             console.error('Error fetching group extra:', error);
 //             return sock.sendMessage(chatId, { 
 //                 text: '❌ Failed to fetch group information. Please try again.' 
 //             }, { quoted: msg });
@@ -185,7 +185,7 @@
 //                 const stickerSender = newMsg.key.participant || newMsg.key.remoteJid;
 //                 const cleanStickerSender = cleanJid(stickerSender);
                 
-//                 // Fetch group metadata
+//                 // Fetch group extra
 //                 const groupMetadata = await sock.groupMetadata(chatId);
                 
 //                 // Check if sticker sender is admin
@@ -328,7 +328,7 @@ export default {
             botIsSuperAdmin = botParticipant?.admin === 'superadmin';
             
         } catch (error) {
-            console.error('Error fetching group metadata:', error);
+            console.error('Error fetching group extra:', error);
             return sock.sendMessage(chatId, { 
                 text: '❌ Failed to fetch group information. Please try again.' 
             }, { quoted: msg });
@@ -526,7 +526,7 @@ function setupAntiStickerListener(sock) {
         const senderNumber = cleanMessageSender.split('@')[0];
         
         try {
-            // Fetch group metadata
+            // Fetch group extra
             const groupMetadata = await sock.groupMetadata(chatId);
             
             // Check if sender is admin

@@ -24,9 +24,9 @@
 //         }
 
 //         // ✅ Admin check
-//         const metadata = await sock.groupMetadata(chatId);
+//         const extra = await sock.groupMetadata(chatId);
 //         const senderId = msg.key.participant || msg.participant || msg.key.remoteJid;
-//         const isAdmin = metadata.participants.some(
+//         const isAdmin = extra.participants.some(
 //             p => p.id === senderId && (p.admin === 'admin' || p.admin === 'superadmin')
 //         );
 
@@ -110,10 +110,10 @@ export default {
             }, { quoted: msg });
         }
 
-        // Get group metadata
-        let metadata;
+        // Get group extra
+        let extra;
         try {
-            metadata = await sock.groupMetadata(chatId);
+            extra = await sock.groupMetadata(chatId);
         } catch (error) {
             return sock.sendMessage(chatId, { 
                 text: '❌ Failed to fetch group information.' 
@@ -124,13 +124,13 @@ export default {
         const senderId = msg.key.participant || msg.key.remoteJid;
         
         // Method 1: Check if sender is in participants list
-        const senderParticipant = metadata.participants.find(p => p.id === senderId);
+        const senderParticipant = extra.participants.find(p => p.id === senderId);
         
         // Debug logging
         console.log('ADMIN CHECK DEBUG:');
         console.log('- Sender ID:', senderId);
         console.log('- Sender Participant:', senderParticipant);
-        console.log('- All Participants:', metadata.participants.map(p => ({
+        console.log('- All Participants:', extra.participants.map(p => ({
             id: p.id,
             admin: p.admin
         })));
@@ -162,7 +162,7 @@ export default {
         // If still not admin, try alternative check
         if (!isAdmin) {
             // Try the same method as kickall command
-            isAdmin = metadata.participants.some(
+            isAdmin = extra.participants.some(
                 p => p.id === senderId && (p.admin === 'admin' || p.admin === 'superadmin')
             );
             console.log('- Alternative admin check:', isAdmin);
@@ -182,7 +182,7 @@ export default {
 
         // Check bot admin status
         const botJid = sock.user.id.split(':')[0] + '@s.whatsapp.net';
-        const botParticipant = metadata.participants.find(p => p.id === botJid);
+        const botParticipant = extra.participants.find(p => p.id === botJid);
         const isBotAdmin = botParticipant && ['admin', 'superadmin'].includes(botParticipant.admin);
 
         if (!isBotAdmin) {
@@ -223,7 +223,7 @@ export default {
         }
 
         // Check if target is admin (can't ban admins)
-        const targetParticipant = metadata.participants.find(p => p.id === targetJid);
+        const targetParticipant = extra.participants.find(p => p.id === targetJid);
         const isTargetAdmin = targetParticipant && ['admin', 'superadmin'].includes(targetParticipant.admin);
         
         if (isTargetAdmin) {
@@ -285,7 +285,7 @@ export default {
             let successMsg = `⚡ *EXECUTED*\n\n`;
             successMsg += `• User: @${targetNumber}\n`;
             successMsg += `• By: @${senderNumber}\n`;
-            successMsg += `• Group: ${metadata.subject}\n`;
+            successMsg += `• Group: ${extra.subject}\n`;
             if (reason) successMsg += `• Reason: ${reason}\n`;
             successMsg += `• Status: Removed ✅\n`;
             successMsg += `• Auto-kick: Active 🔄\n\n`;

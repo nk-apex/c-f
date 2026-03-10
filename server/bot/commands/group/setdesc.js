@@ -2,7 +2,7 @@
 
 export default {
   name: 'setdesc',
-  execute: async (sock, msg, args, metadata) => {
+  execute: async (sock, msg, args, extra) => {
     const jid = msg.key.remoteJid;
     const text = args.join(' ');
 

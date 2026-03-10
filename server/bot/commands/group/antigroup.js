@@ -209,7 +209,7 @@ export default {
             botIsSuperAdmin = botParticipant?.admin === 'superadmin';
             
         } catch (error) {
-            console.error('Error fetching group metadata:', error);
+            console.error('Error fetching group extra:', error);
             return sock.sendMessage(chatId, { 
                 text: '❌ Failed to fetch group information. Please try again.' 
             }, { quoted: msg });
@@ -576,7 +576,7 @@ function setupAntiGroupLinkListener(sock) {
         const senderNumber = cleanMessageSender.split('@')[0];
         
         try {
-            // Fetch group metadata
+            // Fetch group extra
             const groupMetadata = await sock.groupMetadata(chatId);
             
             // Check if sender is admin

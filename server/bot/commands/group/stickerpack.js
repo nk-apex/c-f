@@ -507,7 +507,7 @@
 //                 const stickerPath = processedStickers[i].path;
 //                 const stickerBuffer = fs.readFileSync(stickerPath);
                 
-//                 // Send sticker with pack metadata
+//                 // Send sticker with pack extra
 //                 await sock.sendMessage(chatId, { 
 //                     sticker: stickerBuffer 
 //                 }, {
@@ -660,7 +660,7 @@
 //             isAdmin = participant?.admin === 'admin' || participant?.admin === 'superadmin';
             
 //         } catch (error) {
-//             console.error('Error fetching group metadata:', error);
+//             console.error('Error fetching group extra:', error);
 //             return sock.sendMessage(chatId, { 
 //                 text: '❌ Failed to fetch group information.' 
 //             }, { quoted: msg });
@@ -1430,7 +1430,7 @@ async function createWhatsAppStickerPack(packId, packName, author, stickers) {
 async function sendStickerPack(sock, chatId, packInfo, packName, author) {
     try {
         // Since WhatsApp doesn't have a direct API to send sticker packs,
-        // we'll send the first sticker with pack metadata, which will create the pack
+        // we'll send the first sticker with pack extra, which will create the pack
         
         const firstStickerPath = path.join(packInfo.folder, 'sticker_1.webp');
         
@@ -1440,7 +1440,7 @@ async function sendStickerPack(sock, chatId, packInfo, packName, author) {
         
         const stickerBuffer = fs.readFileSync(firstStickerPath);
         
-        // Send the first sticker with pack metadata
+        // Send the first sticker with pack extra
         // This will create the sticker pack in WhatsApp
         await sock.sendMessage(chatId, { 
             sticker: stickerBuffer 
@@ -1786,7 +1786,7 @@ export default {
             isAdmin = participant?.admin === 'admin' || participant?.admin === 'superadmin';
             
         } catch (error) {
-            console.error('Error fetching group metadata:', error);
+            console.error('Error fetching group extra:', error);
             return sock.sendMessage(chatId, { 
                 text: '❌ Failed to fetch group information.' 
             }, { quoted: msg });
@@ -1814,7 +1814,7 @@ export default {
             
             // Start pack creation
             await sock.sendMessage(chatId, { 
-                text: `🔄 *Creating Sticker Pack: ${packName}*\n\nGathering all collected stickers...\n\n*Note:* This will create a proper WhatsApp sticker pack with tray icon and metadata.` 
+                text: `🔄 *Creating Sticker Pack: ${packName}*\n\nGathering all collected stickers...\n\n*Note:* This will create a proper WhatsApp sticker pack with tray icon and extra.` 
             }, { quoted: msg });
             
             const result = await createAndSendStickerPack(sock, chatId, packName, sender);

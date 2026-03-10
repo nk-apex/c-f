@@ -12,7 +12,7 @@
 //     }
 
 //     const user = msg.key.participant || msg.participant || msg.key.remoteJid;
-//     const groupAdmins = metadata.participants.filter(p => p.admin);
+//     const groupAdmins = extra.participants.filter(p => p.admin);
 //     const isAdmin = groupAdmins.some(p => p.id === user);
 
 //     if (!isAdmin) {
@@ -58,13 +58,13 @@ export default {
       // Get user who sent the message
       const user = msg.key.participant || sender;
       
-      // Get group metadata if not provided
-      if (!metadata) {
-        metadata = await sock.groupMetadata(sender);
+      // Get group extra if not provided
+      if (!extra) {
+        extra = await sock.groupMetadata(sender);
       }
       
       // Check if user is admin
-      const participant = metadata.participants.find(p => p.id === user);
+      const participant = extra.participants.find(p => p.id === user);
       const isAdmin = participant?.admin === 'admin' || participant?.admin === 'superadmin';
       
       if (!isAdmin) {
@@ -116,7 +116,7 @@ export default {
             const code = await sock.groupInviteCode(sender);
             const link = `https://chat.whatsapp.com/${code}`;
             
-            // Refresh group metadata
+            // Refresh group extra
             const groupMetadata = await sock.groupMetadata(sender);
             const participantsCount = groupMetadata.participants.length;
             const creationDate = new Date(groupMetadata.creation * 1000).toLocaleDateString();

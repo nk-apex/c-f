@@ -40,18 +40,18 @@
 //             return sock.sendMessage(chatId, { text: '❌ This command can only be used in groups.' }, { quoted: msg });
 //         }
 
-//         // Get group metadata to check admin status
-//         let metadata;
+//         // Get group extra to check admin status
+//         let extra;
 //         try {
-//             metadata = await sock.groupMetadata(chatId);
+//             extra = await sock.groupMetadata(chatId);
 //         } catch (error) {
-//             console.error('Error fetching group metadata:', error);
+//             console.error('Error fetching group extra:', error);
 //             return sock.sendMessage(chatId, { text: '❌ Failed to fetch group information.' }, { quoted: msg });
 //         }
 
 //         // Get sender ID correctly
 //         const senderId = msg.key.participant || msg.key.remoteJid;
-//         const isAdmin = metadata.participants.some(
+//         const isAdmin = extra.participants.some(
 //             p => p.id === senderId && (p.admin === 'admin' || p.admin === 'superadmin')
 //         );
 
@@ -253,16 +253,16 @@ function attachAutoKickListener(sock) {
                         
                         try {
                             // Check if bot is admin before attempting to remove
-                            let metadata;
+                            let extra;
                             try {
-                                metadata = await sock.groupMetadata(update.id);
+                                extra = await sock.groupMetadata(update.id);
                             } catch (err) {
-                                console.error('Failed to fetch group metadata:', err);
+                                console.error('Failed to fetch group extra:', err);
                                 continue;
                             }
                             
                             // Find bot's participant info
-                            const botParticipant = metadata.participants.find(
+                            const botParticipant = extra.participants.find(
                                 p => p.id === sock.user.id
                             );
                             
@@ -384,18 +384,18 @@ export default {
             return sock.sendMessage(chatId, { text: '❌ This command can only be used in groups.' }, { quoted: msg });
         }
 
-        // Get group metadata
-        let metadata;
+        // Get group extra
+        let extra;
         try {
-            metadata = await sock.groupMetadata(chatId);
+            extra = await sock.groupMetadata(chatId);
         } catch (error) {
-            console.error('Error fetching group metadata:', error);
+            console.error('Error fetching group extra:', error);
             return sock.sendMessage(chatId, { text: '❌ Failed to fetch group information.' }, { quoted: msg });
         }
 
         // Check if sender is admin
         const senderId = msg.key.participant || msg.key.remoteJid;
-        const isAdmin = metadata.participants.some(
+        const isAdmin = extra.participants.some(
             p => p.id === senderId && (p.admin === 'admin' || p.admin === 'superadmin')
         );
 
@@ -489,7 +489,7 @@ export default {
 
         try {
             // Check if user is currently in the group and kick them
-            const isInGroup = metadata.participants.some(p => p.id === mentionedJid);
+            const isInGroup = extra.participants.some(p => p.id === mentionedJid);
             if (isInGroup) {
                 await sock.groupParticipantsUpdate(chatId, [mentionedJid], 'remove');
             }
