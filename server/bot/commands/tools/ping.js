@@ -1,5 +1,3 @@
-import { getBotName } from '../../lib/botname.js';
-
 function formatUptime(seconds) {
     const h = Math.floor(seconds / 3600);
     const m = Math.floor((seconds % 3600) / 60);
@@ -15,7 +13,6 @@ export default {
 
     async execute(sock, msg, args, prefix) {
         const start = Date.now();
-        const botName = getBotName();
 
         const sentMsg = await sock.sendMessage(msg.key.remoteJid, {
             text: `┌─⧭ *Pinging...*\n├◆ Measuring speed...\n└─⧭`
@@ -25,7 +22,7 @@ export default {
         const uptime = formatUptime(Math.floor(process.uptime()));
 
         await sock.sendMessage(msg.key.remoteJid, {
-            text: `┌─⧭ *${botName}*\n├◆ FOXY Speed: ${latency}ms\n├◆ FOXY Uptime: ${uptime}\n└─⧭`,
+            text: `┌─⧭ FOXY Speed: ${latency}ms\n├◆ FOXY Uptime: ${uptime}\n└─⧭`,
             edit: sentMsg.key
         });
     }

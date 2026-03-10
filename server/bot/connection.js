@@ -81,6 +81,7 @@ const silentLogger = {
 const NOISE_TRIGGERS = [
   "Closing session:",
   "Removing old closed session:",
+  "Closing open session in favor of",
   "Decrypted message with closed session",
   "SessionEntry {",
   "Bad mac",
