@@ -11,13 +11,11 @@
   <img src="https://readme-typing-svg.demolab.com?font=Orbitron&size=50&pause=1000&color=ff6600&center=true&width=910&height=100&lines=FOXY+BOT;WhatsApp+Automation;Made+By+Silent+Wolf" alt="Typing SVG" style="font-size: 50px;"/>
 </a>
 
-<p align="center">
-  <img style="width: 480px; border-radius: 20px; box-shadow: 0 0 30px #ff6600, 0 0 50px rgba(255, 102, 0, 0.3);" src="https://i.ibb.co/PGYDVrqk/7aa433284119.jpg" alt="FOXY Bot" />
-</p>
+<img src="https://i.ibb.co/PGYDVrqk/7aa433284119.jpg" alt="FOXY Bot" width="400"/>
 
-<p align="center" style="color: #ff6600; text-shadow: 0 0 5px #ff6600;">
-  <i>"The fox watches..."</i>
-</p>
+<br>
+<i>"The fox watches..."</i>
+<br><br>
 
 **DEPLOY FOXY**
 <br>
