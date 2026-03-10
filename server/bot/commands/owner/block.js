@@ -1,42 +1,37 @@
+import { delay } from '@whiskeysockets/baileys';
+
 export default {
-    name: 'block',
-    alias: [],
-    description: 'Block a user',
-    category: 'owner',
-    ownerOnly: true,
+  name: 'block',
+  description: 'Block a user (tag in group or auto-block in DM)',
+  category: 'owner',
+  async execute(sock, msg, args) {
+    const { key, message, pushName } = msg;
+    const isGroup = key.remoteJid.endsWith('@g.us');
+    let target;
 
-    async execute(sock, m, args, PREFIX, extra) {
-        const chatId = m.key.remoteJid;
-        const { jidManager } = extra;
-        let targetJid = '';
-
-        const mentioned = m.message?.extendedTextMessage?.contextInfo?.mentionedJid;
-        if (mentioned && mentioned.length > 0) {
-            targetJid = mentioned[0];
-        } else if (args[0]) {
-            const number = args[0].replace(/[^0-9]/g, '');
-            if (number) {
-                targetJid = `${number}@s.whatsapp.net`;
-            }
-        }
-
-        if (!targetJid) {
-            await sock.sendMessage(chatId, {
-                text: `\u250C\u2500\u29ED *Block User*\n\u251C\u25C6 Usage: ${PREFIX}block @user\n\u251C\u25C6 Or: ${PREFIX}block 254712345678\n\u2514\u2500\u29ED`
-            }, { quoted: m });
-            return;
-        }
-
-        try {
-            await sock.updateBlockStatus(targetJid, 'block');
-            const display = targetJid.replace(/@.*/, '');
-            await sock.sendMessage(chatId, {
-                text: `\u250C\u2500\u29ED *User Blocked*\n\u251C\u25C6 Number: ${display}\n\u2514\u2500\u29ED`
-            }, { quoted: m });
-        } catch (error) {
-            await sock.sendMessage(chatId, {
-                text: `\u250C\u2500\u29ED *Block Failed*\n\u251C\u25C6 Error: ${error.message}\n\u2514\u2500\u29ED`
-            }, { quoted: m });
-        }
+    if (isGroup) {
+      const mentioned = message?.extendedTextMessage?.contextInfo?.mentionedJid;
+      if (!mentioned || mentioned.length === 0) {
+        return await sock.sendMessage(key.remoteJid, {
+          text: '┌─⧭ 🐺 *BLOCK* \n├◆ Usage: *${PREFIX}block <text>*\n├◆ Block a user (tag in group or auto-block in DM)\n└─⧭',
+        }, { quoted: msg });
+      }
+      target = mentioned[0];
+    } else {
+      target = key.remoteJid; // In DM, block the person messaging the bot
     }
+
+    try {
+      await sock.updateBlockStatus(target, 'block');
+      await delay(1000);
+      await sock.sendMessage(key.remoteJid, {
+        text: `🕸️ The Wolf has ensnared ${target}.\n\n❌ *Blocked successfully.*`,
+      }, { quoted: msg });
+    } catch (err) {
+      console.error('Error blocking user:', err);
+      await sock.sendMessage(key.remoteJid, {
+        text: '⚠️ Failed to snare the target. Wolf lost the scent...',
+      }, { quoted: msg });
+    }
+  },
 };

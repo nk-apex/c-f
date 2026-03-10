@@ -1,37 +1,71 @@
-import fs from 'fs';
-import path from 'path';
-
-const CONFIG_FILE = path.join(process.cwd(), 'server', 'bot', 'bot_config.json');
-
-function loadConfig() {
-    try {
-        if (fs.existsSync(CONFIG_FILE)) {
-            return JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf-8'));
-        }
-    } catch {}
-    return { prefix: '.', mode: 'public', ownerNumber: '', botName: 'FOX Bot' };
-}
-
+import { getBotName } from '../../lib/botname.js';
 export default {
-    name: 'owner',
-    alias: ['creator', 'dev'],
-    description: 'Show bot owner contact info',
-    category: 'owner',
-    ownerOnly: false,
+  name: 'owner',
+  alias: ['creator', 'dev', 'developer'],
+  description: 'Show bot owner contact information',
+  category: 'owner',
 
-    async execute(sock, m, args, PREFIX, extra) {
-        const chatId = m.key.remoteJid;
-        const config = loadConfig();
+  async execute(sock, m, args) {
+    const jid = m.key.remoteJid;
+    const ownerNumber = '254713046497';
+    const ownerJid = `${ownerNumber}@s.whatsapp.net`;
 
-        if (!config.ownerNumber) {
-            await sock.sendMessage(chatId, {
-                text: `\u250C\u2500\u29ED *Owner Info*\n\u251C\u25C6 No owner configured\n\u251C\u25C6 Owner can use ${PREFIX}iamowner to claim\n\u2514\u2500\u29ED`
-            }, { quoted: m });
-            return;
+    try {
+      await sock.sendMessage(jid, { react: { text: '👑', key: m.key } });
+    } catch (e) {}
+
+    const vcard =
+      'BEGIN:VCARD\n' +
+      'VERSION:3.0\n' +
+      'FN:Silent Wolf (Bot Owner)\n' +
+      'ORG:Silent Wolf Bot;\n' +
+      'TEL;type=CELL;type=VOICE;waid=' + ownerNumber + ':+' + ownerNumber + '\n' +
+      'END:VCARD';
+
+    try {
+      const { createRequire } = await import('module');
+      const require = createRequire(import.meta.url);
+      const { sendInteractiveMessage } = require('gifted-btns');
+
+      await sendInteractiveMessage(sock, jid, {
+        text: `👑 *${getBotName()} OWNER*\n\n📱 *+${ownerNumber}*`,
+        footer: `🐺${getBotName()}`,
+        interactiveButtons: [
+          {
+            name: 'cta_copy',
+            buttonParamsJson: JSON.stringify({
+              display_text: '📋 Copy Number',
+              copy_code: '+' + ownerNumber
+            })
+          },
+          {
+            name: 'cta_url',
+            buttonParamsJson: JSON.stringify({
+              display_text: '💬 Message Owner',
+              url: 'https://wa.me/' + ownerNumber
+            })
+          }
+        ]
+      });
+
+      await sock.sendMessage(jid, {
+        contacts: {
+          displayName: 'Silent Wolf (Bot Owner)',
+          contacts: [{ vcard }]
         }
+      }, { quoted: m });
 
-        await sock.sendMessage(chatId, {
-            text: `\u250C\u2500\u29ED *Owner Info*\n\u251C\u25C6 Number: ${config.ownerNumber}\n\u251C\u25C6 Contact: wa.me/${config.ownerNumber}\n\u2514\u2500\u29ED`
-        }, { quoted: m });
+    } catch (btnErr) {
+      console.log('[OWNER] Buttons failed, using fallback:', btnErr.message);
+      await sock.sendMessage(jid, {
+        text: `👑 *SILENT WOLF BOT OWNER*\n\n📱 *+${ownerNumber}*\n\n💬 https://wa.me/${ownerNumber}`
+      }, { quoted: m });
+      await sock.sendMessage(jid, {
+        contacts: {
+          displayName: 'Silent Wolf (Bot Owner)',
+          contacts: [{ vcard }]
+        }
+      }, { quoted: m });
     }
+  }
 };

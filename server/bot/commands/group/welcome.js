@@ -1,129 +1,300 @@
-// commands/group/welcome.js
-import foxGroup from '../../utils/foxGroup.js';
-import { foxCanUse, foxMode, foxOwners } from '../../utils/foxMaster.js';
+import axios from 'axios';
+import db from '../../lib/supabase.js';
+
+let welcomeCache = null;
+let cacheLoaded = false;
+
+async function loadWelcomeData() {
+    if (cacheLoaded && welcomeCache) return welcomeCache;
+    try {
+        const data = await db.getConfig('welcome_data', {});
+        welcomeCache = data && data.groups ? data : { groups: {}, version: '2.0', created: new Date().toISOString() };
+        cacheLoaded = true;
+    } catch {
+        if (!welcomeCache) welcomeCache = { groups: {}, version: '2.0', created: new Date().toISOString() };
+    }
+    return welcomeCache;
+}
+
+async function saveWelcomeData(data) {
+    try {
+        data.updated = new Date().toISOString();
+        welcomeCache = data;
+        await db.setConfig('welcome_data', data);
+        return true;
+    } catch (error) {
+        console.error('Error saving welcome data:', error);
+        return false;
+    }
+}
 
 export default {
     name: 'welcome',
-    alias: ['welcomemsg', 'greet', 'welcomeon'],
+    alias: ['welcomemsg', 'setwelcome', 'welcomeon'],
     category: 'group',
-    description: 'Set welcome message for new members',
+    description: 'Welcome new group members with their profile picture',
+    groupOnly: true,
     
-    async execute(sock, msg, args, prefix) {
+    async execute(sock, msg, args, PREFIX, extra) {
         const chatId = msg.key.remoteJid;
+        const participant = msg.key.participant;
         
-        if (!foxCanUse(msg, 'welcome')) {
-            const message = foxMode.getMessage();
-            if (message) await sock.sendMessage(chatId, { text: message });
-            return;
-        }
-        
-        if (!chatId.endsWith('@g.us')) {
-            await sock.sendMessage(chatId, {
-                text: `❌ *GROUP ONLY* 🦊\n\n` +
-                      `This command works in groups only!\n\n` +
-                      `🦊 Add me to a group first!`
-            });
-            return;
-        }
-        
-        const metadata = await sock.groupMetadata(chatId).catch(() => null);
-        const participant = msg.key.participant || msg.key.remoteJid;
-        const isAdmin = metadata?.participants?.find(p => p.id === participant)?.admin;
-        
-        if (!isAdmin && !foxOwners.isOwner(msg)) {
-            await sock.sendMessage(chatId, {
-                text: `❌ *ADMIN ONLY* 🦊\n\n` +
-                      `Only group admins can set welcome message!\n\n` +
-                      `🦊 Ask an admin to customize welcome!`
-            });
-            return;
+        try {
+            const metadata = await sock.groupMetadata(chatId);
+            const isAdmin = metadata.participants.find(p => p.id === participant)?.admin || false;
+            
+            if (!isAdmin && !extra?.jidManager?.isOwner(msg)) {
+                return sock.sendMessage(chatId, {
+                    text: '❌ *Admin Only Command*\nYou need to be admin to use this command.'
+                }, { quoted: msg });
+            }
+        } catch (error) {
+            return sock.sendMessage(chatId, {
+                text: '❌ Failed to check permissions'
+            }, { quoted: msg });
         }
         
         const action = args[0]?.toLowerCase();
-        
-        if (!action || !['on', 'off', 'set', 'status'].includes(action)) {
-            const current = foxGroup.getGroup(chatId).welcome;
-            const message = foxGroup.getWelcomeMessage(chatId);
-            
-            await sock.sendMessage(chatId, {
-                text: `🎉 *WELCOME SYSTEM* 🦊\n\n` +
-                      `*Current Status:* ${current ? '✅ ON' : '❌ OFF'}\n` +
-                      `*Current Message:*\n"${message}"\n\n` +
-                      `*Usage:*\n` +
-                      `${prefix}welcome on - Enable welcome\n` +
-                      `${prefix}welcome off - Disable welcome\n` +
-                      `${prefix}welcome set <message> - Set custom message\n` +
-                      `${prefix}welcome status - Check settings\n\n` +
-                      `*Variables you can use:*\n` +
-                      `• {user} - New member's name\n` +
-                      `• {group} - Group name\n` +
-                      `• {members} - Total members count\n\n` +
-                      `*Example:*\n` +
-                      `${prefix}welcome set Welcome {user} to {group}! 🦊\n\n` +
-                      `🦊 Make newcomers feel welcome!`
-            });
-            return;
+
+        if (!action || action === 'help') {
+            return sock.sendMessage(chatId, {
+                text: `┌─⧭ 🎉 *WELCOME SYSTEM* \n├◆ Usage: *${PREFIX}welcome <text>*\n├◆ Welcome new group members with their profile picture\n├◆ Aliases: *${PREFIX}welcomemsg*, *${PREFIX}setwelcome*, *${PREFIX}welcomeon*\n└─⧭`
+            }, { quoted: msg });
         }
         
-        if (action === 'status') {
-            const current = foxGroup.getGroup(chatId).welcome;
-            const message = foxGroup.getWelcomeMessage(chatId);
-            
-            await sock.sendMessage(chatId, {
-                text: `🔍 *WELCOME STATUS* 🦊\n\n` +
-                      `*Enabled:* ${current ? '✅ YES' : '❌ NO'}\n` +
-                      `*Group:* ${metadata?.subject || 'Unknown'}\n` +
-                      `*Message:*\n"${message}"\n\n` +
-                      `*Change:* ${prefix}welcome <on/off/set>\n\n` +
-                      `🦊 ${current ? 'Welcoming new members!' : 'Welcome messages off!'}`
-            });
-            return;
-        }
+        const welcomeData = await loadWelcomeData();
+        const groupWelcome = welcomeData.groups[chatId] || {
+            enabled: false,
+            message: "🎉 *Welcome to {group}!*\n\nHey {mention}, glad to have you here! 🎊\nWe're now *{members}* members strong! 💪\n\nEnjoy your stay! 😊",
+            lastWelcome: null
+        };
         
-        if (action === 'on' || action === 'off') {
-            const newStatus = action === 'on';
-            foxGroup.setWelcome(chatId, newStatus);
-            
-            await sock.sendMessage(chatId, {
-                text: `✅ *WELCOME ${newStatus ? 'ENABLED' : 'DISABLED'}* 🦊\n\n` +
-                      `*Status:* ${newStatus ? '✅ ACTIVE' : '❌ INACTIVE'}\n` +
-                      `*Changed by:* ${msg.pushName || 'Admin'}\n` +
-                      `*Group:* ${metadata?.subject || 'Unknown'}\n\n` +
-                      `💡 *${newStatus ? 'New members will be welcomed!' : 'No welcome messages will be sent!'}*\n\n` +
-                      `🦊 ${newStatus ? 'Ready to greet newcomers!' : 'Welcome messages turned off!'}`
-            });
-            return;
-        }
-        
-        if (action === 'set') {
-            const newMessage = args.slice(1).join(' ');
-            
-            if (!newMessage) {
-                await sock.sendMessage(chatId, {
-                    text: `❌ *NO MESSAGE* 🦊\n\n` +
-                          `Please provide a welcome message!\n\n` +
-                          `*Example:*\n` +
-                          `${prefix}welcome set Welcome {user} to {group}! 🎉\n\n` +
-                          `🦊 Make it welcoming!`
-                });
-                return;
+        try {
+            switch (action) {
+                case 'on':
+                case 'enable':
+                    groupWelcome.enabled = true;
+                    welcomeData.groups[chatId] = groupWelcome;
+                    await saveWelcomeData(welcomeData);
+                    
+                    await sock.sendMessage(chatId, {
+                        text: '✅ *Welcome messages ENABLED*\nNew members will now receive welcome messages with their profile picture!'
+                    }, { quoted: msg });
+                    break;
+                    
+                case 'off':
+                case 'disable':
+                    groupWelcome.enabled = false;
+                    welcomeData.groups[chatId] = groupWelcome;
+                    await saveWelcomeData(welcomeData);
+                    
+                    await sock.sendMessage(chatId, {
+                        text: '❌ *Welcome messages DISABLED*\nNew members will not receive welcome messages.'
+                    }, { quoted: msg });
+                    break;
+                    
+                case 'set':
+                    if (!args.slice(1).join(' ')) {
+                        return sock.sendMessage(chatId, {
+                            text: `❌ Please provide a welcome message!\nExample: \`${PREFIX}welcome set Welcome {name} to {group}! 🎉\``
+                        }, { quoted: msg });
+                    }
+                    
+                    const newMessage = args.slice(1).join(' ');
+                    groupWelcome.message = newMessage;
+                    welcomeData.groups[chatId] = groupWelcome;
+                    await saveWelcomeData(welcomeData);
+                    
+                    await sock.sendMessage(chatId, {
+                        text: `✅ *Welcome message UPDATED*\n\nNew message:\n"${newMessage}"`
+                    }, { quoted: msg });
+                    break;
+                    
+                case 'preview':
+                case 'test':
+                case 'demo': {
+                    const testJid = msg.key.participant || chatId;
+                    await sendWelcomeMessage(sock, chatId, [testJid], groupWelcome.message);
+                    break;
+                }
+                    
+                case 'status': {
+                    await sock.sendMessage(chatId, {
+                        text: `📊 *WELCOME SYSTEM STATUS*\n\nEnabled: ${groupWelcome.enabled ? '✅ YES' : '❌ NO'}\nLast Welcome: ${groupWelcome.lastWelcome ? new Date(groupWelcome.lastWelcome).toLocaleString() : 'Never'}\n\nCurrent Message:\n"${groupWelcome.message.substring(0, 200)}${groupWelcome.message.length > 200 ? '...' : ''}"`
+                    }, { quoted: msg });
+                    break;
+                }
+
+                case 'reset':
+                case 'default': {
+                    const defaultMsg = "🎉 *Welcome to {group}!*\n\nHey {mention}, glad to have you here! 🎊\nWe're now *{members}* members strong! 💪\n\nEnjoy your stay! 😊";
+                    groupWelcome.message = defaultMsg;
+                    welcomeData.groups[chatId] = groupWelcome;
+                    await saveWelcomeData(welcomeData);
+
+                    await sock.sendMessage(chatId, {
+                        text: `🔄 *Welcome message RESET*\n\nMessage has been restored to default:\n"${defaultMsg}"`
+                    }, { quoted: msg });
+                    break;
+                }
+                    
+                default:
+                    await sock.sendMessage(chatId, {
+                        text: `┌─⧭ ❌ *WELCOME* \n├◆ Usage: *${PREFIX}welcome <text>*\n├◆ Welcome new group members with their profile picture\n├◆ Aliases: *${PREFIX}welcomemsg*, *${PREFIX}setwelcome*, *${PREFIX}welcomeon*\n└─⧭`
+                    }, { quoted: msg });
             }
-            
-            foxGroup.setWelcomeMessage(chatId, newMessage);
-            
+        } catch (error) {
+            console.error('Welcome command error:', error);
             await sock.sendMessage(chatId, {
-                text: `✅ *WELCOME MESSAGE SET!* 🦊\n\n` +
-                      `*New Message:*\n"${newMessage}"\n\n` +
-                      `*Set by:* ${msg.pushName || 'Admin'}\n` +
-                      `*Group:* ${metadata?.subject || 'Unknown'}\n\n` +
-                      `*Available variables:*\n` +
-                      `• {user} - New member's name\n` +
-                      `• {group} - Group name\n` +
-                      `• {members} - Total members\n\n` +
-                      `💡 *Test with:* Welcome {user}!\n\n` +
-                      `🦊 Perfect welcome message set!`
-            });
-            return;
+                text: `❌ Error: ${error.message}`
+            }, { quoted: msg });
         }
     }
 };
+
+function normalizeJid(participant) {
+    if (typeof participant === 'string') {
+        return participant.includes('@') ? participant : null;
+    }
+    if (participant && typeof participant === 'object') {
+        const jid = participant.jid || participant.id || participant.userJid || participant.participant || participant.user;
+        if (typeof jid === 'string' && jid.includes('@')) return jid;
+        if (typeof jid === 'string' && /^\d+$/.test(jid)) return `${jid}@s.whatsapp.net`;
+        if (typeof jid === 'object' && jid?.user) return `${jid.user}@s.whatsapp.net`;
+        const keys = Object.keys(participant);
+        for (const key of keys) {
+            const val = participant[key];
+            if (typeof val === 'string' && val.includes('@s.whatsapp.net')) return val;
+        }
+        console.log(`[WELCOME] Unknown participant shape: ${JSON.stringify(participant).substring(0, 200)}`);
+        return null;
+    }
+    return null;
+}
+
+export async function sendWelcomeMessage(sock, groupId, memberJids, customMessage) {
+    try {
+        let metadata;
+        try {
+            metadata = await sock.groupMetadata(groupId);
+        } catch (err) {
+            console.log(`[WELCOME] Could not get group metadata: ${err.message}`);
+            metadata = { participants: [], subject: 'Our Group' };
+        }
+        const memberCount = metadata.participants.length;
+        const groupName = metadata.subject || "Our Group";
+        
+        let groupPpUrl = null;
+        try {
+            groupPpUrl = await sock.profilePictureUrl(groupId, 'image');
+        } catch {
+        }
+        
+        for (const rawJid of memberJids) {
+            const userId = normalizeJid(rawJid);
+            
+            if (!userId || userId === 'undefined' || userId === '[object Object]') {
+                console.log(`[WELCOME] Skipping invalid JID: ${JSON.stringify(rawJid)}`);
+                continue;
+            }
+
+            try {
+                const userName = userId.split('@')[0];
+                
+                let memberPpBuffer = null;
+                try {
+                    const memberPpUrl = await sock.profilePictureUrl(userId, 'image');
+                    if (memberPpUrl) {
+                        const mpRes = await axios.get(memberPpUrl, { responseType: 'arraybuffer', timeout: 10000 });
+                        memberPpBuffer = Buffer.from(mpRes.data);
+                    }
+                } catch {
+                }
+                
+                let groupPpBuffer = null;
+                if (groupPpUrl) {
+                    try {
+                        const gpRes = await axios.get(groupPpUrl, { responseType: 'arraybuffer', timeout: 10000 });
+                        groupPpBuffer = Buffer.from(gpRes.data);
+                    } catch {
+                    }
+                }
+                
+                const message = customMessage || `┌─⧭ *WELCOME TO {group}!*\n├◆ Hey {mention}, welcome! 🎉\n├◆ 👥 Members: {members}\n├◆ Enjoy your stay and have fun! 🎊\n└─⧭`;
+                
+                const welcomeText = message
+                    .replace(/{name}/g, userName)
+                    .replace(/{group}/g, groupName)
+                    .replace(/{members}/g, memberCount.toString())
+                    .replace(/{mention}/g, `@${userName}`);
+                
+                const sendImage = memberPpBuffer || groupPpBuffer;
+                
+                if (sendImage) {
+                    const msgPayload = {
+                        image: sendImage,
+                        caption: welcomeText,
+                        mentions: [userId],
+                        contextInfo: {
+                            mentionedJid: [userId],
+                            externalAdReply: {
+                                title: `🐺 Welcome to ${groupName}`,
+                                body: `👥 Member #${memberCount}`,
+                                mediaType: 1,
+                                thumbnailUrl: groupPpUrl || '',
+                                sourceUrl: '',
+                                renderLargerThumbnail: false
+                            }
+                        }
+                    };
+                    await sock.sendMessage(groupId, msgPayload);
+                } else {
+                    await sock.sendMessage(groupId, {
+                        text: welcomeText,
+                        mentions: [userId]
+                    });
+                }
+                
+                console.log(`[WELCOME] ✅ Welcomed ${userName} in ${groupId.split('@')[0]}`);
+                
+            } catch (err) {
+                console.error(`[WELCOME] ❌ Error welcoming ${userId}: ${err.message}`);
+                try {
+                    const fallbackName = typeof userId === 'string' ? userId.split('@')[0] : 'member';
+                    await sock.sendMessage(groupId, {
+                        text: `🎉 Welcome @${fallbackName} to ${groupName}! 🎊\n👥 Total Members: ${memberCount}`,
+                        mentions: [userId]
+                    });
+                } catch {
+                }
+            }
+        }
+        
+        const welcomeData = await loadWelcomeData();
+        if (welcomeData.groups[groupId]) {
+            welcomeData.groups[groupId].lastWelcome = Date.now();
+            await saveWelcomeData(welcomeData);
+        }
+        
+    } catch (error) {
+        console.error(`[WELCOME] ❌ Fatal error: ${error.message}`);
+    }
+}
+
+export async function isWelcomeEnabled(groupId) {
+    try {
+        const welcomeData = await loadWelcomeData();
+        return welcomeData.groups[groupId]?.enabled === true;
+    } catch {
+        return false;
+    }
+}
+
+export async function getWelcomeMessage(groupId) {
+    try {
+        const welcomeData = await loadWelcomeData();
+        return welcomeData.groups[groupId]?.message || "🎉 *Welcome to {group}!*\n\nHey {mention}, glad to have you here! 🎊\nWe're now *{members}* members strong! 💪\n\nEnjoy your stay! 😊";
+    } catch {
+        return "🎉 *Welcome to {group}!*\n\nHey {mention}, glad to have you here! 🎊\nWe're now *{members}* members strong! 💪\n\nEnjoy your stay! 😊";
+    }
+}

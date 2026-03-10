@@ -1,41 +1,49 @@
+import { delay } from '@whiskeysockets/baileys';
+
 export default {
-    name: 'unblock',
-    alias: [],
-    description: 'Unblock a user',
-    category: 'owner',
-    ownerOnly: true,
+  name: 'unblock',
+  description: 'Unblock a user (tag in group or provide number in DM)',
+  category: 'owner',
+  async execute(sock, msg, args) {
+    const { key, message } = msg;
+    const isGroup = key.remoteJid.endsWith('@g.us');
+    let target;
 
-    async execute(sock, m, args, PREFIX, extra) {
-        const chatId = m.key.remoteJid;
-        let targetJid = '';
-
-        const mentioned = m.message?.extendedTextMessage?.contextInfo?.mentionedJid;
-        if (mentioned && mentioned.length > 0) {
-            targetJid = mentioned[0];
-        } else if (args[0]) {
-            const number = args[0].replace(/[^0-9]/g, '');
-            if (number) {
-                targetJid = `${number}@s.whatsapp.net`;
-            }
-        }
-
-        if (!targetJid) {
-            await sock.sendMessage(chatId, {
-                text: `\u250C\u2500\u29ED *Unblock User*\n\u251C\u25C6 Usage: ${PREFIX}unblock @user\n\u251C\u25C6 Or: ${PREFIX}unblock 254712345678\n\u2514\u2500\u29ED`
-            }, { quoted: m });
-            return;
-        }
-
-        try {
-            await sock.updateBlockStatus(targetJid, 'unblock');
-            const display = targetJid.replace(/@.*/, '');
-            await sock.sendMessage(chatId, {
-                text: `\u250C\u2500\u29ED *User Unblocked*\n\u251C\u25C6 Number: ${display}\n\u2514\u2500\u29ED`
-            }, { quoted: m });
-        } catch (error) {
-            await sock.sendMessage(chatId, {
-                text: `\u250C\u2500\u29ED *Unblock Failed*\n\u251C\u25C6 Error: ${error.message}\n\u2514\u2500\u29ED`
-            }, { quoted: m });
-        }
+    if (isGroup) {
+      const mentioned = message?.extendedTextMessage?.contextInfo?.mentionedJid;
+      if (!mentioned || mentioned.length === 0) {
+        return await sock.sendMessage(key.remoteJid, {
+          text: '┌─⧭ 🕊️ *UNBLOCK* \n├◆ Usage: *${PREFIX}unblock <text>*\n├◆ Unblock a user (tag in group or provide number in DM)\n└─⧭',
+        }, { quoted: msg });
+      }
+      target = mentioned[0];
+    } else {
+      // In DM: use number if given
+      if (!args[0]) {
+        return await sock.sendMessage(key.remoteJid, {
+          text: '┌─⧭ 🕊️ *UNBLOCK* \n├◆ Usage: *${PREFIX}unblock <text>*\n├◆ Unblock a user (tag in group or provide number in DM)\n└─⧭',
+        }, { quoted: msg });
+      }
+      let number = args[0].replace(/[^0-9]/g, ''); // remove spaces/symbols
+      if (number.length < 8) {
+        return await sock.sendMessage(key.remoteJid, {
+          text: '┌─⧭ ⚠️ *INVALID NUMBER* \n├◆ Usage: *${PREFIX}unblock <text>*\n├◆ Unblock a user (tag in group or provide number in DM)\n└─⧭',
+        }, { quoted: msg });
+      }
+      target = `${number}@s.whatsapp.net`;
     }
+
+    try {
+      await sock.updateBlockStatus(target, 'unblock');
+      await delay(1000);
+      await sock.sendMessage(key.remoteJid, {
+        text: `🌕 The Wolf has released ${target}.\n✅ *Unblocked successfully.*`,
+      }, { quoted: msg });
+    } catch (err) {
+      console.error('Error unblocking user:', err);
+      await sock.sendMessage(key.remoteJid, {
+        text: '⚠️ The Wolf couldn’t release the target. Chains still bound...',
+      }, { quoted: msg });
+    }
+  },
 };

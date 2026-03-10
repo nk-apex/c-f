@@ -1,73 +1,128 @@
+import os from 'os';
+import axios from 'axios';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { getBotName } from '../../lib/botname.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 export default {
-    name: "flux",
-    alias: ["ai", "generate", "aiimage"],
-    category: "ai",
+  name: "flux",
+  aliases: ["fluxai", "imageai", "generate", "aiimage"],
+  category: "ai",
+  description: "Generate an image using Flux AI",
+  
+  async execute(sock, m, args, PREFIX) {
+    const jid = m.key.remoteJid;
     
-    async execute(sock, m, args, PREFIX, extra) {
-        const jid = m.key.remoteJid;
-        
-        if (!args.length) {
-            return sock.sendMessage(jid, {
-                text: `\u250C\u2500\u29ED *Flux AI Image*\n` +
-                      `\u251C\u25C6 Usage: ${PREFIX}flux <prompt>\n` +
-                      `\u251C\u25C6 Example: ${PREFIX}flux cute anime cat\n` +
-                      `\u2514\u2500\u29ED`
-            }, { quoted: m });
-        }
-        
-        const prompt = args.join(' ');
-        
-        try {
-            await sock.sendMessage(jid, {
-                text: `\u250C\u2500\u29ED *Generating...*\n\u251C\u25C6 Prompt: "${prompt}"\n\u251C\u25C6 Please wait...\n\u2514\u2500\u29ED`
-            }, { quoted: m });
-            
-            const encodedPrompt = encodeURIComponent(prompt);
-            const apiUrl = `https://apiskeith.vercel.app/ai/flux?q=${encodedPrompt}`;
-            
-            const response = await fetch(apiUrl);
-            
-            if (!response.ok) {
-                throw new Error(`HTTP ${response.status}`);
-            }
-            
-            const arrayBuffer = await response.arrayBuffer();
-            const imageBuffer = Buffer.from(arrayBuffer);
-            
-            if (imageBuffer.length < 1024) {
-                throw new Error('Image too small or invalid');
-            }
-            
-            const magicBytes = imageBuffer.slice(0, 4).toString('hex');
-            const isJpeg = magicBytes.startsWith('ffd8');
-            const isPng = magicBytes.startsWith('89504e47');
-            const isWebP = magicBytes.startsWith('52494646');
-            const isGif = magicBytes.startsWith('47494638');
-            
-            if (!isJpeg && !isPng && !isWebP && !isGif) {
-                throw new Error('Not a valid image format');
-            }
-            
-            await sock.sendMessage(jid, {
-                image: imageBuffer,
-                caption: `\u250C\u2500\u29ED *Flux AI*\n\u251C\u25C6 ${prompt}\n\u2514\u2500\u29ED`
-            });
-            
-        } catch (error) {
-            console.error("Flux error:", error.message);
-            
-            let errorDetail = error.message;
-            if (error.message.includes('timeout')) {
-                errorDetail = 'API taking too long. Try a simpler prompt.';
-            } else if (error.message.includes('HTTP')) {
-                errorDetail = 'Service might be down.';
-            } else if (error.message.includes('invalid')) {
-                errorDetail = 'Invalid image received. Try again.';
-            }
-            
-            await sock.sendMessage(jid, {
-                text: `\u250C\u2500\u29ED *Error*\n\u251C\u25C6 Failed to generate image\n\u251C\u25C6 ${errorDetail}\n\u2514\u2500\u29ED`
-            }, { quoted: m });
-        }
+    // Check if query is provided
+    if (args.length === 0) {
+      return sock.sendMessage(jid, {
+        text: `┌─⧭ 🎨 *FLUX AI* \n├◆ Usage: *${PREFIX}flux <text>*\n├◆ Generate an image using Flux AI\n├◆ Aliases: *${PREFIX}fluxai*, *${PREFIX}imageai*, *${PREFIX}generate*, *${PREFIX}aiimage*\n└─⧭`
+      }, { quoted: m });
     }
+
+    const query = args.join(' ');
+    const encodedQuery = encodeURIComponent(query);
+    
+    try {
+      await sock.sendMessage(jid, { react: { text: '⏳', key: m.key } });
+
+      // Call Flux API with arraybuffer response
+      const apiUrl = `https://apiskeith.vercel.app/ai/flux?q=${encodedQuery}`;
+      
+      console.log(`[FLUX] Generating image for: "${query}"`);
+      console.log(`[FLUX] API URL: ${apiUrl}`);
+      
+      const response = await axios.get(apiUrl, {
+        responseType: 'arraybuffer',
+        timeout: 60000, // 60 second timeout
+        headers: {
+          'User-Agent': 'WolfBot/1.0',
+          'Accept': 'image/jpeg,image/png'
+        }
+      });
+
+      if (!response.data || response.data.length === 0) {
+        throw new Error('Empty response from AI');
+      }
+
+      console.log(`[FLUX] Received image data: ${response.data.length} bytes`);
+
+      // Create temp directory if it doesn't exist
+      const tempDir = path.join(os.tmpdir(), 'foxbot_tmp');
+      if (!fs.existsSync(tempDir)) {
+        fs.mkdirSync(tempDir, { recursive: true });
+      }
+
+      // Generate unique filename
+      const timestamp = Date.now();
+      const filename = `flux_${timestamp}.jpg`;
+      const filePath = path.join(tempDir, filename);
+
+      // Save image to file
+      fs.writeFileSync(filePath, response.data);
+      console.log(`[FLUX] Image saved to: ${filePath}`);
+
+      // Send the generated image
+      await sock.sendMessage(jid, {
+        image: fs.readFileSync(filePath),
+        caption: `🎨 *FLUX AI Generated Image*\n\n_Created by ${getBotName()}_`
+      }, { quoted: m });
+
+      // Delete the temporary file
+      fs.unlinkSync(filePath);
+      console.log(`[FLUX] Temporary file deleted: ${filePath}`);
+
+      await sock.sendMessage(jid, { react: { text: '✅', key: m.key } });
+
+    } catch (error) {
+      console.error('[FLUX] Error:', error.message);
+      
+      let errorMessage = `❌ *Image Generation Failed*\n\n`;
+      
+      if (error.code === 'ECONNREFUSED' || error.code === 'ENOTFOUND') {
+        errorMessage += `• Flux API is unavailable\n`;
+        errorMessage += `• Try again later\n\n`;
+      } else if (error.response) {
+        if (error.response.status === 404) {
+          errorMessage += `• API endpoint not found\n\n`;
+        } else if (error.response.status === 500) {
+          errorMessage += `• AI server error\n`;
+          errorMessage += `• Try different prompt\n\n`;
+        } else {
+          errorMessage += `• API Error: ${error.response.status}\n\n`;
+        }
+      } else if (error.code === 'ETIMEDOUT') {
+        errorMessage += `• Generation timeout (60s)\n`;
+        errorMessage += `• Try simpler prompt\n`;
+        errorMessage += `• Server might be busy\n\n`;
+      } else if (error.message.includes('Empty response')) {
+        errorMessage += `• AI returned empty image\n`;
+        errorMessage += `• Try different prompt\n\n`;
+      } else {
+        errorMessage += `• Error: ${error.message}\n\n`;
+      }
+      
+      errorMessage += `💡 *Tips for better results:*\n`;
+      errorMessage += `• Be descriptive with your prompt\n`;
+      errorMessage += `• Avoid very complex requests\n`;
+      errorMessage += `• Try English prompts\n`;
+      errorMessage += `• Keep prompts under 100 characters\n\n`;
+      
+      errorMessage += `📌 *Usage:* \`${PREFIX}flux your prompt\`\n`;
+      errorMessage += `📝 *Example:* \`${PREFIX}flux cyberpunk city\``;
+      
+      await sock.sendMessage(jid, {
+        text: errorMessage
+      }, { quoted: m });
+      
+      // Send error reaction
+      await sock.sendMessage(jid, {
+        react: { text: '❌', key: m.key }
+      });
+    }
+  }
 };

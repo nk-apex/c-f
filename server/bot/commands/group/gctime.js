@@ -1,50 +1,53 @@
 export default {
-  name: 'gctime',
-  alias: ['grouptime', 'groupcreated'],
-  description: 'Show when the group was created',
-  category: 'group',
-  ownerOnly: false,
+  name: "gctime",
+  description: "Get group creation time",
+  category: "group",
+  async execute(sock, m, args) {
+    try {
+      // Get chat ID safely
+      const chatId = m.key?.remoteJid;
+      if (!chatId) {
+        console.error("❌ Error: chatId is undefined");
+        return;
+      }
 
-  async execute(sock, msg, args, PREFIX, extra) {
-    const jid = msg.key.remoteJid;
-    const sender = msg.key.participant || jid;
+      // Only works for group chats
+      if (!chatId.endsWith("@g.us")) {
+        await sock.sendMessage(chatId, { text: "❌ This command works only in groups." }, { quoted: m });
+        return;
+      }
 
-    if (!jid.endsWith('@g.us')) {
-      await sock.sendMessage(jid, {
-        text: '\u250c\u2500\u29ed GROUP ONLY \u29ed\u2500\u2510\n\u251C\u25C6 This command works in groups only.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
-      }, { quoted: msg });
-      return;
-    }
+      // Fetch group metadata
+      const metadata = await sock.groupMetadata(chatId);
+      if (!metadata?.creation) {
+        await sock.sendMessage(chatId, { text: "❌ Couldn't fetch group metadata." }, { quoted: m });
+        return;
+      }
 
-    const groupMetadata = await sock.groupMetadata(jid);
-    const senderParticipant = groupMetadata.participants.find(p => p.id === sender);
-
-    if (!senderParticipant?.admin) {
-      await sock.sendMessage(jid, {
-        text: '\u250c\u2500\u29ed ACCESS DENIED \u29ed\u2500\u2510\n\u251C\u25C6 Only group admins can use this command.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
-      }, { quoted: msg });
-      return;
-    }
-
-    const creationTimestamp = groupMetadata.creation;
-    let createdStr = 'Unknown';
-
-    if (creationTimestamp) {
-      const date = new Date(creationTimestamp * 1000);
-      createdStr = date.toLocaleString('en-US', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
+      // Format creation time
+      const creationTime = metadata.creation; // Unix timestamp (seconds)
+      const date = new Date(creationTime * 1000);
+      const formattedDate = date.toLocaleString("en-KE", {
+        timeZone: "Africa/Nairobi",
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
       });
-    }
 
-    await sock.sendMessage(jid, {
-      text: `\u250c\u2500\u29ed GROUP CREATED \u29ed\u2500\u2510\n\u251C\u25C6 Group: ${groupMetadata.subject}\n\u251C\u25C6 Created: ${createdStr}\n\u251C\u25C6 Owner: @${(groupMetadata.owner || 'unknown').split('@')[0]}\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518`,
-      mentions: groupMetadata.owner ? [groupMetadata.owner] : []
-    }, { quoted: msg });
-  }
+      // Send result
+      await sock.sendMessage(chatId, {
+        text: `📅 Group was created on: *${formattedDate}*`,
+      }, { quoted: m });
+
+    } catch (err) {
+      console.error("❌ Error in gctime:", err);
+      const chatId = m.key?.remoteJid;
+      if (chatId) {
+        await sock.sendMessage(chatId, { text: "❌ Failed to get group creation time." }, { quoted: m });
+      }
+    }
+  },
 };

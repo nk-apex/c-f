@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import axios from "axios";
+import { invalidateMenuImageCache } from "./menu.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -27,9 +28,10 @@ export default {
       const mediaDir = path.join(__dirname, "media");
       const backupDir = path.join(mediaDir, "backups");
       const wolfbotPath = path.join(mediaDir, "wolfbot.jpg");
+      const wolfbotGifPath = path.join(mediaDir, "wolfbot.gif");
       
       // Your default menu image URL
-      const defaultImageUrl = "https://i.ibb.co/SDWKT5nx/0b3fef5fc5e9.jpg";
+      const defaultImageUrl = "https://i.ibb.co/Gvkt4q9d/Chat-GPT-Image-Feb-21-2026-12-47-33-AM.png";
 
       // If no arguments, restore to default image from URL
       if (args.length === 0) {
@@ -76,8 +78,12 @@ export default {
             }
           }
 
+          // Remove any GIF menu image when restoring default
+          try { if (fs.existsSync(wolfbotGifPath)) fs.unlinkSync(wolfbotGifPath); } catch {}
+
           // Save the default image
           fs.writeFileSync(wolfbotPath, imageBuffer);
+          try { invalidateMenuImageCache(); } catch {}
           
           console.log(`✅ Default menu image restored from URL`);
 
@@ -111,7 +117,7 @@ export default {
         }
 
         const backupFiles = fs.readdirSync(backupDir)
-          .filter(file => file.startsWith('wolfbot-backup-') && (file.endsWith('.jpg') || file.endsWith('.png') || file.endsWith('.webp')))
+          .filter(file => file.startsWith('wolfbot-backup-') && (file.endsWith('.jpg') || file.endsWith('.png') || file.endsWith('.webp') || file.endsWith('.gif')))
           .sort()
           .reverse()
           .slice(0, 10);
@@ -129,8 +135,9 @@ export default {
           const filePath = path.join(backupDir, file);
           const stats = fs.statSync(filePath);
           const size = (stats.size / 1024 / 1024).toFixed(2);
+          const isGif = file.endsWith('.gif');
           
-          backupList += `${index + 1}. ${file}\n`;
+          backupList += `${index + 1}. ${isGif ? '🎞️' : '🖼️'} ${file}\n`;
           backupList += `   📏 ${size}MB\n\n`;
         });
 
@@ -152,7 +159,7 @@ export default {
       }
 
       const backupFiles = fs.readdirSync(backupDir)
-        .filter(file => file.startsWith('wolfbot-backup-') && (file.endsWith('.jpg') || file.endsWith('.png') || file.endsWith('.webp')))
+        .filter(file => file.startsWith('wolfbot-backup-') && (file.endsWith('.jpg') || file.endsWith('.png') || file.endsWith('.webp') || file.endsWith('.gif')))
         .sort()
         .reverse();
 
@@ -177,20 +184,20 @@ export default {
         text: `🔄 Restoring backup...` 
       }, { quoted: m });
 
-      // Restore the backup
-      fs.copyFileSync(backupPath, wolfbotPath);
-      
-      console.log(`✅ Menu image restored from backup: ${backupToRestore}`);
+      const isGifBackup = backupToRestore.endsWith('.gif');
 
-      // Get the restored image for preview
-      const restoredImageBuffer = fs.readFileSync(wolfbotPath);
+      if (isGifBackup) {
+        try { if (fs.existsSync(wolfbotPath)) fs.unlinkSync(wolfbotPath); } catch {}
+        fs.copyFileSync(backupPath, wolfbotGifPath);
+      } else {
+        try { if (fs.existsSync(wolfbotGifPath)) fs.unlinkSync(wolfbotGifPath); } catch {}
+        fs.copyFileSync(backupPath, wolfbotPath);
+      }
       
-      // Edit with final success message
-      await sock.sendMessage(jid, { 
-        image: restoredImageBuffer,
-        caption: `✅ *Backup Restored!*\n\nUse ${global.prefix}menu to see it.`,
-        edit: statusMsg.key 
-      });
+      try { invalidateMenuImageCache(); } catch {}
+      console.log(`✅ Menu ${isGifBackup ? 'GIF' : 'image'} restored from backup: ${backupToRestore}`);
+
+      await sock.sendMessage(jid, { react: { text: "✅", key: m.key } });
 
     } catch (error) {
       console.error("❌ [RESTOREMENUIMAGE] ERROR:", error);

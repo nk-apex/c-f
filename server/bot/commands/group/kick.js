@@ -1,91 +1,121 @@
+import { createRequire } from 'module';
+import { isButtonModeEnabled } from '../../lib/buttonMode.js';
+import { setActionSession } from '../../lib/actionSession.js';
+
+const _requireKick = createRequire(import.meta.url);
+let giftedBtnsKick;
+try { giftedBtnsKick = _requireKick('gifted-btns'); } catch (e) {}
+
 export default {
   name: 'kick',
-  alias: ['remove'],
-  category: 'group',
-  description: 'Remove member from group',
-  
-  async execute(sock, msg, args, PREFIX, extra) {
-    const jid = msg.key.remoteJid;
-    const sender = msg.key.participant || jid;
-    
-    if (!jid.endsWith('@g.us')) {
-      await sock.sendMessage(jid, { 
-        text: '❌ Groups only.' 
+  description: 'Removes mentioned members or specified numbers from the group.',
+  execute: async (sock, msg, args, PREFIX, extra) => {
+    const chatId = msg.key.remoteJid;
+    const isGroup = chatId.endsWith('@g.us');
+
+    if (!isGroup) {
+      return sock.sendMessage(chatId, { text: '❌ This command only works in groups.' }, { quoted: msg });
+    }
+
+    const contextInfo = msg.message?.extendedTextMessage?.contextInfo ||
+                        msg.message?.imageMessage?.contextInfo ||
+                        msg.message?.videoMessage?.contextInfo ||
+                        msg.message?.documentMessage?.contextInfo ||
+                        msg.message?.stickerMessage?.contextInfo || {};
+
+    const mentionedUsers = contextInfo.mentionedJid || [];
+    const numbersFromArgs = args.filter(arg => /^\d{7,15}$/.test(arg)).map(num => `${num}@s.whatsapp.net`);
+
+    let participants = [];
+    if (mentionedUsers.length > 0) {
+      participants = mentionedUsers;
+    } else if (numbersFromArgs.length > 0) {
+      participants = numbersFromArgs;
+    } else if (contextInfo.quotedMessage && contextInfo.participant) {
+      participants = [contextInfo.participant];
+    }
+
+    if (!participants.length) {
+      return sock.sendMessage(chatId, {
+        text: `┌─⧭ 👢 *KICK* \n├◆ Usage: *${PREFIX}kick <text>*\n├◆ Removes mentioned members or specified numbers from the group.\n└─⧭`
       }, { quoted: msg });
-      return;
     }
 
-    const groupMetadata = await sock.groupMetadata(jid);
-    const senderParticipant = groupMetadata.participants.find(p => p.id === sender);
-    
-    if (!senderParticipant?.admin) {
-      await sock.sendMessage(jid, { 
-        text: '🛑 Admin only.' 
-      }, { quoted: msg });
-      return;
-    }
+    const senderJid = msg.key.participant || chatId;
 
-    // Get target - UPDATED TO HANDLE REPLIES
-    let targetUser;
-    const mentions = msg.message?.extendedTextMessage?.contextInfo?.mentionedJid;
-    
-    // Check for mentions in command
-    if (mentions && mentions.length > 0) {
-      targetUser = mentions[0];
-    } 
-    // Check if replying to a message
-    else if (msg.message?.extendedTextMessage?.contextInfo?.participant) {
-      // Get the user being replied to
-      targetUser = msg.message.extendedTextMessage.contextInfo.participant;
-    }
-    // Check for number in args
-    else if (args.length > 0) {
-      const num = args[0].replace(/[^0-9]/g, '');
-      if (num.length > 8) targetUser = num + '@s.whatsapp.net';
-    }
-
-    if (!targetUser) {
-      await sock.sendMessage(jid, { 
-        text: `🦶 *Usage:*\n${PREFIX}kick @user\n${PREFIX}kick <number>\nReply to user's message with ${PREFIX}kick` 
-      }, { quoted: msg });
-      return;
-    }
-
-    // Don't allow kicking yourself
-    if (targetUser === sender) {
-      await sock.sendMessage(jid, { 
-        text: '❌ You cannot kick yourself!' 
-      }, { quoted: msg });
-      return;
-    }
-
-    // Check if target is in group
-    const targetInGroup = groupMetadata.participants.find(p => p.id === targetUser);
-    if (!targetInGroup) {
-      await sock.sendMessage(jid, { 
-        text: '❌ User is not in this group.' 
-      }, { quoted: msg });
-      return;
-    }
-
+    let groupMeta;
     try {
-      // 🦶 FOOT for kick
-      await sock.sendMessage(jid, {
-        react: { text: "🦶", key: msg.key }
-      });
-      
-      // Remove user
-      await sock.groupParticipantsUpdate(jid, [targetUser], 'remove');
-      
-      await sock.sendMessage(jid, { 
-        text: `🦶 @${targetUser.split('@')[0]} has been kicked from the group.`, 
-        mentions: [targetUser] 
-      }, { quoted: msg });
-      
-    } catch (error) {
-      await sock.sendMessage(jid, { 
-        text: '❌ Failed to kick member.' 
-      }, { quoted: msg });
+      groupMeta = await sock.groupMetadata(chatId);
+    } catch {
+      return sock.sendMessage(chatId, { text: '❌ Failed to fetch group info.' }, { quoted: msg });
     }
-  }
+
+    const senderClean = senderJid.split(':')[0].split('@')[0];
+    const senderParticipant = groupMeta.participants.find(p => {
+      const pClean = p.id.split(':')[0].split('@')[0];
+      return pClean === senderClean;
+    });
+    const senderIsAdmin = senderParticipant?.admin === 'admin' || senderParticipant?.admin === 'superadmin';
+    const isOwner = extra?.isOwner ? extra.isOwner() : false;
+    const isSudo = extra?.isSudo ? extra.isSudo() : false;
+
+    if (!senderIsAdmin && !isOwner && !isSudo) {
+      return sock.sendMessage(chatId, { text: '❌ Only group admins can use this command.' }, { quoted: msg });
+    }
+
+    const skipped = [];
+    const toKick = [];
+
+    for (const jid of participants) {
+      const jidClean = jid.split(':')[0].split('@')[0];
+      const targetP = groupMeta.participants.find(p => {
+        const pClean = p.id.split(':')[0].split('@')[0];
+        return pClean === jidClean;
+      });
+
+      if (targetP && (targetP.admin === 'admin' || targetP.admin === 'superadmin')) {
+        if (!isOwner && !isSudo) {
+          skipped.push(jid);
+          continue;
+        }
+      }
+
+      toKick.push(targetP ? targetP.id : jid);
+    }
+
+    if (toKick.length === 0) {
+      const reason = skipped.length > 0 ? 'Cannot kick admins.' : 'No valid users to kick.';
+      return sock.sendMessage(chatId, { text: `❌ ${reason}` }, { quoted: msg });
+    }
+
+    // Always save session first — kick NEVER happens here
+    const sessionKey = `kick:${senderClean}:${chatId.split('@')[0]}`;
+    setActionSession(sessionKey, { action: 'remove', targets: toKick, chatId });
+
+    const targetNames = toKick.map(j => `@${j.split('@')[0].split(':')[0]}`).join(', ');
+    const confirmText = `┌─⧭ 👢 *KICK CONFIRM* \n├◆ About to kick ${toKick.length} user(s):\n├◆ ${targetNames}\n├◆ Tap *Confirm Kick* to proceed.\n└─⧭`;
+
+    // Try interactive button first (flat format, no quoted arg — matches the working auto-wrapper call)
+    if (isButtonModeEnabled() && giftedBtnsKick?.sendInteractiveMessage) {
+      try {
+        await giftedBtnsKick.sendInteractiveMessage(sock, chatId, {
+          text: confirmText,
+          footer: '⏳ Session expires in 5 minutes',
+          interactiveButtons: [
+            { type: 'quick_reply', display_text: '✅ Confirm Kick', id: `${PREFIX}kickconfirm` },
+            { type: 'quick_reply', display_text: '❌ Cancel', id: `${PREFIX}kickcancel` }
+          ]
+        });
+        return;
+      } catch (e) {
+        // silent — fallback below
+      }
+    }
+
+    // Fallback: plain text — session already saved, auto-wrapper will add Confirm Kick button
+    await sock.sendMessage(chatId, {
+      text: confirmText,
+      mentions: toKick
+    }, { quoted: msg });
+  },
 };

@@ -1,71 +1,374 @@
-// commands/group/groupinfo.js
-import { foxCanUse, foxMode, foxOwners } from '../../utils/foxMaster.js';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // export default {
+// //   name: 'groupinfo',
+// //   description: 'Shows detailed group information',
+// //   category: 'group',
+// //   async execute(sock, msg, args, metadata) {
+// //     const sender = msg.key.remoteJid;
+// //     const isGroup = sender.endsWith('@g.us');
+
+// //     if (!isGroup) {
+// //       await sock.sendMessage(sender, { 
+// //         text: '❌ This command can only be used in groups.' 
+// //       }, { quoted: msg });
+// //       return;
+// //     }
+
+// //     try {
+// //       // Ensure metadata has group data; if not, fetch it
+// //       let groupInfo = metadata;
+      
+// //       // If metadata doesn't contain expected group info, fetch it directly
+// //       if (!groupInfo || !groupInfo.id) {
+// //         groupInfo = await sock.groupMetadata(sender);
+// //       }
+
+// //       const groupName = groupInfo.subject || 'N/A';
+// //       const groupDesc = groupInfo.desc || 'No Description';
+// //       const groupOwner = groupInfo.owner || groupInfo.participants?.find(p => p.admin === 'superadmin')?.id || 'Unknown';
+// //       const memberCount = groupInfo.participants?.length || 0;
+      
+// //       // Get group creation date
+// //       const creationTimestamp = groupInfo.creation || groupInfo.createdAt || null;
+// //       let creationDate = 'Unknown';
+      
+// //       if (creationTimestamp) {
+// //         const date = new Date(creationTimestamp * 1000); // Convert from seconds to milliseconds
+// //         creationDate = date.toLocaleDateString('en-US', {
+// //           weekday: 'long',
+// //           year: 'numeric',
+// //           month: 'long',
+// //           day: 'numeric'
+// //         });
+// //       }
+
+// //       // Format owner for mention
+// //       const ownerFormatted = typeof groupOwner === 'string' ? 
+// //         groupOwner.split('@')[0] : 
+// //         (groupOwner.id || groupOwner).split('@')[0];
+
+// //       // Prepare mentions (only owner)
+// //       const mentions = [groupOwner];
+
+// //       const infoText = `🐺 *Group Info*\n\n` +
+// //         `📛 *Name:* ${groupName}\n` +
+// //         `👤 *Owner:* @${ownerFormatted}\n` +
+// //         `👥 *Members:* ${memberCount}\n` +
+// //         `📜 *Description:* ${groupDesc}\n` +
+// //         `📅 *Created:* ${creationDate}\n\n` +
+// //         `> Powered by FOXY`;
+
+// //       await sock.sendMessage(sender, {
+// //         text: infoText,
+// //         mentions: mentions
+// //       }, { quoted: msg });
+
+// //     } catch (err) {
+// //       console.error('GroupInfo Error:', err);
+// //       await sock.sendMessage(sender, { 
+// //         text: '❌ Failed to fetch group info. Please try again.' 
+// //       }, { quoted: msg });
+// //     }
+// //   }
+// // };
+
+
+
+
+
+
+
+
+
+
+// export default {
+//   name: 'groupinfo',
+//   description: 'Shows detailed group information',
+//   category: 'group',
+//   async execute(sock, msg, args, metadata) {
+//     const sender = msg.key.remoteJid;
+//     const isGroup = sender.endsWith('@g.us');
+
+//     if (!isGroup) {
+//       await sock.sendMessage(sender, { 
+//         text: '❌ This command can only be used in groups.' 
+//       }, { quoted: msg });
+//       return;
+//     }
+
+//     try {
+//       // Ensure metadata has group data; if not, fetch it
+//       let groupInfo = metadata;
+      
+//       // If metadata doesn't contain expected group info, fetch it directly
+//       if (!groupInfo || !groupInfo.id) {
+//         groupInfo = await sock.groupMetadata(sender);
+//       }
+
+//       const groupName = groupInfo.subject || 'N/A';
+//       const groupDesc = groupInfo.desc || 'No Description';
+//       const groupOwner = groupInfo.owner || groupInfo.participants?.find(p => p.admin === 'superadmin')?.id || 'Unknown';
+//       const memberCount = groupInfo.participants?.length || 0;
+      
+//       // Get group creation date
+//       const creationTimestamp = groupInfo.creation || groupInfo.createdAt || null;
+//       let creationDate = 'Unknown';
+      
+//       if (creationTimestamp) {
+//         const date = new Date(creationTimestamp * 1000); // Convert from seconds to milliseconds
+//         creationDate = date.toLocaleDateString('en-US', {
+//           weekday: 'long',
+//           year: 'numeric',
+//           month: 'long',
+//           day: 'numeric'
+//         });
+//       }
+
+//       // Format owner for mention
+//       const ownerFormatted = typeof groupOwner === 'string' ? 
+//         groupOwner.split('@')[0] : 
+//         (groupOwner.id || groupOwner).split('@')[0];
+
+//       // Prepare mentions (only owner)
+//       const mentions = [groupOwner];
+
+//       // Prepare the info text
+//       const infoText = `🐺 *Group Info*\n\n` +
+//         `📛 *Name:* ${groupName}\n` +
+//         `👤 *Owner:* @${ownerFormatted}\n` +
+//         `👥 *Members:* ${memberCount}\n` +
+//         `📜 *Description:* ${groupDesc}\n` +
+//         `📅 *Created:* ${creationDate}\n\n` +
+//         `> Powered by FOXY`;
+
+//       // Try to get group profile picture (thumbnail)
+//       let profilePicture;
+//       try {
+//         profilePicture = await sock.profilePictureUrl(sender, 'image');
+//       } catch (err) {
+//         console.log('No profile picture found for group, using text-only...');
+//         profilePicture = null;
+//       }
+
+//       // Send message with or without profile picture
+//       if (profilePicture) {
+//         try {
+//           // Download the image
+//           const response = await fetch(profilePicture);
+//           const buffer = await response.arrayBuffer();
+          
+//           await sock.sendMessage(sender, { 
+//             image: Buffer.from(buffer),
+//             caption: infoText,
+//             mentions: mentions
+//           }, { quoted: msg });
+//         } catch (imgErr) {
+//           console.log('Failed to fetch image, sending text only:', imgErr);
+//           // Fallback to text only
+//           await sock.sendMessage(sender, { 
+//             text: infoText,
+//             mentions: mentions
+//           }, { quoted: msg });
+//         }
+//       } else {
+//         // Send without image if no profile picture
+//         await sock.sendMessage(sender, {
+//           text: infoText,
+//           mentions: mentions
+//         }, { quoted: msg });
+//       }
+
+//     } catch (err) {
+//       console.error('GroupInfo Error:', err);
+//       await sock.sendMessage(sender, { 
+//         text: '❌ Failed to fetch group info. Please try again.\n\n> Powered by FOXY'
+//       }, { quoted: msg });
+//     }
+//   }
+// };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export default {
-    name: 'groupinfo',
-    alias: ['ginfo', 'infogroup', 'group'],
-    category: 'group',
-    description: 'Show group information',
-    
-    async execute(sock, msg, args, prefix) {
-        const chatId = msg.key.remoteJid;
-        
-        if (!foxCanUse(msg, 'groupinfo')) {
-            const message = foxMode.getMessage();
-            if (message) await sock.sendMessage(chatId, { text: message });
-            return;
-        }
-        
-        if (!chatId.endsWith('@g.us')) {
-            await sock.sendMessage(chatId, {
-                text: `❌ *GROUP ONLY* 🦊\n\nThis command works in groups only!`
-            });
-            return;
-        }
-        
-        try {
-            const metadata = await sock.groupMetadata(chatId);
-            const participants = metadata.participants || [];
-            
-            const admins = participants.filter(p => p.admin).length;
-            const members = participants.length;
-            
-            const createdAt = new Date(metadata.creation * 1000).toLocaleDateString();
-            
-            let infoText = `🏷️ *GROUP INFORMATION* 🦊\n\n`;
-            infoText += `*Name:* ${metadata.subject}\n`;
-            infoText += `*ID:* ${metadata.id}\n`;
-            infoText += `*Description:* ${metadata.desc || 'No description'}\n\n`;
-            infoText += `*Members:* ${members} total\n`;
-            infoText += `*Admins:* ${admins}\n`;
-            infoText += `*Created:* ${createdAt}\n`;
-            infoText += `*Owner:* @${metadata.owner.split('@')[0] || 'Unknown'}\n\n`;
-            
-            infoText += `👑 *Admins List:*\n`;
-            const adminList = participants.filter(p => p.admin).slice(0, 10);
-            adminList.forEach(admin => {
-                const name = metadata.participants.find(p => p.id === admin.id)?.name || 'User';
-                infoText += `• @${admin.id.split('@')[0]} (${name})\n`;
-            });
-            
-            if (admins > 10) infoText += `... and ${admins - 10} more admins\n`;
-            
-            infoText += `\n💡 *Group Commands:*\n`;
-            infoText += `${prefix}setname - Change group name\n`;
-            infoText += `${prefix}setdesc - Change description\n`;
-            infoText += `${prefix}admin - Promote/demote\n`;
-            infoText += `${prefix}invite - Get group invite\n\n`;
-            infoText += `🦊 Use ${prefix}help group for more!`;
-            
-            await sock.sendMessage(chatId, {
-                text: infoText,
-                mentions: [...adminList.map(a => a.id), metadata.owner]
-            });
-            
-        } catch (error) {
-            await sock.sendMessage(chatId, {
-                text: `❌ *ERROR* 🦊\n\nCould not fetch group information!\n\n🦊 Try again later!`
-            });
-        }
+  name: 'groupinfo',
+  description: 'Shows detailed group information',
+  category: 'group',
+  async execute(sock, msg, args, metadata) {
+    const sender = msg.key.remoteJid;
+    const isGroup = sender.endsWith('@g.us');
+
+    if (!isGroup) {
+      await sock.sendMessage(sender, { 
+        text: '❌ This command can only be used in groups.' 
+      }, { quoted: msg });
+      return;
     }
+
+    try {
+      // Ensure metadata has group data; if not, fetch it
+      let groupInfo = metadata;
+      
+      // If metadata doesn't contain expected group info, fetch it directly
+      if (!groupInfo || !groupInfo.id) {
+        groupInfo = await sock.groupMetadata(sender);
+      }
+
+      const groupName = groupInfo.subject || 'N/A';
+      const groupDesc = groupInfo.desc || 'No Description';
+      const memberCount = groupInfo.participants?.length || 0;
+      
+      // Get group creation date
+      const creationTimestamp = groupInfo.creation || groupInfo.createdAt || null;
+      let creationDate = 'Unknown';
+      
+      if (creationTimestamp) {
+        const date = new Date(creationTimestamp * 1000); // Convert from seconds to milliseconds
+        creationDate = date.toLocaleDateString('en-US', {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+      }
+
+      // Get full group ID (with @g.us suffix)
+      const groupId = sender;
+      
+      // Get group mode (restricted or not)
+      const isRestricted = groupInfo.restrict || false;
+      const groupMode = isRestricted ? '🔒 Restricted (Admin Only)' : '🔓 Open for All Members';
+      
+      // Find super admin (creator) and all admins
+      const participants = groupInfo.participants || [];
+      const superAdmin = participants.find(p => p.admin === 'superadmin');
+      const allAdmins = participants.filter(p => p.admin === 'admin' || p.admin === 'superadmin');
+      
+      const adminCount = allAdmins.length;
+      
+      // Format super admin for display
+      let superAdminInfo = 'Unknown';
+      if (superAdmin) {
+        const superAdminName = superAdmin.name || superAdmin.notify || superAdmin.id.split('@')[0];
+        superAdminInfo = `@${superAdminName}`;
+      }
+
+      // Format owner for mention (use super admin if available)
+      const groupOwner = superAdmin?.id || groupInfo.owner || 'Unknown';
+      const ownerFormatted = typeof groupOwner === 'string' ? 
+        groupOwner.split('@')[0] : 
+        (groupOwner.id || groupOwner).split('@')[0];
+
+      // Prepare mentions (only super admin)
+      const mentions = superAdmin ? [superAdmin.id] : [];
+
+      // Prepare the info text with borders
+      const infoText = 
+        "┌─⧭ GROUP INFORMATION\n" +
+        `├◆ 🐺 *GROUP INFORMATION*\n` +
+        "" +
+        `├◆ 📛 *Name:* ${groupName}\n` +
+        `├◆ 🆔 *ID:* ${groupId}\n` +
+        "" +
+        `├◆ 👑 *Super Admin:* ${superAdminInfo}\n` +
+        `├◆ ⭐ *Total Admins:* ${adminCount}\n` +
+        `├◆ 👥 *Total Members:* ${memberCount}\n` +
+        "" +
+        `├◆ 📜 *Description:*\n` +
+        `├◆ ${groupDesc}\n` +
+        "" +
+        `├◆ 📅 *Created:* ${creationDate}\n` +
+        `├◆ 🔧 *Mode:* ${groupMode}\n` +
+        "" +
+        `├◆ > Powered by FOXY\n` +
+        "└─⧭";
+
+      // Try to get group profile picture (thumbnail)
+      let profilePicture;
+      try {
+        profilePicture = await sock.profilePictureUrl(sender, 'image');
+      } catch (err) {
+        console.log('No profile picture found for group, using text-only...');
+        profilePicture = null;
+      }
+
+      // Send message with or without profile picture
+      if (profilePicture) {
+        try {
+          // Download the image
+          const response = await fetch(profilePicture);
+          const buffer = await response.arrayBuffer();
+          
+          await sock.sendMessage(sender, { 
+            image: Buffer.from(buffer),
+            caption: infoText,
+            mentions: mentions
+          }, { quoted: msg });
+        } catch (imgErr) {
+          console.log('Failed to fetch image, sending text only:', imgErr);
+          // Fallback to text only
+          await sock.sendMessage(sender, { 
+            text: infoText,
+            mentions: mentions
+          }, { quoted: msg });
+        }
+      } else {
+        // Send without image if no profile picture
+        await sock.sendMessage(sender, {
+          text: infoText,
+          mentions: mentions
+        }, { quoted: msg });
+      }
+
+    } catch (err) {
+      console.error('GroupInfo Error:', err);
+      // Error message with border
+      const errorText = 
+        "┌─⧭\n" +
+        `├◆ ❌ *GROUP INFO ERROR* \n` +
+        "" +
+        `├◆ Failed to fetch group info.\n` +
+        `├◆ Please try again.\n` +
+        "" +
+        `├◆ > Powered by FOXY\n` +
+        "└─⧭━━┛";
+      
+      await sock.sendMessage(sender, { 
+        text: errorText
+      }, { quoted: msg });
+    }
+  }
 };

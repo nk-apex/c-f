@@ -1,9 +1,9 @@
 import { botConnection } from "./connection.js";
 import { commandLoader } from "./commandLoader.js";
-import { handleAutoView } from "./commands/n7-automation/autoviewstatus.js";
-import { handleAutoReact } from "./commands/n7-automation/autoreactstatus.js";
-import { initAntidelete, antideleteStoreMessage, antideleteHandleUpdate, updateAntideleteSock } from "./commands/n7-owner/antidelete.js";
-import { initStatusAntidelete, statusAntideleteStoreMessage, statusAntideleteHandleUpdate, updateStatusAntideleteSock } from "./commands/n7-owner/antideletestatus.js";
+import { handleAutoView } from "./commands/automation/autoviewstatus.js";
+import { handleAutoReact } from "./commands/automation/autoreactstatus.js";
+import { initAntidelete, antideleteStoreMessage, antideleteHandleUpdate, updateAntideleteSock } from "./commands/owner/antidelete.js";
+import { initStatusAntidelete, statusAntideleteStoreMessage, statusAntideleteHandleUpdate, updateStatusAntideleteSock } from "./commands/owner/antideletestatus.js";
 import fs from "fs";
 import path from "path";
 

@@ -1,200 +1,381 @@
+// commands/automation/autoviewstatus.js
+
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
+import supabase from '../../lib/supabase.js';
 
-const DATA_DIR = path.join(process.cwd(), 'server', 'bot', 'data');
-const CONFIG_FILE = path.join(DATA_DIR, 'autoViewConfig.json');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const CONFIG_FILE = './data/autoViewConfig.json';
+
+const G = '\x1b[32m'; const C = '\x1b[36m'; const Y = '\x1b[33m';
+const R = '\x1b[31m'; const B = '\x1b[1m';  const D = '\x1b[2m'; const X = '\x1b[0m';
+
+function logBox(sender, msgType, result) {
+    const t = new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+    const d = new Date().toLocaleDateString('en-US', { day: '2-digit', month: 'short', year: 'numeric' });
+    console.log(`${G}${B}┌──────────────────────────────────────────────────┐${X}`);
+    console.log(`${G}${B}├◆  👁️  STATUS DETECTED                              ├◆${X}`);
+    console.log(`${G}${B}├◆ ┤${X}`);
+    console.log(`${G}├◆  ${C}${B}From   :${X}${G} ${sender}${X}`);
+    console.log(`${G}├◆  ${C}${B}Type   :${X}${G} ${msgType}${X}`);
+    console.log(`${G}├◆  ${C}${B}Time   :${X}${G} ${t}  ${D}(${d})${X}`);
+    console.log(`${G}├◆  ${C}${B}Result :${X}${G} ${result}${X}`);
+    console.log(`${G}${B}└──────────────────────────────────────────────────┘${X}`);
+}
+
+function getMessageType(message) {
+    if (!message) return `${D}stub${X}`;
+    const map = {
+        imageMessage: '🖼️  Image', videoMessage: '🎥  Video',
+        extendedTextMessage: '📝  Text', conversation: '💬  Text',
+        audioMessage: '🎵  Audio', stickerMessage: '🎭  Sticker',
+        documentMessage: '📄  Document', reactionMessage: '😮  Reaction',
+        protocolMessage: '🔧  Protocol',
+    };
+    const key = Object.keys(message)[0];
+    return map[key] || `📦  ${key}`;
+}
 
 function initConfig() {
-  if (!fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR, { recursive: true });
-  }
-  if (!fs.existsSync(CONFIG_FILE)) {
-    const defaultConfig = {
-      enabled: true,
-      totalViewed: 0,
-      lastViewed: null,
-      settings: {
-        rateLimitDelay: 1000
-      }
-    };
-    fs.writeFileSync(CONFIG_FILE, JSON.stringify(defaultConfig, null, 2));
-  }
+    const configDir = path.dirname(CONFIG_FILE);
+    if (!fs.existsSync(configDir)) fs.mkdirSync(configDir, { recursive: true });
+    if (!fs.existsSync(CONFIG_FILE)) {
+        fs.writeFileSync(CONFIG_FILE, JSON.stringify({
+            enabled: true, logs: [], totalViewed: 0, lastViewed: null,
+            consecutiveViews: 0, lastSender: null,
+            excludedContacts: [],
+            settings: { rateLimitDelay: 1000, markAsSeen: true }
+        }, null, 2));
+    }
 }
 
 initConfig();
 
-function loadViewConfig() {
-  try {
-    return JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8'));
-  } catch {
-    return { enabled: true, totalViewed: 0, lastViewed: null, settings: { rateLimitDelay: 1000 } };
-  }
-}
+(async () => {
+    try {
+        if (supabase.isAvailable()) {
+            const dbData = await supabase.getConfig('autoview_config');
+            if (dbData?.enabled !== undefined)
+                fs.writeFileSync(CONFIG_FILE, JSON.stringify(dbData, null, 2));
+        }
+    } catch {}
+})();
 
-function saveViewConfig(config) {
-  try {
-    fs.writeFileSync(CONFIG_FILE, JSON.stringify(config, null, 2));
-  } catch {}
-}
-
-let lastViewTime = 0;
-
-export async function handleAutoView(sock, statusKey) {
-  try {
-    const config = loadViewConfig();
-    if (!config.enabled) return false;
-
-    const now = Date.now();
-    if (now - lastViewTime < (config.settings?.rateLimitDelay || 1000)) return false;
-
-    await sock.readMessages([statusKey]);
-
-    lastViewTime = now;
-    config.totalViewed = (config.totalViewed || 0) + 1;
-    const sender = (statusKey.participant || statusKey.remoteJid || '').split('@')[0];
-    config.lastViewed = { sender, timestamp: now };
-    saveViewConfig(config);
-
-    return true;
-  } catch (error) {
-    if (error.message?.includes('rate-overlimit')) {
-      const config = loadViewConfig();
-      config.settings.rateLimitDelay = Math.min((config.settings.rateLimitDelay || 1000) * 2, 5000);
-      saveViewConfig(config);
+class AutoViewManager {
+    constructor() {
+        this.config = this.loadConfig();
+        this.lastViewTime = 0;
+        this.queue = [];
+        this._draining = false;
     }
-    return false;
-  }
+
+    loadConfig() {
+        try {
+            const c = JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8'));
+            if (!Array.isArray(c.excludedContacts)) c.excludedContacts = [];
+            return c;
+        } catch {
+            return {
+                enabled: true, logs: [], totalViewed: 0, lastViewed: null,
+                consecutiveViews: 0, lastSender: null, excludedContacts: [],
+                settings: { rateLimitDelay: 1000, markAsSeen: true }
+            };
+        }
+    }
+
+    saveConfig() {
+        try {
+            fs.writeFileSync(CONFIG_FILE, JSON.stringify(this.config, null, 2));
+            supabase.setConfig('autoview_config', this.config).catch(() => {});
+        } catch {}
+    }
+
+    get enabled()     { return this.config.enabled; }
+    get logs()        { return this.config.logs; }
+    get totalViewed() { return this.config.totalViewed; }
+
+    // ── Exclusion helpers ─────────────────────────────────────────────────────
+    // Normalize a user-supplied number (strips spaces, +, dashes)
+    _normalizeNum(input) {
+        return String(input).replace(/[^0-9]/g, '');
+    }
+
+    // Check if a statusKey's sender is on the exclusion list.
+    // Checks both the participant number AND the remoteJidAlt phone number
+    // so LID-based contacts are handled correctly.
+    isExcluded(statusKey) {
+        const list = this.config.excludedContacts;
+        if (!list || list.length === 0) return false;
+        const pNum  = (statusKey.participant || statusKey.remoteJid || '').split('@')[0].split(':')[0];
+        const altNum = statusKey.remoteJidAlt ? statusKey.remoteJidAlt.split('@')[0] : null;
+        return list.some(n => n === pNum || (altNum && n === altNum));
+    }
+
+    excludeContact(input) {
+        const num = this._normalizeNum(input);
+        if (!num) return false;
+        if (!this.config.excludedContacts.includes(num)) {
+            this.config.excludedContacts.push(num);
+            this.saveConfig();
+            return true;
+        }
+        return false;
+    }
+
+    includeContact(input) {
+        const num = this._normalizeNum(input);
+        const idx = this.config.excludedContacts.indexOf(num);
+        if (idx !== -1) {
+            this.config.excludedContacts.splice(idx, 1);
+            this.saveConfig();
+            return true;
+        }
+        return false;
+    }
+
+    toggle(forceOff = false) {
+        this.config.enabled = !forceOff;
+        this.saveConfig(); return this.config.enabled;
+    }
+
+    addLog(sender) {
+        const entry = { sender, timestamp: Date.now() };
+        this.config.logs.push(entry);
+        this.config.totalViewed++;
+        this.config.lastViewed = entry;
+        this.config.consecutiveViews = this.config.lastSender === sender
+            ? this.config.consecutiveViews + 1 : 1;
+        this.config.lastSender = sender;
+        if (this.config.logs.length > 100) this.config.logs.shift();
+        this.saveConfig();
+    }
+
+    clearLogs() {
+        Object.assign(this.config, { logs: [], totalViewed: 0, lastViewed: null,
+            consecutiveViews: 0, lastSender: null });
+        this.saveConfig();
+    }
+
+    getStats() {
+        return {
+            enabled: this.config.enabled, totalViewed: this.config.totalViewed,
+            lastViewed: this.config.lastViewed, consecutiveViews: this.config.consecutiveViews,
+            excludedCount: this.config.excludedContacts.length,
+            settings: { ...this.config.settings }
+        };
+    }
+
+    async viewStatus(sock, statusKey, message) {
+        try {
+            if (!statusKey || statusKey.fromMe) return false;
+
+            const sender    = statusKey.participant || statusKey.remoteJid;
+            const displayId = sender.split('@')[0].split(':')[0];
+            const msgType   = getMessageType(message);
+
+            if (!this.config.enabled || !this.config.settings.markAsSeen) {
+                logBox(displayId, msgType, `${Y}SKIPPED — autoview OFF${X}`);
+                return false;
+            }
+
+            if (this.isExcluded(statusKey)) {
+                logBox(displayId, msgType, `${Y}SKIPPED — excluded${X}`);
+                return false;
+            }
+
+            logBox(displayId, msgType, `${G}${B}Attempting view...${X}`);
+            this.queue.push({ sock, statusKey, displayId });
+            this._drain();
+            return true;
+
+        } catch (err) {
+            console.error('autoviewstatus error:', err.message);
+            return false;
+        }
+    }
+
+    _drain() {
+        if (this._draining) return;
+        this._draining = true;
+        this._processNext().catch(() => { this._draining = false; });
+    }
+
+    async _processNext() {
+        while (this.queue.length > 0) {
+            const { sock, statusKey, displayId } = this.queue.shift();
+            const wait = this.config.settings.rateLimitDelay - (Date.now() - this.lastViewTime);
+            if (wait > 0) await new Promise(r => setTimeout(r, wait));
+            await this._sendReceipt(sock, statusKey, displayId);
+        }
+        this._draining = false;
+    }
+
+    async _sendReceipt(sock, statusKey, displayId) {
+        const participantToUse = statusKey.remoteJidAlt || statusKey.participantPn || statusKey.participant || statusKey.remoteJid;
+        const readKey = {
+            remoteJid: statusKey.remoteJid,
+            id: statusKey.id,
+            fromMe: false,
+            participant: participantToUse
+        };
+        try {
+            await sock.readMessages([readKey]);
+            this.lastViewTime = Date.now();
+            this.addLog(displayId);
+            console.log(`${G}${B}✅ VIEWED${X}${G} [participantPn=${participantToUse?.split('@')[1] || '?'}] → ${displayId}${X}`);
+        } catch (err) {
+            console.log(`${R}${B}❌ VIEW FAILED for ${displayId}: ${err.message}${X}`);
+        }
+    }
+
+    updateSetting(setting, value) {
+        if (Object.prototype.hasOwnProperty.call(this.config.settings, setting)) {
+            this.config.settings[setting] = value; this.saveConfig(); return true;
+        }
+        return false;
+    }
 }
+
+const autoViewManager = new AutoViewManager();
+
+export async function handleAutoView(sock, statusKey, message) {
+    return await autoViewManager.viewStatus(sock, statusKey, message);
+}
+
+export { autoViewManager };
 
 export default {
-  name: "autoviewstatus",
-  alias: ["autoview", "viewstatus", "statusview", "vs"],
-  description: "Automatically view WhatsApp statuses",
-  category: "Automation",
-  ownerOnly: true,
+    name: "autoviewstatus",
+    alias: ["autoview", "viewstatus", "statusview", "vs", "views"],
+    desc: "Automatically view (mark as seen) WhatsApp statuses 👁️",
+    category: "Automation",
+    ownerOnly: false,
 
-  async execute(sock, m, args, PREFIX, extra) {
-    const chatId = m.key.remoteJid;
+    async execute(sock, m, args, prefix, extra) {
+        try {
+            const isOwner = extra?.isOwner?.() || false;
+            const reply = (text) => sock.sendMessage(m.key.remoteJid, { text }, { quoted: m });
 
-    const sendMessage = async (text) => {
-      return await sock.sendMessage(chatId, { text }, { quoted: m });
-    };
+            if (args.length === 0) {
+                const s = autoViewManager.getStats();
+                let text = `┌─⧭ 👁️ *AUTOVIEWSTATUS* \n`;
+                text += `├◆ Status   : ${s.enabled ? '✅ ACTIVE' : '❌ INACTIVE'}\n`;
+                text += `├◆ Excluded : ${s.excludedCount} contact(s)\n`;
+                text += `├◆ *${prefix}autoviewstatus on/off*\n`;
+                text += `├◆ *${prefix}autoviewstatus exclude <number>*\n`;
+                text += `├◆ *${prefix}autoviewstatus include <number>*\n`;
+                text += `├◆ *${prefix}autoviewstatus excluded*\n`;
+                text += `├◆ *${prefix}autoviewstatus stats*\n`;
+                text += `└─⧭`;
+                await reply(text);
+                return;
+            }
 
-    const config = loadViewConfig();
+            const action = args[0].toLowerCase();
 
-    if (args.length === 0) {
-      return sendMessage(
-        `\u250C\u2500\u29ED *Auto View Status*\n` +
-        `\u251C\u25C6 Status: ${config.enabled ? 'ON' : 'OFF'}\n` +
-        `\u251C\u25C6 Total Viewed: ${config.totalViewed || 0}\n` +
-        `\u251C\u25C6 Delay: ${config.settings?.rateLimitDelay || 1000}ms\n` +
-        `\u251C\u25C6 Commands:\n` +
-        `\u251C\u25C6 ${PREFIX}autoview on - Enable\n` +
-        `\u251C\u25C6 ${PREFIX}autoview off - Disable\n` +
-        `\u251C\u25C6 ${PREFIX}autoview stats - View stats\n` +
-        `\u251C\u25C6 ${PREFIX}autoview delay <ms> - Set delay\n` +
-        `\u251C\u25C6 ${PREFIX}autoview reset - Reset stats\n` +
-        `\u2514\u2500\u29ED`
-      );
+            switch (action) {
+                case 'on': case 'enable': case 'start': {
+                    if (!isOwner) { await reply("❌ Owner only!"); return; }
+                    autoViewManager.toggle(false);
+                    await reply(`✅ *AUTOVIEWSTATUS ENABLED*\n\n👁️ Will now automatically view statuses!`);
+                    break;
+                }
+                case 'off': case 'disable': case 'stop': {
+                    if (!isOwner) { await reply("❌ Owner only!"); return; }
+                    autoViewManager.toggle(true);
+                    await reply(`❌ *AUTOVIEWSTATUS DISABLED*`);
+                    break;
+                }
+
+                case 'exclude': case 'skip': case 'block': {
+                    if (!isOwner) { await reply("❌ Owner only!"); return; }
+                    const num = args[1];
+                    if (!num) { await reply(`Usage: *${prefix}autoviewstatus exclude <number>*\nExample: ${prefix}autoviewstatus exclude 254703123456`); return; }
+                    if (autoViewManager.excludeContact(num)) {
+                        const clean = num.replace(/[^0-9]/g, '');
+                        await reply(`✅ *Excluded from auto-view*\n\n🚫 ${clean}\n\nTheir statuses will be silently skipped.`);
+                    } else {
+                        await reply(`⚠️ ${num.replace(/[^0-9]/g, '')} is already on the skip list.`);
+                    }
+                    break;
+                }
+
+                case 'include': case 'unexclude': case 'unblock': case 'unskip': {
+                    if (!isOwner) { await reply("❌ Owner only!"); return; }
+                    const num = args[1];
+                    if (!num) { await reply(`Usage: *${prefix}autoviewstatus include <number>*`); return; }
+                    if (autoViewManager.includeContact(num)) {
+                        const clean = num.replace(/[^0-9]/g, '');
+                        await reply(`✅ *Removed from skip list*\n\n👁️ ${clean} will now be auto-viewed again.`);
+                    } else {
+                        await reply(`⚠️ ${num.replace(/[^0-9]/g, '')} was not on the skip list.`);
+                    }
+                    break;
+                }
+
+                case 'excluded': case 'skiplist': case 'blocklist': case 'exclusions': {
+                    const list = autoViewManager.config.excludedContacts;
+                    if (!list.length) {
+                        await reply(`📭 *No contacts excluded from auto-view.*\n\nUse *${prefix}autoviewstatus exclude <number>* to skip someone.`);
+                        return;
+                    }
+                    let text = `🚫 *AUTOVIEW SKIP LIST (${list.length})*\n\n`;
+                    list.forEach((n, i) => { text += `${i + 1}. +${n}\n`; });
+                    text += `\nUse *${prefix}autoviewstatus include <number>* to remove.`;
+                    await reply(text);
+                    break;
+                }
+
+                case 'stats': case 'statistics': case 'info': {
+                    const s = autoViewManager.getStats();
+                    let text = `📊 *AUTOVIEWSTATUS STATS*\n\n`;
+                    text += `🟢 Status   : ${s.enabled ? 'ACTIVE ✅' : 'INACTIVE ❌'}\n`;
+                    text += `👁️ Viewed   : *${s.totalViewed}*\n`;
+                    text += `🔄 Streak   : ${s.consecutiveViews}\n`;
+                    text += `🚫 Excluded : ${s.excludedCount}\n`;
+                    text += `⚙️ Delay    : ${s.settings.rateLimitDelay}ms\n`;
+                    if (s.lastViewed) {
+                        const ago = Math.floor((Date.now() - s.lastViewed.timestamp) / 60000);
+                        text += `\n🕒 Last: ${s.lastViewed.sender} (${ago < 1 ? 'just now' : ago + ' min ago'})`;
+                    }
+                    await reply(text);
+                    break;
+                }
+
+                case 'logs': case 'history': {
+                    const logs = autoViewManager.logs.slice(-10).reverse();
+                    if (!logs.length) { await reply(`📭 No statuses viewed yet.`); return; }
+                    let text = `📋 *RECENT VIEWS*\n\n`;
+                    logs.forEach((l, i) => { text += `${i+1}. ${l.sender} — ${new Date(l.timestamp).toLocaleTimeString()}\n`; });
+                    text += `\n📊 Total: ${autoViewManager.totalViewed}`;
+                    await reply(text);
+                    break;
+                }
+
+                case 'reset': {
+                    if (!isOwner) { await reply("❌ Owner only!"); return; }
+                    autoViewManager.clearLogs();
+                    await reply(`🗑️ Stats reset.`);
+                    break;
+                }
+
+                case 'delay': {
+                    const ms = parseInt(args[1]);
+                    if (isNaN(ms) || ms < 200) { await reply('❌ Min 200ms'); return; }
+                    autoViewManager.updateSetting('rateLimitDelay', ms);
+                    await reply(`✅ Delay set to ${ms}ms`);
+                    break;
+                }
+
+                default:
+                    await reply(`┌─⧭ ❓ *AUTOVIEWSTATUS* \n├◆ *${prefix}autoviewstatus on/off*\n├◆ *${prefix}autoviewstatus exclude <number>*\n├◆ *${prefix}autoviewstatus include <number>*\n├◆ *${prefix}autoviewstatus excluded*\n├◆ *${prefix}autoviewstatus stats*\n├◆ *${prefix}autoviewstatus logs*\n├◆ *${prefix}autoviewstatus delay <ms>*\n└─⧭`);
+            }
+        } catch (error) {
+            console.error('AutoViewStatus error:', error);
+            await sock.sendMessage(m.key.remoteJid, { text: `❌ ${error.message}` }, { quoted: m });
+        }
     }
-
-    const action = args[0].toLowerCase();
-
-    switch (action) {
-      case 'on':
-      case 'enable':
-      case 'start': {
-        if (config.enabled) {
-          return sendMessage(
-            `\u250C\u2500\u29ED *Auto View Status*\n` +
-            `\u251C\u25C6 Already active!\n` +
-            `\u251C\u25C6 Total viewed: ${config.totalViewed || 0}\n` +
-            `\u251C\u25C6 Use ${PREFIX}autoview off to disable\n` +
-            `\u2514\u2500\u29ED`
-          );
-        }
-        config.enabled = true;
-        saveViewConfig(config);
-        return sendMessage(
-          `\u250C\u2500\u29ED *Auto View Status*\n` +
-          `\u251C\u25C6 Enabled! Foxy will now view\n` +
-          `\u251C\u25C6 all statuses automatically\n` +
-          `\u2514\u2500\u29ED`
-        );
-      }
-
-      case 'off':
-      case 'disable':
-      case 'stop': {
-        config.enabled = false;
-        saveViewConfig(config);
-        return sendMessage(
-          `\u250C\u2500\u29ED *Auto View Status*\n` +
-          `\u251C\u25C6 Disabled! Foxy stopped viewing\n` +
-          `\u251C\u25C6 statuses automatically\n` +
-          `\u251C\u25C6 Use ${PREFIX}autoview on to enable\n` +
-          `\u2514\u2500\u29ED`
-        );
-      }
-
-      case 'stats':
-      case 'info': {
-        let lastInfo = 'Never';
-        if (config.lastViewed) {
-          const ago = Math.floor((Date.now() - config.lastViewed.timestamp) / 60000);
-          lastInfo = `${config.lastViewed.sender} (${ago < 1 ? 'just now' : ago + 'm ago'})`;
-        }
-        return sendMessage(
-          `\u250C\u2500\u29ED *Auto View Statistics*\n` +
-          `\u251C\u25C6 Status: ${config.enabled ? 'ON' : 'OFF'}\n` +
-          `\u251C\u25C6 Total Viewed: ${config.totalViewed || 0}\n` +
-          `\u251C\u25C6 Last Viewed: ${lastInfo}\n` +
-          `\u251C\u25C6 Delay: ${config.settings?.rateLimitDelay || 1000}ms\n` +
-          `\u2514\u2500\u29ED`
-        );
-      }
-
-      case 'delay': {
-        if (!args[1] || isNaN(args[1])) {
-          return sendMessage(
-            `\u250C\u2500\u29ED *Auto View Delay*\n` +
-            `\u251C\u25C6 Current: ${config.settings?.rateLimitDelay || 1000}ms\n` +
-            `\u251C\u25C6 Usage: ${PREFIX}autoview delay <ms>\n` +
-            `\u251C\u25C6 Min: 500ms, Recommended: 1000ms\n` +
-            `\u2514\u2500\u29ED`
-          );
-        }
-        const delay = Math.max(500, parseInt(args[1]));
-        config.settings = config.settings || {};
-        config.settings.rateLimitDelay = delay;
-        saveViewConfig(config);
-        return sendMessage(
-          `\u250C\u2500\u29ED *Auto View Delay*\n` +
-          `\u251C\u25C6 Updated to ${delay}ms\n` +
-          `\u251C\u25C6 (${delay / 1000}s between views)\n` +
-          `\u2514\u2500\u29ED`
-        );
-      }
-
-      case 'reset':
-      case 'clear': {
-        config.totalViewed = 0;
-        config.lastViewed = null;
-        saveViewConfig(config);
-        return sendMessage(
-          `\u250C\u2500\u29ED *Auto View Status*\n` +
-          `\u251C\u25C6 Stats reset successfully\n` +
-          `\u2514\u2500\u29ED`
-        );
-      }
-
-      default:
-        return sendMessage(
-          `\u250C\u2500\u29ED *Auto View Status*\n` +
-          `\u251C\u25C6 Unknown option: ${action}\n` +
-          `\u251C\u25C6 Use ${PREFIX}autoview for help\n` +
-          `\u2514\u2500\u29ED`
-        );
-    }
-  }
 };

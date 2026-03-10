@@ -1,37 +1,42 @@
 export default {
     name: 'revoke',
-    alias: ['revokelink', 'resetlink'],
-    category: 'group',
-    description: 'Revoke group invite link',
-    ownerOnly: false,
-
-    async execute(sock, msg, args, PREFIX, extra) {
+    alias: [],
+    description: 'Revoke the group invite link',
+    async execute(sock, msg, args) {
         const jid = msg.key.remoteJid;
+
+        // Check if it's a group
         if (!jid.endsWith('@g.us')) {
-            return sock.sendMessage(jid, { text: '┌─⧭ GROUP ONLY ⧭─┐\n├◆ This command works in groups only.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
-        }
-
-        const metadata = await sock.groupMetadata(jid).catch(() => null);
-        const participant = msg.key.participant || msg.key.remoteJid;
-        const isAdmin = metadata?.participants?.find(p => p.id === participant)?.admin;
-
-        if (!isAdmin) {
-            return sock.sendMessage(jid, { text: '┌─⧭ ADMIN ONLY ⧭─┐\n├◆ Only group admins can revoke the invite link.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
+            await sock.sendMessage(jid, { text: '❌ This command can only be used in groups.' }, { quoted: msg });
+            return;
         }
 
         try {
+            // Fetch group metadata
+            const groupMetadata = await sock.groupMetadata(jid);
+
+            if (!groupMetadata?.participants) {
+                await sock.sendMessage(jid, { text: '⚠️ Could not fetch group participants.' }, { quoted: msg });
+                return;
+            }
+
+            // Ensure the user is an admin
+            const sender = msg.key.participant || jid;
+            const isAdmin = groupMetadata.participants.some(
+                p => p.id === sender && ['admin', 'superadmin'].includes(p.admin)
+            );
+
+            if (!isAdmin) {
+                await sock.sendMessage(jid, { text: '❌ Only group admins can use this command.' }, { quoted: msg });
+                return;
+            }
+
+            // Revoke invite link
             await sock.groupRevokeInvite(jid);
-
-            let text = '┌─⧭ LINK REVOKED ⧭─┐\n';
-            text += '├◆ The old invite link has been revoked.\n';
-            text += '├◆ A new link has been generated.\n';
-            text += '\n';
-            text += `├◆ Use ${PREFIX}grouplink to get the new link.\n`;
-            text += '└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘';
-
-            await sock.sendMessage(jid, { text }, { quoted: msg });
-        } catch (error) {
-            await sock.sendMessage(jid, { text: '┌─⧭ ERROR ⧭─┐\n├◆ Failed to revoke invite link.\n├◆ Make sure the bot is an admin.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
+            await sock.sendMessage(jid, { text: '✅ Group invite link has been revoked.' });
+        } catch (err) {
+            console.error('Error in revoke command:', err);
+            await sock.sendMessage(jid, { text: '❌ Failed to revoke group link.' }, { quoted: msg });
         }
     }
 };

@@ -1,33 +1,34 @@
+import fs from 'fs';
+const banFile = '../../lib/banned.json';
+
+function saveBans(bans) {
+    fs.writeFileSync(banFile, JSON.stringify(bans, null, 2));
+}
+
 export default {
-  name: 'clearbanlist',
-  alias: ['clearban'],
-  description: 'Clear the ban list for this group',
-  category: 'group',
-  ownerOnly: false,
+    name: 'clearbanlist',
+    description: 'Clear all banned users',
+    category: 'group',
+    async execute(sock, msg) {
+        const chatId = msg.key.remoteJid;
+        const isGroup = chatId.endsWith('@g.us');
 
-  async execute(sock, msg, args, PREFIX, extra) {
-    const jid = msg.key.remoteJid;
-    const sender = msg.key.participant || jid;
+        if (!isGroup) {
+            return sock.sendMessage(chatId, { text: '❌ This command can only be used in groups.' }, { quoted: msg });
+        }
 
-    if (!jid.endsWith('@g.us')) {
-      await sock.sendMessage(jid, {
-        text: '\u250c\u2500\u29ed GROUP ONLY \u29ed\u2500\u2510\n\u251C\u25C6 This command works in groups only.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
-      }, { quoted: msg });
-      return;
+        // ✅ Check admin status
+        const metadata = await sock.groupMetadata(chatId);
+        const senderId = msg.key.participant || msg.participant || msg.key.remoteJid;
+        const isAdmin = metadata.participants.some(
+            p => p.id === senderId && (p.admin === 'admin' || p.admin === 'superadmin')
+        );
+
+        if (!isAdmin) {
+            return sock.sendMessage(chatId, { text: '🛑 Only group admins can use this command.' }, { quoted: msg });
+        }
+
+        saveBans([]);
+        await sock.sendMessage(chatId, { text: '✅ Ban list has been cleared.' }, { quoted: msg });
     }
-
-    const groupMetadata = await sock.groupMetadata(jid);
-    const senderParticipant = groupMetadata.participants.find(p => p.id === sender);
-
-    if (!senderParticipant?.admin) {
-      await sock.sendMessage(jid, {
-        text: '\u250c\u2500\u29ed ACCESS DENIED \u29ed\u2500\u2510\n\u251C\u25C6 Only group admins can use this command.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
-      }, { quoted: msg });
-      return;
-    }
-
-    await sock.sendMessage(jid, {
-      text: '\u250c\u2500\u29ed CLEAR BAN LIST \u29ed\u2500\u2510\n\u251C\u25C6 Ban list has been cleared.\n\u251C\u25C6 No persistent ban list is currently maintained.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
-    }, { quoted: msg });
-  }
 };

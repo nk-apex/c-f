@@ -1,59 +1,85 @@
-function getTargetUser(msg, args) {
-  const mentions = msg.message?.extendedTextMessage?.contextInfo?.mentionedJid;
-  if (mentions?.length > 0) return mentions[0];
-  if (msg.message?.extendedTextMessage?.contextInfo?.participant) return msg.message.extendedTextMessage.contextInfo.participant;
-  if (args.length > 0) { const num = args[0].replace(/[^0-9]/g, ''); if (num.length > 8) return num + '@s.whatsapp.net'; }
-  return null;
+import db from '../../lib/supabase.js';
+
+let bansCache = null;
+let cacheLoaded = false;
+
+async function loadBans() {
+    if (cacheLoaded && bansCache) return bansCache;
+    try {
+        const data = await db.getConfig('banned_users', {});
+        bansCache = Array.isArray(data) ? data : [];
+        cacheLoaded = true;
+    } catch {
+        if (!bansCache) bansCache = [];
+    }
+    return bansCache;
+}
+
+async function saveBans(bans) {
+    bansCache = bans;
+    await db.setConfig('banned_users', bans);
 }
 
 export default {
-  name: 'unban',
-  alias: ['gunban'],
-  description: 'Unban and re-add a user to the group',
-  category: 'group',
-  ownerOnly: false,
+    name: 'unban',
+    description: 'Unban a user from the group ban list',
+    category: 'group',
+    async execute(sock, msg, args) {
+        const chatId = msg.key.remoteJid;
+        const isGroup = chatId.endsWith('@g.us');
 
-  async execute(sock, msg, args, PREFIX, extra) {
-    const jid = msg.key.remoteJid;
-    const sender = msg.key.participant || jid;
+        if (!isGroup) {
+            return sock.sendMessage(chatId, { text: '❌ This command can only be used in groups.' }, { quoted: msg });
+        }
 
-    if (!jid.endsWith('@g.us')) {
-      await sock.sendMessage(jid, {
-        text: '\u250c\u2500\u29ed GROUP ONLY \u29ed\u2500\u2510\n\u251C\u25C6 This command works in groups only.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
-      }, { quoted: msg });
-      return;
+        const metadata = await sock.groupMetadata(chatId);
+        const senderId = msg.key.participant || msg.participant || msg.key.remoteJid;
+        const isAdmin = metadata.participants.some(
+            p => p.id === senderId && (p.admin === 'admin' || p.admin === 'superadmin')
+        );
+
+        if (!isAdmin) {
+            return sock.sendMessage(chatId, { text: '🛑 Only group admins can use this command.' }, { quoted: msg });
+        }
+
+        let targetJid;
+
+        if (msg.message?.extendedTextMessage?.contextInfo?.mentionedJid?.[0]) {
+            targetJid = msg.message.extendedTextMessage.contextInfo.mentionedJid[0];
+        }
+
+        else if (msg.message?.extendedTextMessage?.contextInfo?.participant) {
+            targetJid = msg.message.extendedTextMessage.contextInfo.participant;
+        }
+
+        else if (args[0]) {
+            let num = args[0].replace(/[^0-9]/g, '');
+            if (num.length < 8) {
+                return sock.sendMessage(chatId, { text: '⚠️ Invalid number format.' }, { quoted: msg });
+            }
+            if (!num.endsWith('@s.whatsapp.net')) {
+                num += '@s.whatsapp.net';
+            }
+            targetJid = num;
+        }
+
+        if (!targetJid) {
+            return sock.sendMessage(chatId, { text: '⚠️ Please tag, reply, or provide a number to unban.' }, { quoted: msg });
+        }
+
+        let bans = await loadBans();
+        if (bans.includes(targetJid)) {
+            bans = bans.filter(id => id !== targetJid);
+            await saveBans(bans);
+            await sock.sendMessage(chatId, { 
+                text: `✅ @${targetJid.split('@')[0]} has been unbanned!`,
+                mentions: [targetJid]
+            }, { quoted: msg });
+        } else {
+            await sock.sendMessage(chatId, { 
+                text: `ℹ️ @${targetJid.split('@')[0]} is not banned.`,
+                mentions: [targetJid]
+            }, { quoted: msg });
+        }
     }
-
-    const groupMetadata = await sock.groupMetadata(jid);
-    const senderParticipant = groupMetadata.participants.find(p => p.id === sender);
-
-    if (!senderParticipant?.admin) {
-      await sock.sendMessage(jid, {
-        text: '\u250c\u2500\u29ed ACCESS DENIED \u29ed\u2500\u2510\n\u251C\u25C6 Only group admins can use this command.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
-      }, { quoted: msg });
-      return;
-    }
-
-    const targetUser = getTargetUser(msg, args);
-
-    if (!targetUser) {
-      await sock.sendMessage(jid, {
-        text: `\u250c\u2500\u29ed UNBAN \u29ed\u2500\u2510\n\u251C\u25C6 Usage:\n\u251C\u25C6 ${PREFIX}unban <number>\n\u251C\u25C6 ${PREFIX}unban @user\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518`
-      }, { quoted: msg });
-      return;
-    }
-
-    try {
-      await sock.groupParticipantsUpdate(jid, [targetUser], 'add');
-
-      await sock.sendMessage(jid, {
-        text: `\u250c\u2500\u29ed UNBANNED \u29ed\u2500\u2510\n\u251C\u25C6 @${targetUser.split('@')[0]} has been unbanned and added back to the group.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518`,
-        mentions: [targetUser]
-      }, { quoted: msg });
-    } catch (error) {
-      await sock.sendMessage(jid, {
-        text: '\u250c\u2500\u29ed ERROR \u29ed\u2500\u2510\n\u251C\u25C6 Failed to unban user. They may have privacy settings preventing adds.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
-      }, { quoted: msg });
-    }
-  }
 };

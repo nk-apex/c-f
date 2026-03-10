@@ -1,31 +1,64 @@
-import fs from 'fs';
-import path from 'path';
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
-const CONFIG_FILE = path.join(process.cwd(), 'server', 'bot', 'bot_config.json');
-
-function loadConfig() {
-    try {
-        if (fs.existsSync(CONFIG_FILE)) {
-            return JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf-8'));
-        }
-    } catch {}
-    return { prefix: '.', mode: 'public', ownerNumber: '', botName: 'FOX Bot' };
-}
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export default {
-    name: 'about',
-    alias: [],
-    description: 'Show bot information',
-    category: 'owner',
-    ownerOnly: false,
+  name: "about",
+  description: "Displays the Silent Wolf Bot origin and ego-filled info",
 
-    async execute(sock, m, args, PREFIX, extra) {
-        const chatId = m.key.remoteJid;
-        const config = loadConfig();
-        const commandCount = extra.commands ? extra.commands.size : 0;
+  async execute(sock, m, args) {
+    try {
+      const sender = m.key.participant || m.key.remoteJid;
+      const jid = m.key.remoteJid;
 
-        await sock.sendMessage(chatId, {
-            text: `\u250C\u2500\u29ED *About ${config.botName}*\n\u251C\u25C6 Name: ${config.botName}\n\u251C\u25C6 Version: 1.0.8\n\u251C\u25C6 Prefix: ${config.prefix}\n\u251C\u25C6 Mode: ${config.mode}\n\u251C\u25C6 Commands: ${commandCount}\n\u2514\u2500\u29ED`
-        }, { quoted: m });
+      // 🧭 Locate image
+      const imagePath1 = path.join(__dirname, "media", "wolfblue.jpg");
+      const imagePath2 = path.join(__dirname, "../media", "wolfblue.jpg");
+      const imagePath = fs.existsSync(imagePath1)
+        ? imagePath1
+        : fs.existsSync(imagePath2)
+        ? imagePath2
+        : null;
+
+      const caption = `┌─⧭ *FOXY*
+├◆ 🤖 *IDENTITY:* FOXY — Multi-platform WhatsApp Bot
+├◆ 💻 *Core:* Node.js + Baileys
+├◆ ⚡ *Commands:* 567 across 70 categories
+├◆ 🔗 *Platforms:* Replit · Heroku · Railway · Render · VPS
+├◆ 🛡 *Session:* FOXY:~<Base64> or FOX-BOT:~<Base64>
+└─⧭`;
+
+      // 🐺 Send Image + Caption or fallback to text
+      if (imagePath) {
+        await sock.sendMessage(
+          jid,
+          {
+            image: fs.readFileSync(imagePath),
+            caption: caption,
+            mimetype: "image/jpeg",
+          },
+          { quoted: m }
+        );
+        console.log("✅ About info sent with image + caption");
+      } else {
+        await sock.sendMessage(
+          jid,
+          { text: caption },
+          { quoted: m }
+        );
+        console.log("⚠️ Image not found, sent text only");
+      }
+
+    } catch (err) {
+      console.error("❌ About command error:", err);
+      await sock.sendMessage(
+        m.key.remoteJid,
+        { text: "⚠️ Wolf encountered a glitch while revealing its power..." },
+        { quoted: m }
+      );
     }
+  },
 };

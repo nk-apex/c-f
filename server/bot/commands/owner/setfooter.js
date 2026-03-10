@@ -1,46 +1,74 @@
 import fs from 'fs';
+import { getBotName } from '../../lib/botname.js';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
-const CONFIG_FILE = path.join(process.cwd(), 'server', 'bot', 'bot_config.json');
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const footerFile = path.join(__dirname, '../../data/footer.json');
 
-function loadConfig() {
-    try {
-        if (fs.existsSync(CONFIG_FILE)) {
-            return JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf-8'));
-        }
-    } catch {}
-    return { prefix: '.', mode: 'public', ownerNumber: '', botName: 'FOX Bot' };
+function ensureDir() {
+    const dir = path.dirname(footerFile);
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
 }
 
-function saveConfig(config) {
-    fs.writeFileSync(CONFIG_FILE, JSON.stringify(config, null, 2));
+function getFooter() {
+    try {
+        if (fs.existsSync(footerFile)) {
+            return JSON.parse(fs.readFileSync(footerFile, 'utf8')).footer;
+        }
+    } catch {}
+    return `${getBotName()} is the ALPHA`;
+}
+
+function setFooter(text) {
+    ensureDir();
+    fs.writeFileSync(footerFile, JSON.stringify({ footer: text, updatedAt: new Date().toISOString() }, null, 2));
 }
 
 export default {
     name: 'setfooter',
-    alias: [],
-    description: 'Set or view the bot footer text',
+    alias: ['footer', 'setcaption', 'defaultcaption'],
+    description: 'Set default footer/caption for downloads (viewonce, tiktok, instagram, video downloads)',
     category: 'owner',
-    ownerOnly: true,
 
-    async execute(sock, m, args, PREFIX, extra) {
-        const chatId = m.key.remoteJid;
-        const config = loadConfig();
+    async execute(sock, msg, args, PREFIX, extra) {
+        const chatId = msg.key.remoteJid;
+        const { jidManager } = extra;
 
-        if (!args[0]) {
-            const currentFooter = config.footer || 'Not set';
-            await sock.sendMessage(chatId, {
-                text: `\u250C\u2500\u29ED *Footer Config*\n\u251C\u25C6 Current: ${currentFooter}\n\u251C\u25C6 Usage: ${PREFIX}setfooter <text>\n\u2514\u2500\u29ED`
-            }, { quoted: m });
-            return;
+        const isSudoUser = extra?.isSudo ? extra.isSudo() : false;
+        if (!jidManager.isOwner(msg) && !isSudoUser) {
+            return sock.sendMessage(chatId, {
+                text: '❌ *Owner Only Command!*'
+            }, { quoted: msg });
         }
 
-        const footerText = args.join(' ').trim();
-        config.footer = footerText;
-        saveConfig(config);
+        if (args.length === 0 || args[0]?.toLowerCase() === 'help') {
+            const current = getFooter();
+            return sock.sendMessage(chatId, {
+                text: `┌─⧭ 📝 *SET FOOTER* \n├◆ Usage: *${PREFIX}setfooter <text>*\n├◆ Set default footer/caption for downloads (viewonce, tiktok, instagram, video downloads)\n├◆ Aliases: *${PREFIX}footer*, *${PREFIX}setcaption*, *${PREFIX}defaultcaption*\n└─⧭`
+            }, { quoted: msg });
+        }
+
+        if (args[0]?.toLowerCase() === 'reset') {
+            setFooter(`${getBotName()} is the ALPHA`);
+            return sock.sendMessage(chatId, {
+                text: `✅ *Footer Reset!*\n\n📝 Default: ${getBotName()} is the ALPHA`
+            }, { quoted: msg });
+        }
+
+        const newFooter = args.join(' ').trim();
+
+        if (newFooter.length > 200) {
+            return sock.sendMessage(chatId, {
+                text: '❌ Footer too long! Max 200 characters.'
+            }, { quoted: msg });
+        }
+
+        setFooter(newFooter);
 
         await sock.sendMessage(chatId, {
-            text: `\u250C\u2500\u29ED *Footer Updated*\n\u251C\u25C6 Footer: ${footerText}\n\u2514\u2500\u29ED`
-        }, { quoted: m });
+            text: `✅ *Footer Updated!*\n\n📝 *New Footer:*\n> ${newFooter}\n\n` +
+                `This will appear on all downloads.`
+        }, { quoted: msg });
     }
 };

@@ -1,30 +1,32 @@
 export default {
-  name: 'leave',
-  alias: ['leavegroup', 'botleave'],
-  description: 'Bot leaves the current group',
-  category: 'group',
-  ownerOnly: true,
+    name: 'leave',
+    alias: ['exit', 'bye', 'out'],
+    description: 'Leave the current group (owner only)',
+    category: 'group',
+    ownerOnly: true,
 
-  async execute(sock, msg, args, PREFIX, extra) {
-    const jid = msg.key.remoteJid;
+    async execute(sock, msg, args, PREFIX, extra) {
+        const chatId = msg.key.remoteJid;
 
-    if (!jid.endsWith('@g.us')) {
-      await sock.sendMessage(jid, {
-        text: '\u250c\u2500\u29ed GROUP ONLY \u29ed\u2500\u2510\n\u251C\u25C6 This command works in groups only.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
-      }, { quoted: msg });
-      return;
+        if (!chatId.endsWith('@g.us')) {
+            return sock.sendMessage(chatId, {
+                text: '❌ This command only works in groups.'
+            }, { quoted: msg });
+        }
+
+        try {
+            await sock.sendMessage(chatId, {
+                text: '👋 Goodbye everyone!'
+            }, { quoted: msg });
+
+            await new Promise(resolve => setTimeout(resolve, 1500));
+
+            await sock.groupLeave(chatId);
+        } catch (error) {
+            console.error('leave error:', error);
+            await sock.sendMessage(chatId, {
+                text: `❌ Failed to leave: ${error.message}`
+            }, { quoted: msg });
+        }
     }
-
-    try {
-      await sock.sendMessage(jid, {
-        text: '\u250c\u2500\u29ed GOODBYE \u29ed\u2500\u2510\n\u251C\u25C6 Bot is leaving this group.\n\u251C\u25C6 Goodbye everyone!\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
-      }, { quoted: msg });
-
-      await sock.groupLeave(jid);
-    } catch (error) {
-      await sock.sendMessage(jid, {
-        text: '\u250c\u2500\u29ed ERROR \u29ed\u2500\u2510\n\u251C\u25C6 Failed to leave the group.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
-      }, { quoted: msg });
-    }
-  }
 };

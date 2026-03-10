@@ -1,58 +1,39 @@
 export default {
   name: 'kickall',
-  alias: ['removeall'],
-  description: 'Kick all non-admin members from group',
-  category: 'group',
-  ownerOnly: true,
+  description: 'Removes all members from the group except admins.',
+  execute: async (sock, msg, args, metadata) => {
+    const isGroup = msg.key.remoteJid.endsWith('@g.us');
 
-  async execute(sock, msg, args, PREFIX, extra) {
-    const jid = msg.key.remoteJid;
-    const sender = msg.key.participant || jid;
-
-    if (!jid.endsWith('@g.us')) {
-      await sock.sendMessage(jid, {
-        text: '\u250c\u2500\u29ed GROUP ONLY \u29ed\u2500\u2510\n\u251C\u25C6 This command works in groups only.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
-      }, { quoted: msg });
-      return;
-    }
-
-    const groupMetadata = await sock.groupMetadata(jid);
-    const senderParticipant = groupMetadata.participants.find(p => p.id === sender);
-
-    if (!senderParticipant?.admin) {
-      await sock.sendMessage(jid, {
-        text: '\u250c\u2500\u29ed ACCESS DENIED \u29ed\u2500\u2510\n\u251C\u25C6 Only group admins can use this command.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
-      }, { quoted: msg });
-      return;
-    }
-
-    const nonAdmins = groupMetadata.participants.filter(p => !p.admin);
-
-    if (nonAdmins.length === 0) {
-      await sock.sendMessage(jid, {
-        text: '\u250c\u2500\u29ed KICK ALL \u29ed\u2500\u2510\n\u251C\u25C6 No non-admin members to kick.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
-      }, { quoted: msg });
-      return;
+    if (!isGroup) {
+      return sock.sendMessage(msg.key.remoteJid, { text: '❌ This command only works in groups.' }, { quoted: msg });
     }
 
     try {
-      const userIds = nonAdmins.map(p => p.id);
-      let removed = 0;
+      // Get group metadata including all participants
+      const groupMetadata = await sock.groupMetadata(msg.key.remoteJid);
+      const participants = groupMetadata.participants;
+      
+      // Filter out admins (only remove regular participants)
+      const nonAdminParticipants = participants
+        .filter(participant => participant.admin !== 'admin' && participant.admin !== 'superadmin')
+        .map(participant => participant.id);
 
-      for (const userId of userIds) {
-        try {
-          await sock.groupParticipantsUpdate(jid, [userId], 'remove');
-          removed++;
-        } catch (e) {}
+      // Check if there are non-admin participants to remove
+      if (nonAdminParticipants.length === 0) {
+        return sock.sendMessage(msg.key.remoteJid, { text: 'ℹ️ No non-admin members to kick.' }, { quoted: msg });
       }
 
-      await sock.sendMessage(jid, {
-        text: `\u250c\u2500\u29ed KICK ALL \u29ed\u2500\u2510\n\u251C\u25C6 Removed ${removed}/${userIds.length} non-admin members.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518`
-      }, { quoted: msg });
-    } catch (error) {
-      await sock.sendMessage(jid, {
-        text: '\u250c\u2500\u29ed ERROR \u29ed\u2500\u2510\n\u251C\u25C6 Failed to kick members. Make sure the bot is admin.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
-      }, { quoted: msg });
+      // Send a warning message first
+      await sock.sendMessage(msg.key.remoteJid, { text: `⚠️ Starting to kick ${nonAdminParticipants.length} member(s)... This may take a moment.` }, { quoted: msg });
+
+      // Kick all non-admin participants
+      await sock.groupParticipantsUpdate(msg.key.remoteJid, nonAdminParticipants, 'remove');
+      
+      await sock.sendMessage(msg.key.remoteJid, { text: `✅ Successfully kicked ${nonAdminParticipants.length} member(s) from the group.` }, { quoted: msg });
+      
+    } catch (err) {
+      console.error('Kickall error:', err);
+      await sock.sendMessage(msg.key.remoteJid, { text: '❌ Failed to kick members. I might not have admin permissions.' }, { quoted: msg });
     }
-  }
+  },
 };

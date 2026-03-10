@@ -17,7 +17,7 @@ class AutoRecordingManager {
       autoRecordingConfig.botSock = sock;
       this.hookIntoBot();
       autoRecordingConfig.isHooked = true;
-      console.log('🦊 Auto-recording system initialized!');
+      console.log('🎤 Auto-recording system initialized!');
     }
   }
 
@@ -163,7 +163,7 @@ class AutoRecordingManager {
     }
   }
 
-  // Check if user is authorized to use the command
+  // Rest of the class methods remain the same...
   static isAuthorized(msg, extra = {}) {
     const senderJid = msg.key.participant || msg.key.remoteJid;
     
@@ -173,7 +173,7 @@ class AutoRecordingManager {
       if (extra.jidManager) {
         return extra.jidManager.isOwner(msg);
       }
-      return false;
+      return msg.key.fromMe;
     }
     
     if (autoRecordingConfig.allowedUsers.has(senderJid)) {
@@ -189,7 +189,7 @@ class AutoRecordingManager {
 
   static toggle() {
     autoRecordingConfig.enabled = !autoRecordingConfig.enabled;
-    console.log(`🦊 Auto-recording ${autoRecordingConfig.enabled ? 'ENABLED' : 'DISABLED'}`);
+    console.log(`Auto-recording ${autoRecordingConfig.enabled ? 'ENABLED' : 'DISABLED'}`);
     
     if (!autoRecordingConfig.enabled) {
       this.clearAllRecorders();
@@ -259,7 +259,7 @@ class AutoRecordingManager {
       // Send initial message
       if (quotedMsg) {
         await sock.sendMessage(chatJid, {
-          text: `🎤 *Foxy is recording...* 🦊\n\nI'll show 'recording...' for ${duration} seconds!`
+          text: `🎤 *Voice Recording Simulation*\n\nI'll show 'recording...' for ${duration} seconds!`
         }, { quoted: quotedMsg });
       }
       
@@ -302,7 +302,7 @@ class AutoRecordingManager {
             // Send completion message
             if (quotedMsg) {
               await sock.sendMessage(chatJid, {
-                text: `✅ *Recording complete!* 🦊\n\nFoxy was recording for ${duration} seconds!`
+                text: `✅ *Recording simulation complete!*\n\nRecorded for ${duration} seconds!`
               }, { quoted: quotedMsg });
             }
           }
@@ -326,85 +326,80 @@ class AutoRecordingManager {
 // Main Command Export
 export default {
   name: "autorecording",
-  alias: ["record", "recording", "voicerec", "audiorec", "rec", "recsim", "foxyrecord"], // Added foxyrecord alias
-  desc: "Toggle auto fake recording when someone messages you 🎤🦊",
-  category: "owner",
-  ownerOnly: true,
-  usage: ".autorecording [on/off/duration/status/mode/users/help]\nExample: .autorecording on\nExample: .autorecording 30\nExample: .autorecording status",
+  alias: ["record", "recording", "voicerec", "audiorec", "rec", "recsim"],
+  desc: "Toggle auto fake recording when someone messages you 🎤",
+  category: "Owner",
+  usage: ".autorecording [on/off/duration/status/mode/users]",
   
   async execute(sock, m, args, PREFIX, extra) {
-    const chatId = m.key.remoteJid;
-    const { jidManager } = extra;
-    
-    const sendMessage = async (text) => {
-      return await sock.sendMessage(chatId, { text }, { quoted: m });
-    };
-    
     try {
-      // ==================== OWNER CHECK ====================
-      const isOwner = jidManager.isOwner(m);
-      
-      if (!isOwner) {
-        return await sendMessage(
-          `❌ *Owner Only Command!* 🦊\n\n` +
-          `Only the bot owner can use auto recording commands.\n` +
-          `This feature controls automatic voice recording indicators.`
-        );
-      }
-      // ==================== END OWNER CHECK ====================
+      const targetJid = m.key.remoteJid;
       
       // Initialize on first command use
       if (!autoRecordingConfig.isHooked) {
         autoRecordingConfig.botSock = sock;
         AutoRecordingManager.hookIntoBot();
         autoRecordingConfig.isHooked = true;
-        console.log('🦊 Auto-recording system initialized!');
+        console.log('🎤 Auto-recording system initialized!');
       }
+      
+      // ==================== OWNER CHECK ====================
+      const isAuthorized = AutoRecordingManager.isAuthorized(m, extra);
+      
+      if (!isAuthorized) {
+        const senderJid = m.key.participant || targetJid;
+        const jidManager = extra?.jidManager;
+        
+        let errorMsg = `❌ *Owner Only Command!*\n\n`;
+        errorMsg += `Only the bot owner can use this command.\n\n`;
+        
+        return sock.sendMessage(targetJid, {
+          text: errorMsg
+        }, { quoted: m });
+      }
+      // ==================== END OWNER CHECK ====================
       
       if (args.length === 0) {
         // Show status
         const status = AutoRecordingManager.status();
-        const statusText = status.enabled ? "✅ *ACTIVE* 🎤" : "❌ *INACTIVE*";
-        const modeText = status.ownerOnly ? "🔒 *Owner Only*" : "🌍 *Public Mode*";
+        const statusText = status.enabled ? "✅ *ENABLED*" : "❌ *DISABLED*";
+        const modeText = status.ownerOnly ? "🔒 *Owner Only*" : "🌍 *Public*";
         
-        await sendMessage(
-          `🎤 *Foxy Auto Recording* 🦊\n\n` +
-          `*Status:* ${statusText}\n` +
-          `*Duration:* ${status.duration} seconds\n` +
-          `*Mode:* ${modeText}\n` +
-          `*Active Chats:* ${status.activeSessions}\n` +
-          `*Total Recording:* ${status.totalUsersRecording} users\n\n` +
-          `📋 *Commands:*\n` +
-          `• \`${PREFIX}autorecording on\` - Enable auto recording\n` +
-          `• \`${PREFIX}autorecording off\` - Disable auto recording\n` +
-          `• \`${PREFIX}autorecording 30\` - Set duration to 30s\n` +
-          `• \`${PREFIX}autorecording status\` - Detailed status\n` +
-          `• \`${PREFIX}autorecording help\` - Show all commands`
-        );
+        await sock.sendMessage(targetJid, {
+          text: `┌─⧭ 🎤 *AUTO-RECORDING* 
+├◆ ${statusText}
+├◆ ${modeText}
+├◆ Auto-Recording: ${status.enabled ? 'ON 🟢' : 'OFF 🔴'}
+├◆ Duration: ${status.duration}s | Active: ${status.activeSessions}
+├◆ *${PREFIX}autorecording on*
+├◆ *${PREFIX}autorecording off*
+├◆ *${PREFIX}autorecording <duration>*
+├◆ *${PREFIX}autorecording status*
+└─⧭`
+        }, { quoted: m });
         return;
       }
       
       const arg = args[0].toLowerCase();
       
       // Show detailed status
-      if (arg === 'status' || arg === 'info' || arg === 'stats') {
+      if (arg === 'status' || arg === 'info') {
         const status = AutoRecordingManager.status();
         const allowedUsers = AutoRecordingManager.getAllowedUsers();
         
-        let statusMsg = `🎤 *Foxy Auto Recording Status* 🦊\n\n`;
+        let statusMsg = `🎤 *Auto-Recording Status* (Owner View)\n\n`;
         statusMsg += `📊 *System Status:*\n`;
-        statusMsg += `├◆ Enabled: ${status.enabled ? '✅ YES 🎤' : '❌ NO'}\n`;
-        statusMsg += `├◆ Duration: ${status.duration} seconds\n`;
+        statusMsg += `├◆ Enabled: ${status.enabled ? '✅ YES' : '❌ NO'}\n`;
+        statusMsg += `├◆ Duration: ${status.duration}s\n`;
         statusMsg += `├◆ Mode: ${status.ownerOnly ? '🔒 Owner Only' : '🌍 Public'}\n`;
         statusMsg += `├◆ Active Chats: ${status.activeSessions}\n`;
-        statusMsg += `├◆ Total Users Recording: ${status.totalUsersRecording}\n`;
-        statusMsg += `└─ System Hooked: ${status.isHooked ? '✅' : '❌'}\n\n`;
+        statusMsg += `├◆ Total Users: ${status.totalUsersRecording}\n`;
+        statusMsg += `└─ Hooked: ${status.isHooked ? '✅' : '❌'}\n\n`;
         
         if (allowedUsers.length > 0 && !status.ownerOnly) {
           statusMsg += `👥 *Allowed Users:*\n`;
           allowedUsers.forEach((user, index) => {
-            const cleanUser = user.split('@')[0];
-            statusMsg += `${index + 1}. ${cleanUser}\n`;
+            statusMsg += `${index + 1}. ${user}\n`;
           });
           statusMsg += `\n`;
         }
@@ -414,122 +409,100 @@ export default {
           autoRecordingConfig.activeRecorders.forEach((data, chatJid) => {
             const elapsed = Math.floor((Date.now() - data.startTime) / 1000);
             const remaining = Math.max(0, status.duration - elapsed);
-            statusMsg += `├◆ ${chatJid.includes('@g.us') ? '👥 Group' : '👤 DM'}\n`;
+            const chatType = chatJid.includes('@g.us') ? '👥 Group' : 
+                           chatJid.startsWith('manual_') ? '🎤 Manual' : '👤 DM';
+            statusMsg += `├◆ ${chatType}\n`;
+            statusMsg += `├◆  ├◆ ID: ${chatJid}\n`;
             statusMsg += `├◆  ├◆ Users: ${data.userCount}\n`;
             statusMsg += `├◆  ├◆ Elapsed: ${elapsed}s\n`;
             statusMsg += `├◆  └─ Remaining: ${remaining}s\n`;
           });
         }
         
-        statusMsg += `\n💡 Foxy is listening and recording... 🦊🎤`;
-        
-        return await sendMessage(statusMsg);
+        return sock.sendMessage(targetJid, {
+          text: statusMsg
+        }, { quoted: m });
       }
       
       // Toggle on/off
-      if (arg === 'on' || arg === 'enable' || arg === 'start' || arg === 'activate') {
+      if (arg === 'on' || arg === 'enable' || arg === 'start') {
         const enabled = AutoRecordingManager.toggle();
-        
-        // Log the action
-        const senderJid = m.key.participant || chatId;
-        const cleaned = jidManager.cleanJid(senderJid);
-        console.log(`🦊 Auto-recording ${enabled ? 'enabled' : 'disabled'} by: ${cleaned.cleanNumber || 'Owner'}`);
-        
-        await sendMessage(
-          `✅ *Auto Recording ${enabled ? 'ENABLED' : 'DISABLED'}* 🎤🦊\n\n` +
-          `${enabled ? 
-            'Foxy will now automatically show recording when someone messages you! 🦊👂\n\n' +
-            '*How it works:*\n' +
-            '• When someone sends a non-command message\n' +
-            '• Foxy shows recording indicator (mic icon)\n' +
-            '• Lasts for ' + autoRecordingConfig.duration + ' seconds\n' +
-            '• Works in both DMs and groups' :
-            'Foxy has stopped auto recording.\nI will no longer show recording indicators.'}\n\n` +
-          `⚙️ *Current Settings:*\n` +
-          `• Duration: ${autoRecordingConfig.duration}s\n` +
-          `• Mode: ${autoRecordingConfig.ownerOnly ? '🔒 Owner Only' : '🌍 Public'}`
-        );
+        await sock.sendMessage(targetJid, {
+          text: `🎤 *Auto-Recording ${enabled ? 'ENABLED' : 'DISABLED'}*
+
+${enabled ? 'I will now automatically show **voice recording** when someone messages you! 🎙️✨' : 'Auto-recording has been turned off.'}
+
+⚙️ *Current Settings:*
+• Duration: ${AutoRecordingManager.status().duration}s
+• Mode: ${AutoRecordingManager.status().ownerOnly ? '🔒 Owner Only' : '🌍 Public'}
+• Active Chats: ${AutoRecordingManager.status().activeSessions}`
+        }, { quoted: m });
         return;
       }
       
-      if (arg === 'off' || arg === 'disable' || arg === 'stop' || arg === 'deactivate') {
+      if (arg === 'off' || arg === 'disable' || arg === 'stop') {
         const enabled = AutoRecordingManager.toggle();
-        
-        // Log the action
-        const senderJid = m.key.participant || chatId;
-        const cleaned = jidManager.cleanJid(senderJid);
-        console.log(`🦊 Auto-recording ${enabled ? 'enabled' : 'disabled'} by: ${cleaned.cleanNumber || 'Owner'}`);
-        
-        await sendMessage(
-          `${enabled ? '✅ Enabled' : '❌ Disabled'} *Auto Recording* 🎤🦊\n\n` +
-          `${enabled ? 
-            'Foxy is now auto recording again!' :
-            'Foxy has stopped all recording indicators.\n' +
-            'No more "recording..." will be shown automatically.'}\n\n` +
-          `Use \`${PREFIX}autorecording on\` to enable again.`
-        );
+        await sock.sendMessage(targetJid, {
+          text: `🎤 *Auto-Recording ${enabled ? 'ENABLED' : 'DISABLED'}*
+
+${enabled ? 'Auto-recording has been turned on! 🎙️✨' : 'I will no longer auto-record when messaged.'}`
+        }, { quoted: m });
         return;
       }
       
       // Mode toggle (owner-only vs public)
-      if (arg === 'mode' || arg === 'togglemode' || arg === 'access') {
+      if (arg === 'mode' || arg === 'togglemode') {
         const ownerOnly = AutoRecordingManager.toggleOwnerOnly();
-        
-        await sendMessage(
-          `🔧 *Recording Mode Changed* 🦊\n\n` +
-          `*New Mode:* ${ownerOnly ? '🔒 *OWNER ONLY*' : '🌍 *PUBLIC ACCESS*'}\n\n` +
-          `${ownerOnly ? 
-            'Only you (owner) can control auto-recording now.\n' +
-            'All other users will be blocked.' : 
-            'Public mode enabled!\n' +
-            'Anyone can use auto-recording commands now.\n\n' +
-            '⚠️ *Warning:* This may allow spam!'}\n\n` +
-          `⚙️ *User Management:*\n` +
-          `• \`${PREFIX}autorecording users add @user\`\n` +
-          `• \`${PREFIX}autorecording users list\`\n` +
-          `• \`${PREFIX}autorecording users remove @user\``
-        );
+        await sock.sendMessage(targetJid, {
+          text: `🔧 *Recording Mode Changed*
+
+Mode: ${ownerOnly ? '🔒 *OWNER ONLY*' : '🌍 *PUBLIC*'}
+
+${ownerOnly ? 
+  'Only you (owner) can control auto-recording now.' : 
+  'Anyone can use auto-recording commands now.\n\n⚠️ *Warning:* Public mode may allow others to spam recording.'
+}
+
+├◆ *${PREFIX}autorecording users add @user*
+├◆ *${PREFIX}autorecording users list*
+└─⧭`
+        }, { quoted: m });
         return;
       }
       
       // User management
-      if (arg === 'users' || arg === 'user' || arg === 'allow' || arg === 'permit') {
+      if (arg === 'users' || arg === 'user' || arg === 'allow') {
         const subCmd = args[1]?.toLowerCase();
         
         if (!subCmd || subCmd === 'list') {
           const allowedUsers = AutoRecordingManager.getAllowedUsers();
-          let userList = `👥 *Allowed Users* 🦊 (${allowedUsers.length})\n\n`;
+          let userList = `👥 *Allowed Users* (${allowedUsers.length})\n\n`;
           
           if (allowedUsers.length === 0) {
-            userList += `No additional users allowed.\n`;
-            userList += `Only you (owner) can use this command.\n`;
+            userList += `No users added yet.\n`;
           } else {
             allowedUsers.forEach((user, index) => {
-              const cleanUser = user.split('@')[0];
-              userList += `${index + 1}. ${cleanUser}\n`;
+              userList += `${index + 1}. ${user}\n`;
             });
           }
           
-          userList += `\n🔧 *Commands:*\n`;
-          userList += `• \`${PREFIX}autorecording users add @user\`\n`;
-          userList += `• \`${PREFIX}autorecording users remove @user\`\n`;
-          userList += `• \`${PREFIX}autorecording users clear\``;
+          userList += `\n`;
+          userList += `├◆ *${PREFIX}autorecording users remove @user*\n`;
+          userList += `├◆ *${PREFIX}autorecording users clear*\n`;
+          userList += `└─⧭`;
           
-          return await sendMessage(userList);
+          return sock.sendMessage(targetJid, {
+            text: userList
+          }, { quoted: m });
         }
         
         if (subCmd === 'add' && args[2]) {
           const userToAdd = args[2].replace('@', '') + '@s.whatsapp.net';
           AutoRecordingManager.addAllowedUser(userToAdd);
           
-          const cleanUser = userToAdd.split('@')[0];
-          
-          await sendMessage(
-            `✅ *User Added* 🦊\n\n` +
-            `Added ${cleanUser} to allowed users list.\n\n` +
-            `They can now use auto-recording commands when in public mode.\n` +
-            `Current mode: ${autoRecordingConfig.ownerOnly ? '🔒 Owner Only' : '🌍 Public'}`
-          );
+          await sock.sendMessage(targetJid, {
+            text: `✅ *User Added*\n\nAdded ${userToAdd} to allowed users list.\n\nThey can now use auto-recording commands.`
+          }, { quoted: m });
           return;
         }
         
@@ -537,36 +510,25 @@ export default {
           const userToRemove = args[2].replace('@', '') + '@s.whatsapp.net';
           AutoRecordingManager.removeAllowedUser(userToRemove);
           
-          const cleanUser = userToRemove.split('@')[0];
-          
-          await sendMessage(
-            `✅ *User Removed* 🦊\n\n` +
-            `Removed ${cleanUser} from allowed users list.\n\n` +
-            `They can no longer use auto-recording commands.`
-          );
+          await sock.sendMessage(targetJid, {
+            text: `✅ *User Removed*\n\nRemoved ${userToRemove} from allowed users list.`
+          }, { quoted: m });
           return;
         }
         
         if (subCmd === 'clear') {
           autoRecordingConfig.allowedUsers.clear();
           
-          await sendMessage(
-            `✅ *Users Cleared* 🦊\n\n` +
-            `All allowed users have been removed.\n` +
-            `Only you (owner) can use auto-recording commands now.`
-          );
+          await sock.sendMessage(targetJid, {
+            text: `✅ *Users Cleared*\n\nAll allowed users have been removed.`
+          }, { quoted: m });
           return;
         }
         
         // Invalid user command
-        await sendMessage(
-          `❓ *Invalid User Command*\n\n` +
-          `*Usage:*\n` +
-          `• \`${PREFIX}autorecording users list\`\n` +
-          `• \`${PREFIX}autorecording users add @user\`\n` +
-          `• \`${PREFIX}autorecording users remove @user\`\n` +
-          `• \`${PREFIX}autorecording users clear\``
-        );
+        await sock.sendMessage(targetJid, {
+          text: `┌─⧭ ❓ *RECORDING USERS* \n├◆ Usage: *${PREFIX}autorecording [on/off/duration/status/mode/users]*\n├◆ Toggle auto fake recording when someone messages you 🎤\n└─⧭`
+        }, { quoted: m });
         return;
       }
       
@@ -575,93 +537,68 @@ export default {
       if (!isNaN(duration) && duration >= 1 && duration <= 120) {
         const success = AutoRecordingManager.setDuration(duration);
         if (success) {
-          await sendMessage(
-            `✅ *Duration Updated* 🦊\n\n` +
-            `Recording duration set to ${duration} seconds.\n\n` +
-            `${AutoRecordingManager.status().enabled ? '🎤 Foxy is currently **AUTO RECORDING**' : '💤 Foxy is **SILENT** (not recording)'}\n` +
-            `• Mode: ${AutoRecordingManager.status().ownerOnly ? '🔒 Owner Only' : '🌍 Public'}\n` +
-            `• Active Chats: ${AutoRecordingManager.status().activeSessions}`
-          );
+          await sock.sendMessage(targetJid, {
+            text: `✅ *Duration Updated*
+
+Recording duration set to ${duration} seconds.
+
+${AutoRecordingManager.status().enabled ? '🎙️ Auto-recording is currently **ACTIVE**' : '💤 Auto-recording is **INACTIVE**'}
+• Mode: ${AutoRecordingManager.status().ownerOnly ? '🔒 Owner Only' : '🌍 Public'}
+• Active Chats: ${AutoRecordingManager.status().activeSessions}`
+          }, { quoted: m });
         } else {
-          await sendMessage(
-            `❌ *Invalid Duration* 🦊\n\n` +
-            `Please use a number between 1 and 120 seconds.\n\n` +
-            `*Maximum recording time:* 2 minutes (120 seconds)\n` +
-            `*Recommended:* 5-30 seconds\n` +
-            `*Current setting:* ${autoRecordingConfig.duration}s`
-          );
+          await sock.sendMessage(targetJid, {
+            text: `❌ *Invalid Duration*
+
+Please use a number between 1 and 120 seconds.
+
+Maximum recording time is 2 minutes (120 seconds).`
+          }, { quoted: m });
         }
         return;
       }
       
       // Manual recording command
-      if (arg === 'test' || arg === 'demo' || arg === 'manual' || arg === 'now') {
+      if (arg === 'manual' || arg === 'now') {
         const manualDuration = args[1] ? parseInt(args[1]) : autoRecordingConfig.duration;
         
-        if (isNaN(manualDuration) || manualDuration < 1 || manualDuration > 120) {
-          await sendMessage(
-            `❌ *Invalid Duration* 🦊\n\n` +
-            `Please use a number between 1 and 120 seconds.\n\n` +
-            `Usage: \`${PREFIX}autorecording test 15\``
-          );
+        if (isNaN(manualDuration) || manualDuration < 1 || manualDuration > 300) {
+          await sock.sendMessage(targetJid, {
+            text: `┌─⧭ ❌ *INVALID DURATION* \n├◆ Usage: *${PREFIX}autorecording [on/off/duration/status/mode/users]*\n├◆ Toggle auto fake recording when someone messages you 🎤\n└─⧭`
+          }, { quoted: m });
           return;
         }
         
-        await sendMessage(
-          `🎤 *Starting Recording Test...* 🦊\n\n` +
-          `Foxy will show recording for ${manualDuration} seconds...`
-        );
+        // Send initial message
+        await sock.sendMessage(targetJid, {
+          text: `🎤 *Manual Recording Simulation*
+
+I'll show 'recording...' for ${manualDuration} seconds!`
+        }, { quoted: m });
         
         // Do manual recording
-        await AutoRecordingManager.manualRecording(sock, chatId, manualDuration, m);
-        
-        return;
-      }
-      
-      // Help command
-      if (arg === 'help' || arg === 'cmd' || arg === 'guide') {
-        await sendMessage(
-          `📖 *FOXY AUTO RECORDING HELP* 🦊🎤\n\n` +
-          `*Basic Commands:*\n` +
-          `• \`${PREFIX}autorecording\` - Show status\n` +
-          `• \`${PREFIX}autorecording on\` - Enable auto recording\n` +
-          `• \`${PREFIX}autorecording off\` - Disable auto recording\n` +
-          `• \`${PREFIX}autorecording 30\` - Set duration to 30s\n\n` +
-          `*Advanced Control:*\n` +
-          `• \`${PREFIX}autorecording mode\` - Toggle owner-only/public mode\n` +
-          `• \`${PREFIX}autorecording status\` - Detailed status info\n` +
-          `• \`${PREFIX}autorecording test 15\` - Test recording for 15s\n\n` +
-          `*User Management:*\n` +
-          `• \`${PREFIX}autorecording users list\` - Show allowed users\n` +
-          `• \`${PREFIX}autorecording users add @user\` - Allow user\n` +
-          `• \`${PREFIX}autorecording users remove @user\` - Remove user\n\n` +
-          `*Examples:*\n` +
-          `\`${PREFIX}autorecording on\`\n` +
-          `\`${PREFIX}autorecording 15\`\n` +
-          `\`${PREFIX}autorecording status\`\n\n` +
-          `⚠️ *Note:* Recording indicators can show in multiple chats!`
-        );
+        await AutoRecordingManager.manualRecording(sock, targetJid, manualDuration, m);
         return;
       }
       
       // If no valid command, show help
-      await sendMessage(
-        `❓ *Invalid Command* 🦊\n\n` +
-        `*Available commands:*\n` +
-        `• \`${PREFIX}autorecording on/off\`\n` +
-        `• \`${PREFIX}autorecording <1-120>\` (set duration)\n` +
-        `• \`${PREFIX}autorecording status\`\n` +
-        `• \`${PREFIX}autorecording help\`\n\n` +
-        `Type \`${PREFIX}autorecording help\` for full command list.`
-      );
+      await sock.sendMessage(targetJid, {
+        text: `┌─⧭ 🎤 *AUTO-RECORDING* 
+├◆ *${PREFIX}autorecording on*
+├◆ *${PREFIX}autorecording off*
+├◆ *${PREFIX}autorecording <1-120>*
+├◆ *${PREFIX}autorecording mode*
+├◆ *${PREFIX}autorecording users*
+├◆ *${PREFIX}autorecording status*
+├◆ *${PREFIX}autorecording manual 10*
+└─⧭`
+      }, { quoted: m });
       
     } catch (err) {
       console.error("AutoRecording command error:", err);
-      await sendMessage(
-        `❌ *Command Failed* 🦊\n\n` +
-        `Error: ${err.message}\n` +
-        `Try again or check the command syntax.`
-      );
+      await sock.sendMessage(m.key.remoteJid, {
+        text: `❌ AutoRecording command failed: ${err.message}`
+      }, { quoted: m });
     }
   }
 };

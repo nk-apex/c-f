@@ -1,53 +1,163 @@
 export default {
-    name: 'listonline',
-    alias: ['whoonline', 'onlinelist'],
-    category: 'group',
-    description: 'List group member and admin count',
-    ownerOnly: false,
+  name: 'listonline',
+  aliases: ['whoonline', 'onlinelist', 'activeusers'],
+  description: 'Detect online/active members in a group',
+  category: 'group',
+  async execute(sock, msg, args, PREFIX, extra) {
+    const jid = msg.key.remoteJid;
 
-    async execute(sock, msg, args, PREFIX, extra) {
-        const jid = msg.key.remoteJid;
-        if (!jid.endsWith('@g.us')) {
-            return sock.sendMessage(jid, { text: '┌─⧭ GROUP ONLY ⧭─┐\n├◆ This command works in groups only.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
-        }
-
-        try {
-            const metadata = await sock.groupMetadata(jid);
-            const participants = metadata.participants || [];
-            const admins = participants.filter(p => p.admin === 'admin' || p.admin === 'superadmin');
-            const members = participants.filter(p => !p.admin);
-
-            let text = '┌─⧭ GROUP STATUS ⧭─┐\n';
-            text += `├◆ Group: ${metadata.subject}\n`;
-            text += '\n';
-            text += `├◆ Total Members: ${participants.length}\n`;
-            text += `├◆ Admins: ${admins.length}\n`;
-            text += `├◆ Regular Members: ${members.length}\n`;
-            text += '\n';
-            text += '├◆ Note: Real-time online status\n';
-            text += '├◆ detection is not available via\n';
-            text += '├◆ the WhatsApp Web API.\n';
-            text += '\n';
-            text += '├◆ Showing all participants:\n';
-
-            const displayList = participants.slice(0, 30);
-            displayList.forEach((p, i) => {
-                const role = p.admin === 'superadmin' ? ' [Owner]' : p.admin === 'admin' ? ' [Admin]' : '';
-                text += `├◆ ${i + 1}. @${p.id.split('@')[0]}${role}\n`;
-            });
-
-            if (participants.length > 30) {
-                text += `├◆ ... and ${participants.length - 30} more\n`;
-            }
-
-            text += '└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘';
-
-            await sock.sendMessage(jid, {
-                text,
-                mentions: displayList.map(p => p.id)
-            }, { quoted: msg });
-        } catch (error) {
-            await sock.sendMessage(jid, { text: '┌─⧭ ERROR ⧭─┐\n├◆ Failed to fetch group info.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
-        }
+    if (!jid.endsWith('@g.us')) {
+      return sock.sendMessage(jid, { text: '❌ Group only.' }, { quoted: msg });
     }
+
+    try { await sock.sendMessage(jid, { react: { text: '⏳', key: msg.key } }); } catch {}
+
+    try {
+      const group = await sock.groupMetadata(jid);
+      const groupName = group.subject || 'Group';
+      const botJid = sock.user?.id?.split(':')[0] + '@s.whatsapp.net';
+
+      const presenceResults = new Map();
+      const scanDuration = 10000;
+
+      const presenceHandler = (json) => {
+        if (!json || !json.id) return;
+
+        const chatJid = json.id;
+        if (chatJid !== jid) return;
+
+        if (json.presences) {
+          for (const [participantJid, data] of Object.entries(json.presences)) {
+            if (data?.lastKnownPresence && participantJid !== botJid) {
+              presenceResults.set(participantJid, {
+                presence: data.lastKnownPresence,
+                timestamp: Date.now()
+              });
+            }
+          }
+        }
+      };
+
+      sock.ev.on('presence.update', presenceHandler);
+
+      try { await sock.presenceSubscribe(jid); } catch {}
+
+      const batchSize = 30;
+      const members = group.participants.filter(p => p.id !== botJid);
+      for (let i = 0; i < Math.min(members.length, 100); i += batchSize) {
+        const batch = members.slice(i, i + batchSize);
+        await Promise.allSettled(
+          batch.map(p => sock.presenceSubscribe(p.id).catch(() => {}))
+        );
+        await new Promise(resolve => setTimeout(resolve, 500));
+      }
+
+      await sock.sendPresenceUpdate('composing', jid);
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      await sock.sendPresenceUpdate('paused', jid);
+
+      await new Promise(resolve => setTimeout(resolve, scanDuration - 2000));
+
+      sock.ev.off('presence.update', presenceHandler);
+
+      const onlineMembers = [];
+      const typingMembers = [];
+      const recordingMembers = [];
+
+      for (const [participantId, data] of presenceResults) {
+        const normalized = participantId.split(':')[0].split('@')[0];
+        const participant = group.participants.find(p =>
+          p.id.split(':')[0].split('@')[0] === normalized
+        );
+
+        const phone = normalized;
+        const memberInfo = {
+          id: participant?.id || participantId,
+          phone,
+          isAdmin: !!participant?.admin,
+          presence: data.presence
+        };
+
+        if (data.presence === 'available') {
+          onlineMembers.push(memberInfo);
+        } else if (data.presence === 'composing') {
+          typingMembers.push(memberInfo);
+        } else if (data.presence === 'recording') {
+          recordingMembers.push(memberInfo);
+        }
+      }
+
+      const allActive = [...onlineMembers, ...typingMembers, ...recordingMembers];
+
+      if (allActive.length === 0) {
+        await sock.sendMessage(jid, {
+          text:
+            `┌─⧭ \`${groupName}\` \n` +
+            `├◆ 🔍 *Online Scan Complete*\n` +
+            `├◆ No online members detected.\n` +
+            `├◆ ✧ *Scanned:* ${members.length} members\n` +
+            `├◆ ✧ *Duration:* ${scanDuration / 1000}s\n` +
+            `├◆ 💡 Most members have privacy\n` +
+            `├◆ settings hiding their status.\n` +
+            `├◆ *Related:*\n` +
+            `├◆ • \`${PREFIX}listinactive\` - Find inactive members\n` +
+            `├◆ • \`${PREFIX}tagall\` - Tag everyone\n` +
+            `└─⧭`
+        }, { quoted: msg });
+        try { await sock.sendMessage(jid, { react: { text: '😴', key: msg.key } }); } catch {}
+        return;
+      }
+
+      let message =
+        `┌─⧭ \`${groupName}\` \n` +
+        `├◆ 🟢 *Online:* ${allActive.length}/${members.length}\n` +
+        ``;
+
+      if (onlineMembers.length > 0) {
+        message += `├◆ *📱 Online*\n`;
+        onlineMembers.forEach((member) => {
+          const icon = member.isAdmin ? '👑' : '👤';
+          message += `├◆  • ${icon} @${member.phone}\n`;
+        });
+      }
+
+      if (typingMembers.length > 0) {
+        message += `├◆ *⌨️ Typing*\n`;
+        typingMembers.forEach((member) => {
+          const icon = member.isAdmin ? '👑' : '👤';
+          message += `├◆  • ${icon} @${member.phone}\n`;
+        });
+      }
+
+      if (recordingMembers.length > 0) {
+        message += `├◆ *🎙️ Recording*\n`;
+        recordingMembers.forEach((member) => {
+          const icon = member.isAdmin ? '👑' : '👤';
+          message += `├◆  • ${icon} @${member.phone}\n`;
+        });
+      }
+
+      message +=
+        `├◆ *Related:*\n` +
+        `├◆ • \`${PREFIX}listinactive\` - Find inactive members\n` +
+        `├◆ • \`${PREFIX}tagall\` - Tag everyone\n` +
+        `└─⧭`;
+
+      const mentions = allActive.map(m => m.id);
+
+      await sock.sendMessage(jid, {
+        text: message,
+        mentions
+      }, { quoted: msg });
+
+      try { await sock.sendMessage(jid, { react: { text: '✅', key: msg.key } }); } catch {}
+
+    } catch (error) {
+      console.error('ListOnline error:', error);
+      await sock.sendMessage(jid, {
+        text: `❌ *Online scan failed*\n\n${error.message}`
+      }, { quoted: msg });
+      try { await sock.sendMessage(jid, { react: { text: '❌', key: msg.key } }); } catch {}
+    }
+  }
 };
