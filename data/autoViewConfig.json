@@ -124,15 +124,27 @@
     {
       "sender": "101941652758725",
       "timestamp": 1773153516682
+    },
+    {
+      "sender": "20388931211367",
+      "timestamp": 1773153552026
+    },
+    {
+      "sender": "195253743132878",
+      "timestamp": 1773153580779
+    },
+    {
+      "sender": "195253743132878",
+      "timestamp": 1773153602076
     }
   ],
-  "totalViewed": 31,
+  "totalViewed": 34,
   "lastViewed": {
-    "sender": "101941652758725",
-    "timestamp": 1773153516682
+    "sender": "195253743132878",
+    "timestamp": 1773153602076
   },
-  "consecutiveViews": 1,
-  "lastSender": "101941652758725",
+  "consecutiveViews": 2,
+  "lastSender": "195253743132878",
   "settings": {
     "rateLimitDelay": 1000,
     "viewToAll": true,

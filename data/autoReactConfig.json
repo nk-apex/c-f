@@ -193,17 +193,35 @@
       "reaction": "🦊",
       "statusId": "A506DEC5A47EB1F6417D9A95E9F7D48D",
       "timestamp": 1773153439740
+    },
+    {
+      "sender": "20388931211367",
+      "reaction": "🦊",
+      "statusId": "A57D47C1586D29B4D6B73C7E25ED821F",
+      "timestamp": 1773153552158
+    },
+    {
+      "sender": "195253743132878",
+      "reaction": "🦊",
+      "statusId": "ACCFC02F04A20F1F3D97E545D4A843A8",
+      "timestamp": 1773153580901
+    },
+    {
+      "sender": "195253743132878",
+      "reaction": "🦊",
+      "statusId": "AC9D4EDA5DA382626475387CD1D7AD5E",
+      "timestamp": 1773153602154
     }
   ],
-  "totalReacted": 29,
+  "totalReacted": 32,
   "lastReacted": {
-    "sender": "25701654761608",
+    "sender": "195253743132878",
     "reaction": "🦊",
-    "statusId": "A506DEC5A47EB1F6417D9A95E9F7D48D",
-    "timestamp": 1773153439740
+    "statusId": "AC9D4EDA5DA382626475387CD1D7AD5E",
+    "timestamp": 1773153602154
   },
-  "consecutiveReactions": 1,
-  "lastSender": "25701654761608",
+  "consecutiveReactions": 2,
+  "lastSender": "195253743132878",
   "settings": {
     "rateLimitDelay": 500,
     "reactToAll": true,
@@ -239,9 +257,12 @@
     "71748083040425@lid|A5A9DA521E8640852C8C0CA88DB89BD1|1773153246301",
     "195253743132878@lid|ACD189948AD769AA4D971FF4E564758A|1773153376480",
     "13667307368474@lid|AC7093E048892B973B8C5125BA8163E4|1773153388409",
-    "25701654761608@lid|A506DEC5A47EB1F6417D9A95E9F7D48D|1773153439740"
+    "25701654761608@lid|A506DEC5A47EB1F6417D9A95E9F7D48D|1773153439740",
+    "20388931211367@lid|A57D47C1586D29B4D6B73C7E25ED821F|1773153552158",
+    "195253743132878@lid|ACCFC02F04A20F1F3D97E545D4A843A8|1773153580901",
+    "195253743132878@lid|AC9D4EDA5DA382626475387CD1D7AD5E|1773153602153"
   ],
-  "lastReactionTime": 1773153439740,
+  "lastReactionTime": 1773153602153,
   "viewMode": "view+react",
   "excludedContacts": []
 }
