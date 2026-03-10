@@ -1,10 +1,3 @@
-function formatUptime(seconds) {
-    const h = Math.floor(seconds / 3600);
-    const m = Math.floor((seconds % 3600) / 60);
-    const s = Math.floor(seconds % 60);
-    return `${h}h ${m}m ${s}s`;
-}
-
 export default {
     name: 'ping',
     alias: ['pong', 'speed', 'latency'],
@@ -19,10 +12,9 @@ export default {
         }, { quoted: msg });
 
         const latency = Date.now() - start;
-        const uptime = formatUptime(Math.floor(process.uptime()));
 
         await sock.sendMessage(msg.key.remoteJid, {
-            text: `┌─⧭ FOXY Speed: ${latency}ms\n├◆ FOXY Uptime: ${uptime}\n└─⧭`,
+            text: `┌─⧭ FOXY Speed: ${latency}ms\n└─⧭`,
             edit: sentMsg.key
         });
     }
