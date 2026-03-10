@@ -2,8 +2,8 @@ import moment from 'moment-timezone';
 import { getBotName } from '../../lib/botname.js';
 
 export default {
-  name: 'uptime',
-  aliases: ['up', 'runtime', 'online'],
+  name: 'uptimefx',
+  aliases: ['uptimefx'],
   description: 'Check how long the bot has been running',
   category: 'utility',
 

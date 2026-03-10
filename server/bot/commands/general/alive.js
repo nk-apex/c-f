@@ -1,3 +1,15 @@
+function formatUptime(seconds) {
+  const d = Math.floor(seconds / 86400);
+  const h = Math.floor((seconds % 86400) / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
+  const s = Math.floor(seconds % 60);
+  let str = '';
+  if (d > 0) str += `${d}d `;
+  if (h > 0) str += `${h}h `;
+  str += `${m}m ${s}s`;
+  return str.trim();
+}
+
 export default {
   name: "alive",
   alias: ["bot", "isalive"],
@@ -8,27 +20,14 @@ export default {
   async execute(sock, m, args, PREFIX, extra) {
     const chatId = m.key.remoteJid;
 
-    const start = Date.now();
-
     const sentMsg = await sock.sendMessage(chatId, {
-      text: `\u250C\u2500\u29ED *Checking...*\n\u251C\u25C6 Testing connection...\n\u2514\u2500\u29ED`
+      text: `┌─⧭ *Checking...*\n├◆ Testing connection...\n└─⧭`
     }, { quoted: m });
 
-    const latency = Date.now() - start;
-
-    const uptime = process.uptime();
-    const days = Math.floor(uptime / 86400);
-    const hours = Math.floor((uptime % 86400) / 3600);
-    const minutes = Math.floor((uptime % 3600) / 60);
-    const seconds = Math.floor(uptime % 60);
-
-    let uptimeStr = '';
-    if (days > 0) uptimeStr += `${days}d `;
-    if (hours > 0) uptimeStr += `${hours}h `;
-    uptimeStr += `${minutes}m ${seconds}s`;
+    const uptime = formatUptime(Math.floor(process.uptime()));
 
     await sock.sendMessage(chatId, {
-      text: `\u250C\u2500\u29ED *FOX BOT is Alive*\n\u251C\u25C6 Status: Running\n\u251C\u25C6 Uptime: ${uptimeStr}\n\u251C\u25C6 Speed: ${latency}ms\n\u2514\u2500\u29ED`,
+      text: `┌─⧭ FOXY Alive ✓\n├◆ FOXY Uptime: ${uptime}\n└─⧭`,
       edit: sentMsg.key
     });
   }

@@ -2,7 +2,7 @@ import moment from 'moment-timezone';
 import { getBotName } from '../../lib/botname.js';
 
 export default {
-  name: 'alive',
+  name: 'alivefx',
   description: 'Check if bot is running',
   category: 'utility',
 
