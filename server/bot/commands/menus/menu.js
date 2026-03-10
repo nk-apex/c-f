@@ -7,7 +7,7 @@ import axios from 'axios';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const MENU_IMAGE_URL = 'https://i.ibb.co/b5Jx5Trp/63a1f423d038.jpg';
+const MENU_IMAGE_URL = 'https://i.ibb.co/PGYDVrqk/7aa433284119.jpg';
 
 function getCurrentDateTime() {
     const now = new Date();

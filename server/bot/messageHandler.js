@@ -178,6 +178,10 @@ export function setupMessageHandler(logger) {
         commands: commandLoader.getCommandsMap(),
       };
 
+      const chatType = msg.key.remoteJid?.endsWith("@g.us") ? "GROUP" : "DM";
+      const senderNum = (msg.key.participant || msg.key.remoteJid || "").split("@")[0].split(":")[0];
+      console.log(`⚡ [CMD] ${config.prefix}${cmdName}${args.length ? " " + args.join(" ") : ""} | From: ${senderNum} | ${chatType}`);
+
       try {
         await command.execute(sock, msg, args, config.prefix, extra);
         botConnection.incrementSent();

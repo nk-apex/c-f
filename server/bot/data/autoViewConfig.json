@@ -1,9 +1,9 @@
 {
   "enabled": true,
-  "totalViewed": 42,
+  "totalViewed": 55,
   "lastViewed": {
-    "sender": "254752589553",
-    "timestamp": 1771711078140
+    "sender": "254112191253",
+    "timestamp": 1773148268570
   },
   "settings": {
     "rateLimitDelay": 1000

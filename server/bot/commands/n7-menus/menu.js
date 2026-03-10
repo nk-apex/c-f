@@ -89,7 +89,8 @@ export function invalidateMenuImageCache() {
 }
 
 export default {
-  name: "menu",
+  name: "n7menu",
+  alias: ["wolfmenu"],
   description: "Shows the Wolf Command Center in various styles",
   async execute(sock, m, args) {
     const jid = m.key.remoteJid;
