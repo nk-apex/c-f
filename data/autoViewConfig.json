@@ -300,15 +300,39 @@
     {
       "sender": "101941652758725",
       "timestamp": 1773155517130
+    },
+    {
+      "sender": "210776073724109",
+      "timestamp": 1773155915937
+    },
+    {
+      "sender": "167018812719125",
+      "timestamp": 1773155984385
+    },
+    {
+      "sender": "243366352691221",
+      "timestamp": 1773156089362
+    },
+    {
+      "sender": "187428698587139",
+      "timestamp": 1773156123071
+    },
+    {
+      "sender": "187428698587139",
+      "timestamp": 1773156129655
+    },
+    {
+      "sender": "219203000889351",
+      "timestamp": 1773156154470
     }
   ],
-  "totalViewed": 75,
+  "totalViewed": 81,
   "lastViewed": {
-    "sender": "101941652758725",
-    "timestamp": 1773155517130
+    "sender": "219203000889351",
+    "timestamp": 1773156154470
   },
   "consecutiveViews": 1,
-  "lastSender": "101941652758725",
+  "lastSender": "219203000889351",
   "settings": {
     "rateLimitDelay": 1000,
     "viewToAll": true,
