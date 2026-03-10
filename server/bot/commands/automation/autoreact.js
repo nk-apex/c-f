@@ -425,14 +425,14 @@ export default {
         
         let statusMsg = `🦊 *FOXY AUTO REACT STATUS*\n\n`;
         statusMsg += `*System Status:*\n`;
-        statusMsg += `├─ Enabled: ${status.enabled ? '✅ YES 🦊' : '❌ NO (Default OFF)'}\n`;
-        statusMsg += `├─ Current Emoji: ${status.emoji}\n`;
-        statusMsg += `├─ React to DMs: ${status.reactToDMs ? '✅ YES' : '❌ NO'}\n`;
-        statusMsg += `├─ React to Groups: ${status.reactToGroups ? '✅ YES' : '❌ NO'}\n`;
-        statusMsg += `├─ React to Commands: ${status.reactToCommands ? '✅ YES' : '❌ NO'}\n`;
-        statusMsg += `├─ Active Reactions: ${status.activeReactions}\n`;
-        statusMsg += `├─ Rate Limit: ${status.rateLimit}\n`;
-        statusMsg += `├─ User Cooldowns: ${status.userCooldowns}\n`;
+        statusMsg += `├◆ Enabled: ${status.enabled ? '✅ YES 🦊' : '❌ NO (Default OFF)'}\n`;
+        statusMsg += `├◆ Current Emoji: ${status.emoji}\n`;
+        statusMsg += `├◆ React to DMs: ${status.reactToDMs ? '✅ YES' : '❌ NO'}\n`;
+        statusMsg += `├◆ React to Groups: ${status.reactToGroups ? '✅ YES' : '❌ NO'}\n`;
+        statusMsg += `├◆ React to Commands: ${status.reactToCommands ? '✅ YES' : '❌ NO'}\n`;
+        statusMsg += `├◆ Active Reactions: ${status.activeReactions}\n`;
+        statusMsg += `├◆ Rate Limit: ${status.rateLimit}\n`;
+        statusMsg += `├◆ User Cooldowns: ${status.userCooldowns}\n`;
         statusMsg += `└─ System Hooked: ${status.isHooked ? '✅' : '❌'}\n\n`;
         
         statusMsg += `⚙️ *Default Settings:*\n`;

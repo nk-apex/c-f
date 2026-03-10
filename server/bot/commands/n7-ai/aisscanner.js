@@ -1029,7 +1029,7 @@ export default {
     // Help section
     if (args.length === 0 || args[0].toLowerCase() === 'help') {
       return sock.sendMessage(jid, {
-        text: `╭─⌈ 🔬 *AI SCANNER* ⌋\n├─⊷ *${PREFIX}aiscanner <text>*\n├◆  └⊷ Detect AI-generated text\n├─⊷ Reply to message with *${PREFIX}aiscanner*\n├◆  └⊷ Scan quoted text\n╰───`
+        text: `┌─⧭ 🔬 *AI SCANNER* \n├◆ *${PREFIX}aiscanner <text>*\n├◆  └⊷ Detect AI-generated text\n├◆ Reply to message with *${PREFIX}aiscanner*\n├◆  └⊷ Scan quoted text\n└─⧭`
       }, { quoted: m });
     }
 
@@ -1048,7 +1048,7 @@ export default {
 
     if (!text || text.length < 20) {
       return sock.sendMessage(jid, {
-        text: `╭─⌈ ❌ *TEXT TOO SHORT* ⌋\n├─⊷ Provide at least 20 characters\n├─⊷ 50+ recommended for accuracy\n╰───`
+        text: `┌─⧭ ❌ *TEXT TOO SHORT* \n├◆ Provide at least 20 characters\n├◆ 50+ recommended for accuracy\n└─⧭`
       }, { quoted: m });
     }
 

@@ -10,8 +10,7 @@ export default {
   async execute(sock, m, args, PREFIX) {
     const jid = m.key.remoteJid;
 
-    const commandsText = `╭─⊷ *🔄 MEDIA CONVERSION*
-│
+    const commandsText = `┌─⧭⊷ *🔄 MEDIA CONVERSION*
 ├◆  • toimage
 ├◆  • tosticker
 ├◆  • toaudio
@@ -21,8 +20,7 @@ export default {
 ├◆  • bass
 ├◆  • trebleboost
 ├◆  • jarvis
-│
-╰─⊷`;
+└─⧭⊷`;
 
     await sendSubMenu(sock, jid, '🔄 MEDIA CONVERSION MENU', commandsText, m, PREFIX);
   }

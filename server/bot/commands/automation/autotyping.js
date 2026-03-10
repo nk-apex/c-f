@@ -389,12 +389,12 @@ export default {
         
         let statusMsg = `🦊 *Foxy Auto Typing Status*\n\n`;
         statusMsg += `📊 *System Status:*\n`;
-        statusMsg += `├─ Enabled: ${status.enabled ? '✅ YES 🦊' : '❌ NO'}\n`;
-        statusMsg += `├─ Duration: ${status.duration} seconds\n`;
-        statusMsg += `├─ Auto Reply: ${status.autoReply ? '✅ ON' : '❌ OFF'}\n`;
-        statusMsg += `├─ Mode: ${status.ownerOnly ? '🔒 Owner Only' : '🌍 Public'}\n`;
-        statusMsg += `├─ Active Chats: ${status.activeSessions}\n`;
-        statusMsg += `├─ Total Users Typing: ${status.totalUsersTyping}\n`;
+        statusMsg += `├◆ Enabled: ${status.enabled ? '✅ YES 🦊' : '❌ NO'}\n`;
+        statusMsg += `├◆ Duration: ${status.duration} seconds\n`;
+        statusMsg += `├◆ Auto Reply: ${status.autoReply ? '✅ ON' : '❌ OFF'}\n`;
+        statusMsg += `├◆ Mode: ${status.ownerOnly ? '🔒 Owner Only' : '🌍 Public'}\n`;
+        statusMsg += `├◆ Active Chats: ${status.activeSessions}\n`;
+        statusMsg += `├◆ Total Users Typing: ${status.totalUsersTyping}\n`;
         statusMsg += `└─ System Hooked: ${status.isHooked ? '✅' : '❌'}\n\n`;
         
         if (allowedUsers.length > 0 && !status.ownerOnly) {
@@ -411,9 +411,9 @@ export default {
           autoTypingConfig.activeTypers.forEach((data, chatJid) => {
             const elapsed = Math.floor((Date.now() - data.startTime) / 1000);
             const remaining = Math.max(0, status.duration - elapsed);
-            statusMsg += `├─ ${chatJid.includes('@g.us') ? '👥 Group' : '👤 DM'}\n`;
-            statusMsg += `│  ├─ Users: ${data.userCount}\n`;
-            statusMsg += `│  ├─ Elapsed: ${elapsed}s\n`;
+            statusMsg += `├◆ ${chatJid.includes('@g.us') ? '👥 Group' : '👤 DM'}\n`;
+            statusMsg += `│  ├◆ Users: ${data.userCount}\n`;
+            statusMsg += `│  ├◆ Elapsed: ${elapsed}s\n`;
             statusMsg += `│  └─ Remaining: ${remaining}s\n`;
           });
         }

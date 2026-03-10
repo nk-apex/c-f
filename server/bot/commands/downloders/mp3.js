@@ -20,7 +20,7 @@ export default {
       if (!q) {
         await react("❓");
         await sock.sendMessage(chatId, {
-          text: `┌─⧭ MP3\n│\n├◆ Usage: ${PREFIX}mp3 <song name or URL>\n├◆ Example: ${PREFIX}mp3 Blinding Lights\n└─────────────────────`
+          text: `┌─⧭ MP3\n├◆ Usage: ${PREFIX}mp3 <song name or URL>\n├◆ Example: ${PREFIX}mp3 Blinding Lights\n└─────────────────────`
         }, { quoted: m });
         return;
       }

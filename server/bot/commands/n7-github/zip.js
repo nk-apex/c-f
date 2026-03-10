@@ -72,7 +72,7 @@ export default {
                 fileName: `${repoName}.zip`,
                 mimetype: 'application/zip',
                 caption:
-                    `╭─⌈ 🐺 *WOLF BOT* ⌋\n` +
+                    `┌─⧭ 🐺 *WOLF BOT* \n` +
                     `│\n` +
                     `│ ✧ *Repo:* ${repoFullName}\n` +
                     `│ ✧ *Size:* ${sizeMB}MB\n` +
@@ -85,7 +85,7 @@ export default {
                     `│ • \`${PREFIX}gitclone user/repo\` - Clone any repo\n` +
                     `│ • \`${PREFIX}gitinfo user/repo\` - Repo details\n` +
                     `│\n` +
-                    `╰───────────────`
+                    `└─⧭`
             }, { quoted: m });
 
             setTimeout(() => {
@@ -99,14 +99,14 @@ export default {
 
             await sock.sendMessage(chatId, {
                 text:
-                    `╭─⌈ ❌ *ZIP FAILED* ⌋\n` +
+                    `┌─⧭ ❌ *ZIP FAILED* \n` +
                     `│\n` +
                     `│ ✧ *Error:* ${error.message}\n` +
                     `│\n` +
                     `│ 💡 Try again later or use:\n` +
                     `│ • \`${PREFIX}gitclone ${repoFullName}\`\n` +
                     `│\n` +
-                    `╰───────────────`
+                    `└─⧭`
             }, { quoted: m });
 
             try { await sock.sendMessage(chatId, { react: { text: '❌', key: m.key } }); } catch {}

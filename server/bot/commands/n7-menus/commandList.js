@@ -1,7 +1,6 @@
 export const getBoxStyleCommands = () => {
-  return `╭─⊷ *🏠 GROUP MANAGEMENT*
-│
-├─⊷ *🛡️ ADMIN & MODERATION*
+  return `┌─⧭⊷ *🏠 GROUP MANAGEMENT*
+├◆ *🛡️ ADMIN & MODERATION*
 ├◆  • add
 ├◆  • promote
 ├◆  • promoteall
@@ -21,8 +20,7 @@ export const getBoxStyleCommands = () => {
 ├◆  • creategroup
 ├◆  • leave
 ├◆  • ex
-│
-├─⊷ *🚫 AUTO-MODERATION*
+├◆ *🚫 AUTO-MODERATION*
 ├◆  • antilink
 ├◆  • antisticker
 ├◆  • antiimage
@@ -33,8 +31,7 @@ export const getBoxStyleCommands = () => {
 ├◆  • antigrouplink
 ├◆  • antidemote
 ├◆  • antipromote
-│
-├─⊷ *📊 GROUP INFO & TOOLS*
+├◆ *📊 GROUP INFO & TOOLS*
 ├◆  • groupinfo
 ├◆  • grouplink
 ├◆  • tagadmin
@@ -50,22 +47,18 @@ export const getBoxStyleCommands = () => {
 ├◆  • listinactive
 ├◆  • stickerpack
 ├◆  • online
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🎨 MENU COMMANDS*
-│
+┌─⧭⊷ *🎨 MENU COMMANDS*
 ├◆  • menu
 ├◆  • menustyle
 ├◆  • togglemenuinfo
 ├◆  • setmenuimage
 ├◆  • restoremenuimage
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *👑 OWNER CONTROLS*
-│
-├─⊷ *⚡ CORE MANAGEMENT*
+┌─⧭⊷ *👑 OWNER CONTROLS*
+├◆ *⚡ CORE MANAGEMENT*
 ├◆  • setbotname
 ├◆  • resetbotname
 ├◆  • checkbotname
@@ -89,8 +82,7 @@ export const getBoxStyleCommands = () => {
 ├◆  • platform
 ├◆  • disp
 ├◆  • shutdown
-│
-├─⊷ *🔄 SYSTEM & MAINTENANCE*
+├◆ *🔄 SYSTEM & MAINTENANCE*
 ├◆  • restart
 ├◆  • workingreload
 ├◆  • reloadenv
@@ -103,11 +95,9 @@ export const getBoxStyleCommands = () => {
 ├◆  • debugchat
 ├◆  • ultimatefix
 ├◆  • update
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *⚙️ AUTOMATION*
-│
+┌─⧭⊷ *⚙️ AUTOMATION*
 ├◆  • autoread
 ├◆  • autotyping
 ├◆  • autorecording
@@ -117,11 +107,9 @@ export const getBoxStyleCommands = () => {
 ├◆  • autobio
 ├◆  • autorec
 ├◆  • autojoin
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🎵 MUSIC & MEDIA*
-│
+┌─⧭⊷ *🎵 MUSIC & MEDIA*
 ├◆  • play
 ├◆  • song
 ├◆  • video
@@ -129,11 +117,9 @@ export const getBoxStyleCommands = () => {
 ├◆  • lyrics
 ├◆  • shazam
 ├◆  • spotify
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *⬇️ DOWNLOADERS*
-│
+┌─⧭⊷ *⬇️ DOWNLOADERS*
 ├◆  • ytmp3
 ├◆  • ytmp4
 ├◆  • ytv
@@ -148,12 +134,10 @@ export const getBoxStyleCommands = () => {
 ├◆  • tiktok
 ├◆  • tiksearch
 ├◆  • playlist
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🤖 AI COMMANDS*
-│
-├─⊷ *💬 AI CHAT*
+┌─⧭⊷ *🤖 AI COMMANDS*
+├◆ *💬 AI CHAT*
 ├◆  • gpt
 ├◆  • chatgpt
 ├◆  • chatbot
@@ -171,8 +155,7 @@ export const getBoxStyleCommands = () => {
 ├◆  • deepseek+
 ├◆  • ilama
 ├◆  • qwenai
-│
-├─⊷ *🛠️ AI TOOLS*
+├◆ *🛠️ AI TOOLS*
 ├◆  • analyze
 ├◆  • aiscanner
 ├◆  • humanizer
@@ -182,8 +165,7 @@ export const getBoxStyleCommands = () => {
 ├◆  • flux
 ├◆  • removebg
 ├◆  • aimenu
-│
-├─⊷ *🖼️ IMAGE GEN*
+├◆ *🖼️ IMAGE GEN*
 ├◆  • imagine
 ├◆  • imagegen
 ├◆  • image
@@ -192,24 +174,20 @@ export const getBoxStyleCommands = () => {
 ├◆  • real
 ├◆  • remini
 ├◆  • vision
-│
-├─⊷ *🏷️ LOGO AI*
+├◆ *🏷️ LOGO AI*
 ├◆  • logoai
 ├◆  • brandlogo
 ├◆  • companylogo
-│
-├─⊷ *🎬 VIDEO GEN*
+├◆ *🎬 VIDEO GEN*
 ├◆  • videogen
 ├◆  • introvideo
 ├◆  • lovevideo
 ├◆  • tigervideo
 ├◆  • lightningpubg
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🎨 LOGO DESIGN STUDIO*
-│
-├─⊷ *🌟 PREMIUM METALS*
+┌─⧭⊷ *🎨 LOGO DESIGN STUDIO*
+├◆ *🌟 PREMIUM METALS*
 ├◆  • goldlogo
 ├◆  • silverlogo
 ├◆  • platinumlogo
@@ -219,8 +197,7 @@ export const getBoxStyleCommands = () => {
 ├◆  • steelogo
 ├◆  • copperlogo
 ├◆  • titaniumlogo
-│
-├─⊷ *🔥 ELEMENTAL EFFECTS*
+├◆ *🔥 ELEMENTAL EFFECTS*
 ├◆  • firelogo
 ├◆  • icelogo
 ├◆  • iceglowlogo
@@ -228,34 +205,27 @@ export const getBoxStyleCommands = () => {
 ├◆  • rainbowlogo
 ├◆  • sunlogo
 ├◆  • moonlogo
-│
-├─⊷ *🎭 MYTHICAL & MAGICAL*
+├◆ *🎭 MYTHICAL & MAGICAL*
 ├◆  • dragonlogo
 ├◆  • phoenixlogo
 ├◆  • wizardlogo
 ├◆  • crystallogo
 ├◆  • darkmagiclogo
-│
-├─⊷ *🌌 DARK & GOTHIC*
+├◆ *🌌 DARK & GOTHIC*
 ├◆  • shadowlogo
 ├◆  • smokelogo
 ├◆  • bloodlogo
-│
-├─⊷ *💫 GLOW & NEON EFFECTS*
+├◆ *💫 GLOW & NEON EFFECTS*
 ├◆  • neonlogo
 ├◆  • glowlogo
 ├◆  • gradientlogo
-│
-├─⊷ *🤖 TECH & FUTURISTIC*
+├◆ *🤖 TECH & FUTURISTIC*
 ├◆  • matrixlogo
-│
-├─⊷ *🎨 BASE*
+├◆ *🎨 BASE*
 ├◆  • logo
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *✨ UTILITY*
-│
+┌─⧭⊷ *✨ UTILITY*
 ├◆  • alive
 ├◆  • ping
 ├◆  • ping2
@@ -283,11 +253,9 @@ export const getBoxStyleCommands = () => {
 ├◆  • take
 ├◆  • tiktok
 ├◆  • autobio
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🔄 MEDIA CONVERSION*
-│
+┌─⧭⊷ *🔄 MEDIA CONVERSION*
 ├◆  • toimage
 ├◆  • tosticker
 ├◆  • toaudio
@@ -295,11 +263,9 @@ export const getBoxStyleCommands = () => {
 ├◆  • tts
 ├◆  • trebleboost
 ├◆  • jarvis
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🎮 GAMES*
-│
+┌─⧭⊷ *🎮 GAMES*
 ├◆  • coinflip
 ├◆  • dare
 ├◆  • dice
@@ -311,11 +277,9 @@ export const getBoxStyleCommands = () => {
 ├◆  • tetris
 ├◆  • truth
 ├◆  • tictactoe
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🌸 ANIME*
-│
+┌─⧭⊷ *🌸 ANIME*
 ├◆  • awoo
 ├◆  • bj
 ├◆  • bully
@@ -339,36 +303,28 @@ export const getBoxStyleCommands = () => {
 ├◆  • wink
 ├◆  • yeet
 ├◆  • animemenu
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🐙 GITHUB*
-│
+┌─⧭⊷ *🐙 GITHUB*
 ├◆  • gitclone
 ├◆  • gitinfo
 ├◆  • repanalyze
 ├◆  • update
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🛡️ ETHICAL HACKING*
-│
+┌─⧭⊷ *🛡️ ETHICAL HACKING*
 ├◆  • ipinfo
 ├◆  • nglflood
 ├◆  • nmap
 ├◆  • shodan
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *👋 GREETINGS*
-│
+┌─⧭⊷ *👋 GREETINGS*
 ├◆  • goodmorning
 ├◆  • goodnight
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🔧 TOOLS*
-│
+┌─⧭⊷ *🔧 TOOLS*
 ├◆  • movie
 ├◆  • trailer
 ├◆  • couple
@@ -376,27 +332,20 @@ export const getBoxStyleCommands = () => {
 ├◆  • gf
 ├◆  • gay
 ├◆  • getjid
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *😄 FUN*
-│
+┌─⧭⊷ *😄 FUN*
 ├◆  • quote
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *📺 CHANNEL*
-│
+┌─⧭⊷ *📺 CHANNEL*
 ├◆  • channelstatus
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *⚡ QUICK COMMANDS*
-│
+┌─⧭⊷ *⚡ QUICK COMMANDS*
 ├◆  • p
 ├◆  • up
-│
-╰─⊷
+└─⧭⊷
 
 🐺 *POWERED BY WOLF TECH* 🐺`;
 };
@@ -725,10 +674,8 @@ export const getTextOnlyCommands = (botMode) => {
 export const getQuotedBoxCommands = () => {
   return `> ┌────────────────
 > │ 🏠 *GROUP MANAGEMENT* 🏠 
-> ├────────────────
-> │ 🛡️ *ADMIN & MODERATION* 🛡️ 
-> ├────────────────
-> │ • add
+> ├◆ > │ 🛡️ *ADMIN & MODERATION* 🛡️ 
+> ├◆ > │ • add
 > │ • promote
 > │ • promoteall
 > │ • demote
@@ -747,10 +694,8 @@ export const getQuotedBoxCommands = () => {
 > │ • creategroup
 > │ • leave
 > │ • ex
-> ├────────────────
-> │ 🚫 *AUTO-MODERATION* 🚫   
-> ├────────────────
-> │ • antilink
+> ├◆ > │ 🚫 *AUTO-MODERATION* 🚫   
+> ├◆ > │ • antilink
 > │ • antisticker
 > │ • antiimage
 > │ • antivideo
@@ -759,10 +704,8 @@ export const getQuotedBoxCommands = () => {
 > │ • antistatusmention
 > │ • antigrouplink
 > │ • antidemote
-> ├────────────────
-> │ 📊 *GROUP INFO & TOOLS* 📊 
-> ├────────────────
-> │ • groupinfo
+> ├◆ > │ 📊 *GROUP INFO & TOOLS* 📊 
+> ├◆ > │ • groupinfo
 > │ • grouplink
 > │ • tagadmin
 > │ • tagall
@@ -781,8 +724,7 @@ export const getQuotedBoxCommands = () => {
 
 > ┌────────────────
 > │ 🎨 *MENU COMMANDS* 🎨
-> ├────────────────
-> │ • menu
+> ├◆ > │ • menu
 > │ • menustyle
 > │ • togglemenuinfo
 > │ • setmenuimage
@@ -791,10 +733,8 @@ export const getQuotedBoxCommands = () => {
 
 > ┌────────────────
 > │ 👑 *OWNER CONTROLS* 👑    
-> ├────────────────
-> │ ⚡ *CORE MANAGEMENT* ⚡    
-> ├────────────────
-> │ • setbotname
+> ├◆ > │ ⚡ *CORE MANAGEMENT* ⚡    
+> ├◆ > │ • setbotname
 > │ • resetbotname
 > │ • checkbotname
 > │ • setowner
@@ -817,10 +757,8 @@ export const getQuotedBoxCommands = () => {
 > │ • platform
 > │ • disp
 > │ • shutdown
-> ├────────────────
-> │ 🔄 *SYSTEM & MAINTENANCE* 🛠️ 
-> ├────────────────
-> │ • restart
+> ├◆ > │ 🔄 *SYSTEM & MAINTENANCE* 🛠️ 
+> ├◆ > │ • restart
 > │ • workingreload
 > │ • reloadenv
 > │ • getsettings
@@ -836,8 +774,7 @@ export const getQuotedBoxCommands = () => {
 
 > ┌────────────────
 > │ ⚙️ *AUTOMATION* ⚙️
-> ├────────────────
-> │ • autoread
+> ├◆ > │ • autoread
 > │ • autotyping
 > │ • autorecording
 > │ • autoreact
@@ -849,8 +786,7 @@ export const getQuotedBoxCommands = () => {
 
 > ┌────────────────
 > │ 🎵 *MUSIC & MEDIA* 🎶
-> ├────────────────
-> │ • play
+> ├◆ > │ • play
 > │ • song
 > │ • video
 > │ • videodoc
@@ -861,8 +797,7 @@ export const getQuotedBoxCommands = () => {
 
 > ┌────────────────
 > │ ⬇️ *DOWNLOADERS* 📥
-> ├────────────────
-> │ • ytmp3
+> ├◆ > │ • ytmp3
 > │ • ytmp4
 > │ • ytv
 > │ • yts
@@ -880,10 +815,8 @@ export const getQuotedBoxCommands = () => {
 
 > ┌───────────────
 > │ 🤖 *AI COMMANDS* 🧠 
-> ├───────────────
-> │ 💬 *AI CHAT*
-> ├───────────────
-> │ • gpt
+> ├◆ > │ 💬 *AI CHAT*
+> ├◆ > │ • gpt
 > │ • chatgpt
 > │ • chatbot
 > │ • copilot
@@ -900,10 +833,8 @@ export const getQuotedBoxCommands = () => {
 > │ • deepseek+
 > │ • ilama
 > │ • qwenai
-> ├───────────────
-> │ 🛠️ *AI TOOLS*
-> ├───────────────
-> │ • analyze
+> ├◆ > │ 🛠️ *AI TOOLS*
+> ├◆ > │ • analyze
 > │ • aiscanner
 > │ • humanizer
 > │ • summarize
@@ -912,10 +843,8 @@ export const getQuotedBoxCommands = () => {
 > │ • flux
 > │ • removebg
 > │ • aimenu
-> ├───────────────
-> │ 🖼️ *IMAGE GEN*
-> ├───────────────
-> │ • imagine
+> ├◆ > │ 🖼️ *IMAGE GEN*
+> ├◆ > │ • imagine
 > │ • imagegen
 > │ • image
 > │ • anime
@@ -923,16 +852,12 @@ export const getQuotedBoxCommands = () => {
 > │ • real
 > │ • remini
 > │ • vision
-> ├───────────────
-> │ 🏷️ *LOGO AI*
-> ├───────────────
-> │ • logoai
+> ├◆ > │ 🏷️ *LOGO AI*
+> ├◆ > │ • logoai
 > │ • brandlogo
 > │ • companylogo
-> ├───────────────
-> │ 🎬 *VIDEO GEN*
-> ├───────────────
-> │ • videogen
+> ├◆ > │ 🎬 *VIDEO GEN*
+> ├◆ > │ • videogen
 > │ • introvideo
 > │ • lovevideo
 > │ • tigervideo
@@ -941,10 +866,8 @@ export const getQuotedBoxCommands = () => {
 
 > ┌────────────────
 > │ 🎨 *LOGO DESIGN STUDIO* 🎨
-> ├────────────────
-> │ 🌟 *PREMIUM METALS* 🌟    
-> ├────────────────
-> │ • goldlogo
+> ├◆ > │ 🌟 *PREMIUM METALS* 🌟    
+> ├◆ > │ • goldlogo
 > │ • silverlogo
 > │ • platinumlogo
 > │ • chromelogo
@@ -953,50 +876,37 @@ export const getQuotedBoxCommands = () => {
 > │ • steelogo
 > │ • copperlogo
 > │ • titaniumlogo
-> ├────────────────
-> │ 🔥 *ELEMENTAL EFFECTS* 🔥  
-> ├────────────────
-> │ • firelogo
+> ├◆ > │ 🔥 *ELEMENTAL EFFECTS* 🔥  
+> ├◆ > │ • firelogo
 > │ • icelogo
 > │ • iceglowlogo
 > │ • lightninglogo
 > │ • rainbowlogo
 > │ • sunlogo
 > │ • moonlogo
-> ├────────────────
-> │ 🎭 *MYTHICAL & MAGICAL* 🧙  
-> ├────────────────
-> │ • dragonlogo
+> ├◆ > │ 🎭 *MYTHICAL & MAGICAL* 🧙  
+> ├◆ > │ • dragonlogo
 > │ • phoenixlogo
 > │ • wizardlogo
 > │ • crystallogo
 > │ • darkmagiclogo
-> ├────────────────
-> │ 🌌 *DARK & GOTHIC* 🌑     
-> ├────────────────
-> │ • shadowlogo
+> ├◆ > │ 🌌 *DARK & GOTHIC* 🌑     
+> ├◆ > │ • shadowlogo
 > │ • smokelogo
 > │ • bloodlogo
-> ├────────────────
-> │ 💫 *GLOW & NEON EFFECTS* 🌈  
-> ├────────────────
-> │ • neonlogo
+> ├◆ > │ 💫 *GLOW & NEON EFFECTS* 🌈  
+> ├◆ > │ • neonlogo
 > │ • glowlogo
 > │ • gradientlogo
-> ├────────────────
-> │ 🤖 *TECH & FUTURISTIC* 🚀  
-> ├────────────────
-> │ • matrixlogo
-> ├────────────────
-> │ 🎨 *BASE*
-> ├────────────────
-> │ • logo
+> ├◆ > │ 🤖 *TECH & FUTURISTIC* 🚀  
+> ├◆ > │ • matrixlogo
+> ├◆ > │ 🎨 *BASE*
+> ├◆ > │ • logo
 > └────────────────
 
 > ┌────────────────
 > │ ✨ *UTILITY* ✨
-> ├────────────────
-> │ • alive
+> ├◆ > │ • alive
 > │ • ping
 > │ • ping2
 > │ • covid
@@ -1020,8 +930,7 @@ export const getQuotedBoxCommands = () => {
 
 > ┌────────────────
 > │ 🔄 *MEDIA CONVERSION* 🔄
-> ├────────────────
-> │ • toimage
+> ├◆ > │ • toimage
 > │ • tosticker
 > │ • toaudio
 > │ • tovoice
@@ -1032,8 +941,7 @@ export const getQuotedBoxCommands = () => {
 
 > ┌────────────────
 > │ 🎮 *GAMES* 🎮
-> ├────────────────
-> │ • coinflip
+> ├◆ > │ • coinflip
 > │ • dare
 > │ • dice
 > │ • emojimix
@@ -1048,8 +956,7 @@ export const getQuotedBoxCommands = () => {
 
 > ┌────────────────
 > │ 🌸 *ANIME* 🌸
-> ├────────────────
-> │ • awoo
+> ├◆ > │ • awoo
 > │ • bj
 > │ • bully
 > │ • cringe
@@ -1076,8 +983,7 @@ export const getQuotedBoxCommands = () => {
 
 > ┌────────────────
 > │ 🐙 *GITHUB* 🐙
-> ├────────────────
-> │ • gitclone
+> ├◆ > │ • gitclone
 > │ • gitinfo
 > │ • repanalyze
 > │ • update
@@ -1085,8 +991,7 @@ export const getQuotedBoxCommands = () => {
 
 > ┌───────────────
 > │ 🛡️ *ETHICAL HACKING* 🔒 
-> ├───────────────
-> │ • ipinfo
+> ├◆ > │ • ipinfo
 > │ • nglflood
 > │ • nmap
 > │ • shodan
@@ -1094,15 +999,13 @@ export const getQuotedBoxCommands = () => {
 
 > ┌────────────────
 > │ 👋 *GREETINGS* 👋
-> ├────────────────
-> │ • goodmorning
+> ├◆ > │ • goodmorning
 > │ • goodnight
 > └────────────────
 
 > ┌────────────────
 > │ 🔧 *TOOLS* 🔧
-> ├────────────────
-> │ • movie
+> ├◆ > │ • movie
 > │ • trailer
 > │ • couple
 > │ • bf
@@ -1113,20 +1016,17 @@ export const getQuotedBoxCommands = () => {
 
 > ┌────────────────
 > │ 😄 *FUN* 😄
-> ├────────────────
-> │ • quote
+> ├◆ > │ • quote
 > └────────────────
 
 > ┌────────────────
 > │ 📺 *CHANNEL* 📺
-> ├────────────────
-> │ • channelstatus
+> ├◆ > │ • channelstatus
 > └────────────────
 
 > ┌────────────────
 > │ ⚡ *QUICK COMMANDS* ⚡
-> ├────────────────
-> │ • p
+> ├◆ > │ • p
 > │ • up
 > └────────────────
 
@@ -1136,10 +1036,8 @@ export const getQuotedBoxCommands = () => {
 export const getPlainBoxCommands = () => {
   return `┌────────────────
 ├◆ 🏠 GROUP MANAGEMENT 🏠 
-├────────────────
-├◆ 🛡️ ADMIN & MODERATION 🛡️ 
-├────────────────
-├◆ add
+├◆ ├◆ 🛡️ ADMIN & MODERATION 🛡️ 
+├◆ ├◆ add
 ├◆ promote
 ├◆ promoteall
 ├◆ demote
@@ -1158,10 +1056,8 @@ export const getPlainBoxCommands = () => {
 ├◆ creategroup
 ├◆ leave
 ├◆ ex
-├────────────────
-├◆ 🚫 AUTO-MODERATION 🚫   
-├────────────────
-├◆ antilink
+├◆ ├◆ 🚫 AUTO-MODERATION 🚫   
+├◆ ├◆ antilink
 ├◆ antisticker
 ├◆ antiimage
 ├◆ antivideo
@@ -1170,10 +1066,8 @@ export const getPlainBoxCommands = () => {
 ├◆ antistatusmention
 ├◆ antigrouplink
 ├◆ antidemote
-├────────────────
-├◆ 📊 GROUP INFO & TOOLS 📊 
-├────────────────
-├◆ groupinfo
+├◆ ├◆ 📊 GROUP INFO & TOOLS 📊 
+├◆ ├◆ groupinfo
 ├◆ grouplink
 ├◆ tagadmin
 ├◆ tagall
@@ -1192,8 +1086,7 @@ export const getPlainBoxCommands = () => {
 
 ┌────────────────
 ├◆ 🎨 MENU COMMANDS 🎨
-├────────────────
-├◆ menu
+├◆ ├◆ menu
 ├◆ menustyle
 ├◆ togglemenuinfo
 ├◆ setmenuimage
@@ -1202,10 +1095,8 @@ export const getPlainBoxCommands = () => {
 
 ┌────────────────
 ├◆ 👑 OWNER CONTROLS 👑    
-├────────────────
-├◆ ⚡ CORE MANAGEMENT ⚡    
-├────────────────
-├◆ setbotname
+├◆ ├◆ ⚡ CORE MANAGEMENT ⚡    
+├◆ ├◆ setbotname
 ├◆ resetbotname
 ├◆ checkbotname
 ├◆ setowner
@@ -1228,10 +1119,8 @@ export const getPlainBoxCommands = () => {
 ├◆ platform
 ├◆ disp
 ├◆ shutdown
-├────────────────
-├◆ 🔄 SYSTEM & MAINTENANCE 🛠️ 
-├────────────────
-├◆ restart
+├◆ ├◆ 🔄 SYSTEM & MAINTENANCE 🛠️ 
+├◆ ├◆ restart
 ├◆ workingreload
 ├◆ reloadenv
 ├◆ getsettings
@@ -1247,8 +1136,7 @@ export const getPlainBoxCommands = () => {
 
 ┌────────────────
 ├◆ ⚙️ AUTOMATION ⚙️
-├────────────────
-├◆ autoread
+├◆ ├◆ autoread
 ├◆ autotyping
 ├◆ autorecording
 ├◆ autoreact
@@ -1260,8 +1148,7 @@ export const getPlainBoxCommands = () => {
 
 ┌────────────────
 ├◆ 🎵 MUSIC & MEDIA 🎶
-├────────────────
-├◆ play
+├◆ ├◆ play
 ├◆ song
 ├◆ video
 ├◆ videodoc
@@ -1272,8 +1159,7 @@ export const getPlainBoxCommands = () => {
 
 ┌────────────────
 ├◆ ⬇️ DOWNLOADERS 📥
-├────────────────
-├◆ ytmp3
+├◆ ├◆ ytmp3
 ├◆ ytmp4
 ├◆ ytv
 ├◆ yts
@@ -1291,10 +1177,8 @@ export const getPlainBoxCommands = () => {
 
 ┌───────────────
 ├◆ 🤖 AI COMMANDS 🧠 
-├───────────────
-├◆ 💬 AI CHAT
-├───────────────
-├◆ gpt
+├◆ ├◆ 💬 AI CHAT
+├◆ ├◆ gpt
 ├◆ chatgpt
 ├◆ chatbot
 ├◆ copilot
@@ -1311,10 +1195,8 @@ export const getPlainBoxCommands = () => {
 ├◆ deepseek+
 ├◆ ilama
 ├◆ qwenai
-├───────────────
-├◆ 🛠️ AI TOOLS
-├───────────────
-├◆ analyze
+├◆ ├◆ 🛠️ AI TOOLS
+├◆ ├◆ analyze
 ├◆ aiscanner
 ├◆ humanizer
 ├◆ summarize
@@ -1323,10 +1205,8 @@ export const getPlainBoxCommands = () => {
 ├◆ flux
 ├◆ removebg
 ├◆ aimenu
-├───────────────
-├◆ 🖼️ IMAGE GEN
-├───────────────
-├◆ imagine
+├◆ ├◆ 🖼️ IMAGE GEN
+├◆ ├◆ imagine
 ├◆ imagegen
 ├◆ image
 ├◆ anime
@@ -1334,16 +1214,12 @@ export const getPlainBoxCommands = () => {
 ├◆ real
 ├◆ remini
 ├◆ vision
-├───────────────
-├◆ 🏷️ LOGO AI
-├───────────────
-├◆ logoai
+├◆ ├◆ 🏷️ LOGO AI
+├◆ ├◆ logoai
 ├◆ brandlogo
 ├◆ companylogo
-├───────────────
-├◆ 🎬 VIDEO GEN
-├───────────────
-├◆ videogen
+├◆ ├◆ 🎬 VIDEO GEN
+├◆ ├◆ videogen
 ├◆ introvideo
 ├◆ lovevideo
 ├◆ tigervideo
@@ -1352,10 +1228,8 @@ export const getPlainBoxCommands = () => {
 
 ┌────────────────
 ├◆ 🎨 LOGO DESIGN STUDIO 🎨
-├────────────────
-├◆ 🌟 PREMIUM METALS 🌟    
-├────────────────
-├◆ goldlogo
+├◆ ├◆ 🌟 PREMIUM METALS 🌟    
+├◆ ├◆ goldlogo
 ├◆ silverlogo
 ├◆ platinumlogo
 ├◆ chromelogo
@@ -1364,50 +1238,37 @@ export const getPlainBoxCommands = () => {
 ├◆ steelogo
 ├◆ copperlogo
 ├◆ titaniumlogo
-├────────────────
-├◆ 🔥 ELEMENTAL EFFECTS 🔥  
-├────────────────
-├◆ firelogo
+├◆ ├◆ 🔥 ELEMENTAL EFFECTS 🔥  
+├◆ ├◆ firelogo
 ├◆ icelogo
 ├◆ iceglowlogo
 ├◆ lightninglogo
 ├◆ rainbowlogo
 ├◆ sunlogo
 ├◆ moonlogo
-├────────────────
-├◆ 🎭 MYTHICAL & MAGICAL 🧙  
-├────────────────
-├◆ dragonlogo
+├◆ ├◆ 🎭 MYTHICAL & MAGICAL 🧙  
+├◆ ├◆ dragonlogo
 ├◆ phoenixlogo
 ├◆ wizardlogo
 ├◆ crystallogo
 ├◆ darkmagiclogo
-├────────────────
-├◆ 🌌 DARK & GOTHIC 🌑     
-├────────────────
-├◆ shadowlogo
+├◆ ├◆ 🌌 DARK & GOTHIC 🌑     
+├◆ ├◆ shadowlogo
 ├◆ smokelogo
 ├◆ bloodlogo
-├────────────────
-├◆ 💫 GLOW & NEON EFFECTS 🌈  
-├────────────────
-├◆ neonlogo
+├◆ ├◆ 💫 GLOW & NEON EFFECTS 🌈  
+├◆ ├◆ neonlogo
 ├◆ glowlogo
 ├◆ gradientlogo
-├────────────────
-├◆ 🤖 TECH & FUTURISTIC 🚀  
-├────────────────
-├◆ matrixlogo
-├────────────────
-├◆ 🎨 BASE
-├────────────────
-├◆ logo
+├◆ ├◆ 🤖 TECH & FUTURISTIC 🚀  
+├◆ ├◆ matrixlogo
+├◆ ├◆ 🎨 BASE
+├◆ ├◆ logo
 └────────────────
 
 ┌────────────────
 ├◆ ✨ UTILITY ✨
-├────────────────
-├◆ alive
+├◆ ├◆ alive
 ├◆ ping
 ├◆ ping2
 ├◆ covid
@@ -1436,8 +1297,7 @@ export const getPlainBoxCommands = () => {
 
 ┌────────────────
 ├◆ 🔄 MEDIA CONVERSION 🔄
-├────────────────
-├◆ toimage
+├◆ ├◆ toimage
 ├◆ tosticker
 ├◆ toaudio
 ├◆ tovoice
@@ -1448,8 +1308,7 @@ export const getPlainBoxCommands = () => {
 
 ┌────────────────
 ├◆ 🎮 GAMES 🎮
-├────────────────
-├◆ coinflip
+├◆ ├◆ coinflip
 ├◆ dare
 ├◆ dice
 ├◆ emojimix
@@ -1464,8 +1323,7 @@ export const getPlainBoxCommands = () => {
 
 ┌────────────────
 ├◆ 🌸 ANIME 🌸
-├────────────────
-├◆ awoo
+├◆ ├◆ awoo
 ├◆ bj
 ├◆ bully
 ├◆ cringe
@@ -1492,8 +1350,7 @@ export const getPlainBoxCommands = () => {
 
 ┌────────────────
 ├◆ 🐙 GITHUB 🐙
-├────────────────
-├◆ gitclone
+├◆ ├◆ gitclone
 ├◆ gitinfo
 ├◆ repanalyze
 ├◆ update
@@ -1501,8 +1358,7 @@ export const getPlainBoxCommands = () => {
 
 ┌───────────────
 ├◆ 🛡️ ETHICAL HACKING 🔒 
-├───────────────
-├◆ ipinfo
+├◆ ├◆ ipinfo
 ├◆ nglflood
 ├◆ nmap
 ├◆ shodan
@@ -1510,15 +1366,13 @@ export const getPlainBoxCommands = () => {
 
 ┌────────────────
 ├◆ 👋 GREETINGS 👋
-├────────────────
-├◆ goodmorning
+├◆ ├◆ goodmorning
 ├◆ goodnight
 └────────────────
 
 ┌────────────────
 ├◆ 🔧 TOOLS 🔧
-├────────────────
-├◆ movie
+├◆ ├◆ movie
 ├◆ trailer
 ├◆ couple
 ├◆ bf
@@ -1529,20 +1383,17 @@ export const getPlainBoxCommands = () => {
 
 ┌────────────────
 ├◆ 😄 FUN 😄
-├────────────────
-├◆ quote
+├◆ ├◆ quote
 └────────────────
 
 ┌────────────────
 ├◆ 📺 CHANNEL 📺
-├────────────────
-├◆ channelstatus
+├◆ ├◆ channelstatus
 └────────────────
 
 ┌────────────────
 ├◆ ⚡ QUICK COMMANDS ⚡
-├────────────────
-├◆ p
+├◆ ├◆ p
 ├◆ up
 └────────────────
 

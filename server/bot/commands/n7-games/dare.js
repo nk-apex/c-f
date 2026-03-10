@@ -42,7 +42,7 @@ export default {
             
             if (category === 'help') {
                 return await sock.sendMessage(chatId, {
-                    text: `╭─⌈ 🎯 *DARE COMMANDS* ⌋\n│\n├─⊷ *.dare*\n├◆  └⊷ Random dare\n│\n├─⊷ *.dare challenge*\n├◆  └⊷ Hard dare\n│\n├─⊷ *.dare rating=pg*\n├◆  └⊷ Family friendly\n│\n├─⊷ *.dare rating=pg13*\n├◆  └⊷ Teen\n│\n├─⊷ *.dare rating=r*\n├◆  └⊷ Adult (18+)\n│\n╰───`
+                    text: `┌─⧭ 🎯 *DARE COMMANDS* \n├◆ *.dare*\n├◆  └⊷ Random dare\n├◆ *.dare challenge*\n├◆  └⊷ Hard dare\n├◆ *.dare rating=pg*\n├◆  └⊷ Family friendly\n├◆ *.dare rating=pg13*\n├◆  └⊷ Teen\n├◆ *.dare rating=r*\n├◆  └⊷ Adult (18+)\n└─⧭`
                 }, { quoted: m });
             }
             

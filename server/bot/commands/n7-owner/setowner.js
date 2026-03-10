@@ -30,7 +30,7 @@
 //             const originalOwner = this.getOriginalOwner();
             
 //             return sock.sendMessage(chatId, {
-//                 text: `╭─⌈ 👑 *SET OWNER* ⌋\n╰───`
+//                 text: `┌─⧭ 👑 *SET OWNER* \n└─⧭`
 //             }, { quoted: msg });
 //         }
         
@@ -96,12 +96,12 @@
 //             successMsg += `👑 New Display: *${newOwnerName}*\n`;
 //             successMsg += `🔗 Original Owner: ${originalOwner}\n\n`;
 //             successMsg += `✅ Changes applied:\n`;
-//             successMsg += `├─ Saved to: bot_settings.json ✓\n`;
-//             successMsg += `├─ Global variable updated ✓\n`;
+//             successMsg += `├◆ Saved to: bot_settings.json ✓\n`;
+//             successMsg += `├◆ Global variable updated ✓\n`;
 //             successMsg += `└─ Immediate effect ✓\n\n`;
 //             successMsg += `🔧 The new name will appear in:\n`;
-//             successMsg += `├─ Menu info section\n`;
-//             successMsg += `├─ Command responses\n`;
+//             successMsg += `├◆ Menu info section\n`;
+//             successMsg += `├◆ Command responses\n`;
 //             successMsg += `└─ All bot interactions\n\n`;
 //             successMsg += `💡 Use \`${PREFIX}menu\` to see the updated name.\n\n`;
 //             successMsg += `⚠️ *Note:* This only changes the display name. The actual owner (with command access) remains the same.`;
@@ -226,7 +226,7 @@ export default {
             const originalOwner = this.getOriginalOwner();
             
             return sock.sendMessage(chatId, {
-                text: `╭─⌈ 👑 *SET OWNER* ⌋\n│\n├─⊷ *${PREFIX}setowner <name>*\n├◆  └⊷ Set owner name\n╰───`
+                text: `┌─⧭ 👑 *SET OWNER* \n├◆ *${PREFIX}setowner <name>*\n├◆  └⊷ Set owner name\n└─⧭`
             }, { quoted: msg });
         }
         

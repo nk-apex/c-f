@@ -20,7 +20,7 @@ export default {
       if (!q) {
         await react("❓");
         await sock.sendMessage(chatId, {
-          text: `┌─⧭ VIDEO\n│\n├◆ Usage: ${PREFIX}video <video name or URL>\n├◆ Example: ${PREFIX}video Believer\n│\n├◆ For document: ${PREFIX}videodoc\n└─────────────────────`
+          text: `┌─⧭ VIDEO\n├◆ Usage: ${PREFIX}video <video name or URL>\n├◆ Example: ${PREFIX}video Believer\n├◆ For document: ${PREFIX}videodoc\n└─────────────────────`
         }, { quoted: m });
         return;
       }

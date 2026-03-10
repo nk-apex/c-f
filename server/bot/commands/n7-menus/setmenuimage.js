@@ -30,10 +30,10 @@ export default {
       let errorMsg = `❌ *Owner Only Command!*\n\n`;
       errorMsg += `Only the bot owner can set menu image.\n\n`;
       errorMsg += `🔍 *Debug Info:*\n`;
-      errorMsg += `├─ Your JID: ${cleaned.cleanJid}\n`;
-      errorMsg += `├─ Your Number: ${cleaned.cleanNumber || 'N/A'}\n`;
-      errorMsg += `├─ Type: ${cleaned.isLid ? 'LID 🔗' : 'Regular 📱'}\n`;
-      errorMsg += `├─ From Me: ${isFromMe ? '✅ YES' : '❌ NO'}\n`;
+      errorMsg += `├◆ Your JID: ${cleaned.cleanJid}\n`;
+      errorMsg += `├◆ Your Number: ${cleaned.cleanNumber || 'N/A'}\n`;
+      errorMsg += `├◆ Type: ${cleaned.isLid ? 'LID 🔗' : 'Regular 📱'}\n`;
+      errorMsg += `├◆ From Me: ${isFromMe ? '✅ YES' : '❌ NO'}\n`;
 
       const ownerInfo = jidManager.getOwnerInfo ? jidManager.getOwnerInfo() : {};
       errorMsg += `└─ Owner Number: ${ownerInfo.cleanNumber || 'Not set'}\n\n`;

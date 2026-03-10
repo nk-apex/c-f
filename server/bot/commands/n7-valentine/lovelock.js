@@ -14,7 +14,7 @@ export default {
 
         if (!args.length) {
             return await sock.sendMessage(chatId, {
-                text: `╭─⌈ 🔒 *LOVE LOCK* ⌋\n│\n├◆ Create a love lock effect\n├◆ with your text\n│\n├─⊷ *Usage:*\n├◆ ${global.prefix || '.'}lovelock <text>\n│\n├─⊷ *Example:*\n├◆ ${global.prefix || '.'}lovelock John & Jane\n╰───`
+                text: `┌─⧭ 🔒 *LOVE LOCK* \n├◆ Create a love lock effect\n├◆ with your text\n├◆ *Usage:*\n├◆ ${global.prefix || '.'}lovelock <text>\n├◆ *Example:*\n├◆ ${global.prefix || '.'}lovelock John & Jane\n└─⧭`
             }, { quoted: msg });
         }
 

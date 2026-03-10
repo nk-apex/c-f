@@ -10,7 +10,7 @@ export default {
 
         if (!args || args.length === 0) {
             return sock.sendMessage(chatId, {
-                text: `╭─⌈ 🤬 *REMOVE BAD WORD* ⌋\n│\n├─⊷ *Usage:* .removebadword <word>\n├─⊷ *Example:* .removebadword badterm\n│\n├─⊷ Use *.listbadword* to view all words\n╰───`,
+                text: `┌─⧭ 🤬 *REMOVE BAD WORD* \n├◆ *Usage:* .removebadword <word>\n├◆ *Example:* .removebadword badterm\n├◆ Use *.listbadword* to view all words\n└─⧭`,
             }, { quoted: msg });
         }
 
@@ -29,10 +29,10 @@ export default {
         }
 
         const total = getBadWords().length;
-        let reply = `╭─⌈ 🤬 *BAD WORD FILTER* ⌋\n│\n`;
-        if (removed.length > 0) reply += `├─⊷ ✅ Removed: ${removed.map(w => `*${w}*`).join(', ')}\n`;
-        if (notFound.length > 0) reply += `├─⊷ ⚠️ Not found: ${notFound.map(w => `*${w}*`).join(', ')}\n`;
-        reply += `├─⊷ 📋 Remaining words: *${total}*\n╰───`;
+        let reply = `┌─⧭ 🤬 *BAD WORD FILTER* \n`;
+        if (removed.length > 0) reply += `├◆ ✅ Removed: ${removed.map(w => `*${w}*`).join(', ')}\n`;
+        if (notFound.length > 0) reply += `├◆ ⚠️ Not found: ${notFound.map(w => `*${w}*`).join(', ')}\n`;
+        reply += `├◆ 📋 Remaining words: *${total}*\n└─⧭`;
 
         return sock.sendMessage(chatId, { text: reply }, { quoted: msg });
     }

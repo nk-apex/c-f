@@ -13,7 +13,7 @@ export default {
     
     if (args.length === 0 || args[0].toLowerCase() === 'help') {
       return sock.sendMessage(jid, {
-        text: `╭─⌈ 📸 *WEBSITE SCREENSHOT* ⌋\n│\n├─⊷ *${PREFIX}screenshot <URL>*\n├◆  └⊷ Take a screenshot of any website\n│\n├─⊷ *${PREFIX}ss google.com*\n├◆  └⊷ Also works without https://\n│\n╰───────────────\n> *${getBotName()}*`
+        text: `┌─⧭ 📸 *WEBSITE SCREENSHOT* \n├◆ *${PREFIX}screenshot <URL>*\n├◆  └⊷ Take a screenshot of any website\n├◆ *${PREFIX}ss google.com*\n├◆  └⊷ Also works without https://\n└─⧭\n> *${getBotName()}*`
       }, { quoted: m });
     }
 

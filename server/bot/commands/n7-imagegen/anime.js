@@ -35,7 +35,7 @@ export default {
     try {
       if (!args[0]) {
         await sock.sendMessage(jid, { 
-          text: `╭─⌈ 🎨 *ANIME IMAGE GEN* ⌋\n│\n├─⊷ *anime <prompt>*\n├◆  └⊷ Generate anime-style AI images\n│\n├─⊷ *Examples:*\n├◆  └⊷ anime cute cat girl with blue hair\n├◆  └⊷ anime cyberpunk samurai in tokyo\n│\n├─⊷ 🎭 *Styles:* Anything V5, AOM3, Counterfeit V3, MeinaMix\n│\n╰───` 
+          text: `┌─⧭ 🎨 *ANIME IMAGE GEN* \n├◆ *anime <prompt>*\n├◆  └⊷ Generate anime-style AI images\n├◆ *Examples:*\n├◆  └⊷ anime cute cat girl with blue hair\n├◆  └⊷ anime cyberpunk samurai in tokyo\n├◆ 🎭 *Styles:* Anything V5, AOM3, Counterfeit V3, MeinaMix\n└─⧭` 
         }, { quoted: m });
         return;
       }

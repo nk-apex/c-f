@@ -18,7 +18,7 @@ function logBox(sender, msgType, result) {
     const d = new Date().toLocaleDateString('en-US', { day: '2-digit', month: 'short', year: 'numeric' });
     console.log(`${G}${B}┌──────────────────────────────────────────────────┐${X}`);
     console.log(`${G}${B}│  👁️  STATUS DETECTED                              │${X}`);
-    console.log(`${G}${B}├──────────────────────────────────────────────────┤${X}`);
+    console.log(`${G}${B}├◆ ┤${X}`);
     console.log(`${G}│  ${C}${B}From   :${X}${G} ${sender}${X}`);
     console.log(`${G}│  ${C}${B}Type   :${X}${G} ${msgType}${X}`);
     console.log(`${G}│  ${C}${B}Time   :${X}${G} ${t}  ${D}(${d})${X}`);
@@ -261,15 +261,15 @@ export default {
 
             if (args.length === 0) {
                 const s = autoViewManager.getStats();
-                let text = `╭─⌈ 👁️ *AUTOVIEWSTATUS* ⌋\n│\n`;
+                let text = `┌─⧭ 👁️ *AUTOVIEWSTATUS* \n`;
                 text += `│ Status   : ${s.enabled ? '✅ ACTIVE' : '❌ INACTIVE'}\n`;
-                text += `│ Excluded : ${s.excludedCount} contact(s)\n│\n`;
-                text += `├─⊷ *${prefix}autoviewstatus on/off*\n├◆  └⊷ Enable / disable\n`;
-                text += `├─⊷ *${prefix}autoviewstatus exclude <number>*\n├◆  └⊷ Skip a contact\n`;
-                text += `├─⊷ *${prefix}autoviewstatus include <number>*\n├◆  └⊷ Remove from skip list\n`;
-                text += `├─⊷ *${prefix}autoviewstatus excluded*\n├◆  └⊷ Show skip list\n`;
-                text += `├─⊷ *${prefix}autoviewstatus stats*\n├◆  └⊷ Statistics\n`;
-                text += `╰───`;
+                text += `│ Excluded : ${s.excludedCount} contact(s)\n`;
+                text += `├◆ *${prefix}autoviewstatus on/off*\n├◆  └⊷ Enable / disable\n`;
+                text += `├◆ *${prefix}autoviewstatus exclude <number>*\n├◆  └⊷ Skip a contact\n`;
+                text += `├◆ *${prefix}autoviewstatus include <number>*\n├◆  └⊷ Remove from skip list\n`;
+                text += `├◆ *${prefix}autoviewstatus excluded*\n├◆  └⊷ Show skip list\n`;
+                text += `├◆ *${prefix}autoviewstatus stats*\n├◆  └⊷ Statistics\n`;
+                text += `└─⧭`;
                 await reply(text);
                 return;
             }
@@ -371,7 +371,7 @@ export default {
                 }
 
                 default:
-                    await reply(`╭─⌈ ❓ *AUTOVIEWSTATUS* ⌋\n│\n├─⊷ *${prefix}autoviewstatus on/off*\n├─⊷ *${prefix}autoviewstatus exclude <number>*\n├─⊷ *${prefix}autoviewstatus include <number>*\n├─⊷ *${prefix}autoviewstatus excluded*\n├─⊷ *${prefix}autoviewstatus stats*\n├─⊷ *${prefix}autoviewstatus logs*\n├─⊷ *${prefix}autoviewstatus delay <ms>*\n╰───`);
+                    await reply(`┌─⧭ ❓ *AUTOVIEWSTATUS* \n├◆ *${prefix}autoviewstatus on/off*\n├◆ *${prefix}autoviewstatus exclude <number>*\n├◆ *${prefix}autoviewstatus include <number>*\n├◆ *${prefix}autoviewstatus excluded*\n├◆ *${prefix}autoviewstatus stats*\n├◆ *${prefix}autoviewstatus logs*\n├◆ *${prefix}autoviewstatus delay <ms>*\n└─⧭`);
             }
         } catch (error) {
             console.error('AutoViewStatus error:', error);

@@ -29,7 +29,7 @@ export default {
 
     if (!stickerMessage) {
       await sock.sendMessage(jid, {
-        text: `╭⌈ 🎬 *STICKER TO VIDEO* ⌋\n├⊷ Reply to an *animated sticker*\n├⊷ to convert it to MP4 video\n╰⊷ _Only works with animated stickers_`
+        text: `┌─⧭ 🎬 *STICKER TO VIDEO* \n├⊷ Reply to an *animated sticker*\n├⊷ to convert it to MP4 video\n└─⧭⊷ _Only works with animated stickers_`
       }, { quoted: m });
       return;
     }
@@ -93,7 +93,7 @@ export default {
 
       await sock.sendMessage(jid, {
         video: videoBuffer,
-        caption: `╭⌈ 🎬 *STICKER TO VIDEO* ⌋\n├⊷ 📦 *Size:* ${fileSizeKB}KB\n╰⊷ 🎞️ *Format:* MP4\n> _Converted by ${getBotName()}_`,
+        caption: `┌─⧭ 🎬 *STICKER TO VIDEO* \n├⊷ 📦 *Size:* ${fileSizeKB}KB\n└─⧭⊷ 🎞️ *Format:* MP4\n> _Converted by ${getBotName()}_`,
         mimetype: 'video/mp4'
       }, { quoted: m });
 

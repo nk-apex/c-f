@@ -120,7 +120,7 @@ export default {
         global.OWNER_CLEAN_JID = global.OWNER_JID;
         
         fixLog += `✅ Set global variables:\n`;
-        fixLog += `   ├─ OWNER_NUMBER: ${global.OWNER_NUMBER}\n`;
+        fixLog += `   ├◆ OWNER_NUMBER: ${global.OWNER_NUMBER}\n`;
         fixLog += `   └─ OWNER_JID: ${global.OWNER_JID}\n\n`;
         
         // ========== STEP 4: Update owner.json if needed ==========
@@ -231,9 +231,9 @@ export default {
         
         // Test current status
         const isOwnerNow = jidManager.isOwner(msg);
-        fixLog += `├─ Current isOwner(): ${isOwnerNow ? '✅ YES' : '❌ NO'}\n`;
-        fixLog += `├─ From Me: ${msg.key.fromMe ? '✅ YES' : '❌ NO'}\n`;
-        fixLog += `├─ Is LID: ${senderJid.includes('@lid') ? '✅ YES' : '❌ NO'}\n`;
+        fixLog += `├◆ Current isOwner(): ${isOwnerNow ? '✅ YES' : '❌ NO'}\n`;
+        fixLog += `├◆ From Me: ${msg.key.fromMe ? '✅ YES' : '❌ NO'}\n`;
+        fixLog += `├◆ Is LID: ${senderJid.includes('@lid') ? '✅ YES' : '❌ NO'}\n`;
         
         if (isOwnerNow) {
             fixLog += `└─ 🎉 SUCCESS! You now have owner access!\n\n`;

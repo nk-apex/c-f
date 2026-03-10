@@ -362,7 +362,7 @@ export default {
         if (!quotedMsg || !contextInfo) {
             if (subCommand === 'clean' || subCommand === 'clear') {
                 return sock.sendMessage(chatId, { 
-                    text: `╭─⌈ 🗑️ *CACHE CLEARED* ⌋\n├─⊷ Temp files are auto-cleaned\n╰─── *${getBotName()}* ───` 
+                    text: `┌─⧭ 🗑️ *CACHE CLEARED* \n├◆ Temp files are auto-cleaned\n└─⧭ *${getBotName()}* ───` 
                 }, { quoted: msg });
             } 
             else if (subCommand === 'caption') {
@@ -373,7 +373,7 @@ export default {
                     const newCaption = args.slice(2).join(' ');
                     if (!newCaption) {
                         return sock.sendMessage(chatId, { 
-                            text: `╭─⌈ ❌ *VV CAPTION* ⌋\n├─⊷ *.vv caption set <text>*\n├◆  └⊷ Set custom caption\n├─⊷ *.vv caption set none*\n├◆  └⊷ Disable caption\n╰─── *${getBotName()}* ───` 
+                            text: `┌─⧭ ❌ *VV CAPTION* \n├◆ *.vv caption set <text>*\n├◆  └⊷ Set custom caption\n├◆ *.vv caption set none*\n├◆  └⊷ Disable caption\n└─⧭ *${getBotName()}* ───` 
                         }, { quoted: msg });
                     }
                     
@@ -382,7 +382,7 @@ export default {
                     await savePreferences();
                     
                     return sock.sendMessage(chatId, { 
-                        text: `╭─⌈ ✅ *CAPTION UPDATED* ⌋\n├─⊷ ${newCaption === 'none' ? 'Disabled' : `"${newCaption}"`}\n╰─── *${getBotName()}* ───` 
+                        text: `┌─⧭ ✅ *CAPTION UPDATED* \n├◆ ${newCaption === 'none' ? 'Disabled' : `"${newCaption}"`}\n└─⧭ *${getBotName()}* ───` 
                     }, { quoted: msg });
                 }
                 else if (action === 'default') {
@@ -391,7 +391,7 @@ export default {
                     await savePreferences();
                     
                     return sock.sendMessage(chatId, { 
-                        text: `╭─⌈ ✅ *CAPTION RESET* ⌋\n├─⊷ "${CONFIG.DEFAULT_CAPTION}"\n╰─── *${getBotName()}* ───` 
+                        text: `┌─⧭ ✅ *CAPTION RESET* \n├◆ "${CONFIG.DEFAULT_CAPTION}"\n└─⧭ *${getBotName()}* ───` 
                     }, { quoted: msg });
                 }
                 else if (action === 'show') {
@@ -399,12 +399,12 @@ export default {
                     const status = current === '' ? 'Disabled' : `"${current}"`;
                     
                     return sock.sendMessage(chatId, { 
-                        text: `╭─⌈ 📝 *VV CAPTION* ⌋\n├─⊷ *Current:* ${status}\n├─⊷ *Default:* "${CONFIG.DEFAULT_CAPTION}"\n╰─── *${getBotName()}* ───` 
+                        text: `┌─⧭ 📝 *VV CAPTION* \n├◆ *Current:* ${status}\n├◆ *Default:* "${CONFIG.DEFAULT_CAPTION}"\n└─⧭ *${getBotName()}* ───` 
                     }, { quoted: msg });
                 }
                 else {
                     return sock.sendMessage(chatId, { 
-                        text: `╭─⌈ 📝 *VV CAPTION* ⌋\n├─⊷ *.vv caption set <text>*\n├◆  └⊷ Set custom caption\n├─⊷ *.vv caption default*\n├◆  └⊷ Reset to default\n├─⊷ *.vv caption show*\n├◆  └⊷ Show current\n╰─── *${getBotName()}* ───` 
+                        text: `┌─⧭ 📝 *VV CAPTION* \n├◆ *.vv caption set <text>*\n├◆  └⊷ Set custom caption\n├◆ *.vv caption default*\n├◆  └⊷ Reset to default\n├◆ *.vv caption show*\n├◆  └⊷ Show current\n└─⧭ *${getBotName()}* ───` 
                     }, { quoted: msg });
                 }
             }
@@ -422,7 +422,7 @@ export default {
                         await savePreferences();
                         
                         return sock.sendMessage(chatId, { 
-                            text: `╭─⌈ ✅ *SENDER INFO ${toggle ? 'ON' : 'OFF'}* ⌋\n╰─── *${getBotName()}* ───` 
+                            text: `┌─⧭ ✅ *SENDER INFO ${toggle ? 'ON' : 'OFF'}* \n└─⧭ *${getBotName()}* ───` 
                         }, { quoted: msg });
                     }
                     else if (type === 'file') {
@@ -431,7 +431,7 @@ export default {
                         await savePreferences();
                         
                         return sock.sendMessage(chatId, { 
-                            text: `╭─⌈ ✅ *FILE INFO ${toggle ? 'ON' : 'OFF'}* ⌋\n╰─── *${getBotName()}* ───` 
+                            text: `┌─⧭ ✅ *FILE INFO ${toggle ? 'ON' : 'OFF'}* \n└─⧭ *${getBotName()}* ───` 
                         }, { quoted: msg });
                     }
                     else if (type === 'original') {
@@ -440,12 +440,12 @@ export default {
                         await savePreferences();
                         
                         return sock.sendMessage(chatId, { 
-                            text: `╭─⌈ ✅ *ORIGINAL CAPTION ${toggle ? 'ON' : 'OFF'}* ⌋\n╰─── *${getBotName()}* ───` 
+                            text: `┌─⧭ ✅ *ORIGINAL CAPTION ${toggle ? 'ON' : 'OFF'}* \n└─⧭ *${getBotName()}* ───` 
                         }, { quoted: msg });
                     }
                     else {
                         return sock.sendMessage(chatId, { 
-                            text: `╭─⌈ ⚙️ *VV INFO* ⌋\n├─⊷ *.vv info on/off sender*\n├─⊷ *.vv info on/off file*\n├─⊷ *.vv info on/off original*\n╰─── *${getBotName()}* ───` 
+                            text: `┌─⧭ ⚙️ *VV INFO* \n├◆ *.vv info on/off sender*\n├◆ *.vv info on/off file*\n├◆ *.vv info on/off original*\n└─⧭ *${getBotName()}* ───` 
                         }, { quoted: msg });
                     }
                 }
@@ -453,12 +453,12 @@ export default {
                     const statusPrefs = await getChatPreferences(chatId);
                     
                     return sock.sendMessage(chatId, { 
-                        text: `╭─⌈ ⚙️ *VV INFO STATUS* ⌋\n├─⊷ *Sender:* ${statusPrefs.showSenderInfo ? '✅ ON' : '❌ OFF'}\n├─⊷ *File:* ${statusPrefs.showFileInfo ? '✅ ON' : '❌ OFF'}\n├─⊷ *Original:* ${statusPrefs.showOriginalCaption ? '✅ ON' : '❌ OFF'}\n╰─── *${getBotName()}* ───` 
+                        text: `┌─⧭ ⚙️ *VV INFO STATUS* \n├◆ *Sender:* ${statusPrefs.showSenderInfo ? '✅ ON' : '❌ OFF'}\n├◆ *File:* ${statusPrefs.showFileInfo ? '✅ ON' : '❌ OFF'}\n├◆ *Original:* ${statusPrefs.showOriginalCaption ? '✅ ON' : '❌ OFF'}\n└─⧭ *${getBotName()}* ───` 
                     }, { quoted: msg });
                 }
                 else {
                     return sock.sendMessage(chatId, { 
-                        text: `╭─⌈ ⚙️ *VV INFO* ⌋\n├─⊷ *.vv info on/off sender*\n├─⊷ *.vv info on/off file*\n├─⊷ *.vv info on/off original*\n├─⊷ *.vv info status*\n╰─── *${getBotName()}* ───` 
+                        text: `┌─⧭ ⚙️ *VV INFO* \n├◆ *.vv info on/off sender*\n├◆ *.vv info on/off file*\n├◆ *.vv info on/off original*\n├◆ *.vv info status*\n└─⧭ *${getBotName()}* ───` 
                     }, { quoted: msg });
                 }
             }
@@ -467,17 +467,17 @@ export default {
                 const captionStatus = prefs.customCaption === '' ? 'Disabled' : `"${prefs.customCaption}"`;
                 
                 return sock.sendMessage(chatId, { 
-                    text: `╭─⌈ ⚙️ *VV SETTINGS* ⌋\n├─⊷ *Caption:* ${captionStatus}\n├─⊷ *Sender:* ${prefs.showSenderInfo ? '✅ ON' : '❌ OFF'}\n├─⊷ *File:* ${prefs.showFileInfo ? '✅ ON' : '❌ OFF'}\n├─⊷ *Original:* ${prefs.showOriginalCaption ? '✅ ON' : '❌ OFF'}\n╰─── *${getBotName()}* ───` 
+                    text: `┌─⧭ ⚙️ *VV SETTINGS* \n├◆ *Caption:* ${captionStatus}\n├◆ *Sender:* ${prefs.showSenderInfo ? '✅ ON' : '❌ OFF'}\n├◆ *File:* ${prefs.showFileInfo ? '✅ ON' : '❌ OFF'}\n├◆ *Original:* ${prefs.showOriginalCaption ? '✅ ON' : '❌ OFF'}\n└─⧭ *${getBotName()}* ───` 
                 }, { quoted: msg });
             }
             else if (subCommand === 'help') {
                 return sock.sendMessage(chatId, { 
-                    text: `╭─⌈ 📥 *VIEW-ONCE (VV)* ⌋\n├─⊷ Reply to view-once with *.vv*\n├─⊷ *.vv caption set <text>*\n├◆  └⊷ Set custom caption\n├─⊷ *.vv caption default*\n├◆  └⊷ Reset caption\n├─⊷ *.vv info on/off <type>*\n├◆  └⊷ Toggle: sender, file, original\n├─⊷ *.vv settings*\n├◆  └⊷ View all settings\n├─⊷ *.vv clean*\n├◆  └⊷ Clear temp files\n╰─── *${getBotName()}* ───` 
+                    text: `┌─⧭ 📥 *VIEW-ONCE (VV)* \n├◆ Reply to view-once with *.vv*\n├◆ *.vv caption set <text>*\n├◆  └⊷ Set custom caption\n├◆ *.vv caption default*\n├◆  └⊷ Reset caption\n├◆ *.vv info on/off <type>*\n├◆  └⊷ Toggle: sender, file, original\n├◆ *.vv settings*\n├◆  └⊷ View all settings\n├◆ *.vv clean*\n├◆  └⊷ Clear temp files\n└─⧭ *${getBotName()}* ───` 
                 }, { quoted: msg });
             }
             
             return sock.sendMessage(chatId, { 
-                text: `╭─⌈ 📥 *VIEW-ONCE (VV)* ⌋\n├─⊷ Reply to view-once with *.vv*\n├─⊷ *.vv caption* — Manage caption\n├─⊷ *.vv info* — Toggle info display\n├─⊷ *.vv settings* — View settings\n├─⊷ *.vv help* — Full help\n╰─── *${getBotName()}* ───` 
+                text: `┌─⧭ 📥 *VIEW-ONCE (VV)* \n├◆ Reply to view-once with *.vv*\n├◆ *.vv caption* — Manage caption\n├◆ *.vv info* — Toggle info display\n├◆ *.vv settings* — View settings\n├◆ *.vv help* — Full help\n└─⧭ *${getBotName()}* ───` 
             }, { quoted: msg });
         }
         
@@ -511,7 +511,7 @@ export default {
             if (!result.success) {
                 // Send error message
                 await sock.sendMessage(chatId, { 
-                    text: `╭─⌈ ❌ *DOWNLOAD FAILED* ⌋\n├─⊷ ${result.error}\n╰─── *${getBotName()}* ───` 
+                    text: `┌─⧭ ❌ *DOWNLOAD FAILED* \n├◆ ${result.error}\n└─⧭ *${getBotName()}* ───` 
                 }, { quoted: msg });
             }
             
@@ -520,7 +520,7 @@ export default {
             
             // Send error message
             await sock.sendMessage(chatId, { 
-                text: `╭─⌈ ❌ *ERROR* ⌋\n├─⊷ ${error.message}\n╰─── *${getBotName()}* ───` 
+                text: `┌─⧭ ❌ *ERROR* \n├◆ ${error.message}\n└─⧭ *${getBotName()}* ───` 
             }, { quoted: msg });
         }
     }

@@ -11,7 +11,7 @@ export default {
         
         if (!args[0]) {
             return sock.sendMessage(chatId, {
-                text: `╭─⌈ 📊 *REPO SPACE ANALYZER* ⌋\n│\n├◆ ✧ *Usage:* \`${prefix}repanalyze <user/repo>\`\n│\n├◆ 💡 *Examples:*\n├◆ • \`${prefix}repanalyze facebook/react\`\n├◆ • \`${prefix}repanalyze user/repo\`\n├◆ • \`${prefix}repanalyze https://github.com/user/repo\`\n│\n╰───────────────`
+                text: `┌─⧭ 📊 *REPO SPACE ANALYZER* \n├◆ ✧ *Usage:* \`${prefix}repanalyze <user/repo>\`\n├◆ 💡 *Examples:*\n├◆ • \`${prefix}repanalyze facebook/react\`\n├◆ • \`${prefix}repanalyze user/repo\`\n├◆ • \`${prefix}repanalyze https://github.com/user/repo\`\n└─⧭`
             }, { quoted: m });
         }
         
@@ -74,7 +74,7 @@ export default {
             console.error('RepoAnalyze error:', error);
             
             await sock.sendMessage(chatId, {
-                text: `╭─⌈ ❌ *ANALYSIS ERROR* ⌋\n│\n├◆ ✧ *Target:* ${args[0]}\n├◆ ✧ *Error:* ${error.message}\n│\n├◆ 💡 Check repo exists and is public\n│\n╰───────────────`
+                text: `┌─⧭ ❌ *ANALYSIS ERROR* \n├◆ ✧ *Target:* ${args[0]}\n├◆ ✧ *Error:* ${error.message}\n├◆ 💡 Check repo exists and is public\n└─⧭`
             }, { quoted: m });
             try { await sock.sendMessage(chatId, { react: { text: '❌', key: m.key } }); } catch {}
         }
@@ -176,70 +176,70 @@ export default {
             .slice(0, 5)
             .map(([ext, count]) => `${this.getFileIcon(ext)} ${ext}: ${count}`);
         
-        let text = `╭─⌈ 📊 *SPACE ANALYSIS* ⌋\n`;
+        let text = `┌─⧭ 📊 *SPACE ANALYSIS* \n`;
         text += `│\n`;
         text += `│ 📁 ${repo.full_name}\n`;
         text += `│ 📦 ${sizeMB} MB total\n`;
         text += `│ ${activityStatus} (${daysSinceUpdate}d ago)\n`;
         text += `│\n`;
         
-        text += `├─⊷ *💾 SIZE BREAKDOWN*\n`;
+        text += `├◆ *💾 SIZE BREAKDOWN*\n`;
         text += `│  ├⊷ 📄 Files: ${analysis.summary.estimatedFiles}\n`;
         text += `│  ├⊷ 📂 Dirs: ${analysis.directories.length}\n`;
         text += `│  └⊷ 🏷️ Types: ${Object.keys(analysis.fileTypes).length}\n`;
         text += `│\n`;
         
         if (topFileTypes.length > 0) {
-            text += `├─⊷ *📊 TOP FILE TYPES*\n`;
+            text += `├◆ *📊 TOP FILE TYPES*\n`;
             topFileTypes.forEach((t, i) => {
-                const connector = i === topFileTypes.length - 1 ? '╰' : '├';
+                const connector = i === topFileTypes.length - 1 ? '└─⧭' : '├';
                 text += `│  ${connector}⊷ ${t}\n`;
             });
             text += `│\n`;
         }
         
         if (languageStats.length > 0) {
-            text += `├─⊷ *💻 TECH STACK*\n`;
+            text += `├◆ *💻 TECH STACK*\n`;
             languageStats.forEach((l, i) => {
-                const connector = i === languageStats.length - 1 ? '╰' : '├';
+                const connector = i === languageStats.length - 1 ? '└─⧭' : '├';
                 text += `│  ${connector}⊷ ${this.getLanguageIcon(l.language)} ${l.language}: ${l.percentage}% (${l.sizeMB}MB)\n`;
             });
             text += `│\n`;
         }
         
         if (healthIndicators.length > 0) {
-            text += `├─⊷ *⚠️ HEALTH ISSUES*\n`;
+            text += `├◆ *⚠️ HEALTH ISSUES*\n`;
             healthIndicators.forEach((h, i) => {
-                const connector = i === healthIndicators.length - 1 ? '╰' : '├';
+                const connector = i === healthIndicators.length - 1 ? '└─⧭' : '├';
                 text += `│  ${connector}⊷ ${h}\n`;
             });
             text += `│\n`;
         } else {
-            text += `├─⊷ ✅ *No space issues detected*\n│\n`;
+            text += `├◆ ✅ *No space issues detected*\n`;
         }
         
         if (analysis.suspiciousItems.length > 0) {
-            text += `├─⊷ *🚨 SUSPICIOUS ITEMS*\n`;
+            text += `├◆ *🚨 SUSPICIOUS ITEMS*\n`;
             analysis.suspiciousItems.slice(0, 3).forEach((item, i) => {
-                const connector = i === Math.min(analysis.suspiciousItems.length, 3) - 1 ? '╰' : '├';
+                const connector = i === Math.min(analysis.suspiciousItems.length, 3) - 1 ? '└─⧭' : '├';
                 text += `│  ${connector}⊷ ${item.name} (${item.sizeMB}MB)\n`;
             });
             text += `│\n`;
         }
         
-        text += `├─⊷ *💡 TIPS*\n`;
+        text += `├◆ *💡 TIPS*\n`;
         const tips = this.getOptimizationTips(analysis, repo.size);
         tips.forEach((tip, i) => {
-            const connector = i === tips.length - 1 ? '╰' : '├';
+            const connector = i === tips.length - 1 ? '└─⧭' : '├';
             text += `│  ${connector}⊷ ${tip}\n`;
         });
         text += `│\n`;
         
-        text += `├─⊷ *🔗 ACTIONS*\n`;
+        text += `├◆ *🔗 ACTIONS*\n`;
         text += `│  • \`${prefix}gitclone ${repo.full_name}\`\n`;
         text += `│  • \`${prefix}gitinfo ${repo.full_name}\`\n`;
         text += `│\n`;
-        text += `╰───────────────`;
+        text += `└─⧭`;
         
         return text;
     },

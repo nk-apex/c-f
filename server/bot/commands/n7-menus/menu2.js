@@ -115,7 +115,7 @@ export default {
     const filledBars = Math.round((ramUsage.percent / 100) * barLength);
     const ramBar = '█'.repeat(filledBars) + '░'.repeat(barLength - filledBars);
 
-    const infoHeader = `╭─⌈ \`${botName}\` ⌋
+    const infoHeader = `┌─⧭ \`${botName}\` 
 ┃ Owner: ${ownerName}
 ┃ Mode: ${botMode}
 ┃ Prefix: [ ${prefix} ]
@@ -125,14 +125,14 @@ export default {
 ┃ Uptime: ${formatUptime(process.uptime())}
 ┃ RAM: ${ramBar} ${ramUsage.percent}%
 ┃ Memory: ${ramUsage.usedMB}MB / ${ramUsage.totalMB}MB
-╰─⊷`;
+└─⧭⊷`;
 
     let catList = '';
     categories.forEach(cat => {
-      catList += `├─⊷ *${prefix}${cat.name}*\n├◆  └⊷ ${cat.icon} ${cat.desc}\n`;
+      catList += `├◆ *${prefix}${cat.name}*\n├◆  └⊷ ${cat.icon} ${cat.desc}\n`;
     });
 
-    const caption = `${infoHeader}\n\n╭─⌈ 📋 *CATEGORY MENUS* ⌋\n│\n${catList}│\n╰─⊷ *🐺 ${botName}*`;
+    const caption = `${infoHeader}\n\n┌─⧭ 📋 *CATEGORY MENUS* \n${catList}│\n└─⧭⊷ *🐺 ${botName}*`;
 
     const media = getMenuMedia();
     if (media) {

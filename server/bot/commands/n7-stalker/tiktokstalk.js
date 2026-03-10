@@ -64,7 +64,7 @@ export default {
 
         if (!args || !args[0]) {
             return sock.sendMessage(jid, {
-                text: `╭─⌈ 🔍 *TIKTOK STALKER* ⌋\n│\n├─⊷ *${prefix}tiktokstalk <username>*\n├◆  └⊷ Stalk a TikTok profile\n│\n├─⊷ *Example:*\n├◆  └⊷ ${prefix}tiktokstalk maskedwolf908\n│\n╰───────────────\n> *${getBotName()} STALKER*`
+                text: `┌─⧭ 🔍 *TIKTOK STALKER* \n├◆ *${prefix}tiktokstalk <username>*\n├◆  └⊷ Stalk a TikTok profile\n├◆ *Example:*\n├◆  └⊷ ${prefix}tiktokstalk maskedwolf908\n└─⧭\n> *${getBotName()} STALKER*`
             }, { quoted: m });
         }
 
@@ -83,20 +83,20 @@ export default {
             }
 
             const lines = [
-                `╭─⌈ 🎵 *TIKTOK PROFILE* ⌋`,
+                `┌─⧭ 🎵 *TIKTOK PROFILE* `,
                 `│`,
-                `├─⊷ *👤 Name:* ${d.name}`,
-                `├─⊷ *🏷️ Username:* @${d.username}`,
-                `├─⊷ *📝 Bio:* ${d.bio}`,
-                `├─⊷ *👥 Followers:* ${Number(d.followers).toLocaleString()}`,
-                `├─⊷ *👤 Following:* ${Number(d.following).toLocaleString()}`,
-                `├─⊷ *❤️ Likes:* ${Number(d.likes).toLocaleString()}`,
+                `├◆ *👤 Name:* ${d.name}`,
+                `├◆ *🏷️ Username:* @${d.username}`,
+                `├◆ *📝 Bio:* ${d.bio}`,
+                `├◆ *👥 Followers:* ${Number(d.followers).toLocaleString()}`,
+                `├◆ *👤 Following:* ${Number(d.following).toLocaleString()}`,
+                `├◆ *❤️ Likes:* ${Number(d.likes).toLocaleString()}`,
             ];
-            if (d.videos !== null) lines.push(`├─⊷ *🎬 Videos:* ${d.videos}`);
-            lines.push(`├─⊷ *✅ Verified:* ${d.verified ? 'Yes ✔️' : 'No'}`);
-            lines.push(`├─⊷ *🔒 Private:* ${d.private ? 'Yes' : 'No'}`);
-            if (d.profileUrl) lines.push(`├─⊷ *🔗 Profile:* ${d.profileUrl}`);
-            lines.push(`│`, `╰───────────────`, `> 🐺 *${getBotName()} STALKER*`);
+            if (d.videos !== null) lines.push(`├◆ *🎬 Videos:* ${d.videos}`);
+            lines.push(`├◆ *✅ Verified:* ${d.verified ? 'Yes ✔️' : 'No'}`);
+            lines.push(`├◆ *🔒 Private:* ${d.private ? 'Yes' : 'No'}`);
+            if (d.profileUrl) lines.push(`├◆ *🔗 Profile:* ${d.profileUrl}`);
+            lines.push(`│`, `└─⧭`, `> 🐺 *${getBotName()} STALKER*`);
 
             const caption = lines.join('\n');
 

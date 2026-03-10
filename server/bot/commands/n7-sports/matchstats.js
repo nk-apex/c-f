@@ -15,17 +15,17 @@ export default {
 
     if (args.length === 0 || args[0].toLowerCase() === 'help') {
       return sock.sendMessage(jid, {
-        text: `╭─⌈ 📊 *MATCH STATISTICS* ⌋\n` +
-          `├─⊷ *${PREFIX}matchstats <matchId>*\n` +
+        text: `┌─⧭ 📊 *MATCH STATISTICS* \n` +
+          `├◆ *${PREFIX}matchstats <matchId>*\n` +
           `│  └⊷ Get detailed stats for a match\n` +
           `│\n` +
-          `├─ 💡 *Example:*\n` +
+          `├◆ 💡 *Example:*\n` +
           `│  ⊷ ${PREFIX}matchstats 551333\n` +
           `│\n` +
-          `├─ ℹ️ *How to find match IDs:*\n` +
+          `├◆ ℹ️ *How to find match IDs:*\n` +
           `│  ⊷ Use ${PREFIX}football scores\n` +
           `│  ⊷ Match IDs shown with results\n` +
-          `╰───`
+          `└─⧭`
       }, { quoted: m });
     }
 
@@ -47,16 +47,16 @@ export default {
       const venue = matchData?.venue || matchData?.stadium || '';
       const league = matchData?.league?.name || matchData?.competition?.name || '';
 
-      let text = `╭─⌈ 📊 *MATCH STATISTICS* ⌋\n│\n`;
-      text += `├─⊷ *${home}* ${homeScore} - ${awayScore} *${away}*\n`;
-      if (status) text += `├─⊷ Status: ${status}\n`;
-      if (league) text += `├─⊷ League: ${league}\n`;
-      if (venue) text += `├─⊷ Venue: ${venue}\n`;
+      let text = `┌─⧭ 📊 *MATCH STATISTICS* \n`;
+      text += `├◆ *${home}* ${homeScore} - ${awayScore} *${away}*\n`;
+      if (status) text += `├◆ Status: ${status}\n`;
+      if (league) text += `├◆ League: ${league}\n`;
+      if (venue) text += `├◆ Venue: ${venue}\n`;
       text += `│\n`;
 
       const stats = matchData?.statistics || matchData?.stats || data?.statistics || data?.stats;
       if (Array.isArray(stats)) {
-        text += `├─ 📋 *Match Stats:*\n`;
+        text += `├◆ 📋 *Match Stats:*\n`;
         stats.forEach(stat => {
           const name = stat?.name || stat?.label || stat?.type || stat?.displayName || 'Stat';
           const homeVal = stat?.home ?? stat?.homeValue ?? stat?.values?.[0] ?? '-';
@@ -64,7 +64,7 @@ export default {
           text += `│  ⊷ ${homeVal} │ *${name}* │ ${awayVal}\n`;
         });
       } else if (stats && typeof stats === 'object') {
-        text += `├─ 📋 *Match Stats:*\n`;
+        text += `├◆ 📋 *Match Stats:*\n`;
         Object.entries(stats).slice(0, 15).forEach(([key, val]) => {
           if (typeof val === 'object' && val !== null) {
             const homeVal = val?.home ?? val?.[0] ?? '-';
@@ -78,7 +78,7 @@ export default {
 
       const events = matchData?.events || matchData?.incidents || matchData?.timeline;
       if (Array.isArray(events) && events.length > 0) {
-        text += `│\n├─ ⚡ *Key Events:*\n`;
+        text += `│\n├◆ ⚡ *Key Events:*\n`;
         events.slice(0, 10).forEach(ev => {
           const minute = ev?.minute || ev?.time || ev?.clock || '';
           const type = ev?.type || ev?.eventType || ev?.incident || '';
@@ -93,13 +93,13 @@ export default {
         const homeLineup = lineups?.home || lineups?.[0];
         const awayLineup = lineups?.away || lineups?.[1];
         if (homeLineup?.formation || awayLineup?.formation) {
-          text += `│\n├─ 📝 *Formations:*\n`;
+          text += `│\n├◆ 📝 *Formations:*\n`;
           if (homeLineup?.formation) text += `│  ⊷ ${home}: ${homeLineup.formation}\n`;
           if (awayLineup?.formation) text += `│  ⊷ ${away}: ${awayLineup.formation}\n`;
         }
       }
 
-      text += `╰───\n\n⚡ *Powered by ${getBotName()}*`;
+      text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
       await sock.sendMessage(jid, { text }, { quoted: m });
       await sock.sendMessage(jid, { react: { text: '✅', key: m.key } });
       console.log(`📊 [MATCHSTATS] Stats for match ${matchId} fetched`);
@@ -108,7 +108,7 @@ export default {
       console.error('❌ [MATCHSTATS]', error.message);
       await sock.sendMessage(jid, { react: { text: '❌', key: m.key } });
       await sock.sendMessage(jid, {
-        text: `╭─⌈ ❌ *MATCH STATS ERROR* ⌋\n├─⊷ ${error.message}\n├─⊷ Make sure the match ID is correct\n├─⊷ Usage: ${PREFIX}matchstats <matchId>\n╰───`
+        text: `┌─⧭ ❌ *MATCH STATS ERROR* \n├◆ ${error.message}\n├◆ Make sure the match ID is correct\n├◆ Usage: ${PREFIX}matchstats <matchId>\n└─⧭`
       }, { quoted: m });
     }
   }

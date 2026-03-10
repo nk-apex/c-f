@@ -420,7 +420,7 @@ export default {
        if (!args[0]) {
       const prefix = '.'; // Change this to your bot's prefix
       return await sock.sendMessage(groupId, {
-        text: `╭─⌈ 📋 *ADD* ⌋\n│\n├─⊷ *${prefix}add 2547xxxxxxxx*\n├◆  └⊷ Add single number\n├─⊷ *${prefix}add 254xxx,254yyy,254zzz*\n├◆  └⊷ Add multiple numbers\n╰───`
+        text: `┌─⧭ 📋 *ADD* \n├◆ *${prefix}add 2547xxxxxxxx*\n├◆  └⊷ Add single number\n├◆ *${prefix}add 254xxx,254yyy,254zzz*\n├◆  └⊷ Add multiple numbers\n└─⧭`
       }, { quoted: msg });
     }
     

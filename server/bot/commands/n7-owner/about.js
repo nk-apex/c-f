@@ -23,12 +23,12 @@ export default {
         ? imagePath2
         : null;
 
-      const caption = `┌─⧭ *FOX BOT*
-├◆ 🤖 *IDENTITY:* FOX BOT — Multi-platform WhatsApp Bot
+      const caption = `┌─⧭ *FOXY*
+├◆ 🤖 *IDENTITY:* FOXY — Multi-platform WhatsApp Bot
 ├◆ 💻 *Core:* Node.js + Baileys
-├◆ ⚡ *Commands:* 568 across 70 categories
+├◆ ⚡ *Commands:* 567 across 70 categories
 ├◆ 🔗 *Platforms:* Replit · Heroku · Railway · Render · VPS
-├◆ 🛡 *Session:* FOX-BOT:~<Base64> format
+├◆ 🛡 *Session:* FOXY:~<Base64> or FOX-BOT:~<Base64>
 └─⧭`;
 
       // 🐺 Send Image + Caption or fallback to text

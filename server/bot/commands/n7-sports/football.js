@@ -28,26 +28,26 @@ export default {
 
     if (args.length === 0 || args[0].toLowerCase() === 'help') {
       return sock.sendMessage(jid, {
-        text: `╭─⌈ ⚽ *FOOTBALL / SOCCER* ⌋\n` +
+        text: `┌─⧭ ⚽ *FOOTBALL / SOCCER* \n` +
           `│\n` +
-          `├─⊷ *${PREFIX}football scores*\n` +
+          `├◆ *${PREFIX}football scores*\n` +
           `│  └⊷ Live/recent match scores\n` +
-          `├─⊷ *${PREFIX}football standings [league]*\n` +
+          `├◆ *${PREFIX}football standings [league]*\n` +
           `│  └⊷ League table (default: EPL)\n` +
-          `├─⊷ *${PREFIX}football fixtures*\n` +
+          `├◆ *${PREFIX}football fixtures*\n` +
           `│  └⊷ Upcoming fixtures\n` +
-          `├─⊷ *${PREFIX}football topscorers [league]*\n` +
+          `├◆ *${PREFIX}football topscorers [league]*\n` +
           `│  └⊷ Top goal scorers\n` +
-          `├─⊷ *${PREFIX}football stats [league]*\n` +
+          `├◆ *${PREFIX}football stats [league]*\n` +
           `│  └⊷ League statistics\n` +
           `│\n` +
-          `├─ 📋 *Available Leagues:*\n` +
+          `├◆ 📋 *Available Leagues:*\n` +
           `│  ⊷ epl / eng - Premier League\n` +
           `│  ⊷ laliga / esp - La Liga\n` +
           `│  ⊷ bundesliga / ger - Bundesliga\n` +
           `│  ⊷ seriea / ita - Serie A\n` +
           `│  ⊷ ligue1 / fra - Ligue 1\n` +
-          `╰───`
+          `└─⧭`
       }, { quoted: m });
     }
 
@@ -66,7 +66,7 @@ export default {
 
         if (!matches || matches.length === 0) throw new Error('No matches found');
 
-        let text = `╭─⌈ ⚽ *LIVE / RECENT MATCHES* ⌋\n│\n`;
+        let text = `┌─⧭ ⚽ *LIVE / RECENT MATCHES* \n`;
         const list = Array.isArray(matches) ? matches.slice(0, 15) : [];
         list.forEach(match => {
           const home = match?.homeTeam?.name || match?.home?.name || match?.homeTeam || match?.teams?.home?.name || 'Home';
@@ -76,10 +76,10 @@ export default {
           const status = match?.status || match?.state || match?.matchStatus || match?.statusText || '';
           const league = match?.league?.name || match?.competition?.name || '';
           const matchId = match?.id || match?.matchId || match?.match_id || '';
-          text += `├─⊷ ${home} *${homeScore}* - *${awayScore}* ${away}\n`;
+          text += `├◆ ${home} *${homeScore}* - *${awayScore}* ${away}\n`;
           text += `│  └⊷ ${status}${league ? ` │ ${league}` : ''}${matchId ? ` │ ID: ${matchId}` : ''}\n`;
         });
-        text += `╰───\n\n⚡ *Powered by ${getBotName()}*`;
+        text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
         await sock.sendMessage(jid, { text }, { quoted: m });
         console.log('⚽ [FOOTBALL] Scores fetched successfully');
 
@@ -90,7 +90,7 @@ export default {
 
         if (!standings || (Array.isArray(standings) && standings.length === 0)) throw new Error('No standings data available');
 
-        let text = `╭─⌈ ⚽ *${leagueName.toUpperCase()} STANDINGS* ⌋\n│\n`;
+        let text = `┌─⧭ ⚽ *${leagueName.toUpperCase()} STANDINGS* \n`;
         const list = Array.isArray(standings) ? standings.slice(0, 20) : [];
         list.forEach((team, i) => {
           const rank = team?.rank || team?.position || (i + 1);
@@ -103,9 +103,9 @@ export default {
           const gf = team?.goalsFor ?? team?.gf ?? team?.stats?.goalsFor ?? '';
           const ga = team?.goalsAgainst ?? team?.ga ?? team?.stats?.goalsAgainst ?? '';
           const goalStr = (gf !== '' && ga !== '') ? ` │ ${gf}:${ga}` : '';
-          text += `├─⊷ *${rank}.* ${short} │ ${pts}pts │ ${w}W ${d}D ${l}L${goalStr}\n`;
+          text += `├◆ *${rank}.* ${short} │ ${pts}pts │ ${w}W ${d}D ${l}L${goalStr}\n`;
         });
-        text += `╰───\n\n⚡ *Powered by ${getBotName()}*`;
+        text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
         await sock.sendMessage(jid, { text }, { quoted: m });
         console.log(`⚽ [FOOTBALL] Standings for ${leagueName} fetched`);
 
@@ -116,7 +116,7 @@ export default {
 
         if (!fixtures || (Array.isArray(fixtures) && fixtures.length === 0)) throw new Error('No fixtures found');
 
-        let text = `╭─⌈ ⚽ *UPCOMING FIXTURES* ⌋\n│\n`;
+        let text = `┌─⧭ ⚽ *UPCOMING FIXTURES* \n`;
         const list = Array.isArray(fixtures) ? fixtures.slice(0, 15) : [];
         list.forEach(match => {
           const home = match?.homeTeam?.name || match?.home?.name || match?.homeTeam || match?.teams?.home?.name || 'Home';
@@ -128,10 +128,10 @@ export default {
           if (date) {
             try { dateStr = new Date(date).toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' }); } catch { dateStr = date; }
           }
-          text += `├─⊷ ${home} vs ${away}\n`;
+          text += `├◆ ${home} vs ${away}\n`;
           text += `│  └⊷ ${dateStr}${league ? ` │ ${league}` : ''}${venue ? ` │ ${venue}` : ''}\n`;
         });
-        text += `╰───\n\n⚡ *Powered by ${getBotName()}*`;
+        text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
         await sock.sendMessage(jid, { text }, { quoted: m });
         console.log('⚽ [FOOTBALL] Fixtures fetched successfully');
 
@@ -142,16 +142,16 @@ export default {
 
         if (!scorers || (Array.isArray(scorers) && scorers.length === 0)) throw new Error('No top scorers data available');
 
-        let text = `╭─⌈ ⚽ *${leagueName.toUpperCase()} TOP SCORERS* ⌋\n│\n`;
+        let text = `┌─⧭ ⚽ *${leagueName.toUpperCase()} TOP SCORERS* \n`;
         const list = Array.isArray(scorers) ? scorers.slice(0, 15) : [];
         list.forEach((player, i) => {
           const name = player?.player?.name || player?.name || player?.playerName || 'Unknown';
           const goals = player?.goals ?? player?.numberOfGoals ?? player?.stats?.goals ?? player?.value ?? '-';
           const team = player?.team?.name || player?.teamName || player?.team || '';
           const assists = player?.assists ?? player?.stats?.assists ?? '';
-          text += `├─⊷ *${i + 1}.* ${name} │ ⚽ ${goals}${assists !== '' ? ` │ 🅰️ ${assists}` : ''}${team ? ` │ ${team}` : ''}\n`;
+          text += `├◆ *${i + 1}.* ${name} │ ⚽ ${goals}${assists !== '' ? ` │ 🅰️ ${assists}` : ''}${team ? ` │ ${team}` : ''}\n`;
         });
-        text += `╰───\n\n⚡ *Powered by ${getBotName()}*`;
+        text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
         await sock.sendMessage(jid, { text }, { quoted: m });
         console.log(`⚽ [FOOTBALL] Top scorers for ${leagueName} fetched`);
 
@@ -162,26 +162,26 @@ export default {
 
         if (!stats) throw new Error('No statistics data available');
 
-        let text = `╭─⌈ ⚽ *${leagueName.toUpperCase()} STATISTICS* ⌋\n│\n`;
+        let text = `┌─⧭ ⚽ *${leagueName.toUpperCase()} STATISTICS* \n`;
         if (Array.isArray(stats)) {
           stats.slice(0, 15).forEach(stat => {
             const label = stat?.label || stat?.name || stat?.category || stat?.type || 'Stat';
             const value = stat?.value || stat?.displayValue || stat?.count || '';
             const player = stat?.player?.name || stat?.playerName || stat?.leader || '';
             const team = stat?.team?.name || stat?.teamName || '';
-            text += `├─⊷ *${label}:* ${value}${player ? ` - ${player}` : ''}${team ? ` (${team})` : ''}\n`;
+            text += `├◆ *${label}:* ${value}${player ? ` - ${player}` : ''}${team ? ` (${team})` : ''}\n`;
           });
         } else if (typeof stats === 'object') {
           Object.entries(stats).slice(0, 15).forEach(([key, val]) => {
             if (typeof val === 'object' && val !== null) {
               const display = val?.value || val?.name || val?.displayValue || JSON.stringify(val).substring(0, 50);
-              text += `├─⊷ *${key}:* ${display}\n`;
+              text += `├◆ *${key}:* ${display}\n`;
             } else {
-              text += `├─⊷ *${key}:* ${val}\n`;
+              text += `├◆ *${key}:* ${val}\n`;
             }
           });
         }
-        text += `╰───\n\n⚡ *Powered by ${getBotName()}*`;
+        text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
         await sock.sendMessage(jid, { text }, { quoted: m });
         console.log(`⚽ [FOOTBALL] Statistics for ${leagueName} fetched`);
 
@@ -192,23 +192,23 @@ export default {
           const data = res.data;
           const standings = data?.standings || data?.data || data?.table || data?.results || (Array.isArray(data) ? data : []);
           const ln = leagueNames[trySlug] || sub;
-          let text = `╭─⌈ ⚽ *${ln.toUpperCase()} STANDINGS* ⌋\n│\n`;
+          let text = `┌─⧭ ⚽ *${ln.toUpperCase()} STANDINGS* \n`;
           const list = Array.isArray(standings) ? standings.slice(0, 20) : [];
           list.forEach((team, i) => {
             const rank = team?.rank || team?.position || (i + 1);
             const name = team?.team?.name || team?.name || team?.teamName || 'Unknown';
             const short = name.length > 16 ? name.substring(0, 14) + '..' : name;
             const pts = team?.points ?? team?.pts ?? '-';
-            text += `├─⊷ *${rank}.* ${short} │ ${pts}pts\n`;
+            text += `├◆ *${rank}.* ${short} │ ${pts}pts\n`;
           });
-          text += `╰───\n\n⚡ *Powered by ${getBotName()}*`;
+          text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
           await sock.sendMessage(jid, { text }, { quoted: m });
         } else {
           return sock.sendMessage(jid, {
-            text: `╭─⌈ ⚽ *FOOTBALL HELP* ⌋\n` +
-              `├─⊷ Unknown subcommand: *${sub}*\n` +
-              `├─⊷ Use *${PREFIX}football* for help\n` +
-              `╰───`
+            text: `┌─⧭ ⚽ *FOOTBALL HELP* \n` +
+              `├◆ Unknown subcommand: *${sub}*\n` +
+              `├◆ Use *${PREFIX}football* for help\n` +
+              `└─⧭`
           }, { quoted: m });
         }
       }
@@ -218,7 +218,7 @@ export default {
       console.error('❌ [FOOTBALL]', error.message);
       await sock.sendMessage(jid, { react: { text: '❌', key: m.key } });
       await sock.sendMessage(jid, {
-        text: `╭─⌈ ❌ *FOOTBALL ERROR* ⌋\n├─⊷ ${error.message}\n├─⊷ Try again later\n╰───`
+        text: `┌─⧭ ❌ *FOOTBALL ERROR* \n├◆ ${error.message}\n├◆ Try again later\n└─⧭`
       }, { quoted: m });
     }
   }

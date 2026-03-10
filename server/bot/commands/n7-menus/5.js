@@ -474,33 +474,33 @@
 //   };
   
 //   // ========== SIMPLIFIED MENU WITH FADED EFFECT ==========
-//   let infoSection = `╭─⊷ *${currentBotName} MENU*
+//   let infoSection = `┌─⧭⊷ *${currentBotName} MENU*
 // │
-// ├─⊷ *📊 BOT INFO*
-// │  ├─⊷ *User:* ${m.pushName || "Anonymous"}
-// │  ├─⊷ *Date:* ${currentDate}
-// │  ├─⊷ *Time:* ${currentTime}
-// │  ├─⊷ *Owner:* ${ownerName}
-// │  ├─⊷ *Mode:* ${botMode}
-// │  ├─⊷ *Prefix:* [ ${botPrefix} ]
-// │  ├─⊷ *Version:* ${botVersion}
-// │  ├─⊷ *Platform:* ${deploymentPlatform.name}
+// ├◆ *📊 BOT INFO*
+// │  ├◆ *User:* ${m.pushName || "Anonymous"}
+// │  ├◆ *Date:* ${currentDate}
+// │  ├◆ *Time:* ${currentTime}
+// │  ├◆ *Owner:* ${ownerName}
+// │  ├◆ *Mode:* ${botMode}
+// │  ├◆ *Prefix:* [ ${botPrefix} ]
+// │  ├◆ *Version:* ${botVersion}
+// │  ├◆ *Platform:* ${deploymentPlatform.name}
 // │  └─⊷ *Status:* ${deploymentPlatform.status}
 // │
-// ├─⊷ *📈 SYSTEM STATUS*
-// │  ├─⊷ *Uptime:* ${formatUptime(process.uptime())}
-// │  ├─⊷ *RAM Usage:* ${getRAMUsage()}%
+// ├◆ *📈 SYSTEM STATUS*
+// │  ├◆ *Uptime:* ${formatUptime(process.uptime())}
+// │  ├◆ *RAM Usage:* ${getRAMUsage()}%
 // │  └─⊷ *Speed:* ${(performance.now() - performance.now()).toFixed(2)}ms
 // │
-// ╰─⊷ *Type .help <command> for details*\n\n`;
+// └─⧭⊷ *Type .help <command> for details*\n\n`;
 
 //   // Apply faded effect to the info section with MORE invisible chars
 //   const fadedInfoSection = createFadedEffect(infoSection);
 
 //   // ========== MENU LIST WITH BOX STYLE AND DOTS ==========
-//   const commandsText = `╭─⊷ *🏠 GROUP MANAGEMENT*
+//   const commandsText = `┌─⧭⊷ *🏠 GROUP MANAGEMENT*
 // │
-// ├─⊷ *🛡️ ADMIN & MODERATION*
+// ├◆ *🛡️ ADMIN & MODERATION*
 // │  • add
 // │  • promote
 // │  • demote
@@ -520,7 +520,7 @@
 // │  • antilink
 // │  • welcome
 // │
-// ├─⊷ *🚫 AUTO-MODERATION*
+// ├◆ *🚫 AUTO-MODERATION*
 // │  • antisticker
 // │  • antiviewonce
 // │  • antilink
@@ -531,7 +531,7 @@
 // │  • antistatusmention
 // │  • antigrouplink
 // │
-// ├─⊷ *📊 GROUP INFO & TOOLS*
+// ├◆ *📊 GROUP INFO & TOOLS*
 // │  • groupinfo
 // │  • tagadmin
 // │  • tagall
@@ -543,20 +543,20 @@
 // │  • fangtrace
 // │  • getgpp
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *🎨 MENU COMMANDS*
+// ┌─⧭⊷ *🎨 MENU COMMANDS*
 // │
 // │  • togglemenuinfo
 // │  • setmenuimage
 // │  • resetmenuinfo
 // │  • menustyle
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *👑 OWNER CONTROLS*
+// ┌─⧭⊷ *👑 OWNER CONTROLS*
 // │
-// ├─⊷ *⚡ CORE MANAGEMENT*
+// ├◆ *⚡ CORE MANAGEMENT*
 // │  • setbotname
 // │  • setowner
 // │  • setprefix
@@ -572,7 +572,7 @@
 // │  • setpp
 // │  • repo
 // │
-// ├─⊷ *🔄 SYSTEM & MAINTENANCE*
+// ├◆ *🔄 SYSTEM & MAINTENANCE*
 // │  • restart
 // │  • workingreload
 // │  • reloadenv
@@ -583,9 +583,9 @@
 // │  • hostip
 // │  • findcommands
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *⚙️ AUTOMATION*
+// ┌─⧭⊷ *⚙️ AUTOMATION*
 // │
 // │  • autoread
 // │  • autotyping
@@ -595,11 +595,11 @@
 // │  • autobio
 // │  • autorec
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *✨ GENERAL UTILITIES*
+// ┌─⧭⊷ *✨ GENERAL UTILITIES*
 // │
-// ├─⊷ *🔍 INFO & SEARCH*
+// ├◆ *🔍 INFO & SEARCH*
 // │  • alive
 // │  • ping
 // │  • ping2
@@ -614,7 +614,7 @@
 // │  • getgpp
 // │  • prefixinfo
 // │
-// ├─⊷ *🔗 CONVERSION & MEDIA*
+// ├◆ *🔗 CONVERSION & MEDIA*
 // │  • shorturl
 // │  • qrencode
 // │  • take
@@ -622,14 +622,14 @@
 // │  • tiktok
 // │  • save
 // │
-// ├─⊷ *📝 PERSONAL TOOLS*
+// ├◆ *📝 PERSONAL TOOLS*
 // │  • pair
 // │  • resetwarn
 // │  • setwarn
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *🎵 MUSIC & MEDIA*
+// ┌─⧭⊷ *🎵 MUSIC & MEDIA*
 // │
 // │  • play
 // │  • song
@@ -640,11 +640,11 @@
 // │  • bassboost
 // │  • trebleboost
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *🤖 MEDIA & AI COMMANDS*
+// ┌─⧭⊷ *🤖 MEDIA & AI COMMANDS*
 // │
-// ├─⊷ *⬇️ MEDIA DOWNLOADS*
+// ├◆ *⬇️ MEDIA DOWNLOADS*
 // │  • youtube
 // │  • tiktok
 // │  • instagram
@@ -652,7 +652,7 @@
 // │  • snapchat
 // │  • apk
 // │
-// ├─⊷ *🎨 AI GENERATION*
+// ├◆ *🎨 AI GENERATION*
 // │  • gpt
 // │  • gemini
 // │  • deepseek
@@ -662,9 +662,9 @@
 // │  • wolfbot
 // │  • videogen
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *🖼️ IMAGE TOOLS*
+// ┌─⧭⊷ *🖼️ IMAGE TOOLS*
 // │
 // │  • image
 // │  • imagegenerate
@@ -672,21 +672,21 @@
 // │  • art
 // │  • real
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *🛡️ SECURITY & HACKING*
+// ┌─⧭⊷ *🛡️ SECURITY & HACKING*
 // │
-// ├─⊷ *🌐 NETWORK & INFO*
+// ├◆ *🌐 NETWORK & INFO*
 // │  • ipinfo
 // │  • shodan
 // │  • iplookup
 // │  • getip
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *🎨 LOGO DESIGN STUDIO*
+// ┌─⧭⊷ *🎨 LOGO DESIGN STUDIO*
 // │
-// ├─⊷ *🌟 PREMIUM METALS*
+// ├◆ *🌟 PREMIUM METALS*
 // │  • goldlogo
 // │  • silverlogo
 // │  • platinumlogo
@@ -697,7 +697,7 @@
 // │  • copperlogo
 // │  • titaniumlogo
 // │
-// ├─⊷ *🔥 ELEMENTAL EFFECTS*
+// ├◆ *🔥 ELEMENTAL EFFECTS*
 // │  • firelogo
 // │  • icelogo
 // │  • iceglowlogo
@@ -707,28 +707,28 @@
 // │  • sunlogo
 // │  • moonlogo
 // │
-// ├─⊷ *🎭 MYTHICAL & MAGICAL*
+// ├◆ *🎭 MYTHICAL & MAGICAL*
 // │  • dragonlogo
 // │  • phoenixlogo
 // │  • wizardlogo
 // │  • crystallogo
 // │  • darkmagiclogo
 // │
-// ├─⊷ *🌌 DARK & GOTHIC*
+// ├◆ *🌌 DARK & GOTHIC*
 // │  • shadowlogo
 // │  • smokelogo
 // │  • bloodlogo
 // │
-// ├─⊷ *💫 GLOW & NEON EFFECTS*
+// ├◆ *💫 GLOW & NEON EFFECTS*
 // │  • neonlogo
 // │  • glowlogo
 // │
-// ├─⊷ *🤖 TECH & FUTURISTIC*
+// ├◆ *🤖 TECH & FUTURISTIC*
 // │  • matrixlogo
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *🐙 GITHUB COMMANDS*
+// ┌─⧭⊷ *🐙 GITHUB COMMANDS*
 // │
 // │  • gitclone
 // │  • gitinfo
@@ -738,9 +738,9 @@
 // │  • watchers
 // │  • release
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *🌸 ANIME COMMANDS*
+// ┌─⧭⊷ *🌸 ANIME COMMANDS*
 // │
 // │  • awoo
 // │  • bj
@@ -763,7 +763,7 @@
 // │  • wink
 // │  • yeet
 // │
-// ╰─⊷
+// └─⧭⊷
 
 // 🐺 *POWERED BY WOLF TECH* 🐺`;
 

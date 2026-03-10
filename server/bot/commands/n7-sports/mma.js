@@ -15,7 +15,7 @@ export default {
 
     if (args.length === 0 || args[0].toLowerCase() === 'help') {
       return sock.sendMessage(jid, {
-        text: `╭─⌈ 🥊 *UFC / MMA* ⌋\n├─⊷ *${PREFIX}mma results*\n├◆  └⊷ Latest fight results\n├─⊷ *${PREFIX}mma schedule*\n├◆  └⊷ Upcoming fight cards\n├─⊷ *${PREFIX}ufc results*\n├◆  └⊷ Alias for mma\n╰───`
+        text: `┌─⧭ 🥊 *UFC / MMA* \n├◆ *${PREFIX}mma results*\n├◆  └⊷ Latest fight results\n├◆ *${PREFIX}mma schedule*\n├◆  └⊷ Upcoming fight cards\n├◆ *${PREFIX}ufc results*\n├◆  └⊷ Alias for mma\n└─⧭`
       }, { quoted: m });
     }
 
@@ -27,13 +27,13 @@ export default {
       if (events.length === 0) throw new Error('No UFC events found');
 
       const sub = args[0].toLowerCase();
-      let text = `╭─⌈ 🥊 *UFC / MMA ${sub === 'schedule' ? 'SCHEDULE' : 'RESULTS'}* ⌋\n│\n`;
+      let text = `┌─⧭ 🥊 *UFC / MMA ${sub === 'schedule' ? 'SCHEDULE' : 'RESULTS'}* \n`;
 
       events.slice(0, 10).forEach(ev => {
         const name = ev.name || 'UFC Event';
         const date = ev.date ? new Date(ev.date).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }) : '';
         const status = ev.status?.type?.shortDetail || '';
-        text += `├─⊷ *${name}*\n`;
+        text += `├◆ *${name}*\n`;
 
         const comp = ev.competitions?.[0];
         if (comp?.competitors) {
@@ -44,7 +44,7 @@ export default {
         }
         text += `│  └⊷ ${date} • ${status}\n`;
       });
-      text += `╰───\n\n⚡ *Powered by ${getBotName()}*`;
+      text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
 
       await sock.sendMessage(jid, { text }, { quoted: m });
       await sock.sendMessage(jid, { react: { text: '✅', key: m.key } });
@@ -52,7 +52,7 @@ export default {
       console.error('❌ [MMA]', error.message);
       await sock.sendMessage(jid, { react: { text: '❌', key: m.key } });
       await sock.sendMessage(jid, {
-        text: `╭─⌈ ❌ *MMA ERROR* ⌋\n├─⊷ ${error.message}\n├─⊷ Try again later\n╰───`
+        text: `┌─⧭ ❌ *MMA ERROR* \n├◆ ${error.message}\n├◆ Try again later\n└─⧭`
       }, { quoted: m });
     }
   }

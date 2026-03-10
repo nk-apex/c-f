@@ -11,7 +11,7 @@ export default {
     try {
       if (args.length === 0) {
         await sock.sendMessage(jid, { 
-          text: `╭─⌈ ❄️ *ICE LOGO* ⌋\n│\n├─⊷ *icelogo*\n├◆  └⊷ icelogo <text>\n│\n├─⊷ *Example:*\n├◆  └⊷ icelogo WOLF\n├◆  └⊷ icelogo FROST\n├◆  └⊷ icelogo ICE\n│\n╰───` 
+          text: `┌─⧭ ❄️ *ICE LOGO* \n├◆ *icelogo*\n├◆  └⊷ icelogo <text>\n├◆ *Example:*\n├◆  └⊷ icelogo WOLF\n├◆  └⊷ icelogo FROST\n├◆  └⊷ icelogo ICE\n└─⧭` 
         }, { quoted: m });
         return;
       }
@@ -20,7 +20,7 @@ export default {
       
       if (text.length > 12) {
         await sock.sendMessage(jid, { 
-          text: `╭─⌈ ❌ *ERROR* ⌋\n│\n├─⊷ Text too long!\n├◆  └⊷ Maximum 12 characters\n├◆  └⊷ Your text: "${text}" (${text.length} chars)\n│\n╰───` 
+          text: `┌─⧭ ❌ *ERROR* \n├◆ Text too long!\n├◆  └⊷ Maximum 12 characters\n├◆  └⊷ Your text: "${text}" (${text.length} chars)\n└─⧭` 
         }, { quoted: m });
         return;
       }
@@ -41,7 +41,7 @@ export default {
     } catch (error) {
       console.error("❌ [ICELOGO] ERROR:", error);
       await sock.sendMessage(jid, { 
-        text: `╭─⌈ ❌ *ERROR* ⌋\n│\n├─⊷ ${error.message}\n├◆  └⊷ Please try again with shorter text\n│\n╰───` 
+        text: `┌─⧭ ❌ *ERROR* \n├◆ ${error.message}\n├◆  └⊷ Please try again with shorter text\n└─⧭` 
       }, { quoted: m });
     }
   },

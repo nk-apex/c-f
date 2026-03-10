@@ -94,10 +94,10 @@ export default {
       let errorMsg = `❌ *Owner Only Command!*\n\n`;
       errorMsg += `Only the bot owner can change menu styles.\n\n`;
       errorMsg += `🔍 *Debug Info:*\n`;
-      errorMsg += `├─ Your JID: ${cleaned.cleanJid}\n`;
-      errorMsg += `├─ Your Number: ${cleaned.cleanNumber || 'N/A'}\n`;
-      errorMsg += `├─ Type: ${cleaned.isLid ? 'LID 🔗' : 'Regular 📱'}\n`;
-      errorMsg += `├─ From Me: ${isFromMe ? '✅ YES' : '❌ NO'}\n`;
+      errorMsg += `├◆ Your JID: ${cleaned.cleanJid}\n`;
+      errorMsg += `├◆ Your Number: ${cleaned.cleanNumber || 'N/A'}\n`;
+      errorMsg += `├◆ Type: ${cleaned.isLid ? 'LID 🔗' : 'Regular 📱'}\n`;
+      errorMsg += `├◆ From Me: ${isFromMe ? '✅ YES' : '❌ NO'}\n`;
       
       // Get owner info
       const ownerInfo = jidManager.getOwnerInfo ? jidManager.getOwnerInfo() : {};
@@ -124,9 +124,9 @@ export default {
     if (!args[0]) {
       const currentStyle = getCurrentMenuStyle();
       
-      let styleList = `╭─⌈ 🎨 *MENU STYLE* ⌋\n│\n`;
-      styleList += `│  📊 Current: Style ${currentStyle}\n│\n`;
-      styleList += `├─⊷ *${PREFIX}menustyle <1-8>*\n`;
+      let styleList = `┌─⧭ 🎨 *MENU STYLE* \n`;
+      styleList += `│  📊 Current: Style ${currentStyle}\n`;
+      styleList += `├◆ *${PREFIX}menustyle <1-8>*\n`;
       styleList += `│  └⊷ 1️⃣ Image Menu\n`;
       styleList += `│  └⊷ 2️⃣ Text Only\n`;
       styleList += `│  └⊷ 3️⃣ Full Descriptions\n`;
@@ -134,8 +134,8 @@ export default {
       styleList += `│  └⊷ 5️⃣ Faded\n`;
       styleList += `│  └⊷ 6️⃣ Faded + Image\n`;
       styleList += `│  └⊷ 7️⃣ Image + Text\n`;
-      styleList += `│  └⊷ 8️⃣ Buttons (Interactive)\n│\n`;
-      styleList += `╰───`;
+      styleList += `│  └⊷ 8️⃣ Buttons (Interactive)\n`;
+      styleList += `└─⧭`;
       
       return sock.sendMessage(jid, { 
         text: styleList 
@@ -150,7 +150,7 @@ export default {
       return sock.sendMessage(
         jid,
         {
-          text: `╭─⌈ ❌ *INVALID STYLE* ⌋\n│\n├─⊷ *${PREFIX}menustyle <1-8>*\n├◆  └⊷ Valid styles: 1 to 8\n│\n├─⊷ *Example:*\n├◆  └⊷ ${PREFIX}menustyle 3\n│\n╰───`
+          text: `┌─⧭ ❌ *INVALID STYLE* \n├◆ *${PREFIX}menustyle <1-8>*\n├◆  └⊷ Valid styles: 1 to 8\n├◆ *Example:*\n├◆  └⊷ ${PREFIX}menustyle 3\n└─⧭`
         },
         { 
           quoted: m // Reply format

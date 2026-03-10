@@ -307,53 +307,53 @@ function formatInspectionReport(url, response, metadata, security, performance, 
   
   // Basic Info
   report.push(`📋 *BASIC INFORMATION*`);
-  report.push(`├─ Title: ${metadata.title || 'Not found'}`);
-  report.push(`├─ Description: ${truncateText(metadata.description, 100) || 'Not found'}`);
-  report.push(`├─ Language: ${metadata.language || 'Not specified'}`);
-  report.push(`├─ Charset: ${metadata.charset || 'Not specified'}`);
-  report.push(`├─ Viewport: ${metadata.viewport || 'Not specified'}`);
+  report.push(`├◆ Title: ${metadata.title || 'Not found'}`);
+  report.push(`├◆ Description: ${truncateText(metadata.description, 100) || 'Not found'}`);
+  report.push(`├◆ Language: ${metadata.language || 'Not specified'}`);
+  report.push(`├◆ Charset: ${metadata.charset || 'Not specified'}`);
+  report.push(`├◆ Viewport: ${metadata.viewport || 'Not specified'}`);
   report.push(`└─ Canonical: ${metadata.canonical || url}`);
   report.push(``);
   
   // SEO & Social Meta
   report.push(`🔎 *SEO & SOCIAL METADATA*`);
-  if (metadata.ogTitle) report.push(`├─ OG Title: ${truncateText(metadata.ogTitle, 80)}`);
-  if (metadata.ogDescription) report.push(`├─ OG Description: ${truncateText(metadata.ogDescription, 80)}`);
-  if (metadata.ogImage) report.push(`├─ OG Image: ${truncateText(metadata.ogImage, 60)}`);
-  if (metadata.twitterTitle) report.push(`├─ Twitter Title: ${truncateText(metadata.twitterTitle, 80)}`);
+  if (metadata.ogTitle) report.push(`├◆ OG Title: ${truncateText(metadata.ogTitle, 80)}`);
+  if (metadata.ogDescription) report.push(`├◆ OG Description: ${truncateText(metadata.ogDescription, 80)}`);
+  if (metadata.ogImage) report.push(`├◆ OG Image: ${truncateText(metadata.ogImage, 60)}`);
+  if (metadata.twitterTitle) report.push(`├◆ Twitter Title: ${truncateText(metadata.twitterTitle, 80)}`);
   if (metadata.twitterCard) report.push(`└─ Twitter Card: ${metadata.twitterCard}`);
   report.push(``);
   
   // Security
   report.push(`🛡️ *SECURITY ANALYSIS*`);
-  report.push(`├─ Grade: ${security.grade}`);
+  report.push(`├◆ Grade: ${security.grade}`);
   if (security.issues.length > 0) {
-    report.push(`├─ Issues:`);
+    report.push(`├◆ Issues:`);
     security.issues.forEach(issue => report.push(`│  ⚠️ ${issue}`));
   } else {
-    report.push(`├─ Issues: None found ✅`);
+    report.push(`├◆ Issues: None found ✅`);
   }
-  report.push(`├─ HTTPS: ${url.startsWith('https') ? 'Yes 🔒' : 'No ⚠️'}`);
+  report.push(`├◆ HTTPS: ${url.startsWith('https') ? 'Yes 🔒' : 'No ⚠️'}`);
   report.push(`└─ Content-Type: ${response.headers.get('content-type')?.split(';')[0] || 'Unknown'}`);
   report.push(``);
   
   // Performance
   report.push(`⚡ *PERFORMANCE*`);
-  report.push(`├─ Load Time: ${performance.loadTime}`);
-  report.push(`├─ Size: ${performance.size}`);
-  report.push(`├─ Grade: ${performance.grade}`);
-  report.push(`├─ Compression: ${performance.compression}`);
-  report.push(`├─ Cache: ${performance.cacheControl}`);
+  report.push(`├◆ Load Time: ${performance.loadTime}`);
+  report.push(`├◆ Size: ${performance.size}`);
+  report.push(`├◆ Grade: ${performance.grade}`);
+  report.push(`├◆ Compression: ${performance.compression}`);
+  report.push(`├◆ Cache: ${performance.cacheControl}`);
   report.push(`└─ Server: ${performance.server}`);
   report.push(``);
   
   // Content Analysis
   report.push(`📊 *CONTENT ANALYSIS*`);
-  report.push(`├─ Headings: H1(${metadata.headings.h1}) H2(${metadata.headings.h2}) H3(${metadata.headings.h3})`);
-  report.push(`├─ Paragraphs: ${metadata.paragraphs}`);
-  report.push(`├─ Images: ${metadata.imagesCount}`);
-  report.push(`├─ Links: ${metadata.linksCount}`);
-  report.push(`├─ Scripts: ${metadata.scriptsCount}`);
+  report.push(`├◆ Headings: H1(${metadata.headings.h1}) H2(${metadata.headings.h2}) H3(${metadata.headings.h3})`);
+  report.push(`├◆ Paragraphs: ${metadata.paragraphs}`);
+  report.push(`├◆ Images: ${metadata.imagesCount}`);
+  report.push(`├◆ Links: ${metadata.linksCount}`);
+  report.push(`├◆ Scripts: ${metadata.scriptsCount}`);
   report.push(`└─ Stylesheets: ${metadata.stylesheetsCount}`);
   report.push(``);
   
@@ -372,7 +372,7 @@ function formatInspectionReport(url, response, metadata, security, performance, 
     report.push(`📋 *IMPORTANT HEADERS*`);
     const headerItems = headers.slice(0, 5);
     headerItems.forEach((header, index) => {
-      const prefix = index === headerItems.length - 1 ? '└─' : '├─';
+      const prefix = index === headerItems.length - 1 ? '└─' : '├◆ ';
       report.push(`${prefix} ${header}`);
     });
     if (headers.length > 5) report.push(`└─ ... and ${headers.length - 5} more`);
@@ -383,7 +383,7 @@ function formatInspectionReport(url, response, metadata, security, performance, 
   if (metadata.icons.length > 0) {
     report.push(`🎨 *FAVICONS*`);
     metadata.icons.slice(0, 3).forEach((icon, i) => {
-      const prefix = i === metadata.icons.length - 1 ? '└─' : '├─';
+      const prefix = i === metadata.icons.length - 1 ? '└─' : '├◆ ';
       report.push(`${prefix} ${truncateText(icon, 60)}`);
     });
     report.push(``);
@@ -427,7 +427,7 @@ function formatInspectionReport(url, response, metadata, security, performance, 
   if (recommendations.length > 0) {
     report.push(`💡 *RECOMMENDATIONS*`);
     recommendations.forEach((rec, i) => {
-      const prefix = i === recommendations.length - 1 ? '└─' : '├─';
+      const prefix = i === recommendations.length - 1 ? '└─' : '├◆ ';
       report.push(`${prefix} ${rec}`);
     });
     report.push(``);
@@ -435,9 +435,9 @@ function formatInspectionReport(url, response, metadata, security, performance, 
   
   // Quick Stats
   report.push(`📈 *QUICK STATS*`);
-  report.push(`├─ Security: ${security.grade}`);
-  report.push(`├─ Performance: ${performance.grade}`);
-  report.push(`├─ SEO: ${metadata.title && metadata.description ? 'Good' : 'Needs improvement'}`);
+  report.push(`├◆ Security: ${security.grade}`);
+  report.push(`├◆ Performance: ${performance.grade}`);
+  report.push(`├◆ SEO: ${metadata.title && metadata.description ? 'Good' : 'Needs improvement'}`);
   report.push(`└─ Mobile: ${metadata.viewport ? 'Responsive' : 'Check needed'}`);
   
   return report.join('\n');

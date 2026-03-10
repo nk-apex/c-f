@@ -15,7 +15,7 @@ export default {
 
     if (args.length === 0 || args[0].toLowerCase() === 'help') {
       return sock.sendMessage(jid, {
-        text: `╭─⌈ ⛳ *PGA GOLF* ⌋\n├─⊷ *${PREFIX}golf leaderboard*\n├◆  └⊷ Current tournament leaderboard\n├─⊷ *${PREFIX}golf schedule*\n├◆  └⊷ Upcoming tournaments\n├─⊷ *${PREFIX}pga leaderboard*\n├◆  └⊷ Alias for golf\n╰───`
+        text: `┌─⧭ ⛳ *PGA GOLF* \n├◆ *${PREFIX}golf leaderboard*\n├◆  └⊷ Current tournament leaderboard\n├◆ *${PREFIX}golf schedule*\n├◆  └⊷ Upcoming tournaments\n├◆ *${PREFIX}pga leaderboard*\n├◆  └⊷ Alias for golf\n└─⧭`
       }, { quoted: m });
     }
 
@@ -27,13 +27,13 @@ export default {
       if (events.length === 0) throw new Error('No golf events found');
 
       const sub = args[0].toLowerCase();
-      let text = `╭─⌈ ⛳ *PGA GOLF* ⌋\n│\n`;
+      let text = `┌─⧭ ⛳ *PGA GOLF* \n`;
 
       events.slice(0, 5).forEach(ev => {
         const name = ev.name || 'PGA Tournament';
         const date = ev.date ? new Date(ev.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : '';
         const status = ev.status?.type?.shortDetail || '';
-        text += `├─⊷ *${name}*\n`;
+        text += `├◆ *${name}*\n`;
         text += `│  └⊷ 📅 ${date} • ${status}\n`;
 
         const comp = ev.competitions?.[0];
@@ -43,11 +43,11 @@ export default {
             const pName = p.athlete?.displayName || '???';
             const score = p.score || '-';
             const short = pName.length > 20 ? pName.substring(0, 18) + '..' : pName;
-            text += `├─⊷ *${i + 1}.* ${short} │ ${score}\n`;
+            text += `├◆ *${i + 1}.* ${short} │ ${score}\n`;
           });
         }
       });
-      text += `╰───\n\n⚡ *Powered by ${getBotName()}*`;
+      text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
 
       await sock.sendMessage(jid, { text }, { quoted: m });
       await sock.sendMessage(jid, { react: { text: '✅', key: m.key } });
@@ -55,7 +55,7 @@ export default {
       console.error('❌ [GOLF]', error.message);
       await sock.sendMessage(jid, { react: { text: '❌', key: m.key } });
       await sock.sendMessage(jid, {
-        text: `╭─⌈ ❌ *GOLF ERROR* ⌋\n├─⊷ ${error.message}\n├─⊷ Try again later\n╰───`
+        text: `┌─⧭ ❌ *GOLF ERROR* \n├◆ ${error.message}\n├◆ Try again later\n└─⧭`
       }, { quoted: m });
     }
   }

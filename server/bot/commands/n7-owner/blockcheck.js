@@ -7,7 +7,7 @@ export default {
     const sender = msg.key.remoteJid;
     
     if (!args[0]) {
-      const helpText = `╭─⌈ 🚫 *BLOCK DETECTION* ⌋\n│\n├─⊷ *blockdetect <phone_number>*\n├◆  └⊷ Check block status\n├─⊷ *blockdetect @mention*\n├◆  └⊷ Check via mention\n╰───`;
+      const helpText = `┌─⧭ 🚫 *BLOCK DETECTION* \n├◆ *blockdetect <phone_number>*\n├◆  └⊷ Check block status\n├◆ *blockdetect @mention*\n├◆  └⊷ Check via mention\n└─⧭`;
       
       await sock.sendMessage(sender, { text: helpText }, { quoted: msg });
       return;

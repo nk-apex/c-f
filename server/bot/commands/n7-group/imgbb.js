@@ -18,7 +18,7 @@ export default {
         return sock.sendMessage(
           jid,
           {
-            text: `╭─⌈ 📸 *IMGBB* ⌋\n│\n├─⊷ *.imgbb* (reply to image)\n├◆  └⊷ Upload to ImgBB\n╰───`
+            text: `┌─⧭ 📸 *IMGBB* \n├◆ *.imgbb* (reply to image)\n├◆  └⊷ Upload to ImgBB\n└─⧭`
           },
           { quoted: m }
         );
@@ -83,11 +83,11 @@ export default {
         return sock.sendMessage(jid, { text: `❌ *Upload Failed:* ${result.error}` }, { quoted: m });
       }
 
-      const successText = `╭─⌈ 📸 *IMGBB UPLOAD* ⌋\n` +
-        `├─⊷ *Status:* Uploaded ✅\n` +
-        `├─⊷ *Size:* ${result.width || '?'} × ${result.height || '?'} • ${fileSizeMB.toFixed(2)} MB\n` +
-        `├─⊷ *URL:* ${result.url}\n` +
-        `╰─── *${getBotName()}* ───`;
+      const successText = `┌─⧭ 📸 *IMGBB UPLOAD* \n` +
+        `├◆ *Status:* Uploaded ✅\n` +
+        `├◆ *Size:* ${result.width || '?'} × ${result.height || '?'} • ${fileSizeMB.toFixed(2)} MB\n` +
+        `├◆ *URL:* ${result.url}\n` +
+        `└─⧭ *${getBotName()}* ───`;
 
       try {
         const { createRequire } = await import('module');

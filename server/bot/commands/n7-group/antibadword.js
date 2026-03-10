@@ -21,7 +21,7 @@ export default {
             const wordCount = getBadWords().length;
 
             return sock.sendMessage(chatId, {
-                text: `╭─⌈ 🤬 *ANTI BAD WORD* ⌋\n│\n├─⊷ *Status:* ${enabled ? '✅ ON' : '❌ OFF'}\n├─⊷ *Action:* ${act}\n├─⊷ *Words in list:* ${wordCount}\n│\n├─⊷ *Usage:*\n├◆  .antibadword on [warn/kick/block]\n├◆  .antibadword off\n├◆  .antibadword global on [action] ← owner\n╰───`,
+                text: `┌─⧭ 🤬 *ANTI BAD WORD* \n├◆ *Status:* ${enabled ? '✅ ON' : '❌ OFF'}\n├◆ *Action:* ${act}\n├◆ *Words in list:* ${wordCount}\n├◆ *Usage:*\n├◆  .antibadword on [warn/kick/block]\n├◆  .antibadword off\n├◆  .antibadword global on [action] ← owner\n└─⧭`,
             }, { quoted: msg });
         }
 
@@ -34,12 +34,12 @@ export default {
             if (gSub === 'on') {
                 setGroupConfig('global', true, finalAction);
                 return sock.sendMessage(chatId, {
-                    text: `╭─⌈ 🤬 *ANTI BAD WORD* ⌋\n│\n├─⊷ ✅ *Global detection ON*\n├─⊷ *Action:* ${finalAction}\n├─⊷ Applies to all groups and DMs\n╰───`,
+                    text: `┌─⧭ 🤬 *ANTI BAD WORD* \n├◆ ✅ *Global detection ON*\n├◆ *Action:* ${finalAction}\n├◆ Applies to all groups and DMs\n└─⧭`,
                 }, { quoted: msg });
             } else if (gSub === 'off') {
                 setGroupConfig('global', false);
                 return sock.sendMessage(chatId, {
-                    text: `╭─⌈ 🤬 *ANTI BAD WORD* ⌋\n│\n├─⊷ ❌ *Global detection OFF*\n╰───`,
+                    text: `┌─⧭ 🤬 *ANTI BAD WORD* \n├◆ ❌ *Global detection OFF*\n└─⧭`,
                 }, { quoted: msg });
             }
         }
@@ -49,19 +49,19 @@ export default {
             const finalAction = validActions.includes(action) ? action : 'warn';
             setGroupConfig(scope, true, finalAction);
             return sock.sendMessage(chatId, {
-                text: `╭─⌈ 🤬 *ANTI BAD WORD* ⌋\n│\n├─⊷ ✅ *Detection ENABLED*\n├─⊷ *Scope:* ${isGroup ? 'This group' : 'All DMs'}\n├─⊷ *Action:* ${finalAction}\n│\n├─⊷ warn → send warning message\n├─⊷ kick → remove from group\n├─⊷ block → block the user\n├─⊷ delete → delete message silently\n╰───`,
+                text: `┌─⧭ 🤬 *ANTI BAD WORD* \n├◆ ✅ *Detection ENABLED*\n├◆ *Scope:* ${isGroup ? 'This group' : 'All DMs'}\n├◆ *Action:* ${finalAction}\n├◆ warn → send warning message\n├◆ kick → remove from group\n├◆ block → block the user\n├◆ delete → delete message silently\n└─⧭`,
             }, { quoted: msg });
         }
 
         if (sub === 'off') {
             setGroupConfig(scope, false);
             return sock.sendMessage(chatId, {
-                text: `╭─⌈ 🤬 *ANTI BAD WORD* ⌋\n│\n├─⊷ ❌ *Detection DISABLED*\n├─⊷ *Scope:* ${isGroup ? 'This group' : 'All DMs'}\n╰───`,
+                text: `┌─⧭ 🤬 *ANTI BAD WORD* \n├◆ ❌ *Detection DISABLED*\n├◆ *Scope:* ${isGroup ? 'This group' : 'All DMs'}\n└─⧭`,
             }, { quoted: msg });
         }
 
         return sock.sendMessage(chatId, {
-            text: `╭─⌈ 🤬 *ANTI BAD WORD* ⌋\n│\n├─⊷ *Usage:*\n├◆  .antibadword on [warn/kick/block]\n├◆  .antibadword off\n├◆  .antibadword status\n╰───`,
+            text: `┌─⧭ 🤬 *ANTI BAD WORD* \n├◆ *Usage:*\n├◆  .antibadword on [warn/kick/block]\n├◆  .antibadword off\n├◆  .antibadword status\n└─⧭`,
         }, { quoted: msg });
     }
 };

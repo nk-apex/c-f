@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { PATHS } from '../config/paths.js';
 
 const BOT_NAME_FILE = PATHS.botName;
-const DEFAULT_NAME = 'FOX BOT';
+const DEFAULT_NAME = 'FOXY';
 let _cachedName = null;
 let _cacheTime = 0;
 const CACHE_TTL = 5000;

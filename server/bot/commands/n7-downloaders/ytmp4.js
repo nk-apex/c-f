@@ -60,7 +60,7 @@ export default {
 
     if (!searchQuery) {
       return sock.sendMessage(jid, {
-        text: `╭─⌈ 🎬 *YTMP4 DOWNLOADER* ⌋\n│\n├─⊷ *${p}ytmp4 <video name>*\n├◆  └⊷ Download video\n├─⊷ *${p}ytmp4 <YouTube URL>*\n├◆  └⊷ Download from link\n├─⊷ *Reply to a text message*\n├◆  └⊷ Uses replied text as search\n╰───`
+        text: `┌─⧭ 🎬 *YTMP4 DOWNLOADER* \n├◆ *${p}ytmp4 <video name>*\n├◆  └⊷ Download video\n├◆ *${p}ytmp4 <YouTube URL>*\n├◆  └⊷ Download from link\n├◆ *Reply to a text message*\n├◆  └⊷ Uses replied text as search\n└─⧭`
       }, { quoted: m });
     }
 

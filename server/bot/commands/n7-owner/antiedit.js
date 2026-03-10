@@ -777,65 +777,65 @@ export default {
             if (action === 'off' || action === 'disable') {
                 antieditState.gc.enabled = false;
                 await sock.sendMessage(chatId, {
-                    text: `╭─⌈ ❌ *ANTIEDIT GC: OFF* ⌋\n╰───`
+                    text: `┌─⧭ ❌ *ANTIEDIT GC: OFF* \n└─⧭`
                 }, { quoted: msg });
             } else if (['private', 'prvt', 'priv', 'pm'].includes(action)) {
                 antieditState.gc.enabled = true;
                 antieditState.gc.mode = 'private';
                 await sock.sendMessage(chatId, {
-                    text: `╭─⌈ ✅ *ANTIEDIT GC: PRIVATE* ⌋\n╰───`
+                    text: `┌─⧭ ✅ *ANTIEDIT GC: PRIVATE* \n└─⧭`
                 }, { quoted: msg });
             } else if (['chat', 'cht', 'public'].includes(action)) {
                 antieditState.gc.enabled = true;
                 antieditState.gc.mode = 'chat';
                 await sock.sendMessage(chatId, {
-                    text: `╭─⌈ ✅ *ANTIEDIT GC: PUBLIC* ⌋\n╰───`
+                    text: `┌─⧭ ✅ *ANTIEDIT GC: PUBLIC* \n└─⧭`
                 }, { quoted: msg });
             } else if (['both', 'all'].includes(action)) {
                 antieditState.gc.enabled = true;
                 antieditState.gc.mode = 'both';
                 await sock.sendMessage(chatId, {
-                    text: `╭─⌈ ✅ *ANTIEDIT GC: BOTH* ⌋\n╰───`
+                    text: `┌─⧭ ✅ *ANTIEDIT GC: BOTH* \n└─⧭`
                 }, { quoted: msg });
             } else {
                 await sock.sendMessage(chatId, {
-                    text: `╭─⌈ ✏️ *ANTIEDIT GC* ⌋\n├─⊷ *${prefix}antiedit gc private/public/both*\n├─⊷ *${prefix}antiedit gc off*\n╰───`
+                    text: `┌─⧭ ✏️ *ANTIEDIT GC* \n├◆ *${prefix}antiedit gc private/public/both*\n├◆ *${prefix}antiedit gc off*\n└─⧭`
                 }, { quoted: msg });
             }
         } else if (scope === 'pm' || scope === 'dm' || scope === 'pms' || scope === 'dms') {
             if (action === 'off' || action === 'disable') {
                 antieditState.pm.enabled = false;
                 await sock.sendMessage(chatId, {
-                    text: `╭─⌈ ❌ *ANTIEDIT PM: OFF* ⌋\n╰───`
+                    text: `┌─⧭ ❌ *ANTIEDIT PM: OFF* \n└─⧭`
                 }, { quoted: msg });
             } else if (['private', 'prvt', 'priv'].includes(action)) {
                 antieditState.pm.enabled = true;
                 antieditState.pm.mode = 'private';
                 await sock.sendMessage(chatId, {
-                    text: `╭─⌈ ✅ *ANTIEDIT PM: PRIVATE* ⌋\n╰───`
+                    text: `┌─⧭ ✅ *ANTIEDIT PM: PRIVATE* \n└─⧭`
                 }, { quoted: msg });
             } else if (['chat', 'cht', 'public'].includes(action)) {
                 antieditState.pm.enabled = true;
                 antieditState.pm.mode = 'chat';
                 await sock.sendMessage(chatId, {
-                    text: `╭─⌈ ✅ *ANTIEDIT PM: PUBLIC* ⌋\n╰───`
+                    text: `┌─⧭ ✅ *ANTIEDIT PM: PUBLIC* \n└─⧭`
                 }, { quoted: msg });
             } else if (['both', 'all'].includes(action)) {
                 antieditState.pm.enabled = true;
                 antieditState.pm.mode = 'both';
                 await sock.sendMessage(chatId, {
-                    text: `╭─⌈ ✅ *ANTIEDIT PM: BOTH* ⌋\n╰───`
+                    text: `┌─⧭ ✅ *ANTIEDIT PM: BOTH* \n└─⧭`
                 }, { quoted: msg });
             } else {
                 await sock.sendMessage(chatId, {
-                    text: `╭─⌈ ✏️ *ANTIEDIT PM* ⌋\n├─⊷ *${prefix}antiedit pm private/public/both*\n├─⊷ *${prefix}antiedit pm off*\n╰───`
+                    text: `┌─⧭ ✏️ *ANTIEDIT PM* \n├◆ *${prefix}antiedit pm private/public/both*\n├◆ *${prefix}antiedit pm off*\n└─⧭`
                 }, { quoted: msg });
             }
         } else if (scope === 'off' || scope === 'disable') {
             antieditState.gc.enabled = false;
             antieditState.pm.enabled = false;
             await sock.sendMessage(chatId, {
-                text: `╭─⌈ ❌ *ANTIEDIT: OFF* ⌋\n╰───`
+                text: `┌─⧭ ❌ *ANTIEDIT: OFF* \n└─⧭`
             }, { quoted: msg });
         } else if (['private', 'prvt', 'priv'].includes(scope)) {
             antieditState.gc.enabled = true;
@@ -843,7 +843,7 @@ export default {
             antieditState.pm.enabled = true;
             antieditState.pm.mode = 'private';
             await sock.sendMessage(chatId, {
-                text: `╭─⌈ ✅ *ANTIEDIT: PRIVATE* ⌋\n╰───`
+                text: `┌─⧭ ✅ *ANTIEDIT: PRIVATE* \n└─⧭`
             }, { quoted: msg });
         } else if (['chat', 'cht', 'public'].includes(scope)) {
             antieditState.gc.enabled = true;
@@ -851,7 +851,7 @@ export default {
             antieditState.pm.enabled = true;
             antieditState.pm.mode = 'chat';
             await sock.sendMessage(chatId, {
-                text: `╭─⌈ ✅ *ANTIEDIT: PUBLIC* ⌋\n╰───`
+                text: `┌─⧭ ✅ *ANTIEDIT: PUBLIC* \n└─⧭`
             }, { quoted: msg });
         } else if (['both', 'all'].includes(scope)) {
             antieditState.gc.enabled = true;
@@ -859,22 +859,22 @@ export default {
             antieditState.pm.enabled = true;
             antieditState.pm.mode = 'both';
             await sock.sendMessage(chatId, {
-                text: `╭─⌈ ✅ *ANTIEDIT: BOTH* ⌋\n╰───`
+                text: `┌─⧭ ✅ *ANTIEDIT: BOTH* \n└─⧭`
             }, { quoted: msg });
         } else if (scope === 'status' || scope === 'stats') {
             const isGroup = chatId.endsWith('@g.us');
             let groupLine = '';
             if (isGroup) {
                 const gc = getEffectiveConfig(chatId);
-                groupLine = `├─⊷ This Group: ${gc.enabled ? 'ON' : 'OFF'} (${gc.mode})\n`;
+                groupLine = `├◆ This Group: ${gc.enabled ? 'ON' : 'OFF'} (${gc.mode})\n`;
             }
-            const statsText = `╭─⌈ 📊 *ANTIEDIT STATUS* ⌋\n` +
-                `├─⊷ GC: ${antieditState.gc.enabled ? 'ON' : 'OFF'} (${antieditState.gc.mode})\n` +
-                `├─⊷ PM: ${antieditState.pm.enabled ? 'ON' : 'OFF'} (${antieditState.pm.mode})\n` +
+            const statsText = `┌─⧭ 📊 *ANTIEDIT STATUS* \n` +
+                `├◆ GC: ${antieditState.gc.enabled ? 'ON' : 'OFF'} (${antieditState.gc.mode})\n` +
+                `├◆ PM: ${antieditState.pm.enabled ? 'ON' : 'OFF'} (${antieditState.pm.mode})\n` +
                 `${groupLine}` +
-                `├─⊷ Tracked: ${antieditState.currentMessages.size}\n` +
-                `├─⊷ Edits: ${antieditState.stats.editsDetected} | Media: ${antieditState.stats.mediaCaptured}\n` +
-                `├─⊷ DM: ${antieditState.stats.sentToDm} | Chat: ${antieditState.stats.sentToChat}\n╰───`;
+                `├◆ Tracked: ${antieditState.currentMessages.size}\n` +
+                `├◆ Edits: ${antieditState.stats.editsDetected} | Media: ${antieditState.stats.mediaCaptured}\n` +
+                `├◆ DM: ${antieditState.stats.sentToDm} | Chat: ${antieditState.stats.sentToChat}\n└─⧭`;
 
             await sock.sendMessage(chatId, { text: statsText }, { quoted: msg });
         } else if (scope === 'history') {
@@ -889,13 +889,13 @@ export default {
             
             if (!targetMsgId) {
                 return await sock.sendMessage(chatId, {
-                    text: `╭─⌈ ❌ *ANTIEDIT HISTORY* ⌋\n├─⊷ Reply to a message with *${prefix}antiedit history*\n╰───`
+                    text: `┌─⧭ ❌ *ANTIEDIT HISTORY* \n├◆ Reply to a message with *${prefix}antiedit history*\n└─⧭`
                 }, { quoted: msg });
             }
             
             await showMessageHistory(targetMsgId, chatId);
         } else if (scope === 'test') {
-            const testText = `╭─⌈ 🧪 *ANTIEDIT TEST* ⌋\n├─⊷ GC: ${antieditState.gc.enabled ? 'ON' : 'OFF'} | PM: ${antieditState.pm.enabled ? 'ON' : 'OFF'}\n├─⊷ Edit this message to test\n╰───`;
+            const testText = `┌─⧭ 🧪 *ANTIEDIT TEST* \n├◆ GC: ${antieditState.gc.enabled ? 'ON' : 'OFF'} | PM: ${antieditState.pm.enabled ? 'ON' : 'OFF'}\n├◆ Edit this message to test\n└─⧭`;
             
             const testMsg = await sock.sendMessage(chatId, { 
                 text: testText 
@@ -923,7 +923,7 @@ export default {
                 } catch {}
                 
                 await sock.sendMessage(chatId, {
-                    text: `╭─⌈ ✅ *TEST STORED* ⌋\n├─⊷ Now edit the previous message\n╰───`
+                    text: `┌─⧭ ✅ *TEST STORED* \n├◆ Now edit the previous message\n└─⧭`
                 });
             }
         } else if (scope === 'clear' || scope === 'clean' || scope === 'reset') {
@@ -948,32 +948,32 @@ export default {
             await saveData();
             
             await sock.sendMessage(chatId, {
-                text: `╭─⌈ 🧹 *ANTIEDIT CLEARED* ⌋\n├─⊷ ${historySize} history | ${currentSize} messages | ${mediaSize} media\n╰───`
+                text: `┌─⧭ 🧹 *ANTIEDIT CLEARED* \n├◆ ${historySize} history | ${currentSize} messages | ${mediaSize} media\n└─⧭`
             }, { quoted: msg });
         } else if (scope === 'debug') {
-            const debugText = `╭─⌈ 🔧 *ANTIEDIT DEBUG* ⌋\n` +
-                `├─⊷ GC: ${antieditState.gc.enabled ? '✅' : '❌'} (${antieditState.gc.mode})\n` +
-                `├─⊷ PM: ${antieditState.pm.enabled ? '✅' : '❌'} (${antieditState.pm.mode})\n` +
-                `├─⊷ Socket: ${antieditState.sock ? '✅' : '❌'} | DB: ${db.isAvailable() ? '✅' : '❌'}\n` +
-                `├─⊷ Msgs: ${antieditState.currentMessages.size} | History: ${antieditState.messageHistory.size}\n` +
-                `├─⊷ Media: ${antieditState.mediaCache.size} | Groups: ${antieditState.groupConfigs.size}\n╰───`;
+            const debugText = `┌─⧭ 🔧 *ANTIEDIT DEBUG* \n` +
+                `├◆ GC: ${antieditState.gc.enabled ? '✅' : '❌'} (${antieditState.gc.mode})\n` +
+                `├◆ PM: ${antieditState.pm.enabled ? '✅' : '❌'} (${antieditState.pm.mode})\n` +
+                `├◆ Socket: ${antieditState.sock ? '✅' : '❌'} | DB: ${db.isAvailable() ? '✅' : '❌'}\n` +
+                `├◆ Msgs: ${antieditState.currentMessages.size} | History: ${antieditState.messageHistory.size}\n` +
+                `├◆ Media: ${antieditState.mediaCache.size} | Groups: ${antieditState.groupConfigs.size}\n└─⧭`;
             await sock.sendMessage(chatId, { text: debugText }, { quoted: msg });
         } else if (scope === 'help' || scope === 'menu') {
-            const helpText = `╭─⌈ ✏️ *ANTIEDIT* ⌋\n` +
-                `├─⊷ *${prefix}antiedit private/public/both*\n` +
-                `├─⊷ *${prefix}antiedit off*\n` +
-                `├─⊷ *${prefix}antiedit gc private/public/both/off*\n` +
-                `├─⊷ *${prefix}antiedit pm private/public/both/off*\n` +
-                `├─⊷ *${prefix}antiedit status*\n` +
-                `├─⊷ *${prefix}antiedit history* (reply)\n` +
-                `├─⊷ *${prefix}antiedit test*\n` +
-                `├─⊷ *${prefix}antiedit clear*\n` +
-                `├─⊷ *${prefix}antiedit debug*\n╰───`;
+            const helpText = `┌─⧭ ✏️ *ANTIEDIT* \n` +
+                `├◆ *${prefix}antiedit private/public/both*\n` +
+                `├◆ *${prefix}antiedit off*\n` +
+                `├◆ *${prefix}antiedit gc private/public/both/off*\n` +
+                `├◆ *${prefix}antiedit pm private/public/both/off*\n` +
+                `├◆ *${prefix}antiedit status*\n` +
+                `├◆ *${prefix}antiedit history* (reply)\n` +
+                `├◆ *${prefix}antiedit test*\n` +
+                `├◆ *${prefix}antiedit clear*\n` +
+                `├◆ *${prefix}antiedit debug*\n└─⧭`;
             
             await sock.sendMessage(chatId, { text: helpText }, { quoted: msg });
         } else {
             await sock.sendMessage(chatId, {
-                text: `╭─⌈ ✏️ *ANTIEDIT* ⌋\n├─⊷ *${prefix}antiedit help*\n╰───`
+                text: `┌─⧭ ✏️ *ANTIEDIT* \n├◆ *${prefix}antiedit help*\n└─⧭`
             }, { quoted: msg });
         }
         

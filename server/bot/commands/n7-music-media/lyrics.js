@@ -13,13 +13,13 @@ export default {
         if (!query) {
             return sock.sendMessage(chatId, {
                 text:
-                    `╭─⌈ 🎵 *LYRICS FINDER* ⌋\n│\n` +
-                    `├─⊷ *Usage:* .lyrics <song title>\n│\n` +
-                    `├─⊷ *Examples:*\n` +
+                    `┌─⧭ 🎵 *LYRICS FINDER* \n` +
+                    `├◆ *Usage:* .lyrics <song title>\n` +
+                    `├◆ *Examples:*\n` +
                     `│  ▸ .lyrics what shall I render to Jehovah\n` +
                     `│  ▸ .lyrics Blinding Lights\n` +
-                    `│  ▸ .lyrics Home by NF\n│\n` +
-                    `╰───`
+                    `│  ▸ .lyrics Home by NF\n` +
+                    `└─⧭`
             }, { quoted: msg });
         }
 
@@ -38,10 +38,10 @@ export default {
             await sock.sendMessage(chatId, { react: { text: '✅', key: msg.key } });
 
             const header =
-                `╭─⌈ 🎵 *LYRICS* ⌋\n│\n` +
-                `├─⊷ 🎶 *${result.title}*\n` +
-                (result.artist ? `├─⊷ 👤 *${result.artist}*\n` : '') +
-                `│\n╰───\n\n`;
+                `┌─⧭ 🎵 *LYRICS* \n` +
+                `├◆ 🎶 *${result.title}*\n` +
+                (result.artist ? `├◆ 👤 *${result.artist}*\n` : '') +
+                `│\n└─⧭\n\n`;
 
             // WhatsApp has a 65,536 char limit; lyrics.ovh can be very long
             const maxLen   = 4000;

@@ -49,13 +49,13 @@ export default {
 
     try { await sock.sendMessage(jid, { react: { text: '✅', key: msg.key } }); } catch (e) {}
 
-    let resultText = `╭━🐺 *APPROVED* 🐺━╮\n`;
+    let resultText = `┌─⧭🐺 *APPROVED* 🐺━╮\n`;
     resultText += `┃ 📋 *Total Requests:* ${participantJids.length}\n`;
     resultText += `┃ ✅ *Approved:* ${approvedCount}\n`;
     if (failedCount > 0) {
       resultText += `┃ ❌ *Failed:* ${failedCount}\n`;
     }
-    resultText += `╰━━━━━━━━━━━━━╯\n`;
+    resultText += `└─⧭╯\n`;
     resultText += `_🐺 _${getBotName()}_`;
 
     await sock.sendMessage(jid, { text: resultText }, { quoted: msg });

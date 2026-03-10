@@ -10,19 +10,16 @@ export default {
   async execute(sock, m, args, PREFIX) {
     const jid = m.key.remoteJid;
 
-    const commandsText = `╭─⊷ *📱 SOCIAL MEDIA*
-│
+    const commandsText = `┌─⧭⊷ *📱 SOCIAL MEDIA*
 ├◆  • tiktok
 ├◆  • tiktoksearch
 ├◆  • tiktokinfo
 ├◆  • instagram
 ├◆  • facebook
 ├◆  • snapchat
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🎬 YOUTUBE*
-│
+┌─⧭⊷ *🎬 YOUTUBE*
 ├◆  • yts
 ├◆  • ytplay
 ├◆  • ytmp3
@@ -30,16 +27,13 @@ export default {
 ├◆  • ytmp4
 ├◆  • ytvdoc
 ├◆  • playlist
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *📦 OTHER*
-│
+┌─⧭⊷ *📦 OTHER*
 ├◆  • apk
 ├◆  • mp3
 ├◆  • mp4
-│
-╰─⊷`;
+└─⧭⊷`;
 
     await sendSubMenu(sock, jid, '⬇️ DOWNLOAD MENU', commandsText, m, PREFIX);
   }

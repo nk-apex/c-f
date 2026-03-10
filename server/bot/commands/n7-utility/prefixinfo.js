@@ -16,9 +16,9 @@ export default {
         const isPrefixless = global.isPrefixless || (!PREFIX || PREFIX.trim() === '');
         const currentPrefix = isPrefixless ? '(none - prefixless mode)' : PREFIX;
 
-        const text = `╭─⌈ 🐺 *BOT PREFIX* ⌋\n` +
-                     `├─⊷ Your prefix: *${currentPrefix}*\n` +
-                     `╰───────────────\n` +
+        const text = `┌─⧭ 🐺 *BOT PREFIX* \n` +
+                     `├◆ Your prefix: *${currentPrefix}*\n` +
+                     `└─⧭\n` +
                      `> *${getBotName()}*`;
 
         await sock.sendMessage(remoteJid, { text }, { quoted: msg });

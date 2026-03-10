@@ -322,15 +322,15 @@ export default {
         if (!command) {
             const formatList = Object.keys(templates).join(', ');
             return sock.sendMessage(chatId, {
-                text: `╭─⌈ 🤖 *AUTO BIO* ⌋\n` +
-                    `├─⊷ *Status:* ${config.enabled ? '✅ ON' : '❌ OFF'} | *Format:* ${config.format}\n` +
-                    `├─⊷ *Interval:* ${config.interval}min | *Updates:* ${config.updateCount}\n` +
-                    `├─⊷ *${PREFIX}autobio on/off*\n├◆  └⊷ Toggle auto bio\n` +
-                    `├─⊷ *${PREFIX}autobio format <name>*\n├◆  └⊷ ${formatList}\n` +
-                    `├─⊷ *${PREFIX}autobio interval <min>*\n├◆  └⊷ Set update interval\n` +
-                    `├─⊷ *${PREFIX}autobio test*\n├◆  └⊷ Test bio update now\n` +
-                    `├─⊷ *${PREFIX}autobio weather <city> <code>*\n├◆  └⊷ Enable weather in bio\n` +
-                    `╰─── *${getBotName()}* ───`
+                text: `┌─⧭ 🤖 *AUTO BIO* \n` +
+                    `├◆ *Status:* ${config.enabled ? '✅ ON' : '❌ OFF'} | *Format:* ${config.format}\n` +
+                    `├◆ *Interval:* ${config.interval}min | *Updates:* ${config.updateCount}\n` +
+                    `├◆ *${PREFIX}autobio on/off*\n├◆  └⊷ Toggle auto bio\n` +
+                    `├◆ *${PREFIX}autobio format <name>*\n├◆  └⊷ ${formatList}\n` +
+                    `├◆ *${PREFIX}autobio interval <min>*\n├◆  └⊷ Set update interval\n` +
+                    `├◆ *${PREFIX}autobio test*\n├◆  └⊷ Test bio update now\n` +
+                    `├◆ *${PREFIX}autobio weather <city> <code>*\n├◆  └⊷ Enable weather in bio\n` +
+                    `└─⧭ *${getBotName()}* ───`
             }, { quoted: msg });
         }
         
@@ -545,10 +545,10 @@ export default {
                 
                 if (locationWeather) {
                     locationMsg += `🌤️ *Real-time Weather:*\n`;
-                    locationMsg += `├─ ${locationWeather.icon} ${locationWeather.temp}°C\n`;
-                    locationMsg += `├─ Feels like: ${locationWeather.feels_like}°C\n`;
-                    locationMsg += `├─ ${locationWeather.description}\n`;
-                    locationMsg += `├─ Humidity: ${locationWeather.humidity}%\n`;
+                    locationMsg += `├◆ ${locationWeather.icon} ${locationWeather.temp}°C\n`;
+                    locationMsg += `├◆ Feels like: ${locationWeather.feels_like}°C\n`;
+                    locationMsg += `├◆ ${locationWeather.description}\n`;
+                    locationMsg += `├◆ Humidity: ${locationWeather.humidity}%\n`;
                     locationMsg += `└─ Fetched: ${getTimeSince(locationWeather.timestamp)}\n\n`;
                 } else {
                     locationMsg += `⚠️ *Weather fetch failed*\n`;

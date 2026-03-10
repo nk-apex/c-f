@@ -45,10 +45,10 @@ export default {
       timeString += `${seconds}s`;
 
       const uptimeText = `
-╭━「 *${getBotName()} UPTIME* 」━╮
+┌─⧭「 *${getBotName()} UPTIME* 」━╮
 ├◆  ⏱️ *Running:* ${timeString.trim()}
 ├◆  📅 *Since:* ${new Date(Date.now() - uptime * 1000).toLocaleString()}
-╰━━━━━━━━━━━━━╯
+└─⧭╯
 _🐺 The Wolf never sleeps..._
 `;
 

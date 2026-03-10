@@ -51,10 +51,10 @@ export default {
             // The invite URL embedded in the text is what the auto-wrapper extracts for the button.
             return sock.sendMessage(chatId, {
                 text:
-                    `╭─⌈ 👥 *GROUP* ⌋\n│\n` +
-                    `│  ${group.name}\n│\n` +
-                    (inviteUrl ? `│  🔗 ${inviteUrl}\n│\n` : '') +
-                    `╰───`
+                    `┌─⧭ 👥 *GROUP* \n` +
+                    `│  ${group.name}\n` +
+                    (inviteUrl ? `│  🔗 ${inviteUrl}\n` : '') +
+                    `└─⧭`
             }, { quoted: msg });
         }
 
@@ -64,7 +64,7 @@ export default {
             groups = await sock.groupFetchAllParticipating();
         } catch (err) {
             return sock.sendMessage(chatId, {
-                text: `╭─⌈ ❌ *MY GROUPS* ⌋\n│\n├─⊷ Failed to fetch groups.\n├─⊷ ${err.message}\n╰───`
+                text: `┌─⧭ ❌ *MY GROUPS* \n├◆ Failed to fetch groups.\n├◆ ${err.message}\n└─⧭`
             }, { quoted: msg });
         }
 
@@ -72,7 +72,7 @@ export default {
 
         if (!entries.length) {
             return sock.sendMessage(chatId, {
-                text: `╭─⌈ 👥 *MY GROUPS* ⌋\n│\n├─⊷ ℹ️ Not in any groups yet.\n╰───`
+                text: `┌─⧭ 👥 *MY GROUPS* \n├◆ ℹ️ Not in any groups yet.\n└─⧭`
             }, { quoted: msg });
         }
 
@@ -106,21 +106,21 @@ export default {
         const pageIndex  = Math.min(page, totalPages) - 1;
         const slice      = resolved.slice(pageIndex * PAGE_SIZE, pageIndex * PAGE_SIZE + PAGE_SIZE);
 
-        let text = `╭─⌈ 👥 *MY GROUPS* ⌋\n│\n`;
+        let text = `┌─⧭ 👥 *MY GROUPS* \n`;
         text += `│  📊 Total: *${resolved.length}* group${resolved.length !== 1 ? 's' : ''}\n`;
         if (totalPages > 1) text += `│  📄 Page: *${pageIndex + 1}/${totalPages}*\n`;
         text += `│\n`;
 
         slice.forEach((g, i) => {
-            text += `├─⊷ *${pageIndex * PAGE_SIZE + i + 1}.* ${g.name}\n`;
+            text += `├◆ *${pageIndex * PAGE_SIZE + i + 1}.* ${g.name}\n`;
         });
 
         text += `│\n`;
         if (totalPages > 1) {
-            text += `├─⊷ Next page: *${PREFIX}mygroups ${pageIndex + 2 <= totalPages ? pageIndex + 2 : 1}*\n`;
+            text += `├◆ Next page: *${PREFIX}mygroups ${pageIndex + 2 <= totalPages ? pageIndex + 2 : 1}*\n`;
             text += `│\n`;
         }
-        text += `╰─ Reply with a number to select a group`;
+        text += `└─⧭ Reply with a number to select a group`;
 
         // Send and store the message ID so reply-with-number works
         const sent = await sock.sendMessage(chatId, { text }, { quoted: msg });

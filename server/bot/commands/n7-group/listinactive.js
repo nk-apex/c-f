@@ -104,9 +104,9 @@ export default {
       }
 
       let report =
-        `╭─⌈ \`${groupName}\` ⌋\n` +
+        `┌─⧭ \`${groupName}\` \n` +
         `│\n` +
-        `├─⊷ *📊 ACTIVITY REPORT*\n` +
+        `├◆ *📊 ACTIVITY REPORT*\n` +
         `│  • *Total Members:* ${totalMembers}\n` +
         `│  • 🟢 *Online Now:* ${activeMembers.length}\n` +
         `│  • 🔴 *Likely Inactive:* ${inactiveMembers.length}\n` +
@@ -114,7 +114,7 @@ export default {
         `│\n`;
 
       if (inactiveMembers.length > 0) {
-        report += `├─⊷ *🔴 LIKELY INACTIVE*\n`;
+        report += `├◆ *🔴 LIKELY INACTIVE*\n`;
         report += `│  _No profile pic + not online_\n`;
         inactiveMembers.slice(0, 30).forEach((member) => {
           const badge = member.admin ? '👑' : '👤';
@@ -127,7 +127,7 @@ export default {
       }
 
       if (activeMembers.length > 0) {
-        report += `├─⊷ *🟢 ONLINE NOW*\n`;
+        report += `├◆ *🟢 ONLINE NOW*\n`;
         activeMembers.slice(0, 15).forEach((member) => {
           const badge = member.admin ? '👑' : '👤';
           report += `│  • ${badge} @${member.phone}\n`;
@@ -144,7 +144,7 @@ export default {
         `│ • \`${PREFIX}kick @user\` - Remove member\n` +
         `│ • \`${PREFIX}kickall\` - Remove all non-admins\n` +
         `│\n` +
-        `╰───\n` +
+        `└─⧭\n` +
         `\n🔒 _Results depend on user privacy settings_`;
 
       const allMentionIds = [...inactiveMembers, ...activeMembers].map(m => m.id);

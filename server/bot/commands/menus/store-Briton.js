@@ -264,10 +264,8 @@
 
 // ┌────────────────
 // │ 🏠 *GROUP MANAGEMENT* 🏠 
-// ├────────────────
-// │ 🛡️ *ADMIN & MODERATION* 🛡️ 
-// ├────────────────
-// │ • add                     
+// ├◆ // │ 🛡️ *ADMIN & MODERATION* 🛡️ 
+// ├◆ // │ • add                     
 // │ • promote                 
 // │ • demote                  
 // │ • kick                    
@@ -283,17 +281,13 @@
 // │ • gctime                  
 // │ • lock                    
 // │ • unlock                  
-// ├────────────────
-// │ 🚫 *AUTO-MODERATION* 🚫   
-// ├────────────────
-// │ • antilink                
+// ├◆ // │ 🚫 *AUTO-MODERATION* 🚫   
+// ├◆ // │ • antilink                
 // │ • antisticker             
 // │ • antiimage               
 // │ • antivideo               
-// ├────────────────
-// │ 📊 *GROUP INFO & TOOLS* 📊 
-// ├────────────────
-// │ • groupinfo               
+// ├◆ // │ 📊 *GROUP INFO & TOOLS* 📊 
+// ├◆ // │ • groupinfo               
 // │ • tagadmin                
 // │ • tagall                  
 // │ • hidetag                 
@@ -311,20 +305,16 @@
 
 // ┌────────────────
 // │ 👑 *OWNER CONTROLS* 👑    
-// ├────────────────
-// │ ⚡ *CORE MANAGEMENT* ⚡    
-// ├────────────────
-// │ • setprefix               
+// ├◆ // │ ⚡ *CORE MANAGEMENT* ⚡    
+// ├◆ // │ • setprefix               
 // │ • setantilink             
 // │ • block                   
 // │ • unblock                 
 // │ • silent                  
 // │ • default                 
 // │ • runcode                 
-// ├────────────────
-// │ 🔄 *SYSTEM & MAINTENANCE* 🛠️ 
-// ├────────────────
-// │ • restart                 
+// ├◆ // │ 🔄 *SYSTEM & MAINTENANCE* 🛠️ 
+// ├◆ // │ • restart                 
 // │ • update                  
 // │ • gcrestart               
 // │ • backup                  
@@ -335,10 +325,8 @@
 
 // ┌────────────────
 // │ ✨ *GENERAL UTILITIES* ✨  
-// ├────────────────
-// │ 🔍 *INFO & SEARCH* 🔎     
-// ├────────────────
-// │ • ping                    
+// ├◆ // │ 🔍 *INFO & SEARCH* 🔎     
+// ├◆ // │ • ping                    
 // │ • time                    
 // │ • calc                    
 // │ • define                  
@@ -349,10 +337,8 @@
 // │ • covid                    
 // │ • stock                   
 // │ • currency                
-// ├───────────────
-// │ 🔗 *CONVERSION & MEDIA* 📁 
-// ├───────────────
-// │ • translate               
+// ├◆ // │ 🔗 *CONVERSION & MEDIA* 📁 
+// ├◆ // │ • translate               
 // │ • convert                 
 // │ • shorturl                
 // │ • expandurl               
@@ -362,28 +348,22 @@
 // │ • tomp3                   
 // │ • tovideo                 
 // │ • tosticker               
-// ├───────────────
-// │ 📝 *PERSONAL TOOLS* 📅    
-// ├───────────────
-// │ • reminder                
+// ├◆ // │ 📝 *PERSONAL TOOLS* 📅    
+// ├◆ // │ • reminder                
 // │ • todo                    
 // └───────────────
 
 // ┌───────────────
 // │ 🤖 *MEDIA & AI COMMANDS* 🧠 
-// ├───────────────
-// │ ⬇️ *MEDIA DOWNLOADS* 📥    
-// ├───────────────
-// │ • ytdl                    
+// ├◆ // │ ⬇️ *MEDIA DOWNLOADS* 📥    
+// ├◆ // │ • ytdl                    
 // │ • spotifydl               
 // │ • tiktokdl                
 // │ • instadl                 
 // │ • twitterdl               
 // │ • mediafire               
-// ├───────────────
-// │ 🎨 *AI GENERATION* 💡    
-// ├───────────────
-// │ • gemini                  
+// ├◆ // │ 🎨 *AI GENERATION* 💡    
+// ├◆ // │ • gemini                  
 // │ • gpt                     
 // │ • deepseek                
 // │ • chat                    
@@ -394,20 +374,16 @@
 
 // ┌───────────────
 // │ 🛡️ *SECURITY & HACKING* 🔒 
-// ├───────────────
-// │ 🌐 *NETWORK & INFO* 📡   
-// ├───────────────
-// │ • ipinfo              
+// ├◆ // │ 🌐 *NETWORK & INFO* 📡   
+// ├◆ // │ • ipinfo              
 // │ • whois               
 // │ • dnslookup           
 // │ • host                
 // │ • reverseip           
 // │ • ssllabs             
 // │ • shodan              
-// ├────────────────
-// │ 🔑 *VULNERABILITY & SCAN* ⚙️ 
-// ├────────────────
-// │ • pwcheck             
+// ├◆ // │ 🔑 *VULNERABILITY & SCAN* ⚙️ 
+// ├◆ // │ • pwcheck             
 // │ • breach              
 // │ • portscan            
 // │ • httpheaders         

@@ -118,18 +118,18 @@
         
 //         // Chat Information
 //         debugInfo += `📱 *CHAT INFO:*\n`;
-//         debugInfo += `├─ 💬 Chat: ${chatId}\n`;
-//         debugInfo += `├─ 📱 Sender: ${senderJid}\n`;
-//         debugInfo += `├─ 🔧 Cleaned: ${cleaned.cleanJid}\n`;
-//         debugInfo += `├─ 🔗 Type: ${cleaned.isLid ? 'LID 🔗' : 'Regular 📱'}\n`;
-//         debugInfo += `├─ 📍 From Me: ${isFromMe ? '✅ YES' : '❌ NO'}\n`;
+//         debugInfo += `├◆ 💬 Chat: ${chatId}\n`;
+//         debugInfo += `├◆ 📱 Sender: ${senderJid}\n`;
+//         debugInfo += `├◆ 🔧 Cleaned: ${cleaned.cleanJid}\n`;
+//         debugInfo += `├◆ 🔗 Type: ${cleaned.isLid ? 'LID 🔗' : 'Regular 📱'}\n`;
+//         debugInfo += `├◆ 📍 From Me: ${isFromMe ? '✅ YES' : '❌ NO'}\n`;
 //         debugInfo += `└─ 💬 Chat Type: ${chatId.includes('@g.us') ? 'Group 👥' : 'DM 📱'}\n\n`;
         
 //         // LID Analysis
 //         if (cleaned.isLid) {
 //             debugInfo += `🔗 *LID ANALYSIS:*\n`;
-//             debugInfo += `├─ LID Number: ${cleaned.cleanNumber}\n`;
-//             debugInfo += `├─ Length: ${cleaned.cleanNumber.length} digits\n`;
+//             debugInfo += `├◆ LID Number: ${cleaned.cleanNumber}\n`;
+//             debugInfo += `├◆ Length: ${cleaned.cleanNumber.length} digits\n`;
             
 //             // Check if this LID could be derived from your number
 //             if (ownerCleanNumber !== 'Not set') {
@@ -137,8 +137,8 @@
 //                 const lidLast9 = cleaned.cleanNumber.slice(-9);
 //                 const possibleMatch = lidLast9.includes(ownerLast9) || ownerLast9.includes(lidLast9);
                 
-//                 debugInfo += `├─ Owner last 9: ${ownerLast9}\n`;
-//                 debugInfo += `├─ LID last 9: ${lidLast9}\n`;
+//                 debugInfo += `├◆ Owner last 9: ${ownerLast9}\n`;
+//                 debugInfo += `├◆ LID last 9: ${lidLast9}\n`;
 //                 debugInfo += `└─ Possible match: ${possibleMatch ? '🔍 Maybe' : '❌ No'}\n`;
 //             }
 //             debugInfo += `\n`;
@@ -146,22 +146,22 @@
         
 //         // Owner Information
 //         debugInfo += `👑 *OWNER INFO:*\n`;
-//         debugInfo += `├─ 📁 File: ${ownerFileExists ? '✅' : '❌'}\n`;
-//         debugInfo += `├─ 📞 Number: ${ownerCleanNumber}\n`;
-//         debugInfo += `├─ 🔗 JID: ${ownerCleanJid}\n`;
+//         debugInfo += `├◆ 📁 File: ${ownerFileExists ? '✅' : '❌'}\n`;
+//         debugInfo += `├◆ 📞 Number: ${ownerCleanNumber}\n`;
+//         debugInfo += `├◆ 🔗 JID: ${ownerCleanJid}\n`;
 //         debugInfo += `└─ 🆔 Type: ${ownerCleanJid?.includes('@lid') ? 'LID 🔗' : 'Regular 📱'}\n\n`;
         
 //         // jidManager Status
 //         const ownerInfo = jidManager.getOwnerInfo();
 //         debugInfo += `🔧 *JID MANAGER STATUS:*\n`;
-//         debugInfo += `├─ Owner set: ${ownerInfo.cleanNumber ? '✅ YES' : '❌ NO'}\n`;
-//         debugInfo += `├─ Clean Number: ${ownerInfo.cleanNumber || 'Not set'}\n`;
+//         debugInfo += `├◆ Owner set: ${ownerInfo.cleanNumber ? '✅ YES' : '❌ NO'}\n`;
+//         debugInfo += `├◆ Clean Number: ${ownerInfo.cleanNumber || 'Not set'}\n`;
 //         debugInfo += `└─ Clean JID: ${ownerInfo.cleanJid || 'Not set'}\n\n`;
         
 //         // Owner Status Analysis
 //         debugInfo += `✅ *OWNER STATUS ANALYSIS:*\n`;
-//         debugInfo += `├─ isOwner(): ${isOwner ? '✅ YES' : '❌ NO'}\n`;
-//         debugInfo += `├─ fromMe: ${isFromMe ? '✅ YES' : '❌ NO'}\n`;
+//         debugInfo += `├◆ isOwner(): ${isOwner ? '✅ YES' : '❌ NO'}\n`;
+//         debugInfo += `├◆ fromMe: ${isFromMe ? '✅ YES' : '❌ NO'}\n`;
         
 //         // Check why isOwner() returns what it does
 //         if (isFromMe && isOwner) {
@@ -175,16 +175,16 @@
         
 //         // Global Variables Status
 //         debugInfo += `⚙️ *GLOBAL VARIABLES STATUS:*\n`;
-//         debugInfo += `├─ OWNER_NUMBER: ${global.OWNER_NUMBER ? '✅ Set' : '❌ Not set'}\n`;
-//         debugInfo += `├─ OWNER_CLEAN_NUMBER: ${global.OWNER_CLEAN_NUMBER ? '✅ Set' : '❌ Not set'}\n`;
-//         debugInfo += `├─ OWNER_JID: ${global.OWNER_JID ? '✅ Set' : '❌ Not set'}\n`;
+//         debugInfo += `├◆ OWNER_NUMBER: ${global.OWNER_NUMBER ? '✅ Set' : '❌ Not set'}\n`;
+//         debugInfo += `├◆ OWNER_CLEAN_NUMBER: ${global.OWNER_CLEAN_NUMBER ? '✅ Set' : '❌ Not set'}\n`;
+//         debugInfo += `├◆ OWNER_JID: ${global.OWNER_JID ? '✅ Set' : '❌ Not set'}\n`;
 //         debugInfo += `└─ OWNER_CLEAN_JID: ${global.OWNER_CLEAN_JID ? '✅ Set' : '❌ Not set'}\n\n`;
         
 //         // Initialization Results
 //         if (initActions.length > 0) {
 //             debugInfo += `🔧 *INITIALIZATION ACTIONS:*\n`;
 //             initActions.forEach(action => {
-//                 debugInfo += `├─ ${action}\n`;
+//                 debugInfo += `├◆ ${action}\n`;
 //             });
 //             debugInfo += `\n`;
 //         }
@@ -316,8 +316,8 @@ export default {
         let configFileExists = existsSync(configJsonPath);
         let dataDirExists = existsSync(dataDirPath);
         
-        debugInfo += `├─ owner.json: ${ownerFileExists ? '✅ Found' : '❌ Missing'}\n`;
-        debugInfo += `├─ config.json: ${configFileExists ? '✅ Found' : '❌ Missing'}\n`;
+        debugInfo += `├◆ owner.json: ${ownerFileExists ? '✅ Found' : '❌ Missing'}\n`;
+        debugInfo += `├◆ config.json: ${configFileExists ? '✅ Found' : '❌ Missing'}\n`;
         debugInfo += `└─ data/ directory: ${dataDirExists ? '✅ Found' : '❌ Missing'}\n\n`;
         
         // Read and parse owner.json with enhanced error handling
@@ -377,17 +377,17 @@ export default {
         const availableMethods = jidManagerMethods.filter(method => typeof jidManager[method] === 'function');
         const missingMethods = jidManagerMethods.filter(method => typeof jidManager[method] !== 'function');
         
-        debugInfo += `├─ Methods available: ${availableMethods.length}/${jidManagerMethods.length}\n`;
+        debugInfo += `├◆ Methods available: ${availableMethods.length}/${jidManagerMethods.length}\n`;
         if (missingMethods.length > 0) {
-            debugInfo += `├─ Missing: ${missingMethods.join(', ')}\n`;
+            debugInfo += `├◆ Missing: ${missingMethods.join(', ')}\n`;
             warnings.push(`jidManager missing methods: ${missingMethods.join(', ')}`);
         }
         
         const ownerInfo = jidManager.getOwnerInfo ? jidManager.getOwnerInfo() : {};
         
-        debugInfo += `├─ Owner set in manager: ${ownerInfo.cleanNumber ? '✅ Yes' : '❌ No'}\n`;
-        debugInfo += `├─ Clean Number: ${ownerInfo.cleanNumber || 'Not set'}\n`;
-        debugInfo += `├─ Clean JID: ${ownerInfo.cleanJid || 'Not set'}\n`;
+        debugInfo += `├◆ Owner set in manager: ${ownerInfo.cleanNumber ? '✅ Yes' : '❌ No'}\n`;
+        debugInfo += `├◆ Clean Number: ${ownerInfo.cleanNumber || 'Not set'}\n`;
+        debugInfo += `├◆ Clean JID: ${ownerInfo.cleanJid || 'Not set'}\n`;
         debugInfo += `└─ Raw JID: ${ownerInfo.rawJid || 'Not set'}\n\n`;
         
         // 3. CHAT AND SENDER ANALYSIS
@@ -401,18 +401,18 @@ export default {
         else if (chatId?.endsWith('@broadcast')) chatType = 'Broadcast 📢';
         else if (chatId?.includes('@lid')) chatType = 'Linked Device 🔗';
         
-        debugInfo += `├─ Chat ID: ${chatId}\n`;
-        debugInfo += `├─ Chat Type: ${chatType}\n`;
-        debugInfo += `├─ Sender JID: ${senderJid}\n`;
-        debugInfo += `├─ Participant: ${participant || 'None (DM)'}\n`;
-        debugInfo += `├─ From Me: ${isFromMe ? '✅ Yes' : '❌ No'}\n`;
-        debugInfo += `├─ Is Owner: ${isOwner ? '✅ Yes' : '❌ No'}\n`;
+        debugInfo += `├◆ Chat ID: ${chatId}\n`;
+        debugInfo += `├◆ Chat Type: ${chatType}\n`;
+        debugInfo += `├◆ Sender JID: ${senderJid}\n`;
+        debugInfo += `├◆ Participant: ${participant || 'None (DM)'}\n`;
+        debugInfo += `├◆ From Me: ${isFromMe ? '✅ Yes' : '❌ No'}\n`;
+        debugInfo += `├◆ Is Owner: ${isOwner ? '✅ Yes' : '❌ No'}\n`;
         
         // Detailed JID cleaning analysis
         debugInfo += `└─ *Cleaned Analysis:*\n`;
-        debugInfo += `   ├─ Clean JID: ${cleaned.cleanJid}\n`;
-        debugInfo += `   ├─ Clean Number: ${cleaned.cleanNumber}\n`;
-        debugInfo += `   ├─ Is LID: ${cleaned.isLid ? '✅ Yes 🔗' : '❌ No'}\n`;
+        debugInfo += `   ├◆ Clean JID: ${cleaned.cleanJid}\n`;
+        debugInfo += `   ├◆ Clean Number: ${cleaned.cleanNumber}\n`;
+        debugInfo += `   ├◆ Is LID: ${cleaned.isLid ? '✅ Yes 🔗' : '❌ No'}\n`;
         debugInfo += `   └─ Number Length: ${cleaned.cleanNumber?.length || 0} digits\n\n`;
         
         // 4. LID-SPECIFIC ANALYSIS
@@ -424,13 +424,13 @@ export default {
             const lidPattern = /^(\d+)\d{9}@lid$/;
             const match = lidNumber?.match(lidPattern);
             
-            debugInfo += `├─ LID Pattern: ${lidNumber?.match(/^\d+@lid$/) ? '✅ Valid' : '⚠️ Irregular'}\n`;
+            debugInfo += `├◆ LID Pattern: ${lidNumber?.match(/^\d+@lid$/) ? '✅ Valid' : '⚠️ Irregular'}\n`;
             
             if (match) {
                 const prefix = match[1];
                 const last9 = lidNumber.replace(/^(\d+)(\d{9})@lid$/, '$2');
-                debugInfo += `├─ Prefix: ${prefix}\n`;
-                debugInfo += `├─ Last 9 digits: ${last9}\n`;
+                debugInfo += `├◆ Prefix: ${prefix}\n`;
+                debugInfo += `├◆ Last 9 digits: ${last9}\n`;
                 
                 // Compare with owner number
                 if (ownerCleanNumber && ownerCleanNumber !== 'Not set') {
@@ -438,8 +438,8 @@ export default {
                     const isMatch = last9 === ownerLast9;
                     const isPartialMatch = last9.includes(ownerLast9) || ownerLast9.includes(last9);
                     
-                    debugInfo += `├─ Owner last 9: ${ownerLast9}\n`;
-                    debugInfo += `├─ Exact match: ${isMatch ? '✅ Yes' : '❌ No'}\n`;
+                    debugInfo += `├◆ Owner last 9: ${ownerLast9}\n`;
+                    debugInfo += `├◆ Exact match: ${isMatch ? '✅ Yes' : '❌ No'}\n`;
                     debugInfo += `└─ Partial match: ${isPartialMatch ? '🔍 Possible' : '❌ No'}\n`;
                     
                     if (!isMatch && isPartialMatch) {
@@ -473,7 +473,7 @@ export default {
                     String(value)) : 
                 '❌ Not set';
             
-            debugInfo += `├─ ${varName}: ${exists ? '✅' : '❌'} ${displayValue}\n`;
+            debugInfo += `├◆ ${varName}: ${exists ? '✅' : '❌'} ${displayValue}\n`;
         });
         debugInfo += `\n`;
         
@@ -509,7 +509,7 @@ export default {
                     writeFileSync(ownerJsonPath, JSON.stringify(ownerData, null, 2));
                     actionsTaken.push('Updated owner.json with clean JID/number');
                     
-                    debugInfo += `├─ ✅ Updated owner.json\n`;
+                    debugInfo += `├◆ ✅ Updated owner.json\n`;
                 }
                 
                 // Step 2: Initialize jidManager
@@ -522,10 +522,10 @@ export default {
                         
                         if (result?.success !== false) {
                             actionsTaken.push('Initialized jidManager owner data');
-                            debugInfo += `├─ ✅ Set jidManager owner\n`;
+                            debugInfo += `├◆ ✅ Set jidManager owner\n`;
                         }
                     } catch (error) {
-                        debugInfo += `├─ ⚠️ jidManager.setOwner failed: ${error.message}\n`;
+                        debugInfo += `├◆ ⚠️ jidManager.setOwner failed: ${error.message}\n`;
                     }
                 }
                 
@@ -536,7 +536,7 @@ export default {
                     global.OWNER_JID = ownerJid;
                     global.OWNER_CLEAN_JID = ownerCleanJid;
                     actionsTaken.push('Set global owner variables');
-                    debugInfo += `├─ ✅ Set global variables\n`;
+                    debugInfo += `├◆ ✅ Set global variables\n`;
                 }
                 
                 // Step 4: Reset mode specific actions
@@ -545,7 +545,7 @@ export default {
                     if (jidManager.resetOwner) {
                         jidManager.resetOwner();
                         actionsTaken.push('Reset jidManager owner cache');
-                        debugInfo += `├─ ✅ Reset jidManager cache\n`;
+                        debugInfo += `├◆ ✅ Reset jidManager cache\n`;
                     }
                     
                     // Force re-check on next message
@@ -595,7 +595,7 @@ export default {
         
         if (issues.length > 0) {
             issues.forEach((issue, index) => {
-                debugInfo += `${index === issues.length - 1 ? '└─' : '├─'} ${issue}\n`;
+                debugInfo += `${index === issues.length - 1 ? '└─' : '├◆ '} ${issue}\n`;
             });
         } else {
             debugInfo += `└─ ✅ No critical issues detected\n`;
@@ -629,16 +629,16 @@ export default {
         recommendations.push(`Verify with \`${PREFIX}ping\` and \`${PREFIX}owner\` commands`);
         
         recommendations.forEach((rec, index) => {
-            debugInfo += `${index === recommendations.length - 1 ? '└─' : '├─'} ${rec}\n`;
+            debugInfo += `${index === recommendations.length - 1 ? '└─' : '├◆ '} ${rec}\n`;
         });
         
         // 9. SUMMARY SECTION
         debugInfo += `\n📊 *SUMMARY*\n`;
         debugInfo += `═`.repeat(40) + `\n`;
-        debugInfo += `├─ Actions Taken: ${actionsTaken.length}\n`;
-        debugInfo += `├─ Warnings: ${warnings.length}\n`;
-        debugInfo += `├─ Errors: ${errorsDetected.length}\n`;
-        debugInfo += `├─ Issues Found: ${issues.length}\n`;
+        debugInfo += `├◆ Actions Taken: ${actionsTaken.length}\n`;
+        debugInfo += `├◆ Warnings: ${warnings.length}\n`;
+        debugInfo += `├◆ Errors: ${errorsDetected.length}\n`;
+        debugInfo += `├◆ Issues Found: ${issues.length}\n`;
         debugInfo += `└─ Recommendations: ${recommendations.length}\n\n`;
         
         // 10. QUICK FIX COMMANDS
@@ -674,8 +674,7 @@ export default {
         console.log(`
 ┌─⧭ DEBUGCHAT ANALYSIS REPORT
 
-├──────────────────────────────────────────────────────────────
-├◆ 📅 Timestamp: ${new Date().toISOString()}
+├◆ ├◆ 📅 Timestamp: ${new Date().toISOString()}
 ├◆ 💬 Chat: ${chatType}
 ├◆ 👤 Sender: ${senderJid}
 ├◆ 🔗 Type: ${cleaned.isLid ? 'Linked Device (LID)' : 'Standard JID'}

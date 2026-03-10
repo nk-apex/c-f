@@ -148,7 +148,7 @@ export default {
 
             if (!quoted && !hasAudio && !hasVideo && args.length === 0) {
                 return sock.sendMessage(jid, {
-                    text: `╭─⌈ 🎵 *SHAZAM* ⌋\n│\n├─⊷ *shazam*\n├◆  └⊷ Reply to audio to identify\n├─⊷ *shazam <song name>*\n├◆  └⊷ Search by text\n╰───`
+                    text: `┌─⧭ 🎵 *SHAZAM* \n├◆ *shazam*\n├◆  └⊷ Reply to audio to identify\n├◆ *shazam <song name>*\n├◆  └⊷ Search by text\n└─⧭`
                 }, { quoted: m });
             }
 

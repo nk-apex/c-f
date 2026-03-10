@@ -51,7 +51,7 @@ export default {
       } catch {}
 
       const caption =
-        `╭─⌈ 🔗 *GROUP LINK* ⌋\n` +
+        `┌─⧭ 🔗 *GROUP LINK* \n` +
         `│\n` +
         `│ ✧ *Name:* ${groupName}\n` +
         `│ ✧ *Members:* ${members}\n` +
@@ -60,7 +60,7 @@ export default {
         `│ • \`${PREFIX}revoke\` - Reset link\n` +
         `│ • \`${PREFIX}groupinfo\` - Group details\n` +
         `│\n` +
-        `╰───`;
+        `└─⧭`;
 
       try {
         const { createRequire } = await import('module');

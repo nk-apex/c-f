@@ -11,7 +11,7 @@ export default {
     try {
       if (args.length === 0) {
         await sock.sendMessage(jid, { 
-          text: `╭─⌈ 🔥 *PHOENIX LOGO* ⌋\n│\n├─⊷ *phoenixlogo*\n├◆  └⊷ phoenixlogo <text>\n│\n├─⊷ *Example:*\n├◆  └⊷ phoenixlogo PHOENIX\n├◆  └⊷ phoenixlogo REBIRTH\n├◆  └⊷ phoenixlogo FIREBIRD\n│\n╰───` 
+          text: `┌─⧭ 🔥 *PHOENIX LOGO* \n├◆ *phoenixlogo*\n├◆  └⊷ phoenixlogo <text>\n├◆ *Example:*\n├◆  └⊷ phoenixlogo PHOENIX\n├◆  └⊷ phoenixlogo REBIRTH\n├◆  └⊷ phoenixlogo FIREBIRD\n└─⧭` 
         }, { quoted: m });
         return;
       }
@@ -20,7 +20,7 @@ export default {
       
       if (text.length > 10) {
         await sock.sendMessage(jid, { 
-          text: `╭─⌈ ❌ *ERROR* ⌋\n│\n├─⊷ Text too long!\n├◆  └⊷ Maximum 10 characters\n├◆  └⊷ Your text: "${text}" (${text.length} chars)\n│\n╰───` 
+          text: `┌─⧭ ❌ *ERROR* \n├◆ Text too long!\n├◆  └⊷ Maximum 10 characters\n├◆  └⊷ Your text: "${text}" (${text.length} chars)\n└─⧭` 
         }, { quoted: m });
         return;
       }
@@ -41,7 +41,7 @@ export default {
     } catch (error) {
       console.error("❌ [PHOENIXLOGO] ERROR:", error);
       await sock.sendMessage(jid, { 
-        text: `╭─⌈ ❌ *ERROR* ⌋\n│\n├─⊷ ${error.message}\n├◆  └⊷ Please try again with shorter text\n│\n╰───` 
+        text: `┌─⧭ ❌ *ERROR* \n├◆ ${error.message}\n├◆  └⊷ Please try again with shorter text\n└─⧭` 
       }, { quoted: m });
     }
   },

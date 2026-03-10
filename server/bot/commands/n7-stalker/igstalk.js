@@ -14,7 +14,7 @@ export default {
 
     if (!args || !args[0]) {
       return sock.sendMessage(jid, {
-        text: `╭─⌈ 🔍 *INSTAGRAM STALKER* ⌋\n│\n├─⊷ *${prefix}igstalk <username>*\n├◆  └⊷ Stalk an Instagram profile\n│\n├─⊷ *Example:*\n├◆  └⊷ ${prefix}igstalk giftedtechnexus\n│\n╰───────────────\n> *${getBotName()} STALKER*`
+        text: `┌─⧭ 🔍 *INSTAGRAM STALKER* \n├◆ *${prefix}igstalk <username>*\n├◆  └⊷ Stalk an Instagram profile\n├◆ *Example:*\n├◆  └⊷ ${prefix}igstalk giftedtechnexus\n└─⧭\n> *${getBotName()} STALKER*`
       }, { quoted: m });
     }
 
@@ -41,7 +41,7 @@ export default {
         } catch {}
       }
 
-      const caption = `╭─⌈ 📸 *INSTAGRAM PROFILE* ⌋\n│\n├─⊷ *👤 Full Name:* ${d.full_name || 'N/A'}\n├─⊷ *🏷️ Username:* @${d.username || username}\n├─⊷ *📝 Bio:* ${d.description || 'N/A'}\n├─⊷ *📸 Posts:* ${d.posts || '0'}\n├─⊷ *👥 Followers:* ${d.followers || '0'}\n├─⊷ *👤 Following:* ${d.following || '0'}\n├─⊷ *🔒 Private:* ${d.is_private ? 'Yes' : 'No'}\n│\n╰───────────────\n> 🐺 *${getBotName()} STALKER*`;
+      const caption = `┌─⧭ 📸 *INSTAGRAM PROFILE* \n├◆ *👤 Full Name:* ${d.full_name || 'N/A'}\n├◆ *🏷️ Username:* @${d.username || username}\n├◆ *📝 Bio:* ${d.description || 'N/A'}\n├◆ *📸 Posts:* ${d.posts || '0'}\n├◆ *👥 Followers:* ${d.followers || '0'}\n├◆ *👤 Following:* ${d.following || '0'}\n├◆ *🔒 Private:* ${d.is_private ? 'Yes' : 'No'}\n└─⧭\n> 🐺 *${getBotName()} STALKER*`;
 
       if (avatarBuffer) {
         await sock.sendMessage(jid, { image: avatarBuffer, caption }, { quoted: m });

@@ -10,8 +10,7 @@ export default {
   async execute(sock, m, args, PREFIX) {
     const jid = m.key.remoteJid;
 
-    const commandsText = `╭─⊷ *🖼️ IMAGE GENERATION*
-│
+    const commandsText = `┌─⧭⊷ *🖼️ IMAGE GENERATION*
 ├◆  • image
 ├◆  • imagine
 ├◆  • imagegen
@@ -20,8 +19,7 @@ export default {
 ├◆  • real
 ├◆  • remini
 ├◆  • vision
-│
-╰─⊷`;
+└─⧭⊷`;
 
     await sendSubMenu(sock, jid, '🖼️ IMAGE MENU', commandsText, m, PREFIX);
   }

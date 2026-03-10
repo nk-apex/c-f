@@ -285,11 +285,11 @@ export default {
                     
                     // System overview
                     response += `🖥️ *System Overview*\n`;
-                    response += `├─ OS: ${systemInfo.platform} ${systemInfo.arch}\n`;
-                    response += `├─ Hostname: ${systemInfo.hostname}\n`;
-                    response += `├─ CPU Cores: ${systemInfo.cpus}\n`;
-                    response += `├─ Load Average: ${systemInfo.load[0].toFixed(2)}, ${systemInfo.load[1].toFixed(2)}, ${systemInfo.load[2].toFixed(2)}\n`;
-                    response += `├─ Uptime: ${Math.floor(systemInfo.uptime / 3600)}h ${Math.floor((systemInfo.uptime % 3600) / 60)}m\n`;
+                    response += `├◆ OS: ${systemInfo.platform} ${systemInfo.arch}\n`;
+                    response += `├◆ Hostname: ${systemInfo.hostname}\n`;
+                    response += `├◆ CPU Cores: ${systemInfo.cpus}\n`;
+                    response += `├◆ Load Average: ${systemInfo.load[0].toFixed(2)}, ${systemInfo.load[1].toFixed(2)}, ${systemInfo.load[2].toFixed(2)}\n`;
+                    response += `├◆ Uptime: ${Math.floor(systemInfo.uptime / 3600)}h ${Math.floor((systemInfo.uptime % 3600) / 60)}m\n`;
                     
                     // Memory usage with progress bar
                     const memPercent = systemInfo.memory.percent;
@@ -302,10 +302,10 @@ export default {
                         Object.entries(diskInfo).forEach(([mount, info], index) => {
                             const percent = parseFloat(info.usePercent);
                             response += `${getStorageColor(percent)} *${mount}* (${info.filesystem})\n`;
-                            response += `├─ ${getProgressBar(percent)}\n`;
-                            response += `├─ Used: ${info.used}\n`;
-                            response += `├─ Free: ${info.available}\n`;
-                            response += `├─ Total: ${info.size}\n`;
+                            response += `├◆ ${getProgressBar(percent)}\n`;
+                            response += `├◆ Used: ${info.used}\n`;
+                            response += `├◆ Free: ${info.available}\n`;
+                            response += `├◆ Total: ${info.size}\n`;
                             response += `└─ Usage: ${info.usePercent}\n`;
                             
                             if (index < Object.keys(diskInfo).length - 1) {
@@ -319,11 +319,11 @@ export default {
                     response += `\n🤖 *Bot Storage Usage*\n`;
                     Object.entries(botStorage).forEach(([name, info]) => {
                         if (info.exists === false) {
-                            response += `├─ ${name}: ❌ Not found\n`;
+                            response += `├◆ ${name}: ❌ Not found\n`;
                         } else if (info.error) {
-                            response += `├─ ${name}: ⚠️ Error: ${info.error}\n`;
+                            response += `├◆ ${name}: ⚠️ Error: ${info.error}\n`;
                         } else {
-                            response += `├─ ${name}: ${info.formatted}\n`;
+                            response += `├◆ ${name}: ${info.formatted}\n`;
                         }
                     });
                     
@@ -332,9 +332,9 @@ export default {
                     response += `└─ *Total Bot:* ${formatBytes(totalBotSize)}\n\n`;
                     
                     response += `⚡ *Quick Commands:*\n`;
-                    response += `├─ \`${PREFIX}disk bot\` - Bot storage details\n`;
-                    response += `├─ \`${PREFIX}disk system\` - System details\n`;
-                    response += `├─ \`${PREFIX}disk partitions\` - Disk partitions only\n`;
+                    response += `├◆ \`${PREFIX}disk bot\` - Bot storage details\n`;
+                    response += `├◆ \`${PREFIX}disk system\` - System details\n`;
+                    response += `├◆ \`${PREFIX}disk partitions\` - Disk partitions only\n`;
                     response += `└─ \`${PREFIX}disk clean\` - Storage cleanup\n`;
                     
                     await sock.sendMessage(chatId, {
@@ -358,14 +358,14 @@ export default {
                     // Detailed breakdown
                     Object.entries(botStorage).forEach(([name, info]) => {
                         response += `📁 *${name}*\n`;
-                        response += `├─ Path: ${info.path}\n`;
+                        response += `├◆ Path: ${info.path}\n`;
                         
                         if (info.exists === false) {
                             response += `└─ Status: ❌ Directory not found\n\n`;
                         } else if (info.error) {
                             response += `└─ Status: ⚠️ ${info.error}\n\n`;
                         } else {
-                            response += `├─ Size: ${info.formatted}\n`;
+                            response += `├◆ Size: ${info.formatted}\n`;
                             
                             // Show file count for directories
                             if (name === 'Session' || name === 'Commands') {
@@ -373,7 +373,7 @@ export default {
                                     const files = readdirSync(info.path, { withFileTypes: true });
                                     const fileCount = files.filter(f => f.isFile()).length;
                                     const dirCount = files.filter(f => f.isDirectory()).length;
-                                    response += `├─ Files: ${fileCount}\n`;
+                                    response += `├◆ Files: ${fileCount}\n`;
                                     response += `└─ Folders: ${dirCount}\n\n`;
                                 } catch (e) {
                                     response += `└─ File count: ❌ Unavailable\n\n`;
@@ -392,8 +392,8 @@ export default {
                     );
                     
                     response += `📊 *Summary*\n`;
-                    response += `├─ Total Storage: ${formatBytes(totalSize)}\n`;
-                    response += `├─ Largest: ${largestDir.name} (${formatBytes(largestDir.size)})\n`;
+                    response += `├◆ Total Storage: ${formatBytes(totalSize)}\n`;
+                    response += `├◆ Largest: ${largestDir.name} (${formatBytes(largestDir.size)})\n`;
                     
                     // Check for large session files
                     if (botStorage['Session'] && botStorage['Session'].size > 50 * 1024 * 1024) { // > 50MB
@@ -423,25 +423,25 @@ export default {
                     
                     // Platform info
                     response += `📋 *Platform*\n`;
-                    response += `├─ OS: ${systemInfo.platform} ${systemInfo.arch}\n`;
-                    response += `├─ Hostname: ${systemInfo.hostname}\n`;
-                    response += `├─ Node.js: ${process.version}\n`;
+                    response += `├◆ OS: ${systemInfo.platform} ${systemInfo.arch}\n`;
+                    response += `├◆ Hostname: ${systemInfo.hostname}\n`;
+                    response += `├◆ Node.js: ${process.version}\n`;
                     response += `└─ Bot: ${BOT_NAME} v${VERSION}\n\n`;
                     
                     // CPU Information
                     response += `⚡ *CPU Information*\n`;
-                    response += `├─ Cores: ${systemInfo.cpus}\n`;
-                    response += `├─ Model: ${systemInfo.cpus[0]?.model || 'Unknown'}\n`;
-                    response += `├─ Speed: ${systemInfo.cpus[0]?.speed || 'Unknown'} MHz\n`;
+                    response += `├◆ Cores: ${systemInfo.cpus}\n`;
+                    response += `├◆ Model: ${systemInfo.cpus[0]?.model || 'Unknown'}\n`;
+                    response += `├◆ Speed: ${systemInfo.cpus[0]?.speed || 'Unknown'} MHz\n`;
                     response += `└─ Load: ${systemInfo.load[0].toFixed(2)} (1min), ${systemInfo.load[1].toFixed(2)} (5min), ${systemInfo.load[2].toFixed(2)} (15min)\n\n`;
                     
                     // Memory Usage with detailed breakdown
                     const memPercent = systemInfo.memory.percent;
                     response += `💾 *Memory Usage*\n`;
                     response += `${getStorageColor(memPercent)} ${getProgressBar(memPercent)}\n`;
-                    response += `├─ Used: ${formatBytes(systemInfo.memory.used)}\n`;
-                    response += `├─ Free: ${formatBytes(systemInfo.memory.free)}\n`;
-                    response += `├─ Total: ${formatBytes(systemInfo.memory.total)}\n`;
+                    response += `├◆ Used: ${formatBytes(systemInfo.memory.used)}\n`;
+                    response += `├◆ Free: ${formatBytes(systemInfo.memory.free)}\n`;
+                    response += `├◆ Total: ${formatBytes(systemInfo.memory.total)}\n`;
                     response += `└─ Usage: ${memPercent.toFixed(1)}%\n\n`;
                     
                     // Uptime
@@ -451,7 +451,7 @@ export default {
                     const minutes = Math.floor((uptime % 3600) / 60);
                     
                     response += `⏰ *Uptime*\n`;
-                    response += `├─ System: ${days}d ${hours}h ${minutes}m\n`;
+                    response += `├◆ System: ${days}d ${hours}h ${minutes}m\n`;
                     response += `└─ Bot: ${Math.floor(process.uptime() / 3600)}h ${Math.floor((process.uptime() % 3600) / 60)}m\n\n`;
                     
                     // Network info
@@ -461,7 +461,7 @@ export default {
                     Object.entries(systemInfo.network).forEach(([name, interfaces]) => {
                         interfaces.forEach(intf => {
                             if (intf.family === 'IPv4' && !intf.internal) {
-                                response += `├─ ${name}: ${intf.address}\n`;
+                                response += `├◆ ${name}: ${intf.address}\n`;
                                 hasNetwork = true;
                             }
                         });
@@ -501,10 +501,10 @@ export default {
                         const color = getStorageColor(percent);
                         
                         response += `${color} *${mount}*\n`;
-                        response += `├─ Filesystem: ${info.filesystem}\n`;
+                        response += `├◆ Filesystem: ${info.filesystem}\n`;
                         response += `${getProgressBar(percent)}\n`;
-                        response += `├─ Used: ${info.used} (${info.usePercent})\n`;
-                        response += `├─ Free: ${info.available}\n`;
+                        response += `├◆ Used: ${info.used} (${info.usePercent})\n`;
+                        response += `├◆ Free: ${info.available}\n`;
                         response += `└─ Total: ${info.size}\n\n`;
                     });
                     
@@ -527,7 +527,7 @@ export default {
                     }, 0);
                     
                     response += `📊 *Summary*\n`;
-                    response += `├─ Total partitions: ${Object.keys(diskInfo).length}\n`;
+                    response += `├◆ Total partitions: ${Object.keys(diskInfo).length}\n`;
                     response += `└─ Total space: ${formatBytes(totalSpace)}\n`;
                     
                     await sock.sendMessage(chatId, {
@@ -565,24 +565,24 @@ export default {
                     let response = `🧹 *DISK CLEANUP COMPLETE*\n\n`;
                     response += `📊 *Before → After:*\n`;
                     if (reportBefore.freeMB !== null) {
-                        response += `├─ Free Space: ${reportBefore.freeMB}MB → ${reportAfter.freeMB}MB\n`;
+                        response += `├◆ Free Space: ${reportBefore.freeMB}MB → ${reportAfter.freeMB}MB\n`;
                     }
-                    response += `├─ Session Signal Files: ${reportBefore.sessionSignalFiles} (${reportBefore.sessionSignalMB}MB)\n`;
-                    response += `├─ ViewOnce Media: ${reportBefore.viewonceMediaMB}MB\n`;
-                    response += `├─ Antidelete Media: ${reportBefore.antideleteMediaMB}MB\n`;
-                    response += `├─ Status Media: ${reportBefore.statusMediaMB || 0}MB\n`;
-                    response += `├─ Temp Files: ${reportBefore.tempFilesMB}MB\n`;
-                    response += `├─ Session Backups: ${reportBefore.backupMB}MB\n`;
+                    response += `├◆ Session Signal Files: ${reportBefore.sessionSignalFiles} (${reportBefore.sessionSignalMB}MB)\n`;
+                    response += `├◆ ViewOnce Media: ${reportBefore.viewonceMediaMB}MB\n`;
+                    response += `├◆ Antidelete Media: ${reportBefore.antideleteMediaMB}MB\n`;
+                    response += `├◆ Status Media: ${reportBefore.statusMediaMB || 0}MB\n`;
+                    response += `├◆ Temp Files: ${reportBefore.tempFilesMB}MB\n`;
+                    response += `├◆ Session Backups: ${reportBefore.backupMB}MB\n`;
                     response += `└─ Status Logs: ${reportBefore.statusLogsMB}MB\n\n`;
 
                     response += `🗑️ *Removed:*\n`;
-                    response += `├─ Session files: ${results.sessionFiles}\n`;
-                    response += `├─ ViewOnce media: ${results.viewonceMedia}\n`;
-                    response += `├─ Antidelete media: ${results.antideleteMedia}\n`;
-                    response += `├─ Status media: ${results.statusMedia}\n`;
-                    response += `├─ Temp files: ${results.tempFiles}\n`;
-                    response += `├─ Backups: ${results.backups}\n`;
-                    response += `├─ Status logs: ${results.statusLogs ? 'Truncated' : 'OK'}\n`;
+                    response += `├◆ Session files: ${results.sessionFiles}\n`;
+                    response += `├◆ ViewOnce media: ${results.viewonceMedia}\n`;
+                    response += `├◆ Antidelete media: ${results.antideleteMedia}\n`;
+                    response += `├◆ Status media: ${results.statusMedia}\n`;
+                    response += `├◆ Temp files: ${results.tempFiles}\n`;
+                    response += `├◆ Backups: ${results.backups}\n`;
+                    response += `├◆ Status logs: ${results.statusLogs ? 'Truncated' : 'OK'}\n`;
                     response += `└─ *Total: ${total} items removed*\n\n`;
 
                     if (reportAfter.freeMB !== null && reportAfter.freeMB < 50) {
@@ -590,7 +590,7 @@ export default {
                     }
 
                     response += `💡 *Usage:*\n`;
-                    response += `├─ \`${PREFIX}disk clean\` - Standard cleanup\n`;
+                    response += `├◆ \`${PREFIX}disk clean\` - Standard cleanup\n`;
                     response += `└─ \`${PREFIX}disk clean deep\` - Aggressive cleanup (removes more)\n`;
 
                     await sock.sendMessage(chatId, {
@@ -647,25 +647,25 @@ export default {
                 let helpText = `💾 *DISK COMMAND HELP*\n\n`;
                 
                 helpText += `📋 *Available Commands:*\n`;
-                helpText += `├─ \`${PREFIX}disk\` - All information (default)\n`;
-                helpText += `├─ \`${PREFIX}disk bot\` - Bot storage details\n`;
-                helpText += `├─ \`${PREFIX}disk system\` - System information\n`;
-                helpText += `├─ \`${PREFIX}disk partitions\` - Disk partitions\n`;
-                helpText += `├─ \`${PREFIX}disk clean\` - Auto cleanup (session, media, temp)\n`;
-                helpText += `├─ \`${PREFIX}disk clean deep\` - Aggressive cleanup\n`;
-                helpText += `├─ \`${PREFIX}disk monitor\` - Real-time monitoring\n`;
+                helpText += `├◆ \`${PREFIX}disk\` - All information (default)\n`;
+                helpText += `├◆ \`${PREFIX}disk bot\` - Bot storage details\n`;
+                helpText += `├◆ \`${PREFIX}disk system\` - System information\n`;
+                helpText += `├◆ \`${PREFIX}disk partitions\` - Disk partitions\n`;
+                helpText += `├◆ \`${PREFIX}disk clean\` - Auto cleanup (session, media, temp)\n`;
+                helpText += `├◆ \`${PREFIX}disk clean deep\` - Aggressive cleanup\n`;
+                helpText += `├◆ \`${PREFIX}disk monitor\` - Real-time monitoring\n`;
                 helpText += `└─ \`${PREFIX}disk help\` - This help message\n\n`;
                 
                 helpText += `⚡ *Examples:*\n`;
-                helpText += `├─ \`${PREFIX}disk bot\`\n`;
-                helpText += `├─ \`${PREFIX}disk system\`\n`;
-                helpText += `├─ \`${PREFIX}disk clean\`\n`;
+                helpText += `├◆ \`${PREFIX}disk bot\`\n`;
+                helpText += `├◆ \`${PREFIX}disk system\`\n`;
+                helpText += `├◆ \`${PREFIX}disk clean\`\n`;
                 helpText += `└─ \`${PREFIX}disk clean deep\`\n\n`;
                 
                 helpText += `📊 *Features:*\n`;
-                helpText += `├─ Accurate disk usage\n`;
-                helpText += `├─ Progress bars\n`;
-                helpText += `├─ Color-coded warnings\n`;
+                helpText += `├◆ Accurate disk usage\n`;
+                helpText += `├◆ Progress bars\n`;
+                helpText += `├◆ Color-coded warnings\n`;
                 helpText += `└─ Cross-platform support`;
                 
                 await sock.sendMessage(chatId, {

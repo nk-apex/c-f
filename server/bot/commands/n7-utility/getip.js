@@ -189,7 +189,7 @@ export default {
       const targetArg = args.find(a => !a.startsWith("--")) || null;
       if (!targetArg) {
         return await sock.sendMessage(chatId, {
-          text: `╭─⌈ 🌐 *GET IP INFO* ⌋\n│\n├─⊷ *.getip <ip|domain>*\n├◆  └⊷ Get IP/domain info\n│\n├─⊷ *.getip @mention*\n├◆  └⊷ Get safe JID/phone/profile\n│\n├◆  ⚠️ Will not expose user IPs\n│\n╰───`
+          text: `┌─⧭ 🌐 *GET IP INFO* \n├◆ *.getip <ip|domain>*\n├◆  └⊷ Get IP/domain info\n├◆ *.getip @mention*\n├◆  └⊷ Get safe JID/phone/profile\n├◆  ⚠️ Will not expose user IPs\n└─⧭`
         }, { quoted: m });
       }
 

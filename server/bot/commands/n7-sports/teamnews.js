@@ -15,16 +15,16 @@ export default {
 
     if (args.length === 0 || args[0].toLowerCase() === 'help') {
       return sock.sendMessage(jid, {
-        text: `╭─⌈ 📰 *TEAM NEWS* ⌋\n` +
-          `├─⊷ *${PREFIX}teamnews <team>*\n` +
+        text: `┌─⧭ 📰 *TEAM NEWS* \n` +
+          `├◆ *${PREFIX}teamnews <team>*\n` +
           `│  └⊷ Get news for a specific team\n` +
           `│\n` +
-          `├─ 💡 *Examples:*\n` +
+          `├◆ 💡 *Examples:*\n` +
           `│  ⊷ ${PREFIX}teamnews arsenal\n` +
           `│  ⊷ ${PREFIX}teamnews barcelona\n` +
           `│  ⊷ ${PREFIX}teamnews manchester united\n` +
           `│  ⊷ ${PREFIX}tnews chelsea\n` +
-          `╰───`
+          `└─⧭`
       }, { quoted: m });
     }
 
@@ -38,7 +38,7 @@ export default {
 
       if (!news || (Array.isArray(news) && news.length === 0)) throw new Error(`No news found for "${team}"`);
 
-      let text = `╭─⌈ 📰 *${team.toUpperCase()} NEWS* ⌋\n│\n`;
+      let text = `┌─⧭ 📰 *${team.toUpperCase()} NEWS* \n`;
       const list = Array.isArray(news) ? news.slice(0, 10) : [];
       list.forEach((article, i) => {
         const title = article?.title || article?.headline || article?.name || 'Untitled';
@@ -51,11 +51,11 @@ export default {
         }
         const shortSummary = summary.length > 100 ? summary.substring(0, 97) + '...' : summary;
 
-        text += `├─⊷ *${i + 1}. ${title}*\n`;
+        text += `├◆ *${i + 1}. ${title}*\n`;
         if (shortSummary) text += `│  └⊷ ${shortSummary}\n`;
         if (source || dateStr) text += `│  └⊷ ${source}${source && dateStr ? ' │ ' : ''}${dateStr}\n`;
       });
-      text += `╰───\n\n⚡ *Powered by ${getBotName()}*`;
+      text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
       await sock.sendMessage(jid, { text }, { quoted: m });
       await sock.sendMessage(jid, { react: { text: '✅', key: m.key } });
       console.log(`📰 [TEAMNEWS] News for "${team}" fetched successfully`);
@@ -64,7 +64,7 @@ export default {
       console.error('❌ [TEAMNEWS]', error.message);
       await sock.sendMessage(jid, { react: { text: '❌', key: m.key } });
       await sock.sendMessage(jid, {
-        text: `╭─⌈ ❌ *TEAM NEWS ERROR* ⌋\n├─⊷ ${error.message}\n├─⊷ Usage: ${PREFIX}teamnews <teamname>\n╰───`
+        text: `┌─⧭ ❌ *TEAM NEWS ERROR* \n├◆ ${error.message}\n├◆ Usage: ${PREFIX}teamnews <teamname>\n└─⧭`
       }, { quoted: m });
     }
   }

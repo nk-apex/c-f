@@ -29,11 +29,11 @@ export default {
                      `👑 Owner: Leon\n` +
                      `⏳ Uptime: ${hours}h ${minutes}m\n\n` +
                      `📁 Commands: ${totalCommands}+\n` +
-                     `├─ 💰 Economy: ${categories.economy}\n` +
-                     `├─ 🎮 Games: ${categories.games}\n` +
-                     `├─ 👥 Group: ${categories.group}\n` +
-                     `├─ 🛠️ Tools: ${categories.tools}\n` +
-                     `├─ 🔧 System: ${categories.system}\n` +
+                     `├◆ 💰 Economy: ${categories.economy}\n` +
+                     `├◆ 🎮 Games: ${categories.games}\n` +
+                     `├◆ 👥 Group: ${categories.group}\n` +
+                     `├◆ 🛠️ Tools: ${categories.tools}\n` +
+                     `├◆ 🔧 System: ${categories.system}\n` +
                      `└─ 📊 General: ${categories.general}\n\n` +
                      `🔧 Mode: ${global.BOT_MODE || 'public'}\n` +
                      `🔣 Prefix: "${PREFIX}"\n` +

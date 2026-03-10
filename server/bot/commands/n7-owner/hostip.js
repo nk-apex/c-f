@@ -411,18 +411,18 @@ export default {
                     // Public IP Info
                     if (publicIP) {
                         response += `📡 *Public IP Address*\n`;
-                        response += `├─ IP: \`${publicIP.ip}\`\n`;
+                        response += `├◆ IP: \`${publicIP.ip}\`\n`;
                         
                         if (publicIP.hostname) {
-                            response += `├─ Hostname: ${publicIP.hostname}\n`;
+                            response += `├◆ Hostname: ${publicIP.hostname}\n`;
                         }
                         
                         if (publicIP.city && publicIP.country) {
-                            response += `├─ Location: ${publicIP.city}, ${publicIP.region}, ${publicIP.country}\n`;
+                            response += `├◆ Location: ${publicIP.city}, ${publicIP.region}, ${publicIP.country}\n`;
                         }
                         
                         if (publicIP.org) {
-                            response += `├─ Organization: ${publicIP.org}\n`;
+                            response += `├◆ Organization: ${publicIP.org}\n`;
                         }
                         
                         response += `└─ Source: ${publicIP.source}\n\n`;
@@ -432,25 +432,25 @@ export default {
                         if (ipInfo) {
                             response += `📍 *IP Details*\n`;
                             if (ipInfo.country_name) {
-                                response += `├─ Country: ${ipInfo.country_name} (${ipInfo.country})\n`;
+                                response += `├◆ Country: ${ipInfo.country_name} (${ipInfo.country})\n`;
                             }
                             if (ipInfo.region) {
-                                response += `├─ Region: ${ipInfo.region}\n`;
+                                response += `├◆ Region: ${ipInfo.region}\n`;
                             }
                             if (ipInfo.city) {
-                                response += `├─ City: ${ipInfo.city}\n`;
+                                response += `├◆ City: ${ipInfo.city}\n`;
                             }
                             if (ipInfo.postal) {
-                                response += `├─ Postal: ${ipInfo.postal}\n`;
+                                response += `├◆ Postal: ${ipInfo.postal}\n`;
                             }
                             if (ipInfo.timezone) {
-                                response += `├─ Timezone: ${ipInfo.timezone}\n`;
+                                response += `├◆ Timezone: ${ipInfo.timezone}\n`;
                             }
                             if (ipInfo.currency) {
-                                response += `├─ Currency: ${ipInfo.currency}\n`;
+                                response += `├◆ Currency: ${ipInfo.currency}\n`;
                             }
                             if (ipInfo.asn) {
-                                response += `├─ ASN: ${ipInfo.asn}\n`;
+                                response += `├◆ ASN: ${ipInfo.asn}\n`;
                             }
                             if (ipInfo.org) {
                                 response += `└─ ISP: ${ipInfo.org}\n\n`;
@@ -466,10 +466,10 @@ export default {
                     if (interfaces.length > 0) {
                         response += `🏠 *Local Network Interfaces*\n`;
                         interfaces.forEach((iface, index) => {
-                            response += `├─ *${iface.interface}*\n`;
-                            response += `│  ├─ IP: ${iface.address}\n`;
-                            response += `│  ├─ Netmask: ${iface.netmask}\n`;
-                            response += `│  ├─ MAC: ${iface.mac}\n`;
+                            response += `├◆ *${iface.interface}*\n`;
+                            response += `│  ├◆ IP: ${iface.address}\n`;
+                            response += `│  ├◆ Netmask: ${iface.netmask}\n`;
+                            response += `│  ├◆ MAC: ${iface.mac}\n`;
                             response += `│  └─ CIDR: ${iface.cidr}\n`;
                             
                             if (index < interfaces.length - 1) {
@@ -484,8 +484,8 @@ export default {
                     const totalTests = connectionTest.length;
                     
                     response += `📶 *Internet Connection*\n`;
-                    response += `├─ Status: ${onlineTests > 0 ? '✅ ONLINE' : '❌ OFFLINE'}\n`;
-                    response += `├─ Success Rate: ${onlineTests}/${totalTests}\n`;
+                    response += `├◆ Status: ${onlineTests > 0 ? '✅ ONLINE' : '❌ OFFLINE'}\n`;
+                    response += `├◆ Success Rate: ${onlineTests}/${totalTests}\n`;
                     
                     if (onlineTests > 0) {
                         const avgLatency = connectionTest
@@ -500,17 +500,17 @@ export default {
                     if (systemNetInfo.dnsServers && systemNetInfo.dnsServers.length > 0) {
                         response += `🔍 *DNS Servers*\n`;
                         systemNetInfo.dnsServers.forEach((dns, index) => {
-                            response += `├─ ${dns}\n`;
+                            response += `├◆ ${dns}\n`;
                         });
                         response += `\n`;
                     }
                     
-                    response += `├─⊷ *${PREFIX}hostip local*\n├◆  └⊷ Local network\n`;
-                    response += `├─⊷ *${PREFIX}hostip public*\n├◆  └⊷ Public IP only\n`;
-                    response += `├─⊷ *${PREFIX}hostip test*\n├◆  └⊷ Connection test\n`;
-                    response += `├─⊷ *${PREFIX}hostip scan [host]*\n├◆  └⊷ Port scan\n`;
-                    response += `├─⊷ *${PREFIX}hostip dns [domain]*\n├◆  └⊷ DNS lookup\n`;
-                    response += `├─⊷ *${PREFIX}hostip whois [ip]*\n├◆  └⊷ WHOIS lookup\n╰───`;
+                    response += `├◆ *${PREFIX}hostip local*\n├◆  └⊷ Local network\n`;
+                    response += `├◆ *${PREFIX}hostip public*\n├◆  └⊷ Public IP only\n`;
+                    response += `├◆ *${PREFIX}hostip test*\n├◆  └⊷ Connection test\n`;
+                    response += `├◆ *${PREFIX}hostip scan [host]*\n├◆  └⊷ Port scan\n`;
+                    response += `├◆ *${PREFIX}hostip dns [domain]*\n├◆  └⊷ DNS lookup\n`;
+                    response += `├◆ *${PREFIX}hostip whois [ip]*\n├◆  └⊷ WHOIS lookup\n└─⧭`;
                     
                     await sock.sendMessage(chatId, {
                         text: response
@@ -534,8 +534,8 @@ export default {
                     
                     // Host information
                     response += `🖥️ *Host Information*\n`;
-                    response += `├─ Hostname: ${os.hostname()}\n`;
-                    response += `├─ Platform: ${os.platform()} ${os.arch()}\n`;
+                    response += `├◆ Hostname: ${os.hostname()}\n`;
+                    response += `├◆ Platform: ${os.platform()} ${os.arch()}\n`;
                     response += `└─ Release: ${os.release()}\n\n`;
                     
                     // Network Interfaces
@@ -543,9 +543,9 @@ export default {
                         response += `🔌 *Network Interfaces*\n`;
                         interfaces.forEach((iface, index) => {
                             response += `${index === 0 ? '├' : '│'}─ *${iface.interface}*\n`;
-                            response += `${index === 0 ? '│' : '│'}  ├─ IP: ${iface.address}\n`;
-                            response += `${index === 0 ? '│' : '│'}  ├─ Netmask: ${iface.netmask}\n`;
-                            response += `${index === 0 ? '│' : '│'}  ├─ MAC: ${iface.mac}\n`;
+                            response += `${index === 0 ? '│' : '│'}  ├◆ IP: ${iface.address}\n`;
+                            response += `${index === 0 ? '│' : '│'}  ├◆ Netmask: ${iface.netmask}\n`;
+                            response += `${index === 0 ? '│' : '│'}  ├◆ MAC: ${iface.mac}\n`;
                             response += `${index === 0 ? '│' : '│'}  └─ CIDR: ${iface.cidr}\n`;
                             
                             if (index < interfaces.length - 1) {
@@ -566,7 +566,7 @@ export default {
                             const gateway = parts[1] || '';
                             const iface = parts[parts.length - 1] || '';
                             
-                            response += `├─ ${dest.padEnd(20)} → ${gateway.padEnd(15)} via ${iface}\n`;
+                            response += `├◆ ${dest.padEnd(20)} → ${gateway.padEnd(15)} via ${iface}\n`;
                         });
                         
                         if (systemNetInfo.routes.length > 5) {
@@ -586,7 +586,7 @@ export default {
                                 const state = parts[8] || 'unknown';
                                 const mtu = parts[4] || 'unknown';
                                 
-                                response += `├─ ${iface}: MTU ${mtu}, State: ${state}\n`;
+                                response += `├◆ ${iface}: MTU ${mtu}, State: ${state}\n`;
                             }
                         });
                         response += `\n`;
@@ -597,15 +597,15 @@ export default {
                     // Detect common local IP ranges
                     interfaces.forEach(iface => {
                         if (iface.address.startsWith('192.168.')) {
-                            response += `├─ ${iface.interface}: Private Class C (192.168.0.0/16)\n`;
+                            response += `├◆ ${iface.interface}: Private Class C (192.168.0.0/16)\n`;
                         } else if (iface.address.startsWith('10.')) {
-                            response += `├─ ${iface.interface}: Private Class A (10.0.0.0/8)\n`;
+                            response += `├◆ ${iface.interface}: Private Class A (10.0.0.0/8)\n`;
                         } else if (iface.address.startsWith('172.16.')) {
-                            response += `├─ ${iface.interface}: Private Class B (172.16.0.0/12)\n`;
+                            response += `├◆ ${iface.interface}: Private Class B (172.16.0.0/12)\n`;
                         } else if (iface.address === '127.0.0.1') {
-                            response += `├─ ${iface.interface}: Loopback (localhost)\n`;
+                            response += `├◆ ${iface.interface}: Loopback (localhost)\n`;
                         } else {
-                            response += `├─ ${iface.interface}: Public/Other IP\n`;
+                            response += `├◆ ${iface.interface}: Public/Other IP\n`;
                         }
                     });
                     
@@ -644,8 +644,8 @@ export default {
                     let response = `🌍 *PUBLIC IP INFORMATION*\n\n`;
                     
                     response += `📡 *IP Address*\n`;
-                    response += `├─ IP: \`${publicIP.ip}\`\n`;
-                    response += `├─ Reverse DNS: ${reverseDNS}\n`;
+                    response += `├◆ IP: \`${publicIP.ip}\`\n`;
+                    response += `├◆ Reverse DNS: ${reverseDNS}\n`;
                     response += `└─ Source: ${publicIP.source}\n\n`;
                     
                     // Location Info
@@ -653,36 +653,36 @@ export default {
                         response += `📍 *Geolocation*\n`;
                         
                         if (ipInfo.country_name) {
-                            response += `├─ Country: ${ipInfo.country_name} (${ipInfo.country_code || ipInfo.country})\n`;
+                            response += `├◆ Country: ${ipInfo.country_name} (${ipInfo.country_code || ipInfo.country})\n`;
                         }
                         
                         if (ipInfo.region) {
-                            response += `├─ Region: ${ipInfo.region}\n`;
+                            response += `├◆ Region: ${ipInfo.region}\n`;
                         }
                         
                         if (ipInfo.city) {
-                            response += `├─ City: ${ipInfo.city}\n`;
+                            response += `├◆ City: ${ipInfo.city}\n`;
                         }
                         
                         if (ipInfo.postal) {
-                            response += `├─ Postal: ${ipInfo.postal}\n`;
+                            response += `├◆ Postal: ${ipInfo.postal}\n`;
                         }
                         
                         if (ipInfo.latitude && ipInfo.longitude) {
-                            response += `├─ Coordinates: ${ipInfo.latitude}, ${ipInfo.longitude}\n`;
-                            response += `├─ Google Maps: https://maps.google.com/?q=${ipInfo.latitude},${ipInfo.longitude}\n`;
+                            response += `├◆ Coordinates: ${ipInfo.latitude}, ${ipInfo.longitude}\n`;
+                            response += `├◆ Google Maps: https://maps.google.com/?q=${ipInfo.latitude},${ipInfo.longitude}\n`;
                         }
                         
                         if (ipInfo.timezone) {
-                            response += `├─ Timezone: ${ipInfo.timezone}\n`;
+                            response += `├◆ Timezone: ${ipInfo.timezone}\n`;
                         }
                         
                         if (ipInfo.currency) {
-                            response += `├─ Currency: ${ipInfo.currency}\n`;
+                            response += `├◆ Currency: ${ipInfo.currency}\n`;
                         }
                         
                         if (ipInfo.languages) {
-                            response += `├─ Languages: ${ipInfo.languages}\n`;
+                            response += `├◆ Languages: ${ipInfo.languages}\n`;
                         }
                         
                         response += `\n`;
@@ -693,15 +693,15 @@ export default {
                     
                     if (ipInfo) {
                         if (ipInfo.asn) {
-                            response += `├─ ASN: ${ipInfo.asn}\n`;
+                            response += `├◆ ASN: ${ipInfo.asn}\n`;
                         }
                         
                         if (ipInfo.org) {
-                            response += `├─ Organization: ${ipInfo.org}\n`;
+                            response += `├◆ Organization: ${ipInfo.org}\n`;
                         }
                     }
                     
-                    response += `├─ Hosting Provider: ${provider}\n`;
+                    response += `├◆ Hosting Provider: ${provider}\n`;
                     
                     // Check if IP is special
                     if (publicIP.ip === '127.0.0.1' || publicIP.ip === '::1') {
@@ -718,8 +718,8 @@ export default {
                     
                     // Additional services
                     response += `🔍 *Lookup Services*\n`;
-                    response += `├─ IPInfo: https://ipinfo.io/${publicIP.ip}\n`;
-                    response += `├─ WhatIsMyIP: https://whatismyipaddress.com/ip/${publicIP.ip}\n`;
+                    response += `├◆ IPInfo: https://ipinfo.io/${publicIP.ip}\n`;
+                    response += `├◆ WhatIsMyIP: https://whatismyipaddress.com/ip/${publicIP.ip}\n`;
                     response += `└─ AbuseIPDB: https://www.abuseipdb.com/check/${publicIP.ip}\n\n`;
                     
                     // IP Type Detection
@@ -727,26 +727,26 @@ export default {
                     
                     // Check IPv4 vs IPv6
                     if (publicIP.ip.includes(':')) {
-                        response += `├─ Version: IPv6\n`;
+                        response += `├◆ Version: IPv6\n`;
                         // Check IPv6 type
                         if (publicIP.ip.startsWith('fe80:')) {
-                            response += `├─ Scope: Link-local\n`;
+                            response += `├◆ Scope: Link-local\n`;
                         } else if (publicIP.ip.startsWith('fc00:') || publicIP.ip.startsWith('fd00:')) {
-                            response += `├─ Scope: Unique Local Address (ULA)\n`;
+                            response += `├◆ Scope: Unique Local Address (ULA)\n`;
                         } else {
-                            response += `├─ Scope: Global Unicast\n`;
+                            response += `├◆ Scope: Global Unicast\n`;
                         }
                     } else {
-                        response += `├─ Version: IPv4\n`;
+                        response += `├◆ Version: IPv4\n`;
                         
                         // Check IPv4 class
                         const firstOctet = parseInt(publicIP.ip.split('.')[0]);
                         if (firstOctet >= 1 && firstOctet <= 126) {
-                            response += `├─ Class: A\n`;
+                            response += `├◆ Class: A\n`;
                         } else if (firstOctet >= 128 && firstOctet <= 191) {
-                            response += `├─ Class: B\n`;
+                            response += `├◆ Class: B\n`;
                         } else if (firstOctet >= 192 && firstOctet <= 223) {
-                            response += `├─ Class: C\n`;
+                            response += `├◆ Class: C\n`;
                         }
                     }
                     
@@ -803,8 +803,8 @@ export default {
                         const latencyText = test.latency ? `${test.latency}ms` : 'N/A';
                         
                         response += `${statusIcon} *${test.url}*\n`;
-                        response += `├─ Status: ${test.online ? 'Online' : 'Offline'}\n`;
-                        response += `├─ Latency: ${latencyText}\n`;
+                        response += `├◆ Status: ${test.online ? 'Online' : 'Offline'}\n`;
+                        response += `├◆ Latency: ${latencyText}\n`;
                         
                         if (test.error) {
                             response += `└─ Error: ${test.error}\n`;
@@ -823,14 +823,14 @@ export default {
                     const successRate = ((onlineCount / totalCount) * 100).toFixed(1);
                     
                     response += `\n📊 *Summary*\n`;
-                    response += `├─ Success Rate: ${successRate}%\n`;
-                    response += `├─ Online: ${onlineCount}/${totalCount}\n`;
+                    response += `├◆ Success Rate: ${successRate}%\n`;
+                    response += `├◆ Online: ${onlineCount}/${totalCount}\n`;
                     
                     if (onlineCount > 0) {
                         const avgLatency = connectionTest
                             .filter(test => test.latency)
                             .reduce((sum, test) => sum + test.latency, 0) / onlineCount;
-                        response += `├─ Avg Latency: ${avgLatency.toFixed(0)}ms\n`;
+                        response += `├◆ Avg Latency: ${avgLatency.toFixed(0)}ms\n`;
                     }
                     
                     // Connection quality assessment
@@ -884,7 +884,7 @@ export default {
                     if (openPorts.length > 0) {
                         response += `✅ *OPEN PORTS*\n`;
                         openPorts.forEach(port => {
-                            response += `├─ ${port.port} (${port.service})\n`;
+                            response += `├◆ ${port.port} (${port.service})\n`;
                         });
                         response += `\n`;
                     }
@@ -892,7 +892,7 @@ export default {
                     if (closedPorts.length > 0) {
                         response += `❌ *CLOSED PORTS*\n`;
                         closedPorts.slice(0, 5).forEach(port => {
-                            response += `├─ ${port.port} (${port.service}) - ${port.reason}\n`;
+                            response += `├◆ ${port.port} (${port.service}) - ${port.reason}\n`;
                         });
                         
                         if (closedPorts.length > 5) {
@@ -918,7 +918,7 @@ export default {
                             else if ([3306, 5432, 3389].includes(port.port)) risk = 'Database/remote desktop';
                             
                             if (risk) {
-                                response += `├─ ${port.port} (${port.service}): ${risk}\n`;
+                                response += `├◆ ${port.port} (${port.service}): ${risk}\n`;
                             }
                         });
                         
@@ -951,7 +951,7 @@ export default {
                 
                 if (!domain) {
                     return sock.sendMessage(chatId, {
-                        text: `╭─⌈ ❌ *HOSTIP DNS* ⌋\n│\n├─⊷ *${PREFIX}hostip dns <domain>*\n├◆  └⊷ DNS lookup\n╰───`
+                        text: `┌─⧭ ❌ *HOSTIP DNS* \n├◆ *${PREFIX}hostip dns <domain>*\n├◆  └⊷ DNS lookup\n└─⧭`
                     }, { quoted: msg });
                 }
                 
@@ -1013,9 +1013,9 @@ export default {
                     
                     // DNS Propagation Check
                     response += `⚡ *DNS Propagation*\n`;
-                    response += `├─ A Records: ${dnsRecords.A?.length || 0} found\n`;
-                    response += `├─ MX Records: ${dnsRecords.MX?.length || 0} found\n`;
-                    response += `├─ NS Records: ${dnsRecords.NS?.length || 0} found\n`;
+                    response += `├◆ A Records: ${dnsRecords.A?.length || 0} found\n`;
+                    response += `├◆ MX Records: ${dnsRecords.MX?.length || 0} found\n`;
+                    response += `├◆ NS Records: ${dnsRecords.NS?.length || 0} found\n`;
                     
                     // Check for common issues
                     if (!dnsRecords.A || dnsRecords.A[0] === 'No A records') {
@@ -1047,7 +1047,7 @@ export default {
                 
                 if (!query) {
                     return sock.sendMessage(chatId, {
-                        text: `╭─⌈ ❌ *HOSTIP WHOIS* ⌋\n│\n├─⊷ *${PREFIX}hostip whois <ip_or_domain>*\n├◆  └⊷ WHOIS lookup\n╰───`
+                        text: `┌─⧭ ❌ *HOSTIP WHOIS* \n├◆ *${PREFIX}hostip whois <ip_or_domain>*\n├◆  └⊷ WHOIS lookup\n└─⧭`
                     }, { quoted: msg });
                 }
                 
@@ -1121,7 +1121,7 @@ export default {
                         if (values.length > 0) {
                             response += `📋 *${key}*\n`;
                             values.slice(0, 3).forEach(value => {
-                                response += `├─ ${value}\n`;
+                                response += `├◆ ${value}\n`;
                             });
                             if (values.length > 3) {
                                 response += `└─ ... and ${values.length - 3} more entries\n`;
@@ -1134,7 +1134,7 @@ export default {
                     if (Object.values(keyInfo).every(arr => arr.length === 0) && lines.length > 0) {
                         response += `📄 *WHOIS Output (First 10 lines)*\n`;
                         lines.slice(0, 10).forEach(line => {
-                            response += `├─ ${line}\n`;
+                            response += `├◆ ${line}\n`;
                         });
                         
                         if (lines.length > 10) {
@@ -1200,16 +1200,16 @@ export default {
                 break;
                 
             case 'help':
-                let helpText = `╭─⌈ 🌐 *HOSTIP HELP* ⌋\n│\n`;
-                helpText += `├─⊷ *${PREFIX}hostip*\n├◆  └⊷ All network info\n`;
-                helpText += `├─⊷ *${PREFIX}hostip local*\n├◆  └⊷ Local network\n`;
-                helpText += `├─⊷ *${PREFIX}hostip public*\n├◆  └⊷ Public IP info\n`;
-                helpText += `├─⊷ *${PREFIX}hostip test*\n├◆  └⊷ Connection test\n`;
-                helpText += `├─⊷ *${PREFIX}hostip scan [host]*\n├◆  └⊷ Port scan\n`;
-                helpText += `├─⊷ *${PREFIX}hostip dns [domain]*\n├◆  └⊷ DNS lookup\n`;
-                helpText += `├─⊷ *${PREFIX}hostip whois [ip/domain]*\n├◆  └⊷ WHOIS lookup\n`;
-                helpText += `├─⊷ *${PREFIX}hostip help*\n├◆  └⊷ Show help\n`;
-                helpText += `╰───`;
+                let helpText = `┌─⧭ 🌐 *HOSTIP HELP* \n`;
+                helpText += `├◆ *${PREFIX}hostip*\n├◆  └⊷ All network info\n`;
+                helpText += `├◆ *${PREFIX}hostip local*\n├◆  └⊷ Local network\n`;
+                helpText += `├◆ *${PREFIX}hostip public*\n├◆  └⊷ Public IP info\n`;
+                helpText += `├◆ *${PREFIX}hostip test*\n├◆  └⊷ Connection test\n`;
+                helpText += `├◆ *${PREFIX}hostip scan [host]*\n├◆  └⊷ Port scan\n`;
+                helpText += `├◆ *${PREFIX}hostip dns [domain]*\n├◆  └⊷ DNS lookup\n`;
+                helpText += `├◆ *${PREFIX}hostip whois [ip/domain]*\n├◆  └⊷ WHOIS lookup\n`;
+                helpText += `├◆ *${PREFIX}hostip help*\n├◆  └⊷ Show help\n`;
+                helpText += `└─⧭`;
                 
                 await sock.sendMessage(chatId, {
                     text: helpText
@@ -1218,7 +1218,7 @@ export default {
                 
             default:
                 await sock.sendMessage(chatId, {
-                    text: `╭─⌈ ❌ *HOSTIP* ⌋\n│\n├─⊷ *${PREFIX}hostip help*\n├◆  └⊷ Show all commands\n╰───`
+                    text: `┌─⧭ ❌ *HOSTIP* \n├◆ *${PREFIX}hostip help*\n├◆  └⊷ Show all commands\n└─⧭`
                 }, { quoted: msg });
         }
     }

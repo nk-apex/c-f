@@ -38,7 +38,7 @@ export default {
 
         if (args.length === 0) {
             return sock.sendMessage(jid, {
-                text: `╭─⌈ 📊 *WARN LIMIT* ⌋\n├─⊷ *Current:* ${currentLimit} warnings\n├─⊷ *${PREFIX}setwarn <1-20>*\n├◆  └⊷ Set warning limit\n╰─── *${getBotName()}* ───`
+                text: `┌─⧭ 📊 *WARN LIMIT* \n├◆ *Current:* ${currentLimit} warnings\n├◆ *${PREFIX}setwarn <1-20>*\n├◆  └⊷ Set warning limit\n└─⧭ *${getBotName()}* ───`
             }, { quoted: msg });
         }
 
@@ -53,7 +53,7 @@ export default {
         setWarnLimit(jid, limit);
 
         await sock.sendMessage(jid, {
-            text: `╭─⌈ ✅ *WARN LIMIT UPDATED* ⌋\n├─⊷ *Previous:* ${currentLimit}\n├─⊷ *New:* ${limit}\n├─⊷ Kick after ${limit} warning(s)\n╰─── *${getBotName()}* ───`
+            text: `┌─⧭ ✅ *WARN LIMIT UPDATED* \n├◆ *Previous:* ${currentLimit}\n├◆ *New:* ${limit}\n├◆ Kick after ${limit} warning(s)\n└─⧭ *${getBotName()}* ───`
         }, { quoted: msg });
     }
 };

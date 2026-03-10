@@ -22,7 +22,7 @@ export default {
         if (!args[0]) {
             return sock.sendMessage(chatId, {
                 text:
-                    `╭─⌈ 📦 *GIT CLONE* ⌋\n` +
+                    `┌─⧭ 📦 *GIT CLONE* \n` +
                     `│\n` +
                     `│ Clones and sends a repo as ZIP.\n` +
                     `│\n` +
@@ -34,7 +34,7 @@ export default {
                     `│ • \`${PREFIX}zip\` - Get bot source code\n` +
                     `│ • \`${PREFIX}gitinfo\` - Repo info\n` +
                     `│\n` +
-                    `╰───────────────`
+                    `└─⧭`
             }, { quoted: m });
         }
 
@@ -139,7 +139,7 @@ export default {
                 fileName: `${repoName}.zip`,
                 mimetype: 'application/zip',
                 caption:
-                    `╭─⌈ 📦 *GIT CLONE* ⌋\n` +
+                    `┌─⧭ 📦 *GIT CLONE* \n` +
                     `│\n` +
                     `│ ✧ *Repo:* ${repoFullName}\n` +
                     `│ ✧ *Size:* ${sizeMB}MB\n` +
@@ -147,7 +147,7 @@ export default {
                     `│\n` +
                     `│ ✅ Clone complete!\n` +
                     `│\n` +
-                    `╰───────────────`
+                    `└─⧭`
             }, { quoted: m });
 
             this.cleanup(tempDir);
@@ -158,7 +158,7 @@ export default {
 
             await sock.sendMessage(chatId, {
                 text:
-                    `╭─⌈ ❌ *CLONE FAILED* ⌋\n` +
+                    `┌─⧭ ❌ *CLONE FAILED* \n` +
                     `│\n` +
                     `│ ✧ *Repo:* ${repoFullName || args[0]}\n` +
                     `│ ✧ *Error:* ${error.message}\n` +
@@ -167,7 +167,7 @@ export default {
                     `│ • \`Repo exists and is public\`\n` +
                     `│ • \`URL format is correct\`\n` +
                     `│\n` +
-                    `╰───────────────`
+                    `└─⧭`
             }, { quoted: m });
 
             if (tempDir) this.cleanup(tempDir);

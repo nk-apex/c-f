@@ -55,24 +55,24 @@ export default {
             }
         ];
 
-        let text = `╭─⌈ 🐺 *${getBotName()} — LATEST UPDATES* ⌋\n│\n`;
+        let text = `┌─⧭ 🐺 *${getBotName()} — LATEST UPDATES* \n`;
 
         for (const update of updates) {
-            text += `├─⌈ 📅 *${update.date}* ⌋\n`;
-            text += `│ ${update.title}\n│\n`;
+            text += `├◆  📅 *${update.date}* \n`;
+            text += `│ ${update.title}\n`;
             for (const change of update.changes) {
                 text += `│ ${change}\n`;
             }
             text += `│\n`;
         }
 
-        text += `├─⌈ 📊 *STATS* ⌋\n`;
+        text += `├◆  📊 *STATS* \n`;
         text += `│ • Total commands: 735+\n`;
         text += `│ • AI models: 7\n`;
         text += `│ • Logo styles: 30+\n`;
         text += `│ • Menu styles: 6\n`;
-        text += `│ • Ethical Hacking tools: 44+\n│\n`;
-        text += `╰───────────────\n`;
+        text += `│ • Ethical Hacking tools: 44+\n`;
+        text += `└─⧭\n`;
         text += `> *${getBotName()}*`;
 
         await sock.sendMessage(chatId, { text }, { quoted: msg });

@@ -43,26 +43,26 @@
 //       const groupName = groupMetadata.subject || 'Group';
 //       formattedText += `│ Group: ${groupName}\n`;
 //       formattedText += `│ Total Members: ${allParticipants.length}\n`;
-//       formattedText += "├───────────────────┤\n";
+//       formattedText += "├◆ ┤\n";
       
 //       // Admins section
 //       if (admins.length > 0) {
 //         formattedText += `│ 👑 ADMINS (${admins.length})\n`;
-//         formattedText += "├───────────────────┤\n";
+//         formattedText += "├◆ ┤\n";
 //         admins.forEach((participant, index) => {
 //           const paddedNumber = (index + 1).toString().padStart(2, '0');
 //           const name = participant.name.length > 15 ? participant.name.substring(0, 12) + '...' : participant.name.padEnd(15, ' ');
 //           formattedText += `│ ${paddedNumber}. @${name}\n`;
 //         });
 //         if (members.length > 0) {
-//           formattedText += "├───────────────────┤\n";
+//           formattedText += "├◆ ┤\n";
 //         }
 //       }
       
 //       // Members section
 //       if (members.length > 0) {
 //         formattedText += `│ 👥 MEMBERS (${members.length})\n`;
-//         formattedText += "├───────────────────┤\n";
+//         formattedText += "├◆ ┤\n";
 //         members.forEach((participant, index) => {
 //           const paddedNumber = (admins.length + index + 1).toString().padStart(2, '0');
 //           const name = participant.name.length > 15 ? participant.name.substring(0, 12) + '...' : participant.name.padEnd(15, ' ');

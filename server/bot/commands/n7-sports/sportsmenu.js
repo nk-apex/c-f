@@ -10,90 +10,66 @@ export default {
   async execute(sock, m, args, PREFIX) {
     const jid = m.key.remoteJid;
 
-    const commandsText = `╭─⊷ *⚽ FOOTBALL / SOCCER*
-│
+    const commandsText = `┌─⧭⊷ *⚽ FOOTBALL / SOCCER*
 ├◆  • football scores
 ├◆  • football standings
 ├◆  • football fixtures
 ├◆  • football topscorers
 ├◆  • football stats
 ├◆  _Leagues: epl, laliga, bundesliga, seriea, ligue1_
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *📊 MATCH STATISTICS*
-│
+┌─⧭⊷ *📊 MATCH STATISTICS*
 ├◆  • matchstats
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *📰 SPORTS NEWS*
-│
+┌─⧭⊷ *📰 SPORTS NEWS*
 ├◆  • sportsnews
 ├◆  • teamnews
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🏀 NBA BASKETBALL*
-│
+┌─⧭⊷ *🏀 NBA BASKETBALL*
 ├◆  • basketball scores
 ├◆  • basketball standings
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🏏 CRICKET*
-│
+┌─⧭⊷ *🏏 CRICKET*
 ├◆  • cricket scores
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🏈 NFL FOOTBALL*
-│
+┌─⧭⊷ *🏈 NFL FOOTBALL*
 ├◆  • nfl scores
 ├◆  • nfl standings
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🏎️ FORMULA 1*
-│
+┌─⧭⊷ *🏎️ FORMULA 1*
 ├◆  • f1 results
 ├◆  • f1 standings
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🥊 UFC / MMA*
-│
+┌─⧭⊷ *🥊 UFC / MMA*
 ├◆  • mma results
 ├◆  • mma schedule
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🎾 TENNIS*
-│
+┌─⧭⊷ *🎾 TENNIS*
 ├◆  • tennis scores
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *⚾ MLB BASEBALL*
-│
+┌─⧭⊷ *⚾ MLB BASEBALL*
 ├◆  • baseball scores
 ├◆  • baseball standings
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🏒 NHL HOCKEY*
-│
+┌─⧭⊷ *🏒 NHL HOCKEY*
 ├◆  • hockey scores
 ├◆  • hockey standings
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *⛳ PGA GOLF*
-│
+┌─⧭⊷ *⛳ PGA GOLF*
 ├◆  • golf leaderboard
 ├◆  • golf schedule
-│
-╰─⊷`;
+└─⧭⊷`;
 
     await sendSubMenu(sock, jid, '🏆 SPORTS MENU', commandsText, m, PREFIX);
   }

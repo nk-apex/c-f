@@ -42,7 +42,7 @@ export default {
                 `├◆ Read Receipts: ${readReceiptsPrivacy}\n` +
                 `├◆ Group Add: ${groupAddPrivacy}\n` +
                 `│\n` +
-                `├─⧭ *COMMANDS*\n` +
+                `├◆ ⧭ *COMMANDS*\n` +
                 `├◆ ${PREFIX}receipt - Toggle read receipts\n` +
                 `├◆ ${PREFIX}profilepic - Toggle profile pic visibility\n` +
                 `├◆ ${PREFIX}viewers - Toggle status visibility\n` +

@@ -98,7 +98,7 @@ export default {
       const memberCount = participants.length - adminCount;
       
       // Create final message with invisible trigger
-      const finalMessage = `‌‎᠎\u200B${selectedNightMsg}\n\n📊 *Den Night Watch:*\n├─ 🦊 Total Foxes: ${participants.length}\n├─ 👑 Alpha Foxes Awake: ${adminCount}\n└─ 🌟 Humans Resting: ${memberCount}\n\n🌙 *Night Phase:* ${nightPhase.toUpperCase()}\n⏰ *Time:* ${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}\n📅 *Date:* ${new Date().toLocaleDateString()}\n🎭 *Sent by:* ${sender}\n\n💫 *Sleep Note:* You've been invisibly blessed with fox sleep magic! 🦊✨`;
+      const finalMessage = `‌‎᠎\u200B${selectedNightMsg}\n\n📊 *Den Night Watch:*\n├◆ 🦊 Total Foxes: ${participants.length}\n├◆ 👑 Alpha Foxes Awake: ${adminCount}\n└─ 🌟 Humans Resting: ${memberCount}\n\n🌙 *Night Phase:* ${nightPhase.toUpperCase()}\n⏰ *Time:* ${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}\n📅 *Date:* ${new Date().toLocaleDateString()}\n🎭 *Sent by:* ${sender}\n\n💫 *Sleep Note:* You've been invisibly blessed with fox sleep magic! 🦊✨`;
       
       // Send with invisible mentions
       return sock.sendMessage(jid, {

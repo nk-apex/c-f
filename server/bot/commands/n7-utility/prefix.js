@@ -53,7 +53,7 @@ export default {
             currentPrefix = process.env.PREFIX;
         }
 
-        let text = `╭─⌈ 🐺 *BOT PREFIX* ⌋\n`;
+        let text = `┌─⧭ 🐺 *BOT PREFIX* \n`;
         text += `│\n`;
 
         if (isPrefixless) {
@@ -74,7 +74,7 @@ export default {
         }
 
         text += `│\n`;
-        text += `╰───────────────`;
+        text += `└─⧭`;
 
         await sock.sendMessage(chatId, { text }, { quoted: msg });
     }

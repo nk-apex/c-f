@@ -22,7 +22,7 @@ export default {
 
       if (!news || (Array.isArray(news) && news.length === 0)) throw new Error('No sports news available');
 
-      let text = `╭─⌈ 📰 *SPORTS NEWS* ⌋\n│\n`;
+      let text = `┌─⧭ 📰 *SPORTS NEWS* \n`;
       const list = Array.isArray(news) ? news.slice(0, 10) : [];
       list.forEach((article, i) => {
         const title = article?.title || article?.headline || article?.name || 'Untitled';
@@ -35,11 +35,11 @@ export default {
         }
         const shortSummary = summary.length > 100 ? summary.substring(0, 97) + '...' : summary;
 
-        text += `├─⊷ *${i + 1}. ${title}*\n`;
+        text += `├◆ *${i + 1}. ${title}*\n`;
         if (shortSummary) text += `│  └⊷ ${shortSummary}\n`;
         if (source || dateStr) text += `│  └⊷ ${source}${source && dateStr ? ' │ ' : ''}${dateStr}\n`;
       });
-      text += `╰───\n\n⚡ *Powered by ${getBotName()}*`;
+      text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
       await sock.sendMessage(jid, { text }, { quoted: m });
       await sock.sendMessage(jid, { react: { text: '✅', key: m.key } });
       console.log('📰 [SPORTSNEWS] News fetched successfully');
@@ -48,7 +48,7 @@ export default {
       console.error('❌ [SPORTSNEWS]', error.message);
       await sock.sendMessage(jid, { react: { text: '❌', key: m.key } });
       await sock.sendMessage(jid, {
-        text: `╭─⌈ ❌ *SPORTS NEWS ERROR* ⌋\n├─⊷ ${error.message}\n├─⊷ Try again later\n╰───`
+        text: `┌─⧭ ❌ *SPORTS NEWS ERROR* \n├◆ ${error.message}\n├◆ Try again later\n└─⧭`
       }, { quoted: m });
     }
   }

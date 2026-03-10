@@ -18,7 +18,7 @@ export default {
         }, { quoted: msg });
       }
 
-      let text = `╭─⌈ 📦 *ARCHIVED GROUPS* ⌋\n│\n`;
+      let text = `┌─⧭ 📦 *ARCHIVED GROUPS* \n`;
       let count = 0;
 
       for (const groupJid of archived) {
@@ -28,10 +28,10 @@ export default {
           const meta = await sock.groupMetadata(groupJid);
           name = meta.subject || groupJid;
         } catch {}
-        text += `├─⊷ ${count}. *${name}*\n`;
+        text += `├◆ ${count}. *${name}*\n`;
       }
 
-      text += `│\n├─⊷ *Total:* ${archived.length} archived group(s)\n╰───`;
+      text += `│\n├◆ *Total:* ${archived.length} archived group(s)\n└─⧭`;
 
       await sock.sendMessage(jid, { text }, { quoted: msg });
 

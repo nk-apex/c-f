@@ -25,19 +25,19 @@ export default {
             }
 
             const limit = Math.min(articles.length, 7);
-            let text = `╭─⌈ 💻 *TECH NEWS* ⌋\n`;
+            let text = `┌─⧭ 💻 *TECH NEWS* \n`;
             text    += `│ 🌐 Featured Tech Articles\n`;
-            text    += `│ 🕒 ${new Date().toLocaleString("en-KE", { timeZone: "Africa/Nairobi" })}\n│\n`;
+            text    += `│ 🕒 ${new Date().toLocaleString("en-KE", { timeZone: "Africa/Nairobi" })}\n`;
 
             for (let i = 0; i < limit; i++) {
                 const a = articles[i];
-                text += `├─⊷ *${i + 1}. ${a.title.trim()}*\n`;
+                text += `├◆ *${i + 1}. ${a.title.trim()}*\n`;
                 if (a.description) text += `│   ${a.description.substring(0, 110)}${a.description.length > 110 ? '…' : ''}\n`;
                 if (a.type)        text += `│   🏷️ ${a.type}\n`;
-                text += `│   🔗 ${a.link}\n│\n`;
+                text += `│   🔗 ${a.link}\n`;
             }
 
-            text += `╰─ _Source: Tech News Feed_ ─`;
+            text += `└─⧭ _Source: Tech News Feed_ ─`;
 
             await sock.sendMessage(chatId, { react: { text: '✅', key: msg.key } });
             await sock.sendMessage(chatId, { text }, { quoted: msg });

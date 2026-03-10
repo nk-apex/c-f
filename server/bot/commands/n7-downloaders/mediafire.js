@@ -30,7 +30,7 @@ export default {
 
     if (!url || !url.includes('mediafire.com')) {
       return sock.sendMessage(jid, {
-        text: `╭─⌈ 📁 *MEDIAFIRE DOWNLOADER* ⌋\n│\n├─⊷ *${prefix}mediafire <MediaFire URL>*\n├◆  └⊷ Download file from MediaFire\n│\n├─⊷ *Example:*\n├◆  └⊷ ${prefix}mediafire https://www.mediafire.com/file/...\n│\n├─⊷ *Aliases:* mf, mfdl, mediafiredl\n│\n╰───────────────\n> *${getBotName()} MEDIAFIRE DOWNLOADER*`
+        text: `┌─⧭ 📁 *MEDIAFIRE DOWNLOADER* \n├◆ *${prefix}mediafire <MediaFire URL>*\n├◆  └⊷ Download file from MediaFire\n├◆ *Example:*\n├◆  └⊷ ${prefix}mediafire https://www.mediafire.com/file/...\n├◆ *Aliases:* mf, mfdl, mediafiredl\n└─⧭\n> *${getBotName()} MEDIAFIRE DOWNLOADER*`
       }, { quoted: m });
     }
 

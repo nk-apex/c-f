@@ -22,7 +22,7 @@ export default {
 
         if (!validTargets.includes(target)) {
             return await sock.sendMessage(chatId, {
-                text: `╭─⌈ 🗑️ *CLEAR CACHE* ⌋\n│\n├─⊷ *${PREFIX}clearcache [target]*\n│\n├─⊷ *Targets:*\n├◆  └⊷ all — Clear everything\n├◆  └⊷ messages — Message store\n├◆  └⊷ contacts — Contact names\n├◆  └⊷ groups — Group metadata\n├◆  └⊷ viewonce — View-once cache\n├◆  └⊷ config — Config caches (reloads from DB)\n├◆  └⊷ retry — Message retry counters\n├◆  └⊷ lid — LID-to-phone mappings\n│\n├─⊷ *Example:*\n├◆  └⊷ ${PREFIX}clearcache\n├◆  └⊷ ${PREFIX}cc messages\n│\n╰───────────────\n> *${getBotName()}*`
+                text: `┌─⧭ 🗑️ *CLEAR CACHE* \n├◆ *${PREFIX}clearcache [target]*\n├◆ *Targets:*\n├◆  └⊷ all — Clear everything\n├◆  └⊷ messages — Message store\n├◆  └⊷ contacts — Contact names\n├◆  └⊷ groups — Group metadata\n├◆  └⊷ viewonce — View-once cache\n├◆  └⊷ config — Config caches (reloads from DB)\n├◆  └⊷ retry — Message retry counters\n├◆  └⊷ lid — LID-to-phone mappings\n├◆ *Example:*\n├◆  └⊷ ${PREFIX}clearcache\n├◆  └⊷ ${PREFIX}cc messages\n└─⧭\n> *${getBotName()}*`
             }, { quoted: msg });
         }
 
@@ -108,12 +108,12 @@ export default {
             const heapMB = (memAfter.heapUsed / 1024 / 1024).toFixed(1);
             const rssMB = (memAfter.rss / 1024 / 1024).toFixed(1);
 
-            let output = `╭─⌈ 🗑️ *CACHE CLEARED* ⌋\n│\n`;
-            output += `├─⊷ *Target:* ${target.toUpperCase()}\n│\n`;
-            results.forEach(r => { output += `├─⊷ ${r}\n`; });
-            output += `│\n├─⊷ *Total entries cleared:* ${totalFreed}\n`;
-            output += `├─⊷ *Memory:* ${heapMB}MB heap / ${rssMB}MB RSS\n`;
-            output += `│\n╰───────────────\n> *${getBotName()}*`;
+            let output = `┌─⧭ 🗑️ *CACHE CLEARED* \n`;
+            output += `├◆ *Target:* ${target.toUpperCase()}\n`;
+            results.forEach(r => { output += `├◆ ${r}\n`; });
+            output += `│\n├◆ *Total entries cleared:* ${totalFreed}\n`;
+            output += `├◆ *Memory:* ${heapMB}MB heap / ${rssMB}MB RSS\n`;
+            output += `│\n└─⧭\n> *${getBotName()}*`;
 
             await sock.sendMessage(chatId, { text: output }, { quoted: msg });
             await sock.sendMessage(chatId, { react: { text: '✅', key: msg.key } });

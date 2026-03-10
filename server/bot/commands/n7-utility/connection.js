@@ -75,7 +75,7 @@
 //     // Edit the original message with connection results
 //     await sock.sendMessage(m.key.remoteJid, {
 //       text: `
-// ╭━━🌕 *CONNECTION STATUS* 🌕━━╮
+// ┌─⧭🌕 *CONNECTION STATUS* 🌕━━╮
 // ┃  ⚡ *User:* ${ownerNumber}
 // ┃  🔴 *Prefix:* "${currentPrefix}"
 // ┃  🐾 *Ultimatefix:* ${ultimatefixStatus}
@@ -85,7 +85,7 @@
 // ┃  🔗 *Status:* ${statusText}
 // ┃  🎯 *Mood:* ${mood}
 // ┃  👑 *Owner:* ${isOwner ? '✅ Yes' : '❌ No'}
-// ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+// └─⧭╯
 // _🐺 The Moon Watches — ..._
 // `,
 //       edit: loadingMessage.key

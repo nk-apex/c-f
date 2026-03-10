@@ -53,19 +53,19 @@ export default {
 
                 if (!categoryMap[cat]) {
                     await sock.sendMessage(chatId, {
-                        text: `╭─⌈ ❌ *UNKNOWN CATEGORY* ⌋\n│\n├─⊷ Available: ${catNames.join(', ')}\n├─⊷ Usage: *${prefix}buttonmenu ${catNames[0]}*\n╰───`
+                        text: `┌─⧭ ❌ *UNKNOWN CATEGORY* \n├◆ Available: ${catNames.join(', ')}\n├◆ Usage: *${prefix}buttonmenu ${catNames[0]}*\n└─⧭`
                     }, { quoted: m });
                     return;
                 }
 
                 const catCmds = allCmds.filter(c => categoryMap[cat].includes(c.name));
-                let text = `╭─⌈ 🔘 *BUTTON COMMANDS: ${cat.toUpperCase()}* ⌋\n│\n`;
+                let text = `┌─⧭ 🔘 *BUTTON COMMANDS: ${cat.toUpperCase()}* \n`;
                 catCmds.forEach(cmd => {
-                    text += `├─⊷ *${prefix}${cmd.name}*`;
+                    text += `├◆ *${prefix}${cmd.name}*`;
                     if (cmd.aliases && cmd.aliases.length > 0) text += ` (${cmd.aliases.join(', ')})`;
                     text += `\n├◆  └⊷ ${cmd.btnLabels || 'No description'}\n`;
                 });
-                text += `│\n├─⊷ *${catCmds.length}* commands in ${cat}\n├─⊷ Button Mode: ${buttonStatus}\n╰───`;
+                text += `│\n├◆ *${catCmds.length}* commands in ${cat}\n├◆ Button Mode: ${buttonStatus}\n└─⧭`;
 
                 await sock.sendMessage(chatId, { text }, { quoted: m });
                 return;
@@ -76,7 +76,7 @@ export default {
             allCmds.forEach(c => totalAliases += (c.aliases ? c.aliases.length : 0));
 
             // ========== BUILD MENU TEXT ==========
-            let text = `┌──⌈ 🔘 *${botName} BUTTON MENU* ⌋ 〘SW〙\n\n`;
+            let text = `┌── 🔘 *${botName} BUTTON MENU*  〘SW〙\n\n`;
             text += `┌────────────────\n`;
             text += `│ Button Mode: ${buttonStatus}\n`;
             text += `│ Total Commands: *${totalMain}* (+${totalAliases} aliases)\n`;
@@ -95,7 +95,7 @@ export default {
                             catName === 'owner' ? '👑' : 
                             catName === 'sports' ? '🏆' : '🕵️';
                 
-                text += `┌──⌈ ${icon} *${catName.toUpperCase()}* (${catCmds.length}) ⌋\n`;
+                text += `┌── ${icon} *${catName.toUpperCase()}* (${catCmds.length}) \n`;
                 catCmds.forEach(cmd => {
                     text += `│ • ${prefix}${cmd.name}`;
                     if (cmd.aliases && cmd.aliases.length > 0) text += ` [${cmd.aliases.join(',')}]`;
@@ -107,7 +107,7 @@ export default {
             const categorizedNames = new Set(Object.values(categoryMap).flat());
             const uncategorized = allCmds.filter(c => !categorizedNames.has(c.name));
             if (uncategorized.length > 0) {
-                text += `┌──⌈ 📦 *OTHER* (${uncategorized.length}) ⌋\n`;
+                text += `┌── 📦 *OTHER* (${uncategorized.length}) \n`;
                 uncategorized.forEach(cmd => {
                     text += `│ • ${prefix}${cmd.name}\n`;
                 });

@@ -978,41 +978,29 @@ function updateLeaderboard(userId, userName, score) {
 // ============= INFO COMMANDS =============
 
 async function showHelp(sock, m, chatId) {
-    const helpText = `╭─⌈ 🎮 *TETRIS* ⌋
-│
-├─⊷ *.t*
+    const helpText = `┌─⧭ 🎮 *TETRIS* 
+├◆ *.t*
 ├◆  └⊷ Start/continue game
-│
-├─⊷ *.t a / d*
+├◆ *.t a / d*
 ├◆  └⊷ Move left / right
-│
-├─⊷ *.t s*
+├◆ *.t s*
 ├◆  └⊷ Move down
-│
-├─⊷ *.t w*
+├◆ *.t w*
 ├◆  └⊷ Rotate piece
-│
-├─⊷ *.t space*
+├◆ *.t space*
 ├◆  └⊷ Hard drop
-│
-├─⊷ *.t 1 / 2 / 3*
+├◆ *.t 1 / 2 / 3*
 ├◆  └⊷ Choose piece
-│
-├─⊷ *.t pause / resume*
+├◆ *.t pause / resume*
 ├◆  └⊷ Pause or resume game
-│
-├─⊷ *.t stop*
+├◆ *.t stop*
 ├◆  └⊷ End game
-│
-├─⊷ *.t stats*
+├◆ *.t stats*
 ├◆  └⊷ Your statistics
-│
-├─⊷ *.t leaderboard*
+├◆ *.t leaderboard*
 ├◆  └⊷ High scores
-│
-├─⊷ 🎮 🟦I 🟨O 🟪T 🟩S 🟥Z 🟫J 🟧L
-│
-╰───`;
+├◆ 🎮 🟦I 🟨O 🟪T 🟩S 🟥Z 🟫J 🟧L
+└─⧭`;
     
     await sock.sendMessage(chatId, { text: helpText }, { quoted: m });
 }

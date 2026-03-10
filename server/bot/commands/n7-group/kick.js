@@ -37,7 +37,7 @@ export default {
 
     if (!participants.length) {
       return sock.sendMessage(chatId, {
-        text: `╭─⌈ 👢 *KICK* ⌋\n│\n├─⊷ *${PREFIX}kick @user*\n├◆  └⊷ Kick mentioned user\n├─⊷ *${PREFIX}kick* (reply to msg)\n├◆  └⊷ Kick replied user\n├─⊷ *${PREFIX}kick 1234567890*\n├◆  └⊷ Kick by phone number\n╰───`
+        text: `┌─⧭ 👢 *KICK* \n├◆ *${PREFIX}kick @user*\n├◆  └⊷ Kick mentioned user\n├◆ *${PREFIX}kick* (reply to msg)\n├◆  └⊷ Kick replied user\n├◆ *${PREFIX}kick 1234567890*\n├◆  └⊷ Kick by phone number\n└─⧭`
       }, { quoted: msg });
     }
 
@@ -93,7 +93,7 @@ export default {
     setActionSession(sessionKey, { action: 'remove', targets: toKick, chatId });
 
     const targetNames = toKick.map(j => `@${j.split('@')[0].split(':')[0]}`).join(', ');
-    const confirmText = `╭─⌈ 👢 *KICK CONFIRM* ⌋\n├─⊷ About to kick ${toKick.length} user(s):\n├─⊷ ${targetNames}\n├─⊷ Tap *Confirm Kick* to proceed.\n╰───`;
+    const confirmText = `┌─⧭ 👢 *KICK CONFIRM* \n├◆ About to kick ${toKick.length} user(s):\n├◆ ${targetNames}\n├◆ Tap *Confirm Kick* to proceed.\n└─⧭`;
 
     // Try interactive button first (flat format, no quoted arg — matches the working auto-wrapper call)
     if (isButtonModeEnabled() && giftedBtnsKick?.sendInteractiveMessage) {

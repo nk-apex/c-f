@@ -117,34 +117,29 @@ export default {
       });
 
       const platformText = `
-╭━「 *${platform.icon} PLATFORM INFO* 」━╮
-│
-├─⊷ *🏠 HOSTING*
+┌─⧭「 *${platform.icon} PLATFORM INFO* 」━╮
+├◆ *🏠 HOSTING*
 ├◆  Platform: *${platform.name}*
 ├◆  Provider: ${platform.url}
 ├◆  Status: ✅ Active & Running
 ├◆  Hostname: ${hostname}
-│
-├─⊷ *💻 SYSTEM*
+├◆ *💻 SYSTEM*
 ├◆  OS: ${osType} ${osRelease}
 ├◆  Arch: ${arch}
 ├◆  CPU: ${cpuModel}
 ├◆  Cores: ${cpuCores}
 ├◆  Total RAM: ${totalSysMem} GB
 ├◆  Free RAM: ${freeSysMem} GB
-│
-├─⊷ *⚙️ RUNTIME*
+├◆ *⚙️ RUNTIME*
 ├◆  Node.js: ${nodeVersion}
 ├◆  PID: ${process.pid}
 ├◆  Uptime: ${uptimeStr.trim()}
 ├◆  Started: ${startTime}
-│
-├─⊷ *📊 MEMORY USAGE*
+├◆ *📊 MEMORY USAGE*
 ├◆  Heap Used: ${usedMB} MB
 ├◆  Heap Total: ${totalMB} MB
 ├◆  Usage: ${memPercent}%
-│
-╰━━━━━━━━━━━━━━━━━╯
+└─⧭╯
 
 🐺 *POWERED BY ${getBotName()}* 🐺`.trim();
 

@@ -10,8 +10,7 @@ export default {
   async execute(sock, m, args, PREFIX) {
     const jid = m.key.remoteJid;
 
-    const commandsText = `╭─⊷ *🌟 PREMIUM METALS*
-│
+    const commandsText = `┌─⧭⊷ *🌟 PREMIUM METALS*
 ├◆  • goldlogo
 ├◆  • silverlogo
 ├◆  • platinumlogo
@@ -21,11 +20,9 @@ export default {
 ├◆  • steellogo
 ├◆  • copperlogo
 ├◆  • titaniumlogo
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🔥 ELEMENTAL EFFECTS*
-│
+┌─⧭⊷ *🔥 ELEMENTAL EFFECTS*
 ├◆  • firelogo
 ├◆  • icelogo
 ├◆  • iceglowlogo
@@ -33,36 +30,29 @@ export default {
 ├◆  • rainbowlogo
 ├◆  • sunlogo
 ├◆  • moonlogo
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🎭 MYTHICAL & MAGICAL*
-│
+┌─⧭⊷ *🎭 MYTHICAL & MAGICAL*
 ├◆  • dragonlogo
 ├◆  • phoenixlogo
 ├◆  • wizardlogo
 ├◆  • crystallogo
 ├◆  • darkmagiclogo
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🌌 DARK & GOTHIC*
-│
+┌─⧭⊷ *🌌 DARK & GOTHIC*
 ├◆  • shadowlogo
 ├◆  • smokelogo
 ├◆  • bloodlogo
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *💫 GLOW & NEON*
-│
+┌─⧭⊷ *💫 GLOW & NEON*
 ├◆  • neonlogo
 ├◆  • glowlogo
 ├◆  • gradientlogo
 ├◆  • matrixlogo
 ├◆  • aqualogo
-│
-╰─⊷`;
+└─⧭⊷`;
 
     await sendSubMenu(sock, jid, '🎨 LOGO DESIGN MENU', commandsText, m, PREFIX);
   }

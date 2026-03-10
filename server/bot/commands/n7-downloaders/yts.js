@@ -199,7 +199,7 @@ export default {
     try {
       if (args.length === 0) {
         return sock.sendMessage(msg.key.remoteJid, {
-          text: '╭─⌈ 🔍 *YTS SEARCH* ⌋\n│\n├─⊷ *yts <search query>*\n├◆  └⊷ Search YouTube videos\n╰───'
+          text: '┌─⧭ 🔍 *YTS SEARCH* \n├◆ *yts <search query>*\n├◆  └⊷ Search YouTube videos\n└─⧭'
         }, { quoted: msg });
       }
 
@@ -246,7 +246,7 @@ export default {
       // WOLFBOT footer with commands
       resultText += `┌───────────────────\n`;
       resultText += `│ ${getBotName()} DOWNLOAD TIPS\n`;
-      resultText += `├───────────────────\n`;
+      resultText += `├◆ \n`;
       resultText += `│ • Use *.ytplay <url>* for audio (MP3)\n`;
       resultText += `│ • Use *.ytv <url>* for video\n`;
       resultText += `│ • Add *-q 720p* for specific quality\n`;

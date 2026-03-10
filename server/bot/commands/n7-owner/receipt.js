@@ -24,14 +24,14 @@ export default {
             if (action === 'on' || action === 'enable') {
                 await sock.updateReadReceiptsPrivacy('all');
                 await sock.sendMessage(chatId, {
-                    text: `╭─⌈ ✅ *READ RECEIPTS* ⌋\n│\n├─⊷ *Status:* 🟢 ON\n╰───`
+                    text: `┌─⧭ ✅ *READ RECEIPTS* \n├◆ *Status:* 🟢 ON\n└─⧭`
                 }, { quoted: msg });
                 try { await sock.sendMessage(chatId, { react: { text: '✅', key: msg.key } }); } catch {}
 
             } else if (action === 'off' || action === 'disable') {
                 await sock.updateReadReceiptsPrivacy('none');
                 await sock.sendMessage(chatId, {
-                    text: `╭─⌈ 🔴 *READ RECEIPTS* ⌋\n│\n├─⊷ *Status:* 🔴 OFF\n╰───`
+                    text: `┌─⧭ 🔴 *READ RECEIPTS* \n├◆ *Status:* 🔴 OFF\n└─⧭`
                 }, { quoted: msg });
                 try { await sock.sendMessage(chatId, { react: { text: '🔴', key: msg.key } }); } catch {}
 
@@ -44,7 +44,7 @@ export default {
                 } catch {}
 
                 await sock.sendMessage(chatId, {
-                    text: `╭─⌈ ✅ *READ RECEIPTS* ⌋\n│\n├─⊷ *${PREFIX}receipt on*\n├◆  └⊷ Enable receipts\n├─⊷ *${PREFIX}receipt off*\n├◆  └⊷ Disable receipts\n╰───`
+                    text: `┌─⧭ ✅ *READ RECEIPTS* \n├◆ *${PREFIX}receipt on*\n├◆  └⊷ Enable receipts\n├◆ *${PREFIX}receipt off*\n├◆  └⊷ Disable receipts\n└─⧭`
                 }, { quoted: msg });
                 try { await sock.sendMessage(chatId, { react: { text: '📋', key: msg.key } }); } catch {}
             }

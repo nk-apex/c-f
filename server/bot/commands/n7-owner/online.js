@@ -65,7 +65,7 @@ export default {
 
                 await sock.sendMessage(chatId, {
                     text:
-                        `╭─⌈ 🟢 *ALWAYS ONLINE* ⌋\n` +
+                        `┌─⧭ 🟢 *ALWAYS ONLINE* \n` +
                         `│\n` +
                         `│ ✧ *Status:* ✅ ENABLED\n` +
                         `│ ✧ *Mode:* Always Online\n` +
@@ -78,7 +78,7 @@ export default {
                         `│ • \`${PREFIX}online off\` - Disable\n` +
                         `│ • \`${PREFIX}privacy\` - View all settings\n` +
                         `│\n` +
-                        `╰───`
+                        `└─⧭`
                 }, { quoted: msg });
                 break;
             }
@@ -98,7 +98,7 @@ export default {
 
                 await sock.sendMessage(chatId, {
                     text:
-                        `╭─⌈ 🔴 *ALWAYS ONLINE* ⌋\n` +
+                        `┌─⧭ 🔴 *ALWAYS ONLINE* \n` +
                         `│\n` +
                         `│ ✧ *Status:* ❌ DISABLED\n` +
                         `│\n` +
@@ -108,7 +108,7 @@ export default {
                         `│ • \`${PREFIX}online on\` - Re-enable\n` +
                         `│ • \`${PREFIX}privacy\` - View all settings\n` +
                         `│\n` +
-                        `╰───`
+                        `└─⧭`
                 }, { quoted: msg });
                 break;
             }
@@ -141,7 +141,7 @@ export default {
 
                 await sock.sendMessage(chatId, {
                     text:
-                        `╭─⌈ ${emoji} *ALWAYS ONLINE* ⌋\n` +
+                        `┌─⧭ ${emoji} *ALWAYS ONLINE* \n` +
                         `│\n` +
                         `│ ✧ *Status:* ${status}\n` +
                         `│\n` +
@@ -150,7 +150,7 @@ export default {
                         `│ • \`${PREFIX}online ${config.enabled ? 'off' : 'on'}\` - Toggle\n` +
                         `│ • \`${PREFIX}privacy\` - View all settings\n` +
                         `│\n` +
-                        `╰───`
+                        `└─⧭`
                 }, { quoted: msg });
                 break;
             }

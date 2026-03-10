@@ -76,7 +76,7 @@ export default {
       }
       
       const text = `
-╭━━⏱️ *BOT UPTIME* ⏱️━━╮
+┌─⧭⏱️ *BOT UPTIME* ⏱️━━╮
 ┃
 ┃  ⏱️ *Uptime:* ${days}d ${hours}h ${minutes}m ${seconds}s
 ┃  💾 *Memory:* ${usedMemory.toFixed(1)}/${totalMemory.toFixed(1)} MB (${memoryPercent}%)
@@ -85,7 +85,7 @@ export default {
 ┃  🕐 *Started:* ${startTimeFormatted}
 ┃  🐺 *Developer:* ${githubName}
 ┃
-╰━━━━━━━━━━━━━━━━━━━━╯
+└─⧭╯
 `.trim();
 
       await sock.sendMessage(
@@ -119,12 +119,12 @@ export default {
       const minutes = Math.floor((uptime % 3600) / 60);
       
       const fallbackText = `
-╭━━⏱️ *BOT UPTIME* ⏱️━━╮
+┌─⧭⏱️ *BOT UPTIME* ⏱️━━╮
 ┃
 ┃  ⏱️ Uptime: ${days}d ${hours}h ${minutes}m
 ┃  👋 Bot is running!
 ┃
-╰━━━━━━━━━━━━━━━━━━━━╯
+└─⧭╯
 `.trim();
       
       await sock.sendMessage(

@@ -17,7 +17,7 @@ export default {
     
     if (!m.message?.extendedTextMessage?.contextInfo?.quotedMessage?.stickerMessage) {
       await sock.sendMessage(jid, { 
-        text: `╭─⌈ 🖼️ *STICKER TO IMAGE* ⌋\n│\n├─⊷ *${prefix}toimage*\n├◆  └⊷ Reply to a sticker to convert it to image\n│\n╰───` 
+        text: `┌─⧭ 🖼️ *STICKER TO IMAGE* \n├◆ *${prefix}toimage*\n├◆  └⊷ Reply to a sticker to convert it to image\n└─⧭` 
       }, { quoted: m });
       return;
     }
@@ -62,7 +62,7 @@ export default {
       
       await sock.sendMessage(jid, {
         image: imageBuffer,
-        caption: `╭⌈ 🖼️ *STICKER TO IMAGE* ⌋\n├⊷ 📦 *Size:* ${fileSizeKB}KB\n╰⊷ 🎨 *Format:* PNG\n> _Converted by ${getBotName()}_`
+        caption: `┌─⧭ 🖼️ *STICKER TO IMAGE* \n├⊷ 📦 *Size:* ${fileSizeKB}KB\n└─⧭⊷ 🎨 *Format:* PNG\n> _Converted by ${getBotName()}_`
       }, { quoted: m });
       
       console.log(`✅ [TOIMAGE] Image sent successfully`);

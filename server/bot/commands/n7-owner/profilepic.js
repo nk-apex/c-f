@@ -25,14 +25,14 @@ export default {
                 await sock.updateProfilePicturePrivacy('all');
                 await sock.sendMessage(chatId, {
                     text:
-                        `╭─⌈ 🖼️ *PROFILE PIC PRIVACY* ⌋\n` +
+                        `┌─⧭ 🖼️ *PROFILE PIC PRIVACY* \n` +
                         `│\n` +
                         `│ ✧ *Visibility:* 🌍 Everyone\n` +
                         `│\n` +
                         `│ Anyone can see your\n` +
                         `│ profile picture\n` +
                         `│\n` +
-                        `╰───`
+                        `└─⧭`
                 }, { quoted: msg });
                 try { await sock.sendMessage(chatId, { react: { text: '🌍', key: msg.key } }); } catch {}
 
@@ -40,14 +40,14 @@ export default {
                 await sock.updateProfilePicturePrivacy('contacts');
                 await sock.sendMessage(chatId, {
                     text:
-                        `╭─⌈ 🖼️ *PROFILE PIC PRIVACY* ⌋\n` +
+                        `┌─⧭ 🖼️ *PROFILE PIC PRIVACY* \n` +
                         `│\n` +
                         `│ ✧ *Visibility:* 👥 Contacts Only\n` +
                         `│\n` +
                         `│ Only your contacts can\n` +
                         `│ see your profile picture\n` +
                         `│\n` +
-                        `╰───`
+                        `└─⧭`
                 }, { quoted: msg });
                 try { await sock.sendMessage(chatId, { react: { text: '👥', key: msg.key } }); } catch {}
 
@@ -56,19 +56,19 @@ export default {
                 if (!number) {
                     return sock.sendMessage(chatId, {
                         text:
-                            `╭─⌈ 🖼️ *PROFILE PIC PRIVACY* ⌋\n` +
+                            `┌─⧭ 🖼️ *PROFILE PIC PRIVACY* \n` +
                             `│\n` +
                             `│ ❌ Provide a number to exclude\n` +
                             `│\n` +
                             `│ • \`${PREFIX}profilepic except 2547XXXXXXXX\`\n` +
                             `│\n` +
-                            `╰───`
+                            `└─⧭`
                     }, { quoted: msg });
                 }
                 await sock.updateProfilePicturePrivacy('contact_blacklist');
                 await sock.sendMessage(chatId, {
                     text:
-                        `╭─⌈ 🖼️ *PROFILE PIC PRIVACY* ⌋\n` +
+                        `┌─⧭ 🖼️ *PROFILE PIC PRIVACY* \n` +
                         `│\n` +
                         `│ ✧ *Visibility:* 🚫 Everyone Except\n` +
                         `│ ✧ *Excluded:* +${number}\n` +
@@ -79,7 +79,7 @@ export default {
                         `│ ⚠️ Full blacklist management\n` +
                         `│ requires WhatsApp app settings\n` +
                         `│\n` +
-                        `╰───`
+                        `└─⧭`
                 }, { quoted: msg });
                 try { await sock.sendMessage(chatId, { react: { text: '🚫', key: msg.key } }); } catch {}
 
@@ -87,14 +87,14 @@ export default {
                 await sock.updateProfilePicturePrivacy('none');
                 await sock.sendMessage(chatId, {
                     text:
-                        `╭─⌈ 🖼️ *PROFILE PIC PRIVACY* ⌋\n` +
+                        `┌─⧭ 🖼️ *PROFILE PIC PRIVACY* \n` +
                         `│\n` +
                         `│ ✧ *Visibility:* 🔒 Nobody\n` +
                         `│\n` +
                         `│ No one can see your\n` +
                         `│ profile picture\n` +
                         `│\n` +
-                        `╰───`
+                        `└─⧭`
                 }, { quoted: msg });
                 try { await sock.sendMessage(chatId, { react: { text: '🔒', key: msg.key } }); } catch {}
 
@@ -112,7 +112,7 @@ export default {
 
                 await sock.sendMessage(chatId, {
                     text:
-                        `╭─⌈ 🖼️ *PROFILE PIC PRIVACY* ⌋\n` +
+                        `┌─⧭ 🖼️ *PROFILE PIC PRIVACY* \n` +
                         `│\n` +
                         `│ ✧ *Current:* ${currentStatus}\n` +
                         `│\n` +
@@ -122,7 +122,7 @@ export default {
                         `│ • \`${PREFIX}profilepic except <number>\`\n` +
                         `│ • \`${PREFIX}profilepic nobody\`\n` +
                         `│\n` +
-                        `╰───`
+                        `└─⧭`
                 }, { quoted: msg });
                 try { await sock.sendMessage(chatId, { react: { text: '📋', key: msg.key } }); } catch {}
             }

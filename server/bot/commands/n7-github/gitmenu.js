@@ -10,16 +10,14 @@ export default {
   async execute(sock, m, args, PREFIX) {
     const jid = m.key.remoteJid;
 
-    const commandsText = `╭─⊷ *🐙 GITHUB COMMANDS*
-│
+    const commandsText = `┌─⧭⊷ *🐙 GITHUB COMMANDS*
 ├◆  • gitclone
 ├◆  • gitinfo
 ├◆  • repanalyze
 ├◆  • zip
 ├◆  • update
 ├◆  • repo
-│
-╰─⊷`;
+└─⧭⊷`;
 
     await sendSubMenu(sock, jid, '🐙 GITHUB MENU', commandsText, m, PREFIX);
   }

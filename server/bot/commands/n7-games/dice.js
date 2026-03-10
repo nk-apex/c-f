@@ -627,38 +627,27 @@ function createDiceVisual(playerRoll, botRoll) {
 }
 
 async function showHelp(sock, m, chatId, userData) {
-    const helpText = `╭─⌈ 🎲 *DICE GAME* ⌋
-│
+    const helpText = `┌─⧭ 🎲 *DICE GAME* 
 ├◆ 💰 *Balance:* ${userData.points} 🪙
-│
-├─⊷ *.dice*
+├◆ *.dice*
 ├◆  └⊷ Roll the dice
-│
-├─⊷ *.dice 100*
+├◆ *.dice 100*
 ├◆  └⊷ Bet 100 on a roll
-│
-├─⊷ *.dice 100 double*
+├◆ *.dice 100 double*
 ├◆  └⊷ Double or nothing mode
-│
-├─⊷ *.dice 100 triple*
+├◆ *.dice 100 triple*
 ├◆  └⊷ Triple mode
-│
-├─⊷ *.dice battle @user 200*
+├◆ *.dice battle @user 200*
 ├◆  └⊷ Battle another player
-│
-├─⊷ *.dice accept / decline*
+├◆ *.dice accept / decline*
 ├◆  └⊷ Accept or decline a battle
-│
-├─⊷ *.dice stats*
+├◆ *.dice stats*
 ├◆  └⊷ Your statistics
-│
-├─⊷ *.dice leaderboard*
+├◆ *.dice leaderboard*
 ├◆  └⊷ Top players
-│
-├─⊷ *.dice daily*
+├◆ *.dice daily*
 ├◆  └⊷ Daily free points
-│
-╰───`;
+└─⧭`;
     
     await sock.sendMessage(chatId, {
         text: helpText

@@ -9,16 +9,14 @@ export default {
   async execute(sock, msg, args, PREFIX) {
     const chatId = msg.key.remoteJid;
 
-    const commandsText = `╭─⊷ *💕 VALENTINE'S DAY*
-│
+    const commandsText = `┌─⧭⊷ *💕 VALENTINE'S DAY*
 ├◆  • rosevine
 ├◆  • loveletter
 ├◆  • lovelock
 ├◆  • weddingday
 ├◆  • brooches
 ├◆  • valentine
-│
-╰─⊷`;
+└─⧭⊷`;
 
     await sendSubMenu(sock, chatId, '💕 Valentine Menu', commandsText, msg, PREFIX);
   }

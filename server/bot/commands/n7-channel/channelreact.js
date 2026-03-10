@@ -298,7 +298,7 @@
 //             if (args.length === 0) {
 //                 const stats = channelReactManager.getStats();
 
-//                 let text = `╭─⌈ 📢 *CHANNEL AUTO-REACT* ⌋\n│\n`;
+//                 let text = `┌─⧭ 📢 *CHANNEL AUTO-REACT* \n`;
 //                 text += `│ Status: ${stats.enabled ? '✅ *ACTIVE*' : '❌ *INACTIVE*'}\n`;
 //                 text += `│ Random Emoji: ✓ (${stats.emojiPoolSize} options)\n`;
 //                 text += `│ Total Reacted: ${stats.totalReacted}\n`;
@@ -312,12 +312,12 @@
 //                     text += `│ Last Reacted: ${new Date(stats.lastReacted).toLocaleString()}\n`;
 //                 }
 //                 text += `│\n`;
-//                 text += `├─⊷ *${prefix}channelreact on*\n├◆  └⊷ Enable auto-react\n`;
-//                 text += `├─⊷ *${prefix}channelreact off*\n├◆  └⊷ Disable auto-react\n`;
-//                 text += `├─⊷ *${prefix}channelreact delay <min> <max>*\n├◆  └⊷ Set delay in seconds (min 300s/5min)\n`;
-//                 text += `├─⊷ *${prefix}channelreact channels*\n├◆  └⊷ List known channels\n`;
-//                 text += `├─⊷ *${prefix}channelreact stats*\n├◆  └⊷ View statistics\n`;
-//                 text += `╰───`;
+//                 text += `├◆ *${prefix}channelreact on*\n├◆  └⊷ Enable auto-react\n`;
+//                 text += `├◆ *${prefix}channelreact off*\n├◆  └⊷ Disable auto-react\n`;
+//                 text += `├◆ *${prefix}channelreact delay <min> <max>*\n├◆  └⊷ Set delay in seconds (min 300s/5min)\n`;
+//                 text += `├◆ *${prefix}channelreact channels*\n├◆  └⊷ List known channels\n`;
+//                 text += `├◆ *${prefix}channelreact stats*\n├◆  └⊷ View statistics\n`;
+//                 text += `└─⧭`;
 
 //                 await sock.sendMessage(chatId, { text }, { quoted: m });
 //                 return;
@@ -395,17 +395,17 @@
 //                         return;
 //                     }
 
-//                     let text = `╭─⌈ 📢 *SUBSCRIBED CHANNELS* ⌋\n│\n`;
-//                     text += `│ Total: ${newsletters.length}\n│\n`;
+//                     let text = `┌─⧭ 📢 *SUBSCRIBED CHANNELS* \n`;
+//                     text += `│ Total: ${newsletters.length}\n`;
 //                     for (let i = 0; i < newsletters.length; i++) {
 //                         const jid = newsletters[i];
 //                         const shortId = jid.split('@')[0];
-//                         text += `├─ ${i + 1}. ${shortId}\n`;
+//                         text += `├◆ ${i + 1}. ${shortId}\n`;
 //                     }
 //                     text += `│\n`;
-//                     text += `├─⊷ *${prefix}channelreact add <jid>*\n├◆  └⊷ Add a channel JID manually\n`;
-//                     text += `├─⊷ *${prefix}channelreact remove <jid>*\n├◆  └⊷ Remove a channel JID\n`;
-//                     text += `╰───`;
+//                     text += `├◆ *${prefix}channelreact add <jid>*\n├◆  └⊷ Add a channel JID manually\n`;
+//                     text += `├◆ *${prefix}channelreact remove <jid>*\n├◆  └⊷ Remove a channel JID\n`;
+//                     text += `└─⧭`;
 
 //                     await sock.sendMessage(chatId, { text }, { quoted: m });
 //                     break;
@@ -854,7 +854,7 @@ export default {
             if (args.length === 0) {
                 const stats = channelReactManager.getStats();
 
-                let text = `╭─⌈ 📢 *CHANNEL AUTO-REACT* ⌋\n│\n`;
+                let text = `┌─⧭ 📢 *CHANNEL AUTO-REACT* \n`;
                 text += `│ Status: ${stats.enabled ? '✅ *ACTIVE*' : '❌ *INACTIVE*'}\n`;
                 text += `│ Fun Emojis: ✓ (${stats.emojiPoolSize} options)\n`;
                 text += `│ Total Reacted: ${stats.totalReacted}\n`;
@@ -868,12 +868,12 @@ export default {
                     text += `│ Last Reacted: ${new Date(stats.lastReacted).toLocaleString()}\n`;
                 }
                 text += `│\n`;
-                text += `├─⊷ *${prefix}channelreact on*\n├◆  └⊷ Enable auto-react\n`;
-                text += `├─⊷ *${prefix}channelreact off*\n├◆  └⊷ Disable auto-react\n`;
-                text += `├─⊷ *${prefix}channelreact delay <min> <max>*\n├◆  └⊷ Set delay range in seconds (min 300s/5min)\n`;
-                text += `├─⊷ *${prefix}channelreact channels*\n├◆  └⊷ List known channels\n`;
-                text += `├─⊷ *${prefix}channelreact stats*\n├◆  └⊷ View statistics\n`;
-                text += `╰───`;
+                text += `├◆ *${prefix}channelreact on*\n├◆  └⊷ Enable auto-react\n`;
+                text += `├◆ *${prefix}channelreact off*\n├◆  └⊷ Disable auto-react\n`;
+                text += `├◆ *${prefix}channelreact delay <min> <max>*\n├◆  └⊷ Set delay range in seconds (min 300s/5min)\n`;
+                text += `├◆ *${prefix}channelreact channels*\n├◆  └⊷ List known channels\n`;
+                text += `├◆ *${prefix}channelreact stats*\n├◆  └⊷ View statistics\n`;
+                text += `└─⧭`;
 
                 await sock.sendMessage(chatId, { text }, { quoted: m });
                 return;
@@ -951,17 +951,17 @@ export default {
                         return;
                     }
 
-                    let text = `╭─⌈ 📢 *SUBSCRIBED CHANNELS* ⌋\n│\n`;
-                    text += `│ Total: ${newsletters.length}\n│\n`;
+                    let text = `┌─⧭ 📢 *SUBSCRIBED CHANNELS* \n`;
+                    text += `│ Total: ${newsletters.length}\n`;
                     for (let i = 0; i < newsletters.length; i++) {
                         const jid = newsletters[i];
                         const shortId = jid.split('@')[0];
-                        text += `├─ ${i + 1}. ${shortId}\n`;
+                        text += `├◆ ${i + 1}. ${shortId}\n`;
                     }
                     text += `│\n`;
-                    text += `├─⊷ *${prefix}channelreact add <jid>*\n├◆  └⊷ Add a channel JID manually\n`;
-                    text += `├─⊷ *${prefix}channelreact remove <jid>*\n├◆  └⊷ Remove a channel JID\n`;
-                    text += `╰───`;
+                    text += `├◆ *${prefix}channelreact add <jid>*\n├◆  └⊷ Add a channel JID manually\n`;
+                    text += `├◆ *${prefix}channelreact remove <jid>*\n├◆  └⊷ Remove a channel JID\n`;
+                    text += `└─⧭`;
 
                     await sock.sendMessage(chatId, { text }, { quoted: m });
                     break;

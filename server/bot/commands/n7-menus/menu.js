@@ -598,9 +598,9 @@ export default {
 //   };
   
 //   // ========== SIMPLIFIED INFO SECTION WITH BOX STYLE ==========
-//   let infoSection = `╭─⊷「 *${currentBotName} *MENU* 」
+//   let infoSection = `┌─⧭⊷「 *${currentBotName} *MENU* 」
 // │
-// ├─⊷ *📊 BOT INFO*
+// ├◆ *📊 BOT INFO*
 // │  ├⊷ *User:* ${m.pushName || "Anonymous"}
 // │  ├⊷ *Date:* ${currentDate}
 // │  ├⊷ *Time:* ${currentTime}
@@ -611,20 +611,20 @@ export default {
 // │  ├⊷ *Platform:* ${deploymentPlatform.name}
 // │  └⊷ *Status:* ${deploymentPlatform.status}
 // │
-// ├─⊷ *📈 SYSTEM STATUS*
+// ├◆ *📈 SYSTEM STATUS*
 // │  ├⊷ *Uptime:* ${formatUptime(process.uptime())}
 // │  ├⊷ *RAM Usage:* ${getRAMUsage()}%
 // │  └⊷ *Speed:* ${(performance.now() - performance.now()).toFixed(2)}ms
 // │
-// ╰─⊷`;
+// └─⧭⊷`;
 
 //   // Apply faded effect to the info section
 //   const fadedInfoSection = createFadedEffect(infoSection);
 
 //   // ========== COMMANDS SECTION ==========
-//   const commandsText = `╭─⊷ *🏠 GROUP MANAGEMENT*
+//   const commandsText = `┌─⧭⊷ *🏠 GROUP MANAGEMENT*
 // │
-// ├─⊷ *🛡️ ADMIN & MODERATION*
+// ├◆ *🛡️ ADMIN & MODERATION*
 // │  • add
 // │  • promote
 // │  • demote
@@ -644,7 +644,7 @@ export default {
 // │  • antilink
 // │  • welcome
 // │
-// ├─⊷ *🚫 AUTO-MODERATION*
+// ├◆ *🚫 AUTO-MODERATION*
 // │  • antisticker
 // │  • antiviewonce
 // │  • antilink
@@ -655,7 +655,7 @@ export default {
 // │  • antistatusmention
 // │  • antigrouplink
 // │
-// ├─⊷ *📊 GROUP INFO & TOOLS*
+// ├◆ *📊 GROUP INFO & TOOLS*
 // │  • groupinfo
 // │  • tagadmin
 // │  • tagall
@@ -668,20 +668,20 @@ export default {
 // │  • getgpp
 // │  • togstatus
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *🎨 MENU COMMANDS*
+// ┌─⧭⊷ *🎨 MENU COMMANDS*
 // │
 // │  • togglemenuinfo
 // │  • setmenuimage
 // │  • resetmenuinfo
 // │  • menustyle
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *👑 OWNER CONTROLS*
+// ┌─⧭⊷ *👑 OWNER CONTROLS*
 // │
-// ├─⊷ *⚡ CORE MANAGEMENT*
+// ├◆ *⚡ CORE MANAGEMENT*
 // │  • setbotname
 // │  • setowner
 // │  • setprefix
@@ -699,7 +699,7 @@ export default {
 // │  • antidelete
 // │  • antideletestatus
 // │
-// ├─⊷ *🔄 SYSTEM & MAINTENANCE*
+// ├◆ *🔄 SYSTEM & MAINTENANCE*
 // │  • restart
 // │  • workingreload
 // │  • reloadenv
@@ -710,9 +710,9 @@ export default {
 // │  • hostip
 // │  • findcommands
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *⚙️ AUTOMATION*
+// ┌─⧭⊷ *⚙️ AUTOMATION*
 // │
 // │  • autoread
 // │  • autotyping
@@ -722,11 +722,11 @@ export default {
 // │  • autobio
 // │  • autorec
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *✨ GENERAL UTILITIES*
+// ┌─⧭⊷ *✨ GENERAL UTILITIES*
 // │
-// ├─⊷ *🔍 INFO & SEARCH*
+// ├◆ *🔍 INFO & SEARCH*
 // │  • alive
 // │  • ping
 // │  • ping2
@@ -741,7 +741,7 @@ export default {
 // │  • getgpp
 // │  • prefixinfo
 // │
-// ├─⊷ *🔗 CONVERSION & MEDIA*
+// ├◆ *🔗 CONVERSION & MEDIA*
 // │  • shorturl
 // │  • qrencode
 // │  • take
@@ -753,25 +753,25 @@ export default {
 // │  • toaudio
 // │  • tts
 // │
-// ├─⊷ *📝 PERSONAL TOOLS*
+// ├◆ *📝 PERSONAL TOOLS*
 // │  • pair
 // │  • resetwarn
 // │  • setwarn
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *🎵 MUSIC & MEDIA*
+// ┌─⧭⊷ *🎵 MUSIC & MEDIA*
 // │
 // │  • play
 // │  • song
 // │  • lyrics
 // │  • spotify
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *🤖 MEDIA & AI COMMANDS*
+// ┌─⧭⊷ *🤖 MEDIA & AI COMMANDS*
 // │
-// ├─⊷ *⬇️ MEDIA DOWNLOADS*
+// ├◆ *⬇️ MEDIA DOWNLOADS*
 // │  • youtube
 // │  • tiktok
 // │  • instagram
@@ -790,7 +790,7 @@ export default {
 // │  • video
 // │  • image
 // │
-// ├─⊷ *🎨 AI GENERATION*
+// ├◆ *🎨 AI GENERATION*
 // │  • gpt
 // │  • gemini
 // │  • deepseek
@@ -808,15 +808,15 @@ export default {
 // │  • mistral
 // │  • metai
 // │
-// ├─⊷ *🎨 AI TOOLS*
+// ├◆ *🎨 AI TOOLS*
 // │  • videogen
 // │  • aiscanner
 // │  • humanizer
 // │  • summarize
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷*🎨 EPHOTO EFFECTS*
+// ┌─⧭⊷*🎨 EPHOTO EFFECTS*
 // │  • tigervideo
 // │  • introvideo
 // │  • lightningpubg
@@ -847,9 +847,9 @@ export default {
 // │  • lighteffect
 // │  • thunder
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *🖼️ IMAGE TOOLS*
+// ┌─⧭⊷ *🖼️ IMAGE TOOLS*
 // │
 // │  • image
 // │  • imagegenerate
@@ -857,21 +857,21 @@ export default {
 // │  • art
 // │  • real
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *🛡️ SECURITY & HACKING*
+// ┌─⧭⊷ *🛡️ SECURITY & HACKING*
 // │
-// ├─⊷ *🌐 NETWORK & INFO*
+// ├◆ *🌐 NETWORK & INFO*
 // │  • ipinfo
 // │  • shodan
 // │  • iplookup
 // │  • getip
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *🎨 LOGO DESIGN STUDIO*
+// ┌─⧭⊷ *🎨 LOGO DESIGN STUDIO*
 // │
-// ├─⊷ *🌟 PREMIUM METALS*
+// ├◆ *🌟 PREMIUM METALS*
 // │  • goldlogo
 // │  • silverlogo
 // │  • platinumlogo
@@ -882,7 +882,7 @@ export default {
 // │  • copperlogo
 // │  • titaniumlogo
 // │
-// ├─⊷ *🔥 ELEMENTAL EFFECTS*
+// ├◆ *🔥 ELEMENTAL EFFECTS*
 // │  • firelogo
 // │  • icelogo
 // │  • iceglowlogo
@@ -892,28 +892,28 @@ export default {
 // │  • sunlogo
 // │  • moonlogo
 // │
-// ├─⊷ *🎭 MYTHICAL & MAGICAL*
+// ├◆ *🎭 MYTHICAL & MAGICAL*
 // │  • dragonlogo
 // │  • phoenixlogo
 // │  • wizardlogo
 // │  • crystallogo
 // │  • darkmagiclogo
 // │
-// ├─⊷ *🌌 DARK & GOTHIC*
+// ├◆ *🌌 DARK & GOTHIC*
 // │  • shadowlogo
 // │  • smokelogo
 // │  • bloodlogo
 // │
-// ├─⊷ *💫 GLOW & NEON EFFECTS*
+// ├◆ *💫 GLOW & NEON EFFECTS*
 // │  • neonlogo
 // │  • glowlogo
 // │
-// ├─⊷ *🤖 TECH & FUTURISTIC*
+// ├◆ *🤖 TECH & FUTURISTIC*
 // │  • matrixlogo
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *🐙 GITHUB COMMANDS*
+// ┌─⧭⊷ *🐙 GITHUB COMMANDS*
 // │
 // │  • gitclone
 // │  • gitinfo
@@ -923,9 +923,9 @@ export default {
 // │  • watchers
 // │  • release
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *🌸 ANIME COMMANDS*
+// ┌─⧭⊷ *🌸 ANIME COMMANDS*
 // │
 // │  • awoo
 // │  • bj
@@ -949,7 +949,7 @@ export default {
 // │  • wink
 // │  • yeet
 // │
-// ╰─⊷
+// └─⧭⊷
 
 // 🐺 *POWERED BY WOLF TECH* 🐺`;
 
@@ -1487,7 +1487,7 @@ case 1: {
   const ramUsage = getRAMUsage();
   
   // ========== UPDATED MENU WITH NEW BOX STYLE ==========
-  let infoSection = `╭─⌈ \`${currentBotName}\` ⌋
+  let infoSection = `┌─⧭ \`${currentBotName}\` 
 ┃ Owner: ${ownerName}
 ┃ Mode: ${botMode}
 ┃ Prefix: [ ${botPrefix} ]
@@ -1497,15 +1497,14 @@ case 1: {
 ┃ Uptime: ${formatUptime(process.uptime())}
 ┃ RAM: ${ramUsage.bar} ${ramUsage.percent}%
 ┃ Memory: ${ramUsage.usedMB}MB / ${ramUsage.totalMB}MB
-╰─⊷`;
+└─⧭⊷`;
 
   // Apply faded effect to the info section
   const fadedInfoSection = createFadedEffect(infoSection);
 
   // ========== COMMANDS SECTION ==========
-  const commandsText = `╭─⊷ *🏠 GROUP MANAGEMENT*
-│
-├─⊷ *🛡️ ADMIN & MODERATION*
+  const commandsText = `┌─⧭⊷ *🏠 GROUP MANAGEMENT*
+├◆ *🛡️ ADMIN & MODERATION*
 ├◆  • add
 ├◆  • promote
 ├◆  • promoteall
@@ -1533,8 +1532,7 @@ case 1: {
 ├◆  • goodbye
 ├◆  • leave
 ├◆  • creategroup
-│
-├─⊷ *🚫 AUTO-MODERATION*
+├◆ *🚫 AUTO-MODERATION*
 ├◆  • antisticker
 ├◆  • antiimage
 ├◆  • antivideo
@@ -1547,8 +1545,7 @@ case 1: {
 ├◆  • antiviewonce
 ├◆  • antibadword
 ├◆  • antigroupcall
-│
-├─⊷ *📊 GROUP INFO & TOOLS*
+├◆ *📊 GROUP INFO & TOOLS*
 ├◆  • groupinfo
 ├◆  • grouplink
 ├◆  • tagadmin
@@ -1567,22 +1564,18 @@ case 1: {
 ├◆  • approveall
 ├◆  • rejectall
 ├◆  • stickerpack
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🎨 MENU COMMANDS*
-│
+┌─⧭⊷ *🎨 MENU COMMANDS*
 ├◆  • menu
 ├◆  • menustyle
 ├◆  • togglemenuinfo
 ├◆  • setmenuimage
 ├◆  • restoremenuimage
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *👑 OWNER CONTROLS*
-│
-├─⊷ *⚡ CORE MANAGEMENT*
+┌─⧭⊷ *👑 OWNER CONTROLS*
+├◆ *⚡ CORE MANAGEMENT*
 ├◆  • setbotname
 ├◆  • resetbotname
 ├◆  • setowner
@@ -1609,8 +1602,7 @@ case 1: {
 ├◆  • antiedit
 ├◆  • chatbot
 ├◆  • shutdown
-│
-├─⊷ *🔄 SYSTEM & MAINTENANCE*
+├◆ *🔄 SYSTEM & MAINTENANCE*
 ├◆  • restart
 ├◆  • workingreload
 ├◆  • reloadenv
@@ -1623,19 +1615,16 @@ case 1: {
 ├◆  • latestupdates
 ├◆  • platform
 ├◆  • debugchat
-│
-├─⊷ *🔒 PRIVACY CONTROLS*
+├◆ *🔒 PRIVACY CONTROLS*
 ├◆  • online
 ├◆  • privacy
 ├◆  • receipt
 ├◆  • profilepic
 ├◆  • viewer
 ├◆  • lastseen
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *👥 SUDO*
-│
+┌─⧭⊷ *👥 SUDO*
 ├◆  • addsudo
 ├◆  • delsudo
 ├◆  • listsudo
@@ -1646,11 +1635,9 @@ case 1: {
 ├◆  • mysudo
 ├◆  • sudodebug
 ├◆  • linksudo
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *⚙️ AUTOMATION*
-│
+┌─⧭⊷ *⚙️ AUTOMATION*
 ├◆  • autoread
 ├◆  • autotyping
 ├◆  • autorecording
@@ -1660,12 +1647,10 @@ case 1: {
 ├◆  • autobio
 ├◆  • autorec
 ├◆  • reactowner
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *✨ GENERAL UTILITIES*
-│
-├─⊷ *🔍 INFO & SEARCH*
+┌─⧭⊷ *✨ GENERAL UTILITIES*
+├◆ *🔍 INFO & SEARCH*
 ├◆  • alive
 ├◆  • ping
 ├◆  • ping2
@@ -1683,8 +1668,7 @@ case 1: {
 ├◆  • getgpp
 ├◆  • prefixinfo
 ├◆  • platform
-│
-├─⊷ *🔗 CONVERSION & MEDIA*
+├◆ *🔗 CONVERSION & MEDIA*
 ├◆  • shorturl
 ├◆  • url
 ├◆  • fetch
@@ -1702,17 +1686,14 @@ case 1: {
 ├◆  • tts
 ├◆  • trebleboost
 ├◆  • jarvis
-│
-├─⊷ *📇 CONTACT TOOLS*
+├◆ *📇 CONTACT TOOLS*
 ├◆  • vcf
 ├◆  • viewvcf
 ├◆  • vv
 ├◆  • vv2
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🎵 MUSIC & MEDIA*
-│
+┌─⧭⊷ *🎵 MUSIC & MEDIA*
 ├◆  • play
 ├◆  • song
 ├◆  • video
@@ -1720,11 +1701,9 @@ case 1: {
 ├◆  • lyrics
 ├◆  • shazam
 ├◆  • spotify
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *⬇️ MEDIA DOWNLOADS*
-│
+┌─⧭⊷ *⬇️ MEDIA DOWNLOADS*
 ├◆  • tiktok
 ├◆  • instagram
 ├◆  • facebook
@@ -1738,12 +1717,10 @@ case 1: {
 ├◆  • ytvdoc
 ├◆  • videodl
 ├◆  • playlist
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🤖 AI COMMANDS*
-│
-├─⊷ *💬 AI CHAT*
+┌─⧭⊷ *🤖 AI COMMANDS*
+├◆ *💬 AI CHAT*
 ├◆  • gpt
 ├◆  • chatgpt
 ├◆  • copilot
@@ -1761,8 +1738,7 @@ case 1: {
 ├◆  • wormgpt
 ├◆  • deepseek+
 ├◆  • chatbot
-│
-├─⊷ *🎨 AI GENERATION*
+├◆ *🎨 AI GENERATION*
 ├◆  • imagine
 ├◆  • imagegen
 ├◆  • flux
@@ -1774,29 +1750,24 @@ case 1: {
 ├◆  • totext
 ├◆  • removebg
 ├◆  • vision
-│
-├─⊷ *🎬 AI TOOLS*
+├◆ *🎬 AI TOOLS*
 ├◆  • videogen
 ├◆  • aiscanner
 ├◆  • aimenu
 ├◆  • brandlogo
 ├◆  • companylogo
 ├◆  • logoai
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🎬 AI VIDEO EFFECTS*
-│
+┌─⧭⊷ *🎬 AI VIDEO EFFECTS*
 ├◆  • tigervideo
 ├◆  • introvideo
 ├◆  • lightningpubg
 ├◆  • lovevideo
 ├◆  • videogen
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🖼️ IMAGE TOOLS*
-│
+┌─⧭⊷ *🖼️ IMAGE TOOLS*
 ├◆  • image
 ├◆  • imagegen
 ├◆  • imagine
@@ -1805,11 +1776,9 @@ case 1: {
 ├◆  • real
 ├◆  • remini
 ├◆  • vision
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🏆 SPORTS*
-│
+┌─⧭⊷ *🏆 SPORTS*
 ├◆  • football
 ├◆  • matchstats
 ├◆  • sportsnews
@@ -1824,11 +1793,9 @@ case 1: {
 ├◆  • hockey
 ├◆  • golf
 ├◆  • sportsmenu
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🛡️ ETHICAL HACKING*
-│
+┌─⧭⊷ *🛡️ ETHICAL HACKING*
 ├◆  • whois
 ├◆  • dnslookup
 ├◆  • subdomain
@@ -1877,11 +1844,9 @@ case 1: {
 ├◆  • ipinfo
 ├◆  • nglattack
 ├◆  • securitymenu
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🕵️ STALKER COMMANDS*
-│
+┌─⧭⊷ *🕵️ STALKER COMMANDS*
 ├◆  • wachannel
 ├◆  • tiktokstalk
 ├◆  • twitterstalk
@@ -1890,11 +1855,9 @@ case 1: {
 ├◆  • npmstalk
 ├◆  • gitstalk
 ├◆  • stalkermenu
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🎨 LOGO DESIGN STUDIO*
-│
+┌─⧭⊷ *🎨 LOGO DESIGN STUDIO*
 ├◆  • goldlogo
 ├◆  • silverlogo
 ├◆  • platinumlogo
@@ -1925,22 +1888,18 @@ case 1: {
 ├◆  • matrixlogo
 ├◆  • aqualogo
 ├◆  • logomenu
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🐙 GITHUB COMMANDS*
-│
+┌─⧭⊷ *🐙 GITHUB COMMANDS*
 ├◆  • gitclone
 ├◆  • gitinfo
 ├◆  • repanalyze
 ├◆  • zip
 ├◆  • update
 ├◆  • repo
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🌸 ANIME COMMANDS*
-│
+┌─⧭⊷ *🌸 ANIME COMMANDS*
 ├◆  • animemenu
 ├◆  • awoo
 ├◆  • bully
@@ -1963,11 +1922,9 @@ case 1: {
 ├◆  • waifu
 ├◆  • wink
 ├◆  • yeet
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🎮 GAMES*
-│
+┌─⧭⊷ *🎮 GAMES*
 ├◆  • coinflip
 ├◆  • dare
 ├◆  • dice
@@ -1980,11 +1937,9 @@ case 1: {
 ├◆  • truth
 ├◆  • tictactoe
 ├◆  • quote
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🎭 FUN & TOOLS*
-│
+┌─⧭⊷ *🎭 FUN & TOOLS*
 ├◆  • bf
 ├◆  • gf
 ├◆  • couple
@@ -1996,19 +1951,15 @@ case 1: {
 ├◆  • goodnight
 ├◆  • channelstatus
 ├◆  • hack
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *⚡ QUICK COMMANDS*
-│
+┌─⧭⊷ *⚡ QUICK COMMANDS*
 ├◆  • p
 ├◆  • up
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *✨ EPHOTO TEXT EFFECTS*
-│
-├─⊷ *💡 NEON & GLOW*
+┌─⧭⊷ *✨ EPHOTO TEXT EFFECTS*
+├◆ *💡 NEON & GLOW*
 ├◆  • neon
 ├◆  • colorfulglow
 ├◆  • advancedglow
@@ -2028,8 +1979,7 @@ case 1: {
 ├◆  • blackpinkneon
 ├◆  • neonglitch
 ├◆  • colorfulneonlight
-│
-├─⊷ *🧊 3D TEXT EFFECTS*
+├◆ *🧊 3D TEXT EFFECTS*
 ├◆  • wooden3d
 ├◆  • cubic3d
 ├◆  • wooden3donline
@@ -2070,10 +2020,8 @@ case 1: {
 ├◆  • glossysilver3d
 ├◆  • balloon3d
 ├◆  • comic3d
-│
-├─⊷ *📋 MENU:* ephotomenu
-│
-╰─⊷
+├◆ *📋 MENU:* ephotomenu
+└─⧭⊷
 
 🐺 *POWERED BY WOLF TECH* 🐺`;
 
@@ -2797,7 +2745,7 @@ case 3: {
     if ((fieldsStatus && fieldsStatus.usage) || (!fieldsStatus)) infoLines.push(`┃ Memory: ${usedMem}MB / ${totalMem}MB`);
 
     if (infoLines.length > 0) {
-      infoSection = `┌──⌈ \`${currentBotName}\` ⌋\n${infoLines.join('\n')}\n└────────────────\n`;
+      infoSection = `┌── \`${currentBotName}\` \n${infoLines.join('\n')}\n└────────────────\n`;
     }
   } else {
     // If no info fields are enabled, still show basic header
@@ -2805,7 +2753,7 @@ case 3: {
   }
 
   const categorySections = [
-`┌──⌈ \`GROUP MANAGEMENT\` ⌋
+`┌── \`GROUP MANAGEMENT\` 
 ├◆ add
 ├◆ promote
 ├◆ promoteall
@@ -2833,7 +2781,7 @@ case 3: {
 ├◆ leave
 ├◆ creategroup
 └───────────────`,
-`┌──⌈ \`AUTO MODERATION\` ⌋
+`┌── \`AUTO MODERATION\` 
 ├◆ antisticker
 ├◆ antiimage
 ├◆ antivideo
@@ -2847,7 +2795,7 @@ case 3: {
 ├◆ antibadword
 ├◆ antigroupcall
 └───────────────`,
-`┌──⌈ \`GROUP INFO & TOOLS\` ⌋
+`┌── \`GROUP INFO & TOOLS\` 
 ├◆ groupinfo
 ├◆ grouplink
 ├◆ tagadmin
@@ -2866,7 +2814,7 @@ case 3: {
 ├◆ approveall
 ├◆ rejectall
 └───────────────`,
-`┌──⌈ \`MENU SETTINGS\` ⌋
+`┌── \`MENU SETTINGS\` 
 ├◆ menu
 ├◆ menu2
 ├◆ menustyle
@@ -2874,7 +2822,7 @@ case 3: {
 ├◆ setmenuimage
 ├◆ restoremenuimage
 └───────────────`,
-`┌──⌈ \`OWNER CONTROLS\` ⌋
+`┌── \`OWNER CONTROLS\` 
 ├◆ setbotname
 ├◆ resetbotname
 ├◆ setowner
@@ -2902,7 +2850,7 @@ case 3: {
 ├◆ chatbot
 ├◆ shutdown
 └───────────────`,
-`┌──⌈ \`SYSTEM & MAINTENANCE\` ⌋
+`┌── \`SYSTEM & MAINTENANCE\` 
 ├◆ restart
 ├◆ workingreload
 ├◆ reloadenv
@@ -2916,7 +2864,7 @@ case 3: {
 ├◆ panel
 ├◆ debugchat
 └───────────────`,
-`┌──⌈ \`SUDO\` ⌋
+`┌── \`SUDO\` 
 ├◆ addsudo
 ├◆ delsudo
 ├◆ listsudo
@@ -2928,7 +2876,7 @@ case 3: {
 ├◆ sudodebug
 ├◆ linksudo
 └───────────────`,
-`┌──⌈ \`AUTOMATION\` ⌋
+`┌── \`AUTOMATION\` 
 ├◆ autoread
 ├◆ autotyping
 ├◆ autorecording
@@ -2939,7 +2887,7 @@ case 3: {
 ├◆ autorec
 ├◆ reactowner
 └───────────────`,
-`┌──⌈ \`PRIVACY CONTROLS\` ⌋
+`┌── \`PRIVACY CONTROLS\` 
 ├◆ online
 ├◆ privacy
 ├◆ receipt
@@ -2947,7 +2895,7 @@ case 3: {
 ├◆ viewer
 ├◆ lastseen
 └───────────────`,
-`┌──⌈ \`GENERAL UTILITIES\` ⌋
+`┌── \`GENERAL UTILITIES\` 
 ├◆ alive
 ├◆ ping
 ├◆ ping2
@@ -2966,7 +2914,7 @@ case 3: {
 ├◆ prefixinfo
 ├◆ platform
 └───────────────`,
-`┌──⌈ \`CONVERSION & MEDIA\` ⌋
+`┌── \`CONVERSION & MEDIA\` 
 ├◆ shorturl
 ├◆ url
 ├◆ fetch
@@ -2984,13 +2932,13 @@ case 3: {
 ├◆ trebleboost
 ├◆ jarvis
 └───────────────`,
-`┌──⌈ \`CONTACT TOOLS\` ⌋
+`┌── \`CONTACT TOOLS\` 
 ├◆ vcf
 ├◆ viewvcf
 ├◆ vv
 ├◆ vv2
 └───────────────`,
-`┌──⌈ \`MUSIC\` ⌋
+`┌── \`MUSIC\` 
 ├◆ play
 ├◆ song
 ├◆ video
@@ -2999,7 +2947,7 @@ case 3: {
 ├◆ shazam
 ├◆ spotify
 └───────────────`,
-`┌──⌈ \`MEDIA DOWNLOADS\` ⌋
+`┌── \`MEDIA DOWNLOADS\` 
 ├◆ tiktok
 ├◆ instagram
 ├◆ facebook
@@ -3014,7 +2962,7 @@ case 3: {
 ├◆ videodl
 ├◆ playlist
 └───────────────`,
-`┌──⌈ \`AI COMMANDS\` ⌋
+`┌── \`AI COMMANDS\` 
 ├◆ gpt
 ├◆ chatgpt
 ├◆ copilot
@@ -3033,7 +2981,7 @@ case 3: {
 ├◆ deepseek+
 ├◆ chatbot
 └───────────────`,
-`┌──⌈ \`AI GENERATION\` ⌋
+`┌── \`AI GENERATION\` 
 ├◆ imagine
 ├◆ imagegen
 ├◆ flux
@@ -3046,7 +2994,7 @@ case 3: {
 ├◆ removebg
 ├◆ vision
 └───────────────`,
-`┌──⌈ \`AI TOOLS\` ⌋
+`┌── \`AI TOOLS\` 
 ├◆ videogen
 ├◆ aiscanner
 ├◆ aimenu
@@ -3054,14 +3002,14 @@ case 3: {
 ├◆ companylogo
 ├◆ logoai
 └───────────────`,
-`┌──⌈ \`AI VIDEO EFFECTS\` ⌋
+`┌── \`AI VIDEO EFFECTS\` 
 ├◆ tigervideo
 ├◆ introvideo
 ├◆ lightningpubg
 ├◆ lovevideo
 ├◆ videogen
 └───────────────`,
-`┌──⌈ \`IMAGE TOOLS\` ⌋
+`┌── \`IMAGE TOOLS\` 
 ├◆ image
 ├◆ imagegen
 ├◆ imagine
@@ -3071,7 +3019,7 @@ case 3: {
 ├◆ remini
 ├◆ vision
 └───────────────`,
-`┌──⌈ \`SPORTS\` ⌋
+`┌── \`SPORTS\` 
 ├◆ football
 ├◆ matchstats
 ├◆ sportsnews
@@ -3087,7 +3035,7 @@ case 3: {
 ├◆ golf
 ├◆ sportsmenu
 └───────────────`,
-`┌──⌈ \`ETHICAL HACKING\` ⌋
+`┌── \`ETHICAL HACKING\` 
 ├◆ whois
 ├◆ dnslookup
 ├◆ subdomain
@@ -3137,7 +3085,7 @@ case 3: {
 ├◆ nglattack
 ├◆ securitymenu
 └───────────────`,
-`┌──⌈ \`LOGO DESIGN STUDIO\` ⌋
+`┌── \`LOGO DESIGN STUDIO\` 
 ├◆ goldlogo
 ├◆ silverlogo
 ├◆ platinumlogo
@@ -3168,7 +3116,7 @@ case 3: {
 ├◆ gradientlogo
 ├◆ matrixlogo
 └───────────────`,
-`┌──⌈ \`GITHUB TOOLS\` ⌋
+`┌── \`GITHUB TOOLS\` 
 ├◆ gitclone
 ├◆ gitinfo
 ├◆ repanalyze
@@ -3176,7 +3124,7 @@ case 3: {
 ├◆ update
 ├◆ repo
 └───────────────`,
-`┌──⌈ \`ANIME REACTIONS\` ⌋
+`┌── \`ANIME REACTIONS\` 
 ├◆ animemenu
 ├◆ awoo
 ├◆ bully
@@ -3200,7 +3148,7 @@ case 3: {
 ├◆ wink
 ├◆ yeet
 └───────────────`,
-`┌──⌈ \`GAMES\` ⌋
+`┌── \`GAMES\` 
 ├◆ coinflip
 ├◆ dare
 ├◆ dice
@@ -3214,7 +3162,7 @@ case 3: {
 ├◆ tictactoe
 ├◆ quote
 └───────────────`,
-`┌──⌈ \`FUN & TOOLS\` ⌋
+`┌── \`FUN & TOOLS\` 
 ├◆ bf
 ├◆ gf
 ├◆ couple
@@ -3227,11 +3175,11 @@ case 3: {
 ├◆ channelstatus
 ├◆ hack
 └───────────────`,
-`┌──⌈ \`QUICK COMMANDS\` ⌋
+`┌── \`QUICK COMMANDS\` 
 ├◆ p
 ├◆ up
 └───────────────`,
-`┌──⌈ \`EPHOTO TEXT EFFECTS\` ⌋
+`┌── \`EPHOTO TEXT EFFECTS\` 
 ├◆ neon
 ├◆ colorfulglow
 ├◆ advancedglow
@@ -3737,33 +3685,29 @@ case 4: {
   };
   
   // ========== SIMPLIFIED MENU WITH FADED EFFECT ==========
-  let infoSection = `╭─⊷ *${currentBotName} MENU*
+  let infoSection = `┌─⧭⊷ *${currentBotName} MENU*
 │
-│
-├◆  ├─⊷ *User:* ${m.pushName || "Anonymous"}
-├◆  ├─⊷ *Date:* ${currentDate}
-├◆  ├─⊷ *Time:* ${currentTime}
-├◆  ├─⊷ *Owner:* ${ownerName}
-├◆  ├─⊷ *Mode:* ${botMode}
-├◆  ├─⊷ *Prefix:* [ ${botPrefix} ]
-├◆  ├─⊷ *Version:* ${botVersion}
-├◆  ├─⊷ *Platform:* ${deploymentPlatform.name}
+├◆  ├◆ *User:* ${m.pushName || "Anonymous"}
+├◆  ├◆ *Date:* ${currentDate}
+├◆  ├◆ *Time:* ${currentTime}
+├◆  ├◆ *Owner:* ${ownerName}
+├◆  ├◆ *Mode:* ${botMode}
+├◆  ├◆ *Prefix:* [ ${botPrefix} ]
+├◆  ├◆ *Version:* ${botVersion}
+├◆  ├◆ *Platform:* ${deploymentPlatform.name}
 ├◆  └─⊷ *Status:* ${deploymentPlatform.status}
-│
-├─⊷ *📈 SYSTEM STATUS*
-├◆  ├─⊷ *Uptime:* ${formatUptime(process.uptime())}
-├◆  ├─⊷ *RAM Usage:* ${getRAMUsage()}%
+├◆ *📈 SYSTEM STATUS*
+├◆  ├◆ *Uptime:* ${formatUptime(process.uptime())}
+├◆  ├◆ *RAM Usage:* ${getRAMUsage()}%
 ├◆  └─⊷ *Speed:* ${(performance.now() - performance.now()).toFixed(2)}ms
-│
-╰─⊷ *Type .help <command> for details*\n\n`;
+└─⧭⊷ *Type .help <command> for details*\n\n`;
 
   // Apply faded effect to the info section with MORE invisible chars
   const fadedInfoSection = createFadedEffect(infoSection);
 
   // ========== MENU LIST WITH BOX STYLE AND DOTS ==========
-  const commandsText = `╭─⊷ *🏠 GROUP MANAGEMENT*
-│
-├─⊷ *🛡️ ADMIN & MODERATION*
+  const commandsText = `┌─⧭⊷ *🏠 GROUP MANAGEMENT*
+├◆ *🛡️ ADMIN & MODERATION*
 ├◆  • add
 ├◆  • promote
 ├◆  • demote
@@ -3785,8 +3729,7 @@ case 4: {
 ├◆  • removebadword
 ├◆  • listbadword
 ├◆  • welcome
-│
-├─⊷ *🚫 AUTO-MODERATION*
+├◆ *🚫 AUTO-MODERATION*
 ├◆  • antisticker
 ├◆  • antiviewonce
 ├◆  • antilink
@@ -3798,8 +3741,7 @@ case 4: {
 ├◆  • antigrouplink
 ├◆  • antibadword
 ├◆  • antigroupcall
-│
-├─⊷ *📊 GROUP INFO & TOOLS*
+├◆ *📊 GROUP INFO & TOOLS*
 ├◆  • groupinfo
 ├◆  • tagadmin
 ├◆  • tagall
@@ -3810,21 +3752,17 @@ case 4: {
 ├◆  • setdesc
 ├◆  • fangtrace
 ├◆  • getgpp
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🎨 MENU COMMANDS*
-│
+┌─⧭⊷ *🎨 MENU COMMANDS*
 ├◆  • togglemenuinfo
 ├◆  • setmenuimage
 ├◆  • resetmenuinfo
 ├◆  • menustyle
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *👑 OWNER CONTROLS*
-│
-├─⊷ *⚡ CORE MANAGEMENT*
+┌─⧭⊷ *👑 OWNER CONTROLS*
+├◆ *⚡ CORE MANAGEMENT*
 ├◆  • setbotname
 ├◆  • setowner
 ├◆  • setprefix
@@ -3841,8 +3779,7 @@ case 4: {
 ├◆  • online
 ├◆  • setpp
 ├◆  • repo
-│
-├─⊷ *🔄 SYSTEM & MAINTENANCE*
+├◆ *🔄 SYSTEM & MAINTENANCE*
 ├◆  • restart
 ├◆  • workingreload
 ├◆  • reloadenv
@@ -3852,11 +3789,9 @@ case 4: {
 ├◆  • disk
 ├◆  • hostip
 ├◆  • findcommands
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *⚙️ AUTOMATION*
-│
+┌─⧭⊷ *⚙️ AUTOMATION*
 ├◆  • autoread
 ├◆  • autotyping
 ├◆  • autorecording
@@ -3864,12 +3799,10 @@ case 4: {
 ├◆  • autoreactstatus
 ├◆  • autobio
 ├◆  • autorec
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *✨ GENERAL UTILITIES*
-│
-├─⊷ *🔍 INFO & SEARCH*
+┌─⧭⊷ *✨ GENERAL UTILITIES*
+├◆ *🔍 INFO & SEARCH*
 ├◆  • alive
 ├◆  • ping
 ├◆  • ping2
@@ -3883,24 +3816,20 @@ case 4: {
 ├◆  • getpp
 ├◆  • getgpp
 ├◆  • prefixinfo
-│
-├─⊷ *🔗 CONVERSION & MEDIA*
+├◆ *🔗 CONVERSION & MEDIA*
 ├◆  • shorturl
 ├◆  • qrencode
 ├◆  • take
 ├◆  • imgbb
 ├◆  • tiktok
 ├◆  • save
-│
-├─⊷ *📝 PERSONAL TOOLS*
+├◆ *📝 PERSONAL TOOLS*
 ├◆  • pair
 ├◆  • resetwarn
 ├◆  • setwarn
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🎵 MUSIC & MEDIA*
-│
+┌─⧭⊷ *🎵 MUSIC & MEDIA*
 ├◆  • play
 ├◆  • song
 ├◆  • lyrics
@@ -3909,20 +3838,17 @@ case 4: {
 ├◆  • video2
 ├◆  • bassboost
 ├◆  • trebleboost
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🤖 MEDIA & AI COMMANDS*
-│
-├─⊷ *⬇️ MEDIA DOWNLOADS*
+┌─⧭⊷ *🤖 MEDIA & AI COMMANDS*
+├◆ *⬇️ MEDIA DOWNLOADS*
 ├◆  • youtube
 ├◆  • tiktok
 ├◆  • instagram
 ├◆  • facebook
 ├◆  • snapchat
 ├◆  • apk
-│
-├─⊷ *🎨 AI GENERATION*
+├◆ *🎨 AI GENERATION*
 ├◆  • gpt
 ├◆  • gemini
 ├◆  • deepseek
@@ -3931,21 +3857,17 @@ case 4: {
 ├◆  • suno
 ├◆  • wolfbot
 ├◆  • videogen
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🖼️ IMAGE TOOLS*
-│
+┌─⧭⊷ *🖼️ IMAGE TOOLS*
 ├◆  • image
 ├◆  • imagegenerate
 ├◆  • anime
 ├◆  • art
 ├◆  • real
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🏆 SPORTS*
-│
+┌─⧭⊷ *🏆 SPORTS*
 ├◆  • football
 ├◆  • matchstats
 ├◆  • sportsnews
@@ -3960,11 +3882,9 @@ case 4: {
 ├◆  • hockey
 ├◆  • golf
 ├◆  • sportsmenu
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🛡️ ETHICAL HACKING*
-│
+┌─⧭⊷ *🛡️ ETHICAL HACKING*
 ├◆  • whois
 ├◆  • dnslookup
 ├◆  • subdomain
@@ -4013,11 +3933,9 @@ case 4: {
 ├◆  • ipinfo
 ├◆  • nglattack
 ├◆  • securitymenu
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🕵️ STALKER COMMANDS*
-│
+┌─⧭⊷ *🕵️ STALKER COMMANDS*
 ├◆  • wachannel
 ├◆  • tiktokstalk
 ├◆  • twitterstalk
@@ -4026,11 +3944,9 @@ case 4: {
 ├◆  • npmstalk
 ├◆  • gitstalk
 ├◆  • stalkermenu
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🎨 LOGO DESIGN STUDIO*
-│
+┌─⧭⊷ *🎨 LOGO DESIGN STUDIO*
 ├◆  • goldlogo
 ├◆  • silverlogo
 ├◆  • platinumlogo
@@ -4060,11 +3976,9 @@ case 4: {
 ├◆  • glowlogo
 ├◆  • matrixlogo
 ├◆  • logomenu
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🐙 GITHUB COMMANDS*
-│
+┌─⧭⊷ *🐙 GITHUB COMMANDS*
 ├◆  • gitclone
 ├◆  • gitinfo
 ├◆  • repo
@@ -4072,11 +3986,9 @@ case 4: {
 ├◆  • stars
 ├◆  • watchers
 ├◆  • release
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🌸 ANIME COMMANDS*
-│
+┌─⧭⊷ *🌸 ANIME COMMANDS*
 ├◆  • awoo
 ├◆  • bj
 ├◆  • bully
@@ -4097,8 +4009,7 @@ case 4: {
 ├◆  • waifu
 ├◆  • wink
 ├◆  • yeet
-│
-╰─⊷
+└─⧭⊷
 
 🐺 *POWERED BY WOLF TECH* 🐺`;
 
@@ -4695,30 +4606,30 @@ case 4: {
 //   const responseTime = endTime - startTime;
   
 //   // ========== UPDATED MENU WITH CURVED FORMAT ==========
-//   let infoSection = `╭─⊷ *${currentBotName} MENU*
+//   let infoSection = `┌─⧭⊷ *${currentBotName} MENU*
 // │
-// │  ╭─⊷ *User:* ${m.pushName || "Anonymous"}
-// │  ├─⊷ *Date:* ${currentDate}
-// │  ├─⊷ *Time:* ${currentTime}
-// │  ├─⊷ *Owner:* ${ownerName}
-// │  ├─⊷ *Mode:* ${botMode}
-// │  ├─⊷ *Prefix:* [ ${botPrefix} ]
-// │  ├─⊷ *Version:* ${botVersion}
-// │  ├─⊷ *Platform:* ${deploymentPlatform.name}
-// │  ├─⊷ *Status:* ${deploymentPlatform.status}
-// │  ├─⊷ *Uptime:* ${formatUptime(process.uptime())}
-// │  ├─⊷ *RAM Usage:* ${ramUsage.process.percent}% (${ramUsage.process.used}MB/${ramUsage.process.total}MB)
-// │  ╰─⊷ *Speed:* ${responseTime}ms
+// │  ┌─⧭⊷ *User:* ${m.pushName || "Anonymous"}
+// │  ├◆ *Date:* ${currentDate}
+// │  ├◆ *Time:* ${currentTime}
+// │  ├◆ *Owner:* ${ownerName}
+// │  ├◆ *Mode:* ${botMode}
+// │  ├◆ *Prefix:* [ ${botPrefix} ]
+// │  ├◆ *Version:* ${botVersion}
+// │  ├◆ *Platform:* ${deploymentPlatform.name}
+// │  ├◆ *Status:* ${deploymentPlatform.status}
+// │  ├◆ *Uptime:* ${formatUptime(process.uptime())}
+// │  ├◆ *RAM Usage:* ${ramUsage.process.percent}% (${ramUsage.process.used}MB/${ramUsage.process.total}MB)
+// │  └─⧭⊷ *Speed:* ${responseTime}ms
 // │
-// ╰─⊷`;
+// └─⧭⊷`;
 
 //   // Apply faded effect to the info section
 //   const fadedInfoSection = createFadedEffect(infoSection);
 
 //   // ========== MENU LIST WITH BOX STYLE ==========
-//   const commandsText = `╭─⊷ *🏠 GROUP MANAGEMENT*
+//   const commandsText = `┌─⧭⊷ *🏠 GROUP MANAGEMENT*
 // │
-// ├─⊷ *🛡️ ADMIN & MODERATION*
+// ├◆ *🛡️ ADMIN & MODERATION*
 // │  • add
 // │  • promote
 // │  • demote
@@ -4738,7 +4649,7 @@ case 4: {
 // │  • antilink
 // │  • welcome
 // │
-// ├─⊷ *🚫 AUTO-MODERATION*
+// ├◆ *🚫 AUTO-MODERATION*
 // │  • antisticker
 // │  • antiviewonce
 // │  • antilink
@@ -4749,7 +4660,7 @@ case 4: {
 // │  • antistatusmention
 // │  • antigrouplink
 // │
-// ├─⊷ *📊 GROUP INFO & TOOLS*
+// ├◆ *📊 GROUP INFO & TOOLS*
 // │  • groupinfo
 // │  • tagadmin
 // │  • tagall
@@ -4761,20 +4672,20 @@ case 4: {
 // │  • fangtrace
 // │  • getgpp
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *🎨 MENU COMMANDS*
+// ┌─⧭⊷ *🎨 MENU COMMANDS*
 // │
 // │  • togglemenuinfo
 // │  • setmenuimage
 // │  • resetmenuinfo
 // │  • menustyle
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *👑 OWNER CONTROLS*
+// ┌─⧭⊷ *👑 OWNER CONTROLS*
 // │
-// ├─⊷ *⚡ CORE MANAGEMENT*
+// ├◆ *⚡ CORE MANAGEMENT*
 // │  • setbotname
 // │  • setowner
 // │  • setprefix
@@ -4790,7 +4701,7 @@ case 4: {
 // │  • setpp
 // │  • repo
 // │
-// ├─⊷ *🔄 SYSTEM & MAINTENANCE*
+// ├◆ *🔄 SYSTEM & MAINTENANCE*
 // │  • restart
 // │  • workingreload
 // │  • reloadenv
@@ -4801,9 +4712,9 @@ case 4: {
 // │  • hostip
 // │  • findcommands
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *⚙️ AUTOMATION*
+// ┌─⧭⊷ *⚙️ AUTOMATION*
 // │
 // │  • autoread
 // │  • autotyping
@@ -4813,11 +4724,11 @@ case 4: {
 // │  • autobio
 // │  • autorec
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *✨ GENERAL UTILITIES*
+// ┌─⧭⊷ *✨ GENERAL UTILITIES*
 // │
-// ├─⊷ *🔍 INFO & SEARCH*
+// ├◆ *🔍 INFO & SEARCH*
 // │  • alive
 // │  • ping
 // │  • ping2
@@ -4832,7 +4743,7 @@ case 4: {
 // │  • getgpp
 // │  • prefixinfo
 // │
-// ├─⊷ *🔗 CONVERSION & MEDIA*
+// ├◆ *🔗 CONVERSION & MEDIA*
 // │  • shorturl
 // │  • qrencode
 // │  • take
@@ -4840,14 +4751,14 @@ case 4: {
 // │  • tiktok
 // │  • save
 // │
-// ├─⊷ *📝 PERSONAL TOOLS*
+// ├◆ *📝 PERSONAL TOOLS*
 // │  • pair
 // │  • resetwarn
 // │  • setwarn
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *🎵 MUSIC & MEDIA*
+// ┌─⧭⊷ *🎵 MUSIC & MEDIA*
 // │
 // │  • play
 // │  • song
@@ -4858,11 +4769,11 @@ case 4: {
 // │  • bassboost
 // │  • trebleboost
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *🤖 MEDIA & AI COMMANDS*
+// ┌─⧭⊷ *🤖 MEDIA & AI COMMANDS*
 // │
-// ├─⊷ *⬇️ MEDIA DOWNLOADS*
+// ├◆ *⬇️ MEDIA DOWNLOADS*
 // │  • youtube
 // │  • tiktok
 // │  • instagram
@@ -4870,7 +4781,7 @@ case 4: {
 // │  • snapchat
 // │  • apk
 // │
-// ├─⊷ *🎨 AI GENERATION*
+// ├◆ *🎨 AI GENERATION*
 // │  • gpt
 // │  • gemini
 // │  • deepseek
@@ -4880,9 +4791,9 @@ case 4: {
 // │  • wolfbot
 // │  • videogen
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *🖼️ IMAGE TOOLS*
+// ┌─⧭⊷ *🖼️ IMAGE TOOLS*
 // │
 // │  • image
 // │  • imagegenerate
@@ -4890,21 +4801,21 @@ case 4: {
 // │  • art
 // │  • real
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *🛡️ SECURITY & HACKING*
+// ┌─⧭⊷ *🛡️ SECURITY & HACKING*
 // │
-// ├─⊷ *🌐 NETWORK & INFO*
+// ├◆ *🌐 NETWORK & INFO*
 // │  • ipinfo
 // │  • shodan
 // │  • iplookup
 // │  • getip
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *🎨 LOGO DESIGN STUDIO*
+// ┌─⧭⊷ *🎨 LOGO DESIGN STUDIO*
 // │
-// ├─⊷ *🌟 PREMIUM METALS*
+// ├◆ *🌟 PREMIUM METALS*
 // │  • goldlogo
 // │  • silverlogo
 // │  • platinumlogo
@@ -4915,7 +4826,7 @@ case 4: {
 // │  • copperlogo
 // │  • titaniumlogo
 // │
-// ├─⊷ *🔥 ELEMENTAL EFFECTS*
+// ├◆ *🔥 ELEMENTAL EFFECTS*
 // │  • firelogo
 // │  • icelogo
 // │  • iceglowlogo
@@ -4925,28 +4836,28 @@ case 4: {
 // │  • sunlogo
 // │  • moonlogo
 // │
-// ├─⊷ *🎭 MYTHICAL & MAGICAL*
+// ├◆ *🎭 MYTHICAL & MAGICAL*
 // │  • dragonlogo
 // │  • phoenixlogo
 // │  • wizardlogo
 // │  • crystallogo
 // │  • darkmagiclogo
 // │
-// ├─⊷ *🌌 DARK & GOTHIC*
+// ├◆ *🌌 DARK & GOTHIC*
 // │  • shadowlogo
 // │  • smokelogo
 // │  • bloodlogo
 // │
-// ├─⊷ *💫 GLOW & NEON EFFECTS*
+// ├◆ *💫 GLOW & NEON EFFECTS*
 // │  • neonlogo
 // │  • glowlogo
 // │
-// ├─⊷ *🤖 TECH & FUTURISTIC*
+// ├◆ *🤖 TECH & FUTURISTIC*
 // │  • matrixlogo
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *🐙 GITHUB COMMANDS*
+// ┌─⧭⊷ *🐙 GITHUB COMMANDS*
 // │
 // │  • gitclone
 // │  • gitinfo
@@ -4956,9 +4867,9 @@ case 4: {
 // │  • watchers
 // │  • release
 // │
-// ╰─⊷
+// └─⧭⊷
 
-// ╭─⊷ *🌸 ANIME COMMANDS*
+// ┌─⧭⊷ *🌸 ANIME COMMANDS*
 // │
 // │  • awoo
 // │  • bj
@@ -4981,7 +4892,7 @@ case 4: {
 // │  • wink
 // │  • yeet
 // │
-// ╰─⊷
+// └─⧭⊷
 
 // 🐺 *POWERED BY WOLF TECH* 🐺`;
 
@@ -5489,7 +5400,7 @@ case 5: {
   const ramUsage = getRAMUsage();
   
   // ========== UPDATED MENU WITH CURVED FORMAT ==========
-  let infoSection = `╭─⌈ \`${currentBotName}\` ⌋
+  let infoSection = `┌─⧭ \`${currentBotName}\` 
 ├◆  ╭⊷ *User:* ${m.pushName || "Anonymous"}
 ├◆  ├⊷ *Owner:* ${ownerName}
 ├◆  ├⊷ *Mode:* ${botMode}
@@ -5500,16 +5411,15 @@ case 5: {
 ├◆  ├⊷ *Uptime:* ${formatUptime(process.uptime())}
 ├◆  ├⊷ *RAM Usage:* ${ramUsage.percent}%
 ├◆  │  ${ramUsage.bar}
-├◆  ╰⊷ *Memory:* ${ramUsage.usedMB}MB / ${ramUsage.totalMB}MB
-╰─⊷`;
+├◆  └─⧭⊷ *Memory:* ${ramUsage.usedMB}MB / ${ramUsage.totalMB}MB
+└─⧭⊷`;
 
   // Apply faded effect to the info section
   const fadedInfoSection = createFadedEffect(infoSection);
 
   // ========== COMMANDS SECTION ==========
-  const commandsText = `╭─⊷ *🏠 GROUP MANAGEMENT*
-│
-├─⊷ *🛡️ ADMIN & MODERATION*
+  const commandsText = `┌─⧭⊷ *🏠 GROUP MANAGEMENT*
+├◆ *🛡️ ADMIN & MODERATION*
 ├◆  • add
 ├◆  • promote
 ├◆  • promoteall
@@ -5537,8 +5447,7 @@ case 5: {
 ├◆  • goodbye
 ├◆  • leave
 ├◆  • creategroup
-│
-├─⊷ *🚫 AUTO-MODERATION*
+├◆ *🚫 AUTO-MODERATION*
 ├◆  • antisticker
 ├◆  • antiimage
 ├◆  • antivideo
@@ -5551,8 +5460,7 @@ case 5: {
 ├◆  • antiviewonce
 ├◆  • antibadword
 ├◆  • antigroupcall
-│
-├─⊷ *📊 GROUP INFO & TOOLS*
+├◆ *📊 GROUP INFO & TOOLS*
 ├◆  • groupinfo
 ├◆  • grouplink
 ├◆  • tagadmin
@@ -5571,22 +5479,18 @@ case 5: {
 ├◆  • approveall
 ├◆  • rejectall
 ├◆  • stickerpack
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🎨 MENU COMMANDS*
-│
+┌─⧭⊷ *🎨 MENU COMMANDS*
 ├◆  • menu
 ├◆  • menustyle
 ├◆  • togglemenuinfo
 ├◆  • setmenuimage
 ├◆  • restoremenuimage
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *👑 OWNER CONTROLS*
-│
-├─⊷ *⚡ CORE MANAGEMENT*
+┌─⧭⊷ *👑 OWNER CONTROLS*
+├◆ *⚡ CORE MANAGEMENT*
 ├◆  • setbotname
 ├◆  • resetbotname
 ├◆  • setowner
@@ -5613,8 +5517,7 @@ case 5: {
 ├◆  • antiedit
 ├◆  • chatbot
 ├◆  • shutdown
-│
-├─⊷ *🔄 SYSTEM & MAINTENANCE*
+├◆ *🔄 SYSTEM & MAINTENANCE*
 ├◆  • restart
 ├◆  • workingreload
 ├◆  • reloadenv
@@ -5627,19 +5530,16 @@ case 5: {
 ├◆  • latestupdates
 ├◆  • platform
 ├◆  • debugchat
-│
-├─⊷ *🔒 PRIVACY CONTROLS*
+├◆ *🔒 PRIVACY CONTROLS*
 ├◆  • online
 ├◆  • privacy
 ├◆  • receipt
 ├◆  • profilepic
 ├◆  • viewer
 ├◆  • lastseen
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *👥 SUDO*
-│
+┌─⧭⊷ *👥 SUDO*
 ├◆  • addsudo
 ├◆  • delsudo
 ├◆  • listsudo
@@ -5650,11 +5550,9 @@ case 5: {
 ├◆  • mysudo
 ├◆  • sudodebug
 ├◆  • linksudo
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *⚙️ AUTOMATION*
-│
+┌─⧭⊷ *⚙️ AUTOMATION*
 ├◆  • autoread
 ├◆  • autotyping
 ├◆  • autorecording
@@ -5664,12 +5562,10 @@ case 5: {
 ├◆  • autobio
 ├◆  • autorec
 ├◆  • reactowner
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *✨ GENERAL UTILITIES*
-│
-├─⊷ *🔍 INFO & SEARCH*
+┌─⧭⊷ *✨ GENERAL UTILITIES*
+├◆ *🔍 INFO & SEARCH*
 ├◆  • alive
 ├◆  • ping
 ├◆  • ping2
@@ -5687,8 +5583,7 @@ case 5: {
 ├◆  • getgpp
 ├◆  • prefixinfo
 ├◆  • platform
-│
-├─⊷ *🔗 CONVERSION & MEDIA*
+├◆ *🔗 CONVERSION & MEDIA*
 ├◆  • shorturl
 ├◆  • url
 ├◆  • fetch
@@ -5706,17 +5601,14 @@ case 5: {
 ├◆  • tts
 ├◆  • trebleboost
 ├◆  • jarvis
-│
-├─⊷ *📇 CONTACT TOOLS*
+├◆ *📇 CONTACT TOOLS*
 ├◆  • vcf
 ├◆  • viewvcf
 ├◆  • vv
 ├◆  • vv2
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🎵 MUSIC & MEDIA*
-│
+┌─⧭⊷ *🎵 MUSIC & MEDIA*
 ├◆  • play
 ├◆  • song
 ├◆  • video
@@ -5724,11 +5616,9 @@ case 5: {
 ├◆  • lyrics
 ├◆  • shazam
 ├◆  • spotify
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *⬇️ MEDIA DOWNLOADS*
-│
+┌─⧭⊷ *⬇️ MEDIA DOWNLOADS*
 ├◆  • tiktok
 ├◆  • instagram
 ├◆  • facebook
@@ -5742,12 +5632,10 @@ case 5: {
 ├◆  • ytvdoc
 ├◆  • videodl
 ├◆  • playlist
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🤖 AI COMMANDS*
-│
-├─⊷ *💬 AI CHAT*
+┌─⧭⊷ *🤖 AI COMMANDS*
+├◆ *💬 AI CHAT*
 ├◆  • gpt
 ├◆  • chatgpt
 ├◆  • copilot
@@ -5765,8 +5653,7 @@ case 5: {
 ├◆  • wormgpt
 ├◆  • deepseek+
 ├◆  • chatbot
-│
-├─⊷ *🎨 AI GENERATION*
+├◆ *🎨 AI GENERATION*
 ├◆  • imagine
 ├◆  • imagegen
 ├◆  • flux
@@ -5778,29 +5665,24 @@ case 5: {
 ├◆  • totext
 ├◆  • removebg
 ├◆  • vision
-│
-├─⊷ *🎬 AI TOOLS*
+├◆ *🎬 AI TOOLS*
 ├◆  • videogen
 ├◆  • aiscanner
 ├◆  • aimenu
 ├◆  • brandlogo
 ├◆  • companylogo
 ├◆  • logoai
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🎬 AI VIDEO EFFECTS*
-│
+┌─⧭⊷ *🎬 AI VIDEO EFFECTS*
 ├◆  • tigervideo
 ├◆  • introvideo
 ├◆  • lightningpubg
 ├◆  • lovevideo
 ├◆  • videogen
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🖼️ IMAGE TOOLS*
-│
+┌─⧭⊷ *🖼️ IMAGE TOOLS*
 ├◆  • image
 ├◆  • imagegen
 ├◆  • imagine
@@ -5809,11 +5691,9 @@ case 5: {
 ├◆  • real
 ├◆  • remini
 ├◆  • vision
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🏆 SPORTS*
-│
+┌─⧭⊷ *🏆 SPORTS*
 ├◆  • football
 ├◆  • matchstats
 ├◆  • sportsnews
@@ -5828,11 +5708,9 @@ case 5: {
 ├◆  • hockey
 ├◆  • golf
 ├◆  • sportsmenu
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🛡️ ETHICAL HACKING*
-│
+┌─⧭⊷ *🛡️ ETHICAL HACKING*
 ├◆  • whois
 ├◆  • dnslookup
 ├◆  • subdomain
@@ -5881,11 +5759,9 @@ case 5: {
 ├◆  • ipinfo
 ├◆  • nglattack
 ├◆  • securitymenu
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🕵️ STALKER COMMANDS*
-│
+┌─⧭⊷ *🕵️ STALKER COMMANDS*
 ├◆  • wachannel
 ├◆  • tiktokstalk
 ├◆  • twitterstalk
@@ -5894,11 +5770,9 @@ case 5: {
 ├◆  • npmstalk
 ├◆  • gitstalk
 ├◆  • stalkermenu
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🎨 LOGO DESIGN STUDIO*
-│
+┌─⧭⊷ *🎨 LOGO DESIGN STUDIO*
 ├◆  • goldlogo
 ├◆  • silverlogo
 ├◆  • platinumlogo
@@ -5929,22 +5803,18 @@ case 5: {
 ├◆  • matrixlogo
 ├◆  • aqualogo
 ├◆  • logomenu
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🐙 GITHUB COMMANDS*
-│
+┌─⧭⊷ *🐙 GITHUB COMMANDS*
 ├◆  • gitclone
 ├◆  • gitinfo
 ├◆  • repanalyze
 ├◆  • zip
 ├◆  • update
 ├◆  • repo
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🌸 ANIME COMMANDS*
-│
+┌─⧭⊷ *🌸 ANIME COMMANDS*
 ├◆  • animemenu
 ├◆  • awoo
 ├◆  • bully
@@ -5967,11 +5837,9 @@ case 5: {
 ├◆  • waifu
 ├◆  • wink
 ├◆  • yeet
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🎮 GAMES*
-│
+┌─⧭⊷ *🎮 GAMES*
 ├◆  • coinflip
 ├◆  • dare
 ├◆  • dice
@@ -5984,11 +5852,9 @@ case 5: {
 ├◆  • truth
 ├◆  • tictactoe
 ├◆  • quote
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🎭 FUN & TOOLS*
-│
+┌─⧭⊷ *🎭 FUN & TOOLS*
 ├◆  • bf
 ├◆  • gf
 ├◆  • couple
@@ -6000,19 +5866,15 @@ case 5: {
 ├◆  • goodnight
 ├◆  • channelstatus
 ├◆  • hack
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *⚡ QUICK COMMANDS*
-│
+┌─⧭⊷ *⚡ QUICK COMMANDS*
 ├◆  • p
 ├◆  • up
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *✨ EPHOTO TEXT EFFECTS*
-│
-├─⊷ *💡 NEON & GLOW*
+┌─⧭⊷ *✨ EPHOTO TEXT EFFECTS*
+├◆ *💡 NEON & GLOW*
 ├◆  • neon
 ├◆  • colorfulglow
 ├◆  • advancedglow
@@ -6032,8 +5894,7 @@ case 5: {
 ├◆  • blackpinkneon
 ├◆  • neonglitch
 ├◆  • colorfulneonlight
-│
-├─⊷ *🧊 3D TEXT EFFECTS*
+├◆ *🧊 3D TEXT EFFECTS*
 ├◆  • wooden3d
 ├◆  • cubic3d
 ├◆  • wooden3donline
@@ -6074,10 +5935,8 @@ case 5: {
 ├◆  • glossysilver3d
 ├◆  • balloon3d
 ├◆  • comic3d
-│
-├─⊷ *📋 MENU:* ephotomenu
-│
-╰─⊷
+├◆ *📋 MENU:* ephotomenu
+└─⧭⊷
 
 🐺 *POWERED BY WOLF TECH* 🐺`;
 
@@ -6478,8 +6337,8 @@ case 6: {
   const deploymentPlatform = getPlatformInfo();
   
   // ========== UPDATED HEADER FORMAT ==========
-  // ┌──⌈ WOLFBOT ⌋ 〘SW〙
-  let infoSection = `> ┌──⌈ ${currentBotName} ⌋ 〘SW〙\n\n`;
+  // ┌── WOLFBOT  〘SW〙
+  let infoSection = `> ┌── ${currentBotName}  〘SW〙\n\n`;
   
   // Add info section only if any field is enabled
   const fieldsStatus = getAllFieldsStatus(style);
@@ -6538,7 +6397,7 @@ case 6: {
 
   // ========== COMMAND SECTIONS WITH > PREFIX ==========
   const categorySections = [
-`> ┌──⌈ \`GROUP MANAGEMENT\` ⌋
+`> ┌── \`GROUP MANAGEMENT\` 
 > │ add
 > │ promote
 > │ promoteall
@@ -6566,7 +6425,7 @@ case 6: {
 > │ leave
 > │ creategroup
 > └───────────────`,
-`> ┌──⌈ \`AUTO MODERATION\` ⌋
+`> ┌── \`AUTO MODERATION\` 
 > │ antisticker
 > │ antiimage
 > │ antivideo
@@ -6580,7 +6439,7 @@ case 6: {
 > │ antibadword
 > │ antigroupcall
 > └───────────────`,
-`> ┌──⌈ \`GROUP INFO & TOOLS\` ⌋
+`> ┌── \`GROUP INFO & TOOLS\` 
 > │ groupinfo
 > │ grouplink
 > │ tagadmin
@@ -6599,7 +6458,7 @@ case 6: {
 > │ approveall
 > │ rejectall
 > └───────────────`,
-`> ┌──⌈ \`MENU SETTINGS\` ⌋
+`> ┌── \`MENU SETTINGS\` 
 > │ menu
 > │ menu2
 > │ menustyle
@@ -6607,7 +6466,7 @@ case 6: {
 > │ setmenuimage
 > │ restoremenuimage
 > └───────────────`,
-`> ┌──⌈ \`OWNER CONTROLS\` ⌋
+`> ┌── \`OWNER CONTROLS\` 
 > │ setbotname
 > │ resetbotname
 > │ setowner
@@ -6635,7 +6494,7 @@ case 6: {
 > │ chatbot
 > │ shutdown
 > └───────────────`,
-`> ┌──⌈ \`SYSTEM & MAINTENANCE\` ⌋
+`> ┌── \`SYSTEM & MAINTENANCE\` 
 > │ restart
 > │ workingreload
 > │ reloadenv
@@ -6649,7 +6508,7 @@ case 6: {
 > │ panel
 > │ debugchat
 > └───────────────`,
-`> ┌──⌈ \`SUDO\` ⌋
+`> ┌── \`SUDO\` 
 > │ addsudo
 > │ delsudo
 > │ listsudo
@@ -6661,7 +6520,7 @@ case 6: {
 > │ sudodebug
 > │ linksudo
 > └───────────────`,
-`> ┌──⌈ \`AUTOMATION\` ⌋
+`> ┌── \`AUTOMATION\` 
 > │ autoread
 > │ autotyping
 > │ autorecording
@@ -6672,7 +6531,7 @@ case 6: {
 > │ autorec
 > │ reactowner
 > └───────────────`,
-`> ┌──⌈ \`PRIVACY CONTROLS\` ⌋
+`> ┌── \`PRIVACY CONTROLS\` 
 > │ online
 > │ privacy
 > │ receipt
@@ -6680,7 +6539,7 @@ case 6: {
 > │ viewer
 > │ lastseen
 > └───────────────`,
-`> ┌──⌈ \`GENERAL UTILITIES\` ⌋
+`> ┌── \`GENERAL UTILITIES\` 
 > │ alive
 > │ ping
 > │ ping2
@@ -6699,7 +6558,7 @@ case 6: {
 > │ prefixinfo
 > │ platform
 > └───────────────`,
-`> ┌──⌈ \`CONVERSION & MEDIA\` ⌋
+`> ┌── \`CONVERSION & MEDIA\` 
 > │ shorturl
 > │ url
 > │ fetch
@@ -6717,13 +6576,13 @@ case 6: {
 > │ trebleboost
 > │ jarvis
 > └───────────────`,
-`> ┌──⌈ \`CONTACT TOOLS\` ⌋
+`> ┌── \`CONTACT TOOLS\` 
 > │ vcf
 > │ viewvcf
 > │ vv
 > │ vv2
 > └───────────────`,
-`> ┌──⌈ \`MUSIC\` ⌋
+`> ┌── \`MUSIC\` 
 > │ play
 > │ song
 > │ video
@@ -6732,7 +6591,7 @@ case 6: {
 > │ shazam
 > │ spotify
 > └───────────────`,
-`> ┌──⌈ \`MEDIA DOWNLOADS\` ⌋
+`> ┌── \`MEDIA DOWNLOADS\` 
 > │ tiktok
 > │ instagram
 > │ facebook
@@ -6747,7 +6606,7 @@ case 6: {
 > │ videodl
 > │ playlist
 > └───────────────`,
-`> ┌──⌈ \`AI COMMANDS\` ⌋
+`> ┌── \`AI COMMANDS\` 
 > │ gpt
 > │ chatgpt
 > │ copilot
@@ -6766,7 +6625,7 @@ case 6: {
 > │ deepseek+
 > │ chatbot
 > └───────────────`,
-`> ┌──⌈ \`AI GENERATION\` ⌋
+`> ┌── \`AI GENERATION\` 
 > │ imagine
 > │ imagegen
 > │ flux
@@ -6779,7 +6638,7 @@ case 6: {
 > │ removebg
 > │ vision
 > └───────────────`,
-`> ┌──⌈ \`AI TOOLS\` ⌋
+`> ┌── \`AI TOOLS\` 
 > │ videogen
 > │ aiscanner
 > │ aimenu
@@ -6787,14 +6646,14 @@ case 6: {
 > │ companylogo
 > │ logoai
 > └───────────────`,
-`> ┌──⌈ \`AI VIDEO EFFECTS\` ⌋
+`> ┌── \`AI VIDEO EFFECTS\` 
 > │ tigervideo
 > │ introvideo
 > │ lightningpubg
 > │ lovevideo
 > │ videogen
 > └───────────────`,
-`> ┌──⌈ \`IMAGE TOOLS\` ⌋
+`> ┌── \`IMAGE TOOLS\` 
 > │ image
 > │ imagegen
 > │ imagine
@@ -6804,7 +6663,7 @@ case 6: {
 > │ remini
 > │ vision
 > └───────────────`,
-`> ┌──⌈ \`SPORTS\` ⌋
+`> ┌── \`SPORTS\` 
 > │ football
 > │ matchstats
 > │ sportsnews
@@ -6820,7 +6679,7 @@ case 6: {
 > │ golf
 > │ sportsmenu
 > └───────────────`,
-`> ┌──⌈ \`ETHICAL HACKING\` ⌋
+`> ┌── \`ETHICAL HACKING\` 
 > │ whois
 > │ dnslookup
 > │ subdomain
@@ -6870,7 +6729,7 @@ case 6: {
 > │ nglattack
 > │ securitymenu
 > └───────────────`,
-`> ┌──⌈ \`LOGO DESIGN STUDIO\` ⌋
+`> ┌── \`LOGO DESIGN STUDIO\` 
 > │ goldlogo
 > │ silverlogo
 > │ platinumlogo
@@ -6901,7 +6760,7 @@ case 6: {
 > │ gradientlogo
 > │ matrixlogo
 > └───────────────`,
-`> ┌──⌈ \`GITHUB TOOLS\` ⌋
+`> ┌── \`GITHUB TOOLS\` 
 > │ gitclone
 > │ gitinfo
 > │ repanalyze
@@ -6909,7 +6768,7 @@ case 6: {
 > │ update
 > │ repo
 > └───────────────`,
-`> ┌──⌈ \`ANIME REACTIONS\` ⌋
+`> ┌── \`ANIME REACTIONS\` 
 > │ animemenu
 > │ awoo
 > │ bully
@@ -6933,7 +6792,7 @@ case 6: {
 > │ wink
 > │ yeet
 > └───────────────`,
-`> ┌──⌈ \`GAMES\` ⌋
+`> ┌── \`GAMES\` 
 > │ coinflip
 > │ dare
 > │ dice
@@ -6947,7 +6806,7 @@ case 6: {
 > │ tictactoe
 > │ quote
 > └───────────────`,
-`> ┌──⌈ \`FUN & TOOLS\` ⌋
+`> ┌── \`FUN & TOOLS\` 
 > │ bf
 > │ gf
 > │ couple
@@ -6960,11 +6819,11 @@ case 6: {
 > │ channelstatus
 > │ hack
 > └───────────────`,
-`> ┌──⌈ \`QUICK COMMANDS\` ⌋
+`> ┌── \`QUICK COMMANDS\` 
 > │ p
 > │ up
 > └───────────────`,
-`> ┌──⌈ \`EPHOTO TEXT EFFECTS\` ⌋
+`> ┌── \`EPHOTO TEXT EFFECTS\` 
 > │ neon
 > │ colorfulglow
 > │ advancedglow
@@ -7539,10 +7398,8 @@ case 6: {
 
 //   const commandsText = `┌────────────────
 // │ 🏠 GROUP MANAGEMENT 🏠 
-// ├────────────────
-// │ 🛡️ ADMIN & MODERATION 🛡️ 
-// ├────────────────
-// │ add                     
+// ├◆ // │ 🛡️ ADMIN & MODERATION 🛡️ 
+// ├◆ // │ add                     
 // │ promote                 
 // │ demote                  
 // │ kick                    
@@ -7560,10 +7417,8 @@ case 6: {
 // │ antileave               
 // │ antilink                
 // │ welcome                 
-// ├────────────────
-// │ 🚫 AUTO-MODERATION 🚫   
-// ├────────────────
-// │ antisticker             
+// ├◆ // │ 🚫 AUTO-MODERATION 🚫   
+// ├◆ // │ antisticker             
 // │ antiviewonce  
 // │ antilink  
 // │ antiimage
@@ -7572,10 +7427,8 @@ case 6: {
 // │ antimention
 // │ antistatusmention  
 // │ antigrouplink
-// ├────────────────
-// │ 📊 GROUP INFO & TOOLS 📊 
-// ├────────────────
-// │ groupinfo               
+// ├◆ // │ 📊 GROUP INFO & TOOLS 📊 
+// ├◆ // │ groupinfo               
 // │ tagadmin                
 // │ tagall                  
 // │ hidetag                 
@@ -7590,8 +7443,7 @@ case 6: {
 
 // ┌────────────────
 // │ 🎨 MENU COMMANDS 🎨
-// ├────────────────
-// │ togglemenuinfo
+// ├◆ // │ togglemenuinfo
 // │ setmenuimage
 // │ resetmenuinfo
 // │ menustyle
@@ -7599,10 +7451,8 @@ case 6: {
 
 // ┌────────────────
 // │ 👑 OWNER CONTROLS 👑    
-// ├────────────────
-// │ ⚡ CORE MANAGEMENT ⚡    
-// ├────────────────
-// │ setbotname              
+// ├◆ // │ ⚡ CORE MANAGEMENT ⚡    
+// ├◆ // │ setbotname              
 // │ setowner                
 // │ setprefix               
 // │ iamowner                
@@ -7618,10 +7468,8 @@ case 6: {
 // │ repo                    
 // │ antidelete              
 // │ antideletestatus                  
-// ├────────────────
-// │ 🔄 SYSTEM & MAINTENANCE 🛠️ 
-// ├────────────────
-// │ restart                 
+// ├◆ // │ 🔄 SYSTEM & MAINTENANCE 🛠️ 
+// ├◆ // │ restart                 
 // │ workingreload           
 // │ reloadenv               
 // │ getsettings             
@@ -7634,8 +7482,7 @@ case 6: {
 
 // ┌────────────────
 // │ ⚙️ AUTOMATION ⚙️
-// ├────────────────
-// │ autoread                
+// ├◆ // │ autoread                
 // │ autotyping              
 // │ autorecording           
 // │ autoreact               
@@ -7645,10 +7492,8 @@ case 6: {
 // └────────────────
 // ┌────────────────
 // │ ✨ GENERAL UTILITIES ✨
-// ├────────────────
-// │ 🔍 INFO & SEARCH 🔎
-// ├────────────────
-// │ alive
+// ├◆ // │ 🔍 INFO & SEARCH 🔎
+// ├◆ // │ alive
 // │ ping
 // │ ping2
 // │ time
@@ -7661,10 +7506,8 @@ case 6: {
 // │ getpp
 // │ getgpp
 // │ prefixinfo
-// ├───────────────
-// │ 🔗 CONVERSION & MEDIA 📁
-// ├───────────────
-// │ shorturl
+// ├◆ // │ 🔗 CONVERSION & MEDIA 📁
+// ├◆ // │ shorturl
 // │ qrencode
 // │ take
 // │ imgbb
@@ -7674,29 +7517,23 @@ case 6: {
 // │ tosticker
 // │ toaudio
 // │ tts
-// ├───────────────
-// │ 📝 PERSONAL TOOLS 📅
-// ├───────────────
-// │ pair
+// ├◆ // │ 📝 PERSONAL TOOLS 📅
+// ├◆ // │ pair
 // │ resetwarn
 // │ setwarn
 // └────────────────
 
 
-// ├────────────────
-// │ 🎵 MUSIC  🎶
-// ├────────────────
-// │ play                    
+// ├◆ // │ 🎵 MUSIC  🎶
+// ├◆ // │ play                    
 // │ song                    
 // │ lyrics                  
 // │ spotify                             
 // └────────────────
 // ┌────────────────
 // │ 🤖 MEDIA & AI COMMANDS 🧠 
-// ├────────────────
-// │ ⬇️ MEDIA DOWNLOADS 📥     
-// ├────────────────
-// │ youtube                 
+// ├◆ // │ ⬇️ MEDIA DOWNLOADS 📥     
+// ├◆ // │ youtube                 
 // │ tiktok                 
 // │ instagram               
 // │ facebook                
@@ -7713,10 +7550,8 @@ case 6: {
 // │ spotify
 // │ video
 // │ image                  
-// ├────────────────
-// │ 🎨 AI GENERATION 💡    
-// ├────────────────
-// │ gpt                     
+// ├◆ // │ 🎨 AI GENERATION 💡    
+// ├◆ // │ gpt                     
 // │ gemini                  
 // │ deepseek                
 // │ deepseek+               
@@ -7732,18 +7567,15 @@ case 6: {
 // │ blackbox
 // │ mistral
 // │ metai                        
-// ├────────────────
-// │ 🎨 AI TOOLS💡    
-// ├────────────────
-// │ videogen   
+// ├◆ // │ 🎨 AI TOOLS💡    
+// ├◆ // │ videogen   
 // │ aiscanner
 // │ humanizer
 // │ summarize     
 // └───────────────
 // ┌───────────────
 // │ 🖼️ IMAGE TOOLS 🖼️
-// ├───────────────
-// │ image                   
+// ├◆ // │ image                   
 // │ imagegenerate           
 // │ anime                   
 // │ art                     
@@ -7752,10 +7584,8 @@ case 6: {
 
 // ┌───────────────
 // │ 🛡️ SECURITY & HACKING 🔒 
-// ├───────────────
-// │ 🌐 NETWORK & INFO 📡   
-// ├───────────────
-// │ ipinfo                  
+// ├◆ // │ 🌐 NETWORK & INFO 📡   
+// ├◆ // │ ipinfo                  
 // │ shodan                  
 // │ iplookup                
 // │ getip                   
@@ -7763,10 +7593,8 @@ case 6: {
 
 // ┌────────────────
 // │ 🎨 LOGO DESIGN STUDIO 🎨
-// ├────────────────
-// │ 🌟 PREMIUM METALS 🌟    
-// ├────────────────
-// │ goldlogo                
+// ├◆ // │ 🌟 PREMIUM METALS 🌟    
+// ├◆ // │ goldlogo                
 // │ silverlogo              
 // │ platinumlogo            
 // │ chromelogo              
@@ -7775,10 +7603,8 @@ case 6: {
 // │ steelogo                
 // │ copperlogo              
 // │ titaniumlogo            
-// ├────────────────
-// │ 🔥 ELEMENTAL EFFECTS 🔥  
-// ├────────────────
-// │ firelogo                
+// ├◆ // │ 🔥 ELEMENTAL EFFECTS 🔥  
+// ├◆ // │ firelogo                
 // │ icelogo                 
 // │ iceglowlogo             
 // │ lightninglogo           
@@ -7786,34 +7612,25 @@ case 6: {
 // │ rainbowlogo             
 // │ sunlogo                 
 // │ moonlogo                
-// ├────────────────
-// │ 🎭 MYTHICAL & MAGICAL 🧙  
-// ├────────────────
-// │ dragonlogo              
+// ├◆ // │ 🎭 MYTHICAL & MAGICAL 🧙  
+// ├◆ // │ dragonlogo              
 // │ phoenixlogo             
 // │ wizardlogo              
 // │ crystallogo             
 // │ darkmagiclogo           
-// ├────────────────
-// │ 🌌 DARK & GOTHIC 🌑     
-// ├────────────────
-// │ shadowlogo              
+// ├◆ // │ 🌌 DARK & GOTHIC 🌑     
+// ├◆ // │ shadowlogo              
 // │ smokelogo               
 // │ bloodlogo               
-// ├────────────────
-// │ 💫 GLOW & NEON EFFECTS 🌈  
-// ├────────────────
-// │ neonlogo                
+// ├◆ // │ 💫 GLOW & NEON EFFECTS 🌈  
+// ├◆ // │ neonlogo                
 // │ glowlogo                
-// ├────────────────
-// │ 🤖 TECH & FUTURISTIC 🚀  
-// ├────────────────
-// │ matrixlogo              
+// ├◆ // │ 🤖 TECH & FUTURISTIC 🚀  
+// ├◆ // │ matrixlogo              
 // └────────────────
 // ┌────────────────
 // │ 🐙 GITHUB COMMANDS 🐙
-// ├────────────────
-// │ gitclone
+// ├◆ // │ gitclone
 // │ gitinfo
 // │ repo
 // │ commits
@@ -7823,8 +7640,7 @@ case 6: {
 // └────────────────
 // ┌────────────────
 // │ 🌸 ANIME COMMANDS 🌸
-// ├────────────────
-// │ awoo
+// ├◆ // │ awoo
 // │ bj
 // │ bully
 // │ cringe
@@ -8303,14 +8119,14 @@ case 7: {
     if ((fieldsStatus && fieldsStatus.usage) || (!fieldsStatus)) infoLines.push(`┃ Memory: ${usedMem}MB / ${totalMem}MB`);
 
     if (infoLines.length > 0) {
-      infoSection = `┌──⌈ \`${currentBotName}\` ⌋\n${infoLines.join('\n')}\n└────────────────\n\n`;
+      infoSection = `┌── \`${currentBotName}\` \n${infoLines.join('\n')}\n└────────────────\n\n`;
     }
   } else {
     infoSection = `*No additional information is enabled.*\n*Use .togglemenuinfo to customize*\n\n`;
   }
 
   const categorySections = [
-`┌──⌈ \`GROUP MANAGEMENT\` ⌋
+`┌── \`GROUP MANAGEMENT\` 
 ├◆ add
 ├◆ promote
 ├◆ promoteall
@@ -8338,7 +8154,7 @@ case 7: {
 ├◆ leave
 ├◆ creategroup
 └───────────────`,
-`┌──⌈ \`AUTO MODERATION\` ⌋
+`┌── \`AUTO MODERATION\` 
 ├◆ antisticker
 ├◆ antiimage
 ├◆ antivideo
@@ -8352,7 +8168,7 @@ case 7: {
 ├◆ antibadword
 ├◆ antigroupcall
 └───────────────`,
-`┌──⌈ \`GROUP INFO & TOOLS\` ⌋
+`┌── \`GROUP INFO & TOOLS\` 
 ├◆ groupinfo
 ├◆ grouplink
 ├◆ tagadmin
@@ -8371,7 +8187,7 @@ case 7: {
 ├◆ approveall
 ├◆ rejectall
 └───────────────`,
-`┌──⌈ \`MENU SETTINGS\` ⌋
+`┌── \`MENU SETTINGS\` 
 ├◆ menu
 ├◆ menu2
 ├◆ menustyle
@@ -8379,7 +8195,7 @@ case 7: {
 ├◆ setmenuimage
 ├◆ restoremenuimage
 └───────────────`,
-`┌──⌈ \`OWNER CONTROLS\` ⌋
+`┌── \`OWNER CONTROLS\` 
 ├◆ setbotname
 ├◆ resetbotname
 ├◆ setowner
@@ -8407,7 +8223,7 @@ case 7: {
 ├◆ chatbot
 ├◆ shutdown
 └───────────────`,
-`┌──⌈ \`SYSTEM & MAINTENANCE\` ⌋
+`┌── \`SYSTEM & MAINTENANCE\` 
 ├◆ restart
 ├◆ workingreload
 ├◆ reloadenv
@@ -8421,7 +8237,7 @@ case 7: {
 ├◆ panel
 ├◆ debugchat
 └───────────────`,
-`┌──⌈ \`SUDO\` ⌋
+`┌── \`SUDO\` 
 ├◆ addsudo
 ├◆ delsudo
 ├◆ listsudo
@@ -8433,7 +8249,7 @@ case 7: {
 ├◆ sudodebug
 ├◆ linksudo
 └───────────────`,
-`┌──⌈ \`AUTOMATION\` ⌋
+`┌── \`AUTOMATION\` 
 ├◆ autoread
 ├◆ autotyping
 ├◆ autorecording
@@ -8444,7 +8260,7 @@ case 7: {
 ├◆ autorec
 ├◆ reactowner
 └───────────────`,
-`┌──⌈ \`PRIVACY CONTROLS\` ⌋
+`┌── \`PRIVACY CONTROLS\` 
 ├◆ online
 ├◆ privacy
 ├◆ receipt
@@ -8452,7 +8268,7 @@ case 7: {
 ├◆ viewer
 ├◆ lastseen
 └───────────────`,
-`┌──⌈ \`GENERAL UTILITIES\` ⌋
+`┌── \`GENERAL UTILITIES\` 
 ├◆ alive
 ├◆ ping
 ├◆ ping2
@@ -8471,7 +8287,7 @@ case 7: {
 ├◆ prefixinfo
 ├◆ platform
 └───────────────`,
-`┌──⌈ \`CONVERSION & MEDIA\` ⌋
+`┌── \`CONVERSION & MEDIA\` 
 ├◆ shorturl
 ├◆ url
 ├◆ fetch
@@ -8489,13 +8305,13 @@ case 7: {
 ├◆ trebleboost
 ├◆ jarvis
 └───────────────`,
-`┌──⌈ \`CONTACT TOOLS\` ⌋
+`┌── \`CONTACT TOOLS\` 
 ├◆ vcf
 ├◆ viewvcf
 ├◆ vv
 ├◆ vv2
 └───────────────`,
-`┌──⌈ \`MUSIC\` ⌋
+`┌── \`MUSIC\` 
 ├◆ play
 ├◆ song
 ├◆ video
@@ -8504,7 +8320,7 @@ case 7: {
 ├◆ shazam
 ├◆ spotify
 └───────────────`,
-`┌──⌈ \`MEDIA DOWNLOADS\` ⌋
+`┌── \`MEDIA DOWNLOADS\` 
 ├◆ tiktok
 ├◆ instagram
 ├◆ facebook
@@ -8519,7 +8335,7 @@ case 7: {
 ├◆ videodl
 ├◆ playlist
 └───────────────`,
-`┌──⌈ \`AI COMMANDS\` ⌋
+`┌── \`AI COMMANDS\` 
 ├◆ gpt
 ├◆ chatgpt
 ├◆ copilot
@@ -8538,7 +8354,7 @@ case 7: {
 ├◆ deepseek+
 ├◆ chatbot
 └───────────────`,
-`┌──⌈ \`AI GENERATION\` ⌋
+`┌── \`AI GENERATION\` 
 ├◆ imagine
 ├◆ imagegen
 ├◆ flux
@@ -8551,7 +8367,7 @@ case 7: {
 ├◆ removebg
 ├◆ vision
 └───────────────`,
-`┌──⌈ \`AI TOOLS\` ⌋
+`┌── \`AI TOOLS\` 
 ├◆ videogen
 ├◆ aiscanner
 ├◆ aimenu
@@ -8559,14 +8375,14 @@ case 7: {
 ├◆ companylogo
 ├◆ logoai
 └───────────────`,
-`┌──⌈ \`AI VIDEO EFFECTS\` ⌋
+`┌── \`AI VIDEO EFFECTS\` 
 ├◆ tigervideo
 ├◆ introvideo
 ├◆ lightningpubg
 ├◆ lovevideo
 ├◆ videogen
 └───────────────`,
-`┌──⌈ \`IMAGE TOOLS\` ⌋
+`┌── \`IMAGE TOOLS\` 
 ├◆ image
 ├◆ imagegen
 ├◆ imagine
@@ -8576,7 +8392,7 @@ case 7: {
 ├◆ remini
 ├◆ vision
 └───────────────`,
-`┌──⌈ \`SPORTS\` ⌋
+`┌── \`SPORTS\` 
 ├◆ football
 ├◆ matchstats
 ├◆ sportsnews
@@ -8592,7 +8408,7 @@ case 7: {
 ├◆ golf
 ├◆ sportsmenu
 └───────────────`,
-`┌──⌈ \`ETHICAL HACKING\` ⌋
+`┌── \`ETHICAL HACKING\` 
 ├◆ whois
 ├◆ dnslookup
 ├◆ subdomain
@@ -8642,7 +8458,7 @@ case 7: {
 ├◆ nglattack
 ├◆ securitymenu
 └───────────────`,
-`┌──⌈ \`LOGO DESIGN STUDIO\` ⌋
+`┌── \`LOGO DESIGN STUDIO\` 
 ├◆ goldlogo
 ├◆ silverlogo
 ├◆ platinumlogo
@@ -8673,7 +8489,7 @@ case 7: {
 ├◆ gradientlogo
 ├◆ matrixlogo
 └───────────────`,
-`┌──⌈ \`GITHUB TOOLS\` ⌋
+`┌── \`GITHUB TOOLS\` 
 ├◆ gitclone
 ├◆ gitinfo
 ├◆ repanalyze
@@ -8681,7 +8497,7 @@ case 7: {
 ├◆ update
 ├◆ repo
 └───────────────`,
-`┌──⌈ \`ANIME REACTIONS\` ⌋
+`┌── \`ANIME REACTIONS\` 
 ├◆ animemenu
 ├◆ awoo
 ├◆ bully
@@ -8705,7 +8521,7 @@ case 7: {
 ├◆ wink
 ├◆ yeet
 └───────────────`,
-`┌──⌈ \`GAMES\` ⌋
+`┌── \`GAMES\` 
 ├◆ coinflip
 ├◆ dare
 ├◆ dice
@@ -8719,7 +8535,7 @@ case 7: {
 ├◆ tictactoe
 ├◆ quote
 └───────────────`,
-`┌──⌈ \`FUN & TOOLS\` ⌋
+`┌── \`FUN & TOOLS\` 
 ├◆ bf
 ├◆ gf
 ├◆ couple
@@ -8732,11 +8548,11 @@ case 7: {
 ├◆ channelstatus
 ├◆ hack
 └───────────────`,
-`┌──⌈ \`QUICK COMMANDS\` ⌋
+`┌── \`QUICK COMMANDS\` 
 ├◆ p
 ├◆ up
 └───────────────`,
-`┌──⌈ \`EPHOTO TEXT EFFECTS\` ⌋
+`┌── \`EPHOTO TEXT EFFECTS\` 
 ├◆ neon
 ├◆ colorfulglow
 ├◆ advancedglow

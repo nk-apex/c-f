@@ -65,7 +65,7 @@ export default {
 
     if (!searchQuery && !flags.list) {
       return sock.sendMessage(jid, {
-        text: `╭─⌈ 🎵 *PLAY COMMAND* ⌋\n│\n├─⊷ *${p}play <song name>*\n├◆  └⊷ Download audio\n├─⊷ *${p}play <YouTube URL>*\n├◆  └⊷ Download from link\n├─⊷ *${p}play list <query>*\n├◆  └⊷ Search and list results\n├─⊷ *Reply to a text message*\n├◆  └⊷ Uses replied text as search\n╰───`
+        text: `┌─⧭ 🎵 *PLAY COMMAND* \n├◆ *${p}play <song name>*\n├◆  └⊷ Download audio\n├◆ *${p}play <YouTube URL>*\n├◆  └⊷ Download from link\n├◆ *${p}play list <query>*\n├◆  └⊷ Search and list results\n├◆ *Reply to a text message*\n├◆  └⊷ Uses replied text as search\n└─⧭`
       }, { quoted: m });
     }
 

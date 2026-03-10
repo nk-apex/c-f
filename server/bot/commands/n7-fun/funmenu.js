@@ -10,8 +10,7 @@ export default {
   async execute(sock, m, args, PREFIX) {
     const jid = m.key.remoteJid;
 
-    const commandsText = `╭─⊷ *🎭 FUN & TOOLS*
-│
+    const commandsText = `┌─⧭⊷ *🎭 FUN & TOOLS*
 ├◆  • bf
 ├◆  • gf
 ├◆  • couple
@@ -23,8 +22,7 @@ export default {
 ├◆  • goodnight
 ├◆  • channelstatus
 ├◆  • hack
-│
-╰─⊷`;
+└─⧭⊷`;
 
     await sendSubMenu(sock, jid, '🎭 FUN MENU', commandsText, m, PREFIX);
   }

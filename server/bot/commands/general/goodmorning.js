@@ -104,7 +104,7 @@ export default {
       const regularCount = participants.length - adminCount;
       
       // Create final message with invisible trigger
-      const finalMessage = `‌‎᠎\u200B${selectedHumanMsg}\n\n📊 *Den Human Census:*\n├─ 🧑 Total Humans: ${participants.length}\n├─ 👑 Human Leaders: ${adminCount}\n└─ 🌟 Clever Humans: ${regularCount}\n\n⏰ *Greeting Time:* ${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}\n📅 *Date:* ${new Date().toLocaleDateString()}\n🎭 *Sent by:* ${sender} (your friendly fox)\n\n💫 *Note:* All humans invisibly greeted by fox magic! 🦊✨`;
+      const finalMessage = `‌‎᠎\u200B${selectedHumanMsg}\n\n📊 *Den Human Census:*\n├◆ 🧑 Total Humans: ${participants.length}\n├◆ 👑 Human Leaders: ${adminCount}\n└─ 🌟 Clever Humans: ${regularCount}\n\n⏰ *Greeting Time:* ${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}\n📅 *Date:* ${new Date().toLocaleDateString()}\n🎭 *Sent by:* ${sender} (your friendly fox)\n\n💫 *Note:* All humans invisibly greeted by fox magic! 🦊✨`;
       
       // Send with invisible mentions
       return sock.sendMessage(jid, {

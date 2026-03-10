@@ -28,7 +28,7 @@ export default {
     try {
       if (!args[0]) {
         await sock.sendMessage(jid, {
-          text: `╭─⌈ 🎵 *TIKTOK DOWNLOADER* ⌋\n│\n├─⊷ *${PREFIX}tiktok <url>*\n├◆  └⊷ Download without watermark\n│\n├─⊷ *Examples:*\n├◆  └⊷ ${PREFIX}tiktok https://vt.tiktok.com/xyz\n├◆  └⊷ ${PREFIX}tt https://www.tiktok.com/@user/video/123\n╰───`
+          text: `┌─⧭ 🎵 *TIKTOK DOWNLOADER* \n├◆ *${PREFIX}tiktok <url>*\n├◆  └⊷ Download without watermark\n├◆ *Examples:*\n├◆  └⊷ ${PREFIX}tiktok https://vt.tiktok.com/xyz\n├◆  └⊷ ${PREFIX}tt https://www.tiktok.com/@user/video/123\n└─⧭`
         }, { quoted: m });
         return;
       }
@@ -49,7 +49,7 @@ export default {
             const senderClean = (m.key.participant || m.key.remoteJid).split(':')[0].split('@')[0];
             const sessionKey = `tiktok:${senderClean}:${jid.split('@')[0]}`;
             setActionSession(sessionKey, { url, play: meta.play, wmplay: meta.wmplay });
-            const cardText = `╭─⌈ 🎵 *TIKTOK* ⌋\n├─⊷ *${meta.title || 'TikTok Video'}*\n├─⊷ By: ${meta.author || 'Unknown'}\n├─⊷ Duration: ${meta.duration || '?'}s\n╰───`;
+            const cardText = `┌─⧭ 🎵 *TIKTOK* \n├◆ *${meta.title || 'TikTok Video'}*\n├◆ By: ${meta.author || 'Unknown'}\n├◆ Duration: ${meta.duration || '?'}s\n└─⧭`;
             await giftedBtnsTt.sendInteractiveMessage(sock, jid, {
               image: meta.cover ? { url: meta.cover } : undefined,
               body: { text: cardText },

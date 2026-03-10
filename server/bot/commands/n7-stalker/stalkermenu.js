@@ -9,47 +9,33 @@ export default {
   async execute(sock, m, args, PREFIX) {
     const jid = m.key.remoteJid;
 
-    const commandsText = `╭─⊷ *📢 WHATSAPP CHANNEL*
-│
+    const commandsText = `┌─⧭⊷ *📢 WHATSAPP CHANNEL*
 ├◆  • wachannel <URL>
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🎵 TIKTOK*
-│
+┌─⧭⊷ *🎵 TIKTOK*
 ├◆  • tiktokstalk <username>
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🐦 TWITTER/X*
-│
+┌─⧭⊷ *🐦 TWITTER/X*
 ├◆  • twitterstalk <username>
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🌐 IP ADDRESS*
-│
+┌─⧭⊷ *🌐 IP ADDRESS*
 ├◆  • ipstalk <IP>
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *📸 INSTAGRAM*
-│
+┌─⧭⊷ *📸 INSTAGRAM*
 ├◆  • igstalk <username>
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *📦 NPM PACKAGE*
-│
+┌─⧭⊷ *📦 NPM PACKAGE*
 ├◆  • npmstalk <package>
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🐙 GITHUB*
-│
+┌─⧭⊷ *🐙 GITHUB*
 ├◆  • gitstalk <username>
-│
-╰─⊷`;
+└─⧭⊷`;
 
     await sendSubMenu(sock, jid, '🕵️ Stalker Menu', commandsText, m, PREFIX);
   }

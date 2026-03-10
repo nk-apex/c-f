@@ -1929,7 +1929,7 @@ export default {
                              `⏱️ *Default collection time:* ${config.defaultCollectionTime}s\n` +
                              `📈 *Max collection limit:* ${config.maxStickersPerCollection}\n` +
                              `🎯 *Max per pack:* ${config.maxStickersPerPack}\n\n` +
-                             `\n╭─⌈ 📦 *STICKER PACK COMMANDS* ⌋\n│\n├─⊷ *.stickerpack create [name]*\n├◆  └⊷ Make new WhatsApp pack\n├─⊷ *.stickerpack collect [time]*\n├◆  └⊷ Collect stickers\n├─⊷ *.stickerpack stop*\n├◆  └⊷ Stop collection\n├─⊷ *.stickerpack clear*\n├◆  └⊷ Clear all stickers\n├─⊷ *.stickerpack time [seconds]*\n├◆  └⊷ Set collection time\n╰───`;
+                             `\n┌─⧭ 📦 *STICKER PACK COMMANDS* \n├◆ *.stickerpack create [name]*\n├◆  └⊷ Make new WhatsApp pack\n├◆ *.stickerpack collect [time]*\n├◆  └⊷ Collect stickers\n├◆ *.stickerpack stop*\n├◆  └⊷ Stop collection\n├◆ *.stickerpack clear*\n├◆  └⊷ Clear all stickers\n├◆ *.stickerpack time [seconds]*\n├◆  └⊷ Set collection time\n└─⧭`;
             
             await sock.sendMessage(chatId, { text: statsText }, { quoted: msg });
 
@@ -2015,7 +2015,7 @@ export default {
         } else {
             // Show help
             const config = loadConfig();
-            const helpText = `╭─⌈ 📦 *STICKER PACK CREATOR* ⌋\n│\n├─⊷ *.stickerpack create [name]*\n├◆  └⊷ Create WhatsApp pack\n├─⊷ *.stickerpack collect [seconds]*\n├◆  └⊷ Start collecting\n├─⊷ *.stickerpack stop*\n├◆  └⊷ Stop current collection\n├─⊷ *.stickerpack time [seconds]*\n├◆  └⊷ Set collection time\n├─⊷ *.stickerpack list*\n├◆  └⊷ List all packs\n├─⊷ *.stickerpack info [number]*\n├◆  └⊷ Show pack details\n├─⊷ *.stickerpack stats*\n├◆  └⊷ Show statistics\n├─⊷ *.stickerpack clear*\n├◆  └⊷ Clear stickers\n├─⊷ *.stickerpack help*\n├◆  └⊷ Show this help\n╰───`;
+            const helpText = `┌─⧭ 📦 *STICKER PACK CREATOR* \n├◆ *.stickerpack create [name]*\n├◆  └⊷ Create WhatsApp pack\n├◆ *.stickerpack collect [seconds]*\n├◆  └⊷ Start collecting\n├◆ *.stickerpack stop*\n├◆  └⊷ Stop current collection\n├◆ *.stickerpack time [seconds]*\n├◆  └⊷ Set collection time\n├◆ *.stickerpack list*\n├◆  └⊷ List all packs\n├◆ *.stickerpack info [number]*\n├◆  └⊷ Show pack details\n├◆ *.stickerpack stats*\n├◆  └⊷ Show statistics\n├◆ *.stickerpack clear*\n├◆  └⊷ Clear stickers\n├◆ *.stickerpack help*\n├◆  └⊷ Show this help\n└─⧭`;
             
             await sock.sendMessage(chatId, { text: helpText }, { quoted: msg });
         }

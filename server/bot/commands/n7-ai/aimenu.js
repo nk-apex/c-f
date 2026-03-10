@@ -9,18 +9,15 @@ export default {
   async execute(sock, m, args, PREFIX, extra) {
     const jid = m.key.remoteJid;
 
-    const commandsText = `╭─⊷ *🔍 AI SCANNERS & ANALYZERS*
-│
+    const commandsText = `┌─⧭⊷ *🔍 AI SCANNERS & ANALYZERS*
 ├◆  • aiscanner
 ├◆  • analyze
 ├◆  • removebg
 ├◆  • summarize
 ├◆  • vision
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🤖 MAJOR AI MODELS*
-│
+┌─⧭⊷ *🤖 MAJOR AI MODELS*
 ├◆  • bard
 ├◆  • bing
 ├◆  • blackbox
@@ -39,35 +36,28 @@ export default {
 ├◆  • qwenai
 ├◆  • venice
 ├◆  • wormgpt
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🎨 AI IMAGE GENERATION*
-│
+┌─⧭⊷ *🎨 AI IMAGE GENERATION*
 ├◆  • brandlogo
 ├◆  • companylogo
 ├◆  • logoai
 ├◆  • suno
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *📝 WRITING & CONTENT*
-│
+┌─⧭⊷ *📝 WRITING & CONTENT*
 ├◆  • humanizer
 ├◆  • speechwriter
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🐺 WOLF AI ASSISTANT*
-│
+┌─⧭⊷ *🐺 WOLF AI ASSISTANT*
 ├◆  • wolf on/off — Toggle Wolf AI
 ├◆  • wolf status — Show Wolf AI stats
 ├◆  • wolf clear — Reset conversations
 ├◆  ───────────────
 ├◆  When active, just say "wolf"
 ├◆  followed by anything to chat!
-│
-╰─⊷`;
+└─⧭⊷`;
 
     await sendSubMenu(sock, jid, '🤖 AI MENU', commandsText, m, PREFIX);
   }

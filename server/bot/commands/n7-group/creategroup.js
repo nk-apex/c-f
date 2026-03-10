@@ -26,8 +26,8 @@ export default {
       let errorMsg = `❌ *Owner Only Command!*\n\n`;
       errorMsg += `Only the bot owner can create groups.\n\n`;
       errorMsg += `🔍 *Debug Info:*\n`;
-      errorMsg += `├─ Your JID: ${cleaned.cleanJid}\n`;
-      errorMsg += `├─ Type: ${cleaned.isLid ? 'LID 🔗' : 'Regular 📱'}\n`;
+      errorMsg += `├◆ Your JID: ${cleaned.cleanJid}\n`;
+      errorMsg += `├◆ Type: ${cleaned.isLid ? 'LID 🔗' : 'Regular 📱'}\n`;
       errorMsg += `└─ From Me: ${m.key.fromMe ? '✅ YES' : '❌ NO'}\n`;
       
       return sock.sendMessage(jid, { text: errorMsg }, { quoted: m });
@@ -35,7 +35,7 @@ export default {
 
     // ====== HELP SECTION ======
     if (args.length === 0 || args[0].toLowerCase() === "help") {
-      const helpText = `╭─⌈ 👥 *CREATE GROUP* ⌋\n│\n├─⊷ *${PREFIX}creategroup GroupName*\n├◆  └⊷ Create new group\n├─⊷ *${PREFIX}creategroup GroupName 254xxx 254yyy*\n├◆  └⊷ Create with members\n├─⊷ *-d "description"*\n├◆  └⊷ Set description\n├─⊷ *-a*\n├◆  └⊷ Announce only\n├─⊷ *-r*\n├◆  └⊷ Admin-only settings\n╰───`;
+      const helpText = `┌─⧭ 👥 *CREATE GROUP* \n├◆ *${PREFIX}creategroup GroupName*\n├◆  └⊷ Create new group\n├◆ *${PREFIX}creategroup GroupName 254xxx 254yyy*\n├◆  └⊷ Create with members\n├◆ *-d "description"*\n├◆  └⊷ Set description\n├◆ *-a*\n├◆  └⊷ Announce only\n├◆ *-r*\n├◆  └⊷ Admin-only settings\n└─⧭`;
       
       return sock.sendMessage(jid, { text: helpText }, { quoted: m });
     }
@@ -314,7 +314,7 @@ export default {
           toShow.forEach((p, idx) => {
             const num = p.split('@')[0];
             const isYou = p === senderJid ? ' 👤' : p === botJid ? ' 🤖' : '';
-            successMsg += `├─ ${idx + 1}. ${num}${isYou}\n`;
+            successMsg += `├◆ ${idx + 1}. ${num}${isYou}\n`;
           });
           
           if (uniqueParticipants.length > maxToShow) {
@@ -325,7 +325,7 @@ export default {
         if (invalidParticipants.length > 0) {
           successMsg += `\n⚠️ *Invalid (Not Added):*\n`;
           invalidParticipants.slice(0, 5).forEach((p, idx) => {
-            successMsg += `├─ ${p}\n`;
+            successMsg += `├◆ ${p}\n`;
           });
           if (invalidParticipants.length > 5) {
             successMsg += `└─ ...${invalidParticipants.length - 5} more\n`;

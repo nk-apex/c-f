@@ -10,8 +10,7 @@ export default {
   async execute(sock, m, args, PREFIX) {
     const jid = m.key.remoteJid;
 
-    const commandsText = `╭─⊷ *💖 AFFECTION & LOVE*
-│
+    const commandsText = `┌─⧭⊷ *💖 AFFECTION & LOVE*
 ├◆  • cuddle
 ├◆  • kiss
 ├◆  • pat
@@ -19,37 +18,30 @@ export default {
 ├◆  • glomp
 ├◆  • wink
 ├◆  • highfive
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *😂 FUN & REACTIONS*
-│
+┌─⧭⊷ *😂 FUN & REACTIONS*
 ├◆  • awoo
 ├◆  • bully
 ├◆  • cringe
 ├◆  • cry
 ├◆  • dance
 ├◆  • yeet
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🔥 SPECIAL CHARACTERS*
-│
+┌─⧭⊷ *🔥 SPECIAL CHARACTERS*
 ├◆  • waifu
 ├◆  • neko
 ├◆  • megumin
 ├◆  • shinobu
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *⚠️ MISC & ACTION*
-│
+┌─⧭⊷ *⚠️ MISC & ACTION*
 ├◆  • kill
 ├◆  • trap
 ├◆  • trap2
 ├◆  • bj
-│
-╰─⊷`;
+└─⧭⊷`;
 
     await sendSubMenu(sock, jid, '🌸 Anime Menu', commandsText, m, PREFIX);
   }

@@ -18,7 +18,7 @@ export default {
         }, { quoted: msg });
       }
 
-      let text = `╭─⌈ 📌 *PINNED GROUPS* ⌋\n│\n`;
+      let text = `┌─⧭ 📌 *PINNED GROUPS* \n`;
       let count = 0;
 
       for (const groupJid of pinned) {
@@ -28,10 +28,10 @@ export default {
           const meta = await sock.groupMetadata(groupJid);
           name = meta.subject || groupJid;
         } catch {}
-        text += `├─⊷ ${count}. *${name}*\n`;
+        text += `├◆ ${count}. *${name}*\n`;
       }
 
-      text += `│\n├─⊷ *Total:* ${pinned.length} pinned group(s)\n╰───`;
+      text += `│\n├◆ *Total:* ${pinned.length} pinned group(s)\n└─⧭`;
 
       await sock.sendMessage(jid, { text }, { quoted: msg });
 

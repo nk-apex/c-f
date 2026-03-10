@@ -20,7 +20,7 @@ export default {
       if (!q) {
         await react("❓");
         await sock.sendMessage(chatId, {
-          text: `┌─⧭ PLAYDOC\n│\n├◆ Usage: ${PREFIX}playdoc <song name or URL>\n├◆ Example: ${PREFIX}playdoc Believer\n│\n├◆ Downloads as MP3 document file\n└─────────────────────`
+          text: `┌─⧭ PLAYDOC\n├◆ Usage: ${PREFIX}playdoc <song name or URL>\n├◆ Example: ${PREFIX}playdoc Believer\n├◆ Downloads as MP3 document file\n└─────────────────────`
         }, { quoted: m });
         return;
       }

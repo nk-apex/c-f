@@ -18,7 +18,7 @@ export default {
             // Check if user provided text
             if (args.length === 0) {
                 return await sock.sendMessage(chatId, {
-                    text: `╭─⌈ 🎤 *TEXT-TO-SPEECH* ⌋\n│\n├─⊷ *.tts <lang> <text>*\n├◆  └⊷ Convert text to speech\n│\n├─⊷ *Examples:*\n├◆  └⊷ .tts en Hello world\n├◆  └⊷ .tts es Hola mundo\n│\n├─⊷ *Languages:* en, id, ja, es, fr, de, ru, pt, ar, hi, zh, ko\n│\n╰───`,
+                    text: `┌─⧭ 🎤 *TEXT-TO-SPEECH* \n├◆ *.tts <lang> <text>*\n├◆  └⊷ Convert text to speech\n├◆ *Examples:*\n├◆  └⊷ .tts en Hello world\n├◆  └⊷ .tts es Hola mundo\n├◆ *Languages:* en, id, ja, es, fr, de, ru, pt, ar, hi, zh, ko\n└─⧭`,
                 }, { quoted: m });
             }
             
@@ -37,7 +37,7 @@ export default {
             
             if (!text.trim()) {
                 return await sock.sendMessage(chatId, {
-                    text: `╭─⌈ ❌ *NO TEXT PROVIDED* ⌋\n│\n├─⊷ *.tts <text>*\n├◆  └⊷ Example: .tts Hello how are you?\n│\n╰───`,
+                    text: `┌─⧭ ❌ *NO TEXT PROVIDED* \n├◆ *.tts <text>*\n├◆  └⊷ Example: .tts Hello how are you?\n└─⧭`,
                 }, { quoted: m });
             }
             

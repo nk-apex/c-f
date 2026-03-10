@@ -12,7 +12,7 @@ export default {
     // Check if query is provided
     if (args.length === 0) {
       return sock.sendMessage(jid, {
-        text: `╭─⌈ 🤖 *PERPLEXITY AI* ⌋\n├─⊷ *${PREFIX}perplexity <question>*\n├◆  └⊷ Ask Perplexity anything\n├─⊷ *${PREFIX}plex <question>*\n├◆  └⊷ Alias for perplexity\n├─⊷ *${PREFIX}searchai <question>*\n├◆  └⊷ Alias for perplexity\n╰───`
+        text: `┌─⧭ 🤖 *PERPLEXITY AI* \n├◆ *${PREFIX}perplexity <question>*\n├◆  └⊷ Ask Perplexity anything\n├◆ *${PREFIX}plex <question>*\n├◆  └⊷ Alias for perplexity\n├◆ *${PREFIX}searchai <question>*\n├◆  └⊷ Alias for perplexity\n└─⧭`
       }, { quoted: m });
     }
 

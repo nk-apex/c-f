@@ -92,7 +92,7 @@ export default {
       if (allActive.length === 0) {
         await sock.sendMessage(jid, {
           text:
-            `╭─⌈ \`${groupName}\` ⌋\n` +
+            `┌─⧭ \`${groupName}\` \n` +
             `│\n` +
             `│ 🔍 *Online Scan Complete*\n` +
             `│ No online members detected.\n` +
@@ -107,20 +107,20 @@ export default {
             `│ • \`${PREFIX}listinactive\` - Find inactive members\n` +
             `│ • \`${PREFIX}tagall\` - Tag everyone\n` +
             `│\n` +
-            `╰───`
+            `└─⧭`
         }, { quoted: msg });
         try { await sock.sendMessage(jid, { react: { text: '😴', key: msg.key } }); } catch {}
         return;
       }
 
       let message =
-        `╭─⌈ \`${groupName}\` ⌋\n` +
+        `┌─⧭ \`${groupName}\` \n` +
         `│\n` +
         `│ 🟢 *Online:* ${allActive.length}/${members.length}\n` +
         `│\n`;
 
       if (onlineMembers.length > 0) {
-        message += `├─⊷ *📱 Online*\n`;
+        message += `├◆ *📱 Online*\n`;
         onlineMembers.forEach((member) => {
           const icon = member.isAdmin ? '👑' : '👤';
           message += `│  • ${icon} @${member.phone}\n`;
@@ -128,7 +128,7 @@ export default {
       }
 
       if (typingMembers.length > 0) {
-        message += `├─⊷ *⌨️ Typing*\n`;
+        message += `├◆ *⌨️ Typing*\n`;
         typingMembers.forEach((member) => {
           const icon = member.isAdmin ? '👑' : '👤';
           message += `│  • ${icon} @${member.phone}\n`;
@@ -136,7 +136,7 @@ export default {
       }
 
       if (recordingMembers.length > 0) {
-        message += `├─⊷ *🎙️ Recording*\n`;
+        message += `├◆ *🎙️ Recording*\n`;
         recordingMembers.forEach((member) => {
           const icon = member.isAdmin ? '👑' : '👤';
           message += `│  • ${icon} @${member.phone}\n`;
@@ -149,7 +149,7 @@ export default {
         `│ • \`${PREFIX}listinactive\` - Find inactive members\n` +
         `│ • \`${PREFIX}tagall\` - Tag everyone\n` +
         `│\n` +
-        `╰───`;
+        `└─⧭`;
 
       const mentions = allActive.map(m => m.id);
 

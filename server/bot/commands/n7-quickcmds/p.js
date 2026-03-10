@@ -129,14 +129,14 @@ export default {
       console.error("❌ [PING] Command error:", err.message || err);
       
       const fallbackText = `
-╭━━⚡ *BOT STATUS* ⚡━━╮
+┌─⧭⚡ *BOT STATUS* ⚡━━╮
 ┃
 ┃  📡 *Response Time:* Calculating...
 ┃  💻 *Status:* Operational
 ┃  🐺 *Developer:* 7silent-wolf
 ┃  🔗 *GitHub:* 7silent-wolf/silentwolf
 ┃
-╰━━━━━━━━━━━━━━━━━━━━╯
+└─⧭╯
 `.trim();
 
       try {

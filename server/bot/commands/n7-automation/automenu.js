@@ -10,8 +10,7 @@ export default {
   async execute(sock, m, args, PREFIX) {
     const jid = m.key.remoteJid;
 
-    const commandsText = `╭─⊷ *⚙️ AUTOMATION COMMANDS*
-│
+    const commandsText = `┌─⧭⊷ *⚙️ AUTOMATION COMMANDS*
 ├◆  • autoread
 ├◆  • autotyping
 ├◆  • autorecording
@@ -21,8 +20,7 @@ export default {
 ├◆  • autobio
 ├◆  • autorec
 ├◆  • reactowner
-│
-╰─⊷`;
+└─⧭⊷`;
 
     await sendSubMenu(sock, jid, '⚙️ AUTOMATION MENU', commandsText, m, PREFIX);
   }

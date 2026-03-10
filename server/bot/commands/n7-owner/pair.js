@@ -14,7 +14,7 @@
 
 //         if (!number || number.length < 6 || number.length > 20) {
 //             await sock.sendMessage(chatId, {
-//                 text: `╭─⌈ ⚠️ *PAIR DEVICE* ⌋\n│\n├─⊷ *${PREFIX}pair <number>*\n├◆  └⊷ Full number, no +\n╰───`
+//                 text: `┌─⧭ ⚠️ *PAIR DEVICE* \n├◆ *${PREFIX}pair <number>*\n├◆  └⊷ Full number, no +\n└─⧭`
 //             }, { quoted: m });
 //             await sock.sendMessage(chatId, { react: { text: '⚠️', key: m.key } });
 //             return;
@@ -173,7 +173,7 @@
 //             const formattedCode = pairCode ? pairCode.match(/.{1,4}/g)?.join('-') || pairCode : '';
 
 //             const timestamp = new Date().toLocaleTimeString();
-//             let msgText = `┌─ 🐺 *SILENT WOLF PAIRING* ─┐\n│\n`;
+//             let msgText = `┌─ 🐺 *SILENT WOLF PAIRING* ─┐\n`;
 
 //             msgText += `│ 📱 *Number:* ${number}\n`;
 
@@ -189,7 +189,7 @@
 //                     `│ 2. Tap *Linked Devices*\n` +
 //                     `│ 3. Tap *Link a Device*\n` +
 //                     `│ 4. Enter code: *${formattedCode}*\n` +
-//                     `│ 5. Wait for connection ✅\n│\n` +
+//                     `│ 5. Wait for connection ✅\n` +
 //                     `│ ⏱️ Code expires in 60 seconds!\n`;
 //             }
 
@@ -262,7 +262,7 @@ export default {
 
         if (!number || number.length < 6 || number.length > 20) {
             await sock.sendMessage(chatId, {
-                text: `╭─⌈ ⚠️ *PAIR DEVICE* ⌋\n│\n├─⊷ *${PREFIX}pair <number>*\n├◆  └⊷ Full number, no +\n╰───`
+                text: `┌─⧭ ⚠️ *PAIR DEVICE* \n├◆ *${PREFIX}pair <number>*\n├◆  └⊷ Full number, no +\n└─⧭`
             }, { quoted: m });
             await sock.sendMessage(chatId, { react: { text: '⚠️', key: m.key } });
             return;
@@ -421,7 +421,7 @@ export default {
             const formattedCode = pairCode ? pairCode.match(/.{1,4}/g)?.join('-') || pairCode : '';
 
             const timestamp = new Date().toLocaleTimeString();
-            let msgText = `┌─ 🐺 *SILENT WOLF PAIRING* ─┐\n│\n`;
+            let msgText = `┌─ 🐺 *SILENT WOLF PAIRING* ─┐\n`;
 
             msgText += `│ 📱 *Number:* ${number}\n`;
 
@@ -437,7 +437,7 @@ export default {
                     `│ 2. Tap *Linked Devices*\n` +
                     `│ 3. Tap *Link a Device*\n` +
                     `│ 4. Enter code: *${formattedCode}*\n` +
-                    `│ 5. Wait for connection ✅\n│\n` +
+                    `│ 5. Wait for connection ✅\n` +
                     `│ ⏱️ Code expires in 60 seconds!\n`;
             }
 

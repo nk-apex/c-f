@@ -11,13 +11,13 @@ export default {
 
         if (words.length === 0) {
             return sock.sendMessage(chatId, {
-                text: `╭─⌈ 🤬 *BAD WORD FILTER* ⌋\n│\n├─⊷ No bad words added yet.\n│\n├─⊷ Use *.addbadword <word>* to add words\n╰───`,
+                text: `┌─⧭ 🤬 *BAD WORD FILTER* \n├◆ No bad words added yet.\n├◆ Use *.addbadword <word>* to add words\n└─⧭`,
             }, { quoted: msg });
         }
 
         const numbered = words.map((w, i) => `│  ${i + 1}. ${w}`).join('\n');
         return sock.sendMessage(chatId, {
-            text: `╭─⌈ 🤬 *BAD WORD FILTER* ⌋\n│\n├─⊷ *Total:* ${words.length} word(s)\n│\n${numbered}\n│\n├─⊷ Use *.removebadword <word>* to remove\n├─⊷ Use *.antibadword on/off* to toggle\n╰───`,
+            text: `┌─⧭ 🤬 *BAD WORD FILTER* \n├◆ *Total:* ${words.length} word(s)\n${numbered}\n├◆ Use *.removebadword <word>* to remove\n├◆ Use *.antibadword on/off* to toggle\n└─⧭`,
         }, { quoted: msg });
     }
 };

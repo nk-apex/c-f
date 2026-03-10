@@ -10,18 +10,15 @@ export default {
   async execute(sock, m, args, PREFIX) {
     const jid = m.key.remoteJid;
 
-    const commandsText = `╭─⊷ *📰 NEWS*
-│
+    const commandsText = `┌─⧭⊷ *📰 NEWS*
 ├◆  • citizennews
 ├◆  • bbcnews
 ├◆  • ntvnews
 ├◆  • kbcnews
 ├◆  • technews
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🔍 INFO & SEARCH*
-│
+┌─⧭⊷ *🔍 INFO & SEARCH*
 ├◆  • alive
 ├◆  • ping
 ├◆  • ping2
@@ -39,11 +36,9 @@ export default {
 ├◆  • getpp
 ├◆  • getgpp
 ├◆  • prefixinfo
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🔗 CONVERSION & MEDIA*
-│
+┌─⧭⊷ *🔗 CONVERSION & MEDIA*
 ├◆  • shorturl
 ├◆  • url
 ├◆  • fetch
@@ -53,17 +48,14 @@ export default {
 ├◆  • save
 ├◆  • screenshot
 ├◆  • inspect
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *📇 CONTACT TOOLS*
-│
+┌─⧭⊷ *📇 CONTACT TOOLS*
 ├◆  • vcf
 ├◆  • viewvcf
 ├◆  • vv
 ├◆  • vv2
-│
-╰─⊷`;
+└─⧭⊷`;
 
     await sendSubMenu(sock, jid, '✨ Tools & Utility Menu', commandsText, m, PREFIX);
   }

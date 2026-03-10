@@ -10,8 +10,7 @@ export default {
   async execute(sock, m, args, PREFIX) {
     const jid = m.key.remoteJid;
 
-    const commandsText = `╭─⊷ *🎵 MUSIC COMMANDS*
-│
+    const commandsText = `┌─⧭⊷ *🎵 MUSIC COMMANDS*
 ├◆  • play
 ├◆  • song
 ├◆  • video
@@ -19,8 +18,7 @@ export default {
 ├◆  • lyrics
 ├◆  • shazam
 ├◆  • spotify
-│
-╰─⊷`;
+└─⧭⊷`;
 
     await sendSubMenu(sock, jid, '🎵 MUSIC MENU', commandsText, m, PREFIX);
   }

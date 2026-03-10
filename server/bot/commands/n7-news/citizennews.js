@@ -29,22 +29,22 @@ export default {
             }
 
             const limit = Math.min(stories.length, 7);
-            let text = `╭─⌈ 📰 *CITIZEN DIGITAL NEWS* ⌋\n`;
+            let text = `┌─⧭ 📰 *CITIZEN DIGITAL NEWS* \n`;
             text    += `│ 🌐 citizen.digital\n`;
-            text    += `│ 🕒 ${new Date().toLocaleString("en-KE", { timeZone: "Africa/Nairobi" })}\n│\n`;
+            text    += `│ 🕒 ${new Date().toLocaleString("en-KE", { timeZone: "Africa/Nairobi" })}\n`;
 
             for (let i = 0; i < limit; i++) {
                 const s = stories[i];
                 const title   = s.title?.replace(/(.+?)\1$/, '$1').trim();
                 const excerpt = s.excerpt || s.articleDetails?.summary || '';
                 const time    = s.timestamp || s.articleDetails?.publishedDate || '';
-                text += `├─⊷ *${i + 1}. ${title}*\n`;
+                text += `├◆ *${i + 1}. ${title}*\n`;
                 if (excerpt) text += `│   ${excerpt.substring(0, 100)}${excerpt.length > 100 ? '…' : ''}\n`;
                 if (time)    text += `│   🕐 ${time}\n`;
-                text += `│   🔗 ${s.url}\n│\n`;
+                text += `│   🔗 ${s.url}\n`;
             }
 
-            text += `╰─ _Source: Citizen Digital Kenya_ ─`;
+            text += `└─⧭ _Source: Citizen Digital Kenya_ ─`;
 
             await sock.sendMessage(chatId, { react: { text: '✅', key: msg.key } });
             await sock.sendMessage(chatId, { text }, { quoted: msg });

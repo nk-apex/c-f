@@ -53,17 +53,17 @@ export default {
             const modeEmoji = config.sendAsSticker ? '🏷️' : '🖼️';
             const modeText = config.sendAsSticker ? 'Sticker' : 'Image';
             await sock.sendMessage(chatId, {
-                text: `╭─⌈ ${modeEmoji} *VIEW-ONCE MODE* ⌋\n` +
+                text: `┌─⧭ ${modeEmoji} *VIEW-ONCE MODE* \n` +
                      `│\n` +
-                     `├─⊷ *Current:* ${modeText}\n` +
+                     `├◆ *Current:* ${modeText}\n` +
                      `│\n` +
-                     `├─⊷ *${prefix}vvmode image*\n` +
+                     `├◆ *${prefix}vvmode image*\n` +
                      `│  └⊷ Send as normal image/video\n` +
-                     `├─⊷ *${prefix}vvmode sticker*\n` +
+                     `├◆ *${prefix}vvmode sticker*\n` +
                      `│  └⊷ Send as sticker\n` +
-                     `├─⊷ *${prefix}vvmode toggle*\n` +
+                     `├◆ *${prefix}vvmode toggle*\n` +
                      `│  └⊷ Switch between modes\n` +
-                     `╰───`
+                     `└─⧭`
             }, { quoted: msg });
             return;
         }
@@ -74,12 +74,12 @@ export default {
                 config.sendAsSticker = true;
                 saveConfig(config);
                 await sock.sendMessage(chatId, {
-                    text: `╭─⌈ 🏷️ *STICKER MODE ON* ⌋\n` +
+                    text: `┌─⧭ 🏷️ *STICKER MODE ON* \n` +
                          `│\n` +
-                         `├─⊷ View-once images will be\n` +
+                         `├◆ View-once images will be\n` +
                          `│  sent as *stickers*\n` +
-                         `├─⊷ Videos remain as video\n` +
-                         `╰───`
+                         `├◆ Videos remain as video\n` +
+                         `└─⧭`
                 }, { quoted: msg });
                 break;
             }
@@ -88,12 +88,12 @@ export default {
                 config.sendAsSticker = false;
                 saveConfig(config);
                 await sock.sendMessage(chatId, {
-                    text: `╭─⌈ 🖼️ *IMAGE MODE ON* ⌋\n` +
+                    text: `┌─⧭ 🖼️ *IMAGE MODE ON* \n` +
                          `│\n` +
-                         `├─⊷ View-once images will be\n` +
+                         `├◆ View-once images will be\n` +
                          `│  sent as normal *images*\n` +
-                         `├─⊷ Videos sent as normal video\n` +
-                         `╰───`
+                         `├◆ Videos sent as normal video\n` +
+                         `└─⧭`
                 }, { quoted: msg });
                 break;
             }
@@ -103,24 +103,24 @@ export default {
                 saveConfig(config);
                 const newMode = config.sendAsSticker ? 'Sticker 🏷️' : 'Image 🖼️';
                 await sock.sendMessage(chatId, {
-                    text: `╭─⌈ 🔄 *MODE SWITCHED* ⌋\n` +
+                    text: `┌─⧭ 🔄 *MODE SWITCHED* \n` +
                          `│\n` +
-                         `├─⊷ View-once output: *${newMode}*\n` +
-                         `╰───`
+                         `├◆ View-once output: *${newMode}*\n` +
+                         `└─⧭`
                 }, { quoted: msg });
                 break;
             }
             default: {
                 await sock.sendMessage(chatId, {
-                    text: `╭─⌈ 🖼️ *VIEW-ONCE MODE* ⌋\n` +
+                    text: `┌─⧭ 🖼️ *VIEW-ONCE MODE* \n` +
                          `│\n` +
-                         `├─⊷ *${prefix}vvmode image*\n` +
+                         `├◆ *${prefix}vvmode image*\n` +
                          `│  └⊷ Send as normal image\n` +
-                         `├─⊷ *${prefix}vvmode sticker*\n` +
+                         `├◆ *${prefix}vvmode sticker*\n` +
                          `│  └⊷ Send as sticker\n` +
-                         `├─⊷ *${prefix}vvmode toggle*\n` +
+                         `├◆ *${prefix}vvmode toggle*\n` +
                          `│  └⊷ Switch between modes\n` +
-                         `╰───`
+                         `└─⧭`
                 }, { quoted: msg });
             }
         }

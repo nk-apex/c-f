@@ -105,7 +105,7 @@ export default {
 
         if (subcommand === 'help') {
             return await sock.sendMessage(chatId, {
-                text: `╭─⌈ 🔍 *DEPENDENCY CHECKER* ⌋\n│\n├─⊷ *${PREFIX}missingdeps*\n├◆  └⊷ Scan for missing packages\n├─⊷ *${PREFIX}missingdeps fix*\n├◆  └⊷ Auto-install missing packages\n├─⊷ *${PREFIX}missingdeps full*\n├◆  └⊷ Full report with all details\n│\n├─⊷ *Aliases:* checkdeps, deps\n╰───────────────\n> *${getBotName()}*`
+                text: `┌─⧭ 🔍 *DEPENDENCY CHECKER* \n├◆ *${PREFIX}missingdeps*\n├◆  └⊷ Scan for missing packages\n├◆ *${PREFIX}missingdeps fix*\n├◆  └⊷ Auto-install missing packages\n├◆ *${PREFIX}missingdeps full*\n├◆  └⊷ Full report with all details\n├◆ *Aliases:* checkdeps, deps\n└─⧭\n> *${getBotName()}*`
             }, { quoted: msg });
         }
 
@@ -238,13 +238,13 @@ export default {
                 }
             }
 
-            let report = `╭─⌈ 📦 *DEPENDENCY REPORT* ⌋\n│\n`;
+            let report = `┌─⧭ 📦 *DEPENDENCY REPORT* \n`;
             report += `│ 📂 Files scanned: *${allFiles.length}*\n`;
             report += `│ 📦 Packages imported: *${allImports.size}*\n`;
-            report += `│ 📋 In package.json: *${declaredDeps.size}*\n│\n`;
+            report += `│ 📋 In package.json: *${declaredDeps.size}*\n`;
 
             if (missing.length > 0) {
-                report += `├─⌈ ❌ *MISSING* (${missing.length}) ⌋\n`;
+                report += `├◆  ❌ *MISSING* (${missing.length}) \n`;
                 report += `│  _Not in package.json & not installed_\n`;
                 for (const m of missing) {
                     const fileList = m.files.length <= 3
@@ -256,7 +256,7 @@ export default {
             }
 
             if (inPkgNotInstalled.length > 0) {
-                report += `├─⌈ ⚠️ *NOT INSTALLED* (${inPkgNotInstalled.length}) ⌋\n`;
+                report += `├◆  ⚠️ *NOT INSTALLED* (${inPkgNotInstalled.length}) \n`;
                 report += `│  _In package.json but not in node_modules_\n`;
                 for (const m of inPkgNotInstalled) {
                     report += `│  • \`${m.pkg}\`\n`;
@@ -267,7 +267,7 @@ export default {
 
             if (subcommand === 'full') {
                 if (notInPkgJson.length > 0) {
-                    report += `├─⌈ 🔶 *UNLISTED* (${notInPkgJson.length}) ⌋\n`;
+                    report += `├◆  🔶 *UNLISTED* (${notInPkgJson.length}) \n`;
                     report += `│  _Installed but not in package.json_\n`;
                     for (const m of notInPkgJson) {
                         report += `│  • \`${m.pkg}\` v${m.version || '?'}\n`;
@@ -276,7 +276,7 @@ export default {
                 }
 
                 if (unusedDeclared.length > 0) {
-                    report += `├─⌈ 🔹 *UNUSED* (${unusedDeclared.length}) ⌋\n`;
+                    report += `├◆  🔹 *UNUSED* (${unusedDeclared.length}) \n`;
                     report += `│  _In package.json but not imported_\n`;
                     for (const m of unusedDeclared.slice(0, 15)) {
                         report += `│  • \`${m.pkg}\` ${m.installed ? '✅' : '❌'}\n`;
@@ -287,7 +287,7 @@ export default {
                     report += `│\n`;
                 }
 
-                report += `├─⌈ ✅ *INSTALLED* (${installed.length}) ⌋\n`;
+                report += `├◆  ✅ *INSTALLED* (${installed.length}) \n`;
                 report += `│  _Working correctly_\n`;
                 for (const m of installed) {
                     report += `│  • \`${m.pkg}\` v${m.version || '?'}\n`;
@@ -296,17 +296,17 @@ export default {
             }
 
             if (missing.length === 0 && inPkgNotInstalled.length === 0) {
-                report += `├─ ✅ *All dependencies are installed!*\n│\n`;
+                report += `├◆ ✅ *All dependencies are installed!*\n`;
             } else {
                 const totalIssues = missing.length + inPkgNotInstalled.length;
-                report += `├─ 🔧 *${totalIssues} issue(s) found*\n`;
+                report += `├◆ 🔧 *${totalIssues} issue(s) found*\n`;
                 if (missing.length > 0) {
                     report += `│  Fix: \`${PREFIX}missingdeps fix\`\n`;
                 }
                 report += `│\n`;
             }
 
-            report += `╰───────────────\n> *${getBotName()}*`;
+            report += `└─⧭\n> *${getBotName()}*`;
 
             await sock.sendMessage(chatId, { react: { text: missing.length > 0 || inPkgNotInstalled.length > 0 ? '⚠️' : '✅', key: msg.key } });
             await sock.sendMessage(chatId, { text: report }, { quoted: msg });

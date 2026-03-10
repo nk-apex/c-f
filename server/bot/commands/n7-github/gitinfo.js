@@ -13,7 +13,7 @@ export default {
         
         if (!args[0]) {
             return sock.sendMessage(chatId, {
-                text: `╭─⌈ 📊 *GIT REPO INFO* ⌋\n│\n├◆ ✧ *Usage:* \`${prefix}gitinfo <user/repo>\`\n│\n├◆ 💡 *Examples:*\n├◆ • \`${prefix}gitinfo facebook/react\`\n├◆ • \`${prefix}gitinfo user/repo\`\n├◆ • \`${prefix}gitinfo https://github.com/user/repo\`\n│\n╰───────────────`
+                text: `┌─⧭ 📊 *GIT REPO INFO* \n├◆ ✧ *Usage:* \`${prefix}gitinfo <user/repo>\`\n├◆ 💡 *Examples:*\n├◆ • \`${prefix}gitinfo facebook/react\`\n├◆ • \`${prefix}gitinfo user/repo\`\n├◆ • \`${prefix}gitinfo https://github.com/user/repo\`\n└─⧭`
             }, { quoted: m });
         }
         
@@ -86,7 +86,7 @@ export default {
             console.error('GitInfo error:', error);
             
             await sock.sendMessage(chatId, {
-                text: `╭─⌈ ❌ *REPO INFO ERROR* ⌋\n│\n├◆ ✧ *Target:* ${args[0]}\n├◆ ✧ *Error:* ${error.message}\n│\n├◆ 💡 Try: username/repository\n│\n╰───────────────`
+                text: `┌─⧭ ❌ *REPO INFO ERROR* \n├◆ ✧ *Target:* ${args[0]}\n├◆ ✧ *Error:* ${error.message}\n├◆ 💡 Try: username/repository\n└─⧭`
             }, { quoted: m });
             try { await sock.sendMessage(chatId, { react: { text: '❌', key: m.key } }); } catch {}
         }
@@ -146,13 +146,13 @@ export default {
             repo.has_pages ? '🌐 Pages' : ''
         ].filter(Boolean).join(' | ');
 
-        let text = `╭─⌈ ✨ *${repo.full_name.toUpperCase()}* ⌋\n`;
+        let text = `┌─⧭ ✨ *${repo.full_name.toUpperCase()}* \n`;
         text += `│\n`;
         text += `│ 📝 ${repo.description || 'No description'}\n`;
         text += `│ 👤 ${repo.owner.login}\n`;
         text += `│ 🔗 ${repo.html_url}\n`;
         text += `│\n`;
-        text += `├─⊷ *📊 STATISTICS*\n`;
+        text += `├◆ *📊 STATISTICS*\n`;
         text += `│  ├⊷ ⭐ Stars: ${repo.stargazers_count.toLocaleString()}\n`;
         text += `│  ├⊷ 🍴 Forks: ${repo.forks_count.toLocaleString()}\n`;
         text += `│  ├⊷ 👁️ Watchers: ${repo.watchers_count.toLocaleString()}\n`;
@@ -163,16 +163,16 @@ export default {
         text += `│\n`;
         
         if (languageStats.length > 0) {
-            text += `├─⊷ *💻 TECH STACK*\n`;
+            text += `├◆ *💻 TECH STACK*\n`;
             text += `│  ├⊷ ⌨️ Primary: ${repo.language || 'N/A'}\n`;
             languageStats.forEach((l, i) => {
-                const connector = i === languageStats.length - 1 ? '╰' : '├';
+                const connector = i === languageStats.length - 1 ? '└─⧭' : '├';
                 text += `│  ${connector}⊷ ${l.language}: ${l.percentage}%\n`;
             });
             text += `│\n`;
         }
         
-        text += `├─⊷ *📅 TIMELINE*\n`;
+        text += `├◆ *📅 TIMELINE*\n`;
         text += `│  ├⊷ 🎉 Created: ${created}\n`;
         text += `│  ├⊷ 🔄 Updated: ${updated}\n`;
         text += `│  ├⊷ 📤 Last Commit: ${lastCommit}\n`;
@@ -182,11 +182,11 @@ export default {
         text += `│ 🏷️ Branch: ${repo.default_branch}\n`;
         if (flags) text += `│ ${flags}\n`;
         text += `│\n`;
-        text += `├─⊷ *🔗 ACTIONS*\n`;
+        text += `├◆ *🔗 ACTIONS*\n`;
         text += `│  • \`${prefix}gitclone ${repo.full_name}\`\n`;
         text += `│  • \`${prefix}repanalyze ${repo.full_name}\`\n`;
         text += `│\n`;
-        text += `╰───────────────`;
+        text += `└─⧭`;
         
         return text;
     },

@@ -334,21 +334,21 @@ export default {
             if (args.length === 0) {
                 const s = autoReactManager.getStats();
                 const vmLabel = s.viewMode === 'view+react' ? '👁️ + 🐺 view then react' : '🐺 react only';
-                let text = `╭─⌈ 🐺 *AUTOREACTSTATUS* ⌋\n│\n`;
+                let text = `┌─⧭ 🐺 *AUTOREACTSTATUS* \n`;
                 text += `│ Status    : ${s.enabled ? '✅ ACTIVE' : '❌ INACTIVE'}\n`;
                 text += `│ View Mode : ${vmLabel}\n`;
                 text += `│ Emoji Mode: ${s.mode === 'fixed' ? `Fixed (${s.fixedEmoji})` : 'Random'}\n`;
-                text += `│ Excluded  : ${s.excludedCount} contact(s)\n│\n`;
-                text += `├─⊷ *${prefix}sr on / off*\n├◆  └⊷ Enable or disable\n`;
-                text += `├─⊷ *${prefix}sr exclude <number>*\n├◆  └⊷ Skip a contact\n`;
-                text += `├─⊷ *${prefix}sr include <number>*\n├◆  └⊷ Remove from skip list\n`;
-                text += `├─⊷ *${prefix}sr excluded*\n├◆  └⊷ Show skip list\n`;
-                text += `├─⊷ *${prefix}sr view+react*\n├◆  └⊷ View then react\n`;
-                text += `├─⊷ *${prefix}sr react-only*\n├◆  └⊷ React without viewing\n`;
-                text += `├─⊷ *${prefix}sr random*\n├◆  └⊷ Random emoji mode\n`;
-                text += `├─⊷ *${prefix}sr emoji <emoji>*\n├◆  └⊷ Set fixed emoji\n`;
-                text += `├─⊷ *${prefix}sr stats*\n├◆  └⊷ Statistics\n`;
-                text += `╰───`;
+                text += `│ Excluded  : ${s.excludedCount} contact(s)\n`;
+                text += `├◆ *${prefix}sr on / off*\n├◆  └⊷ Enable or disable\n`;
+                text += `├◆ *${prefix}sr exclude <number>*\n├◆  └⊷ Skip a contact\n`;
+                text += `├◆ *${prefix}sr include <number>*\n├◆  └⊷ Remove from skip list\n`;
+                text += `├◆ *${prefix}sr excluded*\n├◆  └⊷ Show skip list\n`;
+                text += `├◆ *${prefix}sr view+react*\n├◆  └⊷ View then react\n`;
+                text += `├◆ *${prefix}sr react-only*\n├◆  └⊷ React without viewing\n`;
+                text += `├◆ *${prefix}sr random*\n├◆  └⊷ Random emoji mode\n`;
+                text += `├◆ *${prefix}sr emoji <emoji>*\n├◆  └⊷ Set fixed emoji\n`;
+                text += `├◆ *${prefix}sr stats*\n├◆  └⊷ Statistics\n`;
+                text += `└─⧭`;
                 await reply(text);
                 return;
             }
@@ -508,7 +508,7 @@ export default {
                 }
 
                 default:
-                    await reply(`╭─⌈ ❓ *AUTOREACTSTATUS* ⌋\n│\n├─⊷ *${prefix}sr on / off*\n├─⊷ *${prefix}sr exclude <number>*\n├─⊷ *${prefix}sr include <number>*\n├─⊷ *${prefix}sr excluded*\n├─⊷ *${prefix}sr view+react*\n├─⊷ *${prefix}sr react-only*\n├─⊷ *${prefix}sr random / fixed*\n├─⊷ *${prefix}sr emoji 🐺*\n├─⊷ *${prefix}sr stats*\n╰───`);
+                    await reply(`┌─⧭ ❓ *AUTOREACTSTATUS* \n├◆ *${prefix}sr on / off*\n├◆ *${prefix}sr exclude <number>*\n├◆ *${prefix}sr include <number>*\n├◆ *${prefix}sr excluded*\n├◆ *${prefix}sr view+react*\n├◆ *${prefix}sr react-only*\n├◆ *${prefix}sr random / fixed*\n├◆ *${prefix}sr emoji 🐺*\n├◆ *${prefix}sr stats*\n└─⧭`);
             }
 
         } catch (error) {

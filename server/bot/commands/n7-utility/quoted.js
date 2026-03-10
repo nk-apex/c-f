@@ -215,7 +215,7 @@ export default {
 
         let isStarred = contextInfo.isStarred || false;
 
-        let text = `╭─⌈ 📋 *QUOTED MESSAGE INFO* ⌋\n│\n`;
+        let text = `┌─⧭ 📋 *QUOTED MESSAGE INFO* \n`;
         text += `│ 📌 *Message ID:* ${stanzaId}\n`;
         text += `│ 👤 *Sender:* @${senderClean}\n`;
         text += `│ 📝 *Type:* ${msgType}\n`;
@@ -256,7 +256,7 @@ export default {
 
         const chatType = chatId.endsWith('@g.us') ? 'Group' : chatId.endsWith('@newsletter') ? 'Channel' : 'Private';
         text += `│\n├◆ 📍 *Chat:* ${chatType}\n`;
-        text += `╰───────────────`;
+        text += `└─⧭`;
 
         const mentionedJid = [participant, ...mentions].filter(Boolean);
 

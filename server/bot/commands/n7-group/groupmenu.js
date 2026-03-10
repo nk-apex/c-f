@@ -10,8 +10,7 @@ export default {
   async execute(sock, m, args, PREFIX) {
     const jid = m.key.remoteJid;
 
-    const commandsText = `╭─⊷ *🛡️ ADMIN & MODERATION*
-│
+    const commandsText = `┌─⧭⊷ *🛡️ ADMIN & MODERATION*
 ├◆  • add
 ├◆  • promote
 ├◆  • promoteall
@@ -33,11 +32,9 @@ export default {
 ├◆  • leave
 ├◆  • join
 ├◆  • creategroup
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🚫 AUTO-MODERATION*
-│
+┌─⧭⊷ *🚫 AUTO-MODERATION*
 ├◆  • antilink
 ├◆  • antisticker
 ├◆  • antiimage
@@ -49,11 +46,9 @@ export default {
 ├◆  • antidemote
 ├◆  • antipromote
 ├◆  • antileave
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *📊 GROUP INFO & TOOLS*
-│
+┌─⧭⊷ *📊 GROUP INFO & TOOLS*
 ├◆  • groupinfo
 ├◆  • grouplink
 ├◆  • tagall
@@ -67,8 +62,7 @@ export default {
 ├◆  • listinactive
 ├◆  • approveall
 ├◆  • rejectall
-│
-╰─⊷`;
+└─⧭⊷`;
 
     await sendSubMenu(sock, jid, '🏠 GROUP MENU', commandsText, m, PREFIX);
   }

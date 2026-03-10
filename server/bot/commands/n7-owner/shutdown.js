@@ -1065,17 +1065,17 @@ async function handleStats(sock, m, args, editMessage) {
 // Handle help command
 async function handleHelp(sock, m, args, editMessage) {
   const helpText = 
-    `╭─⌈ 🔒 *SHUTDOWN HELP* ⌋\n│\n` +
-    `├─⊷ *!shutdown [time]*\n├◆  └⊷ Scheduled shutdown\n` +
-    `├─⊷ *!shutdown [time] reason=...*\n├◆  └⊷ Shutdown with reason\n` +
-    `├─⊷ *!shutdown status*\n├◆  └⊷ Show active shutdowns\n` +
-    `├─⊷ *!shutdown cancel <id|all>*\n├◆  └⊷ Cancel shutdown(s)\n` +
-    `├─⊷ *!shutdown extend <id> <time>*\n├◆  └⊷ Extend shutdown duration\n` +
-    `├─⊷ *!shutdown pause <id>*\n├◆  └⊷ Pause shutdown timer\n` +
-    `├─⊷ *!shutdown resume <id>*\n├◆  └⊷ Resume paused shutdown\n` +
-    `├─⊷ *!shutdown stats*\n├◆  └⊷ Show shutdown statistics\n` +
-    `├─⊷ *!shutdown help*\n├◆  └⊷ This help menu\n` +
-    `╰───`;
+    `┌─⧭ 🔒 *SHUTDOWN HELP* \n` +
+    `├◆ *!shutdown [time]*\n├◆  └⊷ Scheduled shutdown\n` +
+    `├◆ *!shutdown [time] reason=...*\n├◆  └⊷ Shutdown with reason\n` +
+    `├◆ *!shutdown status*\n├◆  └⊷ Show active shutdowns\n` +
+    `├◆ *!shutdown cancel <id|all>*\n├◆  └⊷ Cancel shutdown(s)\n` +
+    `├◆ *!shutdown extend <id> <time>*\n├◆  └⊷ Extend shutdown duration\n` +
+    `├◆ *!shutdown pause <id>*\n├◆  └⊷ Pause shutdown timer\n` +
+    `├◆ *!shutdown resume <id>*\n├◆  └⊷ Resume paused shutdown\n` +
+    `├◆ *!shutdown stats*\n├◆  └⊷ Show shutdown statistics\n` +
+    `├◆ *!shutdown help*\n├◆  └⊷ This help menu\n` +
+    `└─⧭`;
   
   await editMessage(helpText);
 }

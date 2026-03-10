@@ -62,7 +62,7 @@ export default {
         statusText += `*Table Breakdown:*\n`;
 
         for (const [table, count] of Object.entries(results.tables)) {
-            statusText += `├─ ${table}: ${count} rows\n`;
+            statusText += `├◆ ${table}: ${count} rows\n`;
         }
 
         statusText += `\n🧹 Local files cleaned: ${localCleaned}\n`;
@@ -70,7 +70,7 @@ export default {
         if (results.errors.length > 0) {
             statusText += `\n⚠️ Errors:\n`;
             for (const err of results.errors) {
-                statusText += `├─ ${err}\n`;
+                statusText += `├◆ ${err}\n`;
             }
         }
 

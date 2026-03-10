@@ -89,7 +89,7 @@ export default {
           sizeText = `${sizeKB} KB`;
         }
 
-        let txt = `╭─⌈ \`WOLF REPO\` ⌋\n`;
+        let txt = `┌─⧭ \`WOLF REPO\` \n`;
         txt += `│\n`;
         txt += `│ ✧ *Name* : ${data.name || "Silent Wolf "}\n`;
         txt += `│ ✧ *Owner* : ${owner}\n`;
@@ -103,7 +103,7 @@ export default {
         txt += `│ Hey ${mentionTag}! 👋\n`;
         txt += `│ _*Don't forget*_ 🎉`;
         txt += `│ *to fork and star the repo!* ⭐\n`;
-        txt += `╰───`;
+        txt += `└─⧭`;
 
         await sock.sendMessage(jid, {
           ...imagePayload,
@@ -118,7 +118,7 @@ export default {
       } catch (apiError) {
         console.error("GitHub API Error:", apiError);
         
-        const fallbackText = `╭─⌈ *WOLF REPO* ⌋\n` +
+        const fallbackText = `┌─⧭ *WOLF REPO* \n` +
           `│\n` +
           `│ ✧ *Name* : Silent Wolf Bot\n` +
           `│ ✧ *Owner* : 7silent-wolf\n` +
@@ -136,7 +136,7 @@ export default {
           `│ Hey ${mentionTag}! 👋\n` +
           `│ _This repository is clean and optimized!_\n` +
           `│ *Be the first to star it!* ⭐\n` +
-          `╰───`;
+          `└─⧭`;
 
         await sock.sendMessage(jid, {
           ...imagePayload,

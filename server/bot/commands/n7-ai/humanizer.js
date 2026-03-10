@@ -1238,7 +1238,7 @@ export default {
     // Help section
     if (args.length === 0 || args[0].toLowerCase() === 'help') {
       return sock.sendMessage(jid, {
-        text: `╭─⌈ ✍️ *TEXT HUMANIZER* ⌋\n├─⊷ *${PREFIX}humanizer <text>*\n├◆  └⊷ Humanize AI-generated text\n├─⊷ *${PREFIX}humanizer <text> <style>*\n├◆  └⊷ casual, professional, creative,\n├◆  └⊷ academic, social, email, blog\n├─⊷ Reply to message with *${PREFIX}humanizer*\n├◆  └⊷ Humanize quoted text\n╰───`
+        text: `┌─⧭ ✍️ *TEXT HUMANIZER* \n├◆ *${PREFIX}humanizer <text>*\n├◆  └⊷ Humanize AI-generated text\n├◆ *${PREFIX}humanizer <text> <style>*\n├◆  └⊷ casual, professional, creative,\n├◆  └⊷ academic, social, email, blog\n├◆ Reply to message with *${PREFIX}humanizer*\n├◆  └⊷ Humanize quoted text\n└─⧭`
       }, { quoted: m });
     }
 
@@ -1268,7 +1268,7 @@ export default {
 
     if (!text || text.length < 10) {
       return sock.sendMessage(jid, {
-        text: `╭─⌈ ❌ *TEXT TOO SHORT* ⌋\n├─⊷ Provide at least 10 characters\n╰───`
+        text: `┌─⧭ ❌ *TEXT TOO SHORT* \n├◆ Provide at least 10 characters\n└─⧭`
       }, { quoted: m });
     }
 

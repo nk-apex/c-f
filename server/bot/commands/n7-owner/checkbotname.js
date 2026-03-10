@@ -19,7 +19,7 @@ export default {
         
         // Check global variables
         debugText += `📊 *Global Variables:*\n`;
-        debugText += `├─ global.BOT_NAME: ${global.BOT_NAME || '❌ Not set'}\n`;
+        debugText += `├◆ global.BOT_NAME: ${global.BOT_NAME || '❌ Not set'}\n`;
         debugText += `└─ process.env.BOT_NAME: ${process.env.BOT_NAME || '❌ Not set'}\n\n`;
         
         // Check bot_settings.json files

@@ -11,7 +11,7 @@ export default {
 
         if (!args || args.length === 0) {
             return sock.sendMessage(chatId, {
-                text: `╭─⌈ 🤬 *ADD BAD WORD* ⌋\n│\n├─⊷ *Usage:* .addbadword <word>\n├─⊷ *Example:* .addbadword badterm\n│\n├─⊷ Add multiple: .addbadword word1 word2\n╰───\n\n💡 Use *.antibadword on* to enable detection\n💡 Use *.listbadword* to view all words`,
+                text: `┌─⧭ 🤬 *ADD BAD WORD* \n├◆ *Usage:* .addbadword <word>\n├◆ *Example:* .addbadword badterm\n├◆ Add multiple: .addbadword word1 word2\n└─⧭\n\n💡 Use *.antibadword on* to enable detection\n💡 Use *.listbadword* to view all words`,
             }, { quoted: msg });
         }
 
@@ -30,10 +30,10 @@ export default {
         }
 
         const total = getBadWords().length;
-        let reply = `╭─⌈ 🤬 *BAD WORD FILTER* ⌋\n│\n`;
-        if (added.length > 0) reply += `├─⊷ ✅ Added: ${added.map(w => `*${w}*`).join(', ')}\n`;
-        if (existing.length > 0) reply += `├─⊷ ⚠️ Already exists: ${existing.map(w => `*${w}*`).join(', ')}\n`;
-        reply += `├─⊷ 📋 Total words: *${total}*\n╰───`;
+        let reply = `┌─⧭ 🤬 *BAD WORD FILTER* \n`;
+        if (added.length > 0) reply += `├◆ ✅ Added: ${added.map(w => `*${w}*`).join(', ')}\n`;
+        if (existing.length > 0) reply += `├◆ ⚠️ Already exists: ${existing.map(w => `*${w}*`).join(', ')}\n`;
+        reply += `├◆ 📋 Total words: *${total}*\n└─⧭`;
 
         return sock.sendMessage(chatId, { text: reply }, { quoted: msg });
     }

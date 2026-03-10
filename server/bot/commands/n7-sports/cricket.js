@@ -15,7 +15,7 @@ export default {
 
     if (args.length === 0 || args[0].toLowerCase() === 'help') {
       return sock.sendMessage(jid, {
-        text: `╭─⌈ 🏏 *CRICKET* ⌋\n├─⊷ *${PREFIX}cricket scores*\n├◆  └⊷ Live cricket scores\n├─⊷ *${PREFIX}cricket schedule*\n├◆  └⊷ Upcoming matches\n├─⊷ *${PREFIX}ipl scores*\n├◆  └⊷ Alias for cricket\n╰───`
+        text: `┌─⧭ 🏏 *CRICKET* \n├◆ *${PREFIX}cricket scores*\n├◆  └⊷ Live cricket scores\n├◆ *${PREFIX}cricket schedule*\n├◆  └⊷ Upcoming matches\n├◆ *${PREFIX}ipl scores*\n├◆  └⊷ Alias for cricket\n└─⧭`
       }, { quoted: m });
     }
 
@@ -27,13 +27,13 @@ export default {
 
       if (events.length === 0) throw new Error('No cricket matches found today');
 
-      let text = `╭─⌈ 🏏 *CRICKET SCORES* ⌋\n│\n`;
+      let text = `┌─⧭ 🏏 *CRICKET SCORES* \n`;
       events.slice(0, 12).forEach(ev => {
         const comp = ev.competitions?.[0];
         const teams = comp?.competitors || [];
         const status = ev.status?.type?.shortDetail || '';
         const name = ev.shortName || ev.name || '';
-        text += `├─⊷ *${name}*\n`;
+        text += `├◆ *${name}*\n`;
         teams.forEach(t => {
           const teamName = t.team?.abbreviation || t.team?.shortDisplayName || '???';
           const score = t.score || '-';
@@ -41,7 +41,7 @@ export default {
         });
         text += `│  └⊷ ${status}\n`;
       });
-      text += `╰───\n\n⚡ *Powered by ${getBotName()}*`;
+      text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
 
       await sock.sendMessage(jid, { text }, { quoted: m });
       await sock.sendMessage(jid, { react: { text: '✅', key: m.key } });
@@ -49,7 +49,7 @@ export default {
       console.error('❌ [CRICKET]', error.message);
       await sock.sendMessage(jid, { react: { text: '❌', key: m.key } });
       await sock.sendMessage(jid, {
-        text: `╭─⌈ ❌ *CRICKET ERROR* ⌋\n├─⊷ ${error.message}\n├─⊷ Try again later\n╰───`
+        text: `┌─⧭ ❌ *CRICKET ERROR* \n├◆ ${error.message}\n├◆ Try again later\n└─⧭`
       }, { quoted: m });
     }
   }

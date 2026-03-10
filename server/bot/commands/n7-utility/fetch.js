@@ -87,7 +87,7 @@ export default {
     
     // Show help if no arguments
     if (args.length === 0) {
-      await sock.sendMessage(jid, { text: `╭─⌈ 🎯 *FETCH* ⌋\n├─⊷ *.fetch <url>*\n├◆  └⊷ Fetch data from URL\n├─⊷ *.fetch <url> -d*\n├◆  └⊷ Download media files\n├─⊷ *.fetch <url> -j*\n├◆  └⊷ Pretty JSON format\n├─⊷ *.fetch <url> -h*\n├◆  └⊷ Show response headers\n├─⊷ *.fetch <url> -r*\n├◆  └⊷ Raw response\n├─⊷ Reply to URL with *.fetch*\n╰─── *${getBotName()}* ───` }, { quoted: m });
+      await sock.sendMessage(jid, { text: `┌─⧭ 🎯 *FETCH* \n├◆ *.fetch <url>*\n├◆  └⊷ Fetch data from URL\n├◆ *.fetch <url> -d*\n├◆  └⊷ Download media files\n├◆ *.fetch <url> -j*\n├◆  └⊷ Pretty JSON format\n├◆ *.fetch <url> -h*\n├◆  └⊷ Show response headers\n├◆ *.fetch <url> -r*\n├◆  └⊷ Raw response\n├◆ Reply to URL with *.fetch*\n└─⧭ *${getBotName()}* ───` }, { quoted: m });
       return;
     }
     
@@ -237,7 +237,7 @@ export default {
           } else if (isImage) {
     await sock.sendMessage(jid, {
         image: fileBuffer,
-        caption: `╭─⌈ 🖼️ *FETCH RESULT* ⌋\n├─⊷ *File:* ${filename}\n├─⊷ *Size:* ${formatFileSize(stats.size)}\n├─⊷ *Status:* ${status} ${statusText}\n├─⊷ *Type:* ${contentType.split(';')[0]}\n╰─── *${getBotName()}* ───`
+        caption: `┌─⧭ 🖼️ *FETCH RESULT* \n├◆ *File:* ${filename}\n├◆ *Size:* ${formatFileSize(stats.size)}\n├◆ *Status:* ${status} ${statusText}\n├◆ *Type:* ${contentType.split(';')[0]}\n└─⧭ *${getBotName()}* ───`
     }, { quoted: m });
 } 
           
@@ -267,7 +267,7 @@ export default {
           }
           
           await sock.sendMessage(jid, {
-            text: `╭─⌈ 📄 *FETCH RESULT* ⌋\n├─⊷ *Status:* ${status} ${statusText}\n├─⊷ *Type:* ${contentType.split(';')[0]}\n├─⊷ *Size:* ${formatFileSize(jsonSize)}\n╰─── *${getBotName()}* ───\n\n\`\`\`json\n${displayJson}\`\`\`${truncationNote}`
+            text: `┌─⧭ 📄 *FETCH RESULT* \n├◆ *Status:* ${status} ${statusText}\n├◆ *Type:* ${contentType.split(';')[0]}\n├◆ *Size:* ${formatFileSize(jsonSize)}\n└─⧭ *${getBotName()}* ───\n\n\`\`\`json\n${displayJson}\`\`\`${truncationNote}`
           }, { quoted: m });
           
         } else if (isText) {
@@ -301,7 +301,7 @@ export default {
           }
           
           await sock.sendMessage(jid, {
-            text: `╭─⌈ 📄 *FETCH RESULT* ⌋\n├─⊷ *Status:* ${status} ${statusText}\n├─⊷ *Type:* ${contentTypeInfo}\n├─⊷ *Size:* ${formatFileSize(textSize)}\n╰─── *${getBotName()}* ───\n\n${options.raw ? '```\n' + text.substring(0, 1500) + (textSize > 1500 ? '...' : '') + '\n```' : displayText}${truncationNote}`
+            text: `┌─⧭ 📄 *FETCH RESULT* \n├◆ *Status:* ${status} ${statusText}\n├◆ *Type:* ${contentTypeInfo}\n├◆ *Size:* ${formatFileSize(textSize)}\n└─⧭ *${getBotName()}* ───\n\n${options.raw ? '```\n' + text.substring(0, 1500) + (textSize > 1500 ? '...' : '') + '\n```' : displayText}${truncationNote}`
           }, { quoted: m });
           
         } else {
@@ -310,7 +310,7 @@ export default {
           const bufferSize = buffer.byteLength;
           
           await sock.sendMessage(jid, {
-            text: `╭─⌈ ⚠️ *BINARY RESPONSE* ⌋\n├─⊷ *Status:* ${status} ${statusText}\n├─⊷ *Type:* ${contentType || 'Unknown'}\n├─⊷ *Size:* ${formatFileSize(bufferSize)}\n├─⊷ Use *.fetch <url> -d* to download\n╰─── *${getBotName()}* ───`
+            text: `┌─⧭ ⚠️ *BINARY RESPONSE* \n├◆ *Status:* ${status} ${statusText}\n├◆ *Type:* ${contentType || 'Unknown'}\n├◆ *Size:* ${formatFileSize(bufferSize)}\n├◆ Use *.fetch <url> -d* to download\n└─⧭ *${getBotName()}* ───`
           }, { quoted: m });
         }
         
@@ -320,7 +320,7 @@ export default {
         if (fetchError.name === 'AbortError' || fetchError.message.includes('timeout')) {
           await sock.sendMessage(jid, { react: { text: '❌', key: m.key } });
           await sock.sendMessage(jid, {
-            text: `╭─⌈ ⏱️ *TIMEOUT* ⌋\n├─⊷ *URL:* ${url}\n├─⊷ Request timed out (30s)\n╰─── *${getBotName()}* ───`
+            text: `┌─⧭ ⏱️ *TIMEOUT* \n├◆ *URL:* ${url}\n├◆ Request timed out (30s)\n└─⧭ *${getBotName()}* ───`
           }, { quoted: m });
         } else {
           throw fetchError;
@@ -332,7 +332,7 @@ export default {
       
       await sock.sendMessage(jid, { react: { text: '❌', key: m.key } });
       await sock.sendMessage(jid, {
-        text: `╭─⌈ ❌ *FETCH FAILED* ⌋\n├─⊷ *URL:* ${url || 'Unknown'}\n├─⊷ *Error:* ${error.message}\n╰─── *${getBotName()}* ───`
+        text: `┌─⧭ ❌ *FETCH FAILED* \n├◆ *URL:* ${url || 'Unknown'}\n├◆ *Error:* ${error.message}\n└─⧭ *${getBotName()}* ───`
       }, { quoted: m });
     }
   }

@@ -366,22 +366,20 @@ export default {
         const modeText = status.ownerOnly ? "🔒 *Owner Only*" : "🌍 *Public*";
         
         await sock.sendMessage(targetJid, {
-          text: `╭─⌈ 🎤 *AUTO-RECORDING* ⌋
-│
+          text: `┌─⧭ 🎤 *AUTO-RECORDING* 
 ├◆ ${statusText}
 ├◆ ${modeText}
 ├◆ Auto-Recording: ${status.enabled ? 'ON 🟢' : 'OFF 🔴'}
 ├◆ Duration: ${status.duration}s | Active: ${status.activeSessions}
-│
-├─⊷ *${PREFIX}autorecording on*
+├◆ *${PREFIX}autorecording on*
 ├◆  └⊷ Enable recording
-├─⊷ *${PREFIX}autorecording off*
+├◆ *${PREFIX}autorecording off*
 ├◆  └⊷ Disable recording
-├─⊷ *${PREFIX}autorecording <duration>*
+├◆ *${PREFIX}autorecording <duration>*
 ├◆  └⊷ Set duration (1-120s)
-├─⊷ *${PREFIX}autorecording status*
+├◆ *${PREFIX}autorecording status*
 ├◆  └⊷ Detailed info
-╰───`
+└─⧭`
         }, { quoted: m });
         return;
       }
@@ -395,11 +393,11 @@ export default {
         
         let statusMsg = `🎤 *Auto-Recording Status* (Owner View)\n\n`;
         statusMsg += `📊 *System Status:*\n`;
-        statusMsg += `├─ Enabled: ${status.enabled ? '✅ YES' : '❌ NO'}\n`;
-        statusMsg += `├─ Duration: ${status.duration}s\n`;
-        statusMsg += `├─ Mode: ${status.ownerOnly ? '🔒 Owner Only' : '🌍 Public'}\n`;
-        statusMsg += `├─ Active Chats: ${status.activeSessions}\n`;
-        statusMsg += `├─ Total Users: ${status.totalUsersRecording}\n`;
+        statusMsg += `├◆ Enabled: ${status.enabled ? '✅ YES' : '❌ NO'}\n`;
+        statusMsg += `├◆ Duration: ${status.duration}s\n`;
+        statusMsg += `├◆ Mode: ${status.ownerOnly ? '🔒 Owner Only' : '🌍 Public'}\n`;
+        statusMsg += `├◆ Active Chats: ${status.activeSessions}\n`;
+        statusMsg += `├◆ Total Users: ${status.totalUsersRecording}\n`;
         statusMsg += `└─ Hooked: ${status.isHooked ? '✅' : '❌'}\n\n`;
         
         if (allowedUsers.length > 0 && !status.ownerOnly) {
@@ -417,10 +415,10 @@ export default {
             const remaining = Math.max(0, status.duration - elapsed);
             const chatType = chatJid.includes('@g.us') ? '👥 Group' : 
                            chatJid.startsWith('manual_') ? '🎤 Manual' : '👤 DM';
-            statusMsg += `├─ ${chatType}\n`;
-            statusMsg += `│  ├─ ID: ${chatJid}\n`;
-            statusMsg += `│  ├─ Users: ${data.userCount}\n`;
-            statusMsg += `│  ├─ Elapsed: ${elapsed}s\n`;
+            statusMsg += `├◆ ${chatType}\n`;
+            statusMsg += `│  ├◆ ID: ${chatJid}\n`;
+            statusMsg += `│  ├◆ Users: ${data.userCount}\n`;
+            statusMsg += `│  ├◆ Elapsed: ${elapsed}s\n`;
             statusMsg += `│  └─ Remaining: ${remaining}s\n`;
           });
         }
@@ -469,11 +467,11 @@ ${ownerOnly ?
   'Anyone can use auto-recording commands now.\n\n⚠️ *Warning:* Public mode may allow others to spam recording.'
 }
 
-├─⊷ *${PREFIX}autorecording users add @user*
+├◆ *${PREFIX}autorecording users add @user*
 ├◆  └⊷ Add allowed user
-├─⊷ *${PREFIX}autorecording users list*
+├◆ *${PREFIX}autorecording users list*
 ├◆  └⊷ View allowed users
-╰───`
+└─⧭`
         }, { quoted: m });
         return;
       }
@@ -494,10 +492,10 @@ ${ownerOnly ?
             });
           }
           
-          userList += `\n├─⊷ *${PREFIX}autorecording users add @user*\n├◆  └⊷ Add a user\n`;
-          userList += `├─⊷ *${PREFIX}autorecording users remove @user*\n├◆  └⊷ Remove a user\n`;
-          userList += `├─⊷ *${PREFIX}autorecording users clear*\n├◆  └⊷ Clear all users\n`;
-          userList += `╰───`;
+          userList += `\n├◆ *${PREFIX}autorecording users add @user*\n├◆  └⊷ Add a user\n`;
+          userList += `├◆ *${PREFIX}autorecording users remove @user*\n├◆  └⊷ Remove a user\n`;
+          userList += `├◆ *${PREFIX}autorecording users clear*\n├◆  └⊷ Clear all users\n`;
+          userList += `└─⧭`;
           
           return sock.sendMessage(targetJid, {
             text: userList
@@ -535,7 +533,7 @@ ${ownerOnly ?
         
         // Invalid user command
         await sock.sendMessage(targetJid, {
-          text: `╭─⌈ ❓ *RECORDING USERS* ⌋\n│\n├─⊷ *${PREFIX}autorecording users list*\n├◆  └⊷ View allowed users\n├─⊷ *${PREFIX}autorecording users add @user*\n├◆  └⊷ Add a user\n├─⊷ *${PREFIX}autorecording users remove @user*\n├◆  └⊷ Remove a user\n├─⊷ *${PREFIX}autorecording users clear*\n├◆  └⊷ Clear all users\n╰───`
+          text: `┌─⧭ ❓ *RECORDING USERS* \n├◆ *${PREFIX}autorecording users list*\n├◆  └⊷ View allowed users\n├◆ *${PREFIX}autorecording users add @user*\n├◆  └⊷ Add a user\n├◆ *${PREFIX}autorecording users remove @user*\n├◆  └⊷ Remove a user\n├◆ *${PREFIX}autorecording users clear*\n├◆  └⊷ Clear all users\n└─⧭`
         }, { quoted: m });
         return;
       }
@@ -572,7 +570,7 @@ Maximum recording time is 2 minutes (120 seconds).`
         
         if (isNaN(manualDuration) || manualDuration < 1 || manualDuration > 300) {
           await sock.sendMessage(targetJid, {
-            text: `╭─⌈ ❌ *INVALID DURATION* ⌋\n│\n├─⊷ *${PREFIX}autorecording manual 15*\n├◆  └⊷ Use 1-300 seconds\n╰───`
+            text: `┌─⧭ ❌ *INVALID DURATION* \n├◆ *${PREFIX}autorecording manual 15*\n├◆  └⊷ Use 1-300 seconds\n└─⧭`
           }, { quoted: m });
           return;
         }
@@ -591,23 +589,22 @@ I'll show 'recording...' for ${manualDuration} seconds!`
       
       // If no valid command, show help
       await sock.sendMessage(targetJid, {
-        text: `╭─⌈ 🎤 *AUTO-RECORDING* ⌋
-│
-├─⊷ *${PREFIX}autorecording on*
+        text: `┌─⧭ 🎤 *AUTO-RECORDING* 
+├◆ *${PREFIX}autorecording on*
 ├◆  └⊷ Enable recording
-├─⊷ *${PREFIX}autorecording off*
+├◆ *${PREFIX}autorecording off*
 ├◆  └⊷ Disable recording
-├─⊷ *${PREFIX}autorecording <1-120>*
+├◆ *${PREFIX}autorecording <1-120>*
 ├◆  └⊷ Set duration
-├─⊷ *${PREFIX}autorecording mode*
+├◆ *${PREFIX}autorecording mode*
 ├◆  └⊷ Toggle access mode
-├─⊷ *${PREFIX}autorecording users*
+├◆ *${PREFIX}autorecording users*
 ├◆  └⊷ Manage users
-├─⊷ *${PREFIX}autorecording status*
+├◆ *${PREFIX}autorecording status*
 ├◆  └⊷ Detailed info
-├─⊷ *${PREFIX}autorecording manual 10*
+├◆ *${PREFIX}autorecording manual 10*
 ├◆  └⊷ Manual recording
-╰───`
+└─⧭`
       }, { quoted: m });
       
     } catch (err) {

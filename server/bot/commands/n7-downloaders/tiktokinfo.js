@@ -13,13 +13,13 @@ export default {
     try {
       // Show help if no arguments
       if (args.length === 0 || args[0]?.toLowerCase() === 'help') {
-        const helpText = `╭─⌈ 📊 *TIKTOK ACCOUNT INFO* ⌋\n│\n` +
-          `├─⊷ *${PREFIX}tiktokinfo <username>*\n├◆  └⊷ Get TikTok account information\n│\n` +
-          `├─⊷ *${PREFIX}ttinfo @username*\n├◆  └⊷ Alias for tiktokinfo\n│\n` +
-          `├─⊷ *Examples:*\n` +
+        const helpText = `┌─⧭ 📊 *TIKTOK ACCOUNT INFO* \n` +
+          `├◆ *${PREFIX}tiktokinfo <username>*\n├◆  └⊷ Get TikTok account information\n` +
+          `├◆ *${PREFIX}ttinfo @username*\n├◆  └⊷ Alias for tiktokinfo\n` +
+          `├◆ *Examples:*\n` +
           `│  └⊷ ${PREFIX}tiktokinfo khaby.lame\n` +
-          `│  └⊷ ${PREFIX}ttinfo @zachking\n│\n` +
-          `╰───`;
+          `│  └⊷ ${PREFIX}ttinfo @zachking\n` +
+          `└─⧭`;
         
         return sock.sendMessage(jid, { text: helpText }, { quoted: m });
       }
@@ -67,8 +67,8 @@ export default {
 `;
       
       accountText += `👤 *USER PROFILE*\n`;
-      accountText += `├─ *Username:* @${accountInfo.username}\n`;
-      accountText += `├─ *Display Name:* ${accountInfo.displayName}\n`;
+      accountText += `├◆ *Username:* @${accountInfo.username}\n`;
+      accountText += `├◆ *Display Name:* ${accountInfo.displayName}\n`;
       
       if (accountInfo.verified) {
         accountText += `└─ *Status:* ✅ Verified Account\n\n`;
@@ -86,9 +86,9 @@ export default {
       };
       
       accountText += `📈 *ACCOUNT STATISTICS*\n`;
-      accountText += `├─ 👥 *Followers:* ${formatNumber(accountInfo.followers)}\n`;
-      accountText += `├─ 🤝 *Following:* ${formatNumber(accountInfo.following)}\n`;
-      accountText += `├─ ❤️ *Total Likes:* ${formatNumber(accountInfo.likes)}\n`;
+      accountText += `├◆ 👥 *Followers:* ${formatNumber(accountInfo.followers)}\n`;
+      accountText += `├◆ 🤝 *Following:* ${formatNumber(accountInfo.following)}\n`;
+      accountText += `├◆ ❤️ *Total Likes:* ${formatNumber(accountInfo.likes)}\n`;
       accountText += `└─ 🎬 *Videos Posted:* ${formatNumber(accountInfo.videoCount)}\n\n`;
       
       if (accountInfo.bio && accountInfo.bio.trim().length > 0) {

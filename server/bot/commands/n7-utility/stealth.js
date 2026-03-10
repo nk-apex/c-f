@@ -704,22 +704,22 @@
 //             else if (subCommand === 'debug') {
 //                 let debugText = `🐛 *VV2 Debug Info*\n\n`;
 //                 debugText += `👤 *Your Info:*\n`;
-//                 debugText += `├─ JID: ${msg.key.participant || chatId}\n`;
-//                 debugText += `├─ From Me: ${msg.key.fromMe ? '✅ YES' : '❌ NO'}\n`;
+//                 debugText += `├◆ JID: ${msg.key.participant || chatId}\n`;
+//                 debugText += `├◆ From Me: ${msg.key.fromMe ? '✅ YES' : '❌ NO'}\n`;
 //                 debugText += `└─ Is Owner: ${isOwner ? '✅ YES' : '❌ NO'}\n\n`;
                 
 //                 debugText += `👑 *Owner Info:*\n`;
-//                 debugText += `├─ Number: ${ownerInfo.cleanNumber}\n`;
-//                 debugText += `├─ JID: ${ownerInfo.cleanJid}\n`;
+//                 debugText += `├◆ Number: ${ownerInfo.cleanNumber}\n`;
+//                 debugText += `├◆ JID: ${ownerInfo.cleanJid}\n`;
 //                 debugText += `└─ Is LID: ${ownerInfo.isLid ? '✅ YES' : '❌ NO'}\n\n`;
                 
 //                 debugText += `🔧 *Emoji Trigger:*\n`;
-//                 debugText += `├─ Current: ${CURRENT_EMOJI}\n`;
+//                 debugText += `├◆ Current: ${CURRENT_EMOJI}\n`;
 //                 debugText += `└─ Config File: ${CONFIG.EMOJI_CONFIG_FILE}\n\n`;
                 
 //                 debugText += `⚙️ *Config:*\n`;
-//                 debugText += `├─ Stealth Mode: ${CONFIG.STEALTH_MODE ? '✅ ON' : '❌ OFF'}\n`;
-//                 debugText += `├─ Silent Mode: ${CONFIG.SILENT_MODE ? '✅ ON' : '❌ OFF'}\n`;
+//                 debugText += `├◆ Stealth Mode: ${CONFIG.STEALTH_MODE ? '✅ ON' : '❌ OFF'}\n`;
+//                 debugText += `├◆ Silent Mode: ${CONFIG.SILENT_MODE ? '✅ ON' : '❌ OFF'}\n`;
 //                 debugText += `└─ Max Size: ${CONFIG.MAX_SIZE_MB}MB`;
                 
 //                 return sock.sendMessage(chatId, { text: debugText }, { quoted: msg });

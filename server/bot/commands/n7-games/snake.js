@@ -668,33 +668,24 @@ function updateLeaderboard(userId, userName, score) {
 // ============= INFO COMMANDS =============
 
 async function showHelp(sock, m, chatId) {
-    const helpText = `╭─⌈ 🐍 *SNAKE GAME* ⌋
-│
-├─⊷ *.snake start / play*
+    const helpText = `┌─⧭ 🐍 *SNAKE GAME* 
+├◆ *.snake start / play*
 ├◆  └⊷ Start new game
-│
-├─⊷ *.snake up / down / left / right*
+├◆ *.snake up / down / left / right*
 ├◆  └⊷ Move direction (or u/d/l/r)
-│
-├─⊷ *.snake pause / resume*
+├◆ *.snake pause / resume*
 ├◆  └⊷ Pause or resume game
-│
-├─⊷ *.snake stop*
+├◆ *.snake stop*
 ├◆  └⊷ End game
-│
-├─⊷ *.snake status*
+├◆ *.snake status*
 ├◆  └⊷ Show game info
-│
-├─⊷ *.snake stats*
+├◆ *.snake stats*
 ├◆  └⊷ Your statistics
-│
-├─⊷ *.snake leaderboard*
+├◆ *.snake leaderboard*
 ├◆  └⊷ High scores
-│
-├─⊷ 🎮 Eat 🍎 to grow, avoid walls & yourself
-├─⊷ 📌 Snake moves every 1.5s, can't turn 180°
-│
-╰───`;
+├◆ 🎮 Eat 🍎 to grow, avoid walls & yourself
+├◆ 📌 Snake moves every 1.5s, can't turn 180°
+└─⧭`;
     
     await sock.sendMessage(chatId, { text: helpText }, { quoted: m });
 }

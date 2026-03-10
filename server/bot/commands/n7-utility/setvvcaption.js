@@ -36,7 +36,7 @@ export default {
             const current = existing?.customCaption || `Retrieved by ${getBotName()}`;
 
             return sock.sendMessage(chatId, {
-                text: `╭─⌈ 📝 *VIEW-ONCE CAPTION* ⌋\n│\n├◆  Current: "${current}"\n│\n├─⊷ *${PREFIX}setvvcaption <text>*\n├◆  └⊷ Set custom caption\n│\n├─⊷ *${PREFIX}setvvcaption reset*\n├◆  └⊷ Reset to default\n│\n├─⊷ *${PREFIX}setvvcaption none*\n├◆  └⊷ Disable caption\n│\n╰───`
+                text: `┌─⧭ 📝 *VIEW-ONCE CAPTION* \n├◆  Current: "${current}"\n├◆ *${PREFIX}setvvcaption <text>*\n├◆  └⊷ Set custom caption\n├◆ *${PREFIX}setvvcaption reset*\n├◆  └⊷ Reset to default\n├◆ *${PREFIX}setvvcaption none*\n├◆  └⊷ Disable caption\n└─⧭`
             }, { quoted: msg });
         }
 

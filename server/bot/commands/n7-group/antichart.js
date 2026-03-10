@@ -121,7 +121,7 @@ export default {
 
             if (!target) {
                 return sock.sendMessage(chatId, {
-                    text: `╭─⌈ ❌ *ANTI-CHART* ⌋\n│\n├─⊷ *${PREFIX}antichart restrict* (reply)\n├◆  └⊷ Reply to restrict\n├─⊷ *${PREFIX}antichart restrict @user*\n├◆  └⊷ Mention to restrict\n╰───`
+                    text: `┌─⧭ ❌ *ANTI-CHART* \n├◆ *${PREFIX}antichart restrict* (reply)\n├◆  └⊷ Reply to restrict\n├◆ *${PREFIX}antichart restrict @user*\n├◆  └⊷ Mention to restrict\n└─⧭`
                 }, { quoted: msg });
             }
 
@@ -194,7 +194,7 @@ export default {
         const restricted = config[chatId]?.restricted || [];
 
         return sock.sendMessage(chatId, {
-            text: `╭─⌈ 📊 *ANTI-CHART* ⌋\n│\n├─⊷ *${PREFIX}antichart on*\n├◆  └⊷ Enable protection\n├─⊷ *${PREFIX}antichart off*\n├◆  └⊷ Disable protection\n├─⊷ *${PREFIX}antichart action <warn|delete|kick>*\n├◆  └⊷ Set action mode\n├─⊷ *${PREFIX}antichart restrict* (reply)\n├◆  └⊷ Restrict a user\n├─⊷ *${PREFIX}antichart unrestrict* (reply)\n├◆  └⊷ Unrestrict a user\n├─⊷ *${PREFIX}antichart list*\n├◆  └⊷ List restricted users\n╰───`
+            text: `┌─⧭ 📊 *ANTI-CHART* \n├◆ *${PREFIX}antichart on*\n├◆  └⊷ Enable protection\n├◆ *${PREFIX}antichart off*\n├◆  └⊷ Disable protection\n├◆ *${PREFIX}antichart action <warn|delete|kick>*\n├◆  └⊷ Set action mode\n├◆ *${PREFIX}antichart restrict* (reply)\n├◆  └⊷ Restrict a user\n├◆ *${PREFIX}antichart unrestrict* (reply)\n├◆  └⊷ Unrestrict a user\n├◆ *${PREFIX}antichart list*\n├◆  └⊷ List restricted users\n└─⧭`
         }, { quoted: msg });
     }
 };

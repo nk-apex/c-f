@@ -671,41 +671,29 @@ async function showHelp(sock, m, chatId, userData) {
     
     await new Promise(resolve => setTimeout(resolve, 500));
     
-    const helpText = `╭─⌈ 🪙 *COIN FLIP* ⌋
-│
+    const helpText = `┌─⧭ 🪙 *COIN FLIP* 
 ├◆ 💰 *Balance:* ${userData.balance} 🪙
-│
-├─⊷ *.coinflip heads 100*
+├◆ *.coinflip heads 100*
 ├◆  └⊷ Bet 100 on heads
-│
-├─⊷ *.coinflip tails 200*
+├◆ *.coinflip tails 200*
 ├◆  └⊷ Bet 200 on tails
-│
-├─⊷ *.coinflip 50*
+├◆ *.coinflip 50*
 ├◆  └⊷ Bet 50 on last choice
-│
-├─⊷ *.coinflip challenge @user 500*
+├◆ *.coinflip challenge @user 500*
 ├◆  └⊷ Challenge a player
-│
-├─⊷ *.coinflip accept*
+├◆ *.coinflip accept*
 ├◆  └⊷ Accept challenge
-│
-├─⊷ *.coinflip cancel*
+├◆ *.coinflip cancel*
 ├◆  └⊷ Cancel your challenges
-│
-├─⊷ *.coinflip stats*
+├◆ *.coinflip stats*
 ├◆  └⊷ Your statistics
-│
-├─⊷ *.coinflip leaderboard*
+├◆ *.coinflip leaderboard*
 ├◆  └⊷ Top players
-│
-├─⊷ *.coinflip daily*
+├◆ *.coinflip daily*
 ├◆  └⊷ Daily bonus
-│
-├─⊷ *.coinflip balance*
+├◆ *.coinflip balance*
 ├◆  └⊷ Check balance
-│
-╰───`;
+└─⧭`;
     
     await sock.sendMessage(chatId, {
         text: helpText,

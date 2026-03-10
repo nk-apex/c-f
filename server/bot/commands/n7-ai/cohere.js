@@ -19,7 +19,7 @@ export default {
       query = m.quoted.text;
     } else {
       return sock.sendMessage(jid, {
-        text: `╭─⌈ 🤖 *COHERE AI* ⌋\n├─⊷ *${PREFIX}cohere <question>*\n├◆  └⊷ Ask Cohere anything\n├─⊷ *${PREFIX}coherai <question>*\n├◆  └⊷ Alias for cohere\n├─⊷ *${PREFIX}cohai <question>*\n├◆  └⊷ Alias for cohere\n╰───`
+        text: `┌─⧭ 🤖 *COHERE AI* \n├◆ *${PREFIX}cohere <question>*\n├◆  └⊷ Ask Cohere anything\n├◆ *${PREFIX}coherai <question>*\n├◆  └⊷ Alias for cohere\n├◆ *${PREFIX}cohai <question>*\n├◆  └⊷ Alias for cohere\n└─⧭`
       }, { quoted: m });
     }
 

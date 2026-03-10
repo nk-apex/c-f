@@ -14,7 +14,7 @@ export default {
 
     if (!args || !args[0]) {
       return sock.sendMessage(jid, {
-        text: `╭─⌈ 🔍 *GITHUB STALKER* ⌋\n│\n├─⊷ *${prefix}gitstalk <username>*\n├◆  └⊷ Stalk a GitHub profile\n│\n├─⊷ *Example:*\n├◆  └⊷ ${prefix}gitstalk mauricegift\n│\n╰───────────────\n> *${getBotName()} STALKER*`
+        text: `┌─⧭ 🔍 *GITHUB STALKER* \n├◆ *${prefix}gitstalk <username>*\n├◆  └⊷ Stalk a GitHub profile\n├◆ *Example:*\n├◆  └⊷ ${prefix}gitstalk mauricegift\n└─⧭\n> *${getBotName()} STALKER*`
       }, { quoted: m });
     }
 
@@ -43,7 +43,7 @@ export default {
 
       const joined = d.created_at ? new Date(d.created_at).toLocaleDateString() : 'N/A';
 
-      const caption = `╭─⌈ 🐙 *GITHUB PROFILE* ⌋\n│\n├─⊷ *👤 Name:* ${d.name || 'N/A'}\n├─⊷ *🏷️ Username:* @${d.login || username}\n├─⊷ *📝 Bio:* ${d.bio || 'N/A'}\n├─⊷ *🏢 Company:* ${d.company || 'N/A'}\n├─⊷ *📍 Location:* ${d.location || 'N/A'}${d.email ? `\n├─⊷ *📧 Email:* ${d.email}` : ''}${d.blog ? `\n├─⊷ *🌐 Website:* ${d.blog}` : ''}\n├─⊷ *📦 Public Repos:* ${d.public_repos || 0}\n├─⊷ *👥 Followers:* ${(d.followers || 0).toLocaleString()}\n├─⊷ *👤 Following:* ${(d.following || 0).toLocaleString()}\n├─⊷ *📅 Joined:* ${joined}\n├─⊷ *🔗 Profile:* ${d.html_url || `https://github.com/${username}`}\n│\n╰───────────────\n> 🐺 *${getBotName()} STALKER*`;
+      const caption = `┌─⧭ 🐙 *GITHUB PROFILE* \n├◆ *👤 Name:* ${d.name || 'N/A'}\n├◆ *🏷️ Username:* @${d.login || username}\n├◆ *📝 Bio:* ${d.bio || 'N/A'}\n├◆ *🏢 Company:* ${d.company || 'N/A'}\n├◆ *📍 Location:* ${d.location || 'N/A'}${d.email ? `\n├◆ *📧 Email:* ${d.email}` : ''}${d.blog ? `\n├◆ *🌐 Website:* ${d.blog}` : ''}\n├◆ *📦 Public Repos:* ${d.public_repos || 0}\n├◆ *👥 Followers:* ${(d.followers || 0).toLocaleString()}\n├◆ *👤 Following:* ${(d.following || 0).toLocaleString()}\n├◆ *📅 Joined:* ${joined}\n├◆ *🔗 Profile:* ${d.html_url || `https://github.com/${username}`}\n└─⧭\n> 🐺 *${getBotName()} STALKER*`;
 
       if (avatarBuffer) {
         await sock.sendMessage(jid, { image: avatarBuffer, caption }, { quoted: m });

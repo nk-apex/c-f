@@ -42,11 +42,11 @@ export default {
       const statusEmoji = memoryPercent < 60 ? "🟢" : memoryPercent < 80 ? "🟡" : "🔴";
 
       const aliveText = `
-╭━「 *${getBotName()} ALIVE* 」━╮
+┌─⧭「 *${getBotName()} ALIVE* 」━╮
 ├◆  ${statusEmoji} *Status:* Online
 ├◆  ⏱️ *Uptime:* ${hours}h ${minutes}m ${seconds}s
 ├◆  💾 *Memory:* ${memoryPercent}%
-╰━━━━━━━━━━━━━╯
+└─⧭╯
 _🐺 The pack survives together..._
 `;
 

@@ -335,7 +335,7 @@ export default {
       const leaveCount = groupData.leaveLogs.length;
       
       return sock.sendMessage(jid, { 
-        text: `╭─⌈ 🛡️ *ANTI-LEAVE* ⌋\n│\n├─⊷ *.antileave on*\n├◆  └⊷ Enable detection\n├─⊷ *.antileave off*\n├◆  └⊷ Disable detection\n├─⊷ *.antileave log*\n├◆  └⊷ View recent leaves\n├─⊷ *.antileave clear*\n├◆  └⊷ Clear leave logs\n├─⊷ *.antileave status*\n├◆  └⊷ Check current status\n╰───` 
+        text: `┌─⧭ 🛡️ *ANTI-LEAVE* \n├◆ *.antileave on*\n├◆  └⊷ Enable detection\n├◆ *.antileave off*\n├◆  └⊷ Disable detection\n├◆ *.antileave log*\n├◆  └⊷ View recent leaves\n├◆ *.antileave clear*\n├◆  └⊷ Clear leave logs\n├◆ *.antileave status*\n├◆  └⊷ Check current status\n└─⧭` 
       }, { quoted: msg });
     }
     
@@ -384,7 +384,7 @@ export default {
     }
     
     return sock.sendMessage(jid, { 
-      text: '╭─⌈ ⚠️ *ANTI-LEAVE* ⌋\n│\n├─⊷ *.antileave on/off/log/clear/status*\n├◆  └⊷ Use a valid subcommand\n╰───' 
+      text: '┌─⧭ ⚠️ *ANTI-LEAVE* \n├◆ *.antileave on/off/log/clear/status*\n├◆  └⊷ Use a valid subcommand\n└─⧭' 
     }, { quoted: msg });
   }
 };

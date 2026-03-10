@@ -49,7 +49,7 @@ const PORT = parseInt(process.env.PORT || "5000", 10);
 const httpServer = http.createServer((_req, res) => {
   const status = botConnection.getStatus();
   res.writeHead(200, { "Content-Type": "text/plain" });
-  res.end(`Fox Bot is running.\nState: ${status.state}\nCommands loaded: ${commandLoader.getCommands().length}\n`);
+  res.end(`FOXY is running.\nState: ${status.state}\nCommands loaded: ${commandLoader.getCommands().length}\n`);
 });
 httpServer.listen(PORT, "0.0.0.0");
 
@@ -79,7 +79,7 @@ function printBanner() {
   console.log(c(C.orange, `
   ┌─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┐
   │                                      │
-  │     ${c(C.bright + C.orangeBright, "FOX BOT")}${c(C.orange, " - WhatsApp Bot")}           │
+  │     ${c(C.bright + C.orangeBright, "FOXY")}${c(C.orange, " - WhatsApp Bot")}                │
   │                                      │
   └─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘
   `));
@@ -340,7 +340,7 @@ async function main() {
     const config = getConfig();
     const cmds = commandLoader.getCommands();
     console.log("");
-    console.log(c(C.orange, "  ┌─⧭ FOX-CORE ONLINE"));
+    console.log(c(C.orange, "  ┌─⧭ FOXY ONLINE"));
     console.log(c(C.orange, "  ├◆ ") + c(C.white, "Status: ") + c(C.bright + C.orangeBright, "Connected ✓"));
     if (status.name) console.log(c(C.orange, "  ├◆ ") + c(C.white, `Name:   ${status.name}`));
     if (status.phoneNumber) console.log(c(C.orange, "  ├◆ ") + c(C.white, `Phone:  +${status.phoneNumber}`));
@@ -355,9 +355,9 @@ async function main() {
       if (sock && status.phoneNumber) {
         const botJid = status.phoneNumber.includes("@") ? status.phoneNumber : `${status.phoneNumber}@s.whatsapp.net`;
         const cmds = commandLoader.getCommands();
-        const successMsg = `┌─⧭ FOX-CORE ONLINE
+        const successMsg = `┌─⧭ FOXY ONLINE
 ├◆ Status: Connected
-├◆ Name: ${status.name || "Fox Bot"}
+├◆ Name: ${status.name || "FOXY"}
 ├◆ Prefix: ${config.prefix}
 ├◆ Commands: ${cmds.length}
 ├◆ Mode: ${config.mode}

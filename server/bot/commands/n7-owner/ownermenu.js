@@ -10,8 +10,7 @@ export default {
   async execute(sock, m, args, PREFIX) {
     const jid = m.key.remoteJid;
 
-    const commandsText = `╭─⊷ *⚡ CORE MANAGEMENT*
-│
+    const commandsText = `┌─⧭⊷ *⚡ CORE MANAGEMENT*
 ├◆  • setbotname
 ├◆  • resetbotname
 ├◆  • setowner
@@ -31,20 +30,16 @@ export default {
 ├◆  • setfooter
 ├◆  • repo
 ├◆  • pair
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🔐 PROTECTION SYSTEMS*
-│
+┌─⧭⊷ *🔐 PROTECTION SYSTEMS*
 ├◆  • antidelete
 ├◆  • antideletestatus
 ├◆  • antiedit
 ├◆  • antiviewonce
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🔄 SYSTEM & MAINTENANCE*
-│
+┌─⧭⊷ *🔄 SYSTEM & MAINTENANCE*
 ├◆  • restart
 ├◆  • workingreload
 ├◆  • reloadenv
@@ -58,11 +53,9 @@ export default {
 ├◆  • panel
 ├◆  • checkbotname
 ├◆  • disp
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *⚙️ AUTOMATION*
-│
+┌─⧭⊷ *⚙️ AUTOMATION*
 ├◆  • autoread
 ├◆  • autotyping
 ├◆  • autorecording
@@ -72,11 +65,9 @@ export default {
 ├◆  • autobio
 ├◆  • autorec
 ├◆  • reactowner
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *👥 SUDO MANAGEMENT*
-│
+┌─⧭⊷ *👥 SUDO MANAGEMENT*
 ├◆  • addsudo
 ├◆  • delsudo
 ├◆  • listsudo
@@ -87,27 +78,22 @@ export default {
 ├◆  • mysudo
 ├◆  • sudodebug
 ├◆  • linksudo
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🔒 PRIVACY CONTROLS*
-│
+┌─⧭⊷ *🔒 PRIVACY CONTROLS*
 ├◆  • online
 ├◆  • privacy
 ├◆  • receipt
 ├◆  • profilepic
 ├◆  • viewer
-│
-╰─⊷
+└─⧭⊷
 
-╭─⊷ *🐙 GITHUB TOOLS*
-│
+┌─⧭⊷ *🐙 GITHUB TOOLS*
 ├◆  • gitclone
 ├◆  • gitinfo
 ├◆  • repanalyze
 ├◆  • update
-│
-╰─⊷`;
+└─⧭⊷`;
 
     await sendSubMenu(sock, jid, 'Owner Menu', commandsText, m, PREFIX);
   }

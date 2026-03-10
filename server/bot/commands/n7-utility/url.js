@@ -518,13 +518,13 @@ export default {
         
         if (!quoted && !hasUrl) {
             return sock.sendMessage(jid, {
-                text: `╭─⌈ 📤 *URL UPLOAD* ⌋\n` +
-                      `├─⊷ *.url* (reply to media)\n` +
+                text: `┌─⧭ 📤 *URL UPLOAD* \n` +
+                      `├◆ *.url* (reply to media)\n` +
                       `│  └⊷ Upload & get permanent URL\n` +
-                      `├─⊷ *.url <image_url>*\n` +
+                      `├◆ *.url <image_url>*\n` +
                       `│  └⊷ Re-upload from URL\n` +
-                      `├─⊷ *Supported:* Images, Videos, Docs, Audio\n` +
-                      `╰─── *${getBotName()}* ───`
+                      `├◆ *Supported:* Images, Videos, Docs, Audio\n` +
+                      `└─⧭ *${getBotName()}* ───`
             }, { quoted: m });
         }
         
@@ -606,12 +606,12 @@ export default {
             
             const { url, service, permanent, thumb, width, height } = uploadResult;
             
-            const successCaption = `╭─⌈ 📤 *URL UPLOAD* ⌋\n` +
-                `├─⊷ *Status:* Uploaded ✅\n` +
-                `├─⊷ *Size:* ${width && height ? `${width} × ${height} • ` : ''}${fileSizeMB.toFixed(2)} MB\n` +
-                `├─⊷ *Service:* ${service}\n` +
-                `├─⊷ *URL:* ${url}\n` +
-                `╰─── *${getBotName()}* ───`;
+            const successCaption = `┌─⧭ 📤 *URL UPLOAD* \n` +
+                `├◆ *Status:* Uploaded ✅\n` +
+                `├◆ *Size:* ${width && height ? `${width} × ${height} • ` : ''}${fileSizeMB.toFixed(2)} MB\n` +
+                `├◆ *Service:* ${service}\n` +
+                `├◆ *URL:* ${url}\n` +
+                `└─⧭ *${getBotName()}* ───`;
 
             try {
                 const { createRequire } = await import('module');

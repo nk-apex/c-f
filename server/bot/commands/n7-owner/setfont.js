@@ -32,7 +32,7 @@ export default {
 
             return sock.sendMessage(chatId, {
                 text: [
-                    `╭─⌈ 🎨 *SET BOT FONT* ⌋`,
+                    `┌─⧭ 🎨 *SET BOT FONT* `,
                     `│`,
                     `│ 📝 Current: *${currentFont}*`,
                     `│`,
@@ -43,11 +43,11 @@ export default {
                     `│ ├ *default*${defaultActive}`,
                     `│ │   Normal text (no style)`,
                     `│`,
-                    `├─⊷ *${PREFIX}setfont <name>*`,
+                    `├◆ *${PREFIX}setfont <name>*`,
                     `│  └⊷ Switch font style`,
-                    `├─⊷ *${PREFIX}setfont default*`,
+                    `├◆ *${PREFIX}setfont default*`,
                     `│  └⊷ Reset to normal text`,
-                    `╰───`
+                    `└─⧭`
                 ].join('\n')
             }, { quoted: msg });
         }

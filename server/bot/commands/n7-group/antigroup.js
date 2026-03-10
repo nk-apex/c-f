@@ -233,7 +233,7 @@ export default {
             
             if (!mode || !['warn', 'delete', 'kick'].includes(mode)) {
                 return sock.sendMessage(chatId, { 
-                    text: '╭─⌈ ⚙️ *ANTI-GROUP-LINK SETUP* ⌋\n│\n├─⊷ *.antigrouplink on warn*\n├◆  └⊷ Warn senders\n├─⊷ *.antigrouplink on delete*\n├◆  └⊷ Auto-delete links\n├─⊷ *.antigrouplink on kick*\n├◆  └⊷ Kick senders\n╰───' 
+                    text: '┌─⧭ ⚙️ *ANTI-GROUP-LINK SETUP* \n├◆ *.antigrouplink on warn*\n├◆  └⊷ Warn senders\n├◆ *.antigrouplink on delete*\n├◆  └⊷ Auto-delete links\n├◆ *.antigrouplink on kick*\n├◆  └⊷ Kick senders\n└─⧭' 
                 }, { quoted: msg });
             }
 
@@ -476,7 +476,7 @@ export default {
             
             if (!linkToCheck) {
                 return sock.sendMessage(chatId, { 
-                    text: '╭─⌈ 🔍 *ANTI-GROUP-LINK CHECK* ⌋\n│\n├─⊷ *.antigrouplink check [link]*\n├◆  └⊷ Check a group link\n╰───' 
+                    text: '┌─⧭ 🔍 *ANTI-GROUP-LINK CHECK* \n├◆ *.antigrouplink check [link]*\n├◆  └⊷ Check a group link\n└─⧭' 
                 }, { quoted: msg });
             }
             
@@ -511,7 +511,7 @@ export default {
         }
         else {
             // Show help
-            const helpText = `╭─⌈ 🚫 *ANTI-GROUP-LINK* ⌋\n│\n├─⊷ *.antigrouplink on <warn|delete|kick>*\n├◆  └⊷ Enable with mode\n├─⊷ *.antigrouplink off*\n├◆  └⊷ Disable protection\n├─⊷ *.antigrouplink getlink*\n├◆  └⊷ Show invite link\n├─⊷ *.antigrouplink resetlink*\n├◆  └⊷ Reset invite link\n├─⊷ *.antigrouplink exemptadmins [on/off]*\n├◆  └⊷ Toggle admin exemption\n├─⊷ *.antigrouplink status*\n├◆  └⊷ View current status\n╰───`;
+            const helpText = `┌─⧭ 🚫 *ANTI-GROUP-LINK* \n├◆ *.antigrouplink on <warn|delete|kick>*\n├◆  └⊷ Enable with mode\n├◆ *.antigrouplink off*\n├◆  └⊷ Disable protection\n├◆ *.antigrouplink getlink*\n├◆  └⊷ Show invite link\n├◆ *.antigrouplink resetlink*\n├◆  └⊷ Reset invite link\n├◆ *.antigrouplink exemptadmins [on/off]*\n├◆  └⊷ Toggle admin exemption\n├◆ *.antigrouplink status*\n├◆  └⊷ View current status\n└─⧭`;
             
             await sock.sendMessage(chatId, { text: helpText }, { quoted: msg });
         }
