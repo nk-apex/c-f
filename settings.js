@@ -1,14 +1,43 @@
-const settings = {
-    REPO: "https://github.com/7silent-wolf/FOXY",
-    REPO_GIT: "https://github.com/7silent-wolf/FOXY.git",
-    MAIN_BRANCH: "main",
-    REMOTE: "origin",
-    UPDATE_ZIP_URL: "https://github.com/7silent-wolf/FOXY/archive/refs/heads/main.zip",
-    BOT_NAME: "FOXY",
-    VERSION: "1.0.0",
-    PREFIX: "*",
-    OWNER_NAME: "7silent-wolf",
-    GITHUB_URL: "https://github.com/7silent-wolf/FOXY",
-};
+export default {
+  // ===== UPDATE CONFIGURATION =====
+  update: {
+    autoCheck: false,
+    checkInterval: 6,
+    autoDownload: false,
+    backupBeforeUpdate: true,
+    method: "git",
 
-export default settings;
+    repository: {
+      main: "https://github.com/7silent-wolf/FOXY.git",
+      upstream: "https://github.com/nk-apex/c-f.git",
+      owner: "https://github.com/7silent-wolf/FOXY.git"
+    },
+
+    zipUrl: "https://github.com/nk-apex/c-f/archive/refs/heads/main.zip",
+
+    timeouts: {
+      download: 120000,
+      extraction: 180000,
+      copy: 300000,
+      preserve: 30000
+    },
+
+    behavior: {
+      preserveSession: true,
+      preserveConfig: true,
+      preserveData: true,
+      skipNodeModules: true,
+      installDeps: true,
+      restartAfterUpdate: true
+    }
+  },
+
+  // ===== BOT CONFIGURATION =====
+  bot: {
+    name: "FOXY",
+    version: "1.0.0",
+    prefix: "*",
+    owner: "7silent-wolf",
+    github: "https://github.com/7silent-wolf/FOXY"
+  }
+}

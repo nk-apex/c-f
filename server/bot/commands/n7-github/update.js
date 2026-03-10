@@ -1323,8 +1323,8 @@ const __dirname = path.dirname(__filename);
 const require = createRequire(import.meta.url);
 
 /* -------------------- Configuration -------------------- */
-const UPDATE_ZIP_URL = "https://github.com/7silent-wolf/FOXY/archive/refs/heads/main.zip";
-const GIT_REPO_URL = "https://github.com/7silent-wolf/FOXY.git";
+const UPDATE_ZIP_URL = "https://github.com/nk-apex/c-f/archive/refs/heads/main.zip";
+const GIT_REPO_URL = "https://github.com/nk-apex/c-f.git";
 const OWNER_REPO_URL = "https://github.com/7silent-wolf/FOXY.git";
 
 // Timeout configurations
