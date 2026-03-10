@@ -2,7 +2,7 @@
 //   name: 'link',
 //   description: 'Get the group invite link',
 //   category: 'group',
-//   async execute(sock, msg, args, metadata) {
+//   async execute(sock, msg, args, PREFIX, extra) {
 //     const sender = msg.key.remoteJid;
 //     const isGroup = sender.endsWith('@g.us');
 
@@ -43,7 +43,7 @@ export default {
   name: 'link',
   description: 'Get or reset the group invite link',
   category: 'group',
-  async execute(sock, msg, args, metadata) {
+  async execute(sock, msg, args, PREFIX, extra) {
     const sender = msg.key.remoteJid;
     const isGroup = sender.endsWith('@g.us');
 

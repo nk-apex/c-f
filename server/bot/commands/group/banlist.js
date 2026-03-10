@@ -100,7 +100,7 @@ export default {
     category: 'group',
     usage: 'ex [@user | reply] (reason)',
     
-    async execute(sock, msg, args) {
+    async execute(sock, msg, args, PREFIX, extra) {
         const chatId = msg.key.remoteJid;
         const isGroup = chatId.endsWith('@g.us');
 

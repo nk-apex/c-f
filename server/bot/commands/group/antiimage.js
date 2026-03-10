@@ -44,7 +44,7 @@
 //     name: 'antiimage',
 //     description: 'Control image/media sharing in the group with different actions',
 //     category: 'group',
-//     async execute(sock, msg, args, metadata) {
+//     async execute(sock, msg, args, PREFIX, extra) {
 //         const chatId = msg.key.remoteJid;
 //         const isGroup = chatId.endsWith('@g.us');
         
@@ -667,7 +667,7 @@ export default {
     name: 'antiimage',
     description: 'Control image sharing in the group',
     category: 'group',
-    async execute(sock, msg, args, metadata) {
+    async execute(sock, msg, args, PREFIX, extra) {
         const chatId = msg.key.remoteJid;
         const isGroup = chatId.endsWith('@g.us');
         

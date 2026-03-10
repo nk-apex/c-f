@@ -160,7 +160,7 @@ export default {
     name: 'antimention',
     description: 'Control user mentions in the group',
     category: 'group',
-    async execute(sock, msg, args, metadata) {
+    async execute(sock, msg, args, PREFIX, extra) {
         const chatId = msg.key.remoteJid;
         const isGroup = chatId.endsWith('@g.us');
         

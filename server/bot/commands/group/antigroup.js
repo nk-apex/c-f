@@ -168,7 +168,7 @@ export default {
     name: 'antigrouplink',
     description: 'Block other WhatsApp group links, allow only this group link',
     category: 'group',
-    async execute(sock, msg, args, metadata) {
+    async execute(sock, msg, args, PREFIX, extra) {
         const chatId = msg.key.remoteJid;
         const isGroup = chatId.endsWith('@g.us');
         

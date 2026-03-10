@@ -44,7 +44,7 @@ export default {
     name: 'antiaudio',
     description: 'Control audio/voice message sharing in the group',
     category: 'group',
-    async execute(sock, msg, args, metadata) {
+    async execute(sock, msg, args, PREFIX, extra) {
         const chatId = msg.key.remoteJid;
         const isGroup = chatId.endsWith('@g.us');
         

@@ -3,7 +3,7 @@
 //   description: 'Add a member to the group',
 //   category: 'group',
 
-//   async execute(sock, msg, args, metadata) {
+//   async execute(sock, msg, args, PREFIX, extra) {
 //     const groupId = msg.key.remoteJid;
 //     const isGroup = groupId.endsWith('@g.us');
 //     const senderId = msg.key.participant;
@@ -363,7 +363,7 @@ export default {
   description: 'Add members to group or automatically add owner via group link',
   category: 'group',
   
-  async execute(sock, msg, args, metadata) {
+  async execute(sock, msg, args, PREFIX, extra) {
     const groupId = msg.key.remoteJid;
     const isGroup = groupId.endsWith('@g.us');
     const senderId = msg.key.participant || msg.key.remoteJid;

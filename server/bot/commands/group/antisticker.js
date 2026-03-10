@@ -50,7 +50,7 @@
 //     name: 'antisticker',
 //     description: 'Enable or disable sticker blocking for non-admins in the group',
 //     category: 'group',
-//     async execute(sock, msg, args, metadata) {
+//     async execute(sock, msg, args, PREFIX, extra) {
 //         const chatId = msg.key.remoteJid;
 //         const isGroup = chatId.endsWith('@g.us');
         
@@ -287,7 +287,7 @@ export default {
     name: 'antisticker',
     description: 'Control sticker sharing in the group with admin exemption',
     category: 'group',
-    async execute(sock, msg, args, metadata) {
+    async execute(sock, msg, args, PREFIX, extra) {
         const chatId = msg.key.remoteJid;
         const isGroup = chatId.endsWith('@g.us');
         

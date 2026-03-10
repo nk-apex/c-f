@@ -32,7 +32,7 @@
 //     name: 'ban',
 //     description: 'Ban a user from the group',
 //     category: 'group',
-//     async execute(sock, msg, args) {
+//     async execute(sock, msg, args, PREFIX, extra) {
 //         const chatId = msg.key.remoteJid;
 //         const isGroup = chatId.endsWith('@g.us');
 
@@ -371,7 +371,7 @@ export default {
     name: 'ban',
     description: 'Ban a user from the group',
     category: 'group',
-    async execute(sock, msg, args) {
+    async execute(sock, msg, args, PREFIX, extra) {
         // Auto-attach listener on first command use
         if (!banListenerAttached) {
             attachAutoKickListener(sock);

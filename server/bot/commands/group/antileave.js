@@ -8,7 +8,7 @@
 //   description: 'Prevent users from leaving the group (admin only)',
 //   category: 'group',
   
-//   async execute(sock, msg, args) {
+//   async execute(sock, msg, args, PREFIX, extra) {
 //     const jid = msg.key.remoteJid;
 //     const sender = msg.key.participant || jid;
     
@@ -290,7 +290,7 @@ export default {
   description: 'Anti-leave system with smart detection',
   category: 'group',
   
-  async execute(sock, msg, args) {
+  async execute(sock, msg, args, PREFIX, extra) {
     const jid = msg.key.remoteJid;
     const sender = msg.key.participant || jid;
     
@@ -486,7 +486,7 @@ export const simpleAntiLeave = {
   description: 'Get notified when users leave',
   category: 'group',
   
-  async execute(sock, msg, args) {
+  async execute(sock, msg, args, PREFIX, extra) {
     const jid = msg.key.remoteJid;
     
     if (!jid.endsWith('@g.us')) {

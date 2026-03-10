@@ -624,7 +624,7 @@
 //     name: 'stickerpack',
 //     description: 'Create a sticker pack from collected stickers',
 //     category: 'group',
-//     async execute(sock, msg, args, metadata) {
+//     async execute(sock, msg, args, PREFIX, extra) {
 //         const chatId = msg.key.remoteJid;
 //         const isGroup = chatId.endsWith('@g.us');
         
@@ -1750,7 +1750,7 @@ export default {
     name: 'stickerpack',
     description: 'Create and send a WhatsApp sticker pack from collected stickers',
     category: 'group',
-    async execute(sock, msg, args, metadata) {
+    async execute(sock, msg, args, PREFIX, extra) {
         const chatId = msg.key.remoteJid;
         const isGroup = chatId.endsWith('@g.us');
         
