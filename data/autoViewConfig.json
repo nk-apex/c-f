@@ -60,15 +60,79 @@
     {
       "sender": "222273768296544",
       "timestamp": 1773152492736
+    },
+    {
+      "sender": "172619466838090",
+      "timestamp": 1773152759649
+    },
+    {
+      "sender": "185070811906115",
+      "timestamp": 1773152777612
+    },
+    {
+      "sender": "142125417144375",
+      "timestamp": 1773152813323
+    },
+    {
+      "sender": "142125417144375",
+      "timestamp": 1773152824045
+    },
+    {
+      "sender": "142125417144375",
+      "timestamp": 1773152846854
+    },
+    {
+      "sender": "142125417144375",
+      "timestamp": 1773152848535
+    },
+    {
+      "sender": "56771464929507",
+      "timestamp": 1773152996277
+    },
+    {
+      "sender": "status",
+      "timestamp": 1773152999266
+    },
+    {
+      "sender": "13667307368474",
+      "timestamp": 1773153029336
+    },
+    {
+      "sender": "195253743132878",
+      "timestamp": 1773153116903
+    },
+    {
+      "sender": "71748083040425",
+      "timestamp": 1773153238399
+    },
+    {
+      "sender": "71748083040425",
+      "timestamp": 1773153246225
+    },
+    {
+      "sender": "195253743132878",
+      "timestamp": 1773153376406
+    },
+    {
+      "sender": "13667307368474",
+      "timestamp": 1773153388276
+    },
+    {
+      "sender": "25701654761608",
+      "timestamp": 1773153439592
+    },
+    {
+      "sender": "101941652758725",
+      "timestamp": 1773153516682
     }
   ],
-  "totalViewed": 15,
+  "totalViewed": 31,
   "lastViewed": {
-    "sender": "222273768296544",
-    "timestamp": 1773152492736
+    "sender": "101941652758725",
+    "timestamp": 1773153516682
   },
   "consecutiveViews": 1,
-  "lastSender": "222273768296544",
+  "lastSender": "101941652758725",
   "settings": {
     "rateLimitDelay": 1000,
     "viewToAll": true,
