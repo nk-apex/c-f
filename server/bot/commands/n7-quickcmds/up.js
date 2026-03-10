@@ -77,14 +77,14 @@ export default {
       
       const text = `
 ┌─⧭⏱️ *BOT UPTIME* ⏱️━━╮
-┃
-┃  ⏱️ *Uptime:* ${days}d ${hours}h ${minutes}m ${seconds}s
-┃  💾 *Memory:* ${usedMemory.toFixed(1)}/${totalMemory.toFixed(1)} MB (${memoryPercent}%)
-┃  💻 *Platform:* ${detectPlatform()}
-┃  🔧 *CPU:* ${cpuCores} cores
-┃  🕐 *Started:* ${startTimeFormatted}
-┃  🐺 *Developer:* ${githubName}
-┃
+
+├◆  ⏱️ *Uptime:* ${days}d ${hours}h ${minutes}m ${seconds}s
+├◆  💾 *Memory:* ${usedMemory.toFixed(1)}/${totalMemory.toFixed(1)} MB (${memoryPercent}%)
+├◆  💻 *Platform:* ${detectPlatform()}
+├◆  🔧 *CPU:* ${cpuCores} cores
+├◆  🕐 *Started:* ${startTimeFormatted}
+├◆  🐺 *Developer:* ${githubName}
+
 └─⧭╯
 `.trim();
 
@@ -120,10 +120,10 @@ export default {
       
       const fallbackText = `
 ┌─⧭⏱️ *BOT UPTIME* ⏱️━━╮
-┃
-┃  ⏱️ Uptime: ${days}d ${hours}h ${minutes}m
-┃  👋 Bot is running!
-┃
+
+├◆  ⏱️ Uptime: ${days}d ${hours}h ${minutes}m
+├◆  👋 Bot is running!
+
 └─⧭╯
 `.trim();
       

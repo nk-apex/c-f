@@ -1488,15 +1488,15 @@ case 1: {
   
   // ========== UPDATED MENU WITH NEW BOX STYLE ==========
   let infoSection = `┌─⧭ \`${currentBotName}\` 
-┃ Owner: ${ownerName}
-┃ Mode: ${botMode}
-┃ Prefix: [ ${botPrefix} ]
-┃ Version: ${botVersion}
-┃ Platform: ${deploymentPlatform.icon} ${deploymentPlatform.name}
-┃ Status: ${deploymentPlatform.status}
-┃ Uptime: ${formatUptime(process.uptime())}
-┃ RAM: ${ramUsage.bar} ${ramUsage.percent}%
-┃ Memory: ${ramUsage.usedMB}MB / ${ramUsage.totalMB}MB
+├◆ Owner: ${ownerName}
+├◆ Mode: ${botMode}
+├◆ Prefix: [ ${botPrefix} ]
+├◆ Version: ${botVersion}
+├◆ Platform: ${deploymentPlatform.icon} ${deploymentPlatform.name}
+├◆ Status: ${deploymentPlatform.status}
+├◆ Uptime: ${formatUptime(process.uptime())}
+├◆ RAM: ${ramUsage.bar} ${ramUsage.percent}%
+├◆ Memory: ${ramUsage.usedMB}MB / ${ramUsage.totalMB}MB
 └─⧭⊷`;
 
   // Apply faded effect to the info section
@@ -2729,20 +2729,20 @@ case 3: {
     
     const infoLines = [];
     
-    if ((fieldsStatus && fieldsStatus.user) || (!fieldsStatus)) infoLines.push(`┃ User: ▣『◆』《 ${m.pushName || "Anonymous"} 》『◆』▣`);
-    if ((fieldsStatus && fieldsStatus.owner) || (!fieldsStatus)) infoLines.push(`┃ Owner: ${ownerName}`);
-    if ((fieldsStatus && fieldsStatus.mode) || (!fieldsStatus)) infoLines.push(`┃ Mode: ${botMode}`);
-    if ((fieldsStatus && fieldsStatus.prefix) || (!fieldsStatus)) infoLines.push(`┃ Prefix: [ ${botPrefix} ]`);
-    if ((fieldsStatus && fieldsStatus.version) || (!fieldsStatus)) infoLines.push(`┃ Version: ${botVersion}`);
+    if ((fieldsStatus && fieldsStatus.user) || (!fieldsStatus)) infoLines.push(`├◆ User: ▣『◆』《 ${m.pushName || "Anonymous"} 》『◆』▣`);
+    if ((fieldsStatus && fieldsStatus.owner) || (!fieldsStatus)) infoLines.push(`├◆ Owner: ${ownerName}`);
+    if ((fieldsStatus && fieldsStatus.mode) || (!fieldsStatus)) infoLines.push(`├◆ Mode: ${botMode}`);
+    if ((fieldsStatus && fieldsStatus.prefix) || (!fieldsStatus)) infoLines.push(`├◆ Prefix: [ ${botPrefix} ]`);
+    if ((fieldsStatus && fieldsStatus.version) || (!fieldsStatus)) infoLines.push(`├◆ Version: ${botVersion}`);
     if ((fieldsStatus && fieldsStatus.host) || (!fieldsStatus)) {
-      infoLines.push(`┃ Platform: ${deploymentPlatform.icon} ${deploymentPlatform.name}`);
-      infoLines.push(`┃ Status: ${deploymentPlatform.status}`);
+      infoLines.push(`├◆ Platform: ${deploymentPlatform.icon} ${deploymentPlatform.name}`);
+      infoLines.push(`├◆ Status: ${deploymentPlatform.status}`);
     }
-    if ((fieldsStatus && fieldsStatus.uptime) || (!fieldsStatus)) infoLines.push(`┃ Uptime: ${uptimeStr}`);
+    if ((fieldsStatus && fieldsStatus.uptime) || (!fieldsStatus)) infoLines.push(`├◆ Uptime: ${uptimeStr}`);
     if ((fieldsStatus && fieldsStatus.ram) || (!fieldsStatus)) {
-      infoLines.push(`┃ RAM: ${memBar} ${memPercentDisplay}%`);
+      infoLines.push(`├◆ RAM: ${memBar} ${memPercentDisplay}%`);
     }
-    if ((fieldsStatus && fieldsStatus.usage) || (!fieldsStatus)) infoLines.push(`┃ Memory: ${usedMem}MB / ${totalMem}MB`);
+    if ((fieldsStatus && fieldsStatus.usage) || (!fieldsStatus)) infoLines.push(`├◆ Memory: ${usedMem}MB / ${totalMem}MB`);
 
     if (infoLines.length > 0) {
       infoSection = `┌── \`${currentBotName}\` \n${infoLines.join('\n')}\n└────────────────\n`;
@@ -5401,7 +5401,7 @@ case 5: {
   
   // ========== UPDATED MENU WITH CURVED FORMAT ==========
   let infoSection = `┌─⧭ \`${currentBotName}\` 
-├◆  ╭⊷ *User:* ${m.pushName || "Anonymous"}
+├◆  ├◆ *User:* ${m.pushName || "Anonymous"}
 ├◆  ├⊷ *Owner:* ${ownerName}
 ├◆  ├⊷ *Mode:* ${botMode}
 ├◆  ├⊷ *Prefix:* [ ${botPrefix} ]
@@ -6374,17 +6374,17 @@ case 6: {
     const infoLines = [];
     
     // Only include these fields (removed time, speed, status)
-    if ((fieldsStatus && fieldsStatus.user) || (!fieldsStatus)) infoLines.push(`> ┃ User: ▣ ${m.pushName || "Anonymous"}`);
-    if ((fieldsStatus && fieldsStatus.owner) || (!fieldsStatus)) infoLines.push(`> ┃ Owner: ${ownerName}`);
-    if ((fieldsStatus && fieldsStatus.mode) || (!fieldsStatus)) infoLines.push(`> ┃ Mode: ${botMode}`);
-    if ((fieldsStatus && fieldsStatus.prefix) || (!fieldsStatus)) infoLines.push(`> ┃ Prefix: [ ${botPrefix} ]`);
-    if ((fieldsStatus && fieldsStatus.version) || (!fieldsStatus)) infoLines.push(`> ┃ Version: ${botVersion}`);
+    if ((fieldsStatus && fieldsStatus.user) || (!fieldsStatus)) infoLines.push(`> ├◆ User: ▣ ${m.pushName || "Anonymous"}`);
+    if ((fieldsStatus && fieldsStatus.owner) || (!fieldsStatus)) infoLines.push(`> ├◆ Owner: ${ownerName}`);
+    if ((fieldsStatus && fieldsStatus.mode) || (!fieldsStatus)) infoLines.push(`> ├◆ Mode: ${botMode}`);
+    if ((fieldsStatus && fieldsStatus.prefix) || (!fieldsStatus)) infoLines.push(`> ├◆ Prefix: [ ${botPrefix} ]`);
+    if ((fieldsStatus && fieldsStatus.version) || (!fieldsStatus)) infoLines.push(`> ├◆ Version: ${botVersion}`);
     if ((fieldsStatus && fieldsStatus.host) || (!fieldsStatus)) {
-      infoLines.push(`> ┃ Platform: ${deploymentPlatform.icon} ${deploymentPlatform.name}`);
+      infoLines.push(`> ├◆ Platform: ${deploymentPlatform.icon} ${deploymentPlatform.name}`);
     }
-    if ((fieldsStatus && fieldsStatus.uptime) || (!fieldsStatus)) infoLines.push(`> ┃ Uptime: ${uptimeStr}`);
-    if ((fieldsStatus && fieldsStatus.ram) || (!fieldsStatus)) infoLines.push(`> ┃ RAM: ${memBar} ${memPercentDisplay}%`);
-    if ((fieldsStatus && fieldsStatus.usage) || (!fieldsStatus)) infoLines.push(`> ┃ Memory: ${usedMem}MB / ${totalMem}MB`);
+    if ((fieldsStatus && fieldsStatus.uptime) || (!fieldsStatus)) infoLines.push(`> ├◆ Uptime: ${uptimeStr}`);
+    if ((fieldsStatus && fieldsStatus.ram) || (!fieldsStatus)) infoLines.push(`> ├◆ RAM: ${memBar} ${memPercentDisplay}%`);
+    if ((fieldsStatus && fieldsStatus.usage) || (!fieldsStatus)) infoLines.push(`> ├◆ Memory: ${usedMem}MB / ${totalMem}MB`);
 
     if (infoLines.length > 0) {
       const infoCaption = `> ┌────────────────\n${infoLines.join('\n')}\n> └────────────────\n\n`;
@@ -7369,23 +7369,23 @@ case 6: {
 //     const infoLines = [];
     
 //     // ========== FIX: Check each field individually ==========
-//     if ((fieldsStatus && fieldsStatus.time) || (!fieldsStatus)) infoLines.push(`*┃ Date: ${currentDate}*`);
-//     if ((fieldsStatus && fieldsStatus.time) || (!fieldsStatus)) infoLines.push(`*┃ Time: ${currentTime}*`);
-//     if ((fieldsStatus && fieldsStatus.user) || (!fieldsStatus)) infoLines.push(`*┃ User: ${m.pushName || "Anonymous"}*`);
-//     if ((fieldsStatus && fieldsStatus.owner) || (!fieldsStatus)) infoLines.push(`*┃ Owner: ${ownerName}*`);
-//     if ((fieldsStatus && fieldsStatus.mode) || (!fieldsStatus)) infoLines.push(`*┃ Mode: ${botMode}*`);
-//     if ((fieldsStatus && fieldsStatus.prefix) || (!fieldsStatus)) infoLines.push(`*┃ Prefix: [ ${botPrefix} ]*`);
-//     if ((fieldsStatus && fieldsStatus.version) || (!fieldsStatus)) infoLines.push(`*┃ Version: ${botVersion}*`);
+//     if ((fieldsStatus && fieldsStatus.time) || (!fieldsStatus)) infoLines.push(`*├◆ Date: ${currentDate}*`);
+//     if ((fieldsStatus && fieldsStatus.time) || (!fieldsStatus)) infoLines.push(`*├◆ Time: ${currentTime}*`);
+//     if ((fieldsStatus && fieldsStatus.user) || (!fieldsStatus)) infoLines.push(`*├◆ User: ${m.pushName || "Anonymous"}*`);
+//     if ((fieldsStatus && fieldsStatus.owner) || (!fieldsStatus)) infoLines.push(`*├◆ Owner: ${ownerName}*`);
+//     if ((fieldsStatus && fieldsStatus.mode) || (!fieldsStatus)) infoLines.push(`*├◆ Mode: ${botMode}*`);
+//     if ((fieldsStatus && fieldsStatus.prefix) || (!fieldsStatus)) infoLines.push(`*├◆ Prefix: [ ${botPrefix} ]*`);
+//     if ((fieldsStatus && fieldsStatus.version) || (!fieldsStatus)) infoLines.push(`*├◆ Version: ${botVersion}*`);
 //     if ((fieldsStatus && fieldsStatus.host) || (!fieldsStatus)) {
-//       infoLines.push(`*┃ Panel: ${deploymentPlatform.name}*`);
-//       infoLines.push(`*┃ Status: ${deploymentPlatform.status}*`);
+//       infoLines.push(`*├◆ Panel: ${deploymentPlatform.name}*`);
+//       infoLines.push(`*├◆ Status: ${deploymentPlatform.status}*`);
 //     }
 //     if ((fieldsStatus && fieldsStatus.speed) || (!fieldsStatus)) {
-//       infoLines.push(`*┃ Speed: ${commandSpeed}*`);
+//       infoLines.push(`*├◆ Speed: ${commandSpeed}*`);
 //     }
-//     if ((fieldsStatus && fieldsStatus.uptime) || (!fieldsStatus)) infoLines.push(`*┃ Uptime: ${uptimeStr}*`);
-//     if ((fieldsStatus && fieldsStatus.usage) || (!fieldsStatus)) infoLines.push(`*┃ Usage: ${usedMem} MB of ${totalMem} GB*`);
-//     if ((fieldsStatus && fieldsStatus.ram) || (!fieldsStatus)) infoLines.push(`*┃ RAM: ${memBar} ${memPercent}%*`);
+//     if ((fieldsStatus && fieldsStatus.uptime) || (!fieldsStatus)) infoLines.push(`*├◆ Uptime: ${uptimeStr}*`);
+//     if ((fieldsStatus && fieldsStatus.usage) || (!fieldsStatus)) infoLines.push(`*├◆ Usage: ${usedMem} MB of ${totalMem} GB*`);
+//     if ((fieldsStatus && fieldsStatus.ram) || (!fieldsStatus)) infoLines.push(`*├◆ RAM: ${memBar} ${memPercent}%*`);
 
 //     if (infoLines.length > 0) {
 //       const infoCaption = `┌────────────────\n${infoLines.join('\n')}\n└────────────────\n\n`;
@@ -8105,18 +8105,18 @@ case 7: {
     
     const infoLines = [];
     
-    if ((fieldsStatus && fieldsStatus.user) || (!fieldsStatus)) infoLines.push(`┃ User: ▣ ${m.pushName || "Anonymous"}`);
-    if ((fieldsStatus && fieldsStatus.owner) || (!fieldsStatus)) infoLines.push(`┃ Owner: ${ownerName}`);
-    if ((fieldsStatus && fieldsStatus.mode) || (!fieldsStatus)) infoLines.push(`┃ Mode: ${botMode}`);
-    if ((fieldsStatus && fieldsStatus.prefix) || (!fieldsStatus)) infoLines.push(`┃ Prefix: [ ${botPrefix} ]`);
-    if ((fieldsStatus && fieldsStatus.version) || (!fieldsStatus)) infoLines.push(`┃ Version: ${botVersion}`);
+    if ((fieldsStatus && fieldsStatus.user) || (!fieldsStatus)) infoLines.push(`├◆ User: ▣ ${m.pushName || "Anonymous"}`);
+    if ((fieldsStatus && fieldsStatus.owner) || (!fieldsStatus)) infoLines.push(`├◆ Owner: ${ownerName}`);
+    if ((fieldsStatus && fieldsStatus.mode) || (!fieldsStatus)) infoLines.push(`├◆ Mode: ${botMode}`);
+    if ((fieldsStatus && fieldsStatus.prefix) || (!fieldsStatus)) infoLines.push(`├◆ Prefix: [ ${botPrefix} ]`);
+    if ((fieldsStatus && fieldsStatus.version) || (!fieldsStatus)) infoLines.push(`├◆ Version: ${botVersion}`);
     if ((fieldsStatus && fieldsStatus.host) || (!fieldsStatus)) {
-      infoLines.push(`┃ Platform: ${deploymentPlatform.icon} ${deploymentPlatform.name}`);
-      infoLines.push(`┃ Status: ${deploymentPlatform.status}`);
+      infoLines.push(`├◆ Platform: ${deploymentPlatform.icon} ${deploymentPlatform.name}`);
+      infoLines.push(`├◆ Status: ${deploymentPlatform.status}`);
     }
-    if ((fieldsStatus && fieldsStatus.uptime) || (!fieldsStatus)) infoLines.push(`┃ Uptime: ${uptimeStr}`);
-    if ((fieldsStatus && fieldsStatus.ram) || (!fieldsStatus)) infoLines.push(`┃ RAM: ${memBar} ${memPercentDisplay}%`);
-    if ((fieldsStatus && fieldsStatus.usage) || (!fieldsStatus)) infoLines.push(`┃ Memory: ${usedMem}MB / ${totalMem}MB`);
+    if ((fieldsStatus && fieldsStatus.uptime) || (!fieldsStatus)) infoLines.push(`├◆ Uptime: ${uptimeStr}`);
+    if ((fieldsStatus && fieldsStatus.ram) || (!fieldsStatus)) infoLines.push(`├◆ RAM: ${memBar} ${memPercentDisplay}%`);
+    if ((fieldsStatus && fieldsStatus.usage) || (!fieldsStatus)) infoLines.push(`├◆ Memory: ${usedMem}MB / ${totalMem}MB`);
 
     if (infoLines.length > 0) {
       infoSection = `┌── \`${currentBotName}\` \n${infoLines.join('\n')}\n└────────────────\n\n`;

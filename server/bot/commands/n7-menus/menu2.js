@@ -104,7 +104,7 @@ export default {
       }
     }
 
-    // ── Default mode: ┃ box style header + image + category list ──
+    // ── Default mode: ├◆ box style header + image + category list ──
     const platform = getPlatformInfo();
     const ramUsage = getRAMUsage();
     const ownerName = getOwnerName();
@@ -116,15 +116,15 @@ export default {
     const ramBar = '█'.repeat(filledBars) + '░'.repeat(barLength - filledBars);
 
     const infoHeader = `┌─⧭ \`${botName}\` 
-┃ Owner: ${ownerName}
-┃ Mode: ${botMode}
-┃ Prefix: [ ${prefix} ]
-┃ Version: ${botVersion}
-┃ Platform: ${platform.icon} ${platform.name}
-┃ Status: ${platform.status}
-┃ Uptime: ${formatUptime(process.uptime())}
-┃ RAM: ${ramBar} ${ramUsage.percent}%
-┃ Memory: ${ramUsage.usedMB}MB / ${ramUsage.totalMB}MB
+├◆ Owner: ${ownerName}
+├◆ Mode: ${botMode}
+├◆ Prefix: [ ${prefix} ]
+├◆ Version: ${botVersion}
+├◆ Platform: ${platform.icon} ${platform.name}
+├◆ Status: ${platform.status}
+├◆ Uptime: ${formatUptime(process.uptime())}
+├◆ RAM: ${ramBar} ${ramUsage.percent}%
+├◆ Memory: ${ramUsage.usedMB}MB / ${ramUsage.totalMB}MB
 └─⧭⊷`;
 
     let catList = '';

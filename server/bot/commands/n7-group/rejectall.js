@@ -49,10 +49,10 @@ export default {
     try { await sock.sendMessage(jid, { react: { text: '✅', key: msg.key } }); } catch (e) {}
 
     let resultText = `┌─⧭🐺 *REJECT ALL RESULTS* 🐺━━╮\n`;
-    resultText += `┃ 📋 *Total Requests:* ${participantJids.length}\n`;
-    resultText += `┃ 🚫 *Rejected:* ${rejectedCount}\n`;
+    resultText += `├◆ 📋 *Total Requests:* ${participantJids.length}\n`;
+    resultText += `├◆ 🚫 *Rejected:* ${rejectedCount}\n`;
     if (failedCount > 0) {
-      resultText += `┃ ❌ *Failed:* ${failedCount}\n`;
+      resultText += `├◆ ❌ *Failed:* ${failedCount}\n`;
     }
     resultText += `└─⧭╯\n`;
     resultText += `_🐺 Silent Wolf Bot_`;

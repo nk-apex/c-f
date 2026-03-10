@@ -142,36 +142,36 @@ export default {
       captionText += `\n`;
       
       // Top border
-      captionText += "┏━━━━━━━━━━━━━━━━━━━━┓\n";
+      captionText += "┌─⧭\n";
       
       // Admins section
       if (admins.length > 0) {
-        captionText += `┃ 👑 *ADMINS* (${admins.length})\n`;
-        captionText += "┣━━━━━━━━━━━━━━━━━━━━┫\n";
+        captionText += `├◆ 👑 *ADMINS* (${admins.length})\n`;
+        captionText += ;
         admins.forEach((participant, index) => {
           const paddedNumber = (index + 1).toString().padStart(2, '0');
           const name = participant.name.length > 20 ? participant.name.substring(0, 17) + '...' : participant.name.padEnd(20, ' ');
-          captionText += `┃ ${paddedNumber}. @${name}\n`;
+          captionText += `├◆ ${paddedNumber}. @${name}\n`;
         });
         if (members.length > 0) {
-          captionText += "┣━━━━━━━━━━━━━━━━━━━━┫\n";
+          captionText += ;
         }
       }
       
       // Members section
       if (members.length > 0) {
-        captionText += `┃ 👤 *MEMBERS* (${members.length})\n`;
-        captionText += "┣━━━━━━━━━━━━━━━━━━━━┫\n";
+        captionText += `├◆ 👤 *MEMBERS* (${members.length})\n`;
+        captionText += ;
         members.forEach((participant, index) => {
           const startNum = admins.length > 0 ? admins.length : 0;
           const paddedNumber = (startNum + index + 1).toString().padStart(2, '0');
           const name = participant.name.length > 20 ? participant.name.substring(0, 17) + '...' : participant.name.padEnd(20, ' ');
-          captionText += `┃ ${paddedNumber}. @${name}\n`;
+          captionText += `├◆ ${paddedNumber}. @${name}\n`;
         });
       }
       
       // Bottom border
-      captionText += "┗━━━━━━━━━━━━━━━━━━━━━┛\n\n";
+      captionText += "└─⧭\n\n";
       
       // Footer with timestamp
       const now = new Date();

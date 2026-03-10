@@ -69,7 +69,7 @@
 // //         `👥 *Members:* ${memberCount}\n` +
 // //         `📜 *Description:* ${groupDesc}\n` +
 // //         `📅 *Created:* ${creationDate}\n\n` +
-// //         `> Powered by WolfTech`;
+// //         `> Powered by FOXY`;
 
 // //       await sock.sendMessage(sender, {
 // //         text: infoText,
@@ -152,7 +152,7 @@
 //         `👥 *Members:* ${memberCount}\n` +
 //         `📜 *Description:* ${groupDesc}\n` +
 //         `📅 *Created:* ${creationDate}\n\n` +
-//         `> Powered by WolfTech`;
+//         `> Powered by FOXY`;
 
 //       // Try to get group profile picture (thumbnail)
 //       let profilePicture;
@@ -194,7 +194,7 @@
 //     } catch (err) {
 //       console.error('GroupInfo Error:', err);
 //       await sock.sendMessage(sender, { 
-//         text: '❌ Failed to fetch group info. Please try again.\n\n> Powered by WolfTech'
+//         text: '❌ Failed to fetch group info. Please try again.\n\n> Powered by FOXY'
 //       }, { quoted: msg });
 //     }
 //   }
@@ -297,24 +297,24 @@ export default {
 
       // Prepare the info text with borders
       const infoText = 
-        "┏━━━━━━━━━━━━━━━━━━━━\n" +
-        `┃ 🐺 *GROUP INFORMATION* \n` +
-        "┣━━━━━━━━━━━━━━━━━━━━\n" +
-        `┃ 📛 *Name:* ${groupName}\n` +
-        `┃ 🆔 *ID:* ${groupId}\n` +
-        "┣━━━━━━━━━━━━━━━━━━━━\n" +
-        `┃ 👑 *Super Admin:* ${superAdminInfo}\n` +
-        `┃ ⭐ *Total Admins:* ${adminCount}\n` +
-        `┃ 👥 *Total Members:* ${memberCount}\n` +
-        "┣━━━━━━━━━━━━━━━━━━━━\n" +
-        `┃ 📜 *Description:*\n` +
-        `┃ ${groupDesc}\n` +
-        "┣━━━━━━━━━━━━━━━━━━━━\n" +
-        `┃ 📅 *Created:* ${creationDate}\n` +
-        `┃ 🔧 *Mode:* ${groupMode}\n` +
-        "┣━━━━━━━━━━━━━━━━━━━━\n" +
-        `┃ > Powered by WolfTech\n` +
-        "┗━━━━━━━━━━━━━━━━━━━━";
+        "┌─⧭ GROUP INFORMATION\n" +
+        `├◆ 🐺 *GROUP INFORMATION*\n` +
+        "" +
+        `├◆ 📛 *Name:* ${groupName}\n` +
+        `├◆ 🆔 *ID:* ${groupId}\n` +
+        "" +
+        `├◆ 👑 *Super Admin:* ${superAdminInfo}\n` +
+        `├◆ ⭐ *Total Admins:* ${adminCount}\n` +
+        `├◆ 👥 *Total Members:* ${memberCount}\n` +
+        "" +
+        `├◆ 📜 *Description:*\n` +
+        `├◆ ${groupDesc}\n` +
+        "" +
+        `├◆ 📅 *Created:* ${creationDate}\n` +
+        `├◆ 🔧 *Mode:* ${groupMode}\n` +
+        "" +
+        `├◆ > Powered by FOXY\n` +
+        "└─⧭";
 
       // Try to get group profile picture (thumbnail)
       let profilePicture;
@@ -357,14 +357,14 @@ export default {
       console.error('GroupInfo Error:', err);
       // Error message with border
       const errorText = 
-        "┏━━━━━━━━━━━━━━━━━━━━━━┓\n" +
-        `┃ ❌ *GROUP INFO ERROR* ┃\n` +
-        "┣━━━━━━━━━━━━━━━━━━━━━━\n" +
-        `┃ Failed to fetch group info.\n` +
-        `┃ Please try again.\n` +
-        "┣━━━━━━━━━━━━━━━━━━━━━━\n" +
-        `┃ > Powered by WolfTech\n` +
-        "┗━━━━━━━━━━━━━━━━━━━━━━┛";
+        "┌─⧭\n" +
+        `├◆ ❌ *GROUP INFO ERROR* \n` +
+        "" +
+        `├◆ Failed to fetch group info.\n` +
+        `├◆ Please try again.\n` +
+        "" +
+        `├◆ > Powered by FOXY\n` +
+        "└─⧭━━┛";
       
       await sock.sendMessage(sender, { 
         text: errorText
