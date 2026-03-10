@@ -211,17 +211,23 @@
       "reaction": "🦊",
       "statusId": "AC9D4EDA5DA382626475387CD1D7AD5E",
       "timestamp": 1773153602154
+    },
+    {
+      "sender": "181819538448617",
+      "reaction": "🦊",
+      "statusId": "A5043F25710593188DBF64BA8696EE0A",
+      "timestamp": 1773153789647
     }
   ],
-  "totalReacted": 32,
+  "totalReacted": 33,
   "lastReacted": {
-    "sender": "195253743132878",
+    "sender": "181819538448617",
     "reaction": "🦊",
-    "statusId": "AC9D4EDA5DA382626475387CD1D7AD5E",
-    "timestamp": 1773153602154
+    "statusId": "A5043F25710593188DBF64BA8696EE0A",
+    "timestamp": 1773153789647
   },
-  "consecutiveReactions": 2,
-  "lastSender": "195253743132878",
+  "consecutiveReactions": 1,
+  "lastSender": "181819538448617",
   "settings": {
     "rateLimitDelay": 500,
     "reactToAll": true,
@@ -260,9 +266,10 @@
     "25701654761608@lid|A506DEC5A47EB1F6417D9A95E9F7D48D|1773153439740",
     "20388931211367@lid|A57D47C1586D29B4D6B73C7E25ED821F|1773153552158",
     "195253743132878@lid|ACCFC02F04A20F1F3D97E545D4A843A8|1773153580901",
-    "195253743132878@lid|AC9D4EDA5DA382626475387CD1D7AD5E|1773153602153"
+    "195253743132878@lid|AC9D4EDA5DA382626475387CD1D7AD5E|1773153602153",
+    "181819538448617@lid|A5043F25710593188DBF64BA8696EE0A|1773153789646"
   ],
-  "lastReactionTime": 1773153602153,
+  "lastReactionTime": 1773153789646,
   "viewMode": "view+react",
   "excludedContacts": []
 }

@@ -136,15 +136,19 @@
     {
       "sender": "195253743132878",
       "timestamp": 1773153602076
+    },
+    {
+      "sender": "181819538448617",
+      "timestamp": 1773153789576
     }
   ],
-  "totalViewed": 34,
+  "totalViewed": 35,
   "lastViewed": {
-    "sender": "195253743132878",
-    "timestamp": 1773153602076
+    "sender": "181819538448617",
+    "timestamp": 1773153789576
   },
-  "consecutiveViews": 2,
-  "lastSender": "195253743132878",
+  "consecutiveViews": 1,
+  "lastSender": "181819538448617",
   "settings": {
     "rateLimitDelay": 1000,
     "viewToAll": true,

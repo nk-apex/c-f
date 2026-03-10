@@ -24,7 +24,7 @@ const green = '\x1b[32m';
 const reset = '\x1b[0m';
 
 console.log(`\n${loaderColor}╔══════════════════════════════════════════════════════════╗${reset}`);
-console.log(`${loaderColor}║     🦊 FOXY LOADER - FOXY BOT v1.1.5                     ║${reset}`);
+console.log(`${loaderColor}║     🦊 FOXY LOADER - FOXY BOT v1.0.0                     ║${reset}`);
 console.log(`${loaderColor}╚══════════════════════════════════════════════════════════╝${reset}\n`);
 
 function loadEnvFile() {
