@@ -58,5 +58,5 @@
 </p>
 
 <p align="center">
-  <strong><span style="color:#ff6600">FOXY</span>BOT by <span style="color:#ff6600">Silent </span>Wolf</strong>
+  <strong><span style="color:#ff6600">FOXY</span>BOT by <span style="color:#ff6600">Leon </span>Progress</strong>
 </p>
