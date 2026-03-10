@@ -1,4 +1,5 @@
 import { loadAutomod } from './automodStore.js';
+import { downloadMediaMessage } from '@whiskeysockets/baileys';
 
 function cleanJid(jid) {
   if (!jid) return jid;
@@ -70,6 +71,48 @@ async function warn(sock, chatId, senderJid, reason) {
   } catch {}
 }
 
+async function revealViewOnce(sock, msg, chatId, senderJid) {
+  try {
+    const m = msg.message;
+    const inner =
+      m.viewOnceMessage?.message ||
+      m.viewOnceMessageV2?.message ||
+      m.viewOnceMessageV2Extension?.message;
+    if (!inner) return;
+
+    const num = cleanJid(senderJid).split('@')[0];
+    const caption = `👁️ *Anti-View-Once*\n@${num} sent a view-once message — revealed below:`;
+
+    const buffer = await downloadMediaMessage(
+      { key: msg.key, message: inner },
+      'buffer',
+      {},
+      { reuploadRequest: sock.updateMediaMessage }
+    );
+
+    if (inner.imageMessage) {
+      await sock.sendMessage(chatId, {
+        image: buffer,
+        caption,
+        mentions: [cleanJid(senderJid)]
+      });
+    } else if (inner.videoMessage) {
+      await sock.sendMessage(chatId, {
+        video: buffer,
+        caption,
+        mentions: [cleanJid(senderJid)]
+      });
+    } else if (inner.audioMessage) {
+      await sock.sendMessage(chatId, {
+        audio: buffer,
+        mimetype: 'audio/ogg; codecs=opus',
+        caption,
+        mentions: [cleanJid(senderJid)]
+      });
+    }
+  } catch {}
+}
+
 let enforcerAttached = false;
 
 export function initAutomodEnforcer(sock) {
@@ -120,8 +163,7 @@ export function initAutomodEnforcer(sock) {
         }
 
         if (settings.antiviewonce && msgType === 'viewonce') {
-          await deleteMessage(sock, msg);
-          await warn(sock, chatId, senderJid, 'View-once messages are not allowed in this group.');
+          await revealViewOnce(sock, msg, chatId, senderJid);
           continue;
         }
 
