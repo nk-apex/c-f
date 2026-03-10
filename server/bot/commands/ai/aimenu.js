@@ -73,83 +73,83 @@ export default {
     const p = PREFIX;
 
     const caption =
-      `┌─⧭━━━━━━━━━━━━━━━━━━━━⧭─┐\n` +
-      `│   🤖 *${botName} AI MENU*   │\n` +
-      `└─⧭━━━━━━━━━━━━━━━━━━━━⧭─┘\n\n` +
+      `┌─⧭━━━━━━⧭─┐\n` +
+      `│ 🤖 *${botName} AI MENU* │\n` +
+      `└─⧭━━━━━━⧭─┘\n\n` +
 
       `┌─⧭ 🔵 *MAJOR AI MODELS*\n` +
-      `├◆ ${p}gpt — GPT AI (ChatEverywhere)\n` +
-      `├◆ ${p}gpt4 — GPT-4 (OpenAI)\n` +
-      `├◆ ${p}gpt4o — GPT-4o (OpenAI)\n` +
-      `├◆ ${p}claude — Claude (Anthropic)\n` +
-      `├◆ ${p}gemini — Gemini (Google)\n` +
-      `├◆ ${p}mistral — Mistral AI\n` +
-      `├◆ ${p}deepseek — DeepSeek AI\n` +
-      `├◆ ${p}groq — Groq (Ultra-Fast)\n` +
-      `├◆ ${p}cohere — Cohere AI\n` +
-      `├◆ ${p}venice — Venice AI\n` +
+      `├◆ ${p}gpt\n` +
+      `├◆ ${p}gpt4\n` +
+      `├◆ ${p}gpt4o\n` +
+      `├◆ ${p}claude\n` +
+      `├◆ ${p}gemini\n` +
+      `├◆ ${p}mistral\n` +
+      `├◆ ${p}deepseek\n` +
+      `├◆ ${p}groq\n` +
+      `├◆ ${p}cohere\n` +
+      `├◆ ${p}venice\n` +
       `└─⧭\n\n` +
 
       `┌─⧭ 🟣 *META LLAMA FAMILY*\n` +
-      `├◆ ${p}llama — Llama 3 (Meta)\n` +
-      `├◆ ${p}codellama — CodeLlama (Meta)\n` +
-      `├◆ ${p}vicuna — Vicuna (fine-tuned Llama)\n` +
-      `├◆ ${p}tinyllama — TinyLlama (1.1B)\n` +
+      `├◆ ${p}llama\n` +
+      `├◆ ${p}codellama\n` +
+      `├◆ ${p}vicuna\n` +
+      `├◆ ${p}tinyllama\n` +
       `└─⧭\n\n` +
 
       `┌─⧭ 🟢 *MIXTURE OF EXPERTS*\n` +
-      `├◆ ${p}mixtral — Mixtral MoE\n` +
-      `├◆ ${p}phi — Phi (Microsoft)\n` +
-      `├◆ ${p}neural — NeuralChat (Intel)\n` +
-      `├◆ ${p}orca — Orca (Microsoft)\n` +
+      `├◆ ${p}mixtral\n` +
+      `├◆ ${p}phi\n` +
+      `├◆ ${p}neural\n` +
+      `├◆ ${p}orca\n` +
       `└─⧭\n\n` +
 
       `┌─⧭ 🟡 *OPEN SOURCE MODELS*\n` +
-      `├◆ ${p}falcon — Falcon (TII)\n` +
-      `├◆ ${p}openchat — OpenChat\n` +
-      `├◆ ${p}wizard — WizardLM\n` +
-      `├◆ ${p}zephyr — Zephyr (HuggingFace)\n` +
-      `├◆ ${p}dolphin — Dolphin\n` +
-      `├◆ ${p}nous — Nous Hermes\n` +
-      `├◆ ${p}openhermes — OpenHermes\n` +
-      `├◆ ${p}solar — Solar (Upstage)\n` +
-      `├◆ ${p}yi — Yi (01.AI)\n` +
+      `├◆ ${p}falcon\n` +
+      `├◆ ${p}openchat\n` +
+      `├◆ ${p}wizard\n` +
+      `├◆ ${p}zephyr\n` +
+      `├◆ ${p}dolphin\n` +
+      `├◆ ${p}nous\n` +
+      `├◆ ${p}openhermes\n` +
+      `├◆ ${p}solar\n` +
+      `├◆ ${p}yi\n` +
       `└─⧭\n\n` +
 
       `┌─⧭ 🟠 *CODE AI MODELS*\n` +
-      `├◆ ${p}starcoder — StarCoder (HuggingFace)\n` +
-      `├◆ ${p}replitai — Replit AI\n` +
+      `├◆ ${p}starcoder\n` +
+      `├◆ ${p}replitai\n` +
       `└─⧭\n\n` +
 
       `┌─⧭ 🔴 *ENTERPRISE & RESEARCH*\n` +
-      `├◆ ${p}qwen — Qwen (Alibaba)\n` +
-      `├◆ ${p}commandr — Command R (Cohere)\n` +
-      `├◆ ${p}nemotron — Nemotron (NVIDIA)\n` +
-      `├◆ ${p}internlm — InternLM (Shanghai AI)\n` +
-      `├◆ ${p}chatglm — ChatGLM (Tsinghua)\n` +
+      `├◆ ${p}qwen\n` +
+      `├◆ ${p}commandr\n` +
+      `├◆ ${p}nemotron\n` +
+      `├◆ ${p}internlm\n` +
+      `├◆ ${p}chatglm\n` +
       `└─⧭\n\n` +
 
       `┌─⧭ ⚫ *SPECIAL MODELS*\n` +
-      `├◆ ${p}wormgpt — WormGPT\n` +
-      `├◆ ${p}wolf — Wolf AI (Auto-reply)\n` +
+      `├◆ ${p}wormgpt\n` +
+      `├◆ ${p}wolf\n` +
       `└─⧭\n\n` +
 
       `┌─⧭ 🖼️ *AI IMAGE & VISION*\n` +
-      `├◆ ${p}vision — Image analysis\n` +
-      `├◆ ${p}geminivision — Gemini Vision\n` +
-      `├◆ ${p}flux — Flux image gen\n` +
-      `├◆ ${p}removebg — Background remover\n` +
-      `├◆ ${p}aiscanner — AI scanner\n` +
+      `├◆ ${p}vision\n` +
+      `├◆ ${p}geminivision\n` +
+      `├◆ ${p}flux\n` +
+      `├◆ ${p}removebg\n` +
+      `├◆ ${p}aiscanner\n` +
       `└─⧭\n\n` +
 
       `┌─⧭ 📝 *AI WRITING TOOLS*\n` +
-      `├◆ ${p}summarize — Text summarizer\n` +
-      `├◆ ${p}humanizer — AI humanizer\n` +
-      `├◆ ${p}speechwriter — Speech writer\n` +
-      `├◆ ${p}analyze — Content analyzer\n` +
+      `├◆ ${p}summarize\n` +
+      `├◆ ${p}humanizer\n` +
+      `├◆ ${p}speechwriter\n` +
+      `├◆ ${p}analyze\n` +
       `└─⧭\n\n` +
 
-      `> ⚡ _${botName} • ${Object.keys({}).length || 35}+ AI Models_`;
+      `> ⚡ _${botName} • 35+ AI Models_`;
 
     try {
       const media = await getAIMenuImage();
