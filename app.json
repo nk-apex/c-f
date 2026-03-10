@@ -1,0 +1,42 @@
+{
+  "name": "FOXY Bot",
+  "description": "Professional WhatsApp Bot with auto-session authentication",
+  "logo": "https://i.ibb.co/PGYDVrqk/7aa433284119.jpg",
+  "keywords": ["whatsapp", "bot", "foxybot", "baileys", "session"],
+  "repository": "https://github.com/7silent-wolf/FOXY.git",
+  "addons": [
+    {
+      "plan": "heroku-postgresql"
+    }
+  ],
+  "scripts": {
+    "start": "node server/index.js"
+  },
+  "env": {
+    "SESSION_ID": {
+      "description": "REQUIRED: Your session ID. Must begin with 'FOXY:~'",
+      "value": "",
+      "required": true
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "https://github.com/DuckyTeam/heroku-buildpack-imagemagick.git"
+    },
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+    },
+    {
+      "url": "https://github.com/clhuang/heroku-buildpack-webp-binaries.git"
+    }
+  ]
+}
