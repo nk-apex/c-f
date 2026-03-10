@@ -719,13 +719,13 @@ export default {
       const allowedGroups = config.allowedGroups || [];
       const allowedDMs = config.allowedDMs || [];
       const whitelistInfo = (allowedGroups.length > 0 || allowedDMs.length > 0)
-        ? `│ 📋 Whitelist: ${allowedGroups.length} groups, ${allowedDMs.length} DMs\n`
+        ? `├◆ 📋 Whitelist: ${allowedGroups.length} groups, ${allowedDMs.length} DMs\n`
         : '';
 
       const helpText =
         `┌─⧭ 🐺 *W.O.L.F CHATBOT* \n` +
-        `│ ${modeEmoji[config.mode] || '🔴'} Status: ${config.mode.toUpperCase()}\n` +
-        `│ ${currentModel.icon} Model: ${currentModel.name}\n` +
+        `├◆ ${modeEmoji[config.mode] || '🔴'} Status: ${config.mode.toUpperCase()}\n` +
+        `├◆ ${currentModel.icon} Model: ${currentModel.name}\n` +
         whitelistInfo +
         `├◆ *${PREFIX}chatbot on*\n` +
         `├◆ *${PREFIX}chatbot off*\n` +

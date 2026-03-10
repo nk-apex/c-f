@@ -423,4 +423,5 @@ export function getAllFieldsStatus(menu) {
   return menuToggles[styleKey] ? { ...menuToggles[styleKey] } : null;
 }
 
-export { menuToggles };
+export { menuToggles, saveConfig };
+

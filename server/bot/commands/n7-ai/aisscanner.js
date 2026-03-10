@@ -1480,7 +1480,7 @@ function generateDetailedReport(result, originalText) {
   // Probability section
   report += `🎯 *PROBABILITY ANALYSIS*\n`;
   report += `${aiBar}${humanBar}\n`;
-  report += `🤖 AI: ${aiPercent}%  │  👤 Human: ${humanPercent}%\n\n`;
+  report += `🤖 AI: ${aiPercent}%  ├◆  👤 Human: ${humanPercent}%\n\n`;
   
   // Prediction with confidence
   report += `${config.emoji} *PREDICTION: ${result.prediction}*\n`;

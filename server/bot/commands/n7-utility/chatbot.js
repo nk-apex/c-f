@@ -1,7 +1,7 @@
 
 import { createRequire } from 'module';
 import axios from "axios";
-import { downloadMediaFromMessage } from "@whiskeysockets/baileys";
+import { downloadMediaMessage } from "@whiskeysockets/baileys";
 import db from '../../lib/supabase.js';
 import { isButtonModeEnabled } from '../../lib/buttonMode.js';
 
@@ -616,7 +616,7 @@ export default {
         }
       } else if (responseType === 'vision' && m.message?.imageMessage) {
         try {
-          const media = await downloadMediaFromMessage(m, 'image');
+          const media = await downloadMediaMessage(m, 'image');
           const visionResult = await aiApis.analyzeImage("[IMAGE_UPLOADED]");
           if (visionResult.success) {
             await sock.sendMessage(jid, {

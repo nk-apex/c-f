@@ -41,8 +41,8 @@ export default {
           const w1 = players[0]?.winner ? '🏆' : '';
           const w2 = players[1]?.winner ? '🏆' : '';
           text += `├◆ ${w1}${p1.length > 18 ? p1.substring(0, 16) + '..' : p1} *${s1}*\n`;
-          text += `│  ⊷ ${w2}${p2.length > 18 ? p2.substring(0, 16) + '..' : p2} *${s2}*\n`;
-          text += `│\n`;
+          text += `├◆ ${w2}${p2.length > 18 ? p2.substring(0, 16) + '..' : p2} *${s2}*\n`;
+          text += ``;
         }
       });
       text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;

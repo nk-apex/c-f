@@ -32,8 +32,8 @@ export default {
         return sock.sendMessage(chatId, {
             text:
                 `┌─⧭ 🔗 *VISIT GROUP* \n` +
-                `│  *${session.name}*\n` +
-                `│  https://chat.whatsapp.com/${inviteCode}\n` +
+                `├◆  *${session.name}*\n` +
+                `├◆  https://chat.whatsapp.com/${inviteCode}\n` +
                 `└─⧭`
         }, { quoted: msg });
     }

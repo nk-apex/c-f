@@ -546,7 +546,7 @@ function renderBoard(game) {
     board += '┌' + '──'.repeat(boardWidth) + '┐\n';
     
     for (let y = 0; y < boardHeight; y++) {
-        board += '│';
+        board += '';
         for (let x = 0; x < boardWidth; x++) {
             let cell = '⬜';
             
@@ -578,7 +578,7 @@ function renderBoard(game) {
             
             board += cell;
         }
-        board += '│\n';
+        board += '\n';
     }
     
     // Bottom border

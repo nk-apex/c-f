@@ -16,11 +16,11 @@ export default {
         const ownerNumber = extra.OWNER_NUMBER?.split(':')[0] || 'Not set';
 
         let info = `┌─⧭ 🔧 *SUDO SYSTEM INFO* \n`;
-        info += `│\n`;
-        info += `│ 👑 *Owner:* +${ownerNumber}\n`;
-        info += `│ 👥 *Sudo Users:* ${count}\n`;
-        info += `│ 🔧 *Sudo Mode:* ${sudomode ? '✅ ON (Sudo-only)' : '❌ OFF (Normal)'}\n`;
-        info += `│\n`;
+        info += ``;
+        info += `├◆ 👑 *Owner:* +${ownerNumber}\n`;
+        info += `├◆ 👥 *Sudo Users:* ${count}\n`;
+        info += `├◆ 🔧 *Sudo Mode:* ${sudomode ? '✅ ON (Sudo-only)' : '❌ OFF (Normal)'}\n`;
+        info += ``;
         info += `├◆ *${PREFIX}addsudo <number>*\n`;
         info += `├◆ *${PREFIX}delsudo <number>*\n`;
         info += `├◆ *${PREFIX}listsudo*\n`;
@@ -28,15 +28,15 @@ export default {
         info += `├◆ *${PREFIX}clearsudo*\n`;
         info += `├◆ *${PREFIX}sudomode on/off*\n`;
         info += `├◆ *${PREFIX}sudoinfo*\n`;
-        info += `│\n`;
+        info += ``;
 
         if (count > 0) {
-            info += `│ 👤 *ACTIVE SUDOS:*\n`;
+            info += `├◆ 👤 *ACTIVE SUDOS:*\n`;
             sudoers.forEach((num, i) => {
                 const date = addedAt[num] ? new Date(addedAt[num]).toLocaleDateString() : '?';
-                info += `│ ${i + 1}. +${num} (${date})\n`;
+                info += `├◆ ${i + 1}. +${num} (${date})\n`;
             });
-            info += `│\n`;
+            info += ``;
         }
 
         info += `└─⧭`;

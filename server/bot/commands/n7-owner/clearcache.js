@@ -111,9 +111,9 @@ export default {
             let output = `┌─⧭ 🗑️ *CACHE CLEARED* \n`;
             output += `├◆ *Target:* ${target.toUpperCase()}\n`;
             results.forEach(r => { output += `├◆ ${r}\n`; });
-            output += `│\n├◆ *Total entries cleared:* ${totalFreed}\n`;
+            output += `├◆\n├◆ *Total entries cleared:* ${totalFreed}\n`;
             output += `├◆ *Memory:* ${heapMB}MB heap / ${rssMB}MB RSS\n`;
-            output += `│\n└─⧭\n> *${getBotName()}*`;
+            output += `├◆\n└─⧭\n> *${getBotName()}*`;
 
             await sock.sendMessage(chatId, { text: output }, { quoted: msg });
             await sock.sendMessage(chatId, { react: { text: '✅', key: msg.key } });

@@ -17,8 +17,6 @@ export default {
           `├◆ *${PREFIX}tiktokinfo <username>*\n` +
           `├◆ *${PREFIX}ttinfo @username*\n` +
           `├◆ *Examples:*\n` +
-          `│\n` +
-          `│\n` +
           `└─⧭`;
         
         return sock.sendMessage(jid, { text: helpText }, { quoted: m });

@@ -31,7 +31,7 @@ export default {
         text += `├◆ ${count}. *${name}*\n`;
       }
 
-      text += `│\n├◆ *Total:* ${favourites.length} favourite group(s)\n└─⧭`;
+      text += `├◆\n├◆ *Total:* ${favourites.length} favourite group(s)\n└─⧭`;
 
       await sock.sendMessage(jid, { text }, { quoted: msg });
 

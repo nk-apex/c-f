@@ -299,19 +299,19 @@
 //                 const stats = channelReactManager.getStats();
 
 //                 let text = `┌─⧭ 📢 *CHANNEL AUTO-REACT* \n`;
-//                 text += `│ Status: ${stats.enabled ? '✅ *ACTIVE*' : '❌ *INACTIVE*'}\n`;
-//                 text += `│ Random Emoji: ✓ (${stats.emojiPoolSize} options)\n`;
-//                 text += `│ Total Reacted: ${stats.totalReacted}\n`;
-//                 text += `│ Known Channels: ${stats.knownChannels}\n`;
-//                 text += `│ Delay: ${stats.minDelay / 1000}s - ${stats.maxDelay / 1000}s\n`;
-//                 text += `│ ⏱️ *5-6 MINUTES BETWEEN REACTIONS*\n`;
+//                 text += `├◆ Status: ${stats.enabled ? '✅ *ACTIVE*' : '❌ *INACTIVE*'}\n`;
+//                 text += `├◆ Random Emoji: ✓ (${stats.emojiPoolSize} options)\n`;
+//                 text += `├◆ Total Reacted: ${stats.totalReacted}\n`;
+//                 text += `├◆ Known Channels: ${stats.knownChannels}\n`;
+//                 text += `├◆ Delay: ${stats.minDelay / 1000}s - ${stats.maxDelay / 1000}s\n`;
+//                 text += `├◆ ⏱️ *5-6 MINUTES BETWEEN REACTIONS*\n`;
 //                 if (stats.queueLength > 0) {
-//                     text += `│ Queue: ${stats.queueLength} pending\n`;
+//                     text += `├◆ Queue: ${stats.queueLength} pending\n`;
 //                 }
 //                 if (stats.lastReacted) {
-//                     text += `│ Last Reacted: ${new Date(stats.lastReacted).toLocaleString()}\n`;
+//                     text += `├◆ Last Reacted: ${new Date(stats.lastReacted).toLocaleString()}\n`;
 //                 }
-//                 text += `│\n`;
+//                 text += ``;
 //                 text += `├◆ *${prefix}channelreact on*\n`;
 //                 text += `├◆ *${prefix}channelreact off*\n`;
 //                 text += `├◆ *${prefix}channelreact delay <min> <max>*\n`;
@@ -396,13 +396,13 @@
 //                     }
 
 //                     let text = `┌─⧭ 📢 *SUBSCRIBED CHANNELS* \n`;
-//                     text += `│ Total: ${newsletters.length}\n`;
+//                     text += `├◆ Total: ${newsletters.length}\n`;
 //                     for (let i = 0; i < newsletters.length; i++) {
 //                         const jid = newsletters[i];
 //                         const shortId = jid.split('@')[0];
 //                         text += `├◆ ${i + 1}. ${shortId}\n`;
 //                     }
-//                     text += `│\n`;
+//                     text += ``;
 //                     text += `├◆ *${prefix}channelreact add <jid>*\n`;
 //                     text += `├◆ *${prefix}channelreact remove <jid>*\n`;
 //                     text += `└─⧭`;
@@ -855,19 +855,19 @@ export default {
                 const stats = channelReactManager.getStats();
 
                 let text = `┌─⧭ 📢 *CHANNEL AUTO-REACT* \n`;
-                text += `│ Status: ${stats.enabled ? '✅ *ACTIVE*' : '❌ *INACTIVE*'}\n`;
-                text += `│ Fun Emojis: ✓ (${stats.emojiPoolSize} options)\n`;
-                text += `│ Total Reacted: ${stats.totalReacted}\n`;
-                text += `│ Known Channels: ${stats.knownChannels}\n`;
-                text += `│ Delay Range: ${stats.minDelay / 1000}s - ${stats.maxDelay / 1000}s\n`;
-                text += `│ ⏱️ *RANDOM DELAY EACH TIME (5-6 min)*\n`;
+                text += `├◆ Status: ${stats.enabled ? '✅ *ACTIVE*' : '❌ *INACTIVE*'}\n`;
+                text += `├◆ Fun Emojis: ✓ (${stats.emojiPoolSize} options)\n`;
+                text += `├◆ Total Reacted: ${stats.totalReacted}\n`;
+                text += `├◆ Known Channels: ${stats.knownChannels}\n`;
+                text += `├◆ Delay Range: ${stats.minDelay / 1000}s - ${stats.maxDelay / 1000}s\n`;
+                text += `├◆ ⏱️ *RANDOM DELAY EACH TIME (5-6 min)*\n`;
                 if (stats.queueLength > 0) {
-                    text += `│ Queue: ${stats.queueLength} pending\n`;
+                    text += `├◆ Queue: ${stats.queueLength} pending\n`;
                 }
                 if (stats.lastReacted) {
-                    text += `│ Last Reacted: ${new Date(stats.lastReacted).toLocaleString()}\n`;
+                    text += `├◆ Last Reacted: ${new Date(stats.lastReacted).toLocaleString()}\n`;
                 }
-                text += `│\n`;
+                text += ``;
                 text += `├◆ *${prefix}channelreact on*\n`;
                 text += `├◆ *${prefix}channelreact off*\n`;
                 text += `├◆ *${prefix}channelreact delay <min> <max>*\n`;
@@ -952,13 +952,13 @@ export default {
                     }
 
                     let text = `┌─⧭ 📢 *SUBSCRIBED CHANNELS* \n`;
-                    text += `│ Total: ${newsletters.length}\n`;
+                    text += `├◆ Total: ${newsletters.length}\n`;
                     for (let i = 0; i < newsletters.length; i++) {
                         const jid = newsletters[i];
                         const shortId = jid.split('@')[0];
                         text += `├◆ ${i + 1}. ${shortId}\n`;
                     }
-                    text += `│\n`;
+                    text += ``;
                     text += `├◆ *${prefix}channelreact add <jid>*\n`;
                     text += `├◆ *${prefix}channelreact remove <jid>*\n`;
                     text += `└─⧭`;

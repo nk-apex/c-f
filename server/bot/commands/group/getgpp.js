@@ -15,7 +15,7 @@ export default {
             const url = await sock.profilePictureUrl(jid, 'image');
 
             let caption = '┌─⧭ GROUP PROFILE PICTURE ⧭─┐\n';
-            caption += '│ Here is the group profile picture.\n';
+            caption += '├◆ Here is the group profile picture.\n';
             caption += '└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘';
 
             await sock.sendMessage(jid, {

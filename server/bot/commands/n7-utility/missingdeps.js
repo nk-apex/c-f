@@ -239,60 +239,60 @@ export default {
             }
 
             let report = `┌─⧭ 📦 *DEPENDENCY REPORT* \n`;
-            report += `│ 📂 Files scanned: *${allFiles.length}*\n`;
-            report += `│ 📦 Packages imported: *${allImports.size}*\n`;
-            report += `│ 📋 In package.json: *${declaredDeps.size}*\n`;
+            report += `├◆ 📂 Files scanned: *${allFiles.length}*\n`;
+            report += `├◆ 📦 Packages imported: *${allImports.size}*\n`;
+            report += `├◆ 📋 In package.json: *${declaredDeps.size}*\n`;
 
             if (missing.length > 0) {
                 report += `├◆  ❌ *MISSING* (${missing.length}) \n`;
-                report += `│  _Not in package.json & not installed_\n`;
+                report += `├◆  _Not in package.json & not installed_\n`;
                 for (const m of missing) {
                     const fileList = m.files.length <= 3
                         ? m.files.map(f => f.replace(/^commands\//, '').replace(/^lib\//, '')).join(', ')
                         : m.files.slice(0, 2).map(f => f.replace(/^commands\//, '').replace(/^lib\//, '')).join(', ') + ` +${m.files.length - 2} more`;
-                    report += `│  • \`${m.pkg}\`\n├◆    └ ${fileList}\n`;
+                    report += `├◆  • \`${m.pkg}\`\n├◆    └ ${fileList}\n`;
                 }
-                report += `│\n`;
+                report += ``;
             }
 
             if (inPkgNotInstalled.length > 0) {
                 report += `├◆  ⚠️ *NOT INSTALLED* (${inPkgNotInstalled.length}) \n`;
-                report += `│  _In package.json but not in node_modules_\n`;
+                report += `├◆  _In package.json but not in node_modules_\n`;
                 for (const m of inPkgNotInstalled) {
-                    report += `│  • \`${m.pkg}\`\n`;
+                    report += `├◆  • \`${m.pkg}\`\n`;
                 }
-                report += `│  _Fix: run \`${PREFIX}npm install\`_\n`;
-                report += `│\n`;
+                report += `├◆  _Fix: run \`${PREFIX}npm install\`_\n`;
+                report += ``;
             }
 
             if (subcommand === 'full') {
                 if (notInPkgJson.length > 0) {
                     report += `├◆  🔶 *UNLISTED* (${notInPkgJson.length}) \n`;
-                    report += `│  _Installed but not in package.json_\n`;
+                    report += `├◆  _Installed but not in package.json_\n`;
                     for (const m of notInPkgJson) {
-                        report += `│  • \`${m.pkg}\` v${m.version || '?'}\n`;
+                        report += `├◆  • \`${m.pkg}\` v${m.version || '?'}\n`;
                     }
-                    report += `│\n`;
+                    report += ``;
                 }
 
                 if (unusedDeclared.length > 0) {
                     report += `├◆  🔹 *UNUSED* (${unusedDeclared.length}) \n`;
-                    report += `│  _In package.json but not imported_\n`;
+                    report += `├◆  _In package.json but not imported_\n`;
                     for (const m of unusedDeclared.slice(0, 15)) {
-                        report += `│  • \`${m.pkg}\` ${m.installed ? '✅' : '❌'}\n`;
+                        report += `├◆  • \`${m.pkg}\` ${m.installed ? '✅' : '❌'}\n`;
                     }
                     if (unusedDeclared.length > 15) {
-                        report += `│  ... +${unusedDeclared.length - 15} more\n`;
+                        report += `├◆  ... +${unusedDeclared.length - 15} more\n`;
                     }
-                    report += `│\n`;
+                    report += ``;
                 }
 
                 report += `├◆  ✅ *INSTALLED* (${installed.length}) \n`;
-                report += `│  _Working correctly_\n`;
+                report += `├◆  _Working correctly_\n`;
                 for (const m of installed) {
-                    report += `│  • \`${m.pkg}\` v${m.version || '?'}\n`;
+                    report += `├◆  • \`${m.pkg}\` v${m.version || '?'}\n`;
                 }
-                report += `│\n`;
+                report += ``;
             }
 
             if (missing.length === 0 && inPkgNotInstalled.length === 0) {
@@ -301,9 +301,9 @@ export default {
                 const totalIssues = missing.length + inPkgNotInstalled.length;
                 report += `├◆ 🔧 *${totalIssues} issue(s) found*\n`;
                 if (missing.length > 0) {
-                    report += `│  Fix: \`${PREFIX}missingdeps fix\`\n`;
+                    report += `├◆  Fix: \`${PREFIX}missingdeps fix\`\n`;
                 }
-                report += `│\n`;
+                report += ``;
             }
 
             report += `└─⧭\n> *${getBotName()}*`;

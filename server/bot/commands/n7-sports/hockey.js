@@ -41,7 +41,7 @@ export default {
               const l = s.find(x => x.name === 'losses')?.value || 0;
               const pts = s.find(x => x.name === 'points')?.value || 0;
               const name = team.team?.abbreviation || '???';
-              text += `│\n`;
+              text += ``;
             });
           }
         }
@@ -60,7 +60,7 @@ export default {
           const away = teams.find(t => t.homeAway === 'away');
           const status = ev.status?.type?.shortDetail || '';
           text += `├◆ ${away?.team?.abbreviation || '???'} *${away?.score || '0'}* @ ${home?.team?.abbreviation || '???'} *${home?.score || '0'}*\n`;
-          text += `│\n`;
+          text += ``;
         });
         text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
         await sock.sendMessage(jid, { text }, { quoted: m });

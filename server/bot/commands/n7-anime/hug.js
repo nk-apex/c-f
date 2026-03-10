@@ -607,7 +607,7 @@ async function showHugTypes(sock, m, chatId) {
         typesText += `├◆ *.hug ${type}*\n`;
     }
     
-    typesText += `│\n`;
+    typesText += ``;
     typesText += `├◆ *.hug anime @friend*\n`;
     typesText += `├◆ *.hug bear*\n`;
     typesText += `├◆ *.hug*\n`;
@@ -683,7 +683,7 @@ async function showHelp(sock, m, chatId) {
         `├◆ *.hug types*\n` +
         `├◆ *.hug stats*\n` +
         `├◆ *.hug help*\n` +
-        `│ ✨ *Popular Types:*\n` +
+        `├◆ ✨ *Popular Types:*\n` +
         `├◆ *anime*\n` +
         `├◆ *bear*\n` +
         `├◆ *cat*\n` +

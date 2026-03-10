@@ -61,10 +61,10 @@ export default {
                 const apiResp = await axios.get(`https://api.github.com/repos/${repoFullName}`, { timeout: 5000 });
                 const data = apiResp.data;
                 repoInfo =
-                    `│ ✧ *Stars:* ${data.stargazers_count || 0}\n` +
-                    `│ ✧ *Forks:* ${data.forks_count || 0}\n` +
-                    `│ ✧ *Language:* ${data.language || 'N/A'}\n` +
-                    `│ ✧ *Updated:* ${new Date(data.updated_at).toLocaleDateString()}\n`;
+                    `├◆ ✧ *Stars:* ${data.stargazers_count || 0}\n` +
+                    `├◆ ✧ *Forks:* ${data.forks_count || 0}\n` +
+                    `├◆ ✧ *Language:* ${data.language || 'N/A'}\n` +
+                    `├◆ ✧ *Updated:* ${new Date(data.updated_at).toLocaleDateString()}\n`;
             } catch {}
 
             await sock.sendMessage(chatId, {
@@ -73,18 +73,14 @@ export default {
                 mimetype: 'application/zip',
                 caption:
                     `┌─⧭ 🐺 *WOLF BOT* \n` +
-                    `│\n` +
-                    `│ ✧ *Repo:* ${repoFullName}\n` +
-                    `│ ✧ *Size:* ${sizeMB}MB\n` +
+                    `├◆ ✧ *Repo:* ${repoFullName}\n` +
+                    `├◆ ✧ *Size:* ${sizeMB}MB\n` +
                     `${repoInfo}` +
-                    `│\n` +
-                    `│ 📦 Bot source code\n` +
-                    `│ 🔗 github.com/${repoFullName}\n` +
-                    `│\n` +
-                    `│ *Related:*\n` +
-                    `│ • \`${PREFIX}gitclone user/repo\` - Clone any repo\n` +
-                    `│ • \`${PREFIX}gitinfo user/repo\` - Repo details\n` +
-                    `│\n` +
+                    `├◆ 📦 Bot source code\n` +
+                    `├◆ 🔗 github.com/${repoFullName}\n` +
+                    `├◆ *Related:*\n` +
+                    `├◆ • \`${PREFIX}gitclone user/repo\` - Clone any repo\n` +
+                    `├◆ • \`${PREFIX}gitinfo user/repo\` - Repo details\n` +
                     `└─⧭`
             }, { quoted: m });
 
@@ -100,12 +96,9 @@ export default {
             await sock.sendMessage(chatId, {
                 text:
                     `┌─⧭ ❌ *ZIP FAILED* \n` +
-                    `│\n` +
-                    `│ ✧ *Error:* ${error.message}\n` +
-                    `│\n` +
-                    `│ 💡 Try again later or use:\n` +
-                    `│ • \`${PREFIX}gitclone ${repoFullName}\`\n` +
-                    `│\n` +
+                    `├◆ ✧ *Error:* ${error.message}\n` +
+                    `├◆ 💡 Try again later or use:\n` +
+                    `├◆ • \`${PREFIX}gitclone ${repoFullName}\`\n` +
                     `└─⧭`
             }, { quoted: m });
 

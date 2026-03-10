@@ -39,9 +39,9 @@ export default {
             }
 
             let text = '┌─⧭ APPROVE ALL ⧭─┐\n';
-            text += `│ Total requests: ${response.length}\n`;
-            text += `│ Approved: ${approved}\n`;
-            if (failed > 0) text += `│ Failed: ${failed}\n`;
+            text += `├◆ Total requests: ${response.length}\n`;
+            text += `├◆ Approved: ${approved}\n`;
+            if (failed > 0) text += `├◆ Failed: ${failed}\n`;
             text += '└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘';
 
             await sock.sendMessage(jid, { text }, { quoted: msg });

@@ -1337,14 +1337,14 @@ export default {
         const allowedUsers = AutoReactManager.getAllowedUsers();
         
         let statusMsg = `┌─⧭ 😂 *AUTO-REACT STATUS* \n`;
-        statusMsg += `│ ${status.enabled ? '🟢 ON' : '🔴 OFF'} | ${status.useRandomEmoji ? '🎲 Random' : '🎯 Fixed'} | ${status.emoji}\n`;
-        statusMsg += `│ DMs: ${status.reactToDMs ? '✅' : '❌'} | Groups: ${status.reactToGroups ? '✅' : '❌'} | Cmds: ${status.reactToCommands ? '✅' : '❌'}\n`;
-        statusMsg += `│ Access: ${status.ownerOnly ? '🔒 Owner' : '🌍 Public'} | Hooked: ${status.isHooked ? '✅' : '❌'}\n`;
-        statusMsg += `│ Active: ${status.activeReactions} | Rate: ${status.rateLimit}\n`;
+        statusMsg += `├◆ ${status.enabled ? '🟢 ON' : '🔴 OFF'} | ${status.useRandomEmoji ? '🎲 Random' : '🎯 Fixed'} | ${status.emoji}\n`;
+        statusMsg += `├◆ DMs: ${status.reactToDMs ? '✅' : '❌'} | Groups: ${status.reactToGroups ? '✅' : '❌'} | Cmds: ${status.reactToCommands ? '✅' : '❌'}\n`;
+        statusMsg += `├◆ Access: ${status.ownerOnly ? '🔒 Owner' : '🌍 Public'} | Hooked: ${status.isHooked ? '✅' : '❌'}\n`;
+        statusMsg += `├◆ Active: ${status.activeReactions} | Rate: ${status.rateLimit}\n`;
         
         if (status.useRandomEmoji) {
           const emojiPreview = autoReactConfig.randomEmojiList.slice(0, 10).join(' ');
-          statusMsg += `│ Random: ${emojiPreview}`;
+          statusMsg += `├◆ Random: ${emojiPreview}`;
           if (autoReactConfig.randomEmojiList.length > 10) {
             statusMsg += ` +${autoReactConfig.randomEmojiList.length - 10} more`;
           }
@@ -1352,10 +1352,10 @@ export default {
         }
         
         if (allowedUsers.length > 0 && !status.ownerOnly) {
-          statusMsg += `│ Allowed Users: ${allowedUsers.length}\n`;
+          statusMsg += `├◆ Allowed Users: ${allowedUsers.length}\n`;
         }
         
-        statusMsg += `│\n`;
+        statusMsg += ``;
         statusMsg += `├◆ *${PREFIX}autoreact random add <emoji>*\n`;
         statusMsg += `├◆ *${PREFIX}autoreact random list*\n`;
         statusMsg += `├◆ *${PREFIX}autoreact random clear*\n`;

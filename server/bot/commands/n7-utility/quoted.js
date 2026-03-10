@@ -216,46 +216,46 @@ export default {
         let isStarred = contextInfo.isStarred || false;
 
         let text = `┌─⧭ 📋 *QUOTED MESSAGE INFO* \n`;
-        text += `│ 📌 *Message ID:* ${stanzaId}\n`;
-        text += `│ 👤 *Sender:* @${senderClean}\n`;
-        text += `│ 📝 *Type:* ${msgType}\n`;
+        text += `├◆ 📌 *Message ID:* ${stanzaId}\n`;
+        text += `├◆ 👤 *Sender:* @${senderClean}\n`;
+        text += `├◆ 📝 *Type:* ${msgType}\n`;
 
-        if (isViewOnce) text += `│ 👁️ *View Once:* Yes\n`;
+        if (isViewOnce) text += `├◆ 👁️ *View Once:* Yes\n`;
         if (isForwarded) {
-            text += `│ 🔄 *Forwarded:* Yes`;
+            text += `├◆ 🔄 *Forwarded:* Yes`;
             if (forwardingScore > 0) text += ` (${forwardingScore}x)`;
             text += `\n`;
         }
-        if (isStarred) text += `│ ⭐ *Starred:* Yes\n`;
+        if (isStarred) text += `├◆ ⭐ *Starred:* Yes\n`;
 
         if (textContent) {
             const displayText = textContent.length > 500 ? textContent.substring(0, 500) + '...' : textContent;
-            text += `│\n├◆ 💬 *Content:*\n├◆ ${displayText.split('\n').join('\n├◆ ')}\n`;
+            text += `├◆\n├◆ 💬 *Content:*\n├◆ ${displayText.split('\n').join('\n├◆ ')}\n`;
         }
 
         if (mediaInfo) {
-            text += `│\n├◆ 📎 *MEDIA DETAILS*\n`;
-            if (mediaInfo.mimetype) text += `│   Format: ${mediaInfo.mimetype}\n`;
-            if (mediaInfo.size) text += `│   Size: ${mediaInfo.size}\n`;
-            if (mediaInfo.width && mediaInfo.height) text += `│   Dimensions: ${mediaInfo.width}x${mediaInfo.height}\n`;
-            if (mediaInfo.duration) text += `│   Duration: ${mediaInfo.duration}\n`;
-            if (mediaInfo.fileName) text += `│   File: ${mediaInfo.fileName}\n`;
-            if (mediaInfo.pages) text += `│   Pages: ${mediaInfo.pages}\n`;
-            if (mediaInfo.animated) text += `│   Animated: ${mediaInfo.animated}\n`;
-            if (mediaInfo.avatar) text += `│   Avatar: ${mediaInfo.avatar}\n`;
-            if (mediaInfo.aiSticker) text += `│   AI Sticker: ${mediaInfo.aiSticker}\n`;
-            if (mediaInfo.lottie) text += `│   Lottie: ${mediaInfo.lottie}\n`;
-            if (mediaInfo.voiceNote) text += `│   Voice Note: ${mediaInfo.voiceNote}\n`;
-            if (mediaInfo.gif) text += `│   GIF Playback: Yes\n`;
-            if (mediaInfo.caption) text += `│   Caption: ${mediaInfo.caption.length > 200 ? mediaInfo.caption.substring(0, 200) + '...' : mediaInfo.caption}\n`;
+            text += `├◆\n├◆ 📎 *MEDIA DETAILS*\n`;
+            if (mediaInfo.mimetype) text += `├◆   Format: ${mediaInfo.mimetype}\n`;
+            if (mediaInfo.size) text += `├◆   Size: ${mediaInfo.size}\n`;
+            if (mediaInfo.width && mediaInfo.height) text += `├◆   Dimensions: ${mediaInfo.width}x${mediaInfo.height}\n`;
+            if (mediaInfo.duration) text += `├◆   Duration: ${mediaInfo.duration}\n`;
+            if (mediaInfo.fileName) text += `├◆   File: ${mediaInfo.fileName}\n`;
+            if (mediaInfo.pages) text += `├◆   Pages: ${mediaInfo.pages}\n`;
+            if (mediaInfo.animated) text += `├◆   Animated: ${mediaInfo.animated}\n`;
+            if (mediaInfo.avatar) text += `├◆   Avatar: ${mediaInfo.avatar}\n`;
+            if (mediaInfo.aiSticker) text += `├◆   AI Sticker: ${mediaInfo.aiSticker}\n`;
+            if (mediaInfo.lottie) text += `├◆   Lottie: ${mediaInfo.lottie}\n`;
+            if (mediaInfo.voiceNote) text += `├◆   Voice Note: ${mediaInfo.voiceNote}\n`;
+            if (mediaInfo.gif) text += `├◆   GIF Playback: Yes\n`;
+            if (mediaInfo.caption) text += `├◆   Caption: ${mediaInfo.caption.length > 200 ? mediaInfo.caption.substring(0, 200) + '...' : mediaInfo.caption}\n`;
         }
 
         if (mentions.length > 0) {
-            text += `│\n├◆ 🏷️ *Mentions:* ${mentions.map(j => '@' + (j.split('@')[0].includes(':') ? j.split(':')[0] : j.split('@')[0])).join(', ')}\n`;
+            text += `├◆\n├◆ 🏷️ *Mentions:* ${mentions.map(j => '@' + (j.split('@')[0].includes(':') ? j.split(':')[0] : j.split('@')[0])).join(', ')}\n`;
         }
 
         const chatType = chatId.endsWith('@g.us') ? 'Group' : chatId.endsWith('@newsletter') ? 'Channel' : 'Private';
-        text += `│\n├◆ 📍 *Chat:* ${chatType}\n`;
+        text += `├◆\n├◆ 📍 *Chat:* ${chatType}\n`;
         text += `└─⧭`;
 
         const mentionedJid = [participant, ...mentions].filter(Boolean);

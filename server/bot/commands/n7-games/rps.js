@@ -1220,7 +1220,7 @@ async function showRPSRules(sock, m, chatId) {
 ├◆ *Multiplayer:*
 ├◆ *Tournaments:*
 ├◆ *Points:*
-├◆ *Achievements:* 🎮 First Game │ 🏆 10 Wins │ 🔥 5 Streak │ 🎯 100 Games
+├◆ *Achievements:* 🎮 First Game | 🏆 10 Wins | 🔥 5 Streak | 🎯 100 Games
 └─⧭`;
     
     await sock.sendMessage(chatId, { text: rulesText }, { quoted: m });
@@ -1346,7 +1346,7 @@ async function showTournamentHelp(sock, m, chatId) {
 ├◆ *.rps tournament cancel*
 ├◆ *.rps tournament status / list*
 ├◆ *Rules:* Single elimination, 2-32 players, 2min per match
-├◆ *Prizes:* 1st 50% │ 2nd 30% │ 3rd-4th 10% each
+├◆ *Prizes:* 1st 50% | 2nd 30% | 3rd-4th 10% each
 └─⧭`;
     
     await sock.sendMessage(chatId, { text: helpText }, { quoted: m });

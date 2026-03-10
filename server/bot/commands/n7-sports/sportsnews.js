@@ -36,8 +36,8 @@ export default {
         const shortSummary = summary.length > 100 ? summary.substring(0, 97) + '...' : summary;
 
         text += `├◆ *${i + 1}. ${title}*\n`;
-        if (shortSummary) text += `│\n`;
-        if (source || dateStr) text += `│\n`;
+        if (shortSummary) text += ``;
+        if (source || dateStr) text += ``;
       });
       text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
       await sock.sendMessage(jid, { text }, { quoted: m });

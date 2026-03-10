@@ -39,10 +39,10 @@ export default {
         if (comp?.competitors) {
           const fighters = comp.competitors;
           if (fighters.length >= 2) {
-            text += `│  ⊷ ${fighters[0]?.athlete?.displayName || fighters[0]?.team?.displayName || '???'} vs ${fighters[1]?.athlete?.displayName || fighters[1]?.team?.displayName || '???'}\n`;
+            text += `├◆ ${fighters[0]?.athlete?.displayName || fighters[0]?.team?.displayName || '???'} vs ${fighters[1]?.athlete?.displayName || fighters[1]?.team?.displayName || '???'}\n`;
           }
         }
-        text += `│\n`;
+        text += ``;
       });
       text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
 

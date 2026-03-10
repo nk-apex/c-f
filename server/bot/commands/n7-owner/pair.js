@@ -175,22 +175,22 @@
 //             const timestamp = new Date().toLocaleTimeString();
 //             let msgText = `┌─ 🐺 *SILENT WOLF PAIRING* ─┐\n`;
 
-//             msgText += `│ 📱 *Number:* ${number}\n`;
+//             msgText += `├◆ 📱 *Number:* ${number}\n`;
 
 //             if (formattedCode) {
-//                 msgText += `│ 🔐 *Pair Code:* \`${formattedCode}\`\n`;
+//                 msgText += `├◆ 🔐 *Pair Code:* \`${formattedCode}\`\n`;
 //             }
 
-//             msgText += `│\n`;
+//             msgText += ``;
 
 //             if (formattedCode) {
-//                 msgText += `│ 📌 *How to Link:*\n` +
-//                     `│ 1. Open WhatsApp → *Settings*\n` +
-//                     `│ 2. Tap *Linked Devices*\n` +
-//                     `│ 3. Tap *Link a Device*\n` +
-//                     `│ 4. Enter code: *${formattedCode}*\n` +
-//                     `│ 5. Wait for connection ✅\n` +
-//                     `│ ⏱️ Code expires in 60 seconds!\n`;
+//                 msgText += `├◆ 📌 *How to Link:*\n` +
+//                     `├◆ 1. Open WhatsApp → *Settings*\n` +
+//                     `├◆ 2. Tap *Linked Devices*\n` +
+//                     `├◆ 3. Tap *Link a Device*\n` +
+//                     `├◆ 4. Enter code: *${formattedCode}*\n` +
+//                     `├◆ 5. Wait for connection ✅\n` +
+//                     `├◆ ⏱️ Code expires in 60 seconds!\n`;
 //             }
 
 //             msgText += `│\n└─ _WOLF-BOT • ${timestamp}_ ─┘`;
@@ -423,25 +423,25 @@ export default {
             const timestamp = new Date().toLocaleTimeString();
             let msgText = `┌─ 🐺 *SILENT WOLF PAIRING* ─┐\n`;
 
-            msgText += `│ 📱 *Number:* ${number}\n`;
+            msgText += `├◆ 📱 *Number:* ${number}\n`;
 
             if (formattedCode) {
-                msgText += `│ 🔐 *Pair Code:* \`${formattedCode}\`\n`;
+                msgText += `├◆ 🔐 *Pair Code:* \`${formattedCode}\`\n`;
             }
 
-            msgText += `│\n`;
+            msgText += ``;
 
             if (formattedCode) {
-                msgText += `│ 📌 *How to Link:*\n` +
-                    `│ 1. Open WhatsApp → *Settings*\n` +
-                    `│ 2. Tap *Linked Devices*\n` +
-                    `│ 3. Tap *Link a Device*\n` +
-                    `│ 4. Enter code: *${formattedCode}*\n` +
-                    `│ 5. Wait for connection ✅\n` +
-                    `│ ⏱️ Code expires in 60 seconds!\n`;
+                msgText += `├◆ 📌 *How to Link:*\n` +
+                    `├◆ 1. Open WhatsApp → *Settings*\n` +
+                    `├◆ 2. Tap *Linked Devices*\n` +
+                    `├◆ 3. Tap *Link a Device*\n` +
+                    `├◆ 4. Enter code: *${formattedCode}*\n` +
+                    `├◆ 5. Wait for connection ✅\n` +
+                    `├◆ ⏱️ Code expires in 60 seconds!\n`;
             }
 
-            msgText += `│\n└─ _WOLF-BOT • ${timestamp}_ ─┘`;
+            msgText += `├◆\n└─ _WOLF-BOT • ${timestamp}_ ─┘`;
 
             await sock.sendMessage(chatId, { react: { text: '🔐', key: m.key } });
 

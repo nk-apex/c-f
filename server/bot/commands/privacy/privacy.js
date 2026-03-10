@@ -34,14 +34,12 @@ export default {
             } catch {}
 
             const text = `┌─⧭ *PRIVACY SETTINGS* ⧭─┐\n` +
-                `│\n` +
                 `├◆ Last Seen: ${lastSeenPrivacy}\n` +
                 `├◆ Profile Photo: ${profilePhotoPrivacy}\n` +
                 `├◆ About/Status: ${statusPrivacy}\n` +
                 `├◆ Online: ${onlinePrivacy}\n` +
                 `├◆ Read Receipts: ${readReceiptsPrivacy}\n` +
                 `├◆ Group Add: ${groupAddPrivacy}\n` +
-                `│\n` +
                 `├◆ ⧭ *COMMANDS*\n` +
                 `├◆ ${PREFIX}receipt - Toggle read receipts\n` +
                 `├◆ ${PREFIX}profilepic - Toggle profile pic visibility\n` +

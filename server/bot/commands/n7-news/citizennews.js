@@ -30,8 +30,8 @@ export default {
 
             const limit = Math.min(stories.length, 7);
             let text = `┌─⧭ 📰 *CITIZEN DIGITAL NEWS* \n`;
-            text    += `│ 🌐 citizen.digital\n`;
-            text    += `│ 🕒 ${new Date().toLocaleString("en-KE", { timeZone: "Africa/Nairobi" })}\n`;
+            text    += `├◆ 🌐 citizen.digital\n`;
+            text    += `├◆ 🕒 ${new Date().toLocaleString("en-KE", { timeZone: "Africa/Nairobi" })}\n`;
 
             for (let i = 0; i < limit; i++) {
                 const s = stories[i];
@@ -39,9 +39,9 @@ export default {
                 const excerpt = s.excerpt || s.articleDetails?.summary || '';
                 const time    = s.timestamp || s.articleDetails?.publishedDate || '';
                 text += `├◆ *${i + 1}. ${title}*\n`;
-                if (excerpt) text += `│   ${excerpt.substring(0, 100)}${excerpt.length > 100 ? '…' : ''}\n`;
-                if (time)    text += `│   🕐 ${time}\n`;
-                text += `│   🔗 ${s.url}\n`;
+                if (excerpt) text += `├◆   ${excerpt.substring(0, 100)}${excerpt.length > 100 ? '…' : ''}\n`;
+                if (time)    text += `├◆   🕐 ${time}\n`;
+                text += `├◆   🔗 ${s.url}\n`;
             }
 
             text += `└─⧭ _Source: Citizen Digital Kenya_ ─`;

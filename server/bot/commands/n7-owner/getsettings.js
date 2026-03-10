@@ -240,46 +240,46 @@ export default {
             let caption = `⚙️  \`W.O.L.F  𝚂𝙴𝚃𝚃𝙸𝙽𝙶𝚂\`\n\n`;
 
             caption += `┌─── *BASIC CONFIG* ───\n`;
-            caption += `│ ◎ *Bot Name:* ${getBotName()}\n`;
-            caption += `│ ◎ *Owner:* ${ownerNumber}\n`;
-            caption += `│ ◎ *Prefix:* ${prefix}\n`;
-            caption += `│ ◎ *Prefixless:* ${isPrefixless ? '✅ ON' : '❌ OFF'}\n`;
-            caption += `│ ◎ *Mode:* ${mode.toUpperCase()}\n`;
-            caption += `│ ◎ *Menu Style:* ${menuStyle}\n`;
-            caption += `│ ◎ *Menu Image:* ${menuImageUrl}\n`;
-            caption += `│ ◎ *Footer/Caption:* ${footer}\n`;
+            caption += `├◆ ◎ *Bot Name:* ${getBotName()}\n`;
+            caption += `├◆ ◎ *Owner:* ${ownerNumber}\n`;
+            caption += `├◆ ◎ *Prefix:* ${prefix}\n`;
+            caption += `├◆ ◎ *Prefixless:* ${isPrefixless ? '✅ ON' : '❌ OFF'}\n`;
+            caption += `├◆ ◎ *Mode:* ${mode.toUpperCase()}\n`;
+            caption += `├◆ ◎ *Menu Style:* ${menuStyle}\n`;
+            caption += `├◆ ◎ *Menu Image:* ${menuImageUrl}\n`;
+            caption += `├◆ ◎ *Footer/Caption:* ${footer}\n`;
             caption += `└──────────────\n\n`;
 
             caption += `┌─── *AUTOMATION* ───\n`;
-            caption += `│ ◎ *Autotyping:* ${autotyping}\n`;
-            caption += `│ ◎ *Autorecording:* ${autorecording}\n`;
-            caption += `│ ◎ *Autoread:* ${autoread}\n`;
-            caption += `│ ◎ *Auto View Status:* ${autoViewStatus}\n`;
+            caption += `├◆ ◎ *Autotyping:* ${autotyping}\n`;
+            caption += `├◆ ◎ *Autorecording:* ${autorecording}\n`;
+            caption += `├◆ ◎ *Autoread:* ${autoread}\n`;
+            caption += `├◆ ◎ *Auto View Status:* ${autoViewStatus}\n`;
             caption += `└──────────────\n\n`;
 
             caption += `┌─── *PROTECTION* ───\n`;
-            caption += `│ ◎ *Anticall:* ${anticall}\n`;
-            caption += `│ ◎ *Anticall Msg:* ${anticallMsg.substring(0, 40)}${anticallMsg.length > 40 ? '...' : ''}`;
+            caption += `├◆ ◎ *Anticall:* ${anticall}\n`;
+            caption += `├◆ ◎ *Anticall Msg:* ${anticallMsg.substring(0, 40)}${anticallMsg.length > 40 ? '...' : ''}`;
             caption += `\n├◆ ◎ *Antidelete:* ${antidelete}\n`;
-            caption += `│ ◎ *Antidelete Status:* ${antideleteStatusDisplay}\n`;
-            caption += `│ ◎ *Antiedit:* ${antieditDisplay}\n`;
-            caption += `│ ◎ *Anti-ViewOnce:* ${antiViewOnce}\n`;
-            caption += `│ ◎ *Antibug:* ${antibug}\n`;
-            caption += `│ ◎ *Warn Limit:* ${warnLimit}\n`;
+            caption += `├◆ ◎ *Antidelete Status:* ${antideleteStatusDisplay}\n`;
+            caption += `├◆ ◎ *Antiedit:* ${antieditDisplay}\n`;
+            caption += `├◆ ◎ *Anti-ViewOnce:* ${antiViewOnce}\n`;
+            caption += `├◆ ◎ *Antibug:* ${antibug}\n`;
+            caption += `├◆ ◎ *Warn Limit:* ${warnLimit}\n`;
             caption += `└──────────────\n\n`;
 
             caption += `┌─── *GROUP FEATURES* ───\n`;
-            caption += `│ ◎ *Welcome:* ${welcomeStatus}\n`;
-            caption += `│ ◎ *Goodbye:* ${goodbyeStatus}\n`;
+            caption += `├◆ ◎ *Welcome:* ${welcomeStatus}\n`;
+            caption += `├◆ ◎ *Goodbye:* ${goodbyeStatus}\n`;
             caption += `└──────────────\n\n`;
 
             caption += `┌─── *BOT STATS* ───\n`;
-            caption += `│ ◎ *Uptime:* ${uptime}\n`;
-            caption += `│ ◎ *Memory:* ${memUsage}\n`;
-            caption += `│ ◎ *Commands:* ${totalCmds}\n`;
-            caption += `│ ◎ *Node:* ${process.version}\n`;
-            caption += `│ ◎ *Platform:* ${platform}\n`;
-            caption += `│ ◎ *OS:* ${process.platform} ${process.arch}\n`;
+            caption += `├◆ ◎ *Uptime:* ${uptime}\n`;
+            caption += `├◆ ◎ *Memory:* ${memUsage}\n`;
+            caption += `├◆ ◎ *Commands:* ${totalCmds}\n`;
+            caption += `├◆ ◎ *Node:* ${process.version}\n`;
+            caption += `├◆ ◎ *Platform:* ${platform}\n`;
+            caption += `├◆ ◎ *OS:* ${process.platform} ${process.arch}\n`;
             caption += `└──────────────\n\n`;
 
             caption += `🕒 *Updated:* ${new Date().toLocaleString()}\n`;

@@ -673,361 +673,361 @@ export const getTextOnlyCommands = (botMode) => {
 
 export const getQuotedBoxCommands = () => {
   return `> ┌────────────────
-> │ 🏠 *GROUP MANAGEMENT* 🏠 
-> ├◆ > │ 🛡️ *ADMIN & MODERATION* 🛡️ 
-> ├◆ > │ • add
-> │ • promote
-> │ • promoteall
-> │ • demote
-> │ • demoteall
-> │ • kick
-> │ • kickall
-> │ • ban
-> │ • unban
-> │ • clearbanlist
-> │ • warn
-> │ • mute
-> │ • unmute
-> │ • gctime
-> │ • antileave
-> │ • welcome
-> │ • creategroup
-> │ • leave
-> │ • ex
-> ├◆ > │ 🚫 *AUTO-MODERATION* 🚫   
-> ├◆ > │ • antilink
-> │ • antisticker
-> │ • antiimage
-> │ • antivideo
-> │ • antiaudio
-> │ • antimention
-> │ • antistatusmention
-> │ • antigrouplink
-> │ • antidemote
-> ├◆ > │ 📊 *GROUP INFO & TOOLS* 📊 
-> ├◆ > │ • groupinfo
-> │ • grouplink
-> │ • tagadmin
-> │ • tagall
-> │ • hidetag
-> │ • link
-> │ • invite
-> │ • revoke
-> │ • setdesc
-> │ • fangtrace
-> │ • getgpp
-> │ • togstatus
-> │ • listinactive
-> │ • stickerpack
-> │ • online
+> ├◆ 🏠 *GROUP MANAGEMENT* 🏠 
+> ├◆ > 🛡️ *ADMIN & MODERATION* 🛡️ 
+> ├◆ > • add
+> ├◆ • promote
+> ├◆ • promoteall
+> ├◆ • demote
+> ├◆ • demoteall
+> ├◆ • kick
+> ├◆ • kickall
+> ├◆ • ban
+> ├◆ • unban
+> ├◆ • clearbanlist
+> ├◆ • warn
+> ├◆ • mute
+> ├◆ • unmute
+> ├◆ • gctime
+> ├◆ • antileave
+> ├◆ • welcome
+> ├◆ • creategroup
+> ├◆ • leave
+> ├◆ • ex
+> ├◆ > 🚫 *AUTO-MODERATION* 🚫   
+> ├◆ > • antilink
+> ├◆ • antisticker
+> ├◆ • antiimage
+> ├◆ • antivideo
+> ├◆ • antiaudio
+> ├◆ • antimention
+> ├◆ • antistatusmention
+> ├◆ • antigrouplink
+> ├◆ • antidemote
+> ├◆ > 📊 *GROUP INFO & TOOLS* 📊 
+> ├◆ > • groupinfo
+> ├◆ • grouplink
+> ├◆ • tagadmin
+> ├◆ • tagall
+> ├◆ • hidetag
+> ├◆ • link
+> ├◆ • invite
+> ├◆ • revoke
+> ├◆ • setdesc
+> ├◆ • fangtrace
+> ├◆ • getgpp
+> ├◆ • togstatus
+> ├◆ • listinactive
+> ├◆ • stickerpack
+> ├◆ • online
 > └────────────────
 
 > ┌────────────────
-> │ 🎨 *MENU COMMANDS* 🎨
-> ├◆ > │ • menu
-> │ • menustyle
-> │ • togglemenuinfo
-> │ • setmenuimage
-> │ • restoremenuimage
+> ├◆ 🎨 *MENU COMMANDS* 🎨
+> ├◆ > • menu
+> ├◆ • menustyle
+> ├◆ • togglemenuinfo
+> ├◆ • setmenuimage
+> ├◆ • restoremenuimage
 > └────────────────
 
 > ┌────────────────
-> │ 👑 *OWNER CONTROLS* 👑    
-> ├◆ > │ ⚡ *CORE MANAGEMENT* ⚡    
-> ├◆ > │ • setbotname
-> │ • resetbotname
-> │ • checkbotname
-> │ • setowner
-> │ • resetowner
-> │ • setprefix
-> │ • iamowner
-> │ • about
-> │ • block
-> │ • unblock
-> │ • blockdetect
-> │ • silent
-> │ • anticall
-> │ • antidelete
-> │ • antiedit
-> │ • antiviewonce
-> │ • mode
-> │ • setpp
-> │ • repo
-> │ • ownermenu
-> │ • platform
-> │ • disp
-> │ • shutdown
-> ├◆ > │ 🔄 *SYSTEM & MAINTENANCE* 🛠️ 
-> ├◆ > │ • restart
-> │ • workingreload
-> │ • reloadenv
-> │ • getsettings
-> │ • setsetting
-> │ • test
-> │ • disk
-> │ • hostip
-> │ • findcommands
-> │ • debugchat
-> │ • ultimatefix
-> │ • update
+> ├◆ 👑 *OWNER CONTROLS* 👑    
+> ├◆ > ⚡ *CORE MANAGEMENT* ⚡    
+> ├◆ > • setbotname
+> ├◆ • resetbotname
+> ├◆ • checkbotname
+> ├◆ • setowner
+> ├◆ • resetowner
+> ├◆ • setprefix
+> ├◆ • iamowner
+> ├◆ • about
+> ├◆ • block
+> ├◆ • unblock
+> ├◆ • blockdetect
+> ├◆ • silent
+> ├◆ • anticall
+> ├◆ • antidelete
+> ├◆ • antiedit
+> ├◆ • antiviewonce
+> ├◆ • mode
+> ├◆ • setpp
+> ├◆ • repo
+> ├◆ • ownermenu
+> ├◆ • platform
+> ├◆ • disp
+> ├◆ • shutdown
+> ├◆ > 🔄 *SYSTEM & MAINTENANCE* 🛠️ 
+> ├◆ > • restart
+> ├◆ • workingreload
+> ├◆ • reloadenv
+> ├◆ • getsettings
+> ├◆ • setsetting
+> ├◆ • test
+> ├◆ • disk
+> ├◆ • hostip
+> ├◆ • findcommands
+> ├◆ • debugchat
+> ├◆ • ultimatefix
+> ├◆ • update
 > └────────────────
 
 > ┌────────────────
-> │ ⚙️ *AUTOMATION* ⚙️
-> ├◆ > │ • autoread
-> │ • autotyping
-> │ • autorecording
-> │ • autoreact
-> │ • autoreactstatus
-> │ • autoviewstatus
-> │ • autobio
-> │ • autorec
+> ├◆ ⚙️ *AUTOMATION* ⚙️
+> ├◆ > • autoread
+> ├◆ • autotyping
+> ├◆ • autorecording
+> ├◆ • autoreact
+> ├◆ • autoreactstatus
+> ├◆ • autoviewstatus
+> ├◆ • autobio
+> ├◆ • autorec
 > └────────────────
 
 > ┌────────────────
-> │ 🎵 *MUSIC & MEDIA* 🎶
-> ├◆ > │ • play
-> │ • song
-> │ • video
-> │ • videodoc
-> │ • lyrics
-> │ • shazam
-> │ • spotify
+> ├◆ 🎵 *MUSIC & MEDIA* 🎶
+> ├◆ > • play
+> ├◆ • song
+> ├◆ • video
+> ├◆ • videodoc
+> ├◆ • lyrics
+> ├◆ • shazam
+> ├◆ • spotify
 > └────────────────
 
 > ┌────────────────
-> │ ⬇️ *DOWNLOADERS* 📥
-> ├◆ > │ • ytmp3
-> │ • ytmp4
-> │ • ytv
-> │ • yts
-> │ • ytplay
-> │ • ytvdoc
-> │ • videodl
-> │ • apk
-> │ • facebook
-> │ • instagram
-> │ • snapchat
-> │ • tiktok
-> │ • tiksearch
-> │ • playlist
-> └────────────────
-
-> ┌───────────────
-> │ 🤖 *AI COMMANDS* 🧠 
-> ├◆ > │ 💬 *AI CHAT*
-> ├◆ > │ • gpt
-> │ • chatgpt
-> │ • chatbot
-> │ • copilot
-> │ • bard
-> │ • bing
-> │ • claudeai
-> │ • grok
-> │ • blackbox
-> │ • mistral
-> │ • metai
-> │ • perplexity
-> │ • venice
-> │ • wormgpt
-> │ • deepseek+
-> │ • ilama
-> │ • qwenai
-> ├◆ > │ 🛠️ *AI TOOLS*
-> ├◆ > │ • analyze
-> │ • aiscanner
-> │ • humanizer
-> │ • summarize
-> │ • speechwriter
-> │ • suno
-> │ • flux
-> │ • removebg
-> │ • aimenu
-> ├◆ > │ 🖼️ *IMAGE GEN*
-> ├◆ > │ • imagine
-> │ • imagegen
-> │ • image
-> │ • anime
-> │ • art
-> │ • real
-> │ • remini
-> │ • vision
-> ├◆ > │ 🏷️ *LOGO AI*
-> ├◆ > │ • logoai
-> │ • brandlogo
-> │ • companylogo
-> ├◆ > │ 🎬 *VIDEO GEN*
-> ├◆ > │ • videogen
-> │ • introvideo
-> │ • lovevideo
-> │ • tigervideo
-> │ • lightningpubg
-> └───────────────
-
-> ┌────────────────
-> │ 🎨 *LOGO DESIGN STUDIO* 🎨
-> ├◆ > │ 🌟 *PREMIUM METALS* 🌟    
-> ├◆ > │ • goldlogo
-> │ • silverlogo
-> │ • platinumlogo
-> │ • chromelogo
-> │ • diamondlogo
-> │ • bronzelogo
-> │ • steelogo
-> │ • copperlogo
-> │ • titaniumlogo
-> ├◆ > │ 🔥 *ELEMENTAL EFFECTS* 🔥  
-> ├◆ > │ • firelogo
-> │ • icelogo
-> │ • iceglowlogo
-> │ • lightninglogo
-> │ • rainbowlogo
-> │ • sunlogo
-> │ • moonlogo
-> ├◆ > │ 🎭 *MYTHICAL & MAGICAL* 🧙  
-> ├◆ > │ • dragonlogo
-> │ • phoenixlogo
-> │ • wizardlogo
-> │ • crystallogo
-> │ • darkmagiclogo
-> ├◆ > │ 🌌 *DARK & GOTHIC* 🌑     
-> ├◆ > │ • shadowlogo
-> │ • smokelogo
-> │ • bloodlogo
-> ├◆ > │ 💫 *GLOW & NEON EFFECTS* 🌈  
-> ├◆ > │ • neonlogo
-> │ • glowlogo
-> │ • gradientlogo
-> ├◆ > │ 🤖 *TECH & FUTURISTIC* 🚀  
-> ├◆ > │ • matrixlogo
-> ├◆ > │ 🎨 *BASE*
-> ├◆ > │ • logo
-> └────────────────
-
-> ┌────────────────
-> │ ✨ *UTILITY* ✨
-> ├◆ > │ • alive
-> │ • ping
-> │ • ping2
-> │ • covid
-> │ • define
-> │ • fetch
-> │ • getpp
-> │ • getgpp
-> │ • getip
-> │ • inspect
-> │ • iplookup
-> │ • news
-> │ • prefixinfo
-> │ • qrencode
-> │ • resetwarn
-> │ • save
-> │ • screenshot
-> │ • setwarn
-> │ • shorturl
-> │ • take
-> └────────────────
-
-> ┌────────────────
-> │ 🔄 *MEDIA CONVERSION* 🔄
-> ├◆ > │ • toimage
-> │ • tosticker
-> │ • toaudio
-> │ • tovoice
-> │ • tts
-> │ • trebleboost
-> │ • jarvis
-> └────────────────
-
-> ┌────────────────
-> │ 🎮 *GAMES* 🎮
-> ├◆ > │ • coinflip
-> │ • dare
-> │ • dice
-> │ • emojimix
-> │ • joke
-> │ • quiz
-> │ • rps
-> │ • snake
-> │ • tetris
-> │ • truth
-> │ • tictactoe
-> └────────────────
-
-> ┌────────────────
-> │ 🌸 *ANIME* 🌸
-> ├◆ > │ • awoo
-> │ • bj
-> │ • bully
-> │ • cringe
-> │ • cry
-> │ • cuddle
-> │ • dance
-> │ • glomp
-> │ • highfive
-> │ • hug
-> │ • kill
-> │ • kiss
-> │ • lick
-> │ • megumin
-> │ • neko
-> │ • pat
-> │ • shinobu
-> │ • trap
-> │ • trap2
-> │ • waifu
-> │ • wink
-> │ • yeet
-> │ • animemenu
-> └────────────────
-
-> ┌────────────────
-> │ 🐙 *GITHUB* 🐙
-> ├◆ > │ • gitclone
-> │ • gitinfo
-> │ • repanalyze
-> │ • update
+> ├◆ ⬇️ *DOWNLOADERS* 📥
+> ├◆ > • ytmp3
+> ├◆ • ytmp4
+> ├◆ • ytv
+> ├◆ • yts
+> ├◆ • ytplay
+> ├◆ • ytvdoc
+> ├◆ • videodl
+> ├◆ • apk
+> ├◆ • facebook
+> ├◆ • instagram
+> ├◆ • snapchat
+> ├◆ • tiktok
+> ├◆ • tiksearch
+> ├◆ • playlist
 > └────────────────
 
 > ┌───────────────
-> │ 🛡️ *ETHICAL HACKING* 🔒 
-> ├◆ > │ • ipinfo
-> │ • nglflood
-> │ • nmap
-> │ • shodan
+> ├◆ 🤖 *AI COMMANDS* 🧠 
+> ├◆ > 💬 *AI CHAT*
+> ├◆ > • gpt
+> ├◆ • chatgpt
+> ├◆ • chatbot
+> ├◆ • copilot
+> ├◆ • bard
+> ├◆ • bing
+> ├◆ • claudeai
+> ├◆ • grok
+> ├◆ • blackbox
+> ├◆ • mistral
+> ├◆ • metai
+> ├◆ • perplexity
+> ├◆ • venice
+> ├◆ • wormgpt
+> ├◆ • deepseek+
+> ├◆ • ilama
+> ├◆ • qwenai
+> ├◆ > 🛠️ *AI TOOLS*
+> ├◆ > • analyze
+> ├◆ • aiscanner
+> ├◆ • humanizer
+> ├◆ • summarize
+> ├◆ • speechwriter
+> ├◆ • suno
+> ├◆ • flux
+> ├◆ • removebg
+> ├◆ • aimenu
+> ├◆ > 🖼️ *IMAGE GEN*
+> ├◆ > • imagine
+> ├◆ • imagegen
+> ├◆ • image
+> ├◆ • anime
+> ├◆ • art
+> ├◆ • real
+> ├◆ • remini
+> ├◆ • vision
+> ├◆ > 🏷️ *LOGO AI*
+> ├◆ > • logoai
+> ├◆ • brandlogo
+> ├◆ • companylogo
+> ├◆ > 🎬 *VIDEO GEN*
+> ├◆ > • videogen
+> ├◆ • introvideo
+> ├◆ • lovevideo
+> ├◆ • tigervideo
+> ├◆ • lightningpubg
 > └───────────────
 
 > ┌────────────────
-> │ 👋 *GREETINGS* 👋
-> ├◆ > │ • goodmorning
-> │ • goodnight
+> ├◆ 🎨 *LOGO DESIGN STUDIO* 🎨
+> ├◆ > 🌟 *PREMIUM METALS* 🌟    
+> ├◆ > • goldlogo
+> ├◆ • silverlogo
+> ├◆ • platinumlogo
+> ├◆ • chromelogo
+> ├◆ • diamondlogo
+> ├◆ • bronzelogo
+> ├◆ • steelogo
+> ├◆ • copperlogo
+> ├◆ • titaniumlogo
+> ├◆ > 🔥 *ELEMENTAL EFFECTS* 🔥  
+> ├◆ > • firelogo
+> ├◆ • icelogo
+> ├◆ • iceglowlogo
+> ├◆ • lightninglogo
+> ├◆ • rainbowlogo
+> ├◆ • sunlogo
+> ├◆ • moonlogo
+> ├◆ > 🎭 *MYTHICAL & MAGICAL* 🧙  
+> ├◆ > • dragonlogo
+> ├◆ • phoenixlogo
+> ├◆ • wizardlogo
+> ├◆ • crystallogo
+> ├◆ • darkmagiclogo
+> ├◆ > 🌌 *DARK & GOTHIC* 🌑     
+> ├◆ > • shadowlogo
+> ├◆ • smokelogo
+> ├◆ • bloodlogo
+> ├◆ > 💫 *GLOW & NEON EFFECTS* 🌈  
+> ├◆ > • neonlogo
+> ├◆ • glowlogo
+> ├◆ • gradientlogo
+> ├◆ > 🤖 *TECH & FUTURISTIC* 🚀  
+> ├◆ > • matrixlogo
+> ├◆ > 🎨 *BASE*
+> ├◆ > • logo
 > └────────────────
 
 > ┌────────────────
-> │ 🔧 *TOOLS* 🔧
-> ├◆ > │ • movie
-> │ • trailer
-> │ • couple
-> │ • bf
-> │ • gf
-> │ • gay
-> │ • getjid
+> ├◆ ✨ *UTILITY* ✨
+> ├◆ > • alive
+> ├◆ • ping
+> ├◆ • ping2
+> ├◆ • covid
+> ├◆ • define
+> ├◆ • fetch
+> ├◆ • getpp
+> ├◆ • getgpp
+> ├◆ • getip
+> ├◆ • inspect
+> ├◆ • iplookup
+> ├◆ • news
+> ├◆ • prefixinfo
+> ├◆ • qrencode
+> ├◆ • resetwarn
+> ├◆ • save
+> ├◆ • screenshot
+> ├◆ • setwarn
+> ├◆ • shorturl
+> ├◆ • take
 > └────────────────
 
 > ┌────────────────
-> │ 😄 *FUN* 😄
-> ├◆ > │ • quote
+> ├◆ 🔄 *MEDIA CONVERSION* 🔄
+> ├◆ > • toimage
+> ├◆ • tosticker
+> ├◆ • toaudio
+> ├◆ • tovoice
+> ├◆ • tts
+> ├◆ • trebleboost
+> ├◆ • jarvis
 > └────────────────
 
 > ┌────────────────
-> │ 📺 *CHANNEL* 📺
-> ├◆ > │ • channelstatus
+> ├◆ 🎮 *GAMES* 🎮
+> ├◆ > • coinflip
+> ├◆ • dare
+> ├◆ • dice
+> ├◆ • emojimix
+> ├◆ • joke
+> ├◆ • quiz
+> ├◆ • rps
+> ├◆ • snake
+> ├◆ • tetris
+> ├◆ • truth
+> ├◆ • tictactoe
 > └────────────────
 
 > ┌────────────────
-> │ ⚡ *QUICK COMMANDS* ⚡
-> ├◆ > │ • p
-> │ • up
+> ├◆ 🌸 *ANIME* 🌸
+> ├◆ > • awoo
+> ├◆ • bj
+> ├◆ • bully
+> ├◆ • cringe
+> ├◆ • cry
+> ├◆ • cuddle
+> ├◆ • dance
+> ├◆ • glomp
+> ├◆ • highfive
+> ├◆ • hug
+> ├◆ • kill
+> ├◆ • kiss
+> ├◆ • lick
+> ├◆ • megumin
+> ├◆ • neko
+> ├◆ • pat
+> ├◆ • shinobu
+> ├◆ • trap
+> ├◆ • trap2
+> ├◆ • waifu
+> ├◆ • wink
+> ├◆ • yeet
+> ├◆ • animemenu
+> └────────────────
+
+> ┌────────────────
+> ├◆ 🐙 *GITHUB* 🐙
+> ├◆ > • gitclone
+> ├◆ • gitinfo
+> ├◆ • repanalyze
+> ├◆ • update
+> └────────────────
+
+> ┌───────────────
+> ├◆ 🛡️ *ETHICAL HACKING* 🔒 
+> ├◆ > • ipinfo
+> ├◆ • nglflood
+> ├◆ • nmap
+> ├◆ • shodan
+> └───────────────
+
+> ┌────────────────
+> ├◆ 👋 *GREETINGS* 👋
+> ├◆ > • goodmorning
+> ├◆ • goodnight
+> └────────────────
+
+> ┌────────────────
+> ├◆ 🔧 *TOOLS* 🔧
+> ├◆ > • movie
+> ├◆ • trailer
+> ├◆ • couple
+> ├◆ • bf
+> ├◆ • gf
+> ├◆ • gay
+> ├◆ • getjid
+> └────────────────
+
+> ┌────────────────
+> ├◆ 😄 *FUN* 😄
+> ├◆ > • quote
+> └────────────────
+
+> ┌────────────────
+> ├◆ 📺 *CHANNEL* 📺
+> ├◆ > • channelstatus
+> └────────────────
+
+> ┌────────────────
+> ├◆ ⚡ *QUICK COMMANDS* ⚡
+> ├◆ > • p
+> ├◆ • up
 > └────────────────
 
 > 🐺🌕*POWERED BY WOLF TECH*🌕🐺`;

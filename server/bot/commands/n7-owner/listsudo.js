@@ -20,18 +20,18 @@ export default {
         }
 
         let list = `┌─── *SUDO USERS* ───\n`;
-        list += `│\n`;
+        list += ``;
 
         sudoers.forEach((num, i) => {
             const date = addedAt[num] ? new Date(addedAt[num]).toLocaleDateString() : 'Unknown';
-            list += `│ ${i + 1}. +${num}\n`;
-            list += `│    📅 Added: ${date}\n`;
+            list += `├◆ ${i + 1}. +${num}\n`;
+            list += `├◆    📅 Added: ${date}\n`;
         });
 
-        list += `│\n`;
+        list += ``;
         list += `├◆ *STATUS* ───\n`;
-        list += `│ 👥 Total: ${sudoers.length} sudo user(s)\n`;
-        list += `│ 🔧 Sudo Mode: ${sudomode ? '✅ ON' : '❌ OFF'}\n`;
+        list += `├◆ 👥 Total: ${sudoers.length} sudo user(s)\n`;
+        list += `├◆ 🔧 Sudo Mode: ${sudomode ? '✅ ON' : '❌ OFF'}\n`;
         list += `└──────────────`;
 
         await sock.sendMessage(chatId, { text: list }, { quoted: msg });

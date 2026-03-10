@@ -23,17 +23,13 @@ export default {
             return sock.sendMessage(chatId, {
                 text:
                     `┌─⧭ 📦 *GIT CLONE* \n` +
-                    `│\n` +
-                    `│ Clones and sends a repo as ZIP.\n` +
-                    `│\n` +
-                    `│ *Usage:*\n` +
-                    `│ • \`${PREFIX}gitclone username/repo\`\n` +
-                    `│ • \`${PREFIX}gitclone https://github.com/user/repo\`\n` +
-                    `│\n` +
-                    `│ *Related:*\n` +
-                    `│ • \`${PREFIX}zip\` - Get bot source code\n` +
-                    `│ • \`${PREFIX}gitinfo\` - Repo info\n` +
-                    `│\n` +
+                    `├◆ Clones and sends a repo as ZIP.\n` +
+                    `├◆ *Usage:*\n` +
+                    `├◆ • \`${PREFIX}gitclone username/repo\`\n` +
+                    `├◆ • \`${PREFIX}gitclone https://github.com/user/repo\`\n` +
+                    `├◆ *Related:*\n` +
+                    `├◆ • \`${PREFIX}zip\` - Get bot source code\n` +
+                    `├◆ • \`${PREFIX}gitinfo\` - Repo info\n` +
                     `└─⧭`
             }, { quoted: m });
         }
@@ -129,9 +125,9 @@ export default {
                 const apiResp = await axios.get(`https://api.github.com/repos/${repoFullName}`, { timeout: 5000 });
                 const data = apiResp.data;
                 repoInfo =
-                    `│ ✧ *Stars:* ${data.stargazers_count || 0}\n` +
-                    `│ ✧ *Forks:* ${data.forks_count || 0}\n` +
-                    `│ ✧ *Language:* ${data.language || 'N/A'}\n`;
+                    `├◆ ✧ *Stars:* ${data.stargazers_count || 0}\n` +
+                    `├◆ ✧ *Forks:* ${data.forks_count || 0}\n` +
+                    `├◆ ✧ *Language:* ${data.language || 'N/A'}\n`;
             } catch {}
 
             await sock.sendMessage(chatId, {
@@ -140,13 +136,10 @@ export default {
                 mimetype: 'application/zip',
                 caption:
                     `┌─⧭ 📦 *GIT CLONE* \n` +
-                    `│\n` +
-                    `│ ✧ *Repo:* ${repoFullName}\n` +
-                    `│ ✧ *Size:* ${sizeMB}MB\n` +
+                    `├◆ ✧ *Repo:* ${repoFullName}\n` +
+                    `├◆ ✧ *Size:* ${sizeMB}MB\n` +
                     `${repoInfo}` +
-                    `│\n` +
-                    `│ ✅ Clone complete!\n` +
-                    `│\n` +
+                    `├◆ ✅ Clone complete!\n` +
                     `└─⧭`
             }, { quoted: m });
 
@@ -159,14 +152,11 @@ export default {
             await sock.sendMessage(chatId, {
                 text:
                     `┌─⧭ ❌ *CLONE FAILED* \n` +
-                    `│\n` +
-                    `│ ✧ *Repo:* ${repoFullName || args[0]}\n` +
-                    `│ ✧ *Error:* ${error.message}\n` +
-                    `│\n` +
-                    `│ 💡 *Check that:*\n` +
-                    `│ • \`Repo exists and is public\`\n` +
-                    `│ • \`URL format is correct\`\n` +
-                    `│\n` +
+                    `├◆ ✧ *Repo:* ${repoFullName || args[0]}\n` +
+                    `├◆ ✧ *Error:* ${error.message}\n` +
+                    `├◆ 💡 *Check that:*\n` +
+                    `├◆ • \`Repo exists and is public\`\n` +
+                    `├◆ • \`URL format is correct\`\n` +
                     `└─⧭`
             }, { quoted: m });
 

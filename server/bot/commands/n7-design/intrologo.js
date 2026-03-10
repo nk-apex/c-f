@@ -153,7 +153,7 @@
 // //   drawVisualizer(ctx, width, height, progress);
 
 // //   addWatermark(ctx, width, height);
-  return canvas.toBuffer('image/png');
+//  return canvas.toBuffer('image/png');
 // // }
 
 // // /**
@@ -384,7 +384,7 @@
 // //   }
 
 // //   addWatermark(ctx, width, height);
-  return canvas.toBuffer('image/png');
+//  return canvas.toBuffer('image/png');
 // // }
 
 
@@ -642,7 +642,7 @@
 //   drawSimpleVisualizer(ctx, width, height, progress);
 
 //   addWatermark(ctx, width, height);
-  return canvas.toBuffer('image/png');
+//  return canvas.toBuffer('image/png');
 // }
 
 // /**
@@ -790,7 +790,7 @@
 //   ctx.fillText(text, width / 2, height / 2);
 
 //   addWatermark(ctx, width, height);
-  return canvas.toBuffer('image/png');
+//  return canvas.toBuffer('image/png');
 // }
 
 

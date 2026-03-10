@@ -17,12 +17,12 @@ function logBox(sender, msgType, result) {
     const t = new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
     const d = new Date().toLocaleDateString('en-US', { day: '2-digit', month: 'short', year: 'numeric' });
     console.log(`${G}${B}┌──────────────────────────────────────────────────┐${X}`);
-    console.log(`${G}${B}│  👁️  STATUS DETECTED                              │${X}`);
+    console.log(`${G}${B}├◆  👁️  STATUS DETECTED                              ├◆${X}`);
     console.log(`${G}${B}├◆ ┤${X}`);
-    console.log(`${G}│  ${C}${B}From   :${X}${G} ${sender}${X}`);
-    console.log(`${G}│  ${C}${B}Type   :${X}${G} ${msgType}${X}`);
-    console.log(`${G}│  ${C}${B}Time   :${X}${G} ${t}  ${D}(${d})${X}`);
-    console.log(`${G}│  ${C}${B}Result :${X}${G} ${result}${X}`);
+    console.log(`${G}├◆  ${C}${B}From   :${X}${G} ${sender}${X}`);
+    console.log(`${G}├◆  ${C}${B}Type   :${X}${G} ${msgType}${X}`);
+    console.log(`${G}├◆  ${C}${B}Time   :${X}${G} ${t}  ${D}(${d})${X}`);
+    console.log(`${G}├◆  ${C}${B}Result :${X}${G} ${result}${X}`);
     console.log(`${G}${B}└──────────────────────────────────────────────────┘${X}`);
 }
 
@@ -262,8 +262,8 @@ export default {
             if (args.length === 0) {
                 const s = autoViewManager.getStats();
                 let text = `┌─⧭ 👁️ *AUTOVIEWSTATUS* \n`;
-                text += `│ Status   : ${s.enabled ? '✅ ACTIVE' : '❌ INACTIVE'}\n`;
-                text += `│ Excluded : ${s.excludedCount} contact(s)\n`;
+                text += `├◆ Status   : ${s.enabled ? '✅ ACTIVE' : '❌ INACTIVE'}\n`;
+                text += `├◆ Excluded : ${s.excludedCount} contact(s)\n`;
                 text += `├◆ *${prefix}autoviewstatus on/off*\n`;
                 text += `├◆ *${prefix}autoviewstatus exclude <number>*\n`;
                 text += `├◆ *${prefix}autoviewstatus include <number>*\n`;

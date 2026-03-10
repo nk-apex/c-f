@@ -18,26 +18,26 @@ export default {
             const members = participants.filter(p => !p.admin);
 
             let text = '┌─⧭ GROUP STATUS ⧭─┐\n';
-            text += `│ Group: ${metadata.subject}\n`;
-            text += '│\n';
-            text += `│ Total Members: ${participants.length}\n`;
-            text += `│ Admins: ${admins.length}\n`;
-            text += `│ Regular Members: ${members.length}\n`;
-            text += '│\n';
-            text += '│ Note: Real-time online status\n';
-            text += '│ detection is not available via\n';
-            text += '│ the WhatsApp Web API.\n';
-            text += '│\n';
-            text += '│ Showing all participants:\n';
+            text += `├◆ Group: ${metadata.subject}\n`;
+            text += '\n';
+            text += `├◆ Total Members: ${participants.length}\n`;
+            text += `├◆ Admins: ${admins.length}\n`;
+            text += `├◆ Regular Members: ${members.length}\n`;
+            text += '\n';
+            text += '├◆ Note: Real-time online status\n';
+            text += '├◆ detection is not available via\n';
+            text += '├◆ the WhatsApp Web API.\n';
+            text += '\n';
+            text += '├◆ Showing all participants:\n';
 
             const displayList = participants.slice(0, 30);
             displayList.forEach((p, i) => {
                 const role = p.admin === 'superadmin' ? ' [Owner]' : p.admin === 'admin' ? ' [Admin]' : '';
-                text += `│ ${i + 1}. @${p.id.split('@')[0]}${role}\n`;
+                text += `├◆ ${i + 1}. @${p.id.split('@')[0]}${role}\n`;
             });
 
             if (participants.length > 30) {
-                text += `│ ... and ${participants.length - 30} more\n`;
+                text += `├◆ ... and ${participants.length - 30} more\n`;
             }
 
             text += '└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘';

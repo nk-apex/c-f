@@ -90,19 +90,19 @@ export default {
         }
 
         let txt = `┌─⧭ \`WOLF REPO\` \n`;
-        txt += `│\n`;
-        txt += `│ ✧ *Name* : ${data.name || "Silent Wolf "}\n`;
-        txt += `│ ✧ *Owner* : ${owner}\n`;
-        txt += `│ ✧ *Stars* : ${data.stargazers_count || 0} ⭐\n`;
-        txt += `│ ✧ *Forks* : ${data.forks_count || 0} 🍴\n`;
-        txt += `│ ✧ *Watchers* : ${data.watchers_count || 0} 👁️\n`;
-        txt += `│ ✧ *Size* : ${sizeText}\n`;
-        txt += `│ ✧ *Updated* : ${moment(data.updated_at).format('DD/MM/YYYY HH:mm:ss')}\n`;
-        txt += `│ ✧ *Repo* : ${repoUrl}\n`;
-        txt += `│ *Description* :${data.description || 'A powerful WhatsApp bot with 400+ commands'}\n`;
-        txt += `│ Hey ${mentionTag}! 👋\n`;
-        txt += `│ _*Don't forget*_ 🎉`;
-        txt += `│ *to fork and star the repo!* ⭐\n`;
+        txt += ``;
+        txt += `├◆ ✧ *Name* : ${data.name || "Silent Wolf "}\n`;
+        txt += `├◆ ✧ *Owner* : ${owner}\n`;
+        txt += `├◆ ✧ *Stars* : ${data.stargazers_count || 0} ⭐\n`;
+        txt += `├◆ ✧ *Forks* : ${data.forks_count || 0} 🍴\n`;
+        txt += `├◆ ✧ *Watchers* : ${data.watchers_count || 0} 👁️\n`;
+        txt += `├◆ ✧ *Size* : ${sizeText}\n`;
+        txt += `├◆ ✧ *Updated* : ${moment(data.updated_at).format('DD/MM/YYYY HH:mm:ss')}\n`;
+        txt += `├◆ ✧ *Repo* : ${repoUrl}\n`;
+        txt += `├◆ *Description* :${data.description || 'A powerful WhatsApp bot with 400+ commands'}\n`;
+        txt += `├◆ Hey ${mentionTag}! 👋\n`;
+        txt += `├◆ _*Don't forget*_ 🎉`;
+        txt += `├◆ *to fork and star the repo!* ⭐\n`;
         txt += `└─⧭`;
 
         await sock.sendMessage(jid, {
@@ -119,23 +119,20 @@ export default {
         console.error("GitHub API Error:", apiError);
         
         const fallbackText = `┌─⧭ *WOLF REPO* \n` +
-          `│\n` +
-          `│ ✧ *Name* : Silent Wolf Bot\n` +
-          `│ ✧ *Owner* : 7silent-wolf\n` +
-          `│ ✧ *Repository* : ${repoUrl}\n` +
-          `│ ✧ *Status* : ✅ NEW CLEAN REPOSITORY\n` +
-          `│ ✧ *Size* : ~1.5 MB (Optimized)\n` +
-          `│ ✧ *Last Updated* : ${moment().format('DD/MM/YYYY HH:mm:ss')}\n` +
-          `│\n` +
-          `│ *Features* :\n` +
-          `│ • 400+ Commands\n` +
-          `│ • No node_modules in repo ✅\n` +
-          `│ • Clean and optimized\n` +
-          `│ • Fast and reliable\n` +
-          `│\n` +
-          `│ Hey ${mentionTag}! 👋\n` +
-          `│ _This repository is clean and optimized!_\n` +
-          `│ *Be the first to star it!* ⭐\n` +
+          `├◆ ✧ *Name* : Silent Wolf Bot\n` +
+          `├◆ ✧ *Owner* : 7silent-wolf\n` +
+          `├◆ ✧ *Repository* : ${repoUrl}\n` +
+          `├◆ ✧ *Status* : ✅ NEW CLEAN REPOSITORY\n` +
+          `├◆ ✧ *Size* : ~1.5 MB (Optimized)\n` +
+          `├◆ ✧ *Last Updated* : ${moment().format('DD/MM/YYYY HH:mm:ss')}\n` +
+          `├◆ *Features* :\n` +
+          `├◆ • 400+ Commands\n` +
+          `├◆ • No node_modules in repo ✅\n` +
+          `├◆ • Clean and optimized\n` +
+          `├◆ • Fast and reliable\n` +
+          `├◆ Hey ${mentionTag}! 👋\n` +
+          `├◆ _This repository is clean and optimized!_\n` +
+          `├◆ *Be the first to star it!* ⭐\n` +
           `└─⧭`;
 
         await sock.sendMessage(jid, {

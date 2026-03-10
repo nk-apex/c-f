@@ -177,43 +177,43 @@ export default {
             .map(([ext, count]) => `${this.getFileIcon(ext)} ${ext}: ${count}`);
         
         let text = `┌─⧭ 📊 *SPACE ANALYSIS* \n`;
-        text += `│\n`;
-        text += `│ 📁 ${repo.full_name}\n`;
-        text += `│ 📦 ${sizeMB} MB total\n`;
-        text += `│ ${activityStatus} (${daysSinceUpdate}d ago)\n`;
-        text += `│\n`;
+        text += ``;
+        text += `├◆ 📁 ${repo.full_name}\n`;
+        text += `├◆ 📦 ${sizeMB} MB total\n`;
+        text += `├◆ ${activityStatus} (${daysSinceUpdate}d ago)\n`;
+        text += ``;
         
         text += `├◆ *💾 SIZE BREAKDOWN*\n`;
-        text += `│  ├⊷ 📄 Files: ${analysis.summary.estimatedFiles}\n`;
-        text += `│  ├⊷ 📂 Dirs: ${analysis.directories.length}\n`;
-        text += `│\n`;
-        text += `│\n`;
+        text += `├◆  ├⊷ 📄 Files: ${analysis.summary.estimatedFiles}\n`;
+        text += `├◆  ├⊷ 📂 Dirs: ${analysis.directories.length}\n`;
+        text += ``;
+        text += ``;
         
         if (topFileTypes.length > 0) {
             text += `├◆ *📊 TOP FILE TYPES*\n`;
             topFileTypes.forEach((t, i) => {
                 const connector = i === topFileTypes.length - 1 ? '└─⧭' : '├';
-                text += `│  ${connector}⊷ ${t}\n`;
+                text += `├◆  ${connector}⊷ ${t}\n`;
             });
-            text += `│\n`;
+            text += ``;
         }
         
         if (languageStats.length > 0) {
             text += `├◆ *💻 TECH STACK*\n`;
             languageStats.forEach((l, i) => {
                 const connector = i === languageStats.length - 1 ? '└─⧭' : '├';
-                text += `│  ${connector}⊷ ${this.getLanguageIcon(l.language)} ${l.language}: ${l.percentage}% (${l.sizeMB}MB)\n`;
+                text += `├◆  ${connector}⊷ ${this.getLanguageIcon(l.language)} ${l.language}: ${l.percentage}% (${l.sizeMB}MB)\n`;
             });
-            text += `│\n`;
+            text += ``;
         }
         
         if (healthIndicators.length > 0) {
             text += `├◆ *⚠️ HEALTH ISSUES*\n`;
             healthIndicators.forEach((h, i) => {
                 const connector = i === healthIndicators.length - 1 ? '└─⧭' : '├';
-                text += `│  ${connector}⊷ ${h}\n`;
+                text += `├◆  ${connector}⊷ ${h}\n`;
             });
-            text += `│\n`;
+            text += ``;
         } else {
             text += `├◆ ✅ *No space issues detected*\n`;
         }
@@ -222,23 +222,23 @@ export default {
             text += `├◆ *🚨 SUSPICIOUS ITEMS*\n`;
             analysis.suspiciousItems.slice(0, 3).forEach((item, i) => {
                 const connector = i === Math.min(analysis.suspiciousItems.length, 3) - 1 ? '└─⧭' : '├';
-                text += `│  ${connector}⊷ ${item.name} (${item.sizeMB}MB)\n`;
+                text += `├◆  ${connector}⊷ ${item.name} (${item.sizeMB}MB)\n`;
             });
-            text += `│\n`;
+            text += ``;
         }
         
         text += `├◆ *💡 TIPS*\n`;
         const tips = this.getOptimizationTips(analysis, repo.size);
         tips.forEach((tip, i) => {
             const connector = i === tips.length - 1 ? '└─⧭' : '├';
-            text += `│  ${connector}⊷ ${tip}\n`;
+            text += `├◆  ${connector}⊷ ${tip}\n`;
         });
-        text += `│\n`;
+        text += ``;
         
         text += `├◆ *🔗 ACTIONS*\n`;
-        text += `│  • \`${prefix}gitclone ${repo.full_name}\`\n`;
-        text += `│  • \`${prefix}gitinfo ${repo.full_name}\`\n`;
-        text += `│\n`;
+        text += `├◆  • \`${prefix}gitclone ${repo.full_name}\`\n`;
+        text += `├◆  • \`${prefix}gitinfo ${repo.full_name}\`\n`;
+        text += ``;
         text += `└─⧭`;
         
         return text;

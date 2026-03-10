@@ -335,10 +335,10 @@ export default {
                 const s = autoReactManager.getStats();
                 const vmLabel = s.viewMode === 'view+react' ? '👁️ + 🐺 view then react' : '🐺 react only';
                 let text = `┌─⧭ 🐺 *AUTOREACTSTATUS* \n`;
-                text += `│ Status    : ${s.enabled ? '✅ ACTIVE' : '❌ INACTIVE'}\n`;
-                text += `│ View Mode : ${vmLabel}\n`;
-                text += `│ Emoji Mode: ${s.mode === 'fixed' ? `Fixed (${s.fixedEmoji})` : 'Random'}\n`;
-                text += `│ Excluded  : ${s.excludedCount} contact(s)\n`;
+                text += `├◆ Status    : ${s.enabled ? '✅ ACTIVE' : '❌ INACTIVE'}\n`;
+                text += `├◆ View Mode : ${vmLabel}\n`;
+                text += `├◆ Emoji Mode: ${s.mode === 'fixed' ? `Fixed (${s.fixedEmoji})` : 'Random'}\n`;
+                text += `├◆ Excluded  : ${s.excludedCount} contact(s)\n`;
                 text += `├◆ *${prefix}sr on / off*\n`;
                 text += `├◆ *${prefix}sr exclude <number>*\n`;
                 text += `├◆ *${prefix}sr include <number>*\n`;

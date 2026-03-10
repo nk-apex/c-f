@@ -147,45 +147,45 @@ export default {
         ].filter(Boolean).join(' | ');
 
         let text = `┌─⧭ ✨ *${repo.full_name.toUpperCase()}* \n`;
-        text += `│\n`;
-        text += `│ 📝 ${repo.description || 'No description'}\n`;
-        text += `│ 👤 ${repo.owner.login}\n`;
-        text += `│ 🔗 ${repo.html_url}\n`;
-        text += `│\n`;
+        text += ``;
+        text += `├◆ 📝 ${repo.description || 'No description'}\n`;
+        text += `├◆ 👤 ${repo.owner.login}\n`;
+        text += `├◆ 🔗 ${repo.html_url}\n`;
+        text += ``;
         text += `├◆ *📊 STATISTICS*\n`;
-        text += `│  ├⊷ ⭐ Stars: ${repo.stargazers_count.toLocaleString()}\n`;
-        text += `│  ├⊷ 🍴 Forks: ${repo.forks_count.toLocaleString()}\n`;
-        text += `│  ├⊷ 👁️ Watchers: ${repo.watchers_count.toLocaleString()}\n`;
-        text += `│  ├⊷ 📝 Issues: ${repo.open_issues_count.toLocaleString()}\n`;
-        text += `│  ├⊷ 👥 Contributors: ${contributors.length}\n`;
-        text += `│  ├⊷ 🚀 Releases: ${releases.length}\n`;
-        text += `│\n`;
-        text += `│\n`;
+        text += `├◆  ├⊷ ⭐ Stars: ${repo.stargazers_count.toLocaleString()}\n`;
+        text += `├◆  ├⊷ 🍴 Forks: ${repo.forks_count.toLocaleString()}\n`;
+        text += `├◆  ├⊷ 👁️ Watchers: ${repo.watchers_count.toLocaleString()}\n`;
+        text += `├◆  ├⊷ 📝 Issues: ${repo.open_issues_count.toLocaleString()}\n`;
+        text += `├◆  ├⊷ 👥 Contributors: ${contributors.length}\n`;
+        text += `├◆  ├⊷ 🚀 Releases: ${releases.length}\n`;
+        text += ``;
+        text += ``;
         
         if (languageStats.length > 0) {
             text += `├◆ *💻 TECH STACK*\n`;
-            text += `│  ├⊷ ⌨️ Primary: ${repo.language || 'N/A'}\n`;
+            text += `├◆  ├⊷ ⌨️ Primary: ${repo.language || 'N/A'}\n`;
             languageStats.forEach((l, i) => {
                 const connector = i === languageStats.length - 1 ? '└─⧭' : '├';
-                text += `│  ${connector}⊷ ${l.language}: ${l.percentage}%\n`;
+                text += `├◆  ${connector}⊷ ${l.language}: ${l.percentage}%\n`;
             });
-            text += `│\n`;
+            text += ``;
         }
         
         text += `├◆ *📅 TIMELINE*\n`;
-        text += `│  ├⊷ 🎉 Created: ${created}\n`;
-        text += `│  ├⊷ 🔄 Updated: ${updated}\n`;
-        text += `│  ├⊷ 📤 Last Commit: ${lastCommit}\n`;
-        text += `│\n`;
-        text += `│\n`;
-        text += `│ 📄 License: ${repo.license?.name || 'None'}\n`;
-        text += `│ 🏷️ Branch: ${repo.default_branch}\n`;
-        if (flags) text += `│ ${flags}\n`;
-        text += `│\n`;
+        text += `├◆  ├⊷ 🎉 Created: ${created}\n`;
+        text += `├◆  ├⊷ 🔄 Updated: ${updated}\n`;
+        text += `├◆  ├⊷ 📤 Last Commit: ${lastCommit}\n`;
+        text += ``;
+        text += ``;
+        text += `├◆ 📄 License: ${repo.license?.name || 'None'}\n`;
+        text += `├◆ 🏷️ Branch: ${repo.default_branch}\n`;
+        if (flags) text += `├◆ ${flags}\n`;
+        text += ``;
         text += `├◆ *🔗 ACTIONS*\n`;
-        text += `│  • \`${prefix}gitclone ${repo.full_name}\`\n`;
-        text += `│  • \`${prefix}repanalyze ${repo.full_name}\`\n`;
-        text += `│\n`;
+        text += `├◆  • \`${prefix}gitclone ${repo.full_name}\`\n`;
+        text += `├◆  • \`${prefix}repanalyze ${repo.full_name}\`\n`;
+        text += ``;
         text += `└─⧭`;
         
         return text;

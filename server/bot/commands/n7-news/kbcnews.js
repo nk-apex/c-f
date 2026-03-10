@@ -26,14 +26,14 @@ export default {
 
             const limit = Math.min(stories.length, 7);
             let text = `┌─⧭ 📰 *KBC KENYA NEWS* \n`;
-            text    += `│ 🌐 kbctv.co.ke\n`;
-            text    += `│ 🕒 ${new Date().toLocaleString("en-KE", { timeZone: "Africa/Nairobi" })}\n`;
+            text    += `├◆ 🌐 kbctv.co.ke\n`;
+            text    += `├◆ 🕒 ${new Date().toLocaleString("en-KE", { timeZone: "Africa/Nairobi" })}\n`;
 
             for (let i = 0; i < limit; i++) {
                 const s = stories[i];
                 text += `├◆ *${i + 1}. ${s.title.trim()}*\n`;
-                if (s.text) text += `│   ${s.text.substring(0, 110)}${s.text.length > 110 ? '…' : ''}\n`;
-                text += `│   🔗 ${s.url}\n`;
+                if (s.text) text += `├◆   ${s.text.substring(0, 110)}${s.text.length > 110 ? '…' : ''}\n`;
+                text += `├◆   🔗 ${s.url}\n`;
             }
 
             text += `└─⧭ _Source: KBC Kenya_ ─`;

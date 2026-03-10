@@ -52,8 +52,8 @@ export default {
             return sock.sendMessage(chatId, {
                 text:
                     `┌─⧭ 👥 *GROUP* \n` +
-                    `│  ${group.name}\n` +
-                    (inviteUrl ? `│  🔗 ${inviteUrl}\n` : '') +
+                    `├◆  ${group.name}\n` +
+                    (inviteUrl ? `├◆  🔗 ${inviteUrl}\n` : '') +
                     `└─⧭`
             }, { quoted: msg });
         }
@@ -107,18 +107,18 @@ export default {
         const slice      = resolved.slice(pageIndex * PAGE_SIZE, pageIndex * PAGE_SIZE + PAGE_SIZE);
 
         let text = `┌─⧭ 👥 *MY GROUPS* \n`;
-        text += `│  📊 Total: *${resolved.length}* group${resolved.length !== 1 ? 's' : ''}\n`;
-        if (totalPages > 1) text += `│  📄 Page: *${pageIndex + 1}/${totalPages}*\n`;
-        text += `│\n`;
+        text += `├◆  📊 Total: *${resolved.length}* group${resolved.length !== 1 ? 's' : ''}\n`;
+        if (totalPages > 1) text += `├◆  📄 Page: *${pageIndex + 1}/${totalPages}*\n`;
+        text += ``;
 
         slice.forEach((g, i) => {
             text += `├◆ *${pageIndex * PAGE_SIZE + i + 1}.* ${g.name}\n`;
         });
 
-        text += `│\n`;
+        text += ``;
         if (totalPages > 1) {
             text += `├◆ Next page: *${PREFIX}mygroups ${pageIndex + 2 <= totalPages ? pageIndex + 2 : 1}*\n`;
-            text += `│\n`;
+            text += ``;
         }
         text += `└─⧭ Reply with a number to select a group`;
 

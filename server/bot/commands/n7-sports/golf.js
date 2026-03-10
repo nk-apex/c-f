@@ -34,7 +34,7 @@ export default {
         const date = ev.date ? new Date(ev.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : '';
         const status = ev.status?.type?.shortDetail || '';
         text += `├◆ *${name}*\n`;
-        text += `│\n`;
+        text += ``;
 
         const comp = ev.competitions?.[0];
         const players = comp?.competitors || [];
@@ -43,7 +43,7 @@ export default {
             const pName = p.athlete?.displayName || '???';
             const score = p.score || '-';
             const short = pName.length > 20 ? pName.substring(0, 18) + '..' : pName;
-            text += `├◆ *${i + 1}.* ${short} │ ${score}\n`;
+            text += `├◆ *${i + 1}.* ${short} ├◆ ${score}\n`;
           });
         }
       });

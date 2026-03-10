@@ -52,14 +52,11 @@ export default {
 
       const caption =
         `┌─⧭ 🔗 *GROUP LINK* \n` +
-        `│\n` +
-        `│ ✧ *Name:* ${groupName}\n` +
-        `│ ✧ *Members:* ${members}\n` +
-        `│ ✧ *Link:* ${inviteLink}\n` +
-        `│\n` +
-        `│ • \`${PREFIX}revoke\` - Reset link\n` +
-        `│ • \`${PREFIX}groupinfo\` - Group details\n` +
-        `│\n` +
+        `├◆ ✧ *Name:* ${groupName}\n` +
+        `├◆ ✧ *Members:* ${members}\n` +
+        `├◆ ✧ *Link:* ${inviteLink}\n` +
+        `├◆ • \`${PREFIX}revoke\` - Reset link\n` +
+        `├◆ • \`${PREFIX}groupinfo\` - Group details\n` +
         `└─⧭`;
 
       try {

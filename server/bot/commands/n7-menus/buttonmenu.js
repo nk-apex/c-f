@@ -65,7 +65,7 @@ export default {
                     if (cmd.aliases && cmd.aliases.length > 0) text += ` (${cmd.aliases.join(', ')})`;
                     text += `\n`;
                 });
-                text += `│\n├◆ *${catCmds.length}* commands in ${cat}\n├◆ Button Mode: ${buttonStatus}\n└─⧭`;
+                text += `├◆\n├◆ *${catCmds.length}* commands in ${cat}\n├◆ Button Mode: ${buttonStatus}\n└─⧭`;
 
                 await sock.sendMessage(chatId, { text }, { quoted: m });
                 return;
@@ -78,8 +78,8 @@ export default {
             // ========== BUILD MENU TEXT ==========
             let text = `┌── 🔘 *${botName} BUTTON MENU*  〘SW〙\n\n`;
             text += `┌────────────────\n`;
-            text += `│ Button Mode: ${buttonStatus}\n`;
-            text += `│ Total Commands: *${totalMain}* (+${totalAliases} aliases)\n`;
+            text += `├◆ Button Mode: ${buttonStatus}\n`;
+            text += `├◆ Total Commands: *${totalMain}* (+${totalAliases} aliases)\n`;
             text += `└────────────────\n\n`;
 
             for (const [catName, catCmdNames] of Object.entries(categoryMap)) {
@@ -97,7 +97,7 @@ export default {
                 
                 text += `┌── ${icon} *${catName.toUpperCase()}* (${catCmds.length}) \n`;
                 catCmds.forEach(cmd => {
-                    text += `│ • ${prefix}${cmd.name}`;
+                    text += `├◆ • ${prefix}${cmd.name}`;
                     if (cmd.aliases && cmd.aliases.length > 0) text += ` [${cmd.aliases.join(',')}]`;
                     text += `\n`;
                 });
@@ -109,16 +109,16 @@ export default {
             if (uncategorized.length > 0) {
                 text += `┌── 📦 *OTHER* (${uncategorized.length}) \n`;
                 uncategorized.forEach(cmd => {
-                    text += `│ • ${prefix}${cmd.name}\n`;
+                    text += `├◆ • ${prefix}${cmd.name}\n`;
                 });
                 text += `└───────────────\n\n`;
             }
 
             text += `┌────────────────\n`;
-            text += `│ Use *${prefix}buttonmenu <category>*\n`;
-            text += `│ to see button details per category\n`;
-            text += `│\n`;
-            text += `│ Toggle: *${prefix}mode buttons* / *${prefix}mode default*\n`;
+            text += `├◆ Use *${prefix}buttonmenu <category>*\n`;
+            text += `├◆ to see button details per category\n`;
+            text += ``;
+            text += `├◆ Toggle: *${prefix}mode buttons* / *${prefix}mode default*\n`;
             text += `└────────────────\n`;
             text += `🐺 *POWERED BY WOLFTECH* 🐺`;
 

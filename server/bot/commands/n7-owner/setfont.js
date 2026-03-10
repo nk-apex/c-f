@@ -25,28 +25,28 @@ export default {
         if (!args[0]) {
             const fontLines = Object.entries(AVAILABLE_FONTS).map(([key, info]) => {
                 const active = key === currentFont ? ' ✅ active' : '';
-                return `│ ├ *${key}*${active}\n├◆ │   ${info.example}`;
-            }).join('\n├◆ │\n');
+                return `├◆ ├ *${key}*${active}\n├◆ ├◆   ${info.example}`;
+            }).join('\n├◆ ├◆\n');
 
             const defaultActive = currentFont === 'default' ? ' ✅ active' : '';
 
             return sock.sendMessage(chatId, {
                 text: [
                     `┌─⧭ 🎨 *SET BOT FONT* `,
-                    `│`,
-                    `│ 📝 Current: *${currentFont}*`,
-                    `│`,
-                    `│ ─── Available Fonts ───`,
-                    `│`,
+                    `├◆`,
+                    `├◆ 📝 Current: *${currentFont}*`,
+                    `├◆`,
+                    `├◆ ─── Available Fonts ───`,
+                    `├◆`,
                     fontLines,
-                    `│ │`,
-                    `│ ├ *default*${defaultActive}`,
-                    `│ │   Normal text (no style)`,
-                    `│`,
+                    `├◆ ├◆`,
+                    `├◆ ├ *default*${defaultActive}`,
+                    `├◆ ├◆   Normal text (no style)`,
+                    `├◆`,
                     `├◆ *${PREFIX}setfont <name>*`,
-                    `│`,
+                    `├◆`,
                     `├◆ *${PREFIX}setfont default*`,
-                    `│`,
+                    `├◆`,
                     `└─⧭`
                 ].join('\n')
             }, { quoted: msg });

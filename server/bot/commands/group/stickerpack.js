@@ -36,12 +36,12 @@ export default {
         if (!args[0]) {
             const currentPack = data[jid] || 'Not set';
             let text = '┌─⧭ STICKER PACK ⧭─┐\n';
-            text += `│ Current pack name: ${currentPack}\n`;
-            text += '│\n';
-            text += `│ Usage: ${PREFIX}stickerpack <name>\n`;
-            text += `│ Example: ${PREFIX}stickerpack MyGroup\n`;
-            text += '│\n';
-            text += `│ Use "${PREFIX}stickerpack reset" to remove.\n`;
+            text += `├◆ Current pack name: ${currentPack}\n`;
+            text += '\n';
+            text += `├◆ Usage: ${PREFIX}stickerpack <name>\n`;
+            text += `├◆ Example: ${PREFIX}stickerpack MyGroup\n`;
+            text += '\n';
+            text += `├◆ Use "${PREFIX}stickerpack reset" to remove.\n`;
             text += '└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘';
             return sock.sendMessage(jid, { text }, { quoted: msg });
         }
@@ -59,9 +59,9 @@ export default {
         writeData(data);
 
         let text = '┌─⧭ STICKER PACK UPDATED ⧭─┐\n';
-        text += `│ Pack name set to: ${packName}\n`;
-        text += '│\n';
-        text += '│ New stickers will use this name.\n';
+        text += `├◆ Pack name set to: ${packName}\n`;
+        text += '\n';
+        text += '├◆ New stickers will use this name.\n';
         text += '└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘';
 
         await sock.sendMessage(jid, { text }, { quoted: msg });

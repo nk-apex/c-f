@@ -245,12 +245,12 @@ export default {
       
       // WOLFBOT footer with commands
       resultText += `┌───────────────────\n`;
-      resultText += `│ ${getBotName()} DOWNLOAD TIPS\n`;
+      resultText += `├◆ ${getBotName()} DOWNLOAD TIPS\n`;
       resultText += `├◆ \n`;
-      resultText += `│ • Use *.ytplay <url>* for audio (MP3)\n`;
-      resultText += `│ • Use *.ytv <url>* for video\n`;
-      resultText += `│ • Add *-q 720p* for specific quality\n`;
-      resultText += `│ • Add *-f mp4* for video format\n`;
+      resultText += `├◆ • Use *.ytplay <url>* for audio (MP3)\n`;
+      resultText += `├◆ • Use *.ytv <url>* for video\n`;
+      resultText += `├◆ • Add *-q 720p* for specific quality\n`;
+      resultText += `├◆ • Add *-f mp4* for video format\n`;
       resultText += `└───────────────────\n\n`;
       resultText += `🎬 *Tip:* Videos may have 360p/720p/1080p options`;
 

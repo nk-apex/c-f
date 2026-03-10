@@ -84,7 +84,7 @@ export default {
 
             const lines = [
                 `┌─⧭ 🎵 *TIKTOK PROFILE* `,
-                `│`,
+                `├◆`,
                 `├◆ *👤 Name:* ${d.name}`,
                 `├◆ *🏷️ Username:* @${d.username}`,
                 `├◆ *📝 Bio:* ${d.bio}`,
@@ -96,7 +96,7 @@ export default {
             lines.push(`├◆ *✅ Verified:* ${d.verified ? 'Yes ✔️' : 'No'}`);
             lines.push(`├◆ *🔒 Private:* ${d.private ? 'Yes' : 'No'}`);
             if (d.profileUrl) lines.push(`├◆ *🔗 Profile:* ${d.profileUrl}`);
-            lines.push(`│`, `└─⧭`, `> 🐺 *${getBotName()} STALKER*`);
+            lines.push(`├◆`, `└─⧭`, `> 🐺 *${getBotName()} STALKER*`);
 
             const caption = lines.join('\n');
 

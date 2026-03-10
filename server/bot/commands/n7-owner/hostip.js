@@ -467,13 +467,13 @@ export default {
                         response += `🏠 *Local Network Interfaces*\n`;
                         interfaces.forEach((iface, index) => {
                             response += `├◆ *${iface.interface}*\n`;
-                            response += `│  ├◆ IP: ${iface.address}\n`;
-                            response += `│  ├◆ Netmask: ${iface.netmask}\n`;
-                            response += `│  ├◆ MAC: ${iface.mac}\n`;
-                            response += `│  └─ CIDR: ${iface.cidr}\n`;
+                            response += `├◆  ├◆ IP: ${iface.address}\n`;
+                            response += `├◆  ├◆ Netmask: ${iface.netmask}\n`;
+                            response += `├◆  ├◆ MAC: ${iface.mac}\n`;
+                            response += `├◆  └─ CIDR: ${iface.cidr}\n`;
                             
                             if (index < interfaces.length - 1) {
-                                response += `│\n`;
+                                response += ``;
                             }
                         });
                         response += `\n`;
@@ -542,14 +542,14 @@ export default {
                     if (interfaces.length > 0) {
                         response += `🔌 *Network Interfaces*\n`;
                         interfaces.forEach((iface, index) => {
-                            response += `${index === 0 ? '├' : '│'}─ *${iface.interface}*\n`;
-                            response += `${index === 0 ? '│' : '│'}  ├◆ IP: ${iface.address}\n`;
-                            response += `${index === 0 ? '│' : '│'}  ├◆ Netmask: ${iface.netmask}\n`;
-                            response += `${index === 0 ? '│' : '│'}  ├◆ MAC: ${iface.mac}\n`;
-                            response += `${index === 0 ? '│' : '│'}  └─ CIDR: ${iface.cidr}\n`;
+                            response += `${index === 0 ? '├' : '├◆'}─ *${iface.interface}*\n`;
+                            response += `${index === 0 ? '├◆' : '├◆'}  ├◆ IP: ${iface.address}\n`;
+                            response += `${index === 0 ? '├◆' : '├◆'}  ├◆ Netmask: ${iface.netmask}\n`;
+                            response += `${index === 0 ? '├◆' : '├◆'}  ├◆ MAC: ${iface.mac}\n`;
+                            response += `${index === 0 ? '├◆' : '├◆'}  └─ CIDR: ${iface.cidr}\n`;
                             
                             if (index < interfaces.length - 1) {
-                                response += `│\n`;
+                                response += ``;
                             }
                         });
                         response += `\n`;
@@ -973,7 +973,7 @@ export default {
                     if (dnsRecords.A && dnsRecords.A.length > 0 && dnsRecords.A[0] !== 'No A records') {
                         response += `📡 *A Records (IPv4)*\n`;
                         dnsRecords.A.forEach((record, index) => {
-                            response += `${index === 0 ? '├' : '│'}─ ${record}\n`;
+                            response += `${index === 0 ? '├' : '├◆'}─ ${record}\n`;
                         });
                         response += `\n`;
                     }
@@ -982,7 +982,7 @@ export default {
                     if (dnsRecords.MX && dnsRecords.MX.length > 0 && dnsRecords.MX[0] !== 'No MX records') {
                         response += `📧 *MX Records (Mail)*\n`;
                         dnsRecords.MX.forEach((record, index) => {
-                            response += `${index === 0 ? '├' : '│'}─ ${record}\n`;
+                            response += `${index === 0 ? '├' : '├◆'}─ ${record}\n`;
                         });
                         response += `\n`;
                     }
@@ -991,7 +991,7 @@ export default {
                     if (dnsRecords.NS && dnsRecords.NS.length > 0 && dnsRecords.NS[0] !== 'No NS records') {
                         response += `🏢 *NS Records (Nameservers)*\n`;
                         dnsRecords.NS.forEach((record, index) => {
-                            response += `${index === 0 ? '├' : '│'}─ ${record}\n`;
+                            response += `${index === 0 ? '├' : '├◆'}─ ${record}\n`;
                         });
                         response += `\n`;
                     }
@@ -1002,7 +1002,7 @@ export default {
                         dnsRecords.TXT.slice(0, 3).forEach((record, index) => {
                             // Truncate long TXT records
                             const displayText = record.length > 50 ? record.substring(0, 47) + '...' : record;
-                            response += `${index === 0 ? '├' : '│'}─ ${displayText}\n`;
+                            response += `${index === 0 ? '├' : '├◆'}─ ${displayText}\n`;
                         });
                         
                         if (dnsRecords.TXT.length > 3) {

@@ -23,10 +23,10 @@ export default {
             await sock.groupRevokeInvite(jid);
 
             let text = '┌─⧭ LINK REVOKED ⧭─┐\n';
-            text += '│ The old invite link has been revoked.\n';
-            text += '│ A new link has been generated.\n';
-            text += '│\n';
-            text += `│ Use ${PREFIX}grouplink to get the new link.\n`;
+            text += '├◆ The old invite link has been revoked.\n';
+            text += '├◆ A new link has been generated.\n';
+            text += '\n';
+            text += `├◆ Use ${PREFIX}grouplink to get the new link.\n`;
             text += '└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘';
 
             await sock.sendMessage(jid, { text }, { quoted: msg });

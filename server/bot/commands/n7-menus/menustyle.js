@@ -125,16 +125,16 @@ export default {
       const currentStyle = getCurrentMenuStyle();
       
       let styleList = `┌─⧭ 🎨 *MENU STYLE* \n`;
-      styleList += `│  📊 Current: Style ${currentStyle}\n`;
+      styleList += `├◆  📊 Current: Style ${currentStyle}\n`;
       styleList += `├◆ *${PREFIX}menustyle <1-8>*\n`;
-      styleList += `│\n`;
-      styleList += `│\n`;
-      styleList += `│\n`;
-      styleList += `│\n`;
-      styleList += `│\n`;
-      styleList += `│\n`;
-      styleList += `│\n`;
-      styleList += `│\n`;
+      styleList += ``;
+      styleList += ``;
+      styleList += ``;
+      styleList += ``;
+      styleList += ``;
+      styleList += ``;
+      styleList += ``;
+      styleList += ``;
       styleList += `└─⧭`;
       
       return sock.sendMessage(jid, { 

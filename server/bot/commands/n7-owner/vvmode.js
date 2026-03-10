@@ -54,15 +54,10 @@ export default {
             const modeText = config.sendAsSticker ? 'Sticker' : 'Image';
             await sock.sendMessage(chatId, {
                 text: `┌─⧭ ${modeEmoji} *VIEW-ONCE MODE* \n` +
-                     `│\n` +
                      `├◆ *Current:* ${modeText}\n` +
-                     `│\n` +
                      `├◆ *${prefix}vvmode image*\n` +
-                     `│\n` +
                      `├◆ *${prefix}vvmode sticker*\n` +
-                     `│\n` +
                      `├◆ *${prefix}vvmode toggle*\n` +
-                     `│\n` +
                      `└─⧭`
             }, { quoted: msg });
             return;
@@ -75,9 +70,8 @@ export default {
                 saveConfig(config);
                 await sock.sendMessage(chatId, {
                     text: `┌─⧭ 🏷️ *STICKER MODE ON* \n` +
-                         `│\n` +
                          `├◆ View-once images will be\n` +
-                         `│  sent as *stickers*\n` +
+                         `├◆  sent as *stickers*\n` +
                          `├◆ Videos remain as video\n` +
                          `└─⧭`
                 }, { quoted: msg });
@@ -89,9 +83,8 @@ export default {
                 saveConfig(config);
                 await sock.sendMessage(chatId, {
                     text: `┌─⧭ 🖼️ *IMAGE MODE ON* \n` +
-                         `│\n` +
                          `├◆ View-once images will be\n` +
-                         `│  sent as normal *images*\n` +
+                         `├◆  sent as normal *images*\n` +
                          `├◆ Videos sent as normal video\n` +
                          `└─⧭`
                 }, { quoted: msg });
@@ -104,7 +97,6 @@ export default {
                 const newMode = config.sendAsSticker ? 'Sticker 🏷️' : 'Image 🖼️';
                 await sock.sendMessage(chatId, {
                     text: `┌─⧭ 🔄 *MODE SWITCHED* \n` +
-                         `│\n` +
                          `├◆ View-once output: *${newMode}*\n` +
                          `└─⧭`
                 }, { quoted: msg });
@@ -113,13 +105,9 @@ export default {
             default: {
                 await sock.sendMessage(chatId, {
                     text: `┌─⧭ 🖼️ *VIEW-ONCE MODE* \n` +
-                         `│\n` +
                          `├◆ *${prefix}vvmode image*\n` +
-                         `│\n` +
                          `├◆ *${prefix}vvmode sticker*\n` +
-                         `│\n` +
                          `├◆ *${prefix}vvmode toggle*\n` +
-                         `│\n` +
                          `└─⧭`
                 }, { quoted: msg });
             }

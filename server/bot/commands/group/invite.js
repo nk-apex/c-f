@@ -24,13 +24,13 @@ export default {
             const link = `https://chat.whatsapp.com/${code}`;
 
             let text = '┌─⧭ GROUP INVITATION ⧭─┐\n';
-            text += `│ You have been invited to join:\n`;
-            text += `│ ${metadata?.subject || 'this group'}\n`;
-            text += '│\n';
-            text += `│ Click the link below to join:\n`;
-            text += `│ ${link}\n`;
-            text += '│\n';
-            text += `│ Members: ${metadata?.participants?.length || 'N/A'}\n`;
+            text += `├◆ You have been invited to join:\n`;
+            text += `├◆ ${metadata?.subject || 'this group'}\n`;
+            text += '\n';
+            text += `├◆ Click the link below to join:\n`;
+            text += `├◆ ${link}\n`;
+            text += '\n';
+            text += `├◆ Members: ${metadata?.participants?.length || 'N/A'}\n`;
             text += '└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘';
 
             await sock.sendMessage(jid, { text }, { quoted: msg });

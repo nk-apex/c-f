@@ -26,15 +26,15 @@ export default {
 
             const limit = Math.min(stories.length, 7);
             let text = `┌─⧭ 📰 *BBC NEWS* \n`;
-            text    += `│ 🌐 bbc.com/news\n`;
-            text    += `│ 🕒 ${new Date().toLocaleString("en-KE", { timeZone: "Africa/Nairobi" })}\n`;
+            text    += `├◆ 🌐 bbc.com/news\n`;
+            text    += `├◆ 🕒 ${new Date().toLocaleString("en-KE", { timeZone: "Africa/Nairobi" })}\n`;
 
             for (let i = 0; i < limit; i++) {
                 const s = stories[i];
                 text += `├◆ *${i + 1}. ${s.title.trim()}*\n`;
-                if (s.description) text += `│   ${s.description.substring(0, 110)}${s.description.length > 110 ? '…' : ''}\n`;
-                if (s.isLive)      text += `│   🔴 LIVE\n`;
-                text += `│   🔗 ${s.url}\n`;
+                if (s.description) text += `├◆   ${s.description.substring(0, 110)}${s.description.length > 110 ? '…' : ''}\n`;
+                if (s.isLive)      text += `├◆   🔴 LIVE\n`;
+                text += `├◆   🔗 ${s.url}\n`;
             }
 
             text += `└─⧭ _Source: BBC News_ ─`;

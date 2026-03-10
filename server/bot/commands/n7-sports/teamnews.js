@@ -17,13 +17,11 @@ export default {
       return sock.sendMessage(jid, {
         text: `┌─⧭ 📰 *TEAM NEWS* \n` +
           `├◆ *${PREFIX}teamnews <team>*\n` +
-          `│\n` +
-          `│\n` +
           `├◆ 💡 *Examples:*\n` +
-          `│  ⊷ ${PREFIX}teamnews arsenal\n` +
-          `│  ⊷ ${PREFIX}teamnews barcelona\n` +
-          `│  ⊷ ${PREFIX}teamnews manchester united\n` +
-          `│  ⊷ ${PREFIX}tnews chelsea\n` +
+          `├◆ ${PREFIX}teamnews arsenal\n` +
+          `├◆ ${PREFIX}teamnews barcelona\n` +
+          `├◆ ${PREFIX}teamnews manchester united\n` +
+          `├◆ ${PREFIX}tnews chelsea\n` +
           `└─⧭`
       }, { quoted: m });
     }
@@ -52,8 +50,8 @@ export default {
         const shortSummary = summary.length > 100 ? summary.substring(0, 97) + '...' : summary;
 
         text += `├◆ *${i + 1}. ${title}*\n`;
-        if (shortSummary) text += `│\n`;
-        if (source || dateStr) text += `│\n`;
+        if (shortSummary) text += ``;
+        if (source || dateStr) text += ``;
       });
       text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
       await sock.sendMessage(jid, { text }, { quoted: m });

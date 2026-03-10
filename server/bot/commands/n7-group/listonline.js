@@ -93,20 +93,15 @@ export default {
         await sock.sendMessage(jid, {
           text:
             `┌─⧭ \`${groupName}\` \n` +
-            `│\n` +
-            `│ 🔍 *Online Scan Complete*\n` +
-            `│ No online members detected.\n` +
-            `│\n` +
-            `│ ✧ *Scanned:* ${members.length} members\n` +
-            `│ ✧ *Duration:* ${scanDuration / 1000}s\n` +
-            `│\n` +
-            `│ 💡 Most members have privacy\n` +
-            `│ settings hiding their status.\n` +
-            `│\n` +
-            `│ *Related:*\n` +
-            `│ • \`${PREFIX}listinactive\` - Find inactive members\n` +
-            `│ • \`${PREFIX}tagall\` - Tag everyone\n` +
-            `│\n` +
+            `├◆ 🔍 *Online Scan Complete*\n` +
+            `├◆ No online members detected.\n` +
+            `├◆ ✧ *Scanned:* ${members.length} members\n` +
+            `├◆ ✧ *Duration:* ${scanDuration / 1000}s\n` +
+            `├◆ 💡 Most members have privacy\n` +
+            `├◆ settings hiding their status.\n` +
+            `├◆ *Related:*\n` +
+            `├◆ • \`${PREFIX}listinactive\` - Find inactive members\n` +
+            `├◆ • \`${PREFIX}tagall\` - Tag everyone\n` +
             `└─⧭`
         }, { quoted: msg });
         try { await sock.sendMessage(jid, { react: { text: '😴', key: msg.key } }); } catch {}
@@ -115,15 +110,14 @@ export default {
 
       let message =
         `┌─⧭ \`${groupName}\` \n` +
-        `│\n` +
-        `│ 🟢 *Online:* ${allActive.length}/${members.length}\n` +
-        `│\n`;
+        `├◆ 🟢 *Online:* ${allActive.length}/${members.length}\n` +
+        ``;
 
       if (onlineMembers.length > 0) {
         message += `├◆ *📱 Online*\n`;
         onlineMembers.forEach((member) => {
           const icon = member.isAdmin ? '👑' : '👤';
-          message += `│  • ${icon} @${member.phone}\n`;
+          message += `├◆  • ${icon} @${member.phone}\n`;
         });
       }
 
@@ -131,7 +125,7 @@ export default {
         message += `├◆ *⌨️ Typing*\n`;
         typingMembers.forEach((member) => {
           const icon = member.isAdmin ? '👑' : '👤';
-          message += `│  • ${icon} @${member.phone}\n`;
+          message += `├◆  • ${icon} @${member.phone}\n`;
         });
       }
 
@@ -139,16 +133,14 @@ export default {
         message += `├◆ *🎙️ Recording*\n`;
         recordingMembers.forEach((member) => {
           const icon = member.isAdmin ? '👑' : '👤';
-          message += `│  • ${icon} @${member.phone}\n`;
+          message += `├◆  • ${icon} @${member.phone}\n`;
         });
       }
 
       message +=
-        `│\n` +
-        `│ *Related:*\n` +
-        `│ • \`${PREFIX}listinactive\` - Find inactive members\n` +
-        `│ • \`${PREFIX}tagall\` - Tag everyone\n` +
-        `│\n` +
+        `├◆ *Related:*\n` +
+        `├◆ • \`${PREFIX}listinactive\` - Find inactive members\n` +
+        `├◆ • \`${PREFIX}tagall\` - Tag everyone\n` +
         `└─⧭`;
 
       const mentions = allActive.map(m => m.id);

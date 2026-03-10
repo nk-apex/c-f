@@ -29,24 +29,17 @@ export default {
     if (args.length === 0 || args[0].toLowerCase() === 'help') {
       return sock.sendMessage(jid, {
         text: `┌─⧭ ⚽ *FOOTBALL / SOCCER* \n` +
-          `│\n` +
           `├◆ *${PREFIX}football scores*\n` +
-          `│\n` +
           `├◆ *${PREFIX}football standings [league]*\n` +
-          `│\n` +
           `├◆ *${PREFIX}football fixtures*\n` +
-          `│\n` +
           `├◆ *${PREFIX}football topscorers [league]*\n` +
-          `│\n` +
           `├◆ *${PREFIX}football stats [league]*\n` +
-          `│\n` +
-          `│\n` +
           `├◆ 📋 *Available Leagues:*\n` +
-          `│  ⊷ epl / eng - Premier League\n` +
-          `│  ⊷ laliga / esp - La Liga\n` +
-          `│  ⊷ bundesliga / ger - Bundesliga\n` +
-          `│  ⊷ seriea / ita - Serie A\n` +
-          `│  ⊷ ligue1 / fra - Ligue 1\n` +
+          `├◆ epl / eng - Premier League\n` +
+          `├◆ laliga / esp - La Liga\n` +
+          `├◆ bundesliga / ger - Bundesliga\n` +
+          `├◆ seriea / ita - Serie A\n` +
+          `├◆ ligue1 / fra - Ligue 1\n` +
           `└─⧭`
       }, { quoted: m });
     }
@@ -77,7 +70,7 @@ export default {
           const league = match?.league?.name || match?.competition?.name || '';
           const matchId = match?.id || match?.matchId || match?.match_id || '';
           text += `├◆ ${home} *${homeScore}* - *${awayScore}* ${away}\n`;
-          text += `│` │ ${league}` : ''}${matchId ? ` │ ID: ${matchId}` : ''}\n`;
+          text += `` ├◆ ${league}` : ''}${matchId ? ` ├◆ ID: ${matchId}` : ''}\n`;
         });
         text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
         await sock.sendMessage(jid, { text }, { quoted: m });
@@ -102,8 +95,8 @@ export default {
           const l = team?.losses ?? team?.loss ?? team?.stats?.losses ?? team?.l ?? '-';
           const gf = team?.goalsFor ?? team?.gf ?? team?.stats?.goalsFor ?? '';
           const ga = team?.goalsAgainst ?? team?.ga ?? team?.stats?.goalsAgainst ?? '';
-          const goalStr = (gf !== '' && ga !== '') ? ` │ ${gf}:${ga}` : '';
-          text += `├◆ *${rank}.* ${short} │ ${pts}pts │ ${w}W ${d}D ${l}L${goalStr}\n`;
+          const goalStr = (gf !== '' && ga !== '') ? ` ├◆ ${gf}:${ga}` : '';
+          text += `├◆ *${rank}.* ${short} ├◆ ${pts}pts ├◆ ${w}W ${d}D ${l}L${goalStr}\n`;
         });
         text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
         await sock.sendMessage(jid, { text }, { quoted: m });
@@ -129,7 +122,7 @@ export default {
             try { dateStr = new Date(date).toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' }); } catch { dateStr = date; }
           }
           text += `├◆ ${home} vs ${away}\n`;
-          text += `│` │ ${league}` : ''}${venue ? ` │ ${venue}` : ''}\n`;
+          text += `` ├◆ ${league}` : ''}${venue ? ` ├◆ ${venue}` : ''}\n`;
         });
         text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
         await sock.sendMessage(jid, { text }, { quoted: m });
@@ -149,7 +142,7 @@ export default {
           const goals = player?.goals ?? player?.numberOfGoals ?? player?.stats?.goals ?? player?.value ?? '-';
           const team = player?.team?.name || player?.teamName || player?.team || '';
           const assists = player?.assists ?? player?.stats?.assists ?? '';
-          text += `├◆ *${i + 1}.* ${name} │ ⚽ ${goals}${assists !== '' ? ` │ 🅰️ ${assists}` : ''}${team ? ` │ ${team}` : ''}\n`;
+          text += `├◆ *${i + 1}.* ${name} ├◆ ⚽ ${goals}${assists !== '' ? ` | 🅰️ ${assists}` : ''}${team ? ` | ${team}` : ''}\n`;
         });
         text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
         await sock.sendMessage(jid, { text }, { quoted: m });
@@ -199,7 +192,7 @@ export default {
             const name = team?.team?.name || team?.name || team?.teamName || 'Unknown';
             const short = name.length > 16 ? name.substring(0, 14) + '..' : name;
             const pts = team?.points ?? team?.pts ?? '-';
-            text += `├◆ *${rank}.* ${short} │ ${pts}pts\n`;
+            text += `├◆ *${rank}.* ${short} ├◆ ${pts}pts\n`;
           });
           text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
           await sock.sendMessage(jid, { text }, { quoted: m });

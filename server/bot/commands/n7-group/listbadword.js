@@ -15,7 +15,7 @@ export default {
             }, { quoted: msg });
         }
 
-        const numbered = words.map((w, i) => `│  ${i + 1}. ${w}`).join('\n');
+        const numbered = words.map((w, i) => `├◆  ${i + 1}. ${w}`).join('\n');
         return sock.sendMessage(chatId, {
             text: `┌─⧭ 🤬 *BAD WORD FILTER* \n├◆ *Total:* ${words.length} word(s)\n${numbered}\n├◆ Use *.removebadword <word>* to remove\n├◆ Use *.antibadword on/off* to toggle\n└─⧭`,
         }, { quoted: msg });

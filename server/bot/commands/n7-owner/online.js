@@ -66,18 +66,14 @@ export default {
                 await sock.sendMessage(chatId, {
                     text:
                         `┌─⧭ 🟢 *ALWAYS ONLINE* \n` +
-                        `│\n` +
-                        `│ ✧ *Status:* ✅ ENABLED\n` +
-                        `│ ✧ *Mode:* Always Online\n` +
-                        `│ ✧ *Interval:* Every ${config.interval || 2} min\n` +
-                        `│\n` +
-                        `│ 👁️ Others will always see\n` +
-                        `│ you as "Online"\n` +
-                        `│ 🔒 Last seen is hidden\n` +
-                        `│\n` +
-                        `│ • \`${PREFIX}online off\` - Disable\n` +
-                        `│ • \`${PREFIX}privacy\` - View all settings\n` +
-                        `│\n` +
+                        `├◆ ✧ *Status:* ✅ ENABLED\n` +
+                        `├◆ ✧ *Mode:* Always Online\n` +
+                        `├◆ ✧ *Interval:* Every ${config.interval || 2} min\n` +
+                        `├◆ 👁️ Others will always see\n` +
+                        `├◆ you as "Online"\n` +
+                        `├◆ 🔒 Last seen is hidden\n` +
+                        `├◆ • \`${PREFIX}online off\` - Disable\n` +
+                        `├◆ • \`${PREFIX}privacy\` - View all settings\n` +
                         `└─⧭`
                 }, { quoted: msg });
                 break;
@@ -99,15 +95,11 @@ export default {
                 await sock.sendMessage(chatId, {
                     text:
                         `┌─⧭ 🔴 *ALWAYS ONLINE* \n` +
-                        `│\n` +
-                        `│ ✧ *Status:* ❌ DISABLED\n` +
-                        `│\n` +
-                        `│ Normal presence restored\n` +
-                        `│ Last seen will show normally\n` +
-                        `│\n` +
-                        `│ • \`${PREFIX}online on\` - Re-enable\n` +
-                        `│ • \`${PREFIX}privacy\` - View all settings\n` +
-                        `│\n` +
+                        `├◆ ✧ *Status:* ❌ DISABLED\n` +
+                        `├◆ Normal presence restored\n` +
+                        `├◆ Last seen will show normally\n` +
+                        `├◆ • \`${PREFIX}online on\` - Re-enable\n` +
+                        `├◆ • \`${PREFIX}privacy\` - View all settings\n` +
                         `└─⧭`
                 }, { quoted: msg });
                 break;
@@ -142,14 +134,10 @@ export default {
                 await sock.sendMessage(chatId, {
                     text:
                         `┌─⧭ ${emoji} *ALWAYS ONLINE* \n` +
-                        `│\n` +
-                        `│ ✧ *Status:* ${status}\n` +
-                        `│\n` +
-                        `│ ${config.enabled ? '👁️ You appear always online\n├◆ 🔒 Last seen is hidden' : '📱 Normal presence restored'}\n` +
-                        `│\n` +
-                        `│ • \`${PREFIX}online ${config.enabled ? 'off' : 'on'}\` - Toggle\n` +
-                        `│ • \`${PREFIX}privacy\` - View all settings\n` +
-                        `│\n` +
+                        `├◆ ✧ *Status:* ${status}\n` +
+                        `├◆ ${config.enabled ? '👁️ You appear always online\n├◆ 🔒 Last seen is hidden' : '📱 Normal presence restored'}\n` +
+                        `├◆ • \`${PREFIX}online ${config.enabled ? 'off' : 'on'}\` - Toggle\n` +
+                        `├◆ • \`${PREFIX}privacy\` - View all settings\n` +
                         `└─⧭`
                 }, { quoted: msg });
                 break;

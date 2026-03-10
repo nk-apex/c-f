@@ -1,6 +1,5 @@
 // findcommands.js - Find where commands are stored
 import fs from 'fs';
-import chalk from 'chalk';
 
 export default {
     name: 'findcommands',
@@ -15,7 +14,7 @@ export default {
             text: '🔍 *SEARCHING FOR COMMAND SYSTEM...*\n\nPlease wait...' 
         });
         
-        console.log(chalk.blue('[FindCommands] Searching for command system...'));
+        console.log('[FindCommands] Searching for command system...');
         
         // Check all possible locations
         const locations = [];
@@ -23,25 +22,25 @@ export default {
         // 1. Check global.commands
         if (global.commands) {
             locations.push(`global.commands (${global.commands.size} commands)`);
-            console.log(chalk.green('✅ Found: global.commands'));
+            console.log('✅ Found: global.commands');
         }
         
         // 2. Check chatBot.commands
         if (chatBot.commands) {
             locations.push(`chatBot.commands (${chatBot.commands.size} commands)`);
-            console.log(chalk.green('✅ Found: chatBot.commands'));
+            console.log('✅ Found: chatBot.commands');
         }
         
         // 3. Check global.COMMANDS
         if (global.COMMANDS) {
             locations.push(`global.COMMANDS (${global.COMMANDS.size} commands)`);
-            console.log(chalk.green('✅ Found: global.COMMANDS'));
+            console.log('✅ Found: global.COMMANDS');
         }
         
         // 4. Check for commands array
         if (global.commandsList) {
             locations.push(`global.commandsList (${global.commandsList.length} commands)`);
-            console.log(chalk.green('✅ Found: global.commandsList'));
+            console.log('✅ Found: global.commandsList');
         }
         
         // 5. Check if commands are stored elsewhere
@@ -56,7 +55,7 @@ export default {
             if (value && typeof value === 'object') {
                 const size = value.size || value.length || '?';
                 locations.push(`global.${key} (${size} items)`);
-                console.log(chalk.cyan(`⚠️ Found: global.${key}`));
+                console.log(`⚠️ Found: global.${key}`);
             }
         });
         
@@ -68,7 +67,7 @@ export default {
                 if (value && typeof value === 'object') {
                     const size = value.size || value.length || '?';
                     locations.push(`chatBot.${key} (${size} items)`);
-                    console.log(chalk.cyan(`⚠️ Found: chatBot.${key}`));
+                    console.log(`⚠️ Found: chatBot.${key}`);
                 }
             }
         });
@@ -83,9 +82,9 @@ export default {
                 commandFiles = fs.readdirSync(commandsDir)
                     .filter(file => file.endsWith('.js'));
                 locations.push(`File System: ${commandFiles.length} .js files in commands/`);
-                console.log(chalk.green(`✅ Found: ${commandFiles.length} command files`));
+                console.log(`✅ Found: ${commandFiles.length} command files`);
             } catch (error) {
-                console.log(chalk.red(`❌ Error reading commands directory: ${error.message}`));
+                console.log(`❌ Error reading commands directory: ${error.message}`);
             }
         }
         
@@ -119,6 +118,6 @@ export default {
         
         await sock.sendMessage(chatId, { text: report });
         
-        console.log(chalk.green('[FindCommands] Report sent'));
+        console.log('[FindCommands] Report sent');
     }
 };

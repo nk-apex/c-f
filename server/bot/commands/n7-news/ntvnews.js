@@ -26,17 +26,17 @@ export default {
 
             const limit = Math.min(articles.length, 7);
             let text = `┌─⧭ 📰 *NTV KENYA NEWS* \n`;
-            text    += `│ 🌐 ntv.nation.africa\n`;
-            text    += `│ 🕒 ${new Date().toLocaleString("en-KE", { timeZone: "Africa/Nairobi" })}\n`;
+            text    += `├◆ 🌐 ntv.nation.africa\n`;
+            text    += `├◆ 🕒 ${new Date().toLocaleString("en-KE", { timeZone: "Africa/Nairobi" })}\n`;
 
             for (let i = 0; i < limit; i++) {
                 const a = articles[i];
                 text += `├◆ *${i + 1}. ${a.title.trim()}*\n`;
-                if (a.category)    text += `│   🏷️ ${a.category}\n`;
-                if (a.summary)     text += `│   ${a.summary.substring(0, 110)}${a.summary.length > 110 ? '…' : ''}\n`;
-                if (a.timePosted)  text += `│   🕐 ${a.timePosted}\n`;
-                if (a.author)      text += `│   ✍️ ${a.author}\n`;
-                text += `│   🔗 ${a.link}\n`;
+                if (a.category)    text += `├◆   🏷️ ${a.category}\n`;
+                if (a.summary)     text += `├◆   ${a.summary.substring(0, 110)}${a.summary.length > 110 ? '…' : ''}\n`;
+                if (a.timePosted)  text += `├◆   🕐 ${a.timePosted}\n`;
+                if (a.author)      text += `├◆   ✍️ ${a.author}\n`;
+                text += `├◆   🔗 ${a.link}\n`;
             }
 
             text += `└─⧭ _Source: NTV Kenya_ ─`;

@@ -24,11 +24,11 @@ export default {
             const link = `https://chat.whatsapp.com/${code}`;
 
             let text = '┌─⧭ GROUP INVITE LINK ⧭─┐\n';
-            text += `│ Group: ${metadata?.subject || 'Unknown'}\n`;
-            text += `│\n`;
-            text += `│ ${link}\n`;
-            text += `│\n`;
-            text += `│ Share this link to invite others.\n`;
+            text += `├◆ Group: ${metadata?.subject || 'Unknown'}\n`;
+            text += ``;
+            text += `├◆ ${link}\n`;
+            text += ``;
+            text += `├◆ Share this link to invite others.\n`;
             text += '└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘';
 
             await sock.sendMessage(jid, { text }, { quoted: msg });

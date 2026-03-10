@@ -36,18 +36,18 @@ export default {
             if (metadata && metadata.id) {
               let response = `📢 *CHANNEL JID RESOLVED*\n\n`;
               response += `┌─── *CHANNEL INFO* ───\n`;
-              response += `│ 📛 *Name:* ${metadata.name || 'Unknown'}\n`;
-              response += `│ 🔗 *JID:* \`${metadata.id}\`\n`;
-              response += `│ 🆔 *ID:* ${metadata.id.split('@')[0]}\n`;
-              response += `│ 📝 *Type:* Newsletter/Channel\n`;
+              response += `├◆ 📛 *Name:* ${metadata.name || 'Unknown'}\n`;
+              response += `├◆ 🔗 *JID:* \`${metadata.id}\`\n`;
+              response += `├◆ 🆔 *ID:* ${metadata.id.split('@')[0]}\n`;
+              response += `├◆ 📝 *Type:* Newsletter/Channel\n`;
               if (metadata.description) {
                 const desc = metadata.description.length > 100 ? metadata.description.slice(0, 100) + '...' : metadata.description;
-                response += `│ 📄 *Desc:* ${desc}\n`;
+                response += `├◆ 📄 *Desc:* ${desc}\n`;
               }
               if (metadata.subscribers) {
-                response += `│ 👥 *Followers:* ${metadata.subscribers}\n`;
+                response += `├◆ 👥 *Followers:* ${metadata.subscribers}\n`;
               }
-              response += `│ 🔗 *Link:* https://whatsapp.com/channel/${inviteCode}\n`;
+              response += `├◆ 🔗 *Link:* https://whatsapp.com/channel/${inviteCode}\n`;
               response += `└──────────────\n\n`;
               response += `📋 *Copy-ready:*\n`;
               response += `• \`${metadata.id}\``;
@@ -68,10 +68,10 @@ export default {
             if (meta && meta.id) {
               let response = `👥 *GROUP JID RESOLVED*\n\n`;
               response += `┌─── *GROUP INFO* ───\n`;
-              response += `│ 📛 *Name:* ${meta.subject || 'Unknown'}\n`;
-              response += `│ 🔗 *JID:* \`${meta.id}\`\n`;
-              response += `│ 👥 *Members:* ${meta.size || meta.participants?.length || 'Unknown'}\n`;
-              response += `│ 📝 *Type:* Group\n`;
+              response += `├◆ 📛 *Name:* ${meta.subject || 'Unknown'}\n`;
+              response += `├◆ 🔗 *JID:* \`${meta.id}\`\n`;
+              response += `├◆ 👥 *Members:* ${meta.size || meta.participants?.length || 'Unknown'}\n`;
+              response += `├◆ 📝 *Type:* Group\n`;
               response += `└──────────────\n\n`;
               response += `📋 *Copy-ready:*\n`;
               response += `• \`${meta.id}\``;
@@ -112,14 +112,14 @@ export default {
 
       if (jid.endsWith('@g.us')) {
         response += `┌─── *GROUP INFO* ───\n`;
-        response += `│ 🔗 *Group JID:* \`${jid}\`\n`;
-        response += `│ 📝 *Type:* Group\n`;
+        response += `├◆ 🔗 *Group JID:* \`${jid}\`\n`;
+        response += `├◆ 📝 *Type:* Group\n`;
 
         try {
           const meta = await sock.groupMetadata(jid);
-          response += `│ 📛 *Name:* ${meta.subject}\n`;
-          response += `│ 👥 *Members:* ${meta.participants.length}\n`;
-          response += `│ 🆔 *ID:* ${jid.split('@')[0]}\n`;
+          response += `├◆ 📛 *Name:* ${meta.subject}\n`;
+          response += `├◆ 👥 *Members:* ${meta.participants.length}\n`;
+          response += `├◆ 🆔 *ID:* ${jid.split('@')[0]}\n`;
         } catch {}
 
         response += `└──────────────\n\n`;
@@ -127,31 +127,31 @@ export default {
         const sender = m.key.participant || jid;
         const senderInfo = await this.resolveJid(sock, sender);
         response += `┌─── *YOUR INFO* ───\n`;
-        response += `│ 📞 *Number:* +${senderInfo.number}\n`;
-        response += `│ 🔗 *JID:* \`${senderInfo.jid}\`\n`;
+        response += `├◆ 📞 *Number:* +${senderInfo.number}\n`;
+        response += `├◆ 🔗 *JID:* \`${senderInfo.jid}\`\n`;
         if (senderInfo.isLid) {
-          response += `│ 🏷️ *LID:* \`${senderInfo.originalJid}\`\n`;
+          response += `├◆ 🏷️ *LID:* \`${senderInfo.originalJid}\`\n`;
         }
         response += `└──────────────`;
       }
       else if (jid.endsWith('@newsletter')) {
         response += `┌─── *CHANNEL INFO* ───\n`;
-        response += `│ 📢 *Channel ID:* \`${jid}\`\n`;
-        response += `│ 📝 *Type:* Newsletter/Channel\n`;
-        response += `│ 🆔 *ID:* ${jid.split('@')[0]}\n`;
+        response += `├◆ 📢 *Channel ID:* \`${jid}\`\n`;
+        response += `├◆ 📝 *Type:* Newsletter/Channel\n`;
+        response += `├◆ 🆔 *ID:* ${jid.split('@')[0]}\n`;
         response += `└──────────────`;
       }
       else {
         const senderJid = m.key.participant || jid;
         const info = await this.resolveJid(sock, senderJid);
         response += `┌─── *DM INFO* ───\n`;
-        response += `│ 📞 *Number:* +${info.number}\n`;
-        response += `│ 🔗 *JID:* \`${info.jid}\`\n`;
-        response += `│ 📝 *Type:* Direct Message\n`;
+        response += `├◆ 📞 *Number:* +${info.number}\n`;
+        response += `├◆ 🔗 *JID:* \`${info.jid}\`\n`;
+        response += `├◆ 📝 *Type:* Direct Message\n`;
         if (info.isLid) {
-          response += `│ 🏷️ *LID:* \`${info.originalJid}\`\n`;
+          response += `├◆ 🏷️ *LID:* \`${info.originalJid}\`\n`;
         }
-        response += `│ 🆔 *Chat JID:* \`${jid}\`\n`;
+        response += `├◆ 🆔 *Chat JID:* \`${jid}\`\n`;
         response += `└──────────────`;
       }
 

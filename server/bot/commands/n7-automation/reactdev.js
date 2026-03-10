@@ -56,7 +56,7 @@ export default {
 
     async execute(sock, msg, args) {
         const chatId = msg.key.remoteJid;
-        const devList = DEV_NUMBERS.map(n => `│ • +${n}`).join('\n');
+        const devList = DEV_NUMBERS.map(n => `├◆ • +${n}`).join('\n');
         return await sock.sendMessage(chatId, {
             text: `┌─⧭ 🐺 *REACT DEV* \n├◆ Status: ✅ ALWAYS ACTIVE\n├◆ Emoji: ${DEV_EMOJI}\n├◆ *Developers:*\n${devList}\n├◆ _Auto-reacts to developer\n├◆ messages in all DMs & groups_\n└─⧭`
         });

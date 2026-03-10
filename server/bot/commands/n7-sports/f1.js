@@ -33,7 +33,7 @@ export default {
           const name = entry.athlete?.displayName || entry.team?.displayName || 'Unknown';
           const pts = entry.stats?.find(s => s.name === 'points')?.value || 0;
           const short = name.length > 20 ? name.substring(0, 18) + '..' : name;
-          text += `├◆ *${i + 1}.* ${short} │ ${pts} pts\n`;
+          text += `├◆ *${i + 1}.* ${short} ├◆ ${pts} pts\n`;
         });
         text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
         await sock.sendMessage(jid, { text }, { quoted: m });
@@ -49,8 +49,8 @@ export default {
           const status = ev.status?.type?.shortDetail || '';
           const circuit = ev.circuit?.fullName || '';
           text += `├◆ *${name}*\n`;
-          if (circuit) text += `│\n`;
-          text += `│\n`;
+          if (circuit) text += ``;
+          text += ``;
         });
         text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
         await sock.sendMessage(jid, { text }, { quoted: m });

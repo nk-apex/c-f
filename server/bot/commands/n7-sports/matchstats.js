@@ -17,14 +17,11 @@ export default {
       return sock.sendMessage(jid, {
         text: `┌─⧭ 📊 *MATCH STATISTICS* \n` +
           `├◆ *${PREFIX}matchstats <matchId>*\n` +
-          `│\n` +
-          `│\n` +
           `├◆ 💡 *Example:*\n` +
-          `│  ⊷ ${PREFIX}matchstats 551333\n` +
-          `│\n` +
+          `├◆ ${PREFIX}matchstats 551333\n` +
           `├◆ ℹ️ *How to find match IDs:*\n` +
-          `│  ⊷ Use ${PREFIX}football scores\n` +
-          `│  ⊷ Match IDs shown with results\n` +
+          `├◆ Use ${PREFIX}football scores\n` +
+          `├◆ Match IDs shown with results\n` +
           `└─⧭`
       }, { quoted: m });
     }
@@ -52,7 +49,7 @@ export default {
       if (status) text += `├◆ Status: ${status}\n`;
       if (league) text += `├◆ League: ${league}\n`;
       if (venue) text += `├◆ Venue: ${venue}\n`;
-      text += `│\n`;
+      text += ``;
 
       const stats = matchData?.statistics || matchData?.stats || data?.statistics || data?.stats;
       if (Array.isArray(stats)) {
@@ -61,7 +58,7 @@ export default {
           const name = stat?.name || stat?.label || stat?.type || stat?.displayName || 'Stat';
           const homeVal = stat?.home ?? stat?.homeValue ?? stat?.values?.[0] ?? '-';
           const awayVal = stat?.away ?? stat?.awayValue ?? stat?.values?.[1] ?? '-';
-          text += `│  ⊷ ${homeVal} │ *${name}* │ ${awayVal}\n`;
+          text += `├◆ ${homeVal} ├◆ *${name}* ├◆ ${awayVal}\n`;
         });
       } else if (stats && typeof stats === 'object') {
         text += `├◆ 📋 *Match Stats:*\n`;
@@ -69,22 +66,22 @@ export default {
           if (typeof val === 'object' && val !== null) {
             const homeVal = val?.home ?? val?.[0] ?? '-';
             const awayVal = val?.away ?? val?.[1] ?? '-';
-            text += `│  ⊷ ${homeVal} │ *${key}* │ ${awayVal}\n`;
+            text += `├◆ ${homeVal} ├◆ *${key}* ├◆ ${awayVal}\n`;
           } else {
-            text += `│  ⊷ *${key}:* ${val}\n`;
+            text += `├◆ *${key}:* ${val}\n`;
           }
         });
       }
 
       const events = matchData?.events || matchData?.incidents || matchData?.timeline;
       if (Array.isArray(events) && events.length > 0) {
-        text += `│\n├◆ ⚡ *Key Events:*\n`;
+        text += `├◆\n├◆ ⚡ *Key Events:*\n`;
         events.slice(0, 10).forEach(ev => {
           const minute = ev?.minute || ev?.time || ev?.clock || '';
           const type = ev?.type || ev?.eventType || ev?.incident || '';
           const player = ev?.player?.name || ev?.playerName || ev?.player || '';
           const team = ev?.team?.name || ev?.teamName || '';
-          text += `│  ⊷ ${minute}' │ ${type}${player ? ` - ${player}` : ''}${team ? ` (${team})` : ''}\n`;
+          text += `├◆ ${minute}' ├◆ ${type}${player ? ` - ${player}` : ''}${team ? ` (${team})` : ''}\n`;
         });
       }
 
@@ -93,9 +90,9 @@ export default {
         const homeLineup = lineups?.home || lineups?.[0];
         const awayLineup = lineups?.away || lineups?.[1];
         if (homeLineup?.formation || awayLineup?.formation) {
-          text += `│\n├◆ 📝 *Formations:*\n`;
-          if (homeLineup?.formation) text += `│  ⊷ ${home}: ${homeLineup.formation}\n`;
-          if (awayLineup?.formation) text += `│  ⊷ ${away}: ${awayLineup.formation}\n`;
+          text += `├◆\n├◆ 📝 *Formations:*\n`;
+          if (homeLineup?.formation) text += `├◆ ${home}: ${homeLineup.formation}\n`;
+          if (awayLineup?.formation) text += `├◆ ${away}: ${awayLineup.formation}\n`;
         }
       }
 

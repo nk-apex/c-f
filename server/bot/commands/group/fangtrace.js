@@ -13,12 +13,12 @@ export default {
 
         if (!args[0]) {
             let text = '┌─⧭ FANG TRACE ⧭─┐\n';
-            text += '│ Look up a phone number on WhatsApp.\n';
-            text += '│\n';
-            text += `│ Usage: ${PREFIX}fangtrace <number>\n`;
-            text += `│ Example: ${PREFIX}fangtrace 2348012345678\n`;
-            text += '│\n';
-            text += '│ Use full number with country code.\n';
+            text += '├◆ Look up a phone number on WhatsApp.\n';
+            text += '\n';
+            text += `├◆ Usage: ${PREFIX}fangtrace <number>\n`;
+            text += `├◆ Example: ${PREFIX}fangtrace 2348012345678\n`;
+            text += '\n';
+            text += '├◆ Use full number with country code.\n';
             text += '└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘';
             return sock.sendMessage(jid, { text }, { quoted: msg });
         }
@@ -33,14 +33,14 @@ export default {
             const [result] = await sock.onWhatsApp(number + '@s.whatsapp.net');
 
             let text = '┌─⧭ FANG TRACE RESULT ⧭─┐\n';
-            text += `│ Number: +${number}\n`;
-            text += '│\n';
+            text += `├◆ Number: +${number}\n`;
+            text += '\n';
 
             if (result && result.exists) {
-                text += '│ Status: Registered on WhatsApp\n';
-                text += `│ JID: ${result.jid}\n`;
+                text += '├◆ Status: Registered on WhatsApp\n';
+                text += `├◆ JID: ${result.jid}\n`;
             } else {
-                text += '│ Status: Not registered on WhatsApp\n';
+                text += '├◆ Status: Not registered on WhatsApp\n';
             }
 
             text += '└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘';

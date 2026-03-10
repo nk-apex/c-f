@@ -1,7 +1,6 @@
 // working_reload.js - Working reload that doesn't need access to command store
 import fs from 'fs';
 import { createRequire } from 'module';
-import chalk from 'chalk';
 
 const require = createRequire(import.meta.url);
 
@@ -19,7 +18,7 @@ export default {
             return;
         }
         
-        console.log(chalk.blue('[WorkingReload] Starting...'));
+        console.log('[WorkingReload] Starting...');
         
         // Send starting message
         await sock.sendMessage(chatId, { 
@@ -28,7 +27,7 @@ export default {
         
         try {
             // Step 1: Clear require cache for commands
-            console.log(chalk.yellow('[1] Clearing Node.js module cache...'));
+            console.log('[1] Clearing Node.js module cache...');
             
             const commandFiles = [];
             if (fs.existsSync('./commands')) {
@@ -43,10 +42,10 @@ export default {
                             if (require.cache[resolvedPath]) {
                                 delete require.cache[resolvedPath];
                                 commandFiles.push(file);
-                                console.log(chalk.gray(`   Cleared: ${file}`));
+                                console.log(`   Cleared: ${file}`);
                             }
                         } catch (error) {
-                            console.log(chalk.red(`   Skipped: ${file} (${error.message})`));
+                            console.log(`   Skipped: ${file} (${error.message})`);
                         }
                     }
                 });
@@ -57,10 +56,10 @@ export default {
                 text: `✅ *Step 1 Complete*\n\nCleared cache for ${commandFiles.length} command files\n\nMoving to step 2...` 
             });
             
-            console.log(chalk.green(`[2] Cleared ${commandFiles.length} command files from cache`));
+            console.log(`[2] Cleared ${commandFiles.length} command files from cache`);
             
             // Step 3: Force bot to reload commands
-            console.log(chalk.yellow('[3] Forcing command reload...'));
+            console.log('[3] Forcing command reload...');
             
             // Try to trigger command reload by modifying a file the bot watches
             const triggerFile = './.reload_trigger';
@@ -87,19 +86,19 @@ export default {
             
             await sock.sendMessage(chatId, { text: completionMessage });
             
-            console.log(chalk.green('[WorkingReload] Completed'));
-            console.log(chalk.blue('Next: Try using a new command immediately'));
+            console.log('[WorkingReload] Completed');
+            console.log('Next: Try using a new command immediately');
             
             // Auto-clean trigger file after 10 seconds
             setTimeout(() => {
                 if (fs.existsSync(triggerFile)) {
                     fs.unlinkSync(triggerFile);
-                    console.log(chalk.gray('Cleaned up trigger file'));
+                    console.log('Cleaned up trigger file');
                 }
             }, 10000);
             
         } catch (error) {
-            console.error(chalk.red('[WorkingReload] Error:'), error.message);
+            console.error('[WorkingReload] Error:', error.message);
             
             await sock.sendMessage(chatId, { 
                 text: `❌ *Reload Error*\n\n${error.message}\n\n` +

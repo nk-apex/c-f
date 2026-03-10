@@ -59,19 +59,19 @@ export default {
 
         for (const update of updates) {
             text += `├◆  📅 *${update.date}* \n`;
-            text += `│ ${update.title}\n`;
+            text += `├◆ ${update.title}\n`;
             for (const change of update.changes) {
-                text += `│ ${change}\n`;
+                text += `├◆ ${change}\n`;
             }
-            text += `│\n`;
+            text += ``;
         }
 
         text += `├◆  📊 *STATS* \n`;
-        text += `│ • Total commands: 735+\n`;
-        text += `│ • AI models: 7\n`;
-        text += `│ • Logo styles: 30+\n`;
-        text += `│ • Menu styles: 6\n`;
-        text += `│ • Ethical Hacking tools: 44+\n`;
+        text += `├◆ • Total commands: 735+\n`;
+        text += `├◆ • AI models: 7\n`;
+        text += `├◆ • Logo styles: 30+\n`;
+        text += `├◆ • Menu styles: 6\n`;
+        text += `├◆ • Ethical Hacking tools: 44+\n`;
         text += `└─⧭\n`;
         text += `> *${getBotName()}*`;
 

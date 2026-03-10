@@ -37,9 +37,9 @@ export default {
         teams.forEach(t => {
           const teamName = t.team?.abbreviation || t.team?.shortDisplayName || '???';
           const score = t.score || '-';
-          text += `│\n`;
+          text += ``;
         });
-        text += `│\n`;
+        text += ``;
       });
       text += `└─⧭\n\n⚡ *Powered by ${getBotName()}*`;
 

@@ -20,16 +20,16 @@ export default {
             }
 
             let text = '┌─⧭ GROUP ADMINS ⧭─┐\n';
-            text += `│ Group: ${metadata.subject}\n`;
-            text += `│ Total Admins: ${admins.length}\n`;
-            text += '│\n';
+            text += `├◆ Group: ${metadata.subject}\n`;
+            text += `├◆ Total Admins: ${admins.length}\n`;
+            text += '\n';
 
             admins.forEach((admin, i) => {
                 const role = admin.admin === 'superadmin' ? 'Owner' : 'Admin';
-                text += `│ ${i + 1}. @${admin.id.split('@')[0]} [${role}]\n`;
+                text += `├◆ ${i + 1}. @${admin.id.split('@')[0]} [${role}]\n`;
             });
 
-            text += '│\n';
+            text += '\n';
             text += '└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘';
 
             await sock.sendMessage(jid, {

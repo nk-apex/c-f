@@ -132,7 +132,7 @@ export default {
       catList += `├◆ *${prefix}${cat.name}*\n`;
     });
 
-    const caption = `${infoHeader}\n\n┌─⧭ 📋 *CATEGORY MENUS* \n${catList}│\n└─⧭⊷ *🐺 ${botName}*`;
+    const caption = `${infoHeader}\n\n┌─⧭ 📋 *CATEGORY MENUS* \n${catList}├◆\n└─⧭⊷ *🐺 ${botName}*`;
 
     const media = getMenuMedia();
     if (media) {

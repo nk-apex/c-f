@@ -278,8 +278,8 @@ function getCurrentStatus() {
 function getStatusMessage() {
   const activeCount = activeRecordings.size;
   
-  return `┌─⧭ 🎙️ *RECORDING SIMULATOR* \n├◆ 📱 *DM:* ${recordingStates.dms ? 'ON ✅' : 'OFF ❌'}\n├◆ 👥 *Groups:* ${recordingStates.groups ? 'ON ✅' : 'OFF ❌'}\n├◆ 🌐 *Both:* ${recordingStates.all ? 'ON ✅' : 'OFF ❌'}\n├◆ 🔧 *Command:* ${recordingStates.command ? 'ON ✅' : 'OFF ❌'}\n│` +
-         (activeCount > 0 ? ` ⏺️ *Active:* ${activeCount} chat${activeCount > 1 ? 's' : ''}\n│` : '') +
+  return `┌─⧭ 🎙️ *RECORDING SIMULATOR* \n├◆ 📱 *DM:* ${recordingStates.dms ? 'ON ✅' : 'OFF ❌'}\n├◆ 👥 *Groups:* ${recordingStates.groups ? 'ON ✅' : 'OFF ❌'}\n├◆ 🌐 *Both:* ${recordingStates.all ? 'ON ✅' : 'OFF ❌'}\n├◆ 🔧 *Command:* ${recordingStates.command ? 'ON ✅' : 'OFF ❌'}` +
+         (activeCount > 0 ? ` ⏺️ *Active:* ${activeCount} chat${activeCount > 1 ? 's' : ''}` : '') +
          `\n└─⧭`;
 }
 

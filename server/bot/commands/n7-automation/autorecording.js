@@ -412,10 +412,10 @@ export default {
             const chatType = chatJid.includes('@g.us') ? '👥 Group' : 
                            chatJid.startsWith('manual_') ? '🎤 Manual' : '👤 DM';
             statusMsg += `├◆ ${chatType}\n`;
-            statusMsg += `│  ├◆ ID: ${chatJid}\n`;
-            statusMsg += `│  ├◆ Users: ${data.userCount}\n`;
-            statusMsg += `│  ├◆ Elapsed: ${elapsed}s\n`;
-            statusMsg += `│  └─ Remaining: ${remaining}s\n`;
+            statusMsg += `├◆  ├◆ ID: ${chatJid}\n`;
+            statusMsg += `├◆  ├◆ Users: ${data.userCount}\n`;
+            statusMsg += `├◆  ├◆ Elapsed: ${elapsed}s\n`;
+            statusMsg += `├◆  └─ Remaining: ${remaining}s\n`;
           });
         }
         

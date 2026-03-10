@@ -20,9 +20,6 @@ export default {
           `├◆ *${PREFIX}tiksearch <search query>*\n` +
           `├◆ *${PREFIX}ttsearch <query>*\n` +
           `├◆ *Examples:*\n` +
-          `│\n` +
-          `│\n` +
-          `│\n` +
           `└─⧭`;
         
         return sock.sendMessage(jid, { text: helpText }, { quoted: m });
@@ -98,13 +95,13 @@ export default {
       
       // Add footer with instructions
       resultText += `┌───────────────────────\n`;
-      resultText += `│ ${getBotName()} TIKTOK DOWNLOAD\n`;
+      resultText += `├◆ ${getBotName()} TIKTOK DOWNLOAD\n`;
       resultText += `├◆ \n`;
-      resultText += `│ • Copy any URL above\n`;
-      resultText += `│ • Use: \`${PREFIX}tiktok <url>\`\n`;
-      resultText += `│ • Downloads without watermark\n`;
-      resultText += `│ • MP4 format • HD quality\n`;
-      resultText += `│ • Fast processing\n`;
+      resultText += `├◆ • Copy any URL above\n`;
+      resultText += `├◆ • Use: \`${PREFIX}tiktok <url>\`\n`;
+      resultText += `├◆ • Downloads without watermark\n`;
+      resultText += `├◆ • MP4 format • HD quality\n`;
+      resultText += `├◆ • Fast processing\n`;
       resultText += `└────────────────────────\n\n`;
       resultText += `🎬 *Tip:* Videos download in MP4 without watermark`;
 

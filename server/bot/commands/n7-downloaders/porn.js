@@ -102,9 +102,6 @@ export default {
         `┌─⧭ 🐺 *WOLF VIDEO DOWNLOADER* \n` +
         `├◆ *.wolf <search query>*\n` +
         `├◆ *Examples:*\n` +
-        `│\n` +
-        `│\n` +
-        `│\n` +
         `└─⧭`;
       
       await sock.sendMessage(jid, { text: helpText }, { quoted: m });

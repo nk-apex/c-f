@@ -329,7 +329,7 @@ function formatInspectionReport(url, response, metadata, security, performance, 
   report.push(`├◆ Grade: ${security.grade}`);
   if (security.issues.length > 0) {
     report.push(`├◆ Issues:`);
-    security.issues.forEach(issue => report.push(`│  ⚠️ ${issue}`));
+    security.issues.forEach(issue => report.push(`├◆  ⚠️ ${issue}`));
   } else {
     report.push(`├◆ Issues: None found ✅`);
   }

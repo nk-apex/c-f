@@ -105,45 +105,43 @@ export default {
 
       let report =
         `┌─⧭ \`${groupName}\` \n` +
-        `│\n` +
         `├◆ *📊 ACTIVITY REPORT*\n` +
-        `│  • *Total Members:* ${totalMembers}\n` +
-        `│  • 🟢 *Online Now:* ${activeMembers.length}\n` +
-        `│  • 🔴 *Likely Inactive:* ${inactiveMembers.length}\n` +
-        `│  • ⚫ *Offline/Private:* ${unknownMembers.length}\n` +
-        `│\n`;
+        `├◆  • *Total Members:* ${totalMembers}\n` +
+        `├◆  • 🟢 *Online Now:* ${activeMembers.length}\n` +
+        `├◆  • 🔴 *Likely Inactive:* ${inactiveMembers.length}\n` +
+        `├◆  • ⚫ *Offline/Private:* ${unknownMembers.length}\n` +
+        ``;
 
       if (inactiveMembers.length > 0) {
         report += `├◆ *🔴 LIKELY INACTIVE*\n`;
-        report += `│  _No profile pic + not online_\n`;
+        report += `├◆  _No profile pic + not online_\n`;
         inactiveMembers.slice(0, 30).forEach((member) => {
           const badge = member.admin ? '👑' : '👤';
-          report += `│  • ${badge} @${member.phone}\n`;
+          report += `├◆  • ${badge} @${member.phone}\n`;
         });
         if (inactiveMembers.length > 30) {
-          report += `│  • ...+${inactiveMembers.length - 30} more\n`;
+          report += `├◆  • ...+${inactiveMembers.length - 30} more\n`;
         }
-        report += `│\n`;
+        report += ``;
       }
 
       if (activeMembers.length > 0) {
         report += `├◆ *🟢 ONLINE NOW*\n`;
         activeMembers.slice(0, 15).forEach((member) => {
           const badge = member.admin ? '👑' : '👤';
-          report += `│  • ${badge} @${member.phone}\n`;
+          report += `├◆  • ${badge} @${member.phone}\n`;
         });
         if (activeMembers.length > 15) {
-          report += `│  • ...+${activeMembers.length - 15} more\n`;
+          report += `├◆  • ...+${activeMembers.length - 15} more\n`;
         }
-        report += `│\n`;
+        report += ``;
       }
 
       report +=
-        `│ *Related:*\n` +
-        `│ • \`${PREFIX}listonline\` - Check who's online\n` +
-        `│ • \`${PREFIX}kick @user\` - Remove member\n` +
-        `│ • \`${PREFIX}kickall\` - Remove all non-admins\n` +
-        `│\n` +
+        `├◆ *Related:*\n` +
+        `├◆ • \`${PREFIX}listonline\` - Check who's online\n` +
+        `├◆ • \`${PREFIX}kick @user\` - Remove member\n` +
+        `├◆ • \`${PREFIX}kickall\` - Remove all non-admins\n` +
         `└─⧭\n` +
         `\n🔒 _Results depend on user privacy settings_`;
 

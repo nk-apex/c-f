@@ -415,9 +415,9 @@ export default {
             const elapsed = Math.floor((Date.now() - data.startTime) / 1000);
             const remaining = Math.max(0, status.duration - elapsed);
             statusMsg += `├◆ ${chatJid.includes('@g.us') ? '👥 Group' : '👤 DM'}\n`;
-            statusMsg += `│  ├◆ Users: ${data.userCount}\n`;
-            statusMsg += `│  ├◆ Elapsed: ${elapsed}s\n`;
-            statusMsg += `│  └─ Remaining: ${remaining}s\n`;
+            statusMsg += `├◆  ├◆ Users: ${data.userCount}\n`;
+            statusMsg += `├◆  ├◆ Elapsed: ${elapsed}s\n`;
+            statusMsg += `├◆  └─ Remaining: ${remaining}s\n`;
           });
         }
         

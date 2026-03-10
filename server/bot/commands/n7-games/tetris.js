@@ -862,7 +862,7 @@ function renderBoard(game, flash = false, gameOver = false) {
     display += '┌' + '──'.repeat(boardWidth) + '┐\n';
     
     for (let y = 0; y < boardHeight; y++) {
-        display += '│';
+        display += '';
         for (let x = 0; x < boardWidth; x++) {
             let cell = '⬜';
             
@@ -885,7 +885,7 @@ function renderBoard(game, flash = false, gameOver = false) {
             
             display += cell;
         }
-        display += '│\n';
+        display += '\n';
     }
     
     // Bottom border

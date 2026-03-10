@@ -54,26 +54,26 @@ export default {
         }
 
         let text = `┌─⧭ 🐺 *BOT PREFIX* \n`;
-        text += `│\n`;
+        text += ``;
 
         if (isPrefixless) {
-            text += `│ ✧ *Mode:* Prefixless\n`;
-            text += `│ ✧ *Prefix:* Not required\n`;
-            text += `│\n`;
-            text += `│ 💡 Type any command directly\n`;
-            text += `│ • \`ping\`\n`;
-            text += `│ • \`menu\`\n`;
-            text += `│ • \`alive\`\n`;
+            text += `├◆ ✧ *Mode:* Prefixless\n`;
+            text += `├◆ ✧ *Prefix:* Not required\n`;
+            text += ``;
+            text += `├◆ 💡 Type any command directly\n`;
+            text += `├◆ • \`ping\`\n`;
+            text += `├◆ • \`menu\`\n`;
+            text += `├◆ • \`alive\`\n`;
         } else {
-            text += `│ ✧ *Current Prefix:* \`${currentPrefix}\`\n`;
-            text += `│\n`;
-            text += `│ 💡 Use it before commands\n`;
-            text += `│ • \`${currentPrefix}ping\`\n`;
-            text += `│ • \`${currentPrefix}menu\`\n`;
-            text += `│ • \`${currentPrefix}alive\`\n`;
+            text += `├◆ ✧ *Current Prefix:* \`${currentPrefix}\`\n`;
+            text += ``;
+            text += `├◆ 💡 Use it before commands\n`;
+            text += `├◆ • \`${currentPrefix}ping\`\n`;
+            text += `├◆ • \`${currentPrefix}menu\`\n`;
+            text += `├◆ • \`${currentPrefix}alive\`\n`;
         }
 
-        text += `│\n`;
+        text += ``;
         text += `└─⧭`;
 
         await sock.sendMessage(chatId, { text }, { quoted: msg });
