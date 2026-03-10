@@ -3,8 +3,8 @@ import moment from 'moment-timezone';
 import { getBotName } from '../../lib/botname.js';
 
 export default {
-  name: 'ping',
-  aliases: ['p', 'speed', 'latency'],
+  name: 'pingfx',
+  aliases: ['pingfx'],
   description: 'Check bot latency and response time',
   category: 'utility',
 

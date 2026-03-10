@@ -6,6 +6,7 @@ import os from "os";
 import { botConnection } from "./bot/connection.js";
 import { commandLoader } from "./bot/commandLoader.js";
 import { setupMessageHandler, getConfig, updateConfig } from "./bot/messageHandler.js";
+import { getPlatformInfo } from "./bot/lib/platformDetect.js";
 
 function purgeStaleTempFiles() {
     const tmpDir = path.join(os.tmpdir(), 'foxbot_tmp');
@@ -336,14 +337,8 @@ async function main() {
   });
 
   function detectPlatform() {
-    if (process.env.DYNO) return "Heroku";
-    if (process.env.RAILWAY_ENVIRONMENT || process.env.RAILWAY_PROJECT_ID) return "Railway";
-    if (process.env.REPL_ID || process.env.REPLIT_DEPLOYMENT) return "Replit";
-    if (process.env.FLY_APP_NAME) return "Fly.io";
-    if (process.env.RENDER) return "Render";
-    if (process.env.KOYEB_APP_NAME) return "Koyeb";
-    if (process.env.PTERODACTYL || process.env.P_SERVER_UUID) return "Panel";
-    return "VPS";
+    const { icon, name } = getPlatformInfo();
+    return `${icon} ${name}`;
   }
 
   let hasSentWelcome = false;

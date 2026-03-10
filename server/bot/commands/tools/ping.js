@@ -1,4 +1,11 @@
-import { foxCanUse, foxMode } from '../../utils/foxMaster.js';
+import { getBotName } from '../../lib/botname.js';
+
+function formatUptime(seconds) {
+    const h = Math.floor(seconds / 3600);
+    const m = Math.floor((seconds % 3600) / 60);
+    const s = Math.floor(seconds % 60);
+    return `${h}h ${m}m ${s}s`;
+}
 
 export default {
     name: 'ping',
@@ -7,22 +14,18 @@ export default {
     description: 'Check bot response time',
 
     async execute(sock, msg, args, prefix) {
-        if (!foxCanUse(msg, 'ping')) {
-            const message = foxMode.getMessage();
-            if (message) await sock.sendMessage(msg.key.remoteJid, { text: message });
-            return;
-        }
-
         const start = Date.now();
+        const botName = getBotName();
 
         const sentMsg = await sock.sendMessage(msg.key.remoteJid, {
-            text: `\u250C\u2500\u29ED *Pinging...*\n\u251C\u25C6 Measuring speed...\n\u2514\u2500\u29ED`
+            text: `┌─⧭ *Pinging...*\n├◆ Measuring speed...\n└─⧭`
         }, { quoted: msg });
 
         const latency = Date.now() - start;
+        const uptime = formatUptime(Math.floor(process.uptime()));
 
         await sock.sendMessage(msg.key.remoteJid, {
-            text: `\u250C\u2500\u29ED *FOX Speed*\n\u251C\u25C6 Response: ${latency}ms\n\u2514\u2500\u29ED`,
+            text: `┌─⧭ *${botName}*\n├◆ FOXY Speed: ${latency}ms\n├◆ FOXY Uptime: ${uptime}\n└─⧭`,
             edit: sentMsg.key
         });
     }
