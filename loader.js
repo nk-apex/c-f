@@ -135,6 +135,45 @@ async function applyLocalSettings() {
   await delay(500);
 }
 
+async function installDependencies() {
+  const pkgJson = path.join(EXTRACT_DIR, 'package.json');
+  const nodeModules = path.join(EXTRACT_DIR, 'node_modules');
+
+  if (!fs.existsSync(pkgJson)) {
+    console.log(`${loaderColor}[FOXY] No package.json found, skipping install.${reset}`);
+    return;
+  }
+
+  if (fs.existsSync(nodeModules)) {
+    console.log(`${green}[FOXY] Dependencies already installed, skipping.${reset}`);
+    return;
+  }
+
+  console.log(`${loaderColor}[FOXY] Installing dependencies (this may take a moment)...${reset}`);
+
+  await new Promise((resolve) => {
+    const install = spawn('npm', ['install', '--prefer-offline', '--no-audit', '--no-fund'], {
+      cwd: EXTRACT_DIR,
+      stdio: 'inherit',
+      env: { ...process.env },
+    });
+
+    install.on('close', (code) => {
+      if (code === 0) {
+        console.log(`${green}[FOXY] Dependencies installed successfully.${reset}`);
+      } else {
+        console.log(`${red}[FOXY] npm install exited with code ${code}. Bot may fail to start.${reset}`);
+      }
+      resolve();
+    });
+
+    install.on('error', (err) => {
+      console.log(`${red}[FOXY] npm install error: ${err.message}${reset}`);
+      resolve();
+    });
+  });
+}
+
 function startBot() {
   let botDir = EXTRACT_DIR;
 
@@ -198,6 +237,7 @@ function startBot() {
   if (!success) {
     console.log(`${red}[FOXY] Download/extract failed. Attempting to start from existing files...${reset}`);
   }
+  await installDependencies();
   await applyLocalSettings();
   startBot();
 })();

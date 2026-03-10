@@ -217,17 +217,89 @@
       "reaction": "🦊",
       "statusId": "A5043F25710593188DBF64BA8696EE0A",
       "timestamp": 1773153789647
+    },
+    {
+      "sender": "159039015125054",
+      "reaction": "🦊",
+      "statusId": "ACB35356088A8C786B7B574BA93ACE7C",
+      "timestamp": 1773153912211
+    },
+    {
+      "sender": "254710640721",
+      "reaction": "🦊",
+      "statusId": "AC35AF6C7CE3238A4940E311066D28A6",
+      "timestamp": 1773153965021
+    },
+    {
+      "sender": "181819538448617",
+      "reaction": "🦊",
+      "statusId": "A5CB3F8FCBB5278D2311BF4B0379DEEB",
+      "timestamp": 1773153968479
+    },
+    {
+      "sender": "151887777149102",
+      "reaction": "🦊",
+      "statusId": "AC3134FE7F17995F50615330C3F42E3B",
+      "timestamp": 1773154044063
+    },
+    {
+      "sender": "255954901848314",
+      "reaction": "🦊",
+      "statusId": "ACD8F7A14D5BD7BE7804786ECDC8DAE5",
+      "timestamp": 1773154062518
+    },
+    {
+      "sender": "56771464929507",
+      "reaction": "🦊",
+      "statusId": "ACC53AE1A128A06ECB5E9949B678D27A",
+      "timestamp": 1773154073629
+    },
+    {
+      "sender": "56771464929507",
+      "reaction": "🦊",
+      "statusId": "AC4727C4572EBBAFEBD645D9E17180C2",
+      "timestamp": 1773154079323
+    },
+    {
+      "sender": "56771464929507",
+      "reaction": "🦊",
+      "statusId": "AC7BC2E553BAB02BC7E7FD26A20C6A6C",
+      "timestamp": 1773154081340
+    },
+    {
+      "sender": "182592498303229",
+      "reaction": "🦊",
+      "statusId": "AC4A556E72EC7E47FFBBE21ADB62992E",
+      "timestamp": 1773154124651
+    },
+    {
+      "sender": "182592498303229",
+      "reaction": "🦊",
+      "statusId": "AC33B33B9DB587D43450B2A25D9CE606",
+      "timestamp": 1773154130049
+    },
+    {
+      "sender": "195253743132878",
+      "reaction": "🦊",
+      "statusId": "AC1EDEE4EF4919944DDB731A79E93CD8",
+      "timestamp": 1773154176814
+    },
+    {
+      "sender": "195253743132878",
+      "reaction": "🦊",
+      "statusId": "AC9220F7D7927CD5347A81C098D879F7",
+      "timestamp": 1773154205380
     }
   ],
-  "totalReacted": 33,
+  "totalReacted": 45,
   "lastReacted": {
-    "sender": "181819538448617",
+    "sender": "195253743132878",
     "reaction": "🦊",
-    "statusId": "A5043F25710593188DBF64BA8696EE0A",
-    "timestamp": 1773153789647
+    "statusId": "AC9220F7D7927CD5347A81C098D879F7",
+    "timestamp": 1773154205380
   },
-  "consecutiveReactions": 1,
-  "lastSender": "181819538448617",
+  "consecutiveReactions": 2,
+  "lastSender": "195253743132878",
   "settings": {
     "rateLimitDelay": 500,
     "reactToAll": true,
@@ -267,9 +339,21 @@
     "20388931211367@lid|A57D47C1586D29B4D6B73C7E25ED821F|1773153552158",
     "195253743132878@lid|ACCFC02F04A20F1F3D97E545D4A843A8|1773153580901",
     "195253743132878@lid|AC9D4EDA5DA382626475387CD1D7AD5E|1773153602153",
-    "181819538448617@lid|A5043F25710593188DBF64BA8696EE0A|1773153789646"
+    "181819538448617@lid|A5043F25710593188DBF64BA8696EE0A|1773153789646",
+    "159039015125054@lid|ACB35356088A8C786B7B574BA93ACE7C|1773153912210",
+    "254710640721@s.whatsapp.net|AC35AF6C7CE3238A4940E311066D28A6|1773153965021",
+    "181819538448617@lid|A5CB3F8FCBB5278D2311BF4B0379DEEB|1773153968479",
+    "151887777149102@lid|AC3134FE7F17995F50615330C3F42E3B|1773154044063",
+    "255954901848314@lid|ACD8F7A14D5BD7BE7804786ECDC8DAE5|1773154062518",
+    "56771464929507@lid|ACC53AE1A128A06ECB5E9949B678D27A|1773154073629",
+    "56771464929507@lid|AC4727C4572EBBAFEBD645D9E17180C2|1773154079322",
+    "56771464929507@lid|AC7BC2E553BAB02BC7E7FD26A20C6A6C|1773154081339",
+    "182592498303229@lid|AC4A556E72EC7E47FFBBE21ADB62992E|1773154124650",
+    "182592498303229@lid|AC33B33B9DB587D43450B2A25D9CE606|1773154130048",
+    "195253743132878@lid|AC1EDEE4EF4919944DDB731A79E93CD8|1773154176814",
+    "195253743132878@lid|AC9220F7D7927CD5347A81C098D879F7|1773154205379"
   ],
-  "lastReactionTime": 1773153789646,
+  "lastReactionTime": 1773154205379,
   "viewMode": "view+react",
   "excludedContacts": []
 }
