@@ -9,7 +9,7 @@ export default {
         const chatId = m.key.remoteJid;
         const sender = m.key.participant || m.key.remoteJid;
         const isGroup = chatId.endsWith('@g.us');
-        const isOwner = extra?.isOwner || false;
+        const isOwner = typeof extra?.isOwner === 'function' ? extra.isOwner() : (extra?.isOwner || false);
 
         let msgType = 'unknown';
         if (m.message) {

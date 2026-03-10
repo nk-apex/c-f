@@ -19,15 +19,124 @@
     "💥",
     "🫶"
   ],
-  "logs": [],
-  "totalReacted": 0,
-  "lastReacted": null,
-  "consecutiveReactions": 0,
-  "lastSender": null,
+  "logs": [
+    {
+      "sender": "196362264125644",
+      "reaction": "🦊",
+      "statusId": "AC1983C485456847ABE247688C832888",
+      "timestamp": 1773151531064
+    },
+    {
+      "sender": "105175645708541",
+      "reaction": "🦊",
+      "statusId": "A5C7E9ECD51BF543ACF43F6631ACDF2B",
+      "timestamp": 1773151551200
+    },
+    {
+      "sender": "105175645708541",
+      "reaction": "🦊",
+      "statusId": "A5EE62F2D67A427EE6036A31D09F8B29",
+      "timestamp": 1773151573858
+    },
+    {
+      "sender": "105175645708541",
+      "reaction": "🦊",
+      "statusId": "A57C9BCDB7A0C89520A56846E5C8D693",
+      "timestamp": 1773151579640
+    },
+    {
+      "sender": "81523059486876",
+      "reaction": "🦊",
+      "statusId": "A5830F509EA1F8E0C8A0C77EA2823F4A",
+      "timestamp": 1773151675145
+    },
+    {
+      "sender": "179444354437365",
+      "reaction": "🦊",
+      "statusId": "A5ABD22BCD9C00499080F06A10BDFC40",
+      "timestamp": 1773151780395
+    },
+    {
+      "sender": "185800771797003",
+      "reaction": "🦊",
+      "statusId": "AC91FAE63947AFBCD291E6AC4EECAD38",
+      "timestamp": 1773151936921
+    },
+    {
+      "sender": "status",
+      "reaction": "🦊",
+      "statusId": "AC837D4F181CC82EFCEA53165A621910",
+      "timestamp": 1773151990829
+    },
+    {
+      "sender": "119778668749040",
+      "reaction": "🦊",
+      "statusId": "AC837D4F181CC82EFCEA53165A621910",
+      "timestamp": 1773151993791
+    },
+    {
+      "sender": "222106080047186",
+      "reaction": "🦊",
+      "statusId": "AC404A9291E01FF4387821A0B2A90738",
+      "timestamp": 1773152102008
+    },
+    {
+      "sender": "101941652758725",
+      "reaction": "🦊",
+      "statusId": "AC2299AC3DD79828E4407B753D20B189",
+      "timestamp": 1773152383256
+    },
+    {
+      "sender": "101941652758725",
+      "reaction": "🦊",
+      "statusId": "AC4ECB330E33544C229AA9BCB8A9D9F6",
+      "timestamp": 1773152398373
+    },
+    {
+      "sender": "101941652758725",
+      "reaction": "🦊",
+      "statusId": "AC8F026D994E867138059DC0837200A9",
+      "timestamp": 1773152461823
+    },
+    {
+      "sender": "222273768296544",
+      "reaction": "🦊",
+      "statusId": "A5A143E74C08A8E51B090988698360BC",
+      "timestamp": 1773152492879
+    }
+  ],
+  "totalReacted": 14,
+  "lastReacted": {
+    "sender": "222273768296544",
+    "reaction": "🦊",
+    "statusId": "A5A143E74C08A8E51B090988698360BC",
+    "timestamp": 1773152492879
+  },
+  "consecutiveReactions": 1,
+  "lastSender": "222273768296544",
   "settings": {
     "rateLimitDelay": 500,
     "reactToAll": true,
     "ignoreConsecutiveLimit": true,
     "noHourlyLimit": true
-  }
+  },
+  "reactedStatuses": [
+    "196362264125644@lid|AC1983C485456847ABE247688C832888|1773151531064",
+    "105175645708541@lid|A5C7E9ECD51BF543ACF43F6631ACDF2B|1773151551200",
+    "105175645708541@lid|A5EE62F2D67A427EE6036A31D09F8B29|1773151573858",
+    "105175645708541@lid|A57C9BCDB7A0C89520A56846E5C8D693|1773151579640",
+    "81523059486876@lid|A5830F509EA1F8E0C8A0C77EA2823F4A|1773151675145",
+    "179444354437365@lid|A5ABD22BCD9C00499080F06A10BDFC40|1773151780395",
+    "185800771797003@lid|AC91FAE63947AFBCD291E6AC4EECAD38|1773151936920",
+    "status@broadcast|AC837D4F181CC82EFCEA53165A621910|1773151990829",
+    "119778668749040@lid|AC837D4F181CC82EFCEA53165A621910|1773151993791",
+    "222106080047186@lid|AC404A9291E01FF4387821A0B2A90738|1773152102007",
+    "101941652758725@lid|AC2299AC3DD79828E4407B753D20B189|1773152383255",
+    "101941652758725@lid|AC4ECB330E33544C229AA9BCB8A9D9F6|1773152398373",
+    "101941652758725@lid|AC8F026D994E867138059DC0837200A9|1773152461823",
+    "222273768296544@lid|A5A143E74C08A8E51B090988698360BC|1773152492879"
+  ],
+  "lastReactionTime": 1773152492879,
+  "viewMode": "view+react",
+  "excludedContacts": []
 }

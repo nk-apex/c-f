@@ -200,7 +200,7 @@ export function setupMessageHandler(logger) {
       const extra = {
         jidManager,
         prefixHandler,
-        isOwner: isOwner(msg, config),
+        isOwner: () => isOwner(msg, config),
         BOT_NAME: config.botName,
         commands: commandLoader.getCommandsMap(),
       };

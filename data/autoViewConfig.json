@@ -1,15 +1,80 @@
 {
   "enabled": true,
-  "logs": [],
-  "totalViewed": 0,
-  "lastViewed": null,
-  "consecutiveViews": 0,
-  "lastSender": null,
+  "logs": [
+    {
+      "sender": "196362264125644",
+      "timestamp": 1773151530953
+    },
+    {
+      "sender": "105175645708541",
+      "timestamp": 1773151551061
+    },
+    {
+      "sender": "105175645708541",
+      "timestamp": 1773151573802
+    },
+    {
+      "sender": "105175645708541",
+      "timestamp": 1773151579581
+    },
+    {
+      "sender": "81523059486876",
+      "timestamp": 1773151674952
+    },
+    {
+      "sender": "179444354437365",
+      "timestamp": 1773151780287
+    },
+    {
+      "sender": "185800771797003",
+      "timestamp": 1773151936813
+    },
+    {
+      "sender": "status",
+      "timestamp": 1773151990773
+    },
+    {
+      "sender": "119778668749040",
+      "timestamp": 1773151993709
+    },
+    {
+      "sender": "status",
+      "timestamp": 1773151999193
+    },
+    {
+      "sender": "222106080047186",
+      "timestamp": 1773152101894
+    },
+    {
+      "sender": "101941652758725",
+      "timestamp": 1773152383151
+    },
+    {
+      "sender": "101941652758725",
+      "timestamp": 1773152398313
+    },
+    {
+      "sender": "101941652758725",
+      "timestamp": 1773152461766
+    },
+    {
+      "sender": "222273768296544",
+      "timestamp": 1773152492736
+    }
+  ],
+  "totalViewed": 15,
+  "lastViewed": {
+    "sender": "222273768296544",
+    "timestamp": 1773152492736
+  },
+  "consecutiveViews": 1,
+  "lastSender": "222273768296544",
   "settings": {
     "rateLimitDelay": 1000,
     "viewToAll": true,
     "ignoreConsecutiveLimit": true,
     "markAsSeen": true,
     "noHourlyLimit": true
-  }
+  },
+  "excludedContacts": []
 }
