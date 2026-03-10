@@ -24,7 +24,7 @@ const green = '\x1b[32m';
 const reset = '\x1b[0m';
 
 console.log(`\n${loaderColor}╔══════════════════════════════════════════════════════════╗${reset}`);
-console.log(`${loaderColor}║     🐺 SILENT WOLF LOADER - WOLFBOT v1.1.5               ║${reset}`);
+console.log(`${loaderColor}║     🦊 FOXY LOADER - FOXY BOT v1.1.5                     ║${reset}`);
 console.log(`${loaderColor}╚══════════════════════════════════════════════════════════╝${reset}\n`);
 
 function loadEnvFile() {
@@ -43,13 +43,13 @@ function loadEnvFile() {
       }
     });
   } catch (e) {
-    console.log(`${red}[Loader] Failed to load .env: ${e.message}${reset}`);
+    console.log(`${red}[FOXY] Failed to load .env: ${e.message}${reset}`);
   }
 }
 
 async function downloadAndExtract() {
   if (fs.existsSync(EXTRACT_DIR)) {
-    console.log(`${green}[Loader] Core already exists, skipping download.${reset}`);
+    console.log(`${green}[FOXY] Core already exists, skipping download.${reset}`);
     return true;
   }
 
@@ -72,7 +72,7 @@ async function downloadAndExtract() {
       headers: { 'User-Agent': 'axios/downloader' }
     });
   } catch (e) {
-    console.log(`${red}[Loader] Download failed: ${e.message}${reset}`);
+    console.log(`${red}[FOXY] Download failed: ${e.message}${reset}`);
     return false;
   }
 
@@ -83,18 +83,18 @@ async function downloadAndExtract() {
       writer.on("finish", resolve);
       writer.on("error", reject);
     });
-    console.log(`${green}[Loader] Download complete.${reset}`);
+    console.log(`${green}[FOXY] Download complete.${reset}`);
   } catch (e) {
-    console.log(`${red}[Loader] Failed to save zip: ${e.message}${reset}`);
+    console.log(`${red}[FOXY] Failed to save zip: ${e.message}${reset}`);
     return false;
   }
 
   try {
     const zip = new AdmZip(zipPath);
     zip.extractAllTo(TEMP_DIR, true);
-    console.log(`${green}[Loader] Extraction complete.${reset}`);
+    console.log(`${green}[FOXY] Extraction complete.${reset}`);
   } catch (e) {
-    console.log(`${red}[Loader] Extraction failed: ${e.message}${reset}`);
+    console.log(`${red}[FOXY] Extraction failed: ${e.message}${reset}`);
     return false;
   } finally {
     if (fs.existsSync(zipPath)) fs.unlinkSync(zipPath);
@@ -102,7 +102,7 @@ async function downloadAndExtract() {
 
   try {
     const extractedItems = fs.readdirSync(TEMP_DIR);
-    console.log(`${loaderColor}[Loader] Extracted items: ${extractedItems.join(', ')}${reset}`);
+    console.log(`${loaderColor}[FOXY] Extracted items: ${extractedItems.join(', ')}${reset}`);
 
     const sourceFolder = extractedItems.find(f =>
       f !== 'core' && fs.statSync(path.join(TEMP_DIR, f)).isDirectory()
@@ -110,13 +110,13 @@ async function downloadAndExtract() {
 
     if (sourceFolder) {
       fs.renameSync(path.join(TEMP_DIR, sourceFolder), EXTRACT_DIR);
-      console.log(`${green}[Loader] Renamed "${sourceFolder}" → core${reset}`);
+      console.log(`${green}[FOXY] Renamed "${sourceFolder}" → core${reset}`);
     } else {
-      console.log(`${red}[Loader] No extracted folder found to rename.${reset}`);
+      console.log(`${red}[FOXY] No extracted folder found to rename.${reset}`);
       return false;
     }
   } catch (e) {
-    console.log(`${red}[Loader] Folder rename failed: ${e.message}${reset}`);
+    console.log(`${red}[FOXY] Folder rename failed: ${e.message}${reset}`);
     return false;
   }
 
@@ -128,9 +128,9 @@ async function applyLocalSettings() {
   try {
     fs.mkdirSync(EXTRACT_DIR, { recursive: true });
     fs.copyFileSync(LOCAL_SETTINGS, EXTRACTED_SETTINGS);
-    console.log(`${green}[Loader] Local settings applied.${reset}`);
+    console.log(`${green}[FOXY] Local settings applied.${reset}`);
   } catch (e) {
-    console.log(`${red}[Loader] Failed to apply settings: ${e.message}${reset}`);
+    console.log(`${red}[FOXY] Failed to apply settings: ${e.message}${reset}`);
   }
   await delay(500);
 }
@@ -166,13 +166,13 @@ function startBot() {
 
   if (!mainFile) {
     const contents = fs.existsSync(botDir) ? fs.readdirSync(botDir).join(', ') : 'directory missing';
-    console.log(`${red}[Loader] No entry file found in: ${botDir}${reset}`);
-    console.log(`${red}[Loader] Contents: ${contents}${reset}`);
+    console.log(`${red}[FOXY] No entry file found in: ${botDir}${reset}`);
+    console.log(`${red}[FOXY] Contents: ${contents}${reset}`);
     setTimeout(() => startBot(), 5000);
     return;
   }
 
-  console.log(`${green}[Loader] Starting → ${path.join(botDir, mainFile)}${reset}`);
+  console.log(`${green}[FOXY] Starting → ${path.join(botDir, mainFile)}${reset}`);
 
   const bot = spawn("node", [mainFile], {
     cwd: botDir,
@@ -181,13 +181,13 @@ function startBot() {
   });
 
   bot.on("close", (code) => {
-    console.log(`${red}[Loader] Bot exited (code ${code}). Restarting in 3s...${reset}`);
+    console.log(`${red}[FOXY] Bot exited (code ${code}). Restarting in 3s...${reset}`);
     // FIX: always restart regardless of exit code (including clean exit code 0)
     setTimeout(() => startBot(), 3000);
   });
 
   bot.on("error", (err) => {
-    console.log(`${red}[Loader] Bot error: ${err.message}. Restarting in 3s...${reset}`);
+    console.log(`${red}[FOXY] Bot error: ${err.message}. Restarting in 3s...${reset}`);
     setTimeout(() => startBot(), 3000);
   });
 }
@@ -196,7 +196,7 @@ function startBot() {
   loadEnvFile();
   const success = await downloadAndExtract();
   if (!success) {
-    console.log(`${red}[Loader] Download/extract failed. Attempting to start from existing files...${reset}`);
+    console.log(`${red}[FOXY] Download/extract failed. Attempting to start from existing files...${reset}`);
   }
   await applyLocalSettings();
   startBot();
