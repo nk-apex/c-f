@@ -100,9 +100,30 @@ Core Management: setbotname, resetbotname, setowner, resetowner, iamowner, about
 System & Maintenance: restart, workingreload, reloadenv, getsettings, setsetting, test, disk, hostip, findcommands, latestupdates, panel, debugchat, online
 
 ### Data Storage
-- **Bot Config**: JSON file at `server/bot/bot_config.json` (prefix, mode, ownerNumber, botName, plus toggle flags: antidelete, antiedit, anticall, chatbot, readReceipts, autoStatusView, footer)
-- **Auth Session**: Filesystem at `session/` directory using Baileys' `useMultiFileAuthState`
-- **No database required** for core functionality
+- **Bot Config**: JSON file at `server/bot/bot_config.json` (prefix, mode, ownerNumber, botName, plus toggle flags)
+- **Auth Session**: Filesystem at `data/session/` (override with `SESSION_DIR` env var)
+- **Runtime Data**: All JSON configs and SQLite DB stored in `data/` (override with `BOT_DATA_DIR` env var)
+- **Database**: SQLite via `better-sqlite3` (native) with automatic `sql.js` (pure JS) fallback for platforms where native modules can't compile
+- **Temp Files**: All temp media/audio processing uses `os.tmpdir()/foxbot_tmp` — never writes to project root
+- **Centralized Paths**: `server/bot/config/paths.js` — single source of truth for all file paths; supports `BOT_DATA_DIR` env var for platform-specific storage locations
+
+### Platform Deployment
+| Platform | Config | Notes |
+|----------|--------|-------|
+| **Replit** | `.replit` | `npm run dev`, auto-creates `data/` on start |
+| **Heroku** | `Procfile` (web dyno), `app.json` | Set `SESSION_ID` env var; `better-sqlite3` fallback to `sql.js` |
+| **Railway** | `railway.json`, `nixpacks.toml` | NIXPACKS builder; persistent volume recommended for `data/` |
+| **Render** | `render.yaml` | Web service; data at `/opt/render/project/src/data` |
+| **Any Linux** | `.env.example` | Set `SESSION_ID` + `BOT_DATA_DIR` + `PORT` env vars |
+| **Ephemeral** | Set `BOT_DATA_DIR=/tmp/foxbot_data` | Data resets on restart but bot stays functional |
+
+### Environment Variables
+- `SESSION_ID` — FOX-BOT:~\<base64\> session to auto-connect on startup
+- `BOT_DATA_DIR` — Override data storage directory (default: `./data`)
+- `SESSION_DIR` — Override session directory (default: `$BOT_DATA_DIR/session`)
+- `PORT` — HTTP port (default: 5000)
+- `BOT_NAME` — Override bot display name (default: FOX BOT)
+- `OWNER_NUMBER` — Owner phone number for owner-only commands
 
 ## External Dependencies
 

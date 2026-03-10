@@ -9,8 +9,12 @@ import { Boom } from "@hapi/boom";
 import path from "path";
 import fs from "fs";
 import { EventEmitter } from "events";
+import { PATHS, ensureDir } from "./config/paths.js";
 
-const SESSION_DIR = path.join(process.cwd(), "session");
+const SESSION_DIR = process.env.SESSION_DIR
+  ? path.resolve(process.env.SESSION_DIR)
+  : PATHS.session;
+ensureDir(SESSION_DIR);
 
 function parseFoxySession(sessionString) {
   let cleaned = sessionString.trim().replace(/^["']|["']$/g, "");

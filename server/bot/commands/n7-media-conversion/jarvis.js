@@ -1,3 +1,4 @@
+import os from 'os';
 import axios from 'axios';
 import fs from 'fs/promises';
 import path from 'path';
@@ -132,7 +133,7 @@ async function textToAudio(text) {
 }
 
 async function applyJarvisEffect(inputBuffer) {
-    const tempDir = path.join(process.cwd(), 'tmp', 'jarvis');
+    const tempDir = path.join(os.tmpdir(), 'foxbot_tmp', 'jarvis');
     await fs.mkdir(tempDir, { recursive: true });
 
     const ts = Date.now();

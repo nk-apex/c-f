@@ -243,7 +243,7 @@ export function getMenuMedia() {
       try {
         _cachedGif = fs.readFileSync(gifPath);
         _cachedGifMp4 = null;
-        const tmpDir = path.join(process.cwd(), 'tmp');
+        const tmpDir = path.join(os.tmpdir(), 'foxbot_tmp');
         if (!fs.existsSync(tmpDir)) fs.mkdirSync(tmpDir, { recursive: true });
         const tmpMp4 = path.join(tmpDir, 'menu_gif_cached.mp4');
         try {

@@ -1,1 +1,1 @@
-worker: npx tsx server/index.js
+web: npx tsx server/index.js

@@ -1,3 +1,4 @@
+import os from 'os';
 import { downloadContentFromMessage, getContentType } from "@whiskeysockets/baileys";
 import fs from "fs/promises"; // 💡 Changed to fs/promises for async file operations
 import fsSync from "fs";      // Need fs-sync for the conversion placeholder check
@@ -71,7 +72,7 @@ export default {
         };
 
         try {
-            const tempDir = path.join(process.cwd(), "tmp");
+            const tempDir = path.join(os.tmpdir(), 'foxbot_tmp');
             // Use async mkdir
             await fs.mkdir(tempDir, { recursive: true });
             

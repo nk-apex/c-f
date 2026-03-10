@@ -1,3 +1,4 @@
+import os from 'os';
 import { downloadContentFromMessage } from '@whiskeysockets/baileys';
 import { execSync } from 'child_process';
 import fs from 'fs';
@@ -54,7 +55,7 @@ export default {
       }
 
       const isAnimated = stickerMessage.isAnimated || false;
-      const tmpDir = path.join(process.cwd(), 'tmp');
+      const tmpDir = path.join(os.tmpdir(), 'foxbot_tmp');
       if (!fs.existsSync(tmpDir)) fs.mkdirSync(tmpDir, { recursive: true });
 
       const id = crypto.randomBytes(4).toString('hex');

@@ -1,10 +1,7 @@
 import { readFileSync, writeFileSync, existsSync } from 'fs';
-import { dirname, join } from 'path';
-import { fileURLToPath } from 'url';
+import { PATHS } from '../config/paths.js';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const PROJECT_ROOT = join(__dirname, '..');
-const BOT_NAME_FILE = join(PROJECT_ROOT, 'bot_name.json');
+const BOT_NAME_FILE = PATHS.botName;
 const DEFAULT_NAME = 'FOX BOT';
 let _cachedName = null;
 let _cacheTime = 0;

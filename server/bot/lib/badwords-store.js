@@ -1,6 +1,7 @@
 import fs from 'fs';
+import { PATHS } from '../config/paths.js';
 
-const DATA_FILE = './data/badwords.json';
+const DATA_FILE = PATHS.badwords;
 
 function loadData() {
     try {

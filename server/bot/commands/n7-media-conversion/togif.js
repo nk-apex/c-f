@@ -1,3 +1,4 @@
+import os from 'os';
 import { downloadContentFromMessage } from '@whiskeysockets/baileys';
 let sharp;
 try { sharp = (await import('sharp')).default; } catch { sharp = null; }
@@ -40,7 +41,7 @@ export default {
 
       await sock.sendMessage(jid, { react: { text: "⏳", key: m.key } });
 
-      const tmpDir = path.join(process.cwd(), 'tmp');
+      const tmpDir = path.join(os.tmpdir(), 'foxbot_tmp');
       if (!fs.existsSync(tmpDir)) fs.mkdirSync(tmpDir, { recursive: true });
       const ts = Date.now();
 

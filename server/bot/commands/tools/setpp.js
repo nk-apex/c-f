@@ -1,3 +1,4 @@
+import os from 'os';
 import fs from "fs";
 import path from "path";
 import axios from "axios";
@@ -25,7 +26,7 @@ export default {
       // ✅ If user provides a URL
       if (args[0]) {
         const imageUrl = args[0];
-        const tmpDir = path.join(process.cwd(), "tmp");
+        const tmpDir = path.join(os.tmpdir(), 'foxbot_tmp');
         if (!fs.existsSync(tmpDir)) fs.mkdirSync(tmpDir, { recursive: true });
 
         const imagePath = path.join(tmpDir, `wolfpp_${Date.now()}.jpg`);
@@ -53,7 +54,7 @@ export default {
       }
 
       // ✅ Download image to temp file
-      const tmpDir = path.join(process.cwd(), "tmp");
+      const tmpDir = path.join(os.tmpdir(), 'foxbot_tmp');
       if (!fs.existsSync(tmpDir)) fs.mkdirSync(tmpDir, { recursive: true });
 
       const stream = await downloadContentFromMessage(imageMessage, "image");

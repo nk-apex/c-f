@@ -1,3 +1,4 @@
+import os from 'os';
 import { downloadContentFromMessage } from '@whiskeysockets/baileys';
 import { execFile } from 'child_process';
 let sharp;
@@ -45,7 +46,7 @@ export default {
       react: { text: '⏳', key: m.key }
     });
 
-    const tempDir = path.join(process.cwd(), 'tmp');
+    const tempDir = path.join(os.tmpdir(), 'foxbot_tmp');
     if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true });
 
     const timestamp = Date.now();

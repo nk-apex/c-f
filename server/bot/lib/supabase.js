@@ -2,13 +2,14 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { createRequire } from 'module';
+import { PATHS, ensureDir } from '../config/paths.js';
 
 const require = createRequire(import.meta.url);
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const DB_DIR = path.join(__dirname, '..', 'data');
-const DB_PATH = path.join(DB_DIR, 'bot.sqlite');
-const BACKUP_PATH = path.join(DB_DIR, 'critical_backup.json');
+const DB_DIR = PATHS.data;
+const DB_PATH = PATHS.db;
+const BACKUP_PATH = PATHS.dbBackup;
+ensureDir(DB_DIR);
 
 let db = null;
 let isConnected = false;

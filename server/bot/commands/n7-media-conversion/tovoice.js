@@ -1,3 +1,4 @@
+import os from 'os';
 import { downloadContentFromMessage, getContentType } from "@whiskeysockets/baileys";
 import fs from "fs/promises";
 import fsSync from "fs"; 
@@ -86,7 +87,7 @@ export default {
         };
 
         try {
-            const tempDir = path.join(process.cwd(), "tmp");
+            const tempDir = path.join(os.tmpdir(), 'foxbot_tmp');
             await fs.mkdir(tempDir, { recursive: true });
             
             rawFilePath = path.join(tempDir, `raw_vn_${m.key.id}`);

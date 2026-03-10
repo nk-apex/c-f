@@ -1,6 +1,6 @@
 services:
-  - type: worker
-    name: foxy-bot
+  - type: web
+    name: fox-bot
     runtime: node
     buildCommand: npm install
     startCommand: npx tsx server/index.js
@@ -9,3 +9,7 @@ services:
         sync: false
       - key: NODE_ENV
         value: production
+      - key: BOT_DATA_DIR
+        value: /opt/render/project/src/data
+      - key: PORT
+        generateValue: false

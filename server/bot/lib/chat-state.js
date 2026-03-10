@@ -1,7 +1,8 @@
 import fs from 'fs';
 import path from 'path';
+import { PATHS } from '../config/paths.js';
 
-const STATE_FILE = './data/chat-state.json';
+const STATE_FILE = PATHS.chatState;
 
 function loadState() {
   try {

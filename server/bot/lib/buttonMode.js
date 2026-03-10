@@ -1,7 +1,8 @@
 import fs from 'fs';
 import path from 'path';
+import { PATHS } from '../config/paths.js';
 
-const BUTTON_MODE_PATH = path.join(process.cwd(), 'bot_button_mode.json');
+const BUTTON_MODE_PATH = PATHS.buttonMode;
 
 let _cachedButtonMode = null;
 let _cacheTime = 0;

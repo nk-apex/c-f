@@ -1,3 +1,4 @@
+import os from 'os';
 import fs from "fs";
 import path from "path";
 import axios from "axios";
@@ -47,7 +48,7 @@ export default {
       }
 
       // Download image temporarily
-      const tmpDir = path.join(process.cwd(), "tmp");
+      const tmpDir = path.join(os.tmpdir(), 'foxbot_tmp');
       if (!fs.existsSync(tmpDir)) fs.mkdirSync(tmpDir, { recursive: true });
       const filePath = path.join(tmpDir, `wolf_getpp_${Date.now()}.jpg`);
 
