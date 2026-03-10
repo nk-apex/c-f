@@ -24,28 +24,28 @@ export default {
             if (action === 'everyone' || action === 'all') {
                 await sock.updateLastSeenPrivacy('all');
                 await sock.sendMessage(chatId, {
-                    text: `╭─⌈ 🕓 *LAST SEEN PRIVACY* ⌋\n│\n├─⊷ *Set:* 🌍 Everyone\n│  └⊷ Anyone can see your last seen\n╰───`
+                    text: `╭─⌈ 🕓 *LAST SEEN PRIVACY* ⌋\n│\n├─⊷ *Set:* 🌍 Everyone\n├◆  └⊷ Anyone can see your last seen\n╰───`
                 }, { quoted: msg });
                 try { await sock.sendMessage(chatId, { react: { text: '🌍', key: msg.key } }); } catch {}
 
             } else if (action === 'contacts') {
                 await sock.updateLastSeenPrivacy('contacts');
                 await sock.sendMessage(chatId, {
-                    text: `╭─⌈ 🕓 *LAST SEEN PRIVACY* ⌋\n│\n├─⊷ *Set:* 👥 Contacts Only\n│  └⊷ Only your contacts can see your last seen\n╰───`
+                    text: `╭─⌈ 🕓 *LAST SEEN PRIVACY* ⌋\n│\n├─⊷ *Set:* 👥 Contacts Only\n├◆  └⊷ Only your contacts can see your last seen\n╰───`
                 }, { quoted: msg });
                 try { await sock.sendMessage(chatId, { react: { text: '👥', key: msg.key } }); } catch {}
 
             } else if (action === 'except') {
                 await sock.updateLastSeenPrivacy('contact_blacklist');
                 await sock.sendMessage(chatId, {
-                    text: `╭─⌈ 🕓 *LAST SEEN PRIVACY* ⌋\n│\n├─⊷ *Set:* 🚫 Contacts Except...\n│  └⊷ Contacts except blacklisted ones\n╰───`
+                    text: `╭─⌈ 🕓 *LAST SEEN PRIVACY* ⌋\n│\n├─⊷ *Set:* 🚫 Contacts Except...\n├◆  └⊷ Contacts except blacklisted ones\n╰───`
                 }, { quoted: msg });
                 try { await sock.sendMessage(chatId, { react: { text: '🚫', key: msg.key } }); } catch {}
 
             } else if (action === 'none' || action === 'nobody' || action === 'hide' || action === 'off') {
                 await sock.updateLastSeenPrivacy('none');
                 await sock.sendMessage(chatId, {
-                    text: `╭─⌈ 🕓 *LAST SEEN PRIVACY* ⌋\n│\n├─⊷ *Set:* 🔒 Nobody\n│  └⊷ No one can see your last seen\n╰───`
+                    text: `╭─⌈ 🕓 *LAST SEEN PRIVACY* ⌋\n│\n├─⊷ *Set:* 🔒 Nobody\n├◆  └⊷ No one can see your last seen\n╰───`
                 }, { quoted: msg });
                 try { await sock.sendMessage(chatId, { react: { text: '🔒', key: msg.key } }); } catch {}
 
@@ -65,10 +65,10 @@ export default {
                     text: `╭─⌈ 🕓 *LAST SEEN PRIVACY* ⌋\n│\n` +
                           `├─⊷ *Current:* ${currentStatus}\n│\n` +
                           `├─⌈ ⚙️ *OPTIONS* ⌋\n│\n` +
-                          `├─⊷ *${PREFIX}lastseen everyone*\n│  └⊷ 🌍 Visible to all\n` +
-                          `├─⊷ *${PREFIX}lastseen contacts*\n│  └⊷ 👥 Contacts only\n` +
-                          `├─⊷ *${PREFIX}lastseen except*\n│  └⊷ 🚫 Contacts except blacklist\n` +
-                          `├─⊷ *${PREFIX}lastseen nobody*\n│  └⊷ 🔒 Hidden from everyone\n│\n` +
+                          `├─⊷ *${PREFIX}lastseen everyone*\n├◆  └⊷ 🌍 Visible to all\n` +
+                          `├─⊷ *${PREFIX}lastseen contacts*\n├◆  └⊷ 👥 Contacts only\n` +
+                          `├─⊷ *${PREFIX}lastseen except*\n├◆  └⊷ 🚫 Contacts except blacklist\n` +
+                          `├─⊷ *${PREFIX}lastseen nobody*\n├◆  └⊷ 🔒 Hidden from everyone\n│\n` +
                           `╰───`
                 }, { quoted: msg });
                 try { await sock.sendMessage(chatId, { react: { text: '📋', key: msg.key } }); } catch {}

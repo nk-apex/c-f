@@ -20,20 +20,20 @@ export default {
       if (!q) {
         return sendMessage(
           `\u250C\u2500\u29ED *Qwen AI (Alibaba)*\n` +
-          `\u2502 Alibaba's large language model\n` +
+          `\u251C\u25C6 Alibaba's large language model\n` +
           `\u2502\n` +
-          `\u2502 Usage:\n` +
-          `\u2502 ${PREFIX}qwenai <your question>\n` +
+          `\u251C\u25C6 Usage:\n` +
+          `\u251C\u25C6 ${PREFIX}qwenai <your question>\n` +
           `\u2502\n` +
-          `\u2502 Examples:\n` +
-          `\u2502 ${PREFIX}qwenai What is AI?\n` +
-          `\u2502 ${PREFIX}qwenai Write a poem\n` +
-          `\u2502 about nature\n` +
+          `\u251C\u25C6 Examples:\n` +
+          `\u251C\u25C6 ${PREFIX}qwenai What is AI?\n` +
+          `\u251C\u25C6 ${PREFIX}qwenai Write a poem\n` +
+          `\u251C\u25C6 about nature\n` +
           `\u2514\u2500\u29ED`
         );
       }
       
-      await sendMessage(`\u250C\u2500\u29ED *Processing...*\n\u2502 Asking Qwen AI...\n\u2514\u2500\u29ED`);
+      await sendMessage(`\u250C\u2500\u29ED *Processing...*\n\u251C\u25C6 Asking Qwen AI...\n\u2514\u2500\u29ED`);
       
       const encodedQuery = encodeURIComponent(q);
       const apiUrl = `https://apiskeith.vercel.app/ai/qwenai?q=${encodedQuery}`;
@@ -74,10 +74,10 @@ export default {
       await sendMessage(
         `\u250C\u2500\u29ED *Qwen AI*\n` +
         `\u2502\n` +
-        `\u2502 Question: ${q}\n` +
+        `\u251C\u25C6 Question: ${q}\n` +
         `\u2502\n` +
-        `\u2502 Answer:\n` +
-        `\u2502 ${answer.split('\n').join('\n\u2502 ')}\n` +
+        `\u251C\u25C6 Answer:\n` +
+        `\u251C\u25C6 ${answer.split('\n').join('\n\u251C\u25C6 ')}\n` +
         `\u2514\u2500\u29ED`
       );
       
@@ -94,7 +94,7 @@ export default {
         errorDetail = "Rate limited. Please wait a minute.";
       }
       
-      await sendMessage(`\u250C\u2500\u29ED *Error*\n\u2502 ${errorDetail}\n\u2502 Try again later\n\u2514\u2500\u29ED`);
+      await sendMessage(`\u250C\u2500\u29ED *Error*\n\u251C\u25C6 ${errorDetail}\n\u251C\u25C6 Try again later\n\u2514\u2500\u29ED`);
     }
   }
 };

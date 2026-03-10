@@ -35,7 +35,7 @@ export default {
 
     if (!jid.endsWith('@g.us')) {
       await sock.sendMessage(jid, {
-        text: '\u250c\u2500\u29ed GROUP ONLY \u29ed\u2500\u2510\n\u2502 This command works in groups only.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
+        text: '\u250c\u2500\u29ed GROUP ONLY \u29ed\u2500\u2510\n\u251C\u25C6 This command works in groups only.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
       }, { quoted: msg });
       return;
     }
@@ -45,7 +45,7 @@ export default {
 
     if (!senderParticipant?.admin) {
       await sock.sendMessage(jid, {
-        text: '\u250c\u2500\u29ed ACCESS DENIED \u29ed\u2500\u2510\n\u2502 Only group admins can use this command.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
+        text: '\u250c\u2500\u29ed ACCESS DENIED \u29ed\u2500\u2510\n\u251C\u25C6 Only group admins can use this command.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
       }, { quoted: msg });
       return;
     }
@@ -54,7 +54,7 @@ export default {
 
     if (!targetUser) {
       await sock.sendMessage(jid, {
-        text: `\u250c\u2500\u29ed RESET WARN \u29ed\u2500\u2510\n\u2502 Usage:\n\u2502 ${PREFIX}resetwarn @user\n\u2502 ${PREFIX}resetwarn <number>\n\u2502 Reply to a message with ${PREFIX}resetwarn\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518`
+        text: `\u250c\u2500\u29ed RESET WARN \u29ed\u2500\u2510\n\u251C\u25C6 Usage:\n\u251C\u25C6 ${PREFIX}resetwarn @user\n\u251C\u25C6 ${PREFIX}resetwarn <number>\n\u251C\u25C6 Reply to a message with ${PREFIX}resetwarn\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518`
       }, { quoted: msg });
       return;
     }
@@ -66,7 +66,7 @@ export default {
     }
 
     await sock.sendMessage(jid, {
-      text: `\u250c\u2500\u29ed RESET WARN \u29ed\u2500\u2510\n\u2502 Warnings reset for @${targetUser.split('@')[0]}.\n\u2502 Warnings: 0\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518`,
+      text: `\u250c\u2500\u29ed RESET WARN \u29ed\u2500\u2510\n\u251C\u25C6 Warnings reset for @${targetUser.split('@')[0]}.\n\u251C\u25C6 Warnings: 0\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518`,
       mentions: [targetUser]
     }, { quoted: msg });
   }

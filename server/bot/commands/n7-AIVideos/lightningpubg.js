@@ -47,7 +47,7 @@ export default {
         try {
             if (args.length === 0) {
                 return sock.sendMessage(jid, {
-                    text: `╭─⌈ ⚡ *LIGHTNING PUBG VIDEO* ⌋\n│\n├─⊷ *${prefix}lightningpubg <text>*\n│  └⊷ Create lightning PUBG video logo (max 25 chars)\n│\n├─⊷ *Example:*\n│  └⊷ ${prefix}lightningpubg WOLF\n│\n╰───`
+                    text: `╭─⌈ ⚡ *LIGHTNING PUBG VIDEO* ⌋\n│\n├─⊷ *${prefix}lightningpubg <text>*\n├◆  └⊷ Create lightning PUBG video logo (max 25 chars)\n│\n├─⊷ *Example:*\n├◆  └⊷ ${prefix}lightningpubg WOLF\n│\n╰───`
                 }, { quoted: m });
             }
 

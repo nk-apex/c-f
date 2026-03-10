@@ -312,11 +312,11 @@
 //                     text += `│ Last Reacted: ${new Date(stats.lastReacted).toLocaleString()}\n`;
 //                 }
 //                 text += `│\n`;
-//                 text += `├─⊷ *${prefix}channelreact on*\n│  └⊷ Enable auto-react\n`;
-//                 text += `├─⊷ *${prefix}channelreact off*\n│  └⊷ Disable auto-react\n`;
-//                 text += `├─⊷ *${prefix}channelreact delay <min> <max>*\n│  └⊷ Set delay in seconds (min 300s/5min)\n`;
-//                 text += `├─⊷ *${prefix}channelreact channels*\n│  └⊷ List known channels\n`;
-//                 text += `├─⊷ *${prefix}channelreact stats*\n│  └⊷ View statistics\n`;
+//                 text += `├─⊷ *${prefix}channelreact on*\n├◆  └⊷ Enable auto-react\n`;
+//                 text += `├─⊷ *${prefix}channelreact off*\n├◆  └⊷ Disable auto-react\n`;
+//                 text += `├─⊷ *${prefix}channelreact delay <min> <max>*\n├◆  └⊷ Set delay in seconds (min 300s/5min)\n`;
+//                 text += `├─⊷ *${prefix}channelreact channels*\n├◆  └⊷ List known channels\n`;
+//                 text += `├─⊷ *${prefix}channelreact stats*\n├◆  └⊷ View statistics\n`;
 //                 text += `╰───`;
 
 //                 await sock.sendMessage(chatId, { text }, { quoted: m });
@@ -403,8 +403,8 @@
 //                         text += `├─ ${i + 1}. ${shortId}\n`;
 //                     }
 //                     text += `│\n`;
-//                     text += `├─⊷ *${prefix}channelreact add <jid>*\n│  └⊷ Add a channel JID manually\n`;
-//                     text += `├─⊷ *${prefix}channelreact remove <jid>*\n│  └⊷ Remove a channel JID\n`;
+//                     text += `├─⊷ *${prefix}channelreact add <jid>*\n├◆  └⊷ Add a channel JID manually\n`;
+//                     text += `├─⊷ *${prefix}channelreact remove <jid>*\n├◆  └⊷ Remove a channel JID\n`;
 //                     text += `╰───`;
 
 //                     await sock.sendMessage(chatId, { text }, { quoted: m });
@@ -868,11 +868,11 @@ export default {
                     text += `│ Last Reacted: ${new Date(stats.lastReacted).toLocaleString()}\n`;
                 }
                 text += `│\n`;
-                text += `├─⊷ *${prefix}channelreact on*\n│  └⊷ Enable auto-react\n`;
-                text += `├─⊷ *${prefix}channelreact off*\n│  └⊷ Disable auto-react\n`;
-                text += `├─⊷ *${prefix}channelreact delay <min> <max>*\n│  └⊷ Set delay range in seconds (min 300s/5min)\n`;
-                text += `├─⊷ *${prefix}channelreact channels*\n│  └⊷ List known channels\n`;
-                text += `├─⊷ *${prefix}channelreact stats*\n│  └⊷ View statistics\n`;
+                text += `├─⊷ *${prefix}channelreact on*\n├◆  └⊷ Enable auto-react\n`;
+                text += `├─⊷ *${prefix}channelreact off*\n├◆  └⊷ Disable auto-react\n`;
+                text += `├─⊷ *${prefix}channelreact delay <min> <max>*\n├◆  └⊷ Set delay range in seconds (min 300s/5min)\n`;
+                text += `├─⊷ *${prefix}channelreact channels*\n├◆  └⊷ List known channels\n`;
+                text += `├─⊷ *${prefix}channelreact stats*\n├◆  └⊷ View statistics\n`;
                 text += `╰───`;
 
                 await sock.sendMessage(chatId, { text }, { quoted: m });
@@ -959,8 +959,8 @@ export default {
                         text += `├─ ${i + 1}. ${shortId}\n`;
                     }
                     text += `│\n`;
-                    text += `├─⊷ *${prefix}channelreact add <jid>*\n│  └⊷ Add a channel JID manually\n`;
-                    text += `├─⊷ *${prefix}channelreact remove <jid>*\n│  └⊷ Remove a channel JID\n`;
+                    text += `├─⊷ *${prefix}channelreact add <jid>*\n├◆  └⊷ Add a channel JID manually\n`;
+                    text += `├─⊷ *${prefix}channelreact remove <jid>*\n├◆  └⊷ Remove a channel JID\n`;
                     text += `╰───`;
 
                     await sock.sendMessage(chatId, { text }, { quoted: m });

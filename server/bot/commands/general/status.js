@@ -24,7 +24,7 @@ export default {
     const minutes = Math.floor((uptime % 3600) / 60);
     
     const statusMsg = `📊 *BOT STATUS*\n\n` +
-                     `🦊 Name: Foxy Bot\n` +
+                     `🦊 Name: FOX Bot\n` +
                      `⚡ Version: 2.0.0\n` +
                      `👑 Owner: Leon\n` +
                      `⏳ Uptime: ${hours}h ${minutes}m\n\n` +

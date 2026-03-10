@@ -20,7 +20,7 @@ export default {
       if (!q) {
         await react("❓");
         await sock.sendMessage(chatId, {
-          text: `┌─⧭ YTMP3\n│\n│ Usage: ${PREFIX}ytmp3 <song name or URL>\n│ Example: ${PREFIX}ytmp3 Alan Walker Faded\n└─────────────────────`
+          text: `┌─⧭ YTMP3\n│\n├◆ Usage: ${PREFIX}ytmp3 <song name or URL>\n├◆ Example: ${PREFIX}ytmp3 Alan Walker Faded\n└─────────────────────`
         }, { quoted: m });
         return;
       }

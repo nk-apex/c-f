@@ -15,13 +15,13 @@ export default {
     const hasReply = m.message?.extendedTextMessage?.contextInfo?.quotedMessage;
     
     if (args.length === 0 && !hasReply) {
-      const helpText = `╭─⌈ 💙 *BOYFRIEND PROFILE* ⌋\n│\n├─⊷ *${PREFIX}bf*\n│  └⊷ Reply to any message to get boyfriend profile pic\n│\n├─⊷ *Aliases:* boyfriend, hubby\n│\n╰───`;
+      const helpText = `╭─⌈ 💙 *BOYFRIEND PROFILE* ⌋\n│\n├─⊷ *${PREFIX}bf*\n├◆  └⊷ Reply to any message to get boyfriend profile pic\n│\n├─⊷ *Aliases:* boyfriend, hubby\n│\n╰───`;
       
       return sock.sendMessage(jid, { text: helpText }, { quoted: m });
     }
 
     if (args[0]?.toLowerCase() === 'help') {
-      const helpText = `╭─⌈ 💙 *BOYFRIEND PROFILE* ⌋\n│\n├─⊷ *${PREFIX}bf*\n│  └⊷ Reply to any message to create couple picture\n│\n├─⊷ *Aliases:* boyfriend, hubby\n│\n╰───`;
+      const helpText = `╭─⌈ 💙 *BOYFRIEND PROFILE* ⌋\n│\n├─⊷ *${PREFIX}bf*\n├◆  └⊷ Reply to any message to create couple picture\n│\n├─⊷ *Aliases:* boyfriend, hubby\n│\n╰───`;
       
       return sock.sendMessage(jid, { text: helpText }, { quoted: m });
     }

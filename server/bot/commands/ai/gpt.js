@@ -37,33 +37,33 @@ export default {
     if (!question) {
       await sock.sendMessage(chatId, {
         text: `\u250C\u2500\u29ED *GPT AI*\n` +
-              `\u2502 Ask me anything!\n` +
+              `\u251C\u25C6 Ask me anything!\n` +
               `\u2502\n` +
-              `\u2502 Example:\n` +
-              `\u2502 ${PREFIX}gpt What is artificial\n` +
-              `\u2502 intelligence?\n` +
-              `\u2502 ${PREFIX}gpt Write a poem about coding\n` +
+              `\u251C\u25C6 Example:\n` +
+              `\u251C\u25C6 ${PREFIX}gpt What is artificial\n` +
+              `\u251C\u25C6 intelligence?\n` +
+              `\u251C\u25C6 ${PREFIX}gpt Write a poem about coding\n` +
               `\u2514\u2500\u29ED`
       }, { quoted: m });
       return;
     }
     
     await sock.sendMessage(chatId, {
-      text: `\u250C\u2500\u29ED *Processing...*\n\u2502 Asking GPT...\n\u2514\u2500\u29ED`
+      text: `\u250C\u2500\u29ED *Processing...*\n\u251C\u25C6 Asking GPT...\n\u2514\u2500\u29ED`
     }, { quoted: m });
     
     try {
       const answer = await getGPTResponse(question);
       
       await sock.sendMessage(chatId, {
-        text: `\u250C\u2500\u29ED *GPT AI*\n\u2502 ${answer.split('\n').join('\n\u2502 ')}\n\u2514\u2500\u29ED`
+        text: `\u250C\u2500\u29ED *GPT AI*\n\u251C\u25C6 ${answer.split('\n').join('\n\u251C\u25C6 ')}\n\u2514\u2500\u29ED`
       }, { quoted: m });
       
     } catch (error) {
       console.error('GPT command error:', error);
       
       await sock.sendMessage(chatId, {
-        text: `\u250C\u2500\u29ED *Error*\n\u2502 Failed to get response\n\u2502 Please try again later\n\u2514\u2500\u29ED`
+        text: `\u250C\u2500\u29ED *Error*\n\u251C\u25C6 Failed to get response\n\u251C\u25C6 Please try again later\n\u2514\u2500\u29ED`
       }, { quoted: m });
     }
   }

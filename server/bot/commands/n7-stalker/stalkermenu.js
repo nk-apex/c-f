@@ -11,43 +11,43 @@ export default {
 
     const commandsText = `╭─⊷ *📢 WHATSAPP CHANNEL*
 │
-│  • wachannel <URL>
+├◆  • wachannel <URL>
 │
 ╰─⊷
 
 ╭─⊷ *🎵 TIKTOK*
 │
-│  • tiktokstalk <username>
+├◆  • tiktokstalk <username>
 │
 ╰─⊷
 
 ╭─⊷ *🐦 TWITTER/X*
 │
-│  • twitterstalk <username>
+├◆  • twitterstalk <username>
 │
 ╰─⊷
 
 ╭─⊷ *🌐 IP ADDRESS*
 │
-│  • ipstalk <IP>
+├◆  • ipstalk <IP>
 │
 ╰─⊷
 
 ╭─⊷ *📸 INSTAGRAM*
 │
-│  • igstalk <username>
+├◆  • igstalk <username>
 │
 ╰─⊷
 
 ╭─⊷ *📦 NPM PACKAGE*
 │
-│  • npmstalk <package>
+├◆  • npmstalk <package>
 │
 ╰─⊷
 
 ╭─⊷ *🐙 GITHUB*
 │
-│  • gitstalk <username>
+├◆  • gitstalk <username>
 │
 ╰─⊷`;
 

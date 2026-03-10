@@ -12,18 +12,18 @@ export default {
 
     const commandsText = `╭─⊷ *🎮 GAMES*
 │
-│  • coinflip
-│  • dare
-│  • dice
-│  • emojimix
-│  • joke
-│  • quiz
-│  • rps
-│  • snake
-│  • tetris
-│  • truth
-│  • tictactoe
-│  • quote
+├◆  • coinflip
+├◆  • dare
+├◆  • dice
+├◆  • emojimix
+├◆  • joke
+├◆  • quiz
+├◆  • rps
+├◆  • snake
+├◆  • tetris
+├◆  • truth
+├◆  • tictactoe
+├◆  • quote
 │
 ╰─⊷`;
 

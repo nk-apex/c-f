@@ -8,7 +8,7 @@ export default {
     async execute(sock, msg, args, PREFIX, extra) {
         const jid = msg.key.remoteJid;
         if (!jid.endsWith('@g.us')) {
-            return sock.sendMessage(jid, { text: '┌─⧭ GROUP ONLY ⧭─┐\n│ This command works in groups only.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
+            return sock.sendMessage(jid, { text: '┌─⧭ GROUP ONLY ⧭─┐\n├◆ This command works in groups only.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
         }
 
         const metadata = await sock.groupMetadata(jid).catch(() => null);
@@ -16,7 +16,7 @@ export default {
         const isAdmin = metadata?.participants?.find(p => p.id === participant)?.admin;
 
         if (!isAdmin) {
-            return sock.sendMessage(jid, { text: '┌─⧭ ADMIN ONLY ⧭─┐\n│ Only group admins can get the invite link.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
+            return sock.sendMessage(jid, { text: '┌─⧭ ADMIN ONLY ⧭─┐\n├◆ Only group admins can get the invite link.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
         }
 
         try {
@@ -33,7 +33,7 @@ export default {
 
             await sock.sendMessage(jid, { text }, { quoted: msg });
         } catch (error) {
-            await sock.sendMessage(jid, { text: '┌─⧭ ERROR ⧭─┐\n│ Failed to get invite link.\n│ Make sure the bot is an admin.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
+            await sock.sendMessage(jid, { text: '┌─⧭ ERROR ⧭─┐\n├◆ Failed to get invite link.\n├◆ Make sure the bot is an admin.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
         }
     }
 };

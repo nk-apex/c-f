@@ -37,7 +37,7 @@ export default {
 
     if (!participants.length) {
       return sock.sendMessage(chatId, {
-        text: `╭─⌈ 👢 *KICK* ⌋\n│\n├─⊷ *${PREFIX}kick @user*\n│  └⊷ Kick mentioned user\n├─⊷ *${PREFIX}kick* (reply to msg)\n│  └⊷ Kick replied user\n├─⊷ *${PREFIX}kick 1234567890*\n│  └⊷ Kick by phone number\n╰───`
+        text: `╭─⌈ 👢 *KICK* ⌋\n│\n├─⊷ *${PREFIX}kick @user*\n├◆  └⊷ Kick mentioned user\n├─⊷ *${PREFIX}kick* (reply to msg)\n├◆  └⊷ Kick replied user\n├─⊷ *${PREFIX}kick 1234567890*\n├◆  └⊷ Kick by phone number\n╰───`
       }, { quoted: msg });
     }
 

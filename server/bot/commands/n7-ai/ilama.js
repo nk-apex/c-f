@@ -12,7 +12,7 @@ export default {
     // Check if query is provided
     if (args.length === 0) {
       return sock.sendMessage(jid, {
-        text: `╭─⌈ 🤖 *LLAMA AI* ⌋\n├─⊷ *${PREFIX}ilama <question>*\n│  └⊷ Ask Llama AI anything\n├─⊷ *${PREFIX}llama <question>*\n│  └⊷ Alias for ilama\n╰───`
+        text: `╭─⌈ 🤖 *LLAMA AI* ⌋\n├─⊷ *${PREFIX}ilama <question>*\n├◆  └⊷ Ask Llama AI anything\n├─⊷ *${PREFIX}llama <question>*\n├◆  └⊷ Alias for ilama\n╰───`
       }, { quoted: m });
     }
 

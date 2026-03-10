@@ -25,8 +25,8 @@ export default {
         if (!args[0]) {
             const fontLines = Object.entries(AVAILABLE_FONTS).map(([key, info]) => {
                 const active = key === currentFont ? ' ✅ active' : '';
-                return `│ ├ *${key}*${active}\n│ │   ${info.example}`;
-            }).join('\n│ │\n');
+                return `│ ├ *${key}*${active}\n├◆ │   ${info.example}`;
+            }).join('\n├◆ │\n');
 
             const defaultActive = currentFont === 'default' ? ' ✅ active' : '';
 

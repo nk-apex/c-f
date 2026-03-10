@@ -293,7 +293,7 @@ export default {
             const action = (args[1] || 'notify').toLowerCase();
             if (!['notify', 'warn', 'kick', 'revert'].includes(action)) {
                 return sock.sendMessage(chatId, {
-                    text: `╭─⌈ 📢 *ANTI-PROMOTE SETUP* ⌋\n│\n├─⊷ *${PREFIX}antipromote on notify*\n│  └⊷ Notify on promotion\n├─⊷ *${PREFIX}antipromote on warn*\n│  └⊷ Warn the promoter\n├─⊷ *${PREFIX}antipromote on kick*\n│  └⊷ Demote + kick promoter\n├─⊷ *${PREFIX}antipromote on revert*\n│  └⊷ Demote promoted user\n╰───`
+                    text: `╭─⌈ 📢 *ANTI-PROMOTE SETUP* ⌋\n│\n├─⊷ *${PREFIX}antipromote on notify*\n├◆  └⊷ Notify on promotion\n├─⊷ *${PREFIX}antipromote on warn*\n├◆  └⊷ Warn the promoter\n├─⊷ *${PREFIX}antipromote on kick*\n├◆  └⊷ Demote + kick promoter\n├─⊷ *${PREFIX}antipromote on revert*\n├◆  └⊷ Demote promoted user\n╰───`
                 }, { quoted: msg });
             }
 
@@ -334,7 +334,7 @@ export default {
             if (!['notify', 'warn', 'kick', 'revert'].includes(action)) {
                 const current = config[chatId]?.action || 'notify';
                 return sock.sendMessage(chatId, {
-                    text: `╭─⌈ 📢 *ANTI-PROMOTE MODE* ⌋\n│\n├─⊷ *${PREFIX}antipromote mode notify*\n│  └⊷ Notification only\n├─⊷ *${PREFIX}antipromote mode warn*\n│  └⊷ Warn the promoter\n├─⊷ *${PREFIX}antipromote mode kick*\n│  └⊷ Demote + kick promoter\n├─⊷ *${PREFIX}antipromote mode revert*\n│  └⊷ Demote promoted user\n╰───`
+                    text: `╭─⌈ 📢 *ANTI-PROMOTE MODE* ⌋\n│\n├─⊷ *${PREFIX}antipromote mode notify*\n├◆  └⊷ Notification only\n├─⊷ *${PREFIX}antipromote mode warn*\n├◆  └⊷ Warn the promoter\n├─⊷ *${PREFIX}antipromote mode kick*\n├◆  └⊷ Demote + kick promoter\n├─⊷ *${PREFIX}antipromote mode revert*\n├◆  └⊷ Demote promoted user\n╰───`
                 }, { quoted: msg });
             }
 
@@ -382,7 +382,7 @@ export default {
             const action = gc?.action || 'notify';
 
             await sock.sendMessage(chatId, {
-                text: `╭─⌈ 📢 *ANTI-PROMOTE* ⌋\n│\n├─⊷ *${PREFIX}antipromote on [notify|warn|kick|revert]*\n│  └⊷ Enable with mode\n├─⊷ *${PREFIX}antipromote off*\n│  └⊷ Disable protection\n├─⊷ *${PREFIX}antipromote mode <notify|warn|kick|revert>*\n│  └⊷ Change mode\n├─⊷ *${PREFIX}antipromote status*\n│  └⊷ View status\n├─⊷ *${PREFIX}antipromote resetwarns*\n│  └⊷ Clear warnings\n╰───`
+                text: `╭─⌈ 📢 *ANTI-PROMOTE* ⌋\n│\n├─⊷ *${PREFIX}antipromote on [notify|warn|kick|revert]*\n├◆  └⊷ Enable with mode\n├─⊷ *${PREFIX}antipromote off*\n├◆  └⊷ Disable protection\n├─⊷ *${PREFIX}antipromote mode <notify|warn|kick|revert>*\n├◆  └⊷ Change mode\n├─⊷ *${PREFIX}antipromote status*\n├◆  └⊷ View status\n├─⊷ *${PREFIX}antipromote resetwarns*\n├◆  └⊷ Clear warnings\n╰───`
             }, { quoted: msg });
         }
     }

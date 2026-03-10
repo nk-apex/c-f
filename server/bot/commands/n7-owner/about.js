@@ -23,28 +23,13 @@ export default {
         ? imagePath2
         : null;
 
-      // 🐺 Caption with ego and style
-      const caption = `
-╔═════════════════╗
-        🌕🐺 *SILENT WOLF BOT* 🐺🌕
-╚═════════════════╝
-
-👁 *IDENTITY:* The apex code. The predator of silence.
-💻 *Core:* Node.js + Baileys Fusion
-🧠 *Mind:* Adaptive, Unyielding, Unstoppable
-⚡ *Speed:* Faster than your excuses
-🛡 *Purpose:* Dominate every command chain
-
-⭐ *GitHub:* 
-https://github.com/777Wolf-dot/Silent-Wolf--Bot.git
-
-_"You may code in daylight...  
-But I execute in the dark."_ 🌑
-
-🐾 *Author:* 777Wolf-dot  
-🔥 *Legacy:* Born in code. Forged in chaos.
-🌕 *Era:* WolfTech Dominion
-`;
+      const caption = `┌─⧭ *FOX BOT*
+├◆ 🤖 *IDENTITY:* FOX BOT — Multi-platform WhatsApp Bot
+├◆ 💻 *Core:* Node.js + Baileys
+├◆ ⚡ *Commands:* 568 across 70 categories
+├◆ 🔗 *Platforms:* Replit · Heroku · Railway · Render · VPS
+├◆ 🛡 *Session:* FOX-BOT:~<Base64> format
+└─⧭`;
 
       // 🐺 Send Image + Caption or fallback to text
       if (imagePath) {

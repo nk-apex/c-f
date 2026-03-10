@@ -11,7 +11,7 @@ export default {
     try {
       if (args.length === 0) {
         await sock.sendMessage(jid, { 
-          text: `╭─⌈ 🌈 *GRADIENT LOGO* ⌋\n│\n├─⊷ *gradientlogo*\n│  └⊷ gradientlogo <text>\n│\n├─⊷ *Example:*\n│  └⊷ gradientlogo WOLF\n│  └⊷ gradientlogo GRADIENT\n│  └⊷ gradientlogo COLORFUL\n│\n╰───` 
+          text: `╭─⌈ 🌈 *GRADIENT LOGO* ⌋\n│\n├─⊷ *gradientlogo*\n├◆  └⊷ gradientlogo <text>\n│\n├─⊷ *Example:*\n├◆  └⊷ gradientlogo WOLF\n├◆  └⊷ gradientlogo GRADIENT\n├◆  └⊷ gradientlogo COLORFUL\n│\n╰───` 
         }, { quoted: m });
         return;
       }
@@ -20,7 +20,7 @@ export default {
       
       if (text.length > 15) {
         await sock.sendMessage(jid, { 
-          text: `╭─⌈ ❌ *ERROR* ⌋\n│\n├─⊷ Text too long!\n│  └⊷ Maximum 15 characters\n│  └⊷ Your text: "${text}" (${text.length} chars)\n│\n╰───` 
+          text: `╭─⌈ ❌ *ERROR* ⌋\n│\n├─⊷ Text too long!\n├◆  └⊷ Maximum 15 characters\n├◆  └⊷ Your text: "${text}" (${text.length} chars)\n│\n╰───` 
         }, { quoted: m });
         return;
       }
@@ -41,7 +41,7 @@ export default {
     } catch (error) {
       console.error("❌ [GRADIENTLOGO] ERROR:", error);
       await sock.sendMessage(jid, { 
-        text: `╭─⌈ ❌ *ERROR* ⌋\n│\n├─⊷ ${error.message}\n│  └⊷ Please try again with shorter text\n│\n╰───` 
+        text: `╭─⌈ ❌ *ERROR* ⌋\n│\n├─⊷ ${error.message}\n├◆  └⊷ Please try again with shorter text\n│\n╰───` 
       }, { quoted: m });
     }
   },

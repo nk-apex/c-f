@@ -1238,7 +1238,7 @@ export default {
     // Help section
     if (args.length === 0 || args[0].toLowerCase() === 'help') {
       return sock.sendMessage(jid, {
-        text: `╭─⌈ ✍️ *TEXT HUMANIZER* ⌋\n├─⊷ *${PREFIX}humanizer <text>*\n│  └⊷ Humanize AI-generated text\n├─⊷ *${PREFIX}humanizer <text> <style>*\n│  └⊷ casual, professional, creative,\n│  └⊷ academic, social, email, blog\n├─⊷ Reply to message with *${PREFIX}humanizer*\n│  └⊷ Humanize quoted text\n╰───`
+        text: `╭─⌈ ✍️ *TEXT HUMANIZER* ⌋\n├─⊷ *${PREFIX}humanizer <text>*\n├◆  └⊷ Humanize AI-generated text\n├─⊷ *${PREFIX}humanizer <text> <style>*\n├◆  └⊷ casual, professional, creative,\n├◆  └⊷ academic, social, email, blog\n├─⊷ Reply to message with *${PREFIX}humanizer*\n├◆  └⊷ Humanize quoted text\n╰───`
       }, { quoted: m });
     }
 

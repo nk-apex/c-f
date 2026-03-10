@@ -425,7 +425,7 @@ export default {
         const timeInfo = getCurrentDateTime();
 
         const CONFIG_FILE = path.join(process.cwd(), 'server', 'bot', 'bot_config.json');
-        let config = { prefix: '.', mode: 'public', ownerNumber: '', botName: 'Foxy Bot' };
+        let config = { prefix: '.', mode: 'public', ownerNumber: '', botName: 'FOX Bot' };
         try {
             if (fs.existsSync(CONFIG_FILE)) {
                 config = JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf-8'));

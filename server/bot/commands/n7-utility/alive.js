@@ -43,9 +43,9 @@ export default {
 
       const aliveText = `
 ╭━「 *${getBotName()} ALIVE* 」━╮
-│  ${statusEmoji} *Status:* Online
-│  ⏱️ *Uptime:* ${hours}h ${minutes}m ${seconds}s
-│  💾 *Memory:* ${memoryPercent}%
+├◆  ${statusEmoji} *Status:* Online
+├◆  ⏱️ *Uptime:* ${hours}h ${minutes}m ${seconds}s
+├◆  💾 *Memory:* ${memoryPercent}%
 ╰━━━━━━━━━━━━━╯
 _🐺 The pack survives together..._
 `;

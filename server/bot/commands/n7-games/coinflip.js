@@ -673,37 +673,37 @@ async function showHelp(sock, m, chatId, userData) {
     
     const helpText = `╭─⌈ 🪙 *COIN FLIP* ⌋
 │
-│ 💰 *Balance:* ${userData.balance} 🪙
+├◆ 💰 *Balance:* ${userData.balance} 🪙
 │
 ├─⊷ *.coinflip heads 100*
-│  └⊷ Bet 100 on heads
+├◆  └⊷ Bet 100 on heads
 │
 ├─⊷ *.coinflip tails 200*
-│  └⊷ Bet 200 on tails
+├◆  └⊷ Bet 200 on tails
 │
 ├─⊷ *.coinflip 50*
-│  └⊷ Bet 50 on last choice
+├◆  └⊷ Bet 50 on last choice
 │
 ├─⊷ *.coinflip challenge @user 500*
-│  └⊷ Challenge a player
+├◆  └⊷ Challenge a player
 │
 ├─⊷ *.coinflip accept*
-│  └⊷ Accept challenge
+├◆  └⊷ Accept challenge
 │
 ├─⊷ *.coinflip cancel*
-│  └⊷ Cancel your challenges
+├◆  └⊷ Cancel your challenges
 │
 ├─⊷ *.coinflip stats*
-│  └⊷ Your statistics
+├◆  └⊷ Your statistics
 │
 ├─⊷ *.coinflip leaderboard*
-│  └⊷ Top players
+├◆  └⊷ Top players
 │
 ├─⊷ *.coinflip daily*
-│  └⊷ Daily bonus
+├◆  └⊷ Daily bonus
 │
 ├─⊷ *.coinflip balance*
-│  └⊷ Check balance
+├◆  └⊷ Check balance
 │
 ╰───`;
     

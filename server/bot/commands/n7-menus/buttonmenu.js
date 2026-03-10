@@ -63,7 +63,7 @@ export default {
                 catCmds.forEach(cmd => {
                     text += `├─⊷ *${prefix}${cmd.name}*`;
                     if (cmd.aliases && cmd.aliases.length > 0) text += ` (${cmd.aliases.join(', ')})`;
-                    text += `\n│  └⊷ ${cmd.btnLabels || 'No description'}\n`;
+                    text += `\n├◆  └⊷ ${cmd.btnLabels || 'No description'}\n`;
                 });
                 text += `│\n├─⊷ *${catCmds.length}* commands in ${cat}\n├─⊷ Button Mode: ${buttonStatus}\n╰───`;
 

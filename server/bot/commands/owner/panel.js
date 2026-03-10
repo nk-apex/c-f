@@ -10,7 +10,7 @@ function loadConfig() {
             return JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf-8'));
         }
     } catch {}
-    return { prefix: '.', mode: 'public', ownerNumber: '', botName: 'Foxy Bot' };
+    return { prefix: '.', mode: 'public', ownerNumber: '', botName: 'FOX Bot' };
 }
 
 export default {
@@ -33,7 +33,7 @@ export default {
         const ownerNum = config.ownerNumber || 'Not set';
 
         const text = `\u250C\u2500\u29ED *Bot Dashboard*\n` +
-            `\u251C\u25C6 Name: ${config.botName || 'Foxy Bot'}\n` +
+            `\u251C\u25C6 Name: ${config.botName || 'FOX Bot'}\n` +
             `\u251C\u25C6 Prefix: ${config.prefix || PREFIX}\n` +
             `\u251C\u25C6 Mode: ${config.mode || 'public'}\n` +
             `\u251C\u25C6 Owner: ${ownerNum}\n` +

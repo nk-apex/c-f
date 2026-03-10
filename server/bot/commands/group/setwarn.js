@@ -27,7 +27,7 @@ export default {
 
     if (!jid.endsWith('@g.us')) {
       await sock.sendMessage(jid, {
-        text: '\u250c\u2500\u29ed GROUP ONLY \u29ed\u2500\u2510\n\u2502 This command works in groups only.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
+        text: '\u250c\u2500\u29ed GROUP ONLY \u29ed\u2500\u2510\n\u251C\u25C6 This command works in groups only.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
       }, { quoted: msg });
       return;
     }
@@ -37,7 +37,7 @@ export default {
 
     if (!senderParticipant?.admin) {
       await sock.sendMessage(jid, {
-        text: '\u250c\u2500\u29ed ACCESS DENIED \u29ed\u2500\u2510\n\u2502 Only group admins can use this command.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
+        text: '\u250c\u2500\u29ed ACCESS DENIED \u29ed\u2500\u2510\n\u251C\u25C6 Only group admins can use this command.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
       }, { quoted: msg });
       return;
     }
@@ -46,7 +46,7 @@ export default {
 
     if (!limit || limit < 1 || limit > 99) {
       await sock.sendMessage(jid, {
-        text: `\u250c\u2500\u29ed SET WARN \u29ed\u2500\u2510\n\u2502 Usage: ${PREFIX}setwarn <number>\n\u2502 Example: ${PREFIX}setwarn 5\n\u2502 Range: 1-99\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518`
+        text: `\u250c\u2500\u29ed SET WARN \u29ed\u2500\u2510\n\u251C\u25C6 Usage: ${PREFIX}setwarn <number>\n\u251C\u25C6 Example: ${PREFIX}setwarn 5\n\u251C\u25C6 Range: 1-99\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518`
       }, { quoted: msg });
       return;
     }
@@ -57,7 +57,7 @@ export default {
     saveWarnings(warnings);
 
     await sock.sendMessage(jid, {
-      text: `\u250c\u2500\u29ed SET WARN \u29ed\u2500\u2510\n\u2502 Max warnings set to ${limit}.\n\u2502 Users will be kicked after ${limit} warnings.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518`
+      text: `\u250c\u2500\u29ed SET WARN \u29ed\u2500\u2510\n\u251C\u25C6 Max warnings set to ${limit}.\n\u251C\u25C6 Users will be kicked after ${limit} warnings.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518`
     }, { quoted: msg });
   }
 };

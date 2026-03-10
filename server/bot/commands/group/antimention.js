@@ -23,13 +23,13 @@ export default {
   async execute(sock, msg, args, PREFIX, extra) {
     const jid = msg.key.remoteJid;
     if (!jid.endsWith('@g.us')) {
-      return sock.sendMessage(jid, { text: '┌─⧭ GROUP ONLY ⧭─┐\n│ This command works in groups only.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
+      return sock.sendMessage(jid, { text: '┌─⧭ GROUP ONLY ⧭─┐\n├◆ This command works in groups only.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
     }
     const sender = msg.key.participant || jid;
     const groupMetadata = await sock.groupMetadata(jid);
     const senderParticipant = groupMetadata.participants.find(p => p.id === sender);
     if (!senderParticipant?.admin) {
-      return sock.sendMessage(jid, { text: '┌─⧭ ADMIN ONLY ⧭─┐\n│ Only admins can use this command.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
+      return sock.sendMessage(jid, { text: '┌─⧭ ADMIN ONLY ⧭─┐\n├◆ Only admins can use this command.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
     }
     const action = args[0]?.toLowerCase();
     const data = loadAutomod();
@@ -37,14 +37,14 @@ export default {
     if (action === 'on') {
       data[jid]['antimention'] = true;
       saveAutomod(data);
-      return sock.sendMessage(jid, { text: '┌─⧭ ANTI-MENTION ⧭─┐\n│ Enabled successfully.\n│ Status: ON\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
+      return sock.sendMessage(jid, { text: '┌─⧭ ANTI-MENTION ⧭─┐\n├◆ Enabled successfully.\n├◆ Status: ON\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
     } else if (action === 'off') {
       data[jid]['antimention'] = false;
       saveAutomod(data);
-      return sock.sendMessage(jid, { text: '┌─⧭ ANTI-MENTION ⧭─┐\n│ Disabled successfully.\n│ Status: OFF\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
+      return sock.sendMessage(jid, { text: '┌─⧭ ANTI-MENTION ⧭─┐\n├◆ Disabled successfully.\n├◆ Status: OFF\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
     } else {
       const current = data[jid]['antimention'] ? 'ON' : 'OFF';
-      return sock.sendMessage(jid, { text: `┌─⧭ ANTI-MENTION ⧭─┐\n│ Current: ${current}\n│ Usage: ${PREFIX}antimention on/off\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘` }, { quoted: msg });
+      return sock.sendMessage(jid, { text: `┌─⧭ ANTI-MENTION ⧭─┐\n├◆ Current: ${current}\n├◆ Usage: ${PREFIX}antimention on/off\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘` }, { quoted: msg });
     }
   }
 };

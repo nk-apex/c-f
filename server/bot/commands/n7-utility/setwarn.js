@@ -38,7 +38,7 @@ export default {
 
         if (args.length === 0) {
             return sock.sendMessage(jid, {
-                text: `╭─⌈ 📊 *WARN LIMIT* ⌋\n├─⊷ *Current:* ${currentLimit} warnings\n├─⊷ *${PREFIX}setwarn <1-20>*\n│  └⊷ Set warning limit\n╰─── *${getBotName()}* ───`
+                text: `╭─⌈ 📊 *WARN LIMIT* ⌋\n├─⊷ *Current:* ${currentLimit} warnings\n├─⊷ *${PREFIX}setwarn <1-20>*\n├◆  └⊷ Set warning limit\n╰─── *${getBotName()}* ───`
             }, { quoted: msg });
         }
 

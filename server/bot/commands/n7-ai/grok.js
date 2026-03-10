@@ -18,7 +18,7 @@ export default {
       query = quoted.text;
     } else {
       await sock.sendMessage(jid, { 
-        text: `╭─⌈ 🤖 *X AI GROK* ⌋\n├─⊷ *${PREFIX}grok <question>*\n│  └⊷ Ask Grok anything\n├─⊷ *${PREFIX}xgrok <question>*\n│  └⊷ Alias for grok\n├─⊷ *${PREFIX}xai <question>*\n│  └⊷ Alias for grok\n╰───`
+        text: `╭─⌈ 🤖 *X AI GROK* ⌋\n├─⊷ *${PREFIX}grok <question>*\n├◆  └⊷ Ask Grok anything\n├─⊷ *${PREFIX}xgrok <question>*\n├◆  └⊷ Alias for grok\n├─⊷ *${PREFIX}xai <question>*\n├◆  └⊷ Alias for grok\n╰───`
       }, { quoted: m });
       return;
     }

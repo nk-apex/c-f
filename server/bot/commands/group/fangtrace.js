@@ -8,7 +8,7 @@ export default {
     async execute(sock, msg, args, PREFIX, extra) {
         const jid = msg.key.remoteJid;
         if (!jid.endsWith('@g.us')) {
-            return sock.sendMessage(jid, { text: '┌─⧭ GROUP ONLY ⧭─┐\n│ This command works in groups only.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
+            return sock.sendMessage(jid, { text: '┌─⧭ GROUP ONLY ⧭─┐\n├◆ This command works in groups only.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
         }
 
         if (!args[0]) {
@@ -26,7 +26,7 @@ export default {
         const number = args[0].replace(/[^0-9]/g, '');
 
         if (!number || number.length < 7) {
-            return sock.sendMessage(jid, { text: '┌─⧭ INVALID NUMBER ⧭─┐\n│ Please provide a valid phone number\n│ with country code.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
+            return sock.sendMessage(jid, { text: '┌─⧭ INVALID NUMBER ⧭─┐\n├◆ Please provide a valid phone number\n├◆ with country code.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
         }
 
         try {
@@ -47,7 +47,7 @@ export default {
 
             await sock.sendMessage(jid, { text }, { quoted: msg });
         } catch (error) {
-            await sock.sendMessage(jid, { text: '┌─⧭ ERROR ⧭─┐\n│ Failed to look up the number.\n│ Please try again later.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
+            await sock.sendMessage(jid, { text: '┌─⧭ ERROR ⧭─┐\n├◆ Failed to look up the number.\n├◆ Please try again later.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
         }
     }
 };

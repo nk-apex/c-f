@@ -21,7 +21,7 @@ export default {
             const wordCount = getBadWords().length;
 
             return sock.sendMessage(chatId, {
-                text: `╭─⌈ 🤬 *ANTI BAD WORD* ⌋\n│\n├─⊷ *Status:* ${enabled ? '✅ ON' : '❌ OFF'}\n├─⊷ *Action:* ${act}\n├─⊷ *Words in list:* ${wordCount}\n│\n├─⊷ *Usage:*\n│  .antibadword on [warn/kick/block]\n│  .antibadword off\n│  .antibadword global on [action] ← owner\n╰───`,
+                text: `╭─⌈ 🤬 *ANTI BAD WORD* ⌋\n│\n├─⊷ *Status:* ${enabled ? '✅ ON' : '❌ OFF'}\n├─⊷ *Action:* ${act}\n├─⊷ *Words in list:* ${wordCount}\n│\n├─⊷ *Usage:*\n├◆  .antibadword on [warn/kick/block]\n├◆  .antibadword off\n├◆  .antibadword global on [action] ← owner\n╰───`,
             }, { quoted: msg });
         }
 
@@ -61,7 +61,7 @@ export default {
         }
 
         return sock.sendMessage(chatId, {
-            text: `╭─⌈ 🤬 *ANTI BAD WORD* ⌋\n│\n├─⊷ *Usage:*\n│  .antibadword on [warn/kick/block]\n│  .antibadword off\n│  .antibadword status\n╰───`,
+            text: `╭─⌈ 🤬 *ANTI BAD WORD* ⌋\n│\n├─⊷ *Usage:*\n├◆  .antibadword on [warn/kick/block]\n├◆  .antibadword off\n├◆  .antibadword status\n╰───`,
         }, { quoted: msg });
     }
 };

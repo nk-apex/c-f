@@ -14,8 +14,8 @@ export default {
       // Show help if no arguments
       if (args.length === 0 || args[0]?.toLowerCase() === 'help') {
         const helpText = `╭─⌈ 📊 *TIKTOK ACCOUNT INFO* ⌋\n│\n` +
-          `├─⊷ *${PREFIX}tiktokinfo <username>*\n│  └⊷ Get TikTok account information\n│\n` +
-          `├─⊷ *${PREFIX}ttinfo @username*\n│  └⊷ Alias for tiktokinfo\n│\n` +
+          `├─⊷ *${PREFIX}tiktokinfo <username>*\n├◆  └⊷ Get TikTok account information\n│\n` +
+          `├─⊷ *${PREFIX}ttinfo @username*\n├◆  └⊷ Alias for tiktokinfo\n│\n` +
           `├─⊷ *Examples:*\n` +
           `│  └⊷ ${PREFIX}tiktokinfo khaby.lame\n` +
           `│  └⊷ ${PREFIX}ttinfo @zachking\n│\n` +
@@ -59,9 +59,12 @@ export default {
       }
 
       // Create account info display
-      let accountText = `╔══════════════════════════════╗\n`;
-      accountText += `║    📊 TIKTOK ACCOUNT INFO    ║\n`;
-      accountText += `╚══════════════════════════════╝\n\n`;
+      let accountText = ``;
+      accountText += `┌─⧭ 📊 TIKTOK ACCOUNT INFO
+      accountText += ``;
+      accountText += `└─⧭
+
+`;
       
       accountText += `👤 *USER PROFILE*\n`;
       accountText += `├─ *Username:* @${accountInfo.username}\n`;

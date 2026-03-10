@@ -11,7 +11,7 @@ export default {
     const start = Date.now();
 
     const sentMsg = await sock.sendMessage(chatId, {
-      text: `\u250C\u2500\u29ED *Checking...*\n\u2502 Testing connection...\n\u2514\u2500\u29ED`
+      text: `\u250C\u2500\u29ED *Checking...*\n\u251C\u25C6 Testing connection...\n\u2514\u2500\u29ED`
     }, { quoted: m });
 
     const latency = Date.now() - start;
@@ -28,7 +28,7 @@ export default {
     uptimeStr += `${minutes}m ${seconds}s`;
 
     await sock.sendMessage(chatId, {
-      text: `\u250C\u2500\u29ED *Foxy is Alive*\n\u2502 Status: Running\n\u2502 Uptime: ${uptimeStr}\n\u2502 Speed: ${latency}ms\n\u2514\u2500\u29ED`,
+      text: `\u250C\u2500\u29ED *FOX BOT is Alive*\n\u251C\u25C6 Status: Running\n\u251C\u25C6 Uptime: ${uptimeStr}\n\u251C\u25C6 Speed: ${latency}ms\n\u2514\u2500\u29ED`,
       edit: sentMsg.key
     });
   }

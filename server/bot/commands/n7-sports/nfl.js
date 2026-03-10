@@ -15,7 +15,7 @@ export default {
 
     if (args.length === 0 || args[0].toLowerCase() === 'help') {
       return sock.sendMessage(jid, {
-        text: `╭─⌈ 🏈 *NFL FOOTBALL* ⌋\n├─⊷ *${PREFIX}nfl scores*\n│  └⊷ Latest NFL scores\n├─⊷ *${PREFIX}nfl standings*\n│  └⊷ NFL standings\n├─⊷ *${PREFIX}americanfootball*\n│  └⊷ Alias for nfl\n╰───`
+        text: `╭─⌈ 🏈 *NFL FOOTBALL* ⌋\n├─⊷ *${PREFIX}nfl scores*\n├◆  └⊷ Latest NFL scores\n├─⊷ *${PREFIX}nfl standings*\n├◆  └⊷ NFL standings\n├─⊷ *${PREFIX}americanfootball*\n├◆  └⊷ Alias for nfl\n╰───`
       }, { quoted: m });
     }
 

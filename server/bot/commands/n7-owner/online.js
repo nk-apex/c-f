@@ -145,7 +145,7 @@ export default {
                         `│\n` +
                         `│ ✧ *Status:* ${status}\n` +
                         `│\n` +
-                        `│ ${config.enabled ? '👁️ You appear always online\n│ 🔒 Last seen is hidden' : '📱 Normal presence restored'}\n` +
+                        `│ ${config.enabled ? '👁️ You appear always online\n├◆ 🔒 Last seen is hidden' : '📱 Normal presence restored'}\n` +
                         `│\n` +
                         `│ • \`${PREFIX}online ${config.enabled ? 'off' : 'on'}\` - Toggle\n` +
                         `│ • \`${PREFIX}privacy\` - View all settings\n` +

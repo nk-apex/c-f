@@ -9,15 +9,8 @@ export default {
     try {
       const jid = msg.key.remoteJid;
 
-      // 🐺 Border styles
-      const borders = [
-        { top: "╔═══════════════════════════════╗", bottom: "╚═══════════════════════════════╝" },
-        { top: "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓", bottom: "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" },
-        { top: "╭───────────────────────────────╮", bottom: "╰───────────────────────────────╯" },
-        { top: "═══════🐺🌕═══════", bottom: "═══════🌕🐺═══════" },
-        { top: "━━━━━━🐾━━━━━━", bottom: "━━━━━━🐾━━━━━━" },
-      ];
-      const { top, bottom } = borders[Math.floor(Math.random() * borders.length)];
+      const top = "┌─⧭ 🦊 FOX QUOTE";
+      const bottom = "└─⧭";
 
       // 🐾 Wolf quotes
       const quotes = [

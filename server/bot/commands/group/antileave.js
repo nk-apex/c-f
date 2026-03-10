@@ -25,7 +25,7 @@ export default {
 
     if (!jid.endsWith('@g.us')) {
       await sock.sendMessage(jid, {
-        text: '\u250c\u2500\u29ed GROUP ONLY \u29ed\u2500\u2510\n\u2502 This command works in groups only.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
+        text: '\u250c\u2500\u29ed GROUP ONLY \u29ed\u2500\u2510\n\u251C\u25C6 This command works in groups only.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
       }, { quoted: msg });
       return;
     }
@@ -35,7 +35,7 @@ export default {
 
     if (!senderParticipant?.admin) {
       await sock.sendMessage(jid, {
-        text: '\u250c\u2500\u29ed ACCESS DENIED \u29ed\u2500\u2510\n\u2502 Only group admins can use this command.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
+        text: '\u250c\u2500\u29ed ACCESS DENIED \u29ed\u2500\u2510\n\u251C\u25C6 Only group admins can use this command.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
       }, { quoted: msg });
       return;
     }
@@ -44,7 +44,7 @@ export default {
 
     if (!option || (option !== 'on' && option !== 'off')) {
       await sock.sendMessage(jid, {
-        text: `\u250c\u2500\u29ed ANTI-LEAVE \u29ed\u2500\u2510\n\u2502 Usage: ${PREFIX}antileave on/off\n\u2502 Re-adds users who leave the group.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518`
+        text: `\u250c\u2500\u29ed ANTI-LEAVE \u29ed\u2500\u2510\n\u251C\u25C6 Usage: ${PREFIX}antileave on/off\n\u251C\u25C6 Re-adds users who leave the group.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518`
       }, { quoted: msg });
       return;
     }
@@ -57,7 +57,7 @@ export default {
     saveConfig(config);
 
     await sock.sendMessage(jid, {
-      text: `\u250c\u2500\u29ed ANTI-LEAVE \u29ed\u2500\u2510\n\u2502 Anti-leave has been turned ${enabled ? 'ON' : 'OFF'}.\n\u2502 ${enabled ? 'Users who leave will be re-added.' : 'Users can leave freely.'}\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518`
+      text: `\u250c\u2500\u29ed ANTI-LEAVE \u29ed\u2500\u2510\n\u251C\u25C6 Anti-leave has been turned ${enabled ? 'ON' : 'OFF'}.\n\u251C\u25C6 ${enabled ? 'Users who leave will be re-added.' : 'Users can leave freely.'}\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518`
     }, { quoted: msg });
   }
 };

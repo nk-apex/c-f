@@ -8,7 +8,7 @@ export default {
     async execute(sock, msg, args, PREFIX, extra) {
         const jid = msg.key.remoteJid;
         if (!jid.endsWith('@g.us')) {
-            return sock.sendMessage(jid, { text: '┌─⧭ GROUP ONLY ⧭─┐\n│ This command works in groups only.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
+            return sock.sendMessage(jid, { text: '┌─⧭ GROUP ONLY ⧭─┐\n├◆ This command works in groups only.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
         }
 
         try {
@@ -42,7 +42,7 @@ export default {
                 mentions: displayList.map(p => p.id)
             }, { quoted: msg });
         } catch (error) {
-            await sock.sendMessage(jid, { text: '┌─⧭ ERROR ⧭─┐\n│ Failed to fetch member list.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
+            await sock.sendMessage(jid, { text: '┌─⧭ ERROR ⧭─┐\n├◆ Failed to fetch member list.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
         }
     }
 };

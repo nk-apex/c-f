@@ -8,7 +8,7 @@ export default {
     async execute(sock, msg, args, PREFIX, extra) {
         const jid = msg.key.remoteJid;
         if (!jid.endsWith('@g.us')) {
-            return sock.sendMessage(jid, { text: '┌─⧭ GROUP ONLY ⧭─┐\n│ This command works in groups only.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
+            return sock.sendMessage(jid, { text: '┌─⧭ GROUP ONLY ⧭─┐\n├◆ This command works in groups only.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
         }
 
         try {
@@ -30,7 +30,7 @@ export default {
                 text += `│ ${i + 1}. @${p.id.split('@')[0]} [${role}]\n`;
             });
 
-            text += '│\n│ -- Members --\n';
+            text += '│\n├◆ -- Members --\n';
             const displayMembers = members.slice(0, 50);
             displayMembers.forEach((p, i) => {
                 text += `│ ${i + 1}. @${p.id.split('@')[0]}\n`;
@@ -47,7 +47,7 @@ export default {
                 mentions: participants.map(p => p.id)
             }, { quoted: msg });
         } catch (error) {
-            await sock.sendMessage(jid, { text: '┌─⧭ ERROR ⧭─┐\n│ Failed to fetch member list.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
+            await sock.sendMessage(jid, { text: '┌─⧭ ERROR ⧭─┐\n├◆ Failed to fetch member list.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
         }
     }
 };

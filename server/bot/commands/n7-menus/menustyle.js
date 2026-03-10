@@ -150,7 +150,7 @@ export default {
       return sock.sendMessage(
         jid,
         {
-          text: `╭─⌈ ❌ *INVALID STYLE* ⌋\n│\n├─⊷ *${PREFIX}menustyle <1-8>*\n│  └⊷ Valid styles: 1 to 8\n│\n├─⊷ *Example:*\n│  └⊷ ${PREFIX}menustyle 3\n│\n╰───`
+          text: `╭─⌈ ❌ *INVALID STYLE* ⌋\n│\n├─⊷ *${PREFIX}menustyle <1-8>*\n├◆  └⊷ Valid styles: 1 to 8\n│\n├─⊷ *Example:*\n├◆  └⊷ ${PREFIX}menustyle 3\n│\n╰───`
         },
         { 
           quoted: m // Reply format

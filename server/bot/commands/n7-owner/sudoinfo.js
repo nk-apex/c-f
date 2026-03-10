@@ -21,13 +21,13 @@ export default {
         info += `│ 👥 *Sudo Users:* ${count}\n`;
         info += `│ 🔧 *Sudo Mode:* ${sudomode ? '✅ ON (Sudo-only)' : '❌ OFF (Normal)'}\n`;
         info += `│\n`;
-        info += `├─⊷ *${PREFIX}addsudo <number>*\n│  └⊷ Add sudo user\n`;
-        info += `├─⊷ *${PREFIX}delsudo <number>*\n│  └⊷ Remove sudo user\n`;
-        info += `├─⊷ *${PREFIX}listsudo*\n│  └⊷ List all sudos\n`;
-        info += `├─⊷ *${PREFIX}checksudo <number>*\n│  └⊷ Check sudo status\n`;
-        info += `├─⊷ *${PREFIX}clearsudo*\n│  └⊷ Clear all sudos\n`;
-        info += `├─⊷ *${PREFIX}sudomode on/off*\n│  └⊷ Toggle sudo mode\n`;
-        info += `├─⊷ *${PREFIX}sudoinfo*\n│  └⊷ This menu\n`;
+        info += `├─⊷ *${PREFIX}addsudo <number>*\n├◆  └⊷ Add sudo user\n`;
+        info += `├─⊷ *${PREFIX}delsudo <number>*\n├◆  └⊷ Remove sudo user\n`;
+        info += `├─⊷ *${PREFIX}listsudo*\n├◆  └⊷ List all sudos\n`;
+        info += `├─⊷ *${PREFIX}checksudo <number>*\n├◆  └⊷ Check sudo status\n`;
+        info += `├─⊷ *${PREFIX}clearsudo*\n├◆  └⊷ Clear all sudos\n`;
+        info += `├─⊷ *${PREFIX}sudomode on/off*\n├◆  └⊷ Toggle sudo mode\n`;
+        info += `├─⊷ *${PREFIX}sudoinfo*\n├◆  └⊷ This menu\n`;
         info += `│\n`;
 
         if (count > 0) {

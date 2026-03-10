@@ -27,22 +27,22 @@ export default {
     
     if (args.length === 0 || args[0] === 'help') {
       const categoryList = Object.keys(categories).map(cat => 
-        `\u2502 - ${cat}`
+        `\u251C\u25C6 - ${cat}`
       ).join('\n');
       
       return sock.sendMessage(jid, {
         text: `\u250C\u2500\u29ED *Foxy Wallpaper*\n` +
               `\u2502\n` +
-              `\u2502 Usage:\n` +
-              `\u2502 ${PREFIX}wallpaper anime\n` +
-              `\u2502 ${PREFIX}wall nature 5\n` +
-              `\u2502 ${PREFIX}wallpaper random\n` +
+              `\u251C\u25C6 Usage:\n` +
+              `\u251C\u25C6 ${PREFIX}wallpaper anime\n` +
+              `\u251C\u25C6 ${PREFIX}wall nature 5\n` +
+              `\u251C\u25C6 ${PREFIX}wallpaper random\n` +
               `\u2502\n` +
-              `\u2502 Categories:\n` +
+              `\u251C\u25C6 Categories:\n` +
               `${categoryList}\n` +
               `\u2502\n` +
-              `\u2502 Add number for multiple (max 10)\n` +
-              `\u2502 Example: ${PREFIX}wallpaper nature 3\n` +
+              `\u251C\u25C6 Add number for multiple (max 10)\n` +
+              `\u251C\u25C6 Example: ${PREFIX}wallpaper nature 3\n` +
               `\u2514\u2500\u29ED`
       }, { quoted: m });
     }
@@ -50,7 +50,7 @@ export default {
     if (args[0].toLowerCase() === 'categories') {
       const allCats = Object.keys(categories).join(', ');
       return sock.sendMessage(jid, {
-        text: `\u250C\u2500\u29ED *All Wallpaper Categories*\n\u2502 ${allCats}\n\u2502\n\u2502 Use: ${PREFIX}wallpaper <category>\n\u2514\u2500\u29ED`
+        text: `\u250C\u2500\u29ED *All Wallpaper Categories*\n\u251C\u25C6 ${allCats}\n\u2502\n\u251C\u25C6 Use: ${PREFIX}wallpaper <category>\n\u2514\u2500\u29ED`
       }, { quoted: m });
     }
     
@@ -72,7 +72,7 @@ export default {
       }
       
       await sock.sendMessage(jid, {
-        text: `\u250C\u2500\u29ED *Searching...*\n\u2502 Finding ${actualCategory} wallpapers...\n\u2514\u2500\u29ED`
+        text: `\u250C\u2500\u29ED *Searching...*\n\u251C\u25C6 Finding ${actualCategory} wallpapers...\n\u2514\u2500\u29ED`
       }, { quoted: m });
       
       let wallpapers = [];
@@ -93,10 +93,10 @@ export default {
         await sock.sendMessage(jid, {
           image: { url: wallpaper.url },
           caption: `\u250C\u2500\u29ED *Foxy Wallpaper*\n` +
-                   `\u2502 Category: ${actualCategory.toUpperCase()}\n` +
-                   `\u2502 Resolution: ${wallpaper.width || 'Unknown'}x${wallpaper.height || 'Unknown'}\n` +
-                   `\u2502 Source: ${wallpaper.source || 'Unknown'}\n` +
-                   `\u2502 ${i + 1}/${Math.min(wallpapers.length, count)}\n` +
+                   `\u251C\u25C6 Category: ${actualCategory.toUpperCase()}\n` +
+                   `\u251C\u25C6 Resolution: ${wallpaper.width || 'Unknown'}x${wallpaper.height || 'Unknown'}\n` +
+                   `\u251C\u25C6 Source: ${wallpaper.source || 'Unknown'}\n` +
+                   `\u251C\u25C6 ${i + 1}/${Math.min(wallpapers.length, count)}\n` +
                    `\u2514\u2500\u29ED`
         }, { quoted: i === 0 ? m : null });
         
@@ -110,9 +110,9 @@ export default {
       
       await sock.sendMessage(jid, {
         text: `\u250C\u2500\u29ED *Error*\n` +
-              `\u2502 Failed to fetch wallpapers!\n` +
-              `\u2502 Try: ${PREFIX}wallpaper categories\n` +
-              `\u2502 Or: ${PREFIX}wallpaper random\n` +
+              `\u251C\u25C6 Failed to fetch wallpapers!\n` +
+              `\u251C\u25C6 Try: ${PREFIX}wallpaper categories\n` +
+              `\u251C\u25C6 Or: ${PREFIX}wallpaper random\n` +
               `\u2514\u2500\u29ED`
       }, { quoted: m });
     }

@@ -112,8 +112,8 @@ export default {
       
       await sock.sendMessage(chatId, {
         text: cleared 
-          ? `\u250C\u2500\u29ED *Foxy AI*\n\u2502 Conversation cleared!\n\u2514\u2500\u29ED`
-          : `\u250C\u2500\u29ED *Foxy AI*\n\u2502 No conversation to clear\n\u2514\u2500\u29ED`
+          ? `\u250C\u2500\u29ED *Foxy AI*\n\u251C\u25C6 Conversation cleared!\n\u2514\u2500\u29ED`
+          : `\u250C\u2500\u29ED *Foxy AI*\n\u251C\u25C6 No conversation to clear\n\u2514\u2500\u29ED`
       }, { quoted: m });
       return;
     }
@@ -123,9 +123,9 @@ export default {
     if (!question) {
       await sock.sendMessage(chatId, {
         text: `\u250C\u2500\u29ED *Foxy AI*\n` +
-              `\u2502 Ask me anything!\n` +
-              `\u2502 Usage: ${PREFIX}foxy <message>\n` +
-              `\u2502 Clear: ${PREFIX}foxy clear\n` +
+              `\u251C\u25C6 Ask me anything!\n` +
+              `\u251C\u25C6 Usage: ${PREFIX}foxy <message>\n` +
+              `\u251C\u25C6 Clear: ${PREFIX}foxy clear\n` +
               `\u2514\u2500\u29ED`
       }, { quoted: m });
       return;
@@ -138,14 +138,14 @@ export default {
       foxyAI.addConversation(chatId, userId, question, answer);
       
       await sock.sendMessage(chatId, {
-        text: `\u250C\u2500\u29ED *Foxy AI*\n\u2502 ${answer.split('\n').join('\n\u2502 ')}\n\u2514\u2500\u29ED`
+        text: `\u250C\u2500\u29ED *Foxy AI*\n\u251C\u25C6 ${answer.split('\n').join('\n\u251C\u25C6 ')}\n\u2514\u2500\u29ED`
       }, { quoted: m });
       
     } catch (error) {
       console.error('Foxy error:', error);
       
       await sock.sendMessage(chatId, {
-        text: `\u250C\u2500\u29ED *Error*\n\u2502 Something went wrong\n\u2502 Try again!\n\u2514\u2500\u29ED`
+        text: `\u250C\u2500\u29ED *Error*\n\u251C\u25C6 Something went wrong\n\u251C\u25C6 Try again!\n\u2514\u2500\u29ED`
       }, { quoted: m });
     }
   }

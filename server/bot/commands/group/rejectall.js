@@ -8,7 +8,7 @@ export default {
     async execute(sock, msg, args, PREFIX, extra) {
         const jid = msg.key.remoteJid;
         if (!jid.endsWith('@g.us')) {
-            return sock.sendMessage(jid, { text: '┌─⧭ GROUP ONLY ⧭─┐\n│ This command works in groups only.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
+            return sock.sendMessage(jid, { text: '┌─⧭ GROUP ONLY ⧭─┐\n├◆ This command works in groups only.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
         }
 
         const metadata = await sock.groupMetadata(jid).catch(() => null);
@@ -16,14 +16,14 @@ export default {
         const isAdmin = metadata?.participants?.find(p => p.id === participant)?.admin;
 
         if (!isAdmin) {
-            return sock.sendMessage(jid, { text: '┌─⧭ ADMIN ONLY ⧭─┐\n│ Only group admins can reject requests.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
+            return sock.sendMessage(jid, { text: '┌─⧭ ADMIN ONLY ⧭─┐\n├◆ Only group admins can reject requests.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
         }
 
         try {
             const response = await sock.groupRequestParticipantsList(jid);
 
             if (!response || response.length === 0) {
-                return sock.sendMessage(jid, { text: '┌─⧭ NO REQUESTS ⧭─┐\n│ There are no pending join requests.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
+                return sock.sendMessage(jid, { text: '┌─⧭ NO REQUESTS ⧭─┐\n├◆ There are no pending join requests.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
             }
 
             let rejected = 0;
@@ -46,7 +46,7 @@ export default {
 
             await sock.sendMessage(jid, { text }, { quoted: msg });
         } catch (error) {
-            await sock.sendMessage(jid, { text: '┌─⧭ ERROR ⧭─┐\n│ Failed to process join requests.\n│ Make sure the bot is an admin.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
+            await sock.sendMessage(jid, { text: '┌─⧭ ERROR ⧭─┐\n├◆ Failed to process join requests.\n├◆ Make sure the bot is an admin.\n└─⧭━━━━━━━━━━━━━━━━━━━━━━━━━━⧭─┘' }, { quoted: msg });
         }
     }
 };

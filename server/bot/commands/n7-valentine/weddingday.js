@@ -16,7 +16,7 @@ export default {
 
         if (!hasImage) {
             return await sock.sendMessage(chatId, {
-                text: `╭─⌈ 💒 *WEDDING DAY* ⌋\n│\n│ Create a wedding day effect\n│ with your image\n│\n├─⊷ *Usage:*\n│ ${global.prefix || '.'}weddingday\n│ _(reply to an image)_\n╰───`
+                text: `╭─⌈ 💒 *WEDDING DAY* ⌋\n│\n├◆ Create a wedding day effect\n├◆ with your image\n│\n├─⊷ *Usage:*\n├◆ ${global.prefix || '.'}weddingday\n├◆ _(reply to an image)_\n╰───`
             }, { quoted: msg });
         }
 

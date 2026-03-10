@@ -8,7 +8,7 @@ export default {
     async execute(sock, m, args, PREFIX, extra) {
         const chatId = m.key.remoteJid;
 
-        const text = `\u250C\u2500\u29ED *Foxy Bot v1.0.8 - Changelog*\n` +
+        const text = `\u250C\u2500\u29ED *FOX Bot v1.0.8 - Changelog*\n` +
             `\u251C\u25C6 Updated command loader system\n` +
             `\u251C\u25C6 Added owner management commands\n` +
             `\u251C\u25C6 Improved privacy controls\n` +

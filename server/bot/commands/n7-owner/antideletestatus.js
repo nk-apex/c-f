@@ -875,7 +875,7 @@ export default {
                 const subCommand = args[1]?.toLowerCase();
 
                 if (!subCommand) {
-                    const settingsText = `╭─⌈ ⚙️ *STATUS ANTIDELETE SETTINGS* ⌋\n│\n├─⊷ *${prefix}ads settings autoclean on/off*\n│  └⊷ Toggle auto-clean\n├─⊷ *${prefix}ads settings cleanretrieved on/off*\n│  └⊷ Toggle clean mode\n├─⊷ *${prefix}ads settings maxage <hours>*\n│  └⊷ Set max age\n├─⊷ *${prefix}ads settings maxstorage <MB>*\n│  └⊷ Set max storage\n╰───`;
+                    const settingsText = `╭─⌈ ⚙️ *STATUS ANTIDELETE SETTINGS* ⌋\n│\n├─⊷ *${prefix}ads settings autoclean on/off*\n├◆  └⊷ Toggle auto-clean\n├─⊷ *${prefix}ads settings cleanretrieved on/off*\n├◆  └⊷ Toggle clean mode\n├─⊷ *${prefix}ads settings maxage <hours>*\n├◆  └⊷ Set max age\n├─⊷ *${prefix}ads settings maxstorage <MB>*\n├◆  └⊷ Set max storage\n╰───`;
                     await sock.sendMessage(chatId, { text: settingsText }, { quoted: msg });
                     return;
                 }
@@ -962,7 +962,7 @@ export default {
 
             default: {
                 const modeNow = statusAntideleteState.enabled ? (statusAntideleteState.mode || 'private').toUpperCase() : 'OFF';
-                const helpText = `╭─⌈ 🔍 *STATUS ANTIDELETE* ⌋\n├─⊷ *Mode:* ${modeNow}\n├─⊷ *${prefix}ads on*\n│  └⊷ Enable tracking\n├─⊷ *${prefix}ads off*\n│  └⊷ Disable tracking\n├─⊷ *${prefix}ads status*\n│  └⊷ View stats\n╰───`;
+                const helpText = `╭─⌈ 🔍 *STATUS ANTIDELETE* ⌋\n├─⊷ *Mode:* ${modeNow}\n├─⊷ *${prefix}ads on*\n├◆  └⊷ Enable tracking\n├─⊷ *${prefix}ads off*\n├◆  └⊷ Disable tracking\n├─⊷ *${prefix}ads status*\n├◆  └⊷ View stats\n╰───`;
                 if (isButtonModeEnabled() && giftedBtnsAds?.sendInteractiveMessage) {
                     try {
                         await giftedBtnsAds.sendInteractiveMessage(sock, chatId, {

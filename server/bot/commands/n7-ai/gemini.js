@@ -17,7 +17,7 @@ export default {
       query = quoted.text;
     } else {
       await sock.sendMessage(jid, { 
-        text: `╭─⌈ ✨ *GOOGLE GEMINI AI* ⌋\n├─⊷ *${PREFIX}gemini <question>*\n│  └⊷ Ask Gemini anything\n├─⊷ *${PREFIX}googleai <question>*\n│  └⊷ Alias for gemini\n├─⊷ *${PREFIX}gem <question>*\n│  └⊷ Alias for gemini\n╰───`
+        text: `╭─⌈ ✨ *GOOGLE GEMINI AI* ⌋\n├─⊷ *${PREFIX}gemini <question>*\n├◆  └⊷ Ask Gemini anything\n├─⊷ *${PREFIX}googleai <question>*\n├◆  └⊷ Alias for gemini\n├─⊷ *${PREFIX}gem <question>*\n├◆  └⊷ Alias for gemini\n╰───`
       }, { quoted: m });
       return;
     }

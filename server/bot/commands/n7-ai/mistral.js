@@ -13,7 +13,7 @@ export default {
     
     // ====== HELP SECTION ======
     if (args.length === 0 || args[0].toLowerCase() === 'help') {
-      const helpText = `╭─⌈ 🤖 *MISTRAL AI* ⌋\n├─⊷ *${PREFIX}mistral <question>*\n│  └⊷ Ask Mistral anything\n├─⊷ *${PREFIX}mistralai <question>*\n│  └⊷ Alias for mistral\n├─⊷ *${PREFIX}mst <question>*\n│  └⊷ Alias for mistral\n╰───`;
+      const helpText = `╭─⌈ 🤖 *MISTRAL AI* ⌋\n├─⊷ *${PREFIX}mistral <question>*\n├◆  └⊷ Ask Mistral anything\n├─⊷ *${PREFIX}mistralai <question>*\n├◆  └⊷ Alias for mistral\n├─⊷ *${PREFIX}mst <question>*\n├◆  └⊷ Alias for mistral\n╰───`;
       
       return sock.sendMessage(jid, { text: helpText }, { quoted: m });
     }

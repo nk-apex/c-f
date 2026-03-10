@@ -12,56 +12,56 @@ export default {
 
     const commandsText = `╭─⊷ *📰 NEWS*
 │
-│  • citizennews
-│  • bbcnews
-│  • ntvnews
-│  • kbcnews
-│  • technews
+├◆  • citizennews
+├◆  • bbcnews
+├◆  • ntvnews
+├◆  • kbcnews
+├◆  • technews
 │
 ╰─⊷
 
 ╭─⊷ *🔍 INFO & SEARCH*
 │
-│  • alive
-│  • ping
-│  • ping2
-│  • time
-│  • uptime
-│  • define
-│  • news
-│  • covid
-│  • weather
-│  • wiki
-│  • translate
-│  • calc
-│  • iplookup
-│  • getip
-│  • getpp
-│  • getgpp
-│  • prefixinfo
+├◆  • alive
+├◆  • ping
+├◆  • ping2
+├◆  • time
+├◆  • uptime
+├◆  • define
+├◆  • news
+├◆  • covid
+├◆  • weather
+├◆  • wiki
+├◆  • translate
+├◆  • calc
+├◆  • iplookup
+├◆  • getip
+├◆  • getpp
+├◆  • getgpp
+├◆  • prefixinfo
 │
 ╰─⊷
 
 ╭─⊷ *🔗 CONVERSION & MEDIA*
 │
-│  • shorturl
-│  • url
-│  • fetch
-│  • qrencode
-│  • take
-│  • imgbb
-│  • save
-│  • screenshot
-│  • inspect
+├◆  • shorturl
+├◆  • url
+├◆  • fetch
+├◆  • qrencode
+├◆  • take
+├◆  • imgbb
+├◆  • save
+├◆  • screenshot
+├◆  • inspect
 │
 ╰─⊷
 
 ╭─⊷ *📇 CONTACT TOOLS*
 │
-│  • vcf
-│  • viewvcf
-│  • vv
-│  • vv2
+├◆  • vcf
+├◆  • viewvcf
+├◆  • vv
+├◆  • vv2
 │
 ╰─⊷`;
 

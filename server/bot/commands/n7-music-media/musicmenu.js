@@ -12,13 +12,13 @@ export default {
 
     const commandsText = `╭─⊷ *🎵 MUSIC COMMANDS*
 │
-│  • play
-│  • song
-│  • video
-│  • videodoc
-│  • lyrics
-│  • shazam
-│  • spotify
+├◆  • play
+├◆  • song
+├◆  • video
+├◆  • videodoc
+├◆  • lyrics
+├◆  • shazam
+├◆  • spotify
 │
 ╰─⊷`;
 

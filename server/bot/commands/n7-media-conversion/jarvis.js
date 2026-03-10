@@ -169,7 +169,7 @@ export default {
 
             if (args.length === 0) {
                 return await sock.sendMessage(chatId, {
-                    text: `╭─⌈ 🤖 *J.A.R.V.I.S.* ⌋\n│  _Just A Rather Very Intelligent System_\n│\n├─⊷ *.jarvis <message>*\n│  └⊷ Ask anything to the AI assistant\n│\n├─⊷ *Examples:*\n│  └⊷ .jarvis What is quantum computing?\n│  └⊷ .jarvis How does AI work?\n│\n╰───`
+                    text: `╭─⌈ 🤖 *J.A.R.V.I.S.* ⌋\n├◆  _Just A Rather Very Intelligent System_\n│\n├─⊷ *.jarvis <message>*\n├◆  └⊷ Ask anything to the AI assistant\n│\n├─⊷ *Examples:*\n├◆  └⊷ .jarvis What is quantum computing?\n├◆  └⊷ .jarvis How does AI work?\n│\n╰───`
                 }, { quoted: m });
             }
 

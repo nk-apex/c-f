@@ -111,22 +111,22 @@ export default {
       const modeText = config.mode === 'fixed' ? `Fixed (${config.fixedEmoji})` : 'Random';
       return sendMessage(
         `\u250C\u2500\u29ED *Auto React Status*\n` +
-        `\u2502 Status: ${config.enabled ? 'ON' : 'OFF'}\n` +
-        `\u2502 Mode: ${modeText}\n` +
-        `\u2502 Total Reacted: ${config.totalReacted || 0}\n` +
-        `\u2502 Delay: ${config.settings?.rateLimitDelay || 500}ms\n` +
+        `\u251C\u25C6 Status: ${config.enabled ? 'ON' : 'OFF'}\n` +
+        `\u251C\u25C6 Mode: ${modeText}\n` +
+        `\u251C\u25C6 Total Reacted: ${config.totalReacted || 0}\n` +
+        `\u251C\u25C6 Delay: ${config.settings?.rateLimitDelay || 500}ms\n` +
         `\u2502\n` +
-        `\u2502 Commands:\n` +
-        `\u2502 ${PREFIX}sr on - Enable\n` +
-        `\u2502 ${PREFIX}sr off - Disable\n` +
-        `\u2502 ${PREFIX}sr emoji <emoji> - Set emoji\n` +
-        `\u2502 ${PREFIX}sr random - Random mode\n` +
-        `\u2502 ${PREFIX}sr fixed - Fixed mode\n` +
-        `\u2502 ${PREFIX}sr list - Show emoji list\n` +
-        `\u2502 ${PREFIX}sr add <emoji> - Add to list\n` +
-        `\u2502 ${PREFIX}sr remove <emoji> - Remove\n` +
-        `\u2502 ${PREFIX}sr stats - View stats\n` +
-        `\u2502 ${PREFIX}sr reset - Reset stats\n` +
+        `\u251C\u25C6 Commands:\n` +
+        `\u251C\u25C6 ${PREFIX}sr on - Enable\n` +
+        `\u251C\u25C6 ${PREFIX}sr off - Disable\n` +
+        `\u251C\u25C6 ${PREFIX}sr emoji <emoji> - Set emoji\n` +
+        `\u251C\u25C6 ${PREFIX}sr random - Random mode\n` +
+        `\u251C\u25C6 ${PREFIX}sr fixed - Fixed mode\n` +
+        `\u251C\u25C6 ${PREFIX}sr list - Show emoji list\n` +
+        `\u251C\u25C6 ${PREFIX}sr add <emoji> - Add to list\n` +
+        `\u251C\u25C6 ${PREFIX}sr remove <emoji> - Remove\n` +
+        `\u251C\u25C6 ${PREFIX}sr stats - View stats\n` +
+        `\u251C\u25C6 ${PREFIX}sr reset - Reset stats\n` +
         `\u2514\u2500\u29ED`
       );
     }
@@ -140,9 +140,9 @@ export default {
         if (config.enabled) {
           return sendMessage(
             `\u250C\u2500\u29ED *Auto React Status*\n` +
-            `\u2502 Already active!\n` +
-            `\u2502 Emoji: ${config.mode === 'fixed' ? config.fixedEmoji : 'Random'}\n` +
-            `\u2502 Total reacted: ${config.totalReacted || 0}\n` +
+            `\u251C\u25C6 Already active!\n` +
+            `\u251C\u25C6 Emoji: ${config.mode === 'fixed' ? config.fixedEmoji : 'Random'}\n` +
+            `\u251C\u25C6 Total reacted: ${config.totalReacted || 0}\n` +
             `\u2514\u2500\u29ED`
           );
         }
@@ -150,8 +150,8 @@ export default {
         saveReactConfig(config);
         return sendMessage(
           `\u250C\u2500\u29ED *Auto React Status*\n` +
-          `\u2502 Enabled! Reacting with ${config.fixedEmoji}\n` +
-          `\u2502 to all statuses automatically\n` +
+          `\u251C\u25C6 Enabled! Reacting with ${config.fixedEmoji}\n` +
+          `\u251C\u25C6 to all statuses automatically\n` +
           `\u2514\u2500\u29ED`
         );
       }
@@ -163,9 +163,9 @@ export default {
         saveReactConfig(config);
         return sendMessage(
           `\u250C\u2500\u29ED *Auto React Status*\n` +
-          `\u2502 Disabled! Foxy stopped reacting\n` +
-          `\u2502 to statuses automatically\n` +
-          `\u2502 Use ${PREFIX}sr on to enable\n` +
+          `\u251C\u25C6 Disabled! Foxy stopped reacting\n` +
+          `\u251C\u25C6 to statuses automatically\n` +
+          `\u251C\u25C6 Use ${PREFIX}sr on to enable\n` +
           `\u2514\u2500\u29ED`
         );
       }
@@ -176,9 +176,9 @@ export default {
         if (!args[1]) {
           return sendMessage(
             `\u250C\u2500\u29ED *Set React Emoji*\n` +
-            `\u2502 Current: ${config.fixedEmoji}\n` +
-            `\u2502 Usage: ${PREFIX}sr emoji <emoji>\n` +
-            `\u2502 Example: ${PREFIX}sr emoji \uD83E\uDD8A\n` +
+            `\u251C\u25C6 Current: ${config.fixedEmoji}\n` +
+            `\u251C\u25C6 Usage: ${PREFIX}sr emoji <emoji>\n` +
+            `\u251C\u25C6 Example: ${PREFIX}sr emoji \uD83E\uDD8A\n` +
             `\u2514\u2500\u29ED`
           );
         }
@@ -188,8 +188,8 @@ export default {
         saveReactConfig(config);
         return sendMessage(
           `\u250C\u2500\u29ED *Auto React Status*\n` +
-          `\u2502 Emoji set to: ${newEmoji}\n` +
-          `\u2502 Mode switched to: Fixed\n` +
+          `\u251C\u25C6 Emoji set to: ${newEmoji}\n` +
+          `\u251C\u25C6 Mode switched to: Fixed\n` +
           `\u2514\u2500\u29ED`
         );
       }
@@ -200,9 +200,9 @@ export default {
         saveReactConfig(config);
         return sendMessage(
           `\u250C\u2500\u29ED *Auto React Status*\n` +
-          `\u2502 Mode: Random\n` +
-          `\u2502 Will pick from ${config.reactions?.length || 0} emojis\n` +
-          `\u2502 ${(config.reactions || []).join(' ')}\n` +
+          `\u251C\u25C6 Mode: Random\n` +
+          `\u251C\u25C6 Will pick from ${config.reactions?.length || 0} emojis\n` +
+          `\u251C\u25C6 ${(config.reactions || []).join(' ')}\n` +
           `\u2514\u2500\u29ED`
         );
       }
@@ -213,8 +213,8 @@ export default {
         saveReactConfig(config);
         return sendMessage(
           `\u250C\u2500\u29ED *Auto React Status*\n` +
-          `\u2502 Mode: Fixed\n` +
-          `\u2502 Using: ${config.fixedEmoji}\n` +
+          `\u251C\u25C6 Mode: Fixed\n` +
+          `\u251C\u25C6 Using: ${config.fixedEmoji}\n` +
           `\u2514\u2500\u29ED`
         );
       }
@@ -224,14 +224,14 @@ export default {
         const list = config.reactions || [];
         return sendMessage(
           `\u250C\u2500\u29ED *React Emoji List*\n` +
-          `\u2502 ${list.join(' ') || 'Empty'}\n` +
-          `\u2502 Total: ${list.length} emojis\n` +
+          `\u251C\u25C6 ${list.join(' ') || 'Empty'}\n` +
+          `\u251C\u25C6 Total: ${list.length} emojis\n` +
           `\u2502\n` +
-          `\u2502 Current mode: ${config.mode}\n` +
-          `\u2502 Fixed emoji: ${config.fixedEmoji}\n` +
+          `\u251C\u25C6 Current mode: ${config.mode}\n` +
+          `\u251C\u25C6 Fixed emoji: ${config.fixedEmoji}\n` +
           `\u2502\n` +
-          `\u2502 ${PREFIX}sr add <emoji> to add\n` +
-          `\u2502 ${PREFIX}sr remove <emoji> to remove\n` +
+          `\u251C\u25C6 ${PREFIX}sr add <emoji> to add\n` +
+          `\u251C\u25C6 ${PREFIX}sr remove <emoji> to remove\n` +
           `\u2514\u2500\u29ED`
         );
       }
@@ -240,22 +240,22 @@ export default {
       case 'addemoji': {
         if (!args[1]) {
           return sendMessage(
-            `\u250C\u2500\u29ED *Error*\n\u2502 Usage: ${PREFIX}sr add <emoji>\n\u2514\u2500\u29ED`
+            `\u250C\u2500\u29ED *Error*\n\u251C\u25C6 Usage: ${PREFIX}sr add <emoji>\n\u2514\u2500\u29ED`
           );
         }
         const addEmoji = args[1];
         config.reactions = config.reactions || [];
         if (config.reactions.includes(addEmoji)) {
           return sendMessage(
-            `\u250C\u2500\u29ED *Error*\n\u2502 ${addEmoji} already in the list\n\u2514\u2500\u29ED`
+            `\u250C\u2500\u29ED *Error*\n\u251C\u25C6 ${addEmoji} already in the list\n\u2514\u2500\u29ED`
           );
         }
         config.reactions.push(addEmoji);
         saveReactConfig(config);
         return sendMessage(
           `\u250C\u2500\u29ED *Auto React Status*\n` +
-          `\u2502 Added ${addEmoji} to reaction list\n` +
-          `\u2502 Total: ${config.reactions.length} emojis\n` +
+          `\u251C\u25C6 Added ${addEmoji} to reaction list\n` +
+          `\u251C\u25C6 Total: ${config.reactions.length} emojis\n` +
           `\u2514\u2500\u29ED`
         );
       }
@@ -265,7 +265,7 @@ export default {
       case 'del': {
         if (!args[1]) {
           return sendMessage(
-            `\u250C\u2500\u29ED *Error*\n\u2502 Usage: ${PREFIX}sr remove <emoji>\n\u2514\u2500\u29ED`
+            `\u250C\u2500\u29ED *Error*\n\u251C\u25C6 Usage: ${PREFIX}sr remove <emoji>\n\u2514\u2500\u29ED`
           );
         }
         const rmEmoji = args[1];
@@ -273,15 +273,15 @@ export default {
         const idx = config.reactions.indexOf(rmEmoji);
         if (idx === -1) {
           return sendMessage(
-            `\u250C\u2500\u29ED *Error*\n\u2502 ${rmEmoji} not in the list\n\u2514\u2500\u29ED`
+            `\u250C\u2500\u29ED *Error*\n\u251C\u25C6 ${rmEmoji} not in the list\n\u2514\u2500\u29ED`
           );
         }
         config.reactions.splice(idx, 1);
         saveReactConfig(config);
         return sendMessage(
           `\u250C\u2500\u29ED *Auto React Status*\n` +
-          `\u2502 Removed ${rmEmoji} from list\n` +
-          `\u2502 Remaining: ${config.reactions.length} emojis\n` +
+          `\u251C\u25C6 Removed ${rmEmoji} from list\n` +
+          `\u251C\u25C6 Remaining: ${config.reactions.length} emojis\n` +
           `\u2514\u2500\u29ED`
         );
       }
@@ -296,12 +296,12 @@ export default {
         const modeText = config.mode === 'fixed' ? `Fixed (${config.fixedEmoji})` : 'Random';
         return sendMessage(
           `\u250C\u2500\u29ED *Auto React Statistics*\n` +
-          `\u2502 Status: ${config.enabled ? 'ON' : 'OFF'}\n` +
-          `\u2502 Mode: ${modeText}\n` +
-          `\u2502 Total Reacted: ${config.totalReacted || 0}\n` +
-          `\u2502 Last React: ${lastInfo}\n` +
-          `\u2502 Delay: ${config.settings?.rateLimitDelay || 500}ms\n` +
-          `\u2502 Emoji List: ${(config.reactions || []).length} emojis\n` +
+          `\u251C\u25C6 Status: ${config.enabled ? 'ON' : 'OFF'}\n` +
+          `\u251C\u25C6 Mode: ${modeText}\n` +
+          `\u251C\u25C6 Total Reacted: ${config.totalReacted || 0}\n` +
+          `\u251C\u25C6 Last React: ${lastInfo}\n` +
+          `\u251C\u25C6 Delay: ${config.settings?.rateLimitDelay || 500}ms\n` +
+          `\u251C\u25C6 Emoji List: ${(config.reactions || []).length} emojis\n` +
           `\u2514\u2500\u29ED`
         );
       }
@@ -313,7 +313,7 @@ export default {
         saveReactConfig(config);
         return sendMessage(
           `\u250C\u2500\u29ED *Auto React Status*\n` +
-          `\u2502 Stats reset successfully\n` +
+          `\u251C\u25C6 Stats reset successfully\n` +
           `\u2514\u2500\u29ED`
         );
       }
@@ -322,9 +322,9 @@ export default {
         if (!args[1] || isNaN(args[1])) {
           return sendMessage(
             `\u250C\u2500\u29ED *React Delay*\n` +
-            `\u2502 Current: ${config.settings?.rateLimitDelay || 500}ms\n` +
-            `\u2502 Usage: ${PREFIX}sr delay <ms>\n` +
-            `\u2502 Min: 300ms\n` +
+            `\u251C\u25C6 Current: ${config.settings?.rateLimitDelay || 500}ms\n` +
+            `\u251C\u25C6 Usage: ${PREFIX}sr delay <ms>\n` +
+            `\u251C\u25C6 Min: 300ms\n` +
             `\u2514\u2500\u29ED`
           );
         }
@@ -334,7 +334,7 @@ export default {
         saveReactConfig(config);
         return sendMessage(
           `\u250C\u2500\u29ED *React Delay Updated*\n` +
-          `\u2502 Set to ${delay}ms\n` +
+          `\u251C\u25C6 Set to ${delay}ms\n` +
           `\u2514\u2500\u29ED`
         );
       }
@@ -342,8 +342,8 @@ export default {
       default:
         return sendMessage(
           `\u250C\u2500\u29ED *Auto React Status*\n` +
-          `\u2502 Unknown option: ${action}\n` +
-          `\u2502 Use ${PREFIX}sr for help\n` +
+          `\u251C\u25C6 Unknown option: ${action}\n` +
+          `\u251C\u25C6 Use ${PREFIX}sr for help\n` +
           `\u2514\u2500\u29ED`
         );
     }

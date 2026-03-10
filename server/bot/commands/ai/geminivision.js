@@ -41,19 +41,19 @@ export default {
       if (!question) {
         return sendMessage(
           `\u250C\u2500\u29ED *Gemini Vision AI*\n` +
-          `\u2502 Analyze images with Gemini AI\n` +
+          `\u251C\u25C6 Analyze images with Gemini AI\n` +
           `\u2502\n` +
-          `\u2502 How to use:\n` +
-          `\u2502 1. Reply to an image\n` +
-          `\u2502 2. Type: ${PREFIX}geminivision What is this?\n` +
+          `\u251C\u25C6 How to use:\n` +
+          `\u251C\u25C6 1. Reply to an image\n` +
+          `\u251C\u25C6 2. Type: ${PREFIX}geminivision What is this?\n` +
           `\u2502\n` +
-          `\u2502 Or with URL:\n` +
-          `\u2502 ${PREFIX}geminivision <url> <question>\n` +
+          `\u251C\u25C6 Or with URL:\n` +
+          `\u251C\u25C6 ${PREFIX}geminivision <url> <question>\n` +
           `\u2502\n` +
-          `\u2502 Example Questions:\n` +
-          `\u2502 - What animal is this?\n` +
-          `\u2502 - Describe this scene\n` +
-          `\u2502 - What text is in this image?\n` +
+          `\u251C\u25C6 Example Questions:\n` +
+          `\u251C\u25C6 - What animal is this?\n` +
+          `\u251C\u25C6 - Describe this scene\n` +
+          `\u251C\u25C6 - What text is in this image?\n` +
           `\u2514\u2500\u29ED`
         );
       }
@@ -71,10 +71,10 @@ export default {
           question = "What's in this image?";
         }
         
-        await sendMessage(`\u250C\u2500\u29ED *Processing...*\n\u2502 Using provided image URL...\n\u2514\u2500\u29ED`);
+        await sendMessage(`\u250C\u2500\u29ED *Processing...*\n\u251C\u25C6 Using provided image URL...\n\u2514\u2500\u29ED`);
         
       } else if (hasQuotedImage || hasQuotedDocument) {
-        await sendMessage(`\u250C\u2500\u29ED *Processing...*\n\u2502 Downloading image...\n\u2514\u2500\u29ED`);
+        await sendMessage(`\u250C\u2500\u29ED *Processing...*\n\u251C\u25C6 Downloading image...\n\u2514\u2500\u29ED`);
         
         try {
           const messageObj = {
@@ -96,34 +96,34 @@ export default {
             throw new Error("Empty image buffer");
           }
           
-          await sendMessage(`\u250C\u2500\u29ED *Processing...*\n\u2502 Uploading to ImgBB...\n\u2514\u2500\u29ED`);
+          await sendMessage(`\u250C\u2500\u29ED *Processing...*\n\u251C\u25C6 Uploading to ImgBB...\n\u2514\u2500\u29ED`);
           
           const imgbbUrl = await uploadToImgBB(imageBuffer);
           
           if (!imgbbUrl) {
-            return sendMessage(`\u250C\u2500\u29ED *Error*\n\u2502 Failed to upload image to ImgBB\n\u2502 Try again\n\u2514\u2500\u29ED`);
+            return sendMessage(`\u250C\u2500\u29ED *Error*\n\u251C\u25C6 Failed to upload image to ImgBB\n\u251C\u25C6 Try again\n\u2514\u2500\u29ED`);
           }
           
           imageUrl = imgbbUrl;
           
         } catch (uploadError) {
           console.error('Image upload error:', uploadError);
-          return sendMessage(`\u250C\u2500\u29ED *Error*\n\u2502 Failed to process image\n\u2502 Make sure you replied to a valid image\n\u2514\u2500\u29ED`);
+          return sendMessage(`\u250C\u2500\u29ED *Error*\n\u251C\u25C6 Failed to process image\n\u251C\u25C6 Make sure you replied to a valid image\n\u2514\u2500\u29ED`);
         }
       } else {
         return sendMessage(
           `\u250C\u2500\u29ED *Error*\n` +
-          `\u2502 No image provided!\n` +
+          `\u251C\u25C6 No image provided!\n` +
           `\u2502\n` +
-          `\u2502 You need to either:\n` +
-          `\u2502 1. Reply to an image with\n` +
-          `\u2502    ${PREFIX}geminivision <question>\n` +
-          `\u2502 2. Provide an image URL\n` +
+          `\u251C\u25C6 You need to either:\n` +
+          `\u251C\u25C6 1. Reply to an image with\n` +
+          `\u251C\u25C6    ${PREFIX}geminivision <question>\n` +
+          `\u251C\u25C6 2. Provide an image URL\n` +
           `\u2514\u2500\u29ED`
         );
       }
       
-      await sendMessage(`\u250C\u2500\u29ED *Analyzing...*\n\u2502 Processing with Gemini AI...\n\u2514\u2500\u29ED`);
+      await sendMessage(`\u250C\u2500\u29ED *Analyzing...*\n\u251C\u25C6 Processing with Gemini AI...\n\u2514\u2500\u29ED`);
       
       const encodedImageUrl = encodeURIComponent(imageUrl);
       const encodedQuestion = encodeURIComponent(question);
@@ -142,10 +142,10 @@ export default {
       await sendMessage(
         `\u250C\u2500\u29ED *Gemini Vision Analysis*\n` +
         `\u2502\n` +
-        `\u2502 Question: ${question}\n` +
+        `\u251C\u25C6 Question: ${question}\n` +
         `\u2502\n` +
-        `\u2502 Analysis:\n` +
-        `\u2502 ${answer.split('\n').join('\n\u2502 ')}\n` +
+        `\u251C\u25C6 Analysis:\n` +
+        `\u251C\u25C6 ${answer.split('\n').join('\n\u251C\u25C6 ')}\n` +
         `\u2514\u2500\u29ED`
       );
       
@@ -164,7 +164,7 @@ export default {
         errorDetail = "API unavailable. Try later.";
       }
       
-      await sendMessage(`\u250C\u2500\u29ED *Error*\n\u2502 ${errorDetail}\n\u2502 Try a different image or question\n\u2514\u2500\u29ED`);
+      await sendMessage(`\u250C\u2500\u29ED *Error*\n\u251C\u25C6 ${errorDetail}\n\u251C\u25C6 Try a different image or question\n\u2514\u2500\u29ED`);
     }
   }
 };

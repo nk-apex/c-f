@@ -1506,570 +1506,570 @@ case 1: {
   const commandsText = `╭─⊷ *🏠 GROUP MANAGEMENT*
 │
 ├─⊷ *🛡️ ADMIN & MODERATION*
-│  • add
-│  • promote
-│  • promoteall
-│  • demote
-│  • demoteall
-│  • kick
-│  • kickall
-│  • ban
-│  • unban
-│  • ex
-│  • clearbanlist
-│  • warn
-│  • resetwarn
-│  • setwarn
-│  • warnings
-│  • mute
-│  • unmute
-│  • gctime
-│  • antileave
-│  • antilink
-│  • addbadword
-│  • removebadword
-│  • listbadword
-│  • welcome
-│  • goodbye
-│  • leave
-│  • creategroup
+├◆  • add
+├◆  • promote
+├◆  • promoteall
+├◆  • demote
+├◆  • demoteall
+├◆  • kick
+├◆  • kickall
+├◆  • ban
+├◆  • unban
+├◆  • ex
+├◆  • clearbanlist
+├◆  • warn
+├◆  • resetwarn
+├◆  • setwarn
+├◆  • warnings
+├◆  • mute
+├◆  • unmute
+├◆  • gctime
+├◆  • antileave
+├◆  • antilink
+├◆  • addbadword
+├◆  • removebadword
+├◆  • listbadword
+├◆  • welcome
+├◆  • goodbye
+├◆  • leave
+├◆  • creategroup
 │
 ├─⊷ *🚫 AUTO-MODERATION*
-│  • antisticker
-│  • antiimage
-│  • antivideo
-│  • antiaudio
-│  • antimention
-│  • antistatusmention
-│  • antigrouplink
-│  • antidemote
-│  • antipromote
-│  • antiviewonce
-│  • antibadword
-│  • antigroupcall
+├◆  • antisticker
+├◆  • antiimage
+├◆  • antivideo
+├◆  • antiaudio
+├◆  • antimention
+├◆  • antistatusmention
+├◆  • antigrouplink
+├◆  • antidemote
+├◆  • antipromote
+├◆  • antiviewonce
+├◆  • antibadword
+├◆  • antigroupcall
 │
 ├─⊷ *📊 GROUP INFO & TOOLS*
-│  • groupinfo
-│  • grouplink
-│  • tagadmin
-│  • tagall
-│  • hidetag
-│  • link
-│  • invite
-│  • revoke
-│  • setdesc
-│  • fangtrace
-│  • getgpp
-│  • togstatus
-│  • getparticipants
-│  • listonline
-│  • listinactive
-│  • approveall
-│  • rejectall
-│  • stickerpack
+├◆  • groupinfo
+├◆  • grouplink
+├◆  • tagadmin
+├◆  • tagall
+├◆  • hidetag
+├◆  • link
+├◆  • invite
+├◆  • revoke
+├◆  • setdesc
+├◆  • fangtrace
+├◆  • getgpp
+├◆  • togstatus
+├◆  • getparticipants
+├◆  • listonline
+├◆  • listinactive
+├◆  • approveall
+├◆  • rejectall
+├◆  • stickerpack
 │
 ╰─⊷
 
 ╭─⊷ *🎨 MENU COMMANDS*
 │
-│  • menu
-│  • menustyle
-│  • togglemenuinfo
-│  • setmenuimage
-│  • restoremenuimage
+├◆  • menu
+├◆  • menustyle
+├◆  • togglemenuinfo
+├◆  • setmenuimage
+├◆  • restoremenuimage
 │
 ╰─⊷
 
 ╭─⊷ *👑 OWNER CONTROLS*
 │
 ├─⊷ *⚡ CORE MANAGEMENT*
-│  • setbotname
-│  • resetbotname
-│  • setowner
-│  • resetowner
-│  • setprefix
-│  • prefix
-│  • iamowner
-│  • about
-│  • owner
-│  • block
-│  • unblock
-│  • blockdetect
-│  • blockall
-│  • unblockall
-│  • silent
-│  • anticall
-│  • mode
-│  • setpp
-│  • setfooter
-│  • repo
-│  • pair
-│  • antidelete
-│  • antideletestatus
-│  • antiedit
-│  • chatbot
-│  • shutdown
+├◆  • setbotname
+├◆  • resetbotname
+├◆  • setowner
+├◆  • resetowner
+├◆  • setprefix
+├◆  • prefix
+├◆  • iamowner
+├◆  • about
+├◆  • owner
+├◆  • block
+├◆  • unblock
+├◆  • blockdetect
+├◆  • blockall
+├◆  • unblockall
+├◆  • silent
+├◆  • anticall
+├◆  • mode
+├◆  • setpp
+├◆  • setfooter
+├◆  • repo
+├◆  • pair
+├◆  • antidelete
+├◆  • antideletestatus
+├◆  • antiedit
+├◆  • chatbot
+├◆  • shutdown
 │
 ├─⊷ *🔄 SYSTEM & MAINTENANCE*
-│  • restart
-│  • workingreload
-│  • reloadenv
-│  • getsettings
-│  • setsetting
-│  • test
-│  • disk
-│  • hostip
-│  • findcommands
-│  • latestupdates
-│  • platform
-│  • debugchat
+├◆  • restart
+├◆  • workingreload
+├◆  • reloadenv
+├◆  • getsettings
+├◆  • setsetting
+├◆  • test
+├◆  • disk
+├◆  • hostip
+├◆  • findcommands
+├◆  • latestupdates
+├◆  • platform
+├◆  • debugchat
 │
 ├─⊷ *🔒 PRIVACY CONTROLS*
-│  • online
-│  • privacy
-│  • receipt
-│  • profilepic
-│  • viewer
-│  • lastseen
+├◆  • online
+├◆  • privacy
+├◆  • receipt
+├◆  • profilepic
+├◆  • viewer
+├◆  • lastseen
 │
 ╰─⊷
 
 ╭─⊷ *👥 SUDO*
 │
-│  • addsudo
-│  • delsudo
-│  • listsudo
-│  • checksudo
-│  • clearsudo
-│  • sudomode
-│  • sudoinfo
-│  • mysudo
-│  • sudodebug
-│  • linksudo
+├◆  • addsudo
+├◆  • delsudo
+├◆  • listsudo
+├◆  • checksudo
+├◆  • clearsudo
+├◆  • sudomode
+├◆  • sudoinfo
+├◆  • mysudo
+├◆  • sudodebug
+├◆  • linksudo
 │
 ╰─⊷
 
 ╭─⊷ *⚙️ AUTOMATION*
 │
-│  • autoread
-│  • autotyping
-│  • autorecording
-│  • autoreact
-│  • autoreactstatus
-│  • autoviewstatus
-│  • autobio
-│  • autorec
-│  • reactowner
+├◆  • autoread
+├◆  • autotyping
+├◆  • autorecording
+├◆  • autoreact
+├◆  • autoreactstatus
+├◆  • autoviewstatus
+├◆  • autobio
+├◆  • autorec
+├◆  • reactowner
 │
 ╰─⊷
 
 ╭─⊷ *✨ GENERAL UTILITIES*
 │
 ├─⊷ *🔍 INFO & SEARCH*
-│  • alive
-│  • ping
-│  • ping2
-│  • time
-│  • uptime
-│  • define
-│  • news
-│  • covid
-│  • weather
-│  • wiki
-│  • translate
-│  • iplookup
-│  • getip
-│  • getpp
-│  • getgpp
-│  • prefixinfo
-│  • platform
+├◆  • alive
+├◆  • ping
+├◆  • ping2
+├◆  • time
+├◆  • uptime
+├◆  • define
+├◆  • news
+├◆  • covid
+├◆  • weather
+├◆  • wiki
+├◆  • translate
+├◆  • iplookup
+├◆  • getip
+├◆  • getpp
+├◆  • getgpp
+├◆  • prefixinfo
+├◆  • platform
 │
 ├─⊷ *🔗 CONVERSION & MEDIA*
-│  • shorturl
-│  • url
-│  • fetch
-│  • qrencode
-│  • take
-│  • imgbb
-│  • tiktok
-│  • save
-│  • screenshot
-│  • inspect
-│  • toimage
-│  • tosticker
-│  • toaudio
-│  • tovoice
-│  • tts
-│  • trebleboost
-│  • jarvis
+├◆  • shorturl
+├◆  • url
+├◆  • fetch
+├◆  • qrencode
+├◆  • take
+├◆  • imgbb
+├◆  • tiktok
+├◆  • save
+├◆  • screenshot
+├◆  • inspect
+├◆  • toimage
+├◆  • tosticker
+├◆  • toaudio
+├◆  • tovoice
+├◆  • tts
+├◆  • trebleboost
+├◆  • jarvis
 │
 ├─⊷ *📇 CONTACT TOOLS*
-│  • vcf
-│  • viewvcf
-│  • vv
-│  • vv2
+├◆  • vcf
+├◆  • viewvcf
+├◆  • vv
+├◆  • vv2
 │
 ╰─⊷
 
 ╭─⊷ *🎵 MUSIC & MEDIA*
 │
-│  • play
-│  • song
-│  • video
-│  • videodoc
-│  • lyrics
-│  • shazam
-│  • spotify
+├◆  • play
+├◆  • song
+├◆  • video
+├◆  • videodoc
+├◆  • lyrics
+├◆  • shazam
+├◆  • spotify
 │
 ╰─⊷
 
 ╭─⊷ *⬇️ MEDIA DOWNLOADS*
 │
-│  • tiktok
-│  • instagram
-│  • facebook
-│  • snapchat
-│  • apk
-│  • yts
-│  • ytplay
-│  • ytmp3
-│  • ytv
-│  • ytmp4
-│  • ytvdoc
-│  • videodl
-│  • playlist
+├◆  • tiktok
+├◆  • instagram
+├◆  • facebook
+├◆  • snapchat
+├◆  • apk
+├◆  • yts
+├◆  • ytplay
+├◆  • ytmp3
+├◆  • ytv
+├◆  • ytmp4
+├◆  • ytvdoc
+├◆  • videodl
+├◆  • playlist
 │
 ╰─⊷
 
 ╭─⊷ *🤖 AI COMMANDS*
 │
 ├─⊷ *💬 AI CHAT*
-│  • gpt
-│  • chatgpt
-│  • copilot
-│  • bing
-│  • bard
-│  • claudeai
-│  • grok
-│  • blackbox
-│  • mistral
-│  • metai
-│  • perplexity
-│  • qwenai
-│  • ilama
-│  • venice
-│  • wormgpt
-│  • deepseek+
-│  • chatbot
+├◆  • gpt
+├◆  • chatgpt
+├◆  • copilot
+├◆  • bing
+├◆  • bard
+├◆  • claudeai
+├◆  • grok
+├◆  • blackbox
+├◆  • mistral
+├◆  • metai
+├◆  • perplexity
+├◆  • qwenai
+├◆  • ilama
+├◆  • venice
+├◆  • wormgpt
+├◆  • deepseek+
+├◆  • chatbot
 │
 ├─⊷ *🎨 AI GENERATION*
-│  • imagine
-│  • imagegen
-│  • flux
-│  • analyze
-│  • suno
-│  • speechwriter
-│  • humanizer
-│  • summarize
-│  • totext
-│  • removebg
-│  • vision
+├◆  • imagine
+├◆  • imagegen
+├◆  • flux
+├◆  • analyze
+├◆  • suno
+├◆  • speechwriter
+├◆  • humanizer
+├◆  • summarize
+├◆  • totext
+├◆  • removebg
+├◆  • vision
 │
 ├─⊷ *🎬 AI TOOLS*
-│  • videogen
-│  • aiscanner
-│  • aimenu
-│  • brandlogo
-│  • companylogo
-│  • logoai
+├◆  • videogen
+├◆  • aiscanner
+├◆  • aimenu
+├◆  • brandlogo
+├◆  • companylogo
+├◆  • logoai
 │
 ╰─⊷
 
 ╭─⊷ *🎬 AI VIDEO EFFECTS*
 │
-│  • tigervideo
-│  • introvideo
-│  • lightningpubg
-│  • lovevideo
-│  • videogen
+├◆  • tigervideo
+├◆  • introvideo
+├◆  • lightningpubg
+├◆  • lovevideo
+├◆  • videogen
 │
 ╰─⊷
 
 ╭─⊷ *🖼️ IMAGE TOOLS*
 │
-│  • image
-│  • imagegen
-│  • imagine
-│  • anime
-│  • art
-│  • real
-│  • remini
-│  • vision
+├◆  • image
+├◆  • imagegen
+├◆  • imagine
+├◆  • anime
+├◆  • art
+├◆  • real
+├◆  • remini
+├◆  • vision
 │
 ╰─⊷
 
 ╭─⊷ *🏆 SPORTS*
 │
-│  • football
-│  • matchstats
-│  • sportsnews
-│  • teamnews
-│  • basketball
-│  • cricket
-│  • f1
-│  • nfl
-│  • mma
-│  • tennis
-│  • baseball
-│  • hockey
-│  • golf
-│  • sportsmenu
+├◆  • football
+├◆  • matchstats
+├◆  • sportsnews
+├◆  • teamnews
+├◆  • basketball
+├◆  • cricket
+├◆  • f1
+├◆  • nfl
+├◆  • mma
+├◆  • tennis
+├◆  • baseball
+├◆  • hockey
+├◆  • golf
+├◆  • sportsmenu
 │
 ╰─⊷
 
 ╭─⊷ *🛡️ ETHICAL HACKING*
 │
-│  • whois
-│  • dnslookup
-│  • subdomain
-│  • reverseip
-│  • geoip
-│  • portscan
-│  • headers
-│  • traceroute
-│  • asnlookup
-│  • shodan
-│  • pinghost
-│  • latency
-│  • sslcheck
-│  • tlsinfo
-│  • openports
-│  • firewallcheck
-│  • maclookup
-│  • bandwidthtest
-│  • securityheaders
-│  • wafdetect
-│  • robotscheck
-│  • sitemap
-│  • cmsdetect
-│  • techstack
-│  • cookiescan
-│  • redirectcheck
-│  • xsscheck
-│  • sqlicheck
-│  • csrfcheck
-│  • clickjackcheck
-│  • directoryscan
-│  • exposedfiles
-│  • misconfigcheck
-│  • cvecheck
-│  • hashidentify
-│  • hashcheck
-│  • bcryptcheck
-│  • passwordstrength
-│  • leakcheck
-│  • metadata
-│  • filehash
-│  • malwarecheck
-│  • urlscan
-│  • phishcheck
-│  • nmap
-│  • ipinfo
-│  • nglattack
-│  • securitymenu
+├◆  • whois
+├◆  • dnslookup
+├◆  • subdomain
+├◆  • reverseip
+├◆  • geoip
+├◆  • portscan
+├◆  • headers
+├◆  • traceroute
+├◆  • asnlookup
+├◆  • shodan
+├◆  • pinghost
+├◆  • latency
+├◆  • sslcheck
+├◆  • tlsinfo
+├◆  • openports
+├◆  • firewallcheck
+├◆  • maclookup
+├◆  • bandwidthtest
+├◆  • securityheaders
+├◆  • wafdetect
+├◆  • robotscheck
+├◆  • sitemap
+├◆  • cmsdetect
+├◆  • techstack
+├◆  • cookiescan
+├◆  • redirectcheck
+├◆  • xsscheck
+├◆  • sqlicheck
+├◆  • csrfcheck
+├◆  • clickjackcheck
+├◆  • directoryscan
+├◆  • exposedfiles
+├◆  • misconfigcheck
+├◆  • cvecheck
+├◆  • hashidentify
+├◆  • hashcheck
+├◆  • bcryptcheck
+├◆  • passwordstrength
+├◆  • leakcheck
+├◆  • metadata
+├◆  • filehash
+├◆  • malwarecheck
+├◆  • urlscan
+├◆  • phishcheck
+├◆  • nmap
+├◆  • ipinfo
+├◆  • nglattack
+├◆  • securitymenu
 │
 ╰─⊷
 
 ╭─⊷ *🕵️ STALKER COMMANDS*
 │
-│  • wachannel
-│  • tiktokstalk
-│  • twitterstalk
-│  • ipstalk
-│  • igstalk
-│  • npmstalk
-│  • gitstalk
-│  • stalkermenu
+├◆  • wachannel
+├◆  • tiktokstalk
+├◆  • twitterstalk
+├◆  • ipstalk
+├◆  • igstalk
+├◆  • npmstalk
+├◆  • gitstalk
+├◆  • stalkermenu
 │
 ╰─⊷
 
 ╭─⊷ *🎨 LOGO DESIGN STUDIO*
 │
-│  • goldlogo
-│  • silverlogo
-│  • platinumlogo
-│  • chromelogo
-│  • diamondlogo
-│  • bronzelogo
-│  • steelogo
-│  • copperlogo
-│  • titaniumlogo
-│  • firelogo
-│  • icelogo
-│  • iceglowlogo
-│  • lightninglogo
-│  • rainbowlogo
-│  • sunlogo
-│  • moonlogo
-│  • dragonlogo
-│  • phoenixlogo
-│  • wizardlogo
-│  • crystallogo
-│  • darkmagiclogo
-│  • shadowlogo
-│  • smokelogo
-│  • bloodlogo
-│  • neonlogo
-│  • glowlogo
-│  • gradientlogo
-│  • matrixlogo
-│  • aqualogo
-│  • logomenu
+├◆  • goldlogo
+├◆  • silverlogo
+├◆  • platinumlogo
+├◆  • chromelogo
+├◆  • diamondlogo
+├◆  • bronzelogo
+├◆  • steelogo
+├◆  • copperlogo
+├◆  • titaniumlogo
+├◆  • firelogo
+├◆  • icelogo
+├◆  • iceglowlogo
+├◆  • lightninglogo
+├◆  • rainbowlogo
+├◆  • sunlogo
+├◆  • moonlogo
+├◆  • dragonlogo
+├◆  • phoenixlogo
+├◆  • wizardlogo
+├◆  • crystallogo
+├◆  • darkmagiclogo
+├◆  • shadowlogo
+├◆  • smokelogo
+├◆  • bloodlogo
+├◆  • neonlogo
+├◆  • glowlogo
+├◆  • gradientlogo
+├◆  • matrixlogo
+├◆  • aqualogo
+├◆  • logomenu
 │
 ╰─⊷
 
 ╭─⊷ *🐙 GITHUB COMMANDS*
 │
-│  • gitclone
-│  • gitinfo
-│  • repanalyze
-│  • zip
-│  • update
-│  • repo
+├◆  • gitclone
+├◆  • gitinfo
+├◆  • repanalyze
+├◆  • zip
+├◆  • update
+├◆  • repo
 │
 ╰─⊷
 
 ╭─⊷ *🌸 ANIME COMMANDS*
 │
-│  • animemenu
-│  • awoo
-│  • bully
-│  • cringe
-│  • cry
-│  • cuddle
-│  • dance
-│  • glomp
-│  • highfive
-│  • hug
-│  • kill
-│  • kiss
-│  • lick
-│  • megumin
-│  • neko
-│  • pat
-│  • shinobu
-│  • trap
-│  • trap2
-│  • waifu
-│  • wink
-│  • yeet
+├◆  • animemenu
+├◆  • awoo
+├◆  • bully
+├◆  • cringe
+├◆  • cry
+├◆  • cuddle
+├◆  • dance
+├◆  • glomp
+├◆  • highfive
+├◆  • hug
+├◆  • kill
+├◆  • kiss
+├◆  • lick
+├◆  • megumin
+├◆  • neko
+├◆  • pat
+├◆  • shinobu
+├◆  • trap
+├◆  • trap2
+├◆  • waifu
+├◆  • wink
+├◆  • yeet
 │
 ╰─⊷
 
 ╭─⊷ *🎮 GAMES*
 │
-│  • coinflip
-│  • dare
-│  • dice
-│  • emojimix
-│  • joke
-│  • quiz
-│  • rps
-│  • snake
-│  • tetris
-│  • truth
-│  • tictactoe
-│  • quote
+├◆  • coinflip
+├◆  • dare
+├◆  • dice
+├◆  • emojimix
+├◆  • joke
+├◆  • quiz
+├◆  • rps
+├◆  • snake
+├◆  • tetris
+├◆  • truth
+├◆  • tictactoe
+├◆  • quote
 │
 ╰─⊷
 
 ╭─⊷ *🎭 FUN & TOOLS*
 │
-│  • bf
-│  • gf
-│  • couple
-│  • gay
-│  • getjid
-│  • movie
-│  • trailer
-│  • goodmorning
-│  • goodnight
-│  • channelstatus
-│  • hack
+├◆  • bf
+├◆  • gf
+├◆  • couple
+├◆  • gay
+├◆  • getjid
+├◆  • movie
+├◆  • trailer
+├◆  • goodmorning
+├◆  • goodnight
+├◆  • channelstatus
+├◆  • hack
 │
 ╰─⊷
 
 ╭─⊷ *⚡ QUICK COMMANDS*
 │
-│  • p
-│  • up
+├◆  • p
+├◆  • up
 │
 ╰─⊷
 
 ╭─⊷ *✨ EPHOTO TEXT EFFECTS*
 │
 ├─⊷ *💡 NEON & GLOW*
-│  • neon
-│  • colorfulglow
-│  • advancedglow
-│  • neononline
-│  • blueneon
-│  • neontext
-│  • neonlight
-│  • greenneon
-│  • greenlightneon
-│  • blueneonlogo
-│  • galaxyneon
-│  • retroneon
-│  • multicolorneon
-│  • hackerneon
-│  • devilwings
-│  • glowtext
-│  • blackpinkneon
-│  • neonglitch
-│  • colorfulneonlight
+├◆  • neon
+├◆  • colorfulglow
+├◆  • advancedglow
+├◆  • neononline
+├◆  • blueneon
+├◆  • neontext
+├◆  • neonlight
+├◆  • greenneon
+├◆  • greenlightneon
+├◆  • blueneonlogo
+├◆  • galaxyneon
+├◆  • retroneon
+├◆  • multicolorneon
+├◆  • hackerneon
+├◆  • devilwings
+├◆  • glowtext
+├◆  • blackpinkneon
+├◆  • neonglitch
+├◆  • colorfulneonlight
 │
 ├─⊷ *🧊 3D TEXT EFFECTS*
-│  • wooden3d
-│  • cubic3d
-│  • wooden3donline
-│  • water3d
-│  • cuongthi3d
-│  • text3d
-│  • graffiti3d
-│  • silver3d
-│  • style3d
-│  • metal3d
-│  • ruby3d
-│  • birthday3d
-│  • metallogo3d
-│  • pig3d
-│  • avengers3d
-│  • hologram3d
-│  • gradient3d
-│  • stone3d
-│  • space3d
-│  • sand3d
-│  • gradienttext3d
-│  • lightbulb3d
-│  • snow3d
-│  • papercut3d
-│  • underwater3d
-│  • shinymetallic3d
-│  • gradientstyle3d
-│  • beach3d
-│  • crack3d
-│  • wood3d
-│  • americanflag3d
-│  • christmas3d
-│  • nigeriaflag3d
-│  • christmassnow3d
-│  • goldenchristmas3d
-│  • decorativemetal3d
-│  • colorfulpaint3d
-│  • glossysilver3d
-│  • balloon3d
-│  • comic3d
+├◆  • wooden3d
+├◆  • cubic3d
+├◆  • wooden3donline
+├◆  • water3d
+├◆  • cuongthi3d
+├◆  • text3d
+├◆  • graffiti3d
+├◆  • silver3d
+├◆  • style3d
+├◆  • metal3d
+├◆  • ruby3d
+├◆  • birthday3d
+├◆  • metallogo3d
+├◆  • pig3d
+├◆  • avengers3d
+├◆  • hologram3d
+├◆  • gradient3d
+├◆  • stone3d
+├◆  • space3d
+├◆  • sand3d
+├◆  • gradienttext3d
+├◆  • lightbulb3d
+├◆  • snow3d
+├◆  • papercut3d
+├◆  • underwater3d
+├◆  • shinymetallic3d
+├◆  • gradientstyle3d
+├◆  • beach3d
+├◆  • crack3d
+├◆  • wood3d
+├◆  • americanflag3d
+├◆  • christmas3d
+├◆  • nigeriaflag3d
+├◆  • christmassnow3d
+├◆  • goldenchristmas3d
+├◆  • decorativemetal3d
+├◆  • colorfulpaint3d
+├◆  • glossysilver3d
+├◆  • balloon3d
+├◆  • comic3d
 │
 ├─⊷ *📋 MENU:* ephotomenu
 │
@@ -2806,492 +2806,492 @@ case 3: {
 
   const categorySections = [
 `┌──⌈ \`GROUP MANAGEMENT\` ⌋
-│ add
-│ promote
-│ promoteall
-│ demote
-│ demoteall
-│ kick
-│ kickall
-│ ban
-│ unban
-│ clearbanlist
-│ warn
-│ resetwarn
-│ setwarn
-│ warnings
-│ mute
-│ unmute
-│ gctime
-│ antileave
-│ antilink
-│ addbadword
-│ removebadword
-│ listbadword
-│ welcome
-│ goodbye
-│ leave
-│ creategroup
+├◆ add
+├◆ promote
+├◆ promoteall
+├◆ demote
+├◆ demoteall
+├◆ kick
+├◆ kickall
+├◆ ban
+├◆ unban
+├◆ clearbanlist
+├◆ warn
+├◆ resetwarn
+├◆ setwarn
+├◆ warnings
+├◆ mute
+├◆ unmute
+├◆ gctime
+├◆ antileave
+├◆ antilink
+├◆ addbadword
+├◆ removebadword
+├◆ listbadword
+├◆ welcome
+├◆ goodbye
+├◆ leave
+├◆ creategroup
 └───────────────`,
 `┌──⌈ \`AUTO MODERATION\` ⌋
-│ antisticker
-│ antiimage
-│ antivideo
-│ antiaudio
-│ antimention
-│ antistatusmention
-│ antigrouplink
-│ antidemote
-│ antipromote
-│ antiviewonce
-│ antibadword
-│ antigroupcall
+├◆ antisticker
+├◆ antiimage
+├◆ antivideo
+├◆ antiaudio
+├◆ antimention
+├◆ antistatusmention
+├◆ antigrouplink
+├◆ antidemote
+├◆ antipromote
+├◆ antiviewonce
+├◆ antibadword
+├◆ antigroupcall
 └───────────────`,
 `┌──⌈ \`GROUP INFO & TOOLS\` ⌋
-│ groupinfo
-│ grouplink
-│ tagadmin
-│ tagall
-│ hidetag
-│ link
-│ invite
-│ revoke
-│ setdesc
-│ fangtrace
-│ getgpp
-│ togstatus
-│ getparticipants
-│ listonline
-│ listinactive
-│ approveall
-│ rejectall
+├◆ groupinfo
+├◆ grouplink
+├◆ tagadmin
+├◆ tagall
+├◆ hidetag
+├◆ link
+├◆ invite
+├◆ revoke
+├◆ setdesc
+├◆ fangtrace
+├◆ getgpp
+├◆ togstatus
+├◆ getparticipants
+├◆ listonline
+├◆ listinactive
+├◆ approveall
+├◆ rejectall
 └───────────────`,
 `┌──⌈ \`MENU SETTINGS\` ⌋
-│ menu
-│ menu2
-│ menustyle
-│ togglemenuinfo
-│ setmenuimage
-│ restoremenuimage
+├◆ menu
+├◆ menu2
+├◆ menustyle
+├◆ togglemenuinfo
+├◆ setmenuimage
+├◆ restoremenuimage
 └───────────────`,
 `┌──⌈ \`OWNER CONTROLS\` ⌋
-│ setbotname
-│ resetbotname
-│ setowner
-│ resetowner
-│ setprefix
-│ prefix
-│ iamowner
-│ about
-│ owner
-│ block
-│ unblock
-│ blockdetect
-│ blockall
-│ unblockall
-│ silent
-│ anticall
-│ mode
-│ setpp
-│ setfooter
-│ repo
-│ pair
-│ antidelete
-│ antideletestatus
-│ antiedit
-│ chatbot
-│ shutdown
+├◆ setbotname
+├◆ resetbotname
+├◆ setowner
+├◆ resetowner
+├◆ setprefix
+├◆ prefix
+├◆ iamowner
+├◆ about
+├◆ owner
+├◆ block
+├◆ unblock
+├◆ blockdetect
+├◆ blockall
+├◆ unblockall
+├◆ silent
+├◆ anticall
+├◆ mode
+├◆ setpp
+├◆ setfooter
+├◆ repo
+├◆ pair
+├◆ antidelete
+├◆ antideletestatus
+├◆ antiedit
+├◆ chatbot
+├◆ shutdown
 └───────────────`,
 `┌──⌈ \`SYSTEM & MAINTENANCE\` ⌋
-│ restart
-│ workingreload
-│ reloadenv
-│ getsettings
-│ setsetting
-│ test
-│ disk
-│ hostip
-│ findcommands
-│ latestupdates
-│ panel
-│ debugchat
+├◆ restart
+├◆ workingreload
+├◆ reloadenv
+├◆ getsettings
+├◆ setsetting
+├◆ test
+├◆ disk
+├◆ hostip
+├◆ findcommands
+├◆ latestupdates
+├◆ panel
+├◆ debugchat
 └───────────────`,
 `┌──⌈ \`SUDO\` ⌋
-│ addsudo
-│ delsudo
-│ listsudo
-│ checksudo
-│ clearsudo
-│ sudomode
-│ sudoinfo
-│ mysudo
-│ sudodebug
-│ linksudo
+├◆ addsudo
+├◆ delsudo
+├◆ listsudo
+├◆ checksudo
+├◆ clearsudo
+├◆ sudomode
+├◆ sudoinfo
+├◆ mysudo
+├◆ sudodebug
+├◆ linksudo
 └───────────────`,
 `┌──⌈ \`AUTOMATION\` ⌋
-│ autoread
-│ autotyping
-│ autorecording
-│ autoreact
-│ autoreactstatus
-│ autoviewstatus
-│ autobio
-│ autorec
-│ reactowner
+├◆ autoread
+├◆ autotyping
+├◆ autorecording
+├◆ autoreact
+├◆ autoreactstatus
+├◆ autoviewstatus
+├◆ autobio
+├◆ autorec
+├◆ reactowner
 └───────────────`,
 `┌──⌈ \`PRIVACY CONTROLS\` ⌋
-│ online
-│ privacy
-│ receipt
-│ profilepic
-│ viewer
-│ lastseen
+├◆ online
+├◆ privacy
+├◆ receipt
+├◆ profilepic
+├◆ viewer
+├◆ lastseen
 └───────────────`,
 `┌──⌈ \`GENERAL UTILITIES\` ⌋
-│ alive
-│ ping
-│ ping2
-│ time
-│ uptime
-│ define
-│ news
-│ covid
-│ weather
-│ wiki
-│ translate
-│ iplookup
-│ getip
-│ getpp
-│ getgpp
-│ prefixinfo
-│ platform
+├◆ alive
+├◆ ping
+├◆ ping2
+├◆ time
+├◆ uptime
+├◆ define
+├◆ news
+├◆ covid
+├◆ weather
+├◆ wiki
+├◆ translate
+├◆ iplookup
+├◆ getip
+├◆ getpp
+├◆ getgpp
+├◆ prefixinfo
+├◆ platform
 └───────────────`,
 `┌──⌈ \`CONVERSION & MEDIA\` ⌋
-│ shorturl
-│ url
-│ fetch
-│ qrencode
-│ take
-│ imgbb
-│ save
-│ screenshot
-│ inspect
-│ toimage
-│ tosticker
-│ toaudio
-│ tovoice
-│ tts
-│ trebleboost
-│ jarvis
+├◆ shorturl
+├◆ url
+├◆ fetch
+├◆ qrencode
+├◆ take
+├◆ imgbb
+├◆ save
+├◆ screenshot
+├◆ inspect
+├◆ toimage
+├◆ tosticker
+├◆ toaudio
+├◆ tovoice
+├◆ tts
+├◆ trebleboost
+├◆ jarvis
 └───────────────`,
 `┌──⌈ \`CONTACT TOOLS\` ⌋
-│ vcf
-│ viewvcf
-│ vv
-│ vv2
+├◆ vcf
+├◆ viewvcf
+├◆ vv
+├◆ vv2
 └───────────────`,
 `┌──⌈ \`MUSIC\` ⌋
-│ play
-│ song
-│ video
-│ videodoc
-│ lyrics
-│ shazam
-│ spotify
+├◆ play
+├◆ song
+├◆ video
+├◆ videodoc
+├◆ lyrics
+├◆ shazam
+├◆ spotify
 └───────────────`,
 `┌──⌈ \`MEDIA DOWNLOADS\` ⌋
-│ tiktok
-│ instagram
-│ facebook
-│ snapchat
-│ apk
-│ yts
-│ ytplay
-│ ytmp3
-│ ytv
-│ ytmp4
-│ ytvdoc
-│ videodl
-│ playlist
+├◆ tiktok
+├◆ instagram
+├◆ facebook
+├◆ snapchat
+├◆ apk
+├◆ yts
+├◆ ytplay
+├◆ ytmp3
+├◆ ytv
+├◆ ytmp4
+├◆ ytvdoc
+├◆ videodl
+├◆ playlist
 └───────────────`,
 `┌──⌈ \`AI COMMANDS\` ⌋
-│ gpt
-│ chatgpt
-│ copilot
-│ bing
-│ bard
-│ claudeai
-│ grok
-│ blackbox
-│ mistral
-│ metai
-│ perplexity
-│ qwenai
-│ ilama
-│ venice
-│ wormgpt
-│ deepseek+
-│ chatbot
+├◆ gpt
+├◆ chatgpt
+├◆ copilot
+├◆ bing
+├◆ bard
+├◆ claudeai
+├◆ grok
+├◆ blackbox
+├◆ mistral
+├◆ metai
+├◆ perplexity
+├◆ qwenai
+├◆ ilama
+├◆ venice
+├◆ wormgpt
+├◆ deepseek+
+├◆ chatbot
 └───────────────`,
 `┌──⌈ \`AI GENERATION\` ⌋
-│ imagine
-│ imagegen
-│ flux
-│ analyze
-│ suno
-│ speechwriter
-│ humanizer
-│ summarize
-│ totext
-│ removebg
-│ vision
+├◆ imagine
+├◆ imagegen
+├◆ flux
+├◆ analyze
+├◆ suno
+├◆ speechwriter
+├◆ humanizer
+├◆ summarize
+├◆ totext
+├◆ removebg
+├◆ vision
 └───────────────`,
 `┌──⌈ \`AI TOOLS\` ⌋
-│ videogen
-│ aiscanner
-│ aimenu
-│ brandlogo
-│ companylogo
-│ logoai
+├◆ videogen
+├◆ aiscanner
+├◆ aimenu
+├◆ brandlogo
+├◆ companylogo
+├◆ logoai
 └───────────────`,
 `┌──⌈ \`AI VIDEO EFFECTS\` ⌋
-│ tigervideo
-│ introvideo
-│ lightningpubg
-│ lovevideo
-│ videogen
+├◆ tigervideo
+├◆ introvideo
+├◆ lightningpubg
+├◆ lovevideo
+├◆ videogen
 └───────────────`,
 `┌──⌈ \`IMAGE TOOLS\` ⌋
-│ image
-│ imagegen
-│ imagine
-│ anime
-│ art
-│ real
-│ remini
-│ vision
+├◆ image
+├◆ imagegen
+├◆ imagine
+├◆ anime
+├◆ art
+├◆ real
+├◆ remini
+├◆ vision
 └───────────────`,
 `┌──⌈ \`SPORTS\` ⌋
-│ football
-│ matchstats
-│ sportsnews
-│ teamnews
-│ basketball
-│ cricket
-│ f1
-│ nfl
-│ mma
-│ tennis
-│ baseball
-│ hockey
-│ golf
-│ sportsmenu
+├◆ football
+├◆ matchstats
+├◆ sportsnews
+├◆ teamnews
+├◆ basketball
+├◆ cricket
+├◆ f1
+├◆ nfl
+├◆ mma
+├◆ tennis
+├◆ baseball
+├◆ hockey
+├◆ golf
+├◆ sportsmenu
 └───────────────`,
 `┌──⌈ \`ETHICAL HACKING\` ⌋
-│ whois
-│ dnslookup
-│ subdomain
-│ reverseip
-│ geoip
-│ portscan
-│ headers
-│ traceroute
-│ asnlookup
-│ shodan
-│ pinghost
-│ latency
-│ sslcheck
-│ tlsinfo
-│ openports
-│ firewallcheck
-│ maclookup
-│ bandwidthtest
-│ securityheaders
-│ wafdetect
-│ robotscheck
-│ sitemap
-│ cmsdetect
-│ techstack
-│ cookiescan
-│ redirectcheck
-│ xsscheck
-│ sqlicheck
-│ csrfcheck
-│ clickjackcheck
-│ directoryscan
-│ exposedfiles
-│ misconfigcheck
-│ cvecheck
-│ hashidentify
-│ hashcheck
-│ bcryptcheck
-│ passwordstrength
-│ leakcheck
-│ metadata
-│ filehash
-│ malwarecheck
-│ urlscan
-│ phishcheck
-│ nmap
-│ ipinfo
-│ nglattack
-│ securitymenu
+├◆ whois
+├◆ dnslookup
+├◆ subdomain
+├◆ reverseip
+├◆ geoip
+├◆ portscan
+├◆ headers
+├◆ traceroute
+├◆ asnlookup
+├◆ shodan
+├◆ pinghost
+├◆ latency
+├◆ sslcheck
+├◆ tlsinfo
+├◆ openports
+├◆ firewallcheck
+├◆ maclookup
+├◆ bandwidthtest
+├◆ securityheaders
+├◆ wafdetect
+├◆ robotscheck
+├◆ sitemap
+├◆ cmsdetect
+├◆ techstack
+├◆ cookiescan
+├◆ redirectcheck
+├◆ xsscheck
+├◆ sqlicheck
+├◆ csrfcheck
+├◆ clickjackcheck
+├◆ directoryscan
+├◆ exposedfiles
+├◆ misconfigcheck
+├◆ cvecheck
+├◆ hashidentify
+├◆ hashcheck
+├◆ bcryptcheck
+├◆ passwordstrength
+├◆ leakcheck
+├◆ metadata
+├◆ filehash
+├◆ malwarecheck
+├◆ urlscan
+├◆ phishcheck
+├◆ nmap
+├◆ ipinfo
+├◆ nglattack
+├◆ securitymenu
 └───────────────`,
 `┌──⌈ \`LOGO DESIGN STUDIO\` ⌋
-│ goldlogo
-│ silverlogo
-│ platinumlogo
-│ chromelogo
-│ diamondlogo
-│ bronzelogo
-│ steellogo
-│ copperlogo
-│ titaniumlogo
-│ firelogo
-│ icelogo
-│ iceglowlogo
-│ lightninglogo
-│ aqualogo
-│ rainbowlogo
-│ sunlogo
-│ moonlogo
-│ dragonlogo
-│ phoenixlogo
-│ wizardlogo
-│ crystallogo
-│ darkmagiclogo
-│ shadowlogo
-│ smokelogo
-│ bloodlogo
-│ neonlogo
-│ glowlogo
-│ gradientlogo
-│ matrixlogo
+├◆ goldlogo
+├◆ silverlogo
+├◆ platinumlogo
+├◆ chromelogo
+├◆ diamondlogo
+├◆ bronzelogo
+├◆ steellogo
+├◆ copperlogo
+├◆ titaniumlogo
+├◆ firelogo
+├◆ icelogo
+├◆ iceglowlogo
+├◆ lightninglogo
+├◆ aqualogo
+├◆ rainbowlogo
+├◆ sunlogo
+├◆ moonlogo
+├◆ dragonlogo
+├◆ phoenixlogo
+├◆ wizardlogo
+├◆ crystallogo
+├◆ darkmagiclogo
+├◆ shadowlogo
+├◆ smokelogo
+├◆ bloodlogo
+├◆ neonlogo
+├◆ glowlogo
+├◆ gradientlogo
+├◆ matrixlogo
 └───────────────`,
 `┌──⌈ \`GITHUB TOOLS\` ⌋
-│ gitclone
-│ gitinfo
-│ repanalyze
-│ zip
-│ update
-│ repo
+├◆ gitclone
+├◆ gitinfo
+├◆ repanalyze
+├◆ zip
+├◆ update
+├◆ repo
 └───────────────`,
 `┌──⌈ \`ANIME REACTIONS\` ⌋
-│ animemenu
-│ awoo
-│ bully
-│ cringe
-│ cry
-│ cuddle
-│ dance
-│ glomp
-│ highfive
-│ hug
-│ kill
-│ kiss
-│ lick
-│ megumin
-│ neko
-│ pat
-│ shinobu
-│ trap
-│ trap2
-│ waifu
-│ wink
-│ yeet
+├◆ animemenu
+├◆ awoo
+├◆ bully
+├◆ cringe
+├◆ cry
+├◆ cuddle
+├◆ dance
+├◆ glomp
+├◆ highfive
+├◆ hug
+├◆ kill
+├◆ kiss
+├◆ lick
+├◆ megumin
+├◆ neko
+├◆ pat
+├◆ shinobu
+├◆ trap
+├◆ trap2
+├◆ waifu
+├◆ wink
+├◆ yeet
 └───────────────`,
 `┌──⌈ \`GAMES\` ⌋
-│ coinflip
-│ dare
-│ dice
-│ emojimix
-│ joke
-│ quiz
-│ rps
-│ snake
-│ tetris
-│ truth
-│ tictactoe
-│ quote
+├◆ coinflip
+├◆ dare
+├◆ dice
+├◆ emojimix
+├◆ joke
+├◆ quiz
+├◆ rps
+├◆ snake
+├◆ tetris
+├◆ truth
+├◆ tictactoe
+├◆ quote
 └───────────────`,
 `┌──⌈ \`FUN & TOOLS\` ⌋
-│ bf
-│ gf
-│ couple
-│ gay
-│ getjid
-│ movie
-│ trailer
-│ goodmorning
-│ goodnight
-│ channelstatus
-│ hack
+├◆ bf
+├◆ gf
+├◆ couple
+├◆ gay
+├◆ getjid
+├◆ movie
+├◆ trailer
+├◆ goodmorning
+├◆ goodnight
+├◆ channelstatus
+├◆ hack
 └───────────────`,
 `┌──⌈ \`QUICK COMMANDS\` ⌋
-│ p
-│ up
+├◆ p
+├◆ up
 └───────────────`,
 `┌──⌈ \`EPHOTO TEXT EFFECTS\` ⌋
-│ neon
-│ colorfulglow
-│ advancedglow
-│ neononline
-│ blueneon
-│ neontext
-│ neonlight
-│ greenneon
-│ greenlightneon
-│ blueneonlogo
-│ galaxyneon
-│ retroneon
-│ multicolorneon
-│ hackerneon
-│ devilwings
-│ glowtext
-│ blackpinkneon
-│ neonglitch
-│ colorfulneonlight
-│ wooden3d
-│ cubic3d
-│ wooden3donline
-│ water3d
-│ cuongthi3d
-│ text3d
-│ graffiti3d
-│ silver3d
-│ style3d
-│ metal3d
-│ ruby3d
-│ birthday3d
-│ metallogo3d
-│ pig3d
-│ avengers3d
-│ hologram3d
-│ gradient3d
-│ stone3d
-│ space3d
-│ sand3d
-│ gradienttext3d
-│ lightbulb3d
-│ snow3d
-│ papercut3d
-│ underwater3d
-│ shinymetallic3d
-│ gradientstyle3d
-│ beach3d
-│ crack3d
-│ wood3d
-│ americanflag3d
-│ christmas3d
-│ nigeriaflag3d
-│ christmassnow3d
-│ goldenchristmas3d
-│ decorativemetal3d
-│ colorfulpaint3d
-│ glossysilver3d
-│ balloon3d
-│ comic3d
-│ ephotomenu
+├◆ neon
+├◆ colorfulglow
+├◆ advancedglow
+├◆ neononline
+├◆ blueneon
+├◆ neontext
+├◆ neonlight
+├◆ greenneon
+├◆ greenlightneon
+├◆ blueneonlogo
+├◆ galaxyneon
+├◆ retroneon
+├◆ multicolorneon
+├◆ hackerneon
+├◆ devilwings
+├◆ glowtext
+├◆ blackpinkneon
+├◆ neonglitch
+├◆ colorfulneonlight
+├◆ wooden3d
+├◆ cubic3d
+├◆ wooden3donline
+├◆ water3d
+├◆ cuongthi3d
+├◆ text3d
+├◆ graffiti3d
+├◆ silver3d
+├◆ style3d
+├◆ metal3d
+├◆ ruby3d
+├◆ birthday3d
+├◆ metallogo3d
+├◆ pig3d
+├◆ avengers3d
+├◆ hologram3d
+├◆ gradient3d
+├◆ stone3d
+├◆ space3d
+├◆ sand3d
+├◆ gradienttext3d
+├◆ lightbulb3d
+├◆ snow3d
+├◆ papercut3d
+├◆ underwater3d
+├◆ shinymetallic3d
+├◆ gradientstyle3d
+├◆ beach3d
+├◆ crack3d
+├◆ wood3d
+├◆ americanflag3d
+├◆ christmas3d
+├◆ nigeriaflag3d
+├◆ christmassnow3d
+├◆ goldenchristmas3d
+├◆ decorativemetal3d
+├◆ colorfulpaint3d
+├◆ glossysilver3d
+├◆ balloon3d
+├◆ comic3d
+├◆ ephotomenu
 └───────────────`,
 `🐺 *POWERED BY WOLFTECH* 🐺`
   ];
@@ -3740,20 +3740,20 @@ case 4: {
   let infoSection = `╭─⊷ *${currentBotName} MENU*
 │
 │
-│  ├─⊷ *User:* ${m.pushName || "Anonymous"}
-│  ├─⊷ *Date:* ${currentDate}
-│  ├─⊷ *Time:* ${currentTime}
-│  ├─⊷ *Owner:* ${ownerName}
-│  ├─⊷ *Mode:* ${botMode}
-│  ├─⊷ *Prefix:* [ ${botPrefix} ]
-│  ├─⊷ *Version:* ${botVersion}
-│  ├─⊷ *Platform:* ${deploymentPlatform.name}
-│  └─⊷ *Status:* ${deploymentPlatform.status}
+├◆  ├─⊷ *User:* ${m.pushName || "Anonymous"}
+├◆  ├─⊷ *Date:* ${currentDate}
+├◆  ├─⊷ *Time:* ${currentTime}
+├◆  ├─⊷ *Owner:* ${ownerName}
+├◆  ├─⊷ *Mode:* ${botMode}
+├◆  ├─⊷ *Prefix:* [ ${botPrefix} ]
+├◆  ├─⊷ *Version:* ${botVersion}
+├◆  ├─⊷ *Platform:* ${deploymentPlatform.name}
+├◆  └─⊷ *Status:* ${deploymentPlatform.status}
 │
 ├─⊷ *📈 SYSTEM STATUS*
-│  ├─⊷ *Uptime:* ${formatUptime(process.uptime())}
-│  ├─⊷ *RAM Usage:* ${getRAMUsage()}%
-│  └─⊷ *Speed:* ${(performance.now() - performance.now()).toFixed(2)}ms
+├◆  ├─⊷ *Uptime:* ${formatUptime(process.uptime())}
+├◆  ├─⊷ *RAM Usage:* ${getRAMUsage()}%
+├◆  └─⊷ *Speed:* ${(performance.now() - performance.now()).toFixed(2)}ms
 │
 ╰─⊷ *Type .help <command> for details*\n\n`;
 
@@ -3764,339 +3764,339 @@ case 4: {
   const commandsText = `╭─⊷ *🏠 GROUP MANAGEMENT*
 │
 ├─⊷ *🛡️ ADMIN & MODERATION*
-│  • add
-│  • promote
-│  • demote
-│  • kick
-│  • kickall
-│  • ban
-│  • unban
-│  • banlist
-│  • clearbanlist
-│  • warn
-│  • resetwarn
-│  • setwarn
-│  • mute
-│  • unmute
-│  • gctime
-│  • antileave
-│  • antilink
-│  • addbadword
-│  • removebadword
-│  • listbadword
-│  • welcome
+├◆  • add
+├◆  • promote
+├◆  • demote
+├◆  • kick
+├◆  • kickall
+├◆  • ban
+├◆  • unban
+├◆  • banlist
+├◆  • clearbanlist
+├◆  • warn
+├◆  • resetwarn
+├◆  • setwarn
+├◆  • mute
+├◆  • unmute
+├◆  • gctime
+├◆  • antileave
+├◆  • antilink
+├◆  • addbadword
+├◆  • removebadword
+├◆  • listbadword
+├◆  • welcome
 │
 ├─⊷ *🚫 AUTO-MODERATION*
-│  • antisticker
-│  • antiviewonce
-│  • antilink
-│  • antiimage
-│  • antivideo
-│  • antiaudio
-│  • antimention
-│  • antistatusmention
-│  • antigrouplink
-│  • antibadword
-│  • antigroupcall
+├◆  • antisticker
+├◆  • antiviewonce
+├◆  • antilink
+├◆  • antiimage
+├◆  • antivideo
+├◆  • antiaudio
+├◆  • antimention
+├◆  • antistatusmention
+├◆  • antigrouplink
+├◆  • antibadword
+├◆  • antigroupcall
 │
 ├─⊷ *📊 GROUP INFO & TOOLS*
-│  • groupinfo
-│  • tagadmin
-│  • tagall
-│  • hidetag
-│  • link
-│  • invite
-│  • revoke
-│  • setdesc
-│  • fangtrace
-│  • getgpp
+├◆  • groupinfo
+├◆  • tagadmin
+├◆  • tagall
+├◆  • hidetag
+├◆  • link
+├◆  • invite
+├◆  • revoke
+├◆  • setdesc
+├◆  • fangtrace
+├◆  • getgpp
 │
 ╰─⊷
 
 ╭─⊷ *🎨 MENU COMMANDS*
 │
-│  • togglemenuinfo
-│  • setmenuimage
-│  • resetmenuinfo
-│  • menustyle
+├◆  • togglemenuinfo
+├◆  • setmenuimage
+├◆  • resetmenuinfo
+├◆  • menustyle
 │
 ╰─⊷
 
 ╭─⊷ *👑 OWNER CONTROLS*
 │
 ├─⊷ *⚡ CORE MANAGEMENT*
-│  • setbotname
-│  • setowner
-│  • setprefix
-│  • iamowner
-│  • about
-│  • block
-│  • unblock
-│  • blockdetect
-│  • blockall
-│  • unblockall
-│  • silent
-│  • anticall
-│  • mode
-│  • online
-│  • setpp
-│  • repo
+├◆  • setbotname
+├◆  • setowner
+├◆  • setprefix
+├◆  • iamowner
+├◆  • about
+├◆  • block
+├◆  • unblock
+├◆  • blockdetect
+├◆  • blockall
+├◆  • unblockall
+├◆  • silent
+├◆  • anticall
+├◆  • mode
+├◆  • online
+├◆  • setpp
+├◆  • repo
 │
 ├─⊷ *🔄 SYSTEM & MAINTENANCE*
-│  • restart
-│  • workingreload
-│  • reloadenv
-│  • getsettings
-│  • setsetting
-│  • test
-│  • disk
-│  • hostip
-│  • findcommands
+├◆  • restart
+├◆  • workingreload
+├◆  • reloadenv
+├◆  • getsettings
+├◆  • setsetting
+├◆  • test
+├◆  • disk
+├◆  • hostip
+├◆  • findcommands
 │
 ╰─⊷
 
 ╭─⊷ *⚙️ AUTOMATION*
 │
-│  • autoread
-│  • autotyping
-│  • autorecording
-│  • autoreact
-│  • autoreactstatus
-│  • autobio
-│  • autorec
+├◆  • autoread
+├◆  • autotyping
+├◆  • autorecording
+├◆  • autoreact
+├◆  • autoreactstatus
+├◆  • autobio
+├◆  • autorec
 │
 ╰─⊷
 
 ╭─⊷ *✨ GENERAL UTILITIES*
 │
 ├─⊷ *🔍 INFO & SEARCH*
-│  • alive
-│  • ping
-│  • ping2
-│  • time
-│  • connection
-│  • define
-│  • news
-│  • covid
-│  • iplookup
-│  • getip
-│  • getpp
-│  • getgpp
-│  • prefixinfo
+├◆  • alive
+├◆  • ping
+├◆  • ping2
+├◆  • time
+├◆  • connection
+├◆  • define
+├◆  • news
+├◆  • covid
+├◆  • iplookup
+├◆  • getip
+├◆  • getpp
+├◆  • getgpp
+├◆  • prefixinfo
 │
 ├─⊷ *🔗 CONVERSION & MEDIA*
-│  • shorturl
-│  • qrencode
-│  • take
-│  • imgbb
-│  • tiktok
-│  • save
+├◆  • shorturl
+├◆  • qrencode
+├◆  • take
+├◆  • imgbb
+├◆  • tiktok
+├◆  • save
 │
 ├─⊷ *📝 PERSONAL TOOLS*
-│  • pair
-│  • resetwarn
-│  • setwarn
+├◆  • pair
+├◆  • resetwarn
+├◆  • setwarn
 │
 ╰─⊷
 
 ╭─⊷ *🎵 MUSIC & MEDIA*
 │
-│  • play
-│  • song
-│  • lyrics
-│  • spotify
-│  • video
-│  • video2
-│  • bassboost
-│  • trebleboost
+├◆  • play
+├◆  • song
+├◆  • lyrics
+├◆  • spotify
+├◆  • video
+├◆  • video2
+├◆  • bassboost
+├◆  • trebleboost
 │
 ╰─⊷
 
 ╭─⊷ *🤖 MEDIA & AI COMMANDS*
 │
 ├─⊷ *⬇️ MEDIA DOWNLOADS*
-│  • youtube
-│  • tiktok
-│  • instagram
-│  • facebook
-│  • snapchat
-│  • apk
+├◆  • youtube
+├◆  • tiktok
+├◆  • instagram
+├◆  • facebook
+├◆  • snapchat
+├◆  • apk
 │
 ├─⊷ *🎨 AI GENERATION*
-│  • gpt
-│  • gemini
-│  • deepseek
-│  • deepseek+
-│  • analyze
-│  • suno
-│  • wolfbot
-│  • videogen
+├◆  • gpt
+├◆  • gemini
+├◆  • deepseek
+├◆  • deepseek+
+├◆  • analyze
+├◆  • suno
+├◆  • wolfbot
+├◆  • videogen
 │
 ╰─⊷
 
 ╭─⊷ *🖼️ IMAGE TOOLS*
 │
-│  • image
-│  • imagegenerate
-│  • anime
-│  • art
-│  • real
+├◆  • image
+├◆  • imagegenerate
+├◆  • anime
+├◆  • art
+├◆  • real
 │
 ╰─⊷
 
 ╭─⊷ *🏆 SPORTS*
 │
-│  • football
-│  • matchstats
-│  • sportsnews
-│  • teamnews
-│  • basketball
-│  • cricket
-│  • f1
-│  • nfl
-│  • mma
-│  • tennis
-│  • baseball
-│  • hockey
-│  • golf
-│  • sportsmenu
+├◆  • football
+├◆  • matchstats
+├◆  • sportsnews
+├◆  • teamnews
+├◆  • basketball
+├◆  • cricket
+├◆  • f1
+├◆  • nfl
+├◆  • mma
+├◆  • tennis
+├◆  • baseball
+├◆  • hockey
+├◆  • golf
+├◆  • sportsmenu
 │
 ╰─⊷
 
 ╭─⊷ *🛡️ ETHICAL HACKING*
 │
-│  • whois
-│  • dnslookup
-│  • subdomain
-│  • reverseip
-│  • geoip
-│  • portscan
-│  • headers
-│  • traceroute
-│  • asnlookup
-│  • shodan
-│  • pinghost
-│  • latency
-│  • sslcheck
-│  • tlsinfo
-│  • openports
-│  • firewallcheck
-│  • maclookup
-│  • bandwidthtest
-│  • securityheaders
-│  • wafdetect
-│  • robotscheck
-│  • sitemap
-│  • cmsdetect
-│  • techstack
-│  • cookiescan
-│  • redirectcheck
-│  • xsscheck
-│  • sqlicheck
-│  • csrfcheck
-│  • clickjackcheck
-│  • directoryscan
-│  • exposedfiles
-│  • misconfigcheck
-│  • cvecheck
-│  • hashidentify
-│  • hashcheck
-│  • bcryptcheck
-│  • passwordstrength
-│  • leakcheck
-│  • metadata
-│  • filehash
-│  • malwarecheck
-│  • urlscan
-│  • phishcheck
-│  • nmap
-│  • ipinfo
-│  • nglattack
-│  • securitymenu
+├◆  • whois
+├◆  • dnslookup
+├◆  • subdomain
+├◆  • reverseip
+├◆  • geoip
+├◆  • portscan
+├◆  • headers
+├◆  • traceroute
+├◆  • asnlookup
+├◆  • shodan
+├◆  • pinghost
+├◆  • latency
+├◆  • sslcheck
+├◆  • tlsinfo
+├◆  • openports
+├◆  • firewallcheck
+├◆  • maclookup
+├◆  • bandwidthtest
+├◆  • securityheaders
+├◆  • wafdetect
+├◆  • robotscheck
+├◆  • sitemap
+├◆  • cmsdetect
+├◆  • techstack
+├◆  • cookiescan
+├◆  • redirectcheck
+├◆  • xsscheck
+├◆  • sqlicheck
+├◆  • csrfcheck
+├◆  • clickjackcheck
+├◆  • directoryscan
+├◆  • exposedfiles
+├◆  • misconfigcheck
+├◆  • cvecheck
+├◆  • hashidentify
+├◆  • hashcheck
+├◆  • bcryptcheck
+├◆  • passwordstrength
+├◆  • leakcheck
+├◆  • metadata
+├◆  • filehash
+├◆  • malwarecheck
+├◆  • urlscan
+├◆  • phishcheck
+├◆  • nmap
+├◆  • ipinfo
+├◆  • nglattack
+├◆  • securitymenu
 │
 ╰─⊷
 
 ╭─⊷ *🕵️ STALKER COMMANDS*
 │
-│  • wachannel
-│  • tiktokstalk
-│  • twitterstalk
-│  • ipstalk
-│  • igstalk
-│  • npmstalk
-│  • gitstalk
-│  • stalkermenu
+├◆  • wachannel
+├◆  • tiktokstalk
+├◆  • twitterstalk
+├◆  • ipstalk
+├◆  • igstalk
+├◆  • npmstalk
+├◆  • gitstalk
+├◆  • stalkermenu
 │
 ╰─⊷
 
 ╭─⊷ *🎨 LOGO DESIGN STUDIO*
 │
-│  • goldlogo
-│  • silverlogo
-│  • platinumlogo
-│  • chromelogo
-│  • diamondlogo
-│  • bronzelogo
-│  • steelogo
-│  • copperlogo
-│  • titaniumlogo
-│  • firelogo
-│  • icelogo
-│  • iceglowlogo
-│  • lightninglogo
-│  • aqualogo
-│  • rainbowlogo
-│  • sunlogo
-│  • moonlogo
-│  • dragonlogo
-│  • phoenixlogo
-│  • wizardlogo
-│  • crystallogo
-│  • darkmagiclogo
-│  • shadowlogo
-│  • smokelogo
-│  • bloodlogo
-│  • neonlogo
-│  • glowlogo
-│  • matrixlogo
-│  • logomenu
+├◆  • goldlogo
+├◆  • silverlogo
+├◆  • platinumlogo
+├◆  • chromelogo
+├◆  • diamondlogo
+├◆  • bronzelogo
+├◆  • steelogo
+├◆  • copperlogo
+├◆  • titaniumlogo
+├◆  • firelogo
+├◆  • icelogo
+├◆  • iceglowlogo
+├◆  • lightninglogo
+├◆  • aqualogo
+├◆  • rainbowlogo
+├◆  • sunlogo
+├◆  • moonlogo
+├◆  • dragonlogo
+├◆  • phoenixlogo
+├◆  • wizardlogo
+├◆  • crystallogo
+├◆  • darkmagiclogo
+├◆  • shadowlogo
+├◆  • smokelogo
+├◆  • bloodlogo
+├◆  • neonlogo
+├◆  • glowlogo
+├◆  • matrixlogo
+├◆  • logomenu
 │
 ╰─⊷
 
 ╭─⊷ *🐙 GITHUB COMMANDS*
 │
-│  • gitclone
-│  • gitinfo
-│  • repo
-│  • commits
-│  • stars
-│  • watchers
-│  • release
+├◆  • gitclone
+├◆  • gitinfo
+├◆  • repo
+├◆  • commits
+├◆  • stars
+├◆  • watchers
+├◆  • release
 │
 ╰─⊷
 
 ╭─⊷ *🌸 ANIME COMMANDS*
 │
-│  • awoo
-│  • bj
-│  • bully
-│  • cringe
-│  • cry
-│  • dance
-│  • glomp
-│  • highfive
-│  • kill
-│  • kiss
-│  • lick
-│  • megumin
-│  • neko
-│  • pat
-│  • shinobu
-│  • trap
-│  • trap2
-│  • waifu
-│  • wink
-│  • yeet
+├◆  • awoo
+├◆  • bj
+├◆  • bully
+├◆  • cringe
+├◆  • cry
+├◆  • dance
+├◆  • glomp
+├◆  • highfive
+├◆  • kill
+├◆  • kiss
+├◆  • lick
+├◆  • megumin
+├◆  • neko
+├◆  • pat
+├◆  • shinobu
+├◆  • trap
+├◆  • trap2
+├◆  • waifu
+├◆  • wink
+├◆  • yeet
 │
 ╰─⊷
 
@@ -5490,17 +5490,17 @@ case 5: {
   
   // ========== UPDATED MENU WITH CURVED FORMAT ==========
   let infoSection = `╭─⌈ \`${currentBotName}\` ⌋
-│  ╭⊷ *User:* ${m.pushName || "Anonymous"}
-│  ├⊷ *Owner:* ${ownerName}
-│  ├⊷ *Mode:* ${botMode}
-│  ├⊷ *Prefix:* [ ${botPrefix} ]
-│  ├⊷ *Version:* ${botVersion}
-│  ├⊷ *Platform:* ${deploymentPlatform.name}
-│  ├⊷ *Status:* ${deploymentPlatform.status}
-│  ├⊷ *Uptime:* ${formatUptime(process.uptime())}
-│  ├⊷ *RAM Usage:* ${ramUsage.percent}%
-│  │  ${ramUsage.bar}
-│  ╰⊷ *Memory:* ${ramUsage.usedMB}MB / ${ramUsage.totalMB}MB
+├◆  ╭⊷ *User:* ${m.pushName || "Anonymous"}
+├◆  ├⊷ *Owner:* ${ownerName}
+├◆  ├⊷ *Mode:* ${botMode}
+├◆  ├⊷ *Prefix:* [ ${botPrefix} ]
+├◆  ├⊷ *Version:* ${botVersion}
+├◆  ├⊷ *Platform:* ${deploymentPlatform.name}
+├◆  ├⊷ *Status:* ${deploymentPlatform.status}
+├◆  ├⊷ *Uptime:* ${formatUptime(process.uptime())}
+├◆  ├⊷ *RAM Usage:* ${ramUsage.percent}%
+├◆  │  ${ramUsage.bar}
+├◆  ╰⊷ *Memory:* ${ramUsage.usedMB}MB / ${ramUsage.totalMB}MB
 ╰─⊷`;
 
   // Apply faded effect to the info section
@@ -5510,570 +5510,570 @@ case 5: {
   const commandsText = `╭─⊷ *🏠 GROUP MANAGEMENT*
 │
 ├─⊷ *🛡️ ADMIN & MODERATION*
-│  • add
-│  • promote
-│  • promoteall
-│  • demote
-│  • demoteall
-│  • kick
-│  • kickall
-│  • ban
-│  • unban
-│  • ex
-│  • clearbanlist
-│  • warn
-│  • resetwarn
-│  • setwarn
-│  • warnings
-│  • mute
-│  • unmute
-│  • gctime
-│  • antileave
-│  • antilink
-│  • addbadword
-│  • removebadword
-│  • listbadword
-│  • welcome
-│  • goodbye
-│  • leave
-│  • creategroup
+├◆  • add
+├◆  • promote
+├◆  • promoteall
+├◆  • demote
+├◆  • demoteall
+├◆  • kick
+├◆  • kickall
+├◆  • ban
+├◆  • unban
+├◆  • ex
+├◆  • clearbanlist
+├◆  • warn
+├◆  • resetwarn
+├◆  • setwarn
+├◆  • warnings
+├◆  • mute
+├◆  • unmute
+├◆  • gctime
+├◆  • antileave
+├◆  • antilink
+├◆  • addbadword
+├◆  • removebadword
+├◆  • listbadword
+├◆  • welcome
+├◆  • goodbye
+├◆  • leave
+├◆  • creategroup
 │
 ├─⊷ *🚫 AUTO-MODERATION*
-│  • antisticker
-│  • antiimage
-│  • antivideo
-│  • antiaudio
-│  • antimention
-│  • antistatusmention
-│  • antigrouplink
-│  • antidemote
-│  • antipromote
-│  • antiviewonce
-│  • antibadword
-│  • antigroupcall
+├◆  • antisticker
+├◆  • antiimage
+├◆  • antivideo
+├◆  • antiaudio
+├◆  • antimention
+├◆  • antistatusmention
+├◆  • antigrouplink
+├◆  • antidemote
+├◆  • antipromote
+├◆  • antiviewonce
+├◆  • antibadword
+├◆  • antigroupcall
 │
 ├─⊷ *📊 GROUP INFO & TOOLS*
-│  • groupinfo
-│  • grouplink
-│  • tagadmin
-│  • tagall
-│  • hidetag
-│  • link
-│  • invite
-│  • revoke
-│  • setdesc
-│  • fangtrace
-│  • getgpp
-│  • togstatus
-│  • getparticipants
-│  • listonline
-│  • listinactive
-│  • approveall
-│  • rejectall
-│  • stickerpack
+├◆  • groupinfo
+├◆  • grouplink
+├◆  • tagadmin
+├◆  • tagall
+├◆  • hidetag
+├◆  • link
+├◆  • invite
+├◆  • revoke
+├◆  • setdesc
+├◆  • fangtrace
+├◆  • getgpp
+├◆  • togstatus
+├◆  • getparticipants
+├◆  • listonline
+├◆  • listinactive
+├◆  • approveall
+├◆  • rejectall
+├◆  • stickerpack
 │
 ╰─⊷
 
 ╭─⊷ *🎨 MENU COMMANDS*
 │
-│  • menu
-│  • menustyle
-│  • togglemenuinfo
-│  • setmenuimage
-│  • restoremenuimage
+├◆  • menu
+├◆  • menustyle
+├◆  • togglemenuinfo
+├◆  • setmenuimage
+├◆  • restoremenuimage
 │
 ╰─⊷
 
 ╭─⊷ *👑 OWNER CONTROLS*
 │
 ├─⊷ *⚡ CORE MANAGEMENT*
-│  • setbotname
-│  • resetbotname
-│  • setowner
-│  • resetowner
-│  • setprefix
-│  • prefix
-│  • iamowner
-│  • about
-│  • owner
-│  • block
-│  • unblock
-│  • blockdetect
-│  • blockall
-│  • unblockall
-│  • silent
-│  • anticall
-│  • mode
-│  • setpp
-│  • setfooter
-│  • repo
-│  • pair
-│  • antidelete
-│  • antideletestatus
-│  • antiedit
-│  • chatbot
-│  • shutdown
+├◆  • setbotname
+├◆  • resetbotname
+├◆  • setowner
+├◆  • resetowner
+├◆  • setprefix
+├◆  • prefix
+├◆  • iamowner
+├◆  • about
+├◆  • owner
+├◆  • block
+├◆  • unblock
+├◆  • blockdetect
+├◆  • blockall
+├◆  • unblockall
+├◆  • silent
+├◆  • anticall
+├◆  • mode
+├◆  • setpp
+├◆  • setfooter
+├◆  • repo
+├◆  • pair
+├◆  • antidelete
+├◆  • antideletestatus
+├◆  • antiedit
+├◆  • chatbot
+├◆  • shutdown
 │
 ├─⊷ *🔄 SYSTEM & MAINTENANCE*
-│  • restart
-│  • workingreload
-│  • reloadenv
-│  • getsettings
-│  • setsetting
-│  • test
-│  • disk
-│  • hostip
-│  • findcommands
-│  • latestupdates
-│  • platform
-│  • debugchat
+├◆  • restart
+├◆  • workingreload
+├◆  • reloadenv
+├◆  • getsettings
+├◆  • setsetting
+├◆  • test
+├◆  • disk
+├◆  • hostip
+├◆  • findcommands
+├◆  • latestupdates
+├◆  • platform
+├◆  • debugchat
 │
 ├─⊷ *🔒 PRIVACY CONTROLS*
-│  • online
-│  • privacy
-│  • receipt
-│  • profilepic
-│  • viewer
-│  • lastseen
+├◆  • online
+├◆  • privacy
+├◆  • receipt
+├◆  • profilepic
+├◆  • viewer
+├◆  • lastseen
 │
 ╰─⊷
 
 ╭─⊷ *👥 SUDO*
 │
-│  • addsudo
-│  • delsudo
-│  • listsudo
-│  • checksudo
-│  • clearsudo
-│  • sudomode
-│  • sudoinfo
-│  • mysudo
-│  • sudodebug
-│  • linksudo
+├◆  • addsudo
+├◆  • delsudo
+├◆  • listsudo
+├◆  • checksudo
+├◆  • clearsudo
+├◆  • sudomode
+├◆  • sudoinfo
+├◆  • mysudo
+├◆  • sudodebug
+├◆  • linksudo
 │
 ╰─⊷
 
 ╭─⊷ *⚙️ AUTOMATION*
 │
-│  • autoread
-│  • autotyping
-│  • autorecording
-│  • autoreact
-│  • autoreactstatus
-│  • autoviewstatus
-│  • autobio
-│  • autorec
-│  • reactowner
+├◆  • autoread
+├◆  • autotyping
+├◆  • autorecording
+├◆  • autoreact
+├◆  • autoreactstatus
+├◆  • autoviewstatus
+├◆  • autobio
+├◆  • autorec
+├◆  • reactowner
 │
 ╰─⊷
 
 ╭─⊷ *✨ GENERAL UTILITIES*
 │
 ├─⊷ *🔍 INFO & SEARCH*
-│  • alive
-│  • ping
-│  • ping2
-│  • time
-│  • uptime
-│  • define
-│  • news
-│  • covid
-│  • weather
-│  • wiki
-│  • translate
-│  • iplookup
-│  • getip
-│  • getpp
-│  • getgpp
-│  • prefixinfo
-│  • platform
+├◆  • alive
+├◆  • ping
+├◆  • ping2
+├◆  • time
+├◆  • uptime
+├◆  • define
+├◆  • news
+├◆  • covid
+├◆  • weather
+├◆  • wiki
+├◆  • translate
+├◆  • iplookup
+├◆  • getip
+├◆  • getpp
+├◆  • getgpp
+├◆  • prefixinfo
+├◆  • platform
 │
 ├─⊷ *🔗 CONVERSION & MEDIA*
-│  • shorturl
-│  • url
-│  • fetch
-│  • qrencode
-│  • take
-│  • imgbb
-│  • tiktok
-│  • save
-│  • screenshot
-│  • inspect
-│  • toimage
-│  • tosticker
-│  • toaudio
-│  • tovoice
-│  • tts
-│  • trebleboost
-│  • jarvis
+├◆  • shorturl
+├◆  • url
+├◆  • fetch
+├◆  • qrencode
+├◆  • take
+├◆  • imgbb
+├◆  • tiktok
+├◆  • save
+├◆  • screenshot
+├◆  • inspect
+├◆  • toimage
+├◆  • tosticker
+├◆  • toaudio
+├◆  • tovoice
+├◆  • tts
+├◆  • trebleboost
+├◆  • jarvis
 │
 ├─⊷ *📇 CONTACT TOOLS*
-│  • vcf
-│  • viewvcf
-│  • vv
-│  • vv2
+├◆  • vcf
+├◆  • viewvcf
+├◆  • vv
+├◆  • vv2
 │
 ╰─⊷
 
 ╭─⊷ *🎵 MUSIC & MEDIA*
 │
-│  • play
-│  • song
-│  • video
-│  • videodoc
-│  • lyrics
-│  • shazam
-│  • spotify
+├◆  • play
+├◆  • song
+├◆  • video
+├◆  • videodoc
+├◆  • lyrics
+├◆  • shazam
+├◆  • spotify
 │
 ╰─⊷
 
 ╭─⊷ *⬇️ MEDIA DOWNLOADS*
 │
-│  • tiktok
-│  • instagram
-│  • facebook
-│  • snapchat
-│  • apk
-│  • yts
-│  • ytplay
-│  • ytmp3
-│  • ytv
-│  • ytmp4
-│  • ytvdoc
-│  • videodl
-│  • playlist
+├◆  • tiktok
+├◆  • instagram
+├◆  • facebook
+├◆  • snapchat
+├◆  • apk
+├◆  • yts
+├◆  • ytplay
+├◆  • ytmp3
+├◆  • ytv
+├◆  • ytmp4
+├◆  • ytvdoc
+├◆  • videodl
+├◆  • playlist
 │
 ╰─⊷
 
 ╭─⊷ *🤖 AI COMMANDS*
 │
 ├─⊷ *💬 AI CHAT*
-│  • gpt
-│  • chatgpt
-│  • copilot
-│  • bing
-│  • bard
-│  • claudeai
-│  • grok
-│  • blackbox
-│  • mistral
-│  • metai
-│  • perplexity
-│  • qwenai
-│  • ilama
-│  • venice
-│  • wormgpt
-│  • deepseek+
-│  • chatbot
+├◆  • gpt
+├◆  • chatgpt
+├◆  • copilot
+├◆  • bing
+├◆  • bard
+├◆  • claudeai
+├◆  • grok
+├◆  • blackbox
+├◆  • mistral
+├◆  • metai
+├◆  • perplexity
+├◆  • qwenai
+├◆  • ilama
+├◆  • venice
+├◆  • wormgpt
+├◆  • deepseek+
+├◆  • chatbot
 │
 ├─⊷ *🎨 AI GENERATION*
-│  • imagine
-│  • imagegen
-│  • flux
-│  • analyze
-│  • suno
-│  • speechwriter
-│  • humanizer
-│  • summarize
-│  • totext
-│  • removebg
-│  • vision
+├◆  • imagine
+├◆  • imagegen
+├◆  • flux
+├◆  • analyze
+├◆  • suno
+├◆  • speechwriter
+├◆  • humanizer
+├◆  • summarize
+├◆  • totext
+├◆  • removebg
+├◆  • vision
 │
 ├─⊷ *🎬 AI TOOLS*
-│  • videogen
-│  • aiscanner
-│  • aimenu
-│  • brandlogo
-│  • companylogo
-│  • logoai
+├◆  • videogen
+├◆  • aiscanner
+├◆  • aimenu
+├◆  • brandlogo
+├◆  • companylogo
+├◆  • logoai
 │
 ╰─⊷
 
 ╭─⊷ *🎬 AI VIDEO EFFECTS*
 │
-│  • tigervideo
-│  • introvideo
-│  • lightningpubg
-│  • lovevideo
-│  • videogen
+├◆  • tigervideo
+├◆  • introvideo
+├◆  • lightningpubg
+├◆  • lovevideo
+├◆  • videogen
 │
 ╰─⊷
 
 ╭─⊷ *🖼️ IMAGE TOOLS*
 │
-│  • image
-│  • imagegen
-│  • imagine
-│  • anime
-│  • art
-│  • real
-│  • remini
-│  • vision
+├◆  • image
+├◆  • imagegen
+├◆  • imagine
+├◆  • anime
+├◆  • art
+├◆  • real
+├◆  • remini
+├◆  • vision
 │
 ╰─⊷
 
 ╭─⊷ *🏆 SPORTS*
 │
-│  • football
-│  • matchstats
-│  • sportsnews
-│  • teamnews
-│  • basketball
-│  • cricket
-│  • f1
-│  • nfl
-│  • mma
-│  • tennis
-│  • baseball
-│  • hockey
-│  • golf
-│  • sportsmenu
+├◆  • football
+├◆  • matchstats
+├◆  • sportsnews
+├◆  • teamnews
+├◆  • basketball
+├◆  • cricket
+├◆  • f1
+├◆  • nfl
+├◆  • mma
+├◆  • tennis
+├◆  • baseball
+├◆  • hockey
+├◆  • golf
+├◆  • sportsmenu
 │
 ╰─⊷
 
 ╭─⊷ *🛡️ ETHICAL HACKING*
 │
-│  • whois
-│  • dnslookup
-│  • subdomain
-│  • reverseip
-│  • geoip
-│  • portscan
-│  • headers
-│  • traceroute
-│  • asnlookup
-│  • shodan
-│  • pinghost
-│  • latency
-│  • sslcheck
-│  • tlsinfo
-│  • openports
-│  • firewallcheck
-│  • maclookup
-│  • bandwidthtest
-│  • securityheaders
-│  • wafdetect
-│  • robotscheck
-│  • sitemap
-│  • cmsdetect
-│  • techstack
-│  • cookiescan
-│  • redirectcheck
-│  • xsscheck
-│  • sqlicheck
-│  • csrfcheck
-│  • clickjackcheck
-│  • directoryscan
-│  • exposedfiles
-│  • misconfigcheck
-│  • cvecheck
-│  • hashidentify
-│  • hashcheck
-│  • bcryptcheck
-│  • passwordstrength
-│  • leakcheck
-│  • metadata
-│  • filehash
-│  • malwarecheck
-│  • urlscan
-│  • phishcheck
-│  • nmap
-│  • ipinfo
-│  • nglattack
-│  • securitymenu
+├◆  • whois
+├◆  • dnslookup
+├◆  • subdomain
+├◆  • reverseip
+├◆  • geoip
+├◆  • portscan
+├◆  • headers
+├◆  • traceroute
+├◆  • asnlookup
+├◆  • shodan
+├◆  • pinghost
+├◆  • latency
+├◆  • sslcheck
+├◆  • tlsinfo
+├◆  • openports
+├◆  • firewallcheck
+├◆  • maclookup
+├◆  • bandwidthtest
+├◆  • securityheaders
+├◆  • wafdetect
+├◆  • robotscheck
+├◆  • sitemap
+├◆  • cmsdetect
+├◆  • techstack
+├◆  • cookiescan
+├◆  • redirectcheck
+├◆  • xsscheck
+├◆  • sqlicheck
+├◆  • csrfcheck
+├◆  • clickjackcheck
+├◆  • directoryscan
+├◆  • exposedfiles
+├◆  • misconfigcheck
+├◆  • cvecheck
+├◆  • hashidentify
+├◆  • hashcheck
+├◆  • bcryptcheck
+├◆  • passwordstrength
+├◆  • leakcheck
+├◆  • metadata
+├◆  • filehash
+├◆  • malwarecheck
+├◆  • urlscan
+├◆  • phishcheck
+├◆  • nmap
+├◆  • ipinfo
+├◆  • nglattack
+├◆  • securitymenu
 │
 ╰─⊷
 
 ╭─⊷ *🕵️ STALKER COMMANDS*
 │
-│  • wachannel
-│  • tiktokstalk
-│  • twitterstalk
-│  • ipstalk
-│  • igstalk
-│  • npmstalk
-│  • gitstalk
-│  • stalkermenu
+├◆  • wachannel
+├◆  • tiktokstalk
+├◆  • twitterstalk
+├◆  • ipstalk
+├◆  • igstalk
+├◆  • npmstalk
+├◆  • gitstalk
+├◆  • stalkermenu
 │
 ╰─⊷
 
 ╭─⊷ *🎨 LOGO DESIGN STUDIO*
 │
-│  • goldlogo
-│  • silverlogo
-│  • platinumlogo
-│  • chromelogo
-│  • diamondlogo
-│  • bronzelogo
-│  • steelogo
-│  • copperlogo
-│  • titaniumlogo
-│  • firelogo
-│  • icelogo
-│  • iceglowlogo
-│  • lightninglogo
-│  • rainbowlogo
-│  • sunlogo
-│  • moonlogo
-│  • dragonlogo
-│  • phoenixlogo
-│  • wizardlogo
-│  • crystallogo
-│  • darkmagiclogo
-│  • shadowlogo
-│  • smokelogo
-│  • bloodlogo
-│  • neonlogo
-│  • glowlogo
-│  • gradientlogo
-│  • matrixlogo
-│  • aqualogo
-│  • logomenu
+├◆  • goldlogo
+├◆  • silverlogo
+├◆  • platinumlogo
+├◆  • chromelogo
+├◆  • diamondlogo
+├◆  • bronzelogo
+├◆  • steelogo
+├◆  • copperlogo
+├◆  • titaniumlogo
+├◆  • firelogo
+├◆  • icelogo
+├◆  • iceglowlogo
+├◆  • lightninglogo
+├◆  • rainbowlogo
+├◆  • sunlogo
+├◆  • moonlogo
+├◆  • dragonlogo
+├◆  • phoenixlogo
+├◆  • wizardlogo
+├◆  • crystallogo
+├◆  • darkmagiclogo
+├◆  • shadowlogo
+├◆  • smokelogo
+├◆  • bloodlogo
+├◆  • neonlogo
+├◆  • glowlogo
+├◆  • gradientlogo
+├◆  • matrixlogo
+├◆  • aqualogo
+├◆  • logomenu
 │
 ╰─⊷
 
 ╭─⊷ *🐙 GITHUB COMMANDS*
 │
-│  • gitclone
-│  • gitinfo
-│  • repanalyze
-│  • zip
-│  • update
-│  • repo
+├◆  • gitclone
+├◆  • gitinfo
+├◆  • repanalyze
+├◆  • zip
+├◆  • update
+├◆  • repo
 │
 ╰─⊷
 
 ╭─⊷ *🌸 ANIME COMMANDS*
 │
-│  • animemenu
-│  • awoo
-│  • bully
-│  • cringe
-│  • cry
-│  • cuddle
-│  • dance
-│  • glomp
-│  • highfive
-│  • hug
-│  • kill
-│  • kiss
-│  • lick
-│  • megumin
-│  • neko
-│  • pat
-│  • shinobu
-│  • trap
-│  • trap2
-│  • waifu
-│  • wink
-│  • yeet
+├◆  • animemenu
+├◆  • awoo
+├◆  • bully
+├◆  • cringe
+├◆  • cry
+├◆  • cuddle
+├◆  • dance
+├◆  • glomp
+├◆  • highfive
+├◆  • hug
+├◆  • kill
+├◆  • kiss
+├◆  • lick
+├◆  • megumin
+├◆  • neko
+├◆  • pat
+├◆  • shinobu
+├◆  • trap
+├◆  • trap2
+├◆  • waifu
+├◆  • wink
+├◆  • yeet
 │
 ╰─⊷
 
 ╭─⊷ *🎮 GAMES*
 │
-│  • coinflip
-│  • dare
-│  • dice
-│  • emojimix
-│  • joke
-│  • quiz
-│  • rps
-│  • snake
-│  • tetris
-│  • truth
-│  • tictactoe
-│  • quote
+├◆  • coinflip
+├◆  • dare
+├◆  • dice
+├◆  • emojimix
+├◆  • joke
+├◆  • quiz
+├◆  • rps
+├◆  • snake
+├◆  • tetris
+├◆  • truth
+├◆  • tictactoe
+├◆  • quote
 │
 ╰─⊷
 
 ╭─⊷ *🎭 FUN & TOOLS*
 │
-│  • bf
-│  • gf
-│  • couple
-│  • gay
-│  • getjid
-│  • movie
-│  • trailer
-│  • goodmorning
-│  • goodnight
-│  • channelstatus
-│  • hack
+├◆  • bf
+├◆  • gf
+├◆  • couple
+├◆  • gay
+├◆  • getjid
+├◆  • movie
+├◆  • trailer
+├◆  • goodmorning
+├◆  • goodnight
+├◆  • channelstatus
+├◆  • hack
 │
 ╰─⊷
 
 ╭─⊷ *⚡ QUICK COMMANDS*
 │
-│  • p
-│  • up
+├◆  • p
+├◆  • up
 │
 ╰─⊷
 
 ╭─⊷ *✨ EPHOTO TEXT EFFECTS*
 │
 ├─⊷ *💡 NEON & GLOW*
-│  • neon
-│  • colorfulglow
-│  • advancedglow
-│  • neononline
-│  • blueneon
-│  • neontext
-│  • neonlight
-│  • greenneon
-│  • greenlightneon
-│  • blueneonlogo
-│  • galaxyneon
-│  • retroneon
-│  • multicolorneon
-│  • hackerneon
-│  • devilwings
-│  • glowtext
-│  • blackpinkneon
-│  • neonglitch
-│  • colorfulneonlight
+├◆  • neon
+├◆  • colorfulglow
+├◆  • advancedglow
+├◆  • neononline
+├◆  • blueneon
+├◆  • neontext
+├◆  • neonlight
+├◆  • greenneon
+├◆  • greenlightneon
+├◆  • blueneonlogo
+├◆  • galaxyneon
+├◆  • retroneon
+├◆  • multicolorneon
+├◆  • hackerneon
+├◆  • devilwings
+├◆  • glowtext
+├◆  • blackpinkneon
+├◆  • neonglitch
+├◆  • colorfulneonlight
 │
 ├─⊷ *🧊 3D TEXT EFFECTS*
-│  • wooden3d
-│  • cubic3d
-│  • wooden3donline
-│  • water3d
-│  • cuongthi3d
-│  • text3d
-│  • graffiti3d
-│  • silver3d
-│  • style3d
-│  • metal3d
-│  • ruby3d
-│  • birthday3d
-│  • metallogo3d
-│  • pig3d
-│  • avengers3d
-│  • hologram3d
-│  • gradient3d
-│  • stone3d
-│  • space3d
-│  • sand3d
-│  • gradienttext3d
-│  • lightbulb3d
-│  • snow3d
-│  • papercut3d
-│  • underwater3d
-│  • shinymetallic3d
-│  • gradientstyle3d
-│  • beach3d
-│  • crack3d
-│  • wood3d
-│  • americanflag3d
-│  • christmas3d
-│  • nigeriaflag3d
-│  • christmassnow3d
-│  • goldenchristmas3d
-│  • decorativemetal3d
-│  • colorfulpaint3d
-│  • glossysilver3d
-│  • balloon3d
-│  • comic3d
+├◆  • wooden3d
+├◆  • cubic3d
+├◆  • wooden3donline
+├◆  • water3d
+├◆  • cuongthi3d
+├◆  • text3d
+├◆  • graffiti3d
+├◆  • silver3d
+├◆  • style3d
+├◆  • metal3d
+├◆  • ruby3d
+├◆  • birthday3d
+├◆  • metallogo3d
+├◆  • pig3d
+├◆  • avengers3d
+├◆  • hologram3d
+├◆  • gradient3d
+├◆  • stone3d
+├◆  • space3d
+├◆  • sand3d
+├◆  • gradienttext3d
+├◆  • lightbulb3d
+├◆  • snow3d
+├◆  • papercut3d
+├◆  • underwater3d
+├◆  • shinymetallic3d
+├◆  • gradientstyle3d
+├◆  • beach3d
+├◆  • crack3d
+├◆  • wood3d
+├◆  • americanflag3d
+├◆  • christmas3d
+├◆  • nigeriaflag3d
+├◆  • christmassnow3d
+├◆  • goldenchristmas3d
+├◆  • decorativemetal3d
+├◆  • colorfulpaint3d
+├◆  • glossysilver3d
+├◆  • balloon3d
+├◆  • comic3d
 │
 ├─⊷ *📋 MENU:* ephotomenu
 │
@@ -8311,492 +8311,492 @@ case 7: {
 
   const categorySections = [
 `┌──⌈ \`GROUP MANAGEMENT\` ⌋
-│ add
-│ promote
-│ promoteall
-│ demote
-│ demoteall
-│ kick
-│ kickall
-│ ban
-│ unban
-│ clearbanlist
-│ warn
-│ resetwarn
-│ setwarn
-│ warnings
-│ mute
-│ unmute
-│ gctime
-│ antileave
-│ antilink
-│ addbadword
-│ removebadword
-│ listbadword
-│ welcome
-│ goodbye
-│ leave
-│ creategroup
+├◆ add
+├◆ promote
+├◆ promoteall
+├◆ demote
+├◆ demoteall
+├◆ kick
+├◆ kickall
+├◆ ban
+├◆ unban
+├◆ clearbanlist
+├◆ warn
+├◆ resetwarn
+├◆ setwarn
+├◆ warnings
+├◆ mute
+├◆ unmute
+├◆ gctime
+├◆ antileave
+├◆ antilink
+├◆ addbadword
+├◆ removebadword
+├◆ listbadword
+├◆ welcome
+├◆ goodbye
+├◆ leave
+├◆ creategroup
 └───────────────`,
 `┌──⌈ \`AUTO MODERATION\` ⌋
-│ antisticker
-│ antiimage
-│ antivideo
-│ antiaudio
-│ antimention
-│ antistatusmention
-│ antigrouplink
-│ antidemote
-│ antipromote
-│ antiviewonce
-│ antibadword
-│ antigroupcall
+├◆ antisticker
+├◆ antiimage
+├◆ antivideo
+├◆ antiaudio
+├◆ antimention
+├◆ antistatusmention
+├◆ antigrouplink
+├◆ antidemote
+├◆ antipromote
+├◆ antiviewonce
+├◆ antibadword
+├◆ antigroupcall
 └───────────────`,
 `┌──⌈ \`GROUP INFO & TOOLS\` ⌋
-│ groupinfo
-│ grouplink
-│ tagadmin
-│ tagall
-│ hidetag
-│ link
-│ invite
-│ revoke
-│ setdesc
-│ fangtrace
-│ getgpp
-│ togstatus
-│ getparticipants
-│ listonline
-│ listinactive
-│ approveall
-│ rejectall
+├◆ groupinfo
+├◆ grouplink
+├◆ tagadmin
+├◆ tagall
+├◆ hidetag
+├◆ link
+├◆ invite
+├◆ revoke
+├◆ setdesc
+├◆ fangtrace
+├◆ getgpp
+├◆ togstatus
+├◆ getparticipants
+├◆ listonline
+├◆ listinactive
+├◆ approveall
+├◆ rejectall
 └───────────────`,
 `┌──⌈ \`MENU SETTINGS\` ⌋
-│ menu
-│ menu2
-│ menustyle
-│ togglemenuinfo
-│ setmenuimage
-│ restoremenuimage
+├◆ menu
+├◆ menu2
+├◆ menustyle
+├◆ togglemenuinfo
+├◆ setmenuimage
+├◆ restoremenuimage
 └───────────────`,
 `┌──⌈ \`OWNER CONTROLS\` ⌋
-│ setbotname
-│ resetbotname
-│ setowner
-│ resetowner
-│ setprefix
-│ prefix
-│ iamowner
-│ about
-│ owner
-│ block
-│ unblock
-│ blockdetect
-│ blockall
-│ unblockall
-│ silent
-│ anticall
-│ mode
-│ setpp
-│ setfooter
-│ repo
-│ pair
-│ antidelete
-│ antideletestatus
-│ antiedit
-│ chatbot
-│ shutdown
+├◆ setbotname
+├◆ resetbotname
+├◆ setowner
+├◆ resetowner
+├◆ setprefix
+├◆ prefix
+├◆ iamowner
+├◆ about
+├◆ owner
+├◆ block
+├◆ unblock
+├◆ blockdetect
+├◆ blockall
+├◆ unblockall
+├◆ silent
+├◆ anticall
+├◆ mode
+├◆ setpp
+├◆ setfooter
+├◆ repo
+├◆ pair
+├◆ antidelete
+├◆ antideletestatus
+├◆ antiedit
+├◆ chatbot
+├◆ shutdown
 └───────────────`,
 `┌──⌈ \`SYSTEM & MAINTENANCE\` ⌋
-│ restart
-│ workingreload
-│ reloadenv
-│ getsettings
-│ setsetting
-│ test
-│ disk
-│ hostip
-│ findcommands
-│ latestupdates
-│ panel
-│ debugchat
+├◆ restart
+├◆ workingreload
+├◆ reloadenv
+├◆ getsettings
+├◆ setsetting
+├◆ test
+├◆ disk
+├◆ hostip
+├◆ findcommands
+├◆ latestupdates
+├◆ panel
+├◆ debugchat
 └───────────────`,
 `┌──⌈ \`SUDO\` ⌋
-│ addsudo
-│ delsudo
-│ listsudo
-│ checksudo
-│ clearsudo
-│ sudomode
-│ sudoinfo
-│ mysudo
-│ sudodebug
-│ linksudo
+├◆ addsudo
+├◆ delsudo
+├◆ listsudo
+├◆ checksudo
+├◆ clearsudo
+├◆ sudomode
+├◆ sudoinfo
+├◆ mysudo
+├◆ sudodebug
+├◆ linksudo
 └───────────────`,
 `┌──⌈ \`AUTOMATION\` ⌋
-│ autoread
-│ autotyping
-│ autorecording
-│ autoreact
-│ autoreactstatus
-│ autoviewstatus
-│ autobio
-│ autorec
-│ reactowner
+├◆ autoread
+├◆ autotyping
+├◆ autorecording
+├◆ autoreact
+├◆ autoreactstatus
+├◆ autoviewstatus
+├◆ autobio
+├◆ autorec
+├◆ reactowner
 └───────────────`,
 `┌──⌈ \`PRIVACY CONTROLS\` ⌋
-│ online
-│ privacy
-│ receipt
-│ profilepic
-│ viewer
-│ lastseen
+├◆ online
+├◆ privacy
+├◆ receipt
+├◆ profilepic
+├◆ viewer
+├◆ lastseen
 └───────────────`,
 `┌──⌈ \`GENERAL UTILITIES\` ⌋
-│ alive
-│ ping
-│ ping2
-│ time
-│ uptime
-│ define
-│ news
-│ covid
-│ weather
-│ wiki
-│ translate
-│ iplookup
-│ getip
-│ getpp
-│ getgpp
-│ prefixinfo
-│ platform
+├◆ alive
+├◆ ping
+├◆ ping2
+├◆ time
+├◆ uptime
+├◆ define
+├◆ news
+├◆ covid
+├◆ weather
+├◆ wiki
+├◆ translate
+├◆ iplookup
+├◆ getip
+├◆ getpp
+├◆ getgpp
+├◆ prefixinfo
+├◆ platform
 └───────────────`,
 `┌──⌈ \`CONVERSION & MEDIA\` ⌋
-│ shorturl
-│ url
-│ fetch
-│ qrencode
-│ take
-│ imgbb
-│ save
-│ screenshot
-│ inspect
-│ toimage
-│ tosticker
-│ toaudio
-│ tovoice
-│ tts
-│ trebleboost
-│ jarvis
+├◆ shorturl
+├◆ url
+├◆ fetch
+├◆ qrencode
+├◆ take
+├◆ imgbb
+├◆ save
+├◆ screenshot
+├◆ inspect
+├◆ toimage
+├◆ tosticker
+├◆ toaudio
+├◆ tovoice
+├◆ tts
+├◆ trebleboost
+├◆ jarvis
 └───────────────`,
 `┌──⌈ \`CONTACT TOOLS\` ⌋
-│ vcf
-│ viewvcf
-│ vv
-│ vv2
+├◆ vcf
+├◆ viewvcf
+├◆ vv
+├◆ vv2
 └───────────────`,
 `┌──⌈ \`MUSIC\` ⌋
-│ play
-│ song
-│ video
-│ videodoc
-│ lyrics
-│ shazam
-│ spotify
+├◆ play
+├◆ song
+├◆ video
+├◆ videodoc
+├◆ lyrics
+├◆ shazam
+├◆ spotify
 └───────────────`,
 `┌──⌈ \`MEDIA DOWNLOADS\` ⌋
-│ tiktok
-│ instagram
-│ facebook
-│ snapchat
-│ apk
-│ yts
-│ ytplay
-│ ytmp3
-│ ytv
-│ ytmp4
-│ ytvdoc
-│ videodl
-│ playlist
+├◆ tiktok
+├◆ instagram
+├◆ facebook
+├◆ snapchat
+├◆ apk
+├◆ yts
+├◆ ytplay
+├◆ ytmp3
+├◆ ytv
+├◆ ytmp4
+├◆ ytvdoc
+├◆ videodl
+├◆ playlist
 └───────────────`,
 `┌──⌈ \`AI COMMANDS\` ⌋
-│ gpt
-│ chatgpt
-│ copilot
-│ bing
-│ bard
-│ claudeai
-│ grok
-│ blackbox
-│ mistral
-│ metai
-│ perplexity
-│ qwenai
-│ ilama
-│ venice
-│ wormgpt
-│ deepseek+
-│ chatbot
+├◆ gpt
+├◆ chatgpt
+├◆ copilot
+├◆ bing
+├◆ bard
+├◆ claudeai
+├◆ grok
+├◆ blackbox
+├◆ mistral
+├◆ metai
+├◆ perplexity
+├◆ qwenai
+├◆ ilama
+├◆ venice
+├◆ wormgpt
+├◆ deepseek+
+├◆ chatbot
 └───────────────`,
 `┌──⌈ \`AI GENERATION\` ⌋
-│ imagine
-│ imagegen
-│ flux
-│ analyze
-│ suno
-│ speechwriter
-│ humanizer
-│ summarize
-│ totext
-│ removebg
-│ vision
+├◆ imagine
+├◆ imagegen
+├◆ flux
+├◆ analyze
+├◆ suno
+├◆ speechwriter
+├◆ humanizer
+├◆ summarize
+├◆ totext
+├◆ removebg
+├◆ vision
 └───────────────`,
 `┌──⌈ \`AI TOOLS\` ⌋
-│ videogen
-│ aiscanner
-│ aimenu
-│ brandlogo
-│ companylogo
-│ logoai
+├◆ videogen
+├◆ aiscanner
+├◆ aimenu
+├◆ brandlogo
+├◆ companylogo
+├◆ logoai
 └───────────────`,
 `┌──⌈ \`AI VIDEO EFFECTS\` ⌋
-│ tigervideo
-│ introvideo
-│ lightningpubg
-│ lovevideo
-│ videogen
+├◆ tigervideo
+├◆ introvideo
+├◆ lightningpubg
+├◆ lovevideo
+├◆ videogen
 └───────────────`,
 `┌──⌈ \`IMAGE TOOLS\` ⌋
-│ image
-│ imagegen
-│ imagine
-│ anime
-│ art
-│ real
-│ remini
-│ vision
+├◆ image
+├◆ imagegen
+├◆ imagine
+├◆ anime
+├◆ art
+├◆ real
+├◆ remini
+├◆ vision
 └───────────────`,
 `┌──⌈ \`SPORTS\` ⌋
-│ football
-│ matchstats
-│ sportsnews
-│ teamnews
-│ basketball
-│ cricket
-│ f1
-│ nfl
-│ mma
-│ tennis
-│ baseball
-│ hockey
-│ golf
-│ sportsmenu
+├◆ football
+├◆ matchstats
+├◆ sportsnews
+├◆ teamnews
+├◆ basketball
+├◆ cricket
+├◆ f1
+├◆ nfl
+├◆ mma
+├◆ tennis
+├◆ baseball
+├◆ hockey
+├◆ golf
+├◆ sportsmenu
 └───────────────`,
 `┌──⌈ \`ETHICAL HACKING\` ⌋
-│ whois
-│ dnslookup
-│ subdomain
-│ reverseip
-│ geoip
-│ portscan
-│ headers
-│ traceroute
-│ asnlookup
-│ shodan
-│ pinghost
-│ latency
-│ sslcheck
-│ tlsinfo
-│ openports
-│ firewallcheck
-│ maclookup
-│ bandwidthtest
-│ securityheaders
-│ wafdetect
-│ robotscheck
-│ sitemap
-│ cmsdetect
-│ techstack
-│ cookiescan
-│ redirectcheck
-│ xsscheck
-│ sqlicheck
-│ csrfcheck
-│ clickjackcheck
-│ directoryscan
-│ exposedfiles
-│ misconfigcheck
-│ cvecheck
-│ hashidentify
-│ hashcheck
-│ bcryptcheck
-│ passwordstrength
-│ leakcheck
-│ metadata
-│ filehash
-│ malwarecheck
-│ urlscan
-│ phishcheck
-│ nmap
-│ ipinfo
-│ nglattack
-│ securitymenu
+├◆ whois
+├◆ dnslookup
+├◆ subdomain
+├◆ reverseip
+├◆ geoip
+├◆ portscan
+├◆ headers
+├◆ traceroute
+├◆ asnlookup
+├◆ shodan
+├◆ pinghost
+├◆ latency
+├◆ sslcheck
+├◆ tlsinfo
+├◆ openports
+├◆ firewallcheck
+├◆ maclookup
+├◆ bandwidthtest
+├◆ securityheaders
+├◆ wafdetect
+├◆ robotscheck
+├◆ sitemap
+├◆ cmsdetect
+├◆ techstack
+├◆ cookiescan
+├◆ redirectcheck
+├◆ xsscheck
+├◆ sqlicheck
+├◆ csrfcheck
+├◆ clickjackcheck
+├◆ directoryscan
+├◆ exposedfiles
+├◆ misconfigcheck
+├◆ cvecheck
+├◆ hashidentify
+├◆ hashcheck
+├◆ bcryptcheck
+├◆ passwordstrength
+├◆ leakcheck
+├◆ metadata
+├◆ filehash
+├◆ malwarecheck
+├◆ urlscan
+├◆ phishcheck
+├◆ nmap
+├◆ ipinfo
+├◆ nglattack
+├◆ securitymenu
 └───────────────`,
 `┌──⌈ \`LOGO DESIGN STUDIO\` ⌋
-│ goldlogo
-│ silverlogo
-│ platinumlogo
-│ chromelogo
-│ diamondlogo
-│ bronzelogo
-│ steellogo
-│ copperlogo
-│ titaniumlogo
-│ firelogo
-│ icelogo
-│ iceglowlogo
-│ lightninglogo
-│ aqualogo
-│ rainbowlogo
-│ sunlogo
-│ moonlogo
-│ dragonlogo
-│ phoenixlogo
-│ wizardlogo
-│ crystallogo
-│ darkmagiclogo
-│ shadowlogo
-│ smokelogo
-│ bloodlogo
-│ neonlogo
-│ glowlogo
-│ gradientlogo
-│ matrixlogo
+├◆ goldlogo
+├◆ silverlogo
+├◆ platinumlogo
+├◆ chromelogo
+├◆ diamondlogo
+├◆ bronzelogo
+├◆ steellogo
+├◆ copperlogo
+├◆ titaniumlogo
+├◆ firelogo
+├◆ icelogo
+├◆ iceglowlogo
+├◆ lightninglogo
+├◆ aqualogo
+├◆ rainbowlogo
+├◆ sunlogo
+├◆ moonlogo
+├◆ dragonlogo
+├◆ phoenixlogo
+├◆ wizardlogo
+├◆ crystallogo
+├◆ darkmagiclogo
+├◆ shadowlogo
+├◆ smokelogo
+├◆ bloodlogo
+├◆ neonlogo
+├◆ glowlogo
+├◆ gradientlogo
+├◆ matrixlogo
 └───────────────`,
 `┌──⌈ \`GITHUB TOOLS\` ⌋
-│ gitclone
-│ gitinfo
-│ repanalyze
-│ zip
-│ update
-│ repo
+├◆ gitclone
+├◆ gitinfo
+├◆ repanalyze
+├◆ zip
+├◆ update
+├◆ repo
 └───────────────`,
 `┌──⌈ \`ANIME REACTIONS\` ⌋
-│ animemenu
-│ awoo
-│ bully
-│ cringe
-│ cry
-│ cuddle
-│ dance
-│ glomp
-│ highfive
-│ hug
-│ kill
-│ kiss
-│ lick
-│ megumin
-│ neko
-│ pat
-│ shinobu
-│ trap
-│ trap2
-│ waifu
-│ wink
-│ yeet
+├◆ animemenu
+├◆ awoo
+├◆ bully
+├◆ cringe
+├◆ cry
+├◆ cuddle
+├◆ dance
+├◆ glomp
+├◆ highfive
+├◆ hug
+├◆ kill
+├◆ kiss
+├◆ lick
+├◆ megumin
+├◆ neko
+├◆ pat
+├◆ shinobu
+├◆ trap
+├◆ trap2
+├◆ waifu
+├◆ wink
+├◆ yeet
 └───────────────`,
 `┌──⌈ \`GAMES\` ⌋
-│ coinflip
-│ dare
-│ dice
-│ emojimix
-│ joke
-│ quiz
-│ rps
-│ snake
-│ tetris
-│ truth
-│ tictactoe
-│ quote
+├◆ coinflip
+├◆ dare
+├◆ dice
+├◆ emojimix
+├◆ joke
+├◆ quiz
+├◆ rps
+├◆ snake
+├◆ tetris
+├◆ truth
+├◆ tictactoe
+├◆ quote
 └───────────────`,
 `┌──⌈ \`FUN & TOOLS\` ⌋
-│ bf
-│ gf
-│ couple
-│ gay
-│ getjid
-│ movie
-│ trailer
-│ goodmorning
-│ goodnight
-│ channelstatus
-│ hack
+├◆ bf
+├◆ gf
+├◆ couple
+├◆ gay
+├◆ getjid
+├◆ movie
+├◆ trailer
+├◆ goodmorning
+├◆ goodnight
+├◆ channelstatus
+├◆ hack
 └───────────────`,
 `┌──⌈ \`QUICK COMMANDS\` ⌋
-│ p
-│ up
+├◆ p
+├◆ up
 └───────────────`,
 `┌──⌈ \`EPHOTO TEXT EFFECTS\` ⌋
-│ neon
-│ colorfulglow
-│ advancedglow
-│ neononline
-│ blueneon
-│ neontext
-│ neonlight
-│ greenneon
-│ greenlightneon
-│ blueneonlogo
-│ galaxyneon
-│ retroneon
-│ multicolorneon
-│ hackerneon
-│ devilwings
-│ glowtext
-│ blackpinkneon
-│ neonglitch
-│ colorfulneonlight
-│ wooden3d
-│ cubic3d
-│ wooden3donline
-│ water3d
-│ cuongthi3d
-│ text3d
-│ graffiti3d
-│ silver3d
-│ style3d
-│ metal3d
-│ ruby3d
-│ birthday3d
-│ metallogo3d
-│ pig3d
-│ avengers3d
-│ hologram3d
-│ gradient3d
-│ stone3d
-│ space3d
-│ sand3d
-│ gradienttext3d
-│ lightbulb3d
-│ snow3d
-│ papercut3d
-│ underwater3d
-│ shinymetallic3d
-│ gradientstyle3d
-│ beach3d
-│ crack3d
-│ wood3d
-│ americanflag3d
-│ christmas3d
-│ nigeriaflag3d
-│ christmassnow3d
-│ goldenchristmas3d
-│ decorativemetal3d
-│ colorfulpaint3d
-│ glossysilver3d
-│ balloon3d
-│ comic3d
-│ ephotomenu
+├◆ neon
+├◆ colorfulglow
+├◆ advancedglow
+├◆ neononline
+├◆ blueneon
+├◆ neontext
+├◆ neonlight
+├◆ greenneon
+├◆ greenlightneon
+├◆ blueneonlogo
+├◆ galaxyneon
+├◆ retroneon
+├◆ multicolorneon
+├◆ hackerneon
+├◆ devilwings
+├◆ glowtext
+├◆ blackpinkneon
+├◆ neonglitch
+├◆ colorfulneonlight
+├◆ wooden3d
+├◆ cubic3d
+├◆ wooden3donline
+├◆ water3d
+├◆ cuongthi3d
+├◆ text3d
+├◆ graffiti3d
+├◆ silver3d
+├◆ style3d
+├◆ metal3d
+├◆ ruby3d
+├◆ birthday3d
+├◆ metallogo3d
+├◆ pig3d
+├◆ avengers3d
+├◆ hologram3d
+├◆ gradient3d
+├◆ stone3d
+├◆ space3d
+├◆ sand3d
+├◆ gradienttext3d
+├◆ lightbulb3d
+├◆ snow3d
+├◆ papercut3d
+├◆ underwater3d
+├◆ shinymetallic3d
+├◆ gradientstyle3d
+├◆ beach3d
+├◆ crack3d
+├◆ wood3d
+├◆ americanflag3d
+├◆ christmas3d
+├◆ nigeriaflag3d
+├◆ christmassnow3d
+├◆ goldenchristmas3d
+├◆ decorativemetal3d
+├◆ colorfulpaint3d
+├◆ glossysilver3d
+├◆ balloon3d
+├◆ comic3d
+├◆ ephotomenu
 └───────────────`,
 `🐺 *POWERED BY WOLFTECH* 🐺`
   ];

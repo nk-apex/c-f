@@ -1194,37 +1194,37 @@ async function showRPSHelp(sock, m, chatId) {
     const helpText = `╭─⌈ 🎮 *ROCK PAPER SCISSORS* ⌋
 │
 ├─⊷ *.rps rock / r*
-│  └⊷ Play Rock vs AI
+├◆  └⊷ Play Rock vs AI
 │
 ├─⊷ *.rps paper / p*
-│  └⊷ Play Paper vs AI
+├◆  └⊷ Play Paper vs AI
 │
 ├─⊷ *.rps scissors / s*
-│  └⊷ Play Scissors vs AI
+├◆  └⊷ Play Scissors vs AI
 │
 ├─⊷ *.rps challenge @user [bet]*
-│  └⊷ Challenge another player
+├◆  └⊷ Challenge another player
 │
 ├─⊷ *.rps accept / decline / cancel*
-│  └⊷ Manage challenges
+├◆  └⊷ Manage challenges
 │
 ├─⊷ *.rps tournament create 8 10*
-│  └⊷ Create 8-player tournament (10pt entry)
+├◆  └⊷ Create 8-player tournament (10pt entry)
 │
 ├─⊷ *.rps tournament join / start / status / leave*
-│  └⊷ Tournament management
+├◆  └⊷ Tournament management
 │
 ├─⊷ *.rps stats*
-│  └⊷ Your personal statistics
+├◆  └⊷ Your personal statistics
 │
 ├─⊷ *.rps leaderboard*
-│  └⊷ Global rankings
+├◆  └⊷ Global rankings
 │
 ├─⊷ *.rps history*
-│  └⊷ Your match history
+├◆  └⊷ Your match history
 │
 ├─⊷ *.rps rules*
-│  └⊷ Game rules
+├◆  └⊷ Game rules
 │
 ├─⊷ 🎯 Tournament sizes: 4, 8, 16, or 32 players
 ├─⊷ ⏱️ Time: 60s per move, 2min for tournaments
@@ -1243,16 +1243,16 @@ async function showRPSRules(sock, m, chatId) {
 ├─⊷ Same choice = Draw
 │
 ├─⊷ *How to Play:*
-│  └⊷ .rps challenge @user → accept → choose in DM → result in group
+├◆  └⊷ .rps challenge @user → accept → choose in DM → result in group
 │
 ├─⊷ *Multiplayer:*
-│  └⊷ 60s per choice, bets optional, forfeit on timeout
+├◆  └⊷ 60s per choice, bets optional, forfeit on timeout
 │
 ├─⊷ *Tournaments:*
-│  └⊷ Single elimination, top 3 prizes, 2min per match
+├◆  └⊷ Single elimination, top 3 prizes, 2min per match
 │
 ├─⊷ *Points:*
-│  └⊷ AI win +10 │ Human win +25 │ Loss -15 │ Draw ±0
+├◆  └⊷ AI win +10 │ Human win +25 │ Loss -15 │ Draw ±0
 │
 ├─⊷ *Achievements:* 🎮 First Game │ 🏆 10 Wins │ 🔥 5 Streak │ 🎯 100 Games
 │
@@ -1375,25 +1375,25 @@ async function showTournamentHelp(sock, m, chatId) {
     const helpText = `╭─⌈ 🏆 *RPS TOURNAMENT* ⌋
 │
 ├─⊷ *.rps tournament create 8*
-│  └⊷ Create 8-player free tournament
+├◆  └⊷ Create 8-player free tournament
 │
 ├─⊷ *.rps tournament create 16 10*
-│  └⊷ 16 players, 10 point entry fee
+├◆  └⊷ 16 players, 10 point entry fee
 │
 ├─⊷ *.rps tournament join*
-│  └⊷ Join active tournament
+├◆  └⊷ Join active tournament
 │
 ├─⊷ *.rps tournament leave*
-│  └⊷ Leave tournament
+├◆  └⊷ Leave tournament
 │
 ├─⊷ *.rps tournament start*
-│  └⊷ Start tournament (creator only)
+├◆  └⊷ Start tournament (creator only)
 │
 ├─⊷ *.rps tournament cancel*
-│  └⊷ Cancel tournament (creator only)
+├◆  └⊷ Cancel tournament (creator only)
 │
 ├─⊷ *.rps tournament status / list*
-│  └⊷ Check status or list tournaments
+├◆  └⊷ Check status or list tournaments
 │
 ├─⊷ *Rules:* Single elimination, 2-32 players, 2min per match
 ├─⊷ *Prizes:* 1st 50% │ 2nd 30% │ 3rd-4th 10% each

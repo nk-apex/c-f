@@ -91,14 +91,14 @@ export default {
           text:
             `\u250C\u2500\u29ED *ImgBB Upload*\n` +
             `\u2502\n` +
-            `\u2502 Reply to an image with\n` +
-            `\u2502 ${PREFIX}imgbb to get a direct URL\n` +
+            `\u251C\u25C6 Reply to an image with\n` +
+            `\u251C\u25C6 ${PREFIX}imgbb to get a direct URL\n` +
             `\u2502\n` +
-            `\u2502 Features:\n` +
-            `\u2502 Permanent image URLs\n` +
-            `\u2502 Direct image links\n` +
-            `\u2502 No expiration\n` +
-            `\u2502 Up to 32MB\n` +
+            `\u251C\u25C6 Features:\n` +
+            `\u251C\u25C6 Permanent image URLs\n` +
+            `\u251C\u25C6 Direct image links\n` +
+            `\u251C\u25C6 No expiration\n` +
+            `\u251C\u25C6 Up to 32MB\n` +
             `\u2514\u2500\u29ED`
         }, { quoted: m });
       }
@@ -108,8 +108,8 @@ export default {
         return sock.sendMessage(jid, {
           text:
             `\u250C\u2500\u29ED *ImgBB Upload*\n` +
-            `\u2502 API key not configured\n` +
-            `\u2502 Contact bot owner\n` +
+            `\u251C\u25C6 API key not configured\n` +
+            `\u251C\u25C6 Contact bot owner\n` +
             `\u2514\u2500\u29ED`
         }, { quoted: m });
       }
@@ -127,7 +127,7 @@ export default {
       } catch (err) {
         await sock.sendMessage(jid, { react: { text: '\u274C', key: m.key } });
         return sock.sendMessage(jid, {
-          text: `\u250C\u2500\u29ED *ImgBB Upload*\n\u2502 Failed to download image\n\u2502 Try sending a fresh image\n\u2514\u2500\u29ED`
+          text: `\u250C\u2500\u29ED *ImgBB Upload*\n\u251C\u25C6 Failed to download image\n\u251C\u25C6 Try sending a fresh image\n\u2514\u2500\u29ED`
         }, { quoted: m });
       }
 
@@ -135,7 +135,7 @@ export default {
       if (fileSizeMB > 32) {
         await sock.sendMessage(jid, { react: { text: '\u274C', key: m.key } });
         return sock.sendMessage(jid, {
-          text: `\u250C\u2500\u29ED *ImgBB Upload*\n\u2502 File too large (${fileSizeMB.toFixed(1)} MB)\n\u2502 Limit: 32 MB\n\u2514\u2500\u29ED`
+          text: `\u250C\u2500\u29ED *ImgBB Upload*\n\u251C\u25C6 File too large (${fileSizeMB.toFixed(1)} MB)\n\u251C\u25C6 Limit: 32 MB\n\u2514\u2500\u29ED`
         }, { quoted: m });
       }
 
@@ -146,17 +146,17 @@ export default {
       if (!result.success) {
         await sock.sendMessage(jid, { react: { text: '\u274C', key: m.key } });
         return sock.sendMessage(jid, {
-          text: `\u250C\u2500\u29ED *ImgBB Upload*\n\u2502 Upload failed: ${result.error}\n\u2514\u2500\u29ED`
+          text: `\u250C\u2500\u29ED *ImgBB Upload*\n\u251C\u25C6 Upload failed: ${result.error}\n\u2514\u2500\u29ED`
         }, { quoted: m });
       }
 
       const successText =
         `\u250C\u2500\u29ED *ImgBB Upload Successful*\n` +
         `\u2502\n` +
-        `\u2502 ${result.width || '?'} x ${result.height || '?'} - ${fileSizeMB.toFixed(2)} MB\n` +
+        `\u251C\u25C6 ${result.width || '?'} x ${result.height || '?'} - ${fileSizeMB.toFixed(2)} MB\n` +
         `\u2502\n` +
-        `\u2502 URL:\n` +
-        `\u2502 ${result.url}\n` +
+        `\u251C\u25C6 URL:\n` +
+        `\u251C\u25C6 ${result.url}\n` +
         `\u2514\u2500\u29ED`;
 
       try {
@@ -166,7 +166,7 @@ export default {
         await sendInteractiveMessage(sock, jid, {
           image: { url: result.thumb || result.url },
           text: successText,
-          footer: `${extra.BOT_NAME || 'Foxy Bot'}`,
+          footer: `${extra.BOT_NAME || 'FOX Bot'}`,
           interactiveButtons: [
             {
               name: 'cta_copy',
@@ -196,7 +196,7 @@ export default {
     } catch (err) {
       await sock.sendMessage(jid, { react: { text: '\u274C', key: m.key } });
       return sock.sendMessage(jid, {
-        text: `\u250C\u2500\u29ED *ImgBB Upload*\n\u2502 Error: ${err.message || 'Unknown error'}\n\u2514\u2500\u29ED`
+        text: `\u250C\u2500\u29ED *ImgBB Upload*\n\u251C\u25C6 Error: ${err.message || 'Unknown error'}\n\u2514\u2500\u29ED`
       }, { quoted: m });
     }
   }

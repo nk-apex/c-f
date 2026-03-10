@@ -18,7 +18,7 @@ export default {
         return sock.sendMessage(
           jid,
           {
-            text: `╭─⌈ 📸 *IMGBB* ⌋\n│\n├─⊷ *.imgbb* (reply to image)\n│  └⊷ Upload to ImgBB\n╰───`
+            text: `╭─⌈ 📸 *IMGBB* ⌋\n│\n├─⊷ *.imgbb* (reply to image)\n├◆  └⊷ Upload to ImgBB\n╰───`
           },
           { quoted: m }
         );

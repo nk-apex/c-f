@@ -36,7 +36,7 @@ export default {
 
         if (!args.length) {
             return await sock.sendMessage(chatId, {
-                text: `╭─⌈ 🐍 *PYTHON EXECUTOR* ⌋\n│\n├─⊷ *${PREFIX}py <code>*\n│  └⊷ Run Python code\n│\n├─⊷ *Examples:*\n│  └⊷ ${PREFIX}py print("Hello World")\n│  └⊷ ${PREFIX}py import math; print(math.pi)\n│  └⊷ ${PREFIX}py [x**2 for x in range(10)]\n│\n├─⊷ *Features:*\n│  └⊷ 15s timeout\n│  └⊷ Auto-prints last expression\n│\n╰───────────────\n> *${getBotName()}*`
+                text: `╭─⌈ 🐍 *PYTHON EXECUTOR* ⌋\n│\n├─⊷ *${PREFIX}py <code>*\n├◆  └⊷ Run Python code\n│\n├─⊷ *Examples:*\n├◆  └⊷ ${PREFIX}py print("Hello World")\n├◆  └⊷ ${PREFIX}py import math; print(math.pi)\n├◆  └⊷ ${PREFIX}py [x**2 for x in range(10)]\n│\n├─⊷ *Features:*\n├◆  └⊷ 15s timeout\n├◆  └⊷ Auto-prints last expression\n│\n╰───────────────\n> *${getBotName()}*`
             }, { quoted: msg });
         }
 
@@ -111,7 +111,7 @@ print(f"\\n⏱️ {_elapsed}ms", file=sys.stdout)
             const header = result.error ? '❌ *ERROR*' : '✅ *OUTPUT*';
 
             await sock.sendMessage(chatId, {
-                text: `╭─⌈ 🐍 *PYTHON* ⌋\n│\n├─ *Input:*\n│ \`\`\`${code.length > 200 ? code.slice(0, 200) + '...' : code}\`\`\`\n│\n├─ ${header}\n│ \`\`\`${output}\`\`\`\n│\n╰───────────────\n> *${getBotName()}*`
+                text: `╭─⌈ 🐍 *PYTHON* ⌋\n│\n├─ *Input:*\n├◆ \`\`\`${code.length > 200 ? code.slice(0, 200) + '...' : code}\`\`\`\n│\n├─ ${header}\n├◆ \`\`\`${output}\`\`\`\n│\n╰───────────────\n> *${getBotName()}*`
             }, { quoted: msg });
 
             await sock.sendMessage(chatId, { react: { text: emoji, key: msg.key } });

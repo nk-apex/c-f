@@ -12,86 +12,86 @@ export default {
 
     const commandsText = `╭─⊷ *⚽ FOOTBALL / SOCCER*
 │
-│  • football scores
-│  • football standings
-│  • football fixtures
-│  • football topscorers
-│  • football stats
-│  _Leagues: epl, laliga, bundesliga, seriea, ligue1_
+├◆  • football scores
+├◆  • football standings
+├◆  • football fixtures
+├◆  • football topscorers
+├◆  • football stats
+├◆  _Leagues: epl, laliga, bundesliga, seriea, ligue1_
 │
 ╰─⊷
 
 ╭─⊷ *📊 MATCH STATISTICS*
 │
-│  • matchstats
+├◆  • matchstats
 │
 ╰─⊷
 
 ╭─⊷ *📰 SPORTS NEWS*
 │
-│  • sportsnews
-│  • teamnews
+├◆  • sportsnews
+├◆  • teamnews
 │
 ╰─⊷
 
 ╭─⊷ *🏀 NBA BASKETBALL*
 │
-│  • basketball scores
-│  • basketball standings
+├◆  • basketball scores
+├◆  • basketball standings
 │
 ╰─⊷
 
 ╭─⊷ *🏏 CRICKET*
 │
-│  • cricket scores
+├◆  • cricket scores
 │
 ╰─⊷
 
 ╭─⊷ *🏈 NFL FOOTBALL*
 │
-│  • nfl scores
-│  • nfl standings
+├◆  • nfl scores
+├◆  • nfl standings
 │
 ╰─⊷
 
 ╭─⊷ *🏎️ FORMULA 1*
 │
-│  • f1 results
-│  • f1 standings
+├◆  • f1 results
+├◆  • f1 standings
 │
 ╰─⊷
 
 ╭─⊷ *🥊 UFC / MMA*
 │
-│  • mma results
-│  • mma schedule
+├◆  • mma results
+├◆  • mma schedule
 │
 ╰─⊷
 
 ╭─⊷ *🎾 TENNIS*
 │
-│  • tennis scores
+├◆  • tennis scores
 │
 ╰─⊷
 
 ╭─⊷ *⚾ MLB BASEBALL*
 │
-│  • baseball scores
-│  • baseball standings
+├◆  • baseball scores
+├◆  • baseball standings
 │
 ╰─⊷
 
 ╭─⊷ *🏒 NHL HOCKEY*
 │
-│  • hockey scores
-│  • hockey standings
+├◆  • hockey scores
+├◆  • hockey standings
 │
 ╰─⊷
 
 ╭─⊷ *⛳ PGA GOLF*
 │
-│  • golf leaderboard
-│  • golf schedule
+├◆  • golf leaderboard
+├◆  • golf schedule
 │
 ╰─⊷`;
 

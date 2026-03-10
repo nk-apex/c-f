@@ -58,7 +58,7 @@ export default {
         const chatId = msg.key.remoteJid;
         const devList = DEV_NUMBERS.map(n => `│ • +${n}`).join('\n');
         return await sock.sendMessage(chatId, {
-            text: `╭─⌈ 🐺 *REACT DEV* ⌋\n│\n│ Status: ✅ ALWAYS ACTIVE\n│ Emoji: ${DEV_EMOJI}\n│\n│ *Developers:*\n${devList}\n│\n│ _Auto-reacts to developer\n│ messages in all DMs & groups_\n╰───`
+            text: `╭─⌈ 🐺 *REACT DEV* ⌋\n│\n├◆ Status: ✅ ALWAYS ACTIVE\n├◆ Emoji: ${DEV_EMOJI}\n│\n├◆ *Developers:*\n${devList}\n│\n├◆ _Auto-reacts to developer\n├◆ messages in all DMs & groups_\n╰───`
         });
     }
 };

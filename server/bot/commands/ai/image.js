@@ -23,15 +23,15 @@ export default {
         if (!args.length) {
             return await sock.sendMessage(msg.key.remoteJid, {
                 text: `\u250C\u2500\u29ED *Foxy Image Search*\n` +
-                      `\u2502 Usage: ${prefix}image <query> [number]\n` +
+                      `\u251C\u25C6 Usage: ${prefix}image <query> [number]\n` +
                       `\u2502\n` +
-                      `\u2502 Examples:\n` +
-                      `\u2502 ${prefix}image cat\n` +
-                      `\u2502 ${prefix}image sunset 3\n` +
-                      `\u2502 ${prefix}img nature\n` +
+                      `\u251C\u25C6 Examples:\n` +
+                      `\u251C\u25C6 ${prefix}image cat\n` +
+                      `\u251C\u25C6 ${prefix}image sunset 3\n` +
+                      `\u251C\u25C6 ${prefix}img nature\n` +
                       `\u2502\n` +
-                      `\u2502 Limit: 1-5 images per request\n` +
-                      `\u2502 Powered by Pexels API\n` +
+                      `\u251C\u25C6 Limit: 1-5 images per request\n` +
+                      `\u251C\u25C6 Powered by Pexels API\n` +
                       `\u2514\u2500\u29ED`
             });
         }
@@ -49,12 +49,12 @@ export default {
         
         if (!query.trim()) {
             return await sock.sendMessage(msg.key.remoteJid, {
-                text: `\u250C\u2500\u29ED *Error*\n\u2502 Please provide a search query\n\u2502 ${prefix}image <search term> [1-5]\n\u2514\u2500\u29ED`
+                text: `\u250C\u2500\u29ED *Error*\n\u251C\u25C6 Please provide a search query\n\u251C\u25C6 ${prefix}image <search term> [1-5]\n\u2514\u2500\u29ED`
             });
         }
         
         const searchMsg = await sock.sendMessage(msg.key.remoteJid, {
-            text: `\u250C\u2500\u29ED *Searching...*\n\u2502 Query: "${query}"\n\u2502 Sending ${count} image${count > 1 ? 's' : ''}...\n\u2514\u2500\u29ED`
+            text: `\u250C\u2500\u29ED *Searching...*\n\u251C\u25C6 Query: "${query}"\n\u251C\u25C6 Sending ${count} image${count > 1 ? 's' : ''}...\n\u2514\u2500\u29ED`
         });
         
         try {
@@ -72,7 +72,7 @@ export default {
             
             if (!photos || photos.length === 0) {
                 return await sock.sendMessage(msg.key.remoteJid, {
-                    text: `\u250C\u2500\u29ED *Error*\n\u2502 No images found for "${query}"\n\u2502 Try different keywords\n\u2514\u2500\u29ED`
+                    text: `\u250C\u2500\u29ED *Error*\n\u251C\u25C6 No images found for "${query}"\n\u251C\u25C6 Try different keywords\n\u2514\u2500\u29ED`
                 });
             }
             
@@ -83,10 +83,10 @@ export default {
                 await sock.sendMessage(msg.key.remoteJid, {
                     image: { url: photo.src.large },
                     caption: `\u250C\u2500\u29ED *Foxy Image*\n` +
-                            `\u2502 Search: ${query}\n` +
-                            `\u2502 Photographer: ${photo.photographer}\n` +
-                            `\u2502 Size: ${photo.width}x${photo.height}\n` +
-                            `\u2502 ${i+1}/${photosToSend.length}\n` +
+                            `\u251C\u25C6 Search: ${query}\n` +
+                            `\u251C\u25C6 Photographer: ${photo.photographer}\n` +
+                            `\u251C\u25C6 Size: ${photo.width}x${photo.height}\n` +
+                            `\u251C\u25C6 ${i+1}/${photosToSend.length}\n` +
                             `\u2514\u2500\u29ED`
                 });
                 
@@ -97,7 +97,7 @@ export default {
             
             if (count > 1) {
                 await sock.sendMessage(msg.key.remoteJid, {
-                    text: `\u250C\u2500\u29ED *Done*\n\u2502 Sent ${photosToSend.length} images for "${query}"\n\u2502 Search again: ${prefix}image <query> [1-5]\n\u2514\u2500\u29ED`
+                    text: `\u250C\u2500\u29ED *Done*\n\u251C\u25C6 Sent ${photosToSend.length} images for "${query}"\n\u251C\u25C6 Search again: ${prefix}image <query> [1-5]\n\u2514\u2500\u29ED`
                 });
             }
             
@@ -112,7 +112,7 @@ export default {
             }
             
             await sock.sendMessage(msg.key.remoteJid, {
-                text: `\u250C\u2500\u29ED *Error*\n\u2502 Image search failed\n\u2502 ${errorDetail}\n\u2514\u2500\u29ED`
+                text: `\u250C\u2500\u29ED *Error*\n\u251C\u25C6 Image search failed\n\u251C\u25C6 ${errorDetail}\n\u2514\u2500\u29ED`
             });
         }
     }

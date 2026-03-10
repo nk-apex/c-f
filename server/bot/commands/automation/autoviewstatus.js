@@ -85,16 +85,16 @@ export default {
     if (args.length === 0) {
       return sendMessage(
         `\u250C\u2500\u29ED *Auto View Status*\n` +
-        `\u2502 Status: ${config.enabled ? 'ON' : 'OFF'}\n` +
-        `\u2502 Total Viewed: ${config.totalViewed || 0}\n` +
-        `\u2502 Delay: ${config.settings?.rateLimitDelay || 1000}ms\n` +
+        `\u251C\u25C6 Status: ${config.enabled ? 'ON' : 'OFF'}\n` +
+        `\u251C\u25C6 Total Viewed: ${config.totalViewed || 0}\n` +
+        `\u251C\u25C6 Delay: ${config.settings?.rateLimitDelay || 1000}ms\n` +
         `\u2502\n` +
-        `\u2502 Commands:\n` +
-        `\u2502 ${PREFIX}autoview on - Enable\n` +
-        `\u2502 ${PREFIX}autoview off - Disable\n` +
-        `\u2502 ${PREFIX}autoview stats - View stats\n` +
-        `\u2502 ${PREFIX}autoview delay <ms> - Set delay\n` +
-        `\u2502 ${PREFIX}autoview reset - Reset stats\n` +
+        `\u251C\u25C6 Commands:\n` +
+        `\u251C\u25C6 ${PREFIX}autoview on - Enable\n` +
+        `\u251C\u25C6 ${PREFIX}autoview off - Disable\n` +
+        `\u251C\u25C6 ${PREFIX}autoview stats - View stats\n` +
+        `\u251C\u25C6 ${PREFIX}autoview delay <ms> - Set delay\n` +
+        `\u251C\u25C6 ${PREFIX}autoview reset - Reset stats\n` +
         `\u2514\u2500\u29ED`
       );
     }
@@ -108,9 +108,9 @@ export default {
         if (config.enabled) {
           return sendMessage(
             `\u250C\u2500\u29ED *Auto View Status*\n` +
-            `\u2502 Already active!\n` +
-            `\u2502 Total viewed: ${config.totalViewed || 0}\n` +
-            `\u2502 Use ${PREFIX}autoview off to disable\n` +
+            `\u251C\u25C6 Already active!\n` +
+            `\u251C\u25C6 Total viewed: ${config.totalViewed || 0}\n` +
+            `\u251C\u25C6 Use ${PREFIX}autoview off to disable\n` +
             `\u2514\u2500\u29ED`
           );
         }
@@ -118,8 +118,8 @@ export default {
         saveViewConfig(config);
         return sendMessage(
           `\u250C\u2500\u29ED *Auto View Status*\n` +
-          `\u2502 Enabled! Foxy will now view\n` +
-          `\u2502 all statuses automatically\n` +
+          `\u251C\u25C6 Enabled! Foxy will now view\n` +
+          `\u251C\u25C6 all statuses automatically\n` +
           `\u2514\u2500\u29ED`
         );
       }
@@ -131,9 +131,9 @@ export default {
         saveViewConfig(config);
         return sendMessage(
           `\u250C\u2500\u29ED *Auto View Status*\n` +
-          `\u2502 Disabled! Foxy stopped viewing\n` +
-          `\u2502 statuses automatically\n` +
-          `\u2502 Use ${PREFIX}autoview on to enable\n` +
+          `\u251C\u25C6 Disabled! Foxy stopped viewing\n` +
+          `\u251C\u25C6 statuses automatically\n` +
+          `\u251C\u25C6 Use ${PREFIX}autoview on to enable\n` +
           `\u2514\u2500\u29ED`
         );
       }
@@ -147,10 +147,10 @@ export default {
         }
         return sendMessage(
           `\u250C\u2500\u29ED *Auto View Statistics*\n` +
-          `\u2502 Status: ${config.enabled ? 'ON' : 'OFF'}\n` +
-          `\u2502 Total Viewed: ${config.totalViewed || 0}\n` +
-          `\u2502 Last Viewed: ${lastInfo}\n` +
-          `\u2502 Delay: ${config.settings?.rateLimitDelay || 1000}ms\n` +
+          `\u251C\u25C6 Status: ${config.enabled ? 'ON' : 'OFF'}\n` +
+          `\u251C\u25C6 Total Viewed: ${config.totalViewed || 0}\n` +
+          `\u251C\u25C6 Last Viewed: ${lastInfo}\n` +
+          `\u251C\u25C6 Delay: ${config.settings?.rateLimitDelay || 1000}ms\n` +
           `\u2514\u2500\u29ED`
         );
       }
@@ -159,9 +159,9 @@ export default {
         if (!args[1] || isNaN(args[1])) {
           return sendMessage(
             `\u250C\u2500\u29ED *Auto View Delay*\n` +
-            `\u2502 Current: ${config.settings?.rateLimitDelay || 1000}ms\n` +
-            `\u2502 Usage: ${PREFIX}autoview delay <ms>\n` +
-            `\u2502 Min: 500ms, Recommended: 1000ms\n` +
+            `\u251C\u25C6 Current: ${config.settings?.rateLimitDelay || 1000}ms\n` +
+            `\u251C\u25C6 Usage: ${PREFIX}autoview delay <ms>\n` +
+            `\u251C\u25C6 Min: 500ms, Recommended: 1000ms\n` +
             `\u2514\u2500\u29ED`
           );
         }
@@ -171,8 +171,8 @@ export default {
         saveViewConfig(config);
         return sendMessage(
           `\u250C\u2500\u29ED *Auto View Delay*\n` +
-          `\u2502 Updated to ${delay}ms\n` +
-          `\u2502 (${delay / 1000}s between views)\n` +
+          `\u251C\u25C6 Updated to ${delay}ms\n` +
+          `\u251C\u25C6 (${delay / 1000}s between views)\n` +
           `\u2514\u2500\u29ED`
         );
       }
@@ -184,7 +184,7 @@ export default {
         saveViewConfig(config);
         return sendMessage(
           `\u250C\u2500\u29ED *Auto View Status*\n` +
-          `\u2502 Stats reset successfully\n` +
+          `\u251C\u25C6 Stats reset successfully\n` +
           `\u2514\u2500\u29ED`
         );
       }
@@ -192,8 +192,8 @@ export default {
       default:
         return sendMessage(
           `\u250C\u2500\u29ED *Auto View Status*\n` +
-          `\u2502 Unknown option: ${action}\n` +
-          `\u2502 Use ${PREFIX}autoview for help\n` +
+          `\u251C\u25C6 Unknown option: ${action}\n` +
+          `\u251C\u25C6 Use ${PREFIX}autoview for help\n` +
           `\u2514\u2500\u29ED`
         );
     }

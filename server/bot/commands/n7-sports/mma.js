@@ -15,7 +15,7 @@ export default {
 
     if (args.length === 0 || args[0].toLowerCase() === 'help') {
       return sock.sendMessage(jid, {
-        text: `╭─⌈ 🥊 *UFC / MMA* ⌋\n├─⊷ *${PREFIX}mma results*\n│  └⊷ Latest fight results\n├─⊷ *${PREFIX}mma schedule*\n│  └⊷ Upcoming fight cards\n├─⊷ *${PREFIX}ufc results*\n│  └⊷ Alias for mma\n╰───`
+        text: `╭─⌈ 🥊 *UFC / MMA* ⌋\n├─⊷ *${PREFIX}mma results*\n├◆  └⊷ Latest fight results\n├─⊷ *${PREFIX}mma schedule*\n├◆  └⊷ Upcoming fight cards\n├─⊷ *${PREFIX}ufc results*\n├◆  └⊷ Alias for mma\n╰───`
       }, { quoted: m });
     }
 

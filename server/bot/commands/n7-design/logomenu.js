@@ -12,55 +12,55 @@ export default {
 
     const commandsText = `╭─⊷ *🌟 PREMIUM METALS*
 │
-│  • goldlogo
-│  • silverlogo
-│  • platinumlogo
-│  • chromelogo
-│  • diamondlogo
-│  • bronzelogo
-│  • steellogo
-│  • copperlogo
-│  • titaniumlogo
+├◆  • goldlogo
+├◆  • silverlogo
+├◆  • platinumlogo
+├◆  • chromelogo
+├◆  • diamondlogo
+├◆  • bronzelogo
+├◆  • steellogo
+├◆  • copperlogo
+├◆  • titaniumlogo
 │
 ╰─⊷
 
 ╭─⊷ *🔥 ELEMENTAL EFFECTS*
 │
-│  • firelogo
-│  • icelogo
-│  • iceglowlogo
-│  • lightninglogo
-│  • rainbowlogo
-│  • sunlogo
-│  • moonlogo
+├◆  • firelogo
+├◆  • icelogo
+├◆  • iceglowlogo
+├◆  • lightninglogo
+├◆  • rainbowlogo
+├◆  • sunlogo
+├◆  • moonlogo
 │
 ╰─⊷
 
 ╭─⊷ *🎭 MYTHICAL & MAGICAL*
 │
-│  • dragonlogo
-│  • phoenixlogo
-│  • wizardlogo
-│  • crystallogo
-│  • darkmagiclogo
+├◆  • dragonlogo
+├◆  • phoenixlogo
+├◆  • wizardlogo
+├◆  • crystallogo
+├◆  • darkmagiclogo
 │
 ╰─⊷
 
 ╭─⊷ *🌌 DARK & GOTHIC*
 │
-│  • shadowlogo
-│  • smokelogo
-│  • bloodlogo
+├◆  • shadowlogo
+├◆  • smokelogo
+├◆  • bloodlogo
 │
 ╰─⊷
 
 ╭─⊷ *💫 GLOW & NEON*
 │
-│  • neonlogo
-│  • glowlogo
-│  • gradientlogo
-│  • matrixlogo
-│  • aqualogo
+├◆  • neonlogo
+├◆  • glowlogo
+├◆  • gradientlogo
+├◆  • matrixlogo
+├◆  • aqualogo
 │
 ╰─⊷`;
 

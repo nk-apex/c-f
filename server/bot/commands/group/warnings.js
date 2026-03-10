@@ -29,7 +29,7 @@ export default {
 
     if (!jid.endsWith('@g.us')) {
       await sock.sendMessage(jid, {
-        text: '\u250c\u2500\u29ed GROUP ONLY \u29ed\u2500\u2510\n\u2502 This command works in groups only.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
+        text: '\u250c\u2500\u29ed GROUP ONLY \u29ed\u2500\u2510\n\u251C\u25C6 This command works in groups only.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
       }, { quoted: msg });
       return;
     }
@@ -39,7 +39,7 @@ export default {
 
     if (!senderParticipant?.admin) {
       await sock.sendMessage(jid, {
-        text: '\u250c\u2500\u29ed ACCESS DENIED \u29ed\u2500\u2510\n\u2502 Only group admins can use this command.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
+        text: '\u250c\u2500\u29ed ACCESS DENIED \u29ed\u2500\u2510\n\u251C\u25C6 Only group admins can use this command.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
       }, { quoted: msg });
       return;
     }
@@ -53,7 +53,7 @@ export default {
     if (targetUser) {
       const count = groupWarnings?.users?.[targetUser] || 0;
       await sock.sendMessage(jid, {
-        text: `\u250c\u2500\u29ed WARNINGS \u29ed\u2500\u2510\n\u2502 User: @${targetUser.split('@')[0]}\n\u2502 Warnings: ${count}/${maxWarns}\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518`,
+        text: `\u250c\u2500\u29ed WARNINGS \u29ed\u2500\u2510\n\u251C\u25C6 User: @${targetUser.split('@')[0]}\n\u251C\u25C6 Warnings: ${count}/${maxWarns}\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518`,
         mentions: [targetUser]
       }, { quoted: msg });
       return;
@@ -64,16 +64,16 @@ export default {
 
     if (warnedUsers.length === 0) {
       await sock.sendMessage(jid, {
-        text: `\u250c\u2500\u29ed WARNINGS \u29ed\u2500\u2510\n\u2502 No warned users in this group.\n\u2502 Max warnings: ${maxWarns}\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518`
+        text: `\u250c\u2500\u29ed WARNINGS \u29ed\u2500\u2510\n\u251C\u25C6 No warned users in this group.\n\u251C\u25C6 Max warnings: ${maxWarns}\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518`
       }, { quoted: msg });
       return;
     }
 
-    const list = warnedUsers.map(([user, count]) => `\u2502 @${user.split('@')[0]}: ${count}/${maxWarns}`).join('\n');
+    const list = warnedUsers.map(([user, count]) => `\u251C\u25C6 @${user.split('@')[0]}: ${count}/${maxWarns}`).join('\n');
     const mentionList = warnedUsers.map(([user]) => user);
 
     await sock.sendMessage(jid, {
-      text: `\u250c\u2500\u29ed WARNED USERS \u29ed\u2500\u2510\n${list}\n\u2502\n\u2502 Max warnings: ${maxWarns}\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518`,
+      text: `\u250c\u2500\u29ed WARNED USERS \u29ed\u2500\u2510\n${list}\n\u2502\n\u251C\u25C6 Max warnings: ${maxWarns}\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518`,
       mentions: mentionList
     }, { quoted: msg });
   }

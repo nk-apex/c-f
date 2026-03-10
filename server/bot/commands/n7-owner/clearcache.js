@@ -22,7 +22,7 @@ export default {
 
         if (!validTargets.includes(target)) {
             return await sock.sendMessage(chatId, {
-                text: `╭─⌈ 🗑️ *CLEAR CACHE* ⌋\n│\n├─⊷ *${PREFIX}clearcache [target]*\n│\n├─⊷ *Targets:*\n│  └⊷ all — Clear everything\n│  └⊷ messages — Message store\n│  └⊷ contacts — Contact names\n│  └⊷ groups — Group metadata\n│  └⊷ viewonce — View-once cache\n│  └⊷ config — Config caches (reloads from DB)\n│  └⊷ retry — Message retry counters\n│  └⊷ lid — LID-to-phone mappings\n│\n├─⊷ *Example:*\n│  └⊷ ${PREFIX}clearcache\n│  └⊷ ${PREFIX}cc messages\n│\n╰───────────────\n> *${getBotName()}*`
+                text: `╭─⌈ 🗑️ *CLEAR CACHE* ⌋\n│\n├─⊷ *${PREFIX}clearcache [target]*\n│\n├─⊷ *Targets:*\n├◆  └⊷ all — Clear everything\n├◆  └⊷ messages — Message store\n├◆  └⊷ contacts — Contact names\n├◆  └⊷ groups — Group metadata\n├◆  └⊷ viewonce — View-once cache\n├◆  └⊷ config — Config caches (reloads from DB)\n├◆  └⊷ retry — Message retry counters\n├◆  └⊷ lid — LID-to-phone mappings\n│\n├─⊷ *Example:*\n├◆  └⊷ ${PREFIX}clearcache\n├◆  └⊷ ${PREFIX}cc messages\n│\n╰───────────────\n> *${getBotName()}*`
             }, { quoted: msg });
         }
 

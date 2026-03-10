@@ -30,7 +30,7 @@ export default {
     const text = args.join(' ');
 
     await sock.sendMessage(jid, {
-      text: `┌─⧭ *Processing...*\n│ Effect: Neon Text Effect Online\n│ Text: ${text}\n└─⧭`
+      text: `┌─⧭ *Processing...*\n├◆ Effect: Neon Text Effect Online\n├◆ Text: ${text}\n└─⧭`
     }, { quoted: m });
 
     try {
@@ -43,20 +43,20 @@ export default {
 
       if (!imageUrl || typeof imageUrl !== 'string') {
         await sock.sendMessage(jid, {
-          text: `┌─⧭ *ERROR*\n│ Failed to generate effect.\n│ Try again later.\n└─⧭`
+          text: `┌─⧭ *ERROR*\n├◆ Failed to generate effect.\n├◆ Try again later.\n└─⧭`
         }, { quoted: m });
         return;
       }
 
       await sock.sendMessage(jid, {
         image: { url: imageUrl },
-        caption: `┌─⧭ *NEON TEXT EFFECT ONLINE*\n│ Text: ${text}\n│ ID: 78\n└─⧭`
+        caption: `┌─⧭ *NEON TEXT EFFECT ONLINE*\n├◆ Text: ${text}\n├◆ ID: 78\n└─⧭`
       }, { quoted: m });
 
     } catch (err) {
       console.error('[NEONONLINE] Error:', err.message);
       await sock.sendMessage(jid, {
-        text: `┌─⧭ *ERROR*\n│ ${err.message}\n└─⧭`
+        text: `┌─⧭ *ERROR*\n├◆ ${err.message}\n└─⧭`
       }, { quoted: m });
     }
   },

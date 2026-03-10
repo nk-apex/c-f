@@ -64,7 +64,7 @@ export default {
 
         if (!args || !args[0]) {
             return sock.sendMessage(jid, {
-                text: `╭─⌈ 🔍 *TIKTOK STALKER* ⌋\n│\n├─⊷ *${prefix}tiktokstalk <username>*\n│  └⊷ Stalk a TikTok profile\n│\n├─⊷ *Example:*\n│  └⊷ ${prefix}tiktokstalk maskedwolf908\n│\n╰───────────────\n> *${getBotName()} STALKER*`
+                text: `╭─⌈ 🔍 *TIKTOK STALKER* ⌋\n│\n├─⊷ *${prefix}tiktokstalk <username>*\n├◆  └⊷ Stalk a TikTok profile\n│\n├─⊷ *Example:*\n├◆  └⊷ ${prefix}tiktokstalk maskedwolf908\n│\n╰───────────────\n> *${getBotName()} STALKER*`
             }, { quoted: m });
         }
 

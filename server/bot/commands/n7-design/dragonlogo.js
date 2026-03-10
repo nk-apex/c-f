@@ -11,7 +11,7 @@ export default {
     try {
       if (args.length === 0) {
         await sock.sendMessage(jid, { 
-          text: `╭─⌈ 🐉 *DRAGON LOGO* ⌋\n│\n├─⊷ *dragonlogo*\n│  └⊷ dragonlogo <text>\n│\n├─⊷ *Example:*\n│  └⊷ dragonlogo DRAGON\n│  └⊷ dragonlogo FIRE\n│  └⊷ dragonlogo WYVERN\n│\n╰───` 
+          text: `╭─⌈ 🐉 *DRAGON LOGO* ⌋\n│\n├─⊷ *dragonlogo*\n├◆  └⊷ dragonlogo <text>\n│\n├─⊷ *Example:*\n├◆  └⊷ dragonlogo DRAGON\n├◆  └⊷ dragonlogo FIRE\n├◆  └⊷ dragonlogo WYVERN\n│\n╰───` 
         }, { quoted: m });
         return;
       }
@@ -20,7 +20,7 @@ export default {
       
       if (text.length > 10) {
         await sock.sendMessage(jid, { 
-          text: `╭─⌈ ❌ *ERROR* ⌋\n│\n├─⊷ Text too long!\n│  └⊷ Maximum 10 characters\n│  └⊷ Your text: "${text}" (${text.length} chars)\n│\n╰───` 
+          text: `╭─⌈ ❌ *ERROR* ⌋\n│\n├─⊷ Text too long!\n├◆  └⊷ Maximum 10 characters\n├◆  └⊷ Your text: "${text}" (${text.length} chars)\n│\n╰───` 
         }, { quoted: m });
         return;
       }
@@ -41,7 +41,7 @@ export default {
     } catch (error) {
       console.error("❌ [DRAGONLOGO] ERROR:", error);
       await sock.sendMessage(jid, { 
-        text: `╭─⌈ ❌ *ERROR* ⌋\n│\n├─⊷ ${error.message}\n│  └⊷ Please try again with shorter text\n│\n╰───` 
+        text: `╭─⌈ ❌ *ERROR* ⌋\n│\n├─⊷ ${error.message}\n├◆  └⊷ Please try again with shorter text\n│\n╰───` 
       }, { quoted: m });
     }
   },

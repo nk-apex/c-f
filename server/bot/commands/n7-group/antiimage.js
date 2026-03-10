@@ -732,7 +732,7 @@ export default {
             
             if (!mode || !['warn', 'delete', 'kick'].includes(mode)) {
                 return sock.sendMessage(chatId, { 
-                    text: '╭─⌈ ⚙️ *ANTI-IMAGE SETUP* ⌋\n│\n├─⊷ *.antiimage on warn*\n│  └⊷ Warn senders\n├─⊷ *.antiimage on delete*\n│  └⊷ Auto-delete images\n├─⊷ *.antiimage on kick*\n│  └⊷ Kick senders\n╰───' 
+                    text: '╭─⌈ ⚙️ *ANTI-IMAGE SETUP* ⌋\n│\n├─⊷ *.antiimage on warn*\n├◆  └⊷ Warn senders\n├─⊷ *.antiimage on delete*\n├◆  └⊷ Auto-delete images\n├─⊷ *.antiimage on kick*\n├◆  └⊷ Kick senders\n╰───' 
                 }, { quoted: msg });
             }
 
@@ -859,7 +859,7 @@ export default {
         }
         else {
             // Show help
-            const helpText = `╭─⌈ 🖼️ *ANTI-IMAGE* ⌋\n│\n├─⊷ *.antiimage on <delete|warn|kick>*\n│  └⊷ Enable with mode\n├─⊷ *.antiimage off*\n│  └⊷ Disable protection\n├─⊷ *.antiimage exemptadmins [on/off]*\n│  └⊷ Toggle admin exemption\n╰───`;
+            const helpText = `╭─⌈ 🖼️ *ANTI-IMAGE* ⌋\n│\n├─⊷ *.antiimage on <delete|warn|kick>*\n├◆  └⊷ Enable with mode\n├─⊷ *.antiimage off*\n├◆  └⊷ Disable protection\n├─⊷ *.antiimage exemptadmins [on/off]*\n├◆  └⊷ Toggle admin exemption\n╰───`;
             
             await sock.sendMessage(chatId, { text: helpText }, { quoted: msg });
         }

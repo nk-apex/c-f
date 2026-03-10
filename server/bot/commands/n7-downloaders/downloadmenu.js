@@ -12,32 +12,32 @@ export default {
 
     const commandsText = `╭─⊷ *📱 SOCIAL MEDIA*
 │
-│  • tiktok
-│  • tiktoksearch
-│  • tiktokinfo
-│  • instagram
-│  • facebook
-│  • snapchat
+├◆  • tiktok
+├◆  • tiktoksearch
+├◆  • tiktokinfo
+├◆  • instagram
+├◆  • facebook
+├◆  • snapchat
 │
 ╰─⊷
 
 ╭─⊷ *🎬 YOUTUBE*
 │
-│  • yts
-│  • ytplay
-│  • ytmp3
-│  • ytv
-│  • ytmp4
-│  • ytvdoc
-│  • playlist
+├◆  • yts
+├◆  • ytplay
+├◆  • ytmp3
+├◆  • ytv
+├◆  • ytmp4
+├◆  • ytvdoc
+├◆  • playlist
 │
 ╰─⊷
 
 ╭─⊷ *📦 OTHER*
 │
-│  • apk
-│  • mp3
-│  • mp4
+├◆  • apk
+├◆  • mp3
+├◆  • mp4
 │
 ╰─⊷`;
 

@@ -12,11 +12,11 @@ export default {
 
     const commandsText = `╭─⊷ *🎬 AI VIDEO EFFECTS*
 │
-│  • tigervideo
-│  • introvideo
-│  • lightningpubg
-│  • lovevideo
-│  • videogen
+├◆  • tigervideo
+├◆  • introvideo
+├◆  • lightningpubg
+├◆  • lovevideo
+├◆  • videogen
 │
 ╰─⊷`;
 

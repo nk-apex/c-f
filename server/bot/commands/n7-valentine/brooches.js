@@ -16,7 +16,7 @@ export default {
 
         if (!hasImage) {
             return await sock.sendMessage(chatId, {
-                text: `╭─⌈ 💎 *BROOCHES* ⌋\n│\n│ Create a brooches effect\n│ with your image\n│\n├─⊷ *Usage:*\n│ ${global.prefix || '.'}brooches\n│ _(reply to an image)_\n╰───`
+                text: `╭─⌈ 💎 *BROOCHES* ⌋\n│\n├◆ Create a brooches effect\n├◆ with your image\n│\n├─⊷ *Usage:*\n├◆ ${global.prefix || '.'}brooches\n├◆ _(reply to an image)_\n╰───`
             }, { quoted: msg });
         }
 

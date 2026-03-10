@@ -9,7 +9,7 @@ function loadConfig() {
             return JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf-8'));
         }
     } catch {}
-    return { prefix: '.', mode: 'public', ownerNumber: '', botName: 'Foxy Bot' };
+    return { prefix: '.', mode: 'public', ownerNumber: '', botName: 'FOX Bot' };
 }
 
 export default {

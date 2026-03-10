@@ -49,7 +49,7 @@ export default {
       
       if (!searchQuery) {
         return sock.sendMessage(jid, {
-          text: `╭─⌈ 🎵 *MP3 DOWNLOADER* ⌋\n│\n├─⊷ *${prefix}mp3 <song name>*\n│  └⊷ Download audio\n├─⊷ *${prefix}mp3 <YouTube URL>*\n│  └⊷ Download from link\n├─⊷ *Reply to a text message*\n│  └⊷ Uses replied text as search\n╰───`
+          text: `╭─⌈ 🎵 *MP3 DOWNLOADER* ⌋\n│\n├─⊷ *${prefix}mp3 <song name>*\n├◆  └⊷ Download audio\n├─⊷ *${prefix}mp3 <YouTube URL>*\n├◆  └⊷ Download from link\n├─⊷ *Reply to a text message*\n├◆  └⊷ Uses replied text as search\n╰───`
         }, { quoted: m });
       }
       console.log(`🎵 [MP3] Request: ${searchQuery}`);

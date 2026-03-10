@@ -373,7 +373,7 @@ export default {
                     const newCaption = args.slice(2).join(' ');
                     if (!newCaption) {
                         return sock.sendMessage(chatId, { 
-                            text: `╭─⌈ ❌ *VV CAPTION* ⌋\n├─⊷ *.vv caption set <text>*\n│  └⊷ Set custom caption\n├─⊷ *.vv caption set none*\n│  └⊷ Disable caption\n╰─── *${getBotName()}* ───` 
+                            text: `╭─⌈ ❌ *VV CAPTION* ⌋\n├─⊷ *.vv caption set <text>*\n├◆  └⊷ Set custom caption\n├─⊷ *.vv caption set none*\n├◆  └⊷ Disable caption\n╰─── *${getBotName()}* ───` 
                         }, { quoted: msg });
                     }
                     
@@ -404,7 +404,7 @@ export default {
                 }
                 else {
                     return sock.sendMessage(chatId, { 
-                        text: `╭─⌈ 📝 *VV CAPTION* ⌋\n├─⊷ *.vv caption set <text>*\n│  └⊷ Set custom caption\n├─⊷ *.vv caption default*\n│  └⊷ Reset to default\n├─⊷ *.vv caption show*\n│  └⊷ Show current\n╰─── *${getBotName()}* ───` 
+                        text: `╭─⌈ 📝 *VV CAPTION* ⌋\n├─⊷ *.vv caption set <text>*\n├◆  └⊷ Set custom caption\n├─⊷ *.vv caption default*\n├◆  └⊷ Reset to default\n├─⊷ *.vv caption show*\n├◆  └⊷ Show current\n╰─── *${getBotName()}* ───` 
                     }, { quoted: msg });
                 }
             }
@@ -472,7 +472,7 @@ export default {
             }
             else if (subCommand === 'help') {
                 return sock.sendMessage(chatId, { 
-                    text: `╭─⌈ 📥 *VIEW-ONCE (VV)* ⌋\n├─⊷ Reply to view-once with *.vv*\n├─⊷ *.vv caption set <text>*\n│  └⊷ Set custom caption\n├─⊷ *.vv caption default*\n│  └⊷ Reset caption\n├─⊷ *.vv info on/off <type>*\n│  └⊷ Toggle: sender, file, original\n├─⊷ *.vv settings*\n│  └⊷ View all settings\n├─⊷ *.vv clean*\n│  └⊷ Clear temp files\n╰─── *${getBotName()}* ───` 
+                    text: `╭─⌈ 📥 *VIEW-ONCE (VV)* ⌋\n├─⊷ Reply to view-once with *.vv*\n├─⊷ *.vv caption set <text>*\n├◆  └⊷ Set custom caption\n├─⊷ *.vv caption default*\n├◆  └⊷ Reset caption\n├─⊷ *.vv info on/off <type>*\n├◆  └⊷ Toggle: sender, file, original\n├─⊷ *.vv settings*\n├◆  └⊷ View all settings\n├─⊷ *.vv clean*\n├◆  └⊷ Clear temp files\n╰─── *${getBotName()}* ───` 
                 }, { quoted: msg });
             }
             

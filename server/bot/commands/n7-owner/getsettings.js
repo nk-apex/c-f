@@ -260,7 +260,7 @@ export default {
             caption += `┌─── *PROTECTION* ───\n`;
             caption += `│ ◎ *Anticall:* ${anticall}\n`;
             caption += `│ ◎ *Anticall Msg:* ${anticallMsg.substring(0, 40)}${anticallMsg.length > 40 ? '...' : ''}`;
-            caption += `\n│ ◎ *Antidelete:* ${antidelete}\n`;
+            caption += `\n├◆ ◎ *Antidelete:* ${antidelete}\n`;
             caption += `│ ◎ *Antidelete Status:* ${antideleteStatusDisplay}\n`;
             caption += `│ ◎ *Antiedit:* ${antieditDisplay}\n`;
             caption += `│ ◎ *Anti-ViewOnce:* ${antiViewOnce}\n`;

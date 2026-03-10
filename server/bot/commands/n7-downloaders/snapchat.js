@@ -35,7 +35,7 @@ export default {
     try {
       if (!args[0]) {
         await sock.sendMessage(jid, { 
-          text: `╭─⌈ 👻 *SNAPCHAT DOWNLOADER* ⌋\n│\n├─⊷ *snapchat <url>*\n│  └⊷ Download Spotlight videos\n╰───` 
+          text: `╭─⌈ 👻 *SNAPCHAT DOWNLOADER* ⌋\n│\n├─⊷ *snapchat <url>*\n├◆  └⊷ Download Spotlight videos\n╰───` 
         }, { quoted: m });
         return;
       }
@@ -45,7 +45,7 @@ export default {
       // Validate URL
       if (!isValidSnapchatUrl(url)) {
         await sock.sendMessage(jid, { 
-          text: `╭─⌈ ❌ *INVALID URL* ⌋\n│\n├─⊷ *snapchat <url>*\n│  └⊷ Provide a valid Spotlight URL\n╰───` 
+          text: `╭─⌈ ❌ *INVALID URL* ⌋\n│\n├─⊷ *snapchat <url>*\n├◆  └⊷ Provide a valid Spotlight URL\n╰───` 
         }, { quoted: m });
         return;
       }

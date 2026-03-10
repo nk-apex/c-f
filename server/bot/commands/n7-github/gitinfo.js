@@ -13,7 +13,7 @@ export default {
         
         if (!args[0]) {
             return sock.sendMessage(chatId, {
-                text: `╭─⌈ 📊 *GIT REPO INFO* ⌋\n│\n│ ✧ *Usage:* \`${prefix}gitinfo <user/repo>\`\n│\n│ 💡 *Examples:*\n│ • \`${prefix}gitinfo facebook/react\`\n│ • \`${prefix}gitinfo user/repo\`\n│ • \`${prefix}gitinfo https://github.com/user/repo\`\n│\n╰───────────────`
+                text: `╭─⌈ 📊 *GIT REPO INFO* ⌋\n│\n├◆ ✧ *Usage:* \`${prefix}gitinfo <user/repo>\`\n│\n├◆ 💡 *Examples:*\n├◆ • \`${prefix}gitinfo facebook/react\`\n├◆ • \`${prefix}gitinfo user/repo\`\n├◆ • \`${prefix}gitinfo https://github.com/user/repo\`\n│\n╰───────────────`
             }, { quoted: m });
         }
         
@@ -86,7 +86,7 @@ export default {
             console.error('GitInfo error:', error);
             
             await sock.sendMessage(chatId, {
-                text: `╭─⌈ ❌ *REPO INFO ERROR* ⌋\n│\n│ ✧ *Target:* ${args[0]}\n│ ✧ *Error:* ${error.message}\n│\n│ 💡 Try: username/repository\n│\n╰───────────────`
+                text: `╭─⌈ ❌ *REPO INFO ERROR* ⌋\n│\n├◆ ✧ *Target:* ${args[0]}\n├◆ ✧ *Error:* ${error.message}\n│\n├◆ 💡 Try: username/repository\n│\n╰───────────────`
             }, { quoted: m });
             try { await sock.sendMessage(chatId, { react: { text: '❌', key: m.key } }); } catch {}
         }

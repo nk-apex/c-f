@@ -252,23 +252,23 @@ export default {
         text:
           `\u250C\u2500\u29ED *URL Upload*\n` +
           `\u2502\n` +
-          `\u2502 Upload media and get permanent URLs\n` +
+          `\u251C\u25C6 Upload media and get permanent URLs\n` +
           `\u2502\n` +
-          `\u2502 Usage:\n` +
-          `\u2502 Reply to any media with ${PREFIX}url\n` +
-          `\u2502 Or: ${PREFIX}url <image_url>\n` +
+          `\u251C\u25C6 Usage:\n` +
+          `\u251C\u25C6 Reply to any media with ${PREFIX}url\n` +
+          `\u251C\u25C6 Or: ${PREFIX}url <image_url>\n` +
           `\u2502\n` +
-          `\u2502 Supported Files:\n` +
-          `\u2502 Images: JPG, PNG, GIF, WebP\n` +
-          `\u2502 Videos: MP4, MOV, AVI, WebM\n` +
-          `\u2502 Docs: PDF, TXT, DOC, XLS\n` +
-          `\u2502 Audio: MP3, WAV, OGG\n` +
+          `\u251C\u25C6 Supported Files:\n` +
+          `\u251C\u25C6 Images: JPG, PNG, GIF, WebP\n` +
+          `\u251C\u25C6 Videos: MP4, MOV, AVI, WebM\n` +
+          `\u251C\u25C6 Docs: PDF, TXT, DOC, XLS\n` +
+          `\u251C\u25C6 Audio: MP3, WAV, OGG\n` +
           `\u2502\n` +
-          `\u2502 Max Sizes:\n` +
-          `\u2502 ImgBB: 32MB (images, permanent)\n` +
-          `\u2502 Telegraph: 5MB (images)\n` +
-          `\u2502 0x0.st: 512MB (any file)\n` +
-          `\u2502 File.io: 2GB (any file)\n` +
+          `\u251C\u25C6 Max Sizes:\n` +
+          `\u251C\u25C6 ImgBB: 32MB (images, permanent)\n` +
+          `\u251C\u25C6 Telegraph: 5MB (images)\n` +
+          `\u251C\u25C6 0x0.st: 512MB (any file)\n` +
+          `\u251C\u25C6 File.io: 2GB (any file)\n` +
           `\u2514\u2500\u29ED`
       }, { quoted: m });
     }
@@ -289,7 +289,7 @@ export default {
         } catch (error) {
           await sock.sendMessage(jid, { react: { text: '\u274C', key: m.key } });
           return sock.sendMessage(jid, {
-            text: `\u250C\u2500\u29ED *URL Upload*\n\u2502 Download failed: ${error.message}\n\u2514\u2500\u29ED`
+            text: `\u250C\u2500\u29ED *URL Upload*\n\u251C\u25C6 Download failed: ${error.message}\n\u2514\u2500\u29ED`
           }, { quoted: m });
         }
       } else {
@@ -310,7 +310,7 @@ export default {
         } catch (error) {
           await sock.sendMessage(jid, { react: { text: '\u274C', key: m.key } });
           return sock.sendMessage(jid, {
-            text: `\u250C\u2500\u29ED *URL Upload*\n\u2502 Failed to download media\n\u2502 Try sending a fresh file\n\u2514\u2500\u29ED`
+            text: `\u250C\u2500\u29ED *URL Upload*\n\u251C\u25C6 Failed to download media\n\u251C\u25C6 Try sending a fresh file\n\u2514\u2500\u29ED`
           }, { quoted: m });
         }
       }
@@ -318,7 +318,7 @@ export default {
       if (!isFileSupported(filename, buffer)) {
         await sock.sendMessage(jid, { react: { text: '\u274C', key: m.key } });
         return sock.sendMessage(jid, {
-          text: `\u250C\u2500\u29ED *URL Upload*\n\u2502 File type not supported\n\u2502 Supported: JPG, PNG, GIF,\n\u2502 WebP, MP4, PDF, MP3\n\u2514\u2500\u29ED`
+          text: `\u250C\u2500\u29ED *URL Upload*\n\u251C\u25C6 File type not supported\n\u251C\u25C6 Supported: JPG, PNG, GIF,\n\u251C\u25C6 WebP, MP4, PDF, MP3\n\u2514\u2500\u29ED`
         }, { quoted: m });
       }
 
@@ -330,7 +330,7 @@ export default {
       if (!uploadResult.success) {
         await sock.sendMessage(jid, { react: { text: '\u274C', key: m.key } });
         return sock.sendMessage(jid, {
-          text: `\u250C\u2500\u29ED *URL Upload*\n\u2502 Upload failed: ${uploadResult.error}\n\u2514\u2500\u29ED`
+          text: `\u250C\u2500\u29ED *URL Upload*\n\u251C\u25C6 Upload failed: ${uploadResult.error}\n\u2514\u2500\u29ED`
         }, { quoted: m });
       }
 
@@ -339,11 +339,11 @@ export default {
       const successCaption =
         `\u250C\u2500\u29ED *Upload Successful*\n` +
         `\u2502\n` +
-        `\u2502 ${width && height ? `${width} x ${height} - ` : ''}${fileSizeMB.toFixed(2)} MB\n` +
-        `\u2502 Service: ${service || 'Auto'}${permanent ? ' (Permanent)' : ''}\n` +
+        `\u251C\u25C6 ${width && height ? `${width} x ${height} - ` : ''}${fileSizeMB.toFixed(2)} MB\n` +
+        `\u251C\u25C6 Service: ${service || 'Auto'}${permanent ? ' (Permanent)' : ''}\n` +
         `\u2502\n` +
-        `\u2502 URL:\n` +
-        `\u2502 ${url}\n` +
+        `\u251C\u25C6 URL:\n` +
+        `\u251C\u25C6 ${url}\n` +
         `\u2514\u2500\u29ED`;
 
       try {
@@ -352,7 +352,7 @@ export default {
         const { sendInteractiveMessage } = require('gifted-btns');
         await sendInteractiveMessage(sock, jid, {
           text: successCaption,
-          footer: `${extra.BOT_NAME || 'Foxy Bot'}`,
+          footer: `${extra.BOT_NAME || 'FOX Bot'}`,
           interactiveButtons: [
             {
               name: 'cta_copy',
@@ -387,7 +387,7 @@ export default {
     } catch (error) {
       await sock.sendMessage(jid, { react: { text: '\u274C', key: m.key } });
       return sock.sendMessage(jid, {
-        text: `\u250C\u2500\u29ED *URL Upload*\n\u2502 Error: ${error.message || 'Unknown error'}\n\u2514\u2500\u29ED`
+        text: `\u250C\u2500\u29ED *URL Upload*\n\u251C\u25C6 Error: ${error.message || 'Unknown error'}\n\u2514\u2500\u29ED`
       }, { quoted: m });
     }
   }

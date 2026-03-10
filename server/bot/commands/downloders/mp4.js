@@ -20,7 +20,7 @@ export default {
       if (!q) {
         await react("❓");
         await sock.sendMessage(chatId, {
-          text: `┌─⧭ MP4\n│\n│ Usage: ${PREFIX}mp4 <video name or URL>\n│ Example: ${PREFIX}mp4 Faded Alan Walker\n└─────────────────────`
+          text: `┌─⧭ MP4\n│\n├◆ Usage: ${PREFIX}mp4 <video name or URL>\n├◆ Example: ${PREFIX}mp4 Faded Alan Walker\n└─────────────────────`
         }, { quoted: m });
         return;
       }

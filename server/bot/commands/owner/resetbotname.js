@@ -9,7 +9,7 @@ function loadConfig() {
             return JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf-8'));
         }
     } catch {}
-    return { prefix: '.', mode: 'public', ownerNumber: '', botName: 'Foxy Bot' };
+    return { prefix: '.', mode: 'public', ownerNumber: '', botName: 'FOX Bot' };
 }
 
 function saveConfig(config) {
@@ -19,7 +19,7 @@ function saveConfig(config) {
 export default {
     name: 'resetbotname',
     alias: [],
-    description: 'Reset the bot name to default (Foxy Bot)',
+    description: 'Reset the bot name to default (FOX Bot)',
     category: 'owner',
     ownerOnly: true,
 
@@ -27,11 +27,11 @@ export default {
         const chatId = m.key.remoteJid;
         const config = loadConfig();
         const oldName = config.botName;
-        config.botName = 'Foxy Bot';
+        config.botName = 'FOX Bot';
         saveConfig(config);
 
         await sock.sendMessage(chatId, {
-            text: `\u250C\u2500\u29ED *Bot Name Reset*\n\u251C\u25C6 Old: ${oldName}\n\u251C\u25C6 New: Foxy Bot\n\u2514\u2500\u29ED`
+            text: `\u250C\u2500\u29ED *Bot Name Reset*\n\u251C\u25C6 Old: ${oldName}\n\u251C\u25C6 New: FOX Bot\n\u2514\u2500\u29ED`
         }, { quoted: m });
     }
 };

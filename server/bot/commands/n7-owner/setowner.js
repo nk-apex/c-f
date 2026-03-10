@@ -226,7 +226,7 @@ export default {
             const originalOwner = this.getOriginalOwner();
             
             return sock.sendMessage(chatId, {
-                text: `╭─⌈ 👑 *SET OWNER* ⌋\n│\n├─⊷ *${PREFIX}setowner <name>*\n│  └⊷ Set owner name\n╰───`
+                text: `╭─⌈ 👑 *SET OWNER* ⌋\n│\n├─⊷ *${PREFIX}setowner <name>*\n├◆  └⊷ Set owner name\n╰───`
             }, { quoted: msg });
         }
         

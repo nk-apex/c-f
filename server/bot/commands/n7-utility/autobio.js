@@ -325,11 +325,11 @@ export default {
                 text: `╭─⌈ 🤖 *AUTO BIO* ⌋\n` +
                     `├─⊷ *Status:* ${config.enabled ? '✅ ON' : '❌ OFF'} | *Format:* ${config.format}\n` +
                     `├─⊷ *Interval:* ${config.interval}min | *Updates:* ${config.updateCount}\n` +
-                    `├─⊷ *${PREFIX}autobio on/off*\n│  └⊷ Toggle auto bio\n` +
-                    `├─⊷ *${PREFIX}autobio format <name>*\n│  └⊷ ${formatList}\n` +
-                    `├─⊷ *${PREFIX}autobio interval <min>*\n│  └⊷ Set update interval\n` +
-                    `├─⊷ *${PREFIX}autobio test*\n│  └⊷ Test bio update now\n` +
-                    `├─⊷ *${PREFIX}autobio weather <city> <code>*\n│  └⊷ Enable weather in bio\n` +
+                    `├─⊷ *${PREFIX}autobio on/off*\n├◆  └⊷ Toggle auto bio\n` +
+                    `├─⊷ *${PREFIX}autobio format <name>*\n├◆  └⊷ ${formatList}\n` +
+                    `├─⊷ *${PREFIX}autobio interval <min>*\n├◆  └⊷ Set update interval\n` +
+                    `├─⊷ *${PREFIX}autobio test*\n├◆  └⊷ Test bio update now\n` +
+                    `├─⊷ *${PREFIX}autobio weather <city> <code>*\n├◆  └⊷ Enable weather in bio\n` +
                     `╰─── *${getBotName()}* ───`
             }, { quoted: msg });
         }

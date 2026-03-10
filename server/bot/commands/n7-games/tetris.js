@@ -981,34 +981,34 @@ async function showHelp(sock, m, chatId) {
     const helpText = `╭─⌈ 🎮 *TETRIS* ⌋
 │
 ├─⊷ *.t*
-│  └⊷ Start/continue game
+├◆  └⊷ Start/continue game
 │
 ├─⊷ *.t a / d*
-│  └⊷ Move left / right
+├◆  └⊷ Move left / right
 │
 ├─⊷ *.t s*
-│  └⊷ Move down
+├◆  └⊷ Move down
 │
 ├─⊷ *.t w*
-│  └⊷ Rotate piece
+├◆  └⊷ Rotate piece
 │
 ├─⊷ *.t space*
-│  └⊷ Hard drop
+├◆  └⊷ Hard drop
 │
 ├─⊷ *.t 1 / 2 / 3*
-│  └⊷ Choose piece
+├◆  └⊷ Choose piece
 │
 ├─⊷ *.t pause / resume*
-│  └⊷ Pause or resume game
+├◆  └⊷ Pause or resume game
 │
 ├─⊷ *.t stop*
-│  └⊷ End game
+├◆  └⊷ End game
 │
 ├─⊷ *.t stats*
-│  └⊷ Your statistics
+├◆  └⊷ Your statistics
 │
 ├─⊷ *.t leaderboard*
-│  └⊷ High scores
+├◆  └⊷ High scores
 │
 ├─⊷ 🎮 🟦I 🟨O 🟪T 🟩S 🟥Z 🟫J 🟧L
 │

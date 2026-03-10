@@ -15,7 +15,7 @@ export default {
 
     if (args.length === 0 || args[0].toLowerCase() === 'help') {
       return sock.sendMessage(jid, {
-        text: `╭─⌈ 🎾 *TENNIS* ⌋\n├─⊷ *${PREFIX}tennis scores*\n│  └⊷ Live tennis scores\n├─⊷ *${PREFIX}tennis rankings*\n│  └⊷ ATP/WTA rankings\n├─⊷ *${PREFIX}atp scores*\n│  └⊷ Alias for tennis\n╰───`
+        text: `╭─⌈ 🎾 *TENNIS* ⌋\n├─⊷ *${PREFIX}tennis scores*\n├◆  └⊷ Live tennis scores\n├─⊷ *${PREFIX}tennis rankings*\n├◆  └⊷ ATP/WTA rankings\n├─⊷ *${PREFIX}atp scores*\n├◆  └⊷ Alias for tennis\n╰───`
       }, { quoted: m });
     }
 

@@ -11,7 +11,7 @@ export default {
     try {
       if (args.length === 0) {
         await sock.sendMessage(jid, { 
-          text: `╭─⌈ 🌙 *MOON LOGO* ⌋\n│\n├─⊷ *moonlogo*\n│  └⊷ moonlogo <text>\n│\n├─⊷ *Example:*\n│  └⊷ moonlogo LUNA\n│  └⊷ moonlogo MOON\n│  └⊷ moonlogo NIGHT\n│\n╰───` 
+          text: `╭─⌈ 🌙 *MOON LOGO* ⌋\n│\n├─⊷ *moonlogo*\n├◆  └⊷ moonlogo <text>\n│\n├─⊷ *Example:*\n├◆  └⊷ moonlogo LUNA\n├◆  └⊷ moonlogo MOON\n├◆  └⊷ moonlogo NIGHT\n│\n╰───` 
         }, { quoted: m });
         return;
       }
@@ -20,7 +20,7 @@ export default {
       
       if (text.length > 10) {
         await sock.sendMessage(jid, { 
-          text: `╭─⌈ ❌ *ERROR* ⌋\n│\n├─⊷ Text too long!\n│  └⊷ Maximum 10 characters\n│  └⊷ Your text: "${text}" (${text.length} chars)\n│\n╰───` 
+          text: `╭─⌈ ❌ *ERROR* ⌋\n│\n├─⊷ Text too long!\n├◆  └⊷ Maximum 10 characters\n├◆  └⊷ Your text: "${text}" (${text.length} chars)\n│\n╰───` 
         }, { quoted: m });
         return;
       }
@@ -41,7 +41,7 @@ export default {
     } catch (error) {
       console.error("❌ [MOONLOGO] ERROR:", error);
       await sock.sendMessage(jid, { 
-        text: `╭─⌈ ❌ *ERROR* ⌋\n│\n├─⊷ ${error.message}\n│  └⊷ Please try again with shorter text\n│\n╰───` 
+        text: `╭─⌈ ❌ *ERROR* ⌋\n│\n├─⊷ ${error.message}\n├◆  └⊷ Please try again with shorter text\n│\n╰───` 
       }, { quoted: m });
     }
   },

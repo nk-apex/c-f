@@ -11,12 +11,12 @@ export default {
 
     const commandsText = `╭─⊷ *💕 VALENTINE'S DAY*
 │
-│  • rosevine
-│  • loveletter
-│  • lovelock
-│  • weddingday
-│  • brooches
-│  • valentine
+├◆  • rosevine
+├◆  • loveletter
+├◆  • lovelock
+├◆  • weddingday
+├◆  • brooches
+├◆  • valentine
 │
 ╰─⊷`;
 

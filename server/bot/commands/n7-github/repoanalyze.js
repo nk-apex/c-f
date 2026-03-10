@@ -11,7 +11,7 @@ export default {
         
         if (!args[0]) {
             return sock.sendMessage(chatId, {
-                text: `╭─⌈ 📊 *REPO SPACE ANALYZER* ⌋\n│\n│ ✧ *Usage:* \`${prefix}repanalyze <user/repo>\`\n│\n│ 💡 *Examples:*\n│ • \`${prefix}repanalyze facebook/react\`\n│ • \`${prefix}repanalyze user/repo\`\n│ • \`${prefix}repanalyze https://github.com/user/repo\`\n│\n╰───────────────`
+                text: `╭─⌈ 📊 *REPO SPACE ANALYZER* ⌋\n│\n├◆ ✧ *Usage:* \`${prefix}repanalyze <user/repo>\`\n│\n├◆ 💡 *Examples:*\n├◆ • \`${prefix}repanalyze facebook/react\`\n├◆ • \`${prefix}repanalyze user/repo\`\n├◆ • \`${prefix}repanalyze https://github.com/user/repo\`\n│\n╰───────────────`
             }, { quoted: m });
         }
         
@@ -74,7 +74,7 @@ export default {
             console.error('RepoAnalyze error:', error);
             
             await sock.sendMessage(chatId, {
-                text: `╭─⌈ ❌ *ANALYSIS ERROR* ⌋\n│\n│ ✧ *Target:* ${args[0]}\n│ ✧ *Error:* ${error.message}\n│\n│ 💡 Check repo exists and is public\n│\n╰───────────────`
+                text: `╭─⌈ ❌ *ANALYSIS ERROR* ⌋\n│\n├◆ ✧ *Target:* ${args[0]}\n├◆ ✧ *Error:* ${error.message}\n│\n├◆ 💡 Check repo exists and is public\n│\n╰───────────────`
             }, { quoted: m });
             try { await sock.sendMessage(chatId, { react: { text: '❌', key: m.key } }); } catch {}
         }

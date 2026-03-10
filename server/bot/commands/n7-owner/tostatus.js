@@ -129,11 +129,11 @@ export default {
             return sock.sendMessage(chatId, {
                 text:
                     `╭─⌈ 📱 *POST TO STATUS* ⌋\n│\n` +
-                    `├─⊷ *${PREFIX}tostatus <text>*\n│  └⊷ Post a text status\n` +
-                    `├─⊷ Reply to image + *${PREFIX}tostatus [caption]*\n│  └⊷ Post an image\n` +
-                    `├─⊷ Reply to video + *${PREFIX}tostatus [caption]*\n│  └⊷ Post a video\n` +
-                    `├─⊷ Reply to audio + *${PREFIX}tostatus*\n│  └⊷ Post an audio note\n` +
-                    `├─⊷ Send image with caption *${PREFIX}tostatus [caption]*\n│  └⊷ Post that image\n` +
+                    `├─⊷ *${PREFIX}tostatus <text>*\n├◆  └⊷ Post a text status\n` +
+                    `├─⊷ Reply to image + *${PREFIX}tostatus [caption]*\n├◆  └⊷ Post an image\n` +
+                    `├─⊷ Reply to video + *${PREFIX}tostatus [caption]*\n├◆  └⊷ Post a video\n` +
+                    `├─⊷ Reply to audio + *${PREFIX}tostatus*\n├◆  └⊷ Post an audio note\n` +
+                    `├─⊷ Send image with caption *${PREFIX}tostatus [caption]*\n├◆  └⊷ Post that image\n` +
                     `╰───`
             }, { quoted: msg });
         }

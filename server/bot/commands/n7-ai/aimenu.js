@@ -11,61 +11,61 @@ export default {
 
     const commandsText = `╭─⊷ *🔍 AI SCANNERS & ANALYZERS*
 │
-│  • aiscanner
-│  • analyze
-│  • removebg
-│  • summarize
-│  • vision
+├◆  • aiscanner
+├◆  • analyze
+├◆  • removebg
+├◆  • summarize
+├◆  • vision
 │
 ╰─⊷
 
 ╭─⊷ *🤖 MAJOR AI MODELS*
 │
-│  • bard
-│  • bing
-│  • blackbox
-│  • chatgpt
-│  • claudeai
-│  • copilot
-│  • deepseek
-│  • deepseek+
-│  • flux
-│  • gpt
-│  • grok
-│  • ilama
-│  • metai
-│  • mistral
-│  • perplexity
-│  • qwenai
-│  • venice
-│  • wormgpt
+├◆  • bard
+├◆  • bing
+├◆  • blackbox
+├◆  • chatgpt
+├◆  • claudeai
+├◆  • copilot
+├◆  • deepseek
+├◆  • deepseek+
+├◆  • flux
+├◆  • gpt
+├◆  • grok
+├◆  • ilama
+├◆  • metai
+├◆  • mistral
+├◆  • perplexity
+├◆  • qwenai
+├◆  • venice
+├◆  • wormgpt
 │
 ╰─⊷
 
 ╭─⊷ *🎨 AI IMAGE GENERATION*
 │
-│  • brandlogo
-│  • companylogo
-│  • logoai
-│  • suno
+├◆  • brandlogo
+├◆  • companylogo
+├◆  • logoai
+├◆  • suno
 │
 ╰─⊷
 
 ╭─⊷ *📝 WRITING & CONTENT*
 │
-│  • humanizer
-│  • speechwriter
+├◆  • humanizer
+├◆  • speechwriter
 │
 ╰─⊷
 
 ╭─⊷ *🐺 WOLF AI ASSISTANT*
 │
-│  • wolf on/off — Toggle Wolf AI
-│  • wolf status — Show Wolf AI stats
-│  • wolf clear — Reset conversations
-│  ───────────────
-│  When active, just say "wolf"
-│  followed by anything to chat!
+├◆  • wolf on/off — Toggle Wolf AI
+├◆  • wolf status — Show Wolf AI stats
+├◆  • wolf clear — Reset conversations
+├◆  ───────────────
+├◆  When active, just say "wolf"
+├◆  followed by anything to chat!
 │
 ╰─⊷`;
 

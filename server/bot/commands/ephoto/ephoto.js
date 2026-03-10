@@ -109,20 +109,20 @@ export default {
 
     if (!effectId || !EFFECTS[effectId]) {
       await sock.sendMessage(jid, {
-        text: `┌─⧭ *ERROR*\n│ Invalid effect ID: ${args[0]}\n│ Use ${PREFIX}ephoto to see available effects\n└─⧭`
+        text: `┌─⧭ *ERROR*\n├◆ Invalid effect ID: ${args[0]}\n├◆ Use ${PREFIX}ephoto to see available effects\n└─⧭`
       }, { quoted: m });
       return;
     }
 
     if (!text) {
       await sock.sendMessage(jid, {
-        text: `┌─⧭ *ERROR*\n│ Please provide text!\n│ Usage: ${PREFIX}ephoto ${effectId} <your text>\n└─⧭`
+        text: `┌─⧭ *ERROR*\n├◆ Please provide text!\n├◆ Usage: ${PREFIX}ephoto ${effectId} <your text>\n└─⧭`
       }, { quoted: m });
       return;
     }
 
     await sock.sendMessage(jid, {
-      text: `┌─⧭ *Processing...*\n│ Effect: ${EFFECTS[effectId]}\n│ Text: ${text}\n└─⧭`
+      text: `┌─⧭ *Processing...*\n├◆ Effect: ${EFFECTS[effectId]}\n├◆ Text: ${text}\n└─⧭`
     }, { quoted: m });
 
     try {
@@ -135,20 +135,20 @@ export default {
 
       if (!imageUrl || typeof imageUrl !== 'string') {
         await sock.sendMessage(jid, {
-          text: `┌─⧭ *ERROR*\n│ Failed to generate effect.\n│ Try again later.\n└─⧭`
+          text: `┌─⧭ *ERROR*\n├◆ Failed to generate effect.\n├◆ Try again later.\n└─⧭`
         }, { quoted: m });
         return;
       }
 
       await sock.sendMessage(jid, {
         image: { url: imageUrl },
-        caption: `┌─⧭ *EPHOTO 360*\n│ Effect: ${EFFECTS[effectId]}\n│ ID: ${effectId}\n│ Text: ${text}\n└─⧭`
+        caption: `┌─⧭ *EPHOTO 360*\n├◆ Effect: ${EFFECTS[effectId]}\n├◆ ID: ${effectId}\n├◆ Text: ${text}\n└─⧭`
       }, { quoted: m });
 
     } catch (err) {
       console.error('[EPHOTO] Error:', err.message);
       await sock.sendMessage(jid, {
-        text: `┌─⧭ *ERROR*\n│ ${err.message}\n└─⧭`
+        text: `┌─⧭ *ERROR*\n├◆ ${err.message}\n└─⧭`
       }, { quoted: m });
     }
   },

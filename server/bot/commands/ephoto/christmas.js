@@ -58,7 +58,7 @@ export default {
 
     if (!text) {
       await sock.sendMessage(jid, {
-        text: `┌─⧭ *ERROR*\n│ Please provide text!\n│ Usage: ${PREFIX}christmas <text>\n└─⧭`
+        text: `┌─⧭ *ERROR*\n├◆ Please provide text!\n├◆ Usage: ${PREFIX}christmas <text>\n└─⧭`
       }, { quoted: m });
       return;
     }
@@ -66,7 +66,7 @@ export default {
     const effect = CHRISTMAS_EFFECTS.find(e => e.id === effectId);
 
     await sock.sendMessage(jid, {
-      text: `┌─⧭ *Processing...*\n│ Effect: ${effect.name}\n│ Text: ${text}\n└─⧭`
+      text: `┌─⧭ *Processing...*\n├◆ Effect: ${effect.name}\n├◆ Text: ${text}\n└─⧭`
     }, { quoted: m });
 
     try {
@@ -79,20 +79,20 @@ export default {
 
       if (!imageUrl || typeof imageUrl !== 'string') {
         await sock.sendMessage(jid, {
-          text: `┌─⧭ *ERROR*\n│ Failed to generate holiday effect.\n│ Try again later.\n└─⧭`
+          text: `┌─⧭ *ERROR*\n├◆ Failed to generate holiday effect.\n├◆ Try again later.\n└─⧭`
         }, { quoted: m });
         return;
       }
 
       await sock.sendMessage(jid, {
         image: { url: imageUrl },
-        caption: `┌─⧭ *HOLIDAY EFFECT*\n│ Style: ${effect.name}\n│ ID: ${effectId}\n│ Text: ${text}\n└─⧭`
+        caption: `┌─⧭ *HOLIDAY EFFECT*\n├◆ Style: ${effect.name}\n├◆ ID: ${effectId}\n├◆ Text: ${text}\n└─⧭`
       }, { quoted: m });
 
     } catch (err) {
       console.error('[CHRISTMAS] Error:', err.message);
       await sock.sendMessage(jid, {
-        text: `┌─⧭ *ERROR*\n│ ${err.message}\n└─⧭`
+        text: `┌─⧭ *ERROR*\n├◆ ${err.message}\n└─⧭`
       }, { quoted: m });
     }
   },

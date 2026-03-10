@@ -9,16 +9,16 @@ export default {
         if (!args.length) {
             return sock.sendMessage(jid, {
                 text: `\u250C\u2500\u29ED *AI Teacher*\n` +
-                      `\u2502 Usage: ${PREFIX}teach <topic>\n` +
-                      `\u2502 Aliases: ${PREFIX}teacher, ${PREFIX}learn\n` +
+                      `\u251C\u25C6 Usage: ${PREFIX}teach <topic>\n` +
+                      `\u251C\u25C6 Aliases: ${PREFIX}teacher, ${PREFIX}learn\n` +
                       `\u2502\n` +
-                      `\u2502 Examples:\n` +
-                      `\u2502 ${PREFIX}teach how rainbows form\n` +
-                      `\u2502 ${PREFIX}teacher basic algebra\n` +
-                      `\u2502 ${PREFIX}learn about photosynthesis\n` +
+                      `\u251C\u25C6 Examples:\n` +
+                      `\u251C\u25C6 ${PREFIX}teach how rainbows form\n` +
+                      `\u251C\u25C6 ${PREFIX}teacher basic algebra\n` +
+                      `\u251C\u25C6 ${PREFIX}learn about photosynthesis\n` +
                       `\u2502\n` +
-                      `\u2502 I'll explain any topic in simple,\n` +
-                      `\u2502 clear language!\n` +
+                      `\u251C\u25C6 I'll explain any topic in simple,\n` +
+                      `\u251C\u25C6 clear language!\n` +
                       `\u2514\u2500\u29ED`
             }, { quoted: m });
         }
@@ -27,7 +27,7 @@ export default {
         
         try {
             await sock.sendMessage(jid, {
-                text: `\u250C\u2500\u29ED *Processing...*\n\u2502 Teaching: "${topic}"\n\u2502 Preparing your lesson...\n\u2514\u2500\u29ED`
+                text: `\u250C\u2500\u29ED *Processing...*\n\u251C\u25C6 Teaching: "${topic}"\n\u251C\u25C6 Preparing your lesson...\n\u2514\u2500\u29ED`
             }, { quoted: m });
             
             const axios = (await import('axios')).default;
@@ -45,11 +45,11 @@ export default {
             
             const lesson = `\u250C\u2500\u29ED *Lesson: ${topic}*\n` +
                           `\u2502\n` +
-                          `\u2502 ${answer.split('\n').join('\n\u2502 ')}\n` +
+                          `\u251C\u25C6 ${answer.split('\n').join('\n\u251C\u25C6 ')}\n` +
                           `\u2502\n` +
-                          `\u2502 Tip: Try explaining this to\n` +
-                          `\u2502 someone else to test your\n` +
-                          `\u2502 understanding!\n` +
+                          `\u251C\u25C6 Tip: Try explaining this to\n` +
+                          `\u251C\u25C6 someone else to test your\n` +
+                          `\u251C\u25C6 understanding!\n` +
                           `\u2514\u2500\u29ED`;
             
             await sock.sendMessage(jid, {
@@ -69,7 +69,7 @@ export default {
             }
             
             await sock.sendMessage(jid, {
-                text: `\u250C\u2500\u29ED *Error*\n\u2502 Teaching session failed\n\u2502 ${errorDetail}\n\u2514\u2500\u29ED`
+                text: `\u250C\u2500\u29ED *Error*\n\u251C\u25C6 Teaching session failed\n\u251C\u25C6 ${errorDetail}\n\u2514\u2500\u29ED`
             }, { quoted: m });
         }
     }

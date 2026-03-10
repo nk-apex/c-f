@@ -14,7 +14,7 @@ export default {
 
     if (!args || !args[0]) {
       return sock.sendMessage(jid, {
-        text: `╭─⌈ 🔍 *INSTAGRAM STALKER* ⌋\n│\n├─⊷ *${prefix}igstalk <username>*\n│  └⊷ Stalk an Instagram profile\n│\n├─⊷ *Example:*\n│  └⊷ ${prefix}igstalk giftedtechnexus\n│\n╰───────────────\n> *${getBotName()} STALKER*`
+        text: `╭─⌈ 🔍 *INSTAGRAM STALKER* ⌋\n│\n├─⊷ *${prefix}igstalk <username>*\n├◆  └⊷ Stalk an Instagram profile\n│\n├─⊷ *Example:*\n├◆  └⊷ ${prefix}igstalk giftedtechnexus\n│\n╰───────────────\n> *${getBotName()} STALKER*`
       }, { quoted: m });
     }
 

@@ -12,12 +12,12 @@ export default {
 
     const commandsText = `╭─⊷ *🐙 GITHUB COMMANDS*
 │
-│  • gitclone
-│  • gitinfo
-│  • repanalyze
-│  • zip
-│  • update
-│  • repo
+├◆  • gitclone
+├◆  • gitinfo
+├◆  • repanalyze
+├◆  • zip
+├◆  • update
+├◆  • repo
 │
 ╰─⊷`;
 

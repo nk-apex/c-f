@@ -12,61 +12,61 @@ export default {
 
     const commandsText = `╭─⊷ *🛡️ ADMIN & MODERATION*
 │
-│  • add
-│  • promote
-│  • promoteall
-│  • demote
-│  • demoteall
-│  • kick
-│  • kickall
-│  • ban
-│  • unban
-│  • clearbanlist
-│  • warn
-│  • resetwarn
-│  • setwarn
-│  • warnings
-│  • mute
-│  • unmute
-│  • welcome
-│  • goodbye
-│  • leave
-│  • join
-│  • creategroup
+├◆  • add
+├◆  • promote
+├◆  • promoteall
+├◆  • demote
+├◆  • demoteall
+├◆  • kick
+├◆  • kickall
+├◆  • ban
+├◆  • unban
+├◆  • clearbanlist
+├◆  • warn
+├◆  • resetwarn
+├◆  • setwarn
+├◆  • warnings
+├◆  • mute
+├◆  • unmute
+├◆  • welcome
+├◆  • goodbye
+├◆  • leave
+├◆  • join
+├◆  • creategroup
 │
 ╰─⊷
 
 ╭─⊷ *🚫 AUTO-MODERATION*
 │
-│  • antilink
-│  • antisticker
-│  • antiimage
-│  • antivideo
-│  • antiaudio
-│  • antimention
-│  • antistatusmention
-│  • antigrouplink
-│  • antidemote
-│  • antipromote
-│  • antileave
+├◆  • antilink
+├◆  • antisticker
+├◆  • antiimage
+├◆  • antivideo
+├◆  • antiaudio
+├◆  • antimention
+├◆  • antistatusmention
+├◆  • antigrouplink
+├◆  • antidemote
+├◆  • antipromote
+├◆  • antileave
 │
 ╰─⊷
 
 ╭─⊷ *📊 GROUP INFO & TOOLS*
 │
-│  • groupinfo
-│  • grouplink
-│  • tagall
-│  • tagadmin
-│  • hidetag
-│  • link
-│  • revoke
-│  • setdesc
-│  • getparticipants
-│  • listonline
-│  • listinactive
-│  • approveall
-│  • rejectall
+├◆  • groupinfo
+├◆  • grouplink
+├◆  • tagall
+├◆  • tagadmin
+├◆  • hidetag
+├◆  • link
+├◆  • revoke
+├◆  • setdesc
+├◆  • getparticipants
+├◆  • listonline
+├◆  • listinactive
+├◆  • approveall
+├◆  • rejectall
 │
 ╰─⊷`;
 

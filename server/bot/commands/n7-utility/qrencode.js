@@ -13,7 +13,7 @@ export default {
     if (!args.length) {
       return sock.sendMessage(
         jid,
-        { text: `╭─⌈ 📱 *QR CODE GENERATOR* ⌋\n│\n├─⊷ *qrencode <text/URL>*\n│  └⊷ Generate a QR code from text or URL\n│\n├─⊷ *Example:*\n│  └⊷ \`.qrencode https://example.com\`\n│\n╰───` },
+        { text: `╭─⌈ 📱 *QR CODE GENERATOR* ⌋\n│\n├─⊷ *qrencode <text/URL>*\n├◆  └⊷ Generate a QR code from text or URL\n│\n├─⊷ *Example:*\n├◆  └⊷ \`.qrencode https://example.com\`\n│\n╰───` },
         { quoted: m }
       );
     }

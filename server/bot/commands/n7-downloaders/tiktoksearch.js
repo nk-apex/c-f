@@ -17,8 +17,8 @@ export default {
       // Show help if no arguments
       if (args.length === 0 || args[0]?.toLowerCase() === 'help') {
         const helpText = `╭─⌈ 🔍 *${getBotName()} TIKTOK SEARCH* ⌋\n│\n` +
-          `├─⊷ *${PREFIX}tiksearch <search query>*\n│  └⊷ Search TikTok videos by keywords\n│\n` +
-          `├─⊷ *${PREFIX}ttsearch <query>*\n│  └⊷ Alias for tiksearch\n│\n` +
+          `├─⊷ *${PREFIX}tiksearch <search query>*\n├◆  └⊷ Search TikTok videos by keywords\n│\n` +
+          `├─⊷ *${PREFIX}ttsearch <query>*\n├◆  └⊷ Alias for tiksearch\n│\n` +
           `├─⊷ *Examples:*\n` +
           `│  └⊷ ${PREFIX}tiksearch funny cats\n` +
           `│  └⊷ ${PREFIX}ttsearch music trends\n` +

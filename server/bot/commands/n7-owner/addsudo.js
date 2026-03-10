@@ -52,7 +52,7 @@ export default {
                 targetNumber = args[0].replace(/[^0-9]/g, '');
             } else {
                 return sock.sendMessage(chatId, {
-                    text: `╭─⌈ ⚠️ *ADD SUDO* ⌋\n│\n├─⊷ *${PREFIX}addsudo <phone number>*\n│  └⊷ Reply with number\n╰───`
+                    text: `╭─⌈ ⚠️ *ADD SUDO* ⌋\n│\n├─⊷ *${PREFIX}addsudo <phone number>*\n├◆  └⊷ Reply with number\n╰───`
                 }, { quoted: msg });
             }
         } else if (mentioned) {
@@ -68,7 +68,7 @@ export default {
 
         if (!targetNumber || targetNumber.length < 7) {
             return sock.sendMessage(chatId, {
-                text: `╭─⌈ 📋 *ADD SUDO* ⌋\n│\n├─⊷ *${PREFIX}addsudo <number>*\n│  └⊷ Add by number\n├─⊷ *Reply + ${PREFIX}addsudo*\n│  └⊷ Add via reply\n╰───`
+                text: `╭─⌈ 📋 *ADD SUDO* ⌋\n│\n├─⊷ *${PREFIX}addsudo <number>*\n├◆  └⊷ Add by number\n├─⊷ *Reply + ${PREFIX}addsudo*\n├◆  └⊷ Add via reply\n╰───`
             }, { quoted: msg });
         }
 

@@ -55,7 +55,7 @@ export default {
 
     if (!text) {
       await sock.sendMessage(jid, {
-        text: `┌─⧭ *ERROR*\n│ Please provide text!\n│ Usage: ${PREFIX}glitch <text>\n└─⧭`
+        text: `┌─⧭ *ERROR*\n├◆ Please provide text!\n├◆ Usage: ${PREFIX}glitch <text>\n└─⧭`
       }, { quoted: m });
       return;
     }
@@ -63,7 +63,7 @@ export default {
     const effect = GLITCH_EFFECTS.find(e => e.id === effectId);
 
     await sock.sendMessage(jid, {
-      text: `┌─⧭ *Processing...*\n│ Effect: ${effect.name}\n│ Text: ${text}\n└─⧭`
+      text: `┌─⧭ *Processing...*\n├◆ Effect: ${effect.name}\n├◆ Text: ${text}\n└─⧭`
     }, { quoted: m });
 
     try {
@@ -76,20 +76,20 @@ export default {
 
       if (!imageUrl || typeof imageUrl !== 'string') {
         await sock.sendMessage(jid, {
-          text: `┌─⧭ *ERROR*\n│ Failed to generate glitch effect.\n│ Try again later.\n└─⧭`
+          text: `┌─⧭ *ERROR*\n├◆ Failed to generate glitch effect.\n├◆ Try again later.\n└─⧭`
         }, { quoted: m });
         return;
       }
 
       await sock.sendMessage(jid, {
         image: { url: imageUrl },
-        caption: `┌─⧭ *GLITCH EFFECT*\n│ Style: ${effect.name}\n│ ID: ${effectId}\n│ Text: ${text}\n└─⧭`
+        caption: `┌─⧭ *GLITCH EFFECT*\n├◆ Style: ${effect.name}\n├◆ ID: ${effectId}\n├◆ Text: ${text}\n└─⧭`
       }, { quoted: m });
 
     } catch (err) {
       console.error('[GLITCH] Error:', err.message);
       await sock.sendMessage(jid, {
-        text: `┌─⧭ *ERROR*\n│ ${err.message}\n└─⧭`
+        text: `┌─⧭ *ERROR*\n├◆ ${err.message}\n└─⧭`
       }, { quoted: m });
     }
   },

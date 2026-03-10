@@ -278,9 +278,9 @@ function getCurrentStatus() {
 function getStatusMessage() {
   const activeCount = activeRecordings.size;
   
-  return `╭─⌈ 🎙️ *RECORDING SIMULATOR* ⌋\n│\n│ 📱 *DM:* ${recordingStates.dms ? 'ON ✅' : 'OFF ❌'}\n│ 👥 *Groups:* ${recordingStates.groups ? 'ON ✅' : 'OFF ❌'}\n│ 🌐 *Both:* ${recordingStates.all ? 'ON ✅' : 'OFF ❌'}\n│ 🔧 *Command:* ${recordingStates.command ? 'ON ✅' : 'OFF ❌'}\n│` +
+  return `╭─⌈ 🎙️ *RECORDING SIMULATOR* ⌋\n│\n├◆ 📱 *DM:* ${recordingStates.dms ? 'ON ✅' : 'OFF ❌'}\n├◆ 👥 *Groups:* ${recordingStates.groups ? 'ON ✅' : 'OFF ❌'}\n├◆ 🌐 *Both:* ${recordingStates.all ? 'ON ✅' : 'OFF ❌'}\n├◆ 🔧 *Command:* ${recordingStates.command ? 'ON ✅' : 'OFF ❌'}\n│` +
          (activeCount > 0 ? ` ⏺️ *Active:* ${activeCount} chat${activeCount > 1 ? 's' : ''}\n│` : '') +
-         `\n├─⊷ *.autorec dm/group/both/cmd*\n│  └⊷ Toggle recording mode\n├─⊷ *.autorec test*\n│  └⊷ Test recording\n├─⊷ *.autorec stop*\n│  └⊷ Stop in this chat\n├─⊷ *.autorec off*\n│  └⊷ Turn off all\n╰───`;
+         `\n├─⊷ *.autorec dm/group/both/cmd*\n├◆  └⊷ Toggle recording mode\n├─⊷ *.autorec test*\n├◆  └⊷ Test recording\n├─⊷ *.autorec stop*\n├◆  └⊷ Stop in this chat\n├─⊷ *.autorec off*\n├◆  └⊷ Turn off all\n╰───`;
 }
 
 function getRandomRecordingReason() {

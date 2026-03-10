@@ -12,42 +12,42 @@ export default {
 
     const commandsText = `╭─⊷ *💖 AFFECTION & LOVE*
 │
-│  • cuddle
-│  • kiss
-│  • pat
-│  • lick
-│  • glomp
-│  • wink
-│  • highfive
+├◆  • cuddle
+├◆  • kiss
+├◆  • pat
+├◆  • lick
+├◆  • glomp
+├◆  • wink
+├◆  • highfive
 │
 ╰─⊷
 
 ╭─⊷ *😂 FUN & REACTIONS*
 │
-│  • awoo
-│  • bully
-│  • cringe
-│  • cry
-│  • dance
-│  • yeet
+├◆  • awoo
+├◆  • bully
+├◆  • cringe
+├◆  • cry
+├◆  • dance
+├◆  • yeet
 │
 ╰─⊷
 
 ╭─⊷ *🔥 SPECIAL CHARACTERS*
 │
-│  • waifu
-│  • neko
-│  • megumin
-│  • shinobu
+├◆  • waifu
+├◆  • neko
+├◆  • megumin
+├◆  • shinobu
 │
 ╰─⊷
 
 ╭─⊷ *⚠️ MISC & ACTION*
 │
-│  • kill
-│  • trap
-│  • trap2
-│  • bj
+├◆  • kill
+├◆  • trap
+├◆  • trap2
+├◆  • bj
 │
 ╰─⊷`;
 

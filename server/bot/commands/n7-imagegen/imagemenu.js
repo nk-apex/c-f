@@ -12,14 +12,14 @@ export default {
 
     const commandsText = `╭─⊷ *🖼️ IMAGE GENERATION*
 │
-│  • image
-│  • imagine
-│  • imagegen
-│  • anime
-│  • art
-│  • real
-│  • remini
-│  • vision
+├◆  • image
+├◆  • imagine
+├◆  • imagegen
+├◆  • anime
+├◆  • art
+├◆  • real
+├◆  • remini
+├◆  • vision
 │
 ╰─⊷`;
 

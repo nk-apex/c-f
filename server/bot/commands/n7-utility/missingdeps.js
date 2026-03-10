@@ -105,7 +105,7 @@ export default {
 
         if (subcommand === 'help') {
             return await sock.sendMessage(chatId, {
-                text: `╭─⌈ 🔍 *DEPENDENCY CHECKER* ⌋\n│\n├─⊷ *${PREFIX}missingdeps*\n│  └⊷ Scan for missing packages\n├─⊷ *${PREFIX}missingdeps fix*\n│  └⊷ Auto-install missing packages\n├─⊷ *${PREFIX}missingdeps full*\n│  └⊷ Full report with all details\n│\n├─⊷ *Aliases:* checkdeps, deps\n╰───────────────\n> *${getBotName()}*`
+                text: `╭─⌈ 🔍 *DEPENDENCY CHECKER* ⌋\n│\n├─⊷ *${PREFIX}missingdeps*\n├◆  └⊷ Scan for missing packages\n├─⊷ *${PREFIX}missingdeps fix*\n├◆  └⊷ Auto-install missing packages\n├─⊷ *${PREFIX}missingdeps full*\n├◆  └⊷ Full report with all details\n│\n├─⊷ *Aliases:* checkdeps, deps\n╰───────────────\n> *${getBotName()}*`
             }, { quoted: msg });
         }
 
@@ -250,7 +250,7 @@ export default {
                     const fileList = m.files.length <= 3
                         ? m.files.map(f => f.replace(/^commands\//, '').replace(/^lib\//, '')).join(', ')
                         : m.files.slice(0, 2).map(f => f.replace(/^commands\//, '').replace(/^lib\//, '')).join(', ') + ` +${m.files.length - 2} more`;
-                    report += `│  • \`${m.pkg}\`\n│    └ ${fileList}\n`;
+                    report += `│  • \`${m.pkg}\`\n├◆    └ ${fileList}\n`;
                 }
                 report += `│\n`;
             }

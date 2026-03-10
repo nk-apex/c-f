@@ -12,15 +12,15 @@ export default {
 
     const commandsText = `╭─⊷ *⚙️ AUTOMATION COMMANDS*
 │
-│  • autoread
-│  • autotyping
-│  • autorecording
-│  • autoreact
-│  • autoreactstatus
-│  • autoviewstatus
-│  • autobio
-│  • autorec
-│  • reactowner
+├◆  • autoread
+├◆  • autotyping
+├◆  • autorecording
+├◆  • autoreact
+├◆  • autoreactstatus
+├◆  • autoviewstatus
+├◆  • autobio
+├◆  • autorec
+├◆  • reactowner
 │
 ╰─⊷`;
 

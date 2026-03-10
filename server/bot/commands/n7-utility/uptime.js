@@ -46,8 +46,8 @@ export default {
 
       const uptimeText = `
 ╭━「 *${getBotName()} UPTIME* 」━╮
-│  ⏱️ *Running:* ${timeString.trim()}
-│  📅 *Since:* ${new Date(Date.now() - uptime * 1000).toLocaleString()}
+├◆  ⏱️ *Running:* ${timeString.trim()}
+├◆  📅 *Since:* ${new Date(Date.now() - uptime * 1000).toLocaleString()}
 ╰━━━━━━━━━━━━━╯
 _🐺 The Wolf never sleeps..._
 `;

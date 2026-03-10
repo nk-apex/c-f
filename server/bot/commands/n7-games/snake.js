@@ -671,25 +671,25 @@ async function showHelp(sock, m, chatId) {
     const helpText = `╭─⌈ 🐍 *SNAKE GAME* ⌋
 │
 ├─⊷ *.snake start / play*
-│  └⊷ Start new game
+├◆  └⊷ Start new game
 │
 ├─⊷ *.snake up / down / left / right*
-│  └⊷ Move direction (or u/d/l/r)
+├◆  └⊷ Move direction (or u/d/l/r)
 │
 ├─⊷ *.snake pause / resume*
-│  └⊷ Pause or resume game
+├◆  └⊷ Pause or resume game
 │
 ├─⊷ *.snake stop*
-│  └⊷ End game
+├◆  └⊷ End game
 │
 ├─⊷ *.snake status*
-│  └⊷ Show game info
+├◆  └⊷ Show game info
 │
 ├─⊷ *.snake stats*
-│  └⊷ Your statistics
+├◆  └⊷ Your statistics
 │
 ├─⊷ *.snake leaderboard*
-│  └⊷ High scores
+├◆  └⊷ High scores
 │
 ├─⊷ 🎮 Eat 🍎 to grow, avoid walls & yourself
 ├─⊷ 📌 Snake moves every 1.5s, can't turn 180°

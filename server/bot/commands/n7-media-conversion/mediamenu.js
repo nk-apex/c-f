@@ -12,15 +12,15 @@ export default {
 
     const commandsText = `╭─⊷ *🔄 MEDIA CONVERSION*
 │
-│  • toimage
-│  • tosticker
-│  • toaudio
-│  • tovoice
-│  • togif
-│  • tts
-│  • bass
-│  • trebleboost
-│  • jarvis
+├◆  • toimage
+├◆  • tosticker
+├◆  • toaudio
+├◆  • tovoice
+├◆  • togif
+├◆  • tts
+├◆  • bass
+├◆  • trebleboost
+├◆  • jarvis
 │
 ╰─⊷`;
 

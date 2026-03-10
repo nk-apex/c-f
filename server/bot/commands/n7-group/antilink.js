@@ -242,7 +242,7 @@ export default {
             const mode = (args[1] || '').toLowerCase();
             if (!mode || !['warn', 'delete', 'kick'].includes(mode)) {
                 return sock.sendMessage(chatId, {
-                    text: `╭─⌈ ⚙️ *ANTI-LINK SETUP* ⌋\n│\n├─⊷ *${PREFIX}antilink on warn*\n│  └⊷ Warn senders\n├─⊷ *${PREFIX}antilink on delete*\n│  └⊷ Auto-delete links\n├─⊷ *${PREFIX}antilink on kick*\n│  └⊷ Kick senders\n╰───`
+                    text: `╭─⌈ ⚙️ *ANTI-LINK SETUP* ⌋\n│\n├─⊷ *${PREFIX}antilink on warn*\n├◆  └⊷ Warn senders\n├─⊷ *${PREFIX}antilink on delete*\n├◆  └⊷ Auto-delete links\n├─⊷ *${PREFIX}antilink on kick*\n├◆  └⊷ Kick senders\n╰───`
                 }, { quoted: msg });
             }
 
@@ -262,7 +262,7 @@ export default {
             saveConfig(config);
 
             return sock.sendMessage(chatId, {
-                text: `╭─⌈ 🔗 *ANTI-LINK ENABLED* ⌋\n│\n├─⊷ *Mode:* ${mode.toUpperCase()}\n├─⊷ *Admins exempt:* ${config[chatId].exemptAdmins ? 'Yes' : 'No'}\n├─⊷ *Detection:* All message types\n│  └⊷ Text, captions, links in media\n│  └⊷ Bare domains (example.com)\n│  └⊷ Shortened URLs\n╰───`
+                text: `╭─⌈ 🔗 *ANTI-LINK ENABLED* ⌋\n│\n├─⊷ *Mode:* ${mode.toUpperCase()}\n├─⊷ *Admins exempt:* ${config[chatId].exemptAdmins ? 'Yes' : 'No'}\n├─⊷ *Detection:* All message types\n├◆  └⊷ Text, captions, links in media\n├◆  └⊷ Bare domains (example.com)\n├◆  └⊷ Shortened URLs\n╰───`
             }, { quoted: msg });
         }
 
@@ -298,7 +298,7 @@ export default {
             const linkToAllow = args.slice(1).join(' ').trim();
             if (!linkToAllow) {
                 return sock.sendMessage(chatId, {
-                    text: `╭─⌈ 🔗 *ALLOW LINK* ⌋\n│\n├─⊷ *${PREFIX}antilink allow [link]*\n│  └⊷ e.g. ${PREFIX}antilink allow youtube.com\n╰───`
+                    text: `╭─⌈ 🔗 *ALLOW LINK* ⌋\n│\n├─⊷ *${PREFIX}antilink allow [link]*\n├◆  └⊷ e.g. ${PREFIX}antilink allow youtube.com\n╰───`
                 }, { quoted: msg });
             }
 
@@ -388,7 +388,7 @@ export default {
 
         const gc = config[chatId];
         const currentStatus = gc?.enabled ? `✅ ${gc.mode.toUpperCase()}` : '❌ OFF';
-        const helpText = `╭─⌈ 🔗 *ANTI-LINK* ⌋\n├─⊷ *Status:* ${currentStatus}\n│\n├─⊷ *${PREFIX}antilink on [mode]*\n│  └⊷ warn / delete / kick\n├─⊷ *${PREFIX}antilink off*\n│  └⊷ Disable protection\n├─⊷ *${PREFIX}antilink status*\n│  └⊷ View current status\n├─⊷ *${PREFIX}antilink allow [link]*\n│  └⊷ Whitelist a link\n╰───`;
+        const helpText = `╭─⌈ 🔗 *ANTI-LINK* ⌋\n├─⊷ *Status:* ${currentStatus}\n│\n├─⊷ *${PREFIX}antilink on [mode]*\n├◆  └⊷ warn / delete / kick\n├─⊷ *${PREFIX}antilink off*\n├◆  └⊷ Disable protection\n├─⊷ *${PREFIX}antilink status*\n├◆  └⊷ View current status\n├─⊷ *${PREFIX}antilink allow [link]*\n├◆  └⊷ Whitelist a link\n╰───`;
         if (isButtonModeEnabled() && giftedBtnsAl?.sendInteractiveMessage) {
             try {
                 await giftedBtnsAl.sendInteractiveMessage(sock, chatId, {

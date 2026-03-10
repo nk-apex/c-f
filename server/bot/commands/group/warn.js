@@ -35,7 +35,7 @@ export default {
 
     if (!jid.endsWith('@g.us')) {
       await sock.sendMessage(jid, {
-        text: '\u250c\u2500\u29ed GROUP ONLY \u29ed\u2500\u2510\n\u2502 This command works in groups only.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
+        text: '\u250c\u2500\u29ed GROUP ONLY \u29ed\u2500\u2510\n\u251C\u25C6 This command works in groups only.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
       }, { quoted: msg });
       return;
     }
@@ -45,7 +45,7 @@ export default {
 
     if (!senderParticipant?.admin) {
       await sock.sendMessage(jid, {
-        text: '\u250c\u2500\u29ed ACCESS DENIED \u29ed\u2500\u2510\n\u2502 Only group admins can use this command.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
+        text: '\u250c\u2500\u29ed ACCESS DENIED \u29ed\u2500\u2510\n\u251C\u25C6 Only group admins can use this command.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
       }, { quoted: msg });
       return;
     }
@@ -54,7 +54,7 @@ export default {
 
     if (!targetUser) {
       await sock.sendMessage(jid, {
-        text: `\u250c\u2500\u29ed WARN \u29ed\u2500\u2510\n\u2502 Usage:\n\u2502 ${PREFIX}warn @user\n\u2502 ${PREFIX}warn <number>\n\u2502 Reply to a message with ${PREFIX}warn\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518`
+        text: `\u250c\u2500\u29ed WARN \u29ed\u2500\u2510\n\u251C\u25C6 Usage:\n\u251C\u25C6 ${PREFIX}warn @user\n\u251C\u25C6 ${PREFIX}warn <number>\n\u251C\u25C6 Reply to a message with ${PREFIX}warn\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518`
       }, { quoted: msg });
       return;
     }
@@ -75,17 +75,17 @@ export default {
         saveWarnings(warnings);
 
         await sock.sendMessage(jid, {
-          text: `\u250c\u2500\u29ed WARNING - KICKED \u29ed\u2500\u2510\n\u2502 @${targetUser.split('@')[0]} has reached ${maxWarns}/${maxWarns} warnings.\n\u2502 User has been kicked from the group.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518`,
+          text: `\u250c\u2500\u29ed WARNING - KICKED \u29ed\u2500\u2510\n\u251C\u25C6 @${targetUser.split('@')[0]} has reached ${maxWarns}/${maxWarns} warnings.\n\u251C\u25C6 User has been kicked from the group.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518`,
           mentions: [targetUser]
         }, { quoted: msg });
       } catch (error) {
         await sock.sendMessage(jid, {
-          text: '\u250c\u2500\u29ed ERROR \u29ed\u2500\u2510\n\u2502 User reached max warnings but failed to kick.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
+          text: '\u250c\u2500\u29ed ERROR \u29ed\u2500\u2510\n\u251C\u25C6 User reached max warnings but failed to kick.\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518'
         }, { quoted: msg });
       }
     } else {
       await sock.sendMessage(jid, {
-        text: `\u250c\u2500\u29ed WARNING \u29ed\u2500\u2510\n\u2502 @${targetUser.split('@')[0]} has been warned.\n\u2502 Warnings: ${currentWarns}/${maxWarns}\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518`,
+        text: `\u250c\u2500\u29ed WARNING \u29ed\u2500\u2510\n\u251C\u25C6 @${targetUser.split('@')[0]} has been warned.\n\u251C\u25C6 Warnings: ${currentWarns}/${maxWarns}\n\u2514\u2500\u29ed\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u29ed\u2500\u2518`,
         mentions: [targetUser]
       }, { quoted: msg });
     }

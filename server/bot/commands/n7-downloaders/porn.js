@@ -100,7 +100,7 @@ export default {
     } else {
       const helpText = 
         `╭─⌈ 🐺 *WOLF VIDEO DOWNLOADER* ⌋\n│\n` +
-        `├─⊷ *.wolf <search query>*\n│  └⊷ Downloads educational wolf content from YouTube\n│\n` +
+        `├─⊷ *.wolf <search query>*\n├◆  └⊷ Downloads educational wolf content from YouTube\n│\n` +
         `├─⊷ *Examples:*\n` +
         `│  └⊷ .wolf hunting\n` +
         `│  └⊷ .wolf pack behavior\n` +

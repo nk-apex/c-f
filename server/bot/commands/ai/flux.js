@@ -9,8 +9,8 @@ export default {
         if (!args.length) {
             return sock.sendMessage(jid, {
                 text: `\u250C\u2500\u29ED *Flux AI Image*\n` +
-                      `\u2502 Usage: ${PREFIX}flux <prompt>\n` +
-                      `\u2502 Example: ${PREFIX}flux cute anime cat\n` +
+                      `\u251C\u25C6 Usage: ${PREFIX}flux <prompt>\n` +
+                      `\u251C\u25C6 Example: ${PREFIX}flux cute anime cat\n` +
                       `\u2514\u2500\u29ED`
             }, { quoted: m });
         }
@@ -19,7 +19,7 @@ export default {
         
         try {
             await sock.sendMessage(jid, {
-                text: `\u250C\u2500\u29ED *Generating...*\n\u2502 Prompt: "${prompt}"\n\u2502 Please wait...\n\u2514\u2500\u29ED`
+                text: `\u250C\u2500\u29ED *Generating...*\n\u251C\u25C6 Prompt: "${prompt}"\n\u251C\u25C6 Please wait...\n\u2514\u2500\u29ED`
             }, { quoted: m });
             
             const encodedPrompt = encodeURIComponent(prompt);
@@ -50,7 +50,7 @@ export default {
             
             await sock.sendMessage(jid, {
                 image: imageBuffer,
-                caption: `\u250C\u2500\u29ED *Flux AI*\n\u2502 ${prompt}\n\u2514\u2500\u29ED`
+                caption: `\u250C\u2500\u29ED *Flux AI*\n\u251C\u25C6 ${prompt}\n\u2514\u2500\u29ED`
             });
             
         } catch (error) {
@@ -66,7 +66,7 @@ export default {
             }
             
             await sock.sendMessage(jid, {
-                text: `\u250C\u2500\u29ED *Error*\n\u2502 Failed to generate image\n\u2502 ${errorDetail}\n\u2514\u2500\u29ED`
+                text: `\u250C\u2500\u29ED *Error*\n\u251C\u25C6 Failed to generate image\n\u251C\u25C6 ${errorDetail}\n\u2514\u2500\u29ED`
             }, { quoted: m });
         }
     }

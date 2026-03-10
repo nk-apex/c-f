@@ -25,7 +25,7 @@ export default {
 
         if (jidList.length === 0) {
             return sock.sendMessage(chatId, {
-                text: `╭─⌈ 🚫 *BLOCK ALL* ⌋\n│\n├─⊷ ⚠️ No contacts found to block.\n│  Contacts are loaded as the bot receives\n│  messages. Try again after chatting.\n╰───`,
+                text: `╭─⌈ 🚫 *BLOCK ALL* ⌋\n│\n├─⊷ ⚠️ No contacts found to block.\n├◆  Contacts are loaded as the bot receives\n├◆  messages. Try again after chatting.\n╰───`,
             }, { quoted: msg });
         }
 

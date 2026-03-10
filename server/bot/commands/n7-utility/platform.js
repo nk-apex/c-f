@@ -120,29 +120,29 @@ export default {
 ╭━「 *${platform.icon} PLATFORM INFO* 」━╮
 │
 ├─⊷ *🏠 HOSTING*
-│  Platform: *${platform.name}*
-│  Provider: ${platform.url}
-│  Status: ✅ Active & Running
-│  Hostname: ${hostname}
+├◆  Platform: *${platform.name}*
+├◆  Provider: ${platform.url}
+├◆  Status: ✅ Active & Running
+├◆  Hostname: ${hostname}
 │
 ├─⊷ *💻 SYSTEM*
-│  OS: ${osType} ${osRelease}
-│  Arch: ${arch}
-│  CPU: ${cpuModel}
-│  Cores: ${cpuCores}
-│  Total RAM: ${totalSysMem} GB
-│  Free RAM: ${freeSysMem} GB
+├◆  OS: ${osType} ${osRelease}
+├◆  Arch: ${arch}
+├◆  CPU: ${cpuModel}
+├◆  Cores: ${cpuCores}
+├◆  Total RAM: ${totalSysMem} GB
+├◆  Free RAM: ${freeSysMem} GB
 │
 ├─⊷ *⚙️ RUNTIME*
-│  Node.js: ${nodeVersion}
-│  PID: ${process.pid}
-│  Uptime: ${uptimeStr.trim()}
-│  Started: ${startTime}
+├◆  Node.js: ${nodeVersion}
+├◆  PID: ${process.pid}
+├◆  Uptime: ${uptimeStr.trim()}
+├◆  Started: ${startTime}
 │
 ├─⊷ *📊 MEMORY USAGE*
-│  Heap Used: ${usedMB} MB
-│  Heap Total: ${totalMB} MB
-│  Usage: ${memPercent}%
+├◆  Heap Used: ${usedMB} MB
+├◆  Heap Total: ${totalMB} MB
+├◆  Usage: ${memPercent}%
 │
 ╰━━━━━━━━━━━━━━━━━╯
 

@@ -11,7 +11,7 @@ export default {
     try {
       if (args.length === 0) {
         await sock.sendMessage(jid, { 
-          text: `╭─⌈ 💎 *CRYSTAL LOGO* ⌋\n│\n├─⊷ *crystallogo*\n│  └⊷ crystallogo <text>\n│\n├─⊷ *Example:*\n│  └⊷ crystallogo CRYSTAL\n│  └⊷ crystallogo GEM\n│  └⊷ crystallogo DIAMOND\n│\n╰───` 
+          text: `╭─⌈ 💎 *CRYSTAL LOGO* ⌋\n│\n├─⊷ *crystallogo*\n├◆  └⊷ crystallogo <text>\n│\n├─⊷ *Example:*\n├◆  └⊷ crystallogo CRYSTAL\n├◆  └⊷ crystallogo GEM\n├◆  └⊷ crystallogo DIAMOND\n│\n╰───` 
         }, { quoted: m });
         return;
       }
@@ -20,7 +20,7 @@ export default {
       
       if (text.length > 10) {
         await sock.sendMessage(jid, { 
-          text: `╭─⌈ ❌ *ERROR* ⌋\n│\n├─⊷ Text too long!\n│  └⊷ Maximum 10 characters\n│  └⊷ Your text: "${text}" (${text.length} chars)\n│\n╰───` 
+          text: `╭─⌈ ❌ *ERROR* ⌋\n│\n├─⊷ Text too long!\n├◆  └⊷ Maximum 10 characters\n├◆  └⊷ Your text: "${text}" (${text.length} chars)\n│\n╰───` 
         }, { quoted: m });
         return;
       }
@@ -41,7 +41,7 @@ export default {
     } catch (error) {
       console.error("❌ [CRYSTALLOGO] ERROR:", error);
       await sock.sendMessage(jid, { 
-        text: `╭─⌈ ❌ *ERROR* ⌋\n│\n├─⊷ ${error.message}\n│  └⊷ Please try again with shorter text\n│\n╰───` 
+        text: `╭─⌈ ❌ *ERROR* ⌋\n│\n├─⊷ ${error.message}\n├◆  └⊷ Please try again with shorter text\n│\n╰───` 
       }, { quoted: m });
     }
   },

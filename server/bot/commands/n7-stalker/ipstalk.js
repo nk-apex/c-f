@@ -14,7 +14,7 @@ export default {
 
     if (!args || !args[0]) {
       return sock.sendMessage(jid, {
-        text: `╭─⌈ 🔍 *IP STALKER* ⌋\n│\n├─⊷ *${prefix}ipstalk <IP address>*\n│  └⊷ Look up IP address info\n│\n├─⊷ *Example:*\n│  └⊷ ${prefix}ipstalk 41.90.70.195\n│\n╰───────────────\n> *${getBotName()} STALKER*`
+        text: `╭─⌈ 🔍 *IP STALKER* ⌋\n│\n├─⊷ *${prefix}ipstalk <IP address>*\n├◆  └⊷ Look up IP address info\n│\n├─⊷ *Example:*\n├◆  └⊷ ${prefix}ipstalk 41.90.70.195\n│\n╰───────────────\n> *${getBotName()} STALKER*`
       }, { quoted: m });
     }
 

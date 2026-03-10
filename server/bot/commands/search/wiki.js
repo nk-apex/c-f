@@ -44,7 +44,7 @@ export default {
       // Send processing message
       const processingMsg = await sendMessage(`🔍 *Searching Wikipedia for:*\n"${searchTerm}"\n\n⏳ Please wait...`);
 
-      // Special default for "Foxy Bot" or "FoxyBot"
+      // Special default for "FOX Bot" or "FoxyBot"
       if (searchTerm.toLowerCase().includes("foxy") || searchTerm.toLowerCase().includes("fox")) {
         return await sock.sendMessage(chatId, { 
           text: `🦊 *FoxyBot* — The Clever Fox of WhatsApp Bots!\n\n` +

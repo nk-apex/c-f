@@ -230,11 +230,11 @@ export default {
 
         if (textContent) {
             const displayText = textContent.length > 500 ? textContent.substring(0, 500) + '...' : textContent;
-            text += `│\n│ 💬 *Content:*\n│ ${displayText.split('\n').join('\n│ ')}\n`;
+            text += `│\n├◆ 💬 *Content:*\n├◆ ${displayText.split('\n').join('\n├◆ ')}\n`;
         }
 
         if (mediaInfo) {
-            text += `│\n│ 📎 *MEDIA DETAILS*\n`;
+            text += `│\n├◆ 📎 *MEDIA DETAILS*\n`;
             if (mediaInfo.mimetype) text += `│   Format: ${mediaInfo.mimetype}\n`;
             if (mediaInfo.size) text += `│   Size: ${mediaInfo.size}\n`;
             if (mediaInfo.width && mediaInfo.height) text += `│   Dimensions: ${mediaInfo.width}x${mediaInfo.height}\n`;
@@ -251,11 +251,11 @@ export default {
         }
 
         if (mentions.length > 0) {
-            text += `│\n│ 🏷️ *Mentions:* ${mentions.map(j => '@' + (j.split('@')[0].includes(':') ? j.split(':')[0] : j.split('@')[0])).join(', ')}\n`;
+            text += `│\n├◆ 🏷️ *Mentions:* ${mentions.map(j => '@' + (j.split('@')[0].includes(':') ? j.split(':')[0] : j.split('@')[0])).join(', ')}\n`;
         }
 
         const chatType = chatId.endsWith('@g.us') ? 'Group' : chatId.endsWith('@newsletter') ? 'Channel' : 'Private';
-        text += `│\n│ 📍 *Chat:* ${chatType}\n`;
+        text += `│\n├◆ 📍 *Chat:* ${chatType}\n`;
         text += `╰───────────────`;
 
         const mentionedJid = [participant, ...mentions].filter(Boolean);

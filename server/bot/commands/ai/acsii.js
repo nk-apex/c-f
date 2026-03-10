@@ -9,14 +9,14 @@ export default {
         if (!args.length) {
             return sock.sendMessage(jid, {
                 text: `\u250C\u2500\u29ED *ASCII Art*\n` +
-                      `\u2502 Usage: ${PREFIX}ascii <text>\n` +
-                      `\u2502 ${PREFIX}ascii <emoji/object>\n` +
+                      `\u251C\u25C6 Usage: ${PREFIX}ascii <text>\n` +
+                      `\u251C\u25C6 ${PREFIX}ascii <emoji/object>\n` +
                       `\u2502\n` +
-                      `\u2502 Examples:\n` +
-                      `\u2502 ${PREFIX}ascii hello\n` +
-                      `\u2502 ${PREFIX}ascii heart\n` +
-                      `\u2502 ${PREFIX}ascii cat\n` +
-                      `\u2502 ${PREFIX}ascii robot\n` +
+                      `\u251C\u25C6 Examples:\n` +
+                      `\u251C\u25C6 ${PREFIX}ascii hello\n` +
+                      `\u251C\u25C6 ${PREFIX}ascii heart\n` +
+                      `\u251C\u25C6 ${PREFIX}ascii cat\n` +
+                      `\u251C\u25C6 ${PREFIX}ascii robot\n` +
                       `\u2514\u2500\u29ED`
             }, { quoted: m });
         }
@@ -25,7 +25,7 @@ export default {
         
         try {
             await sock.sendMessage(jid, {
-                text: `\u250C\u2500\u29ED *Processing...*\n\u2502 Creating ASCII art...\n\u2514\u2500\u29ED`
+                text: `\u250C\u2500\u29ED *Processing...*\n\u251C\u25C6 Creating ASCII art...\n\u2514\u2500\u29ED`
             }, { quoted: m });
             
             const axios = (await import('axios')).default;
@@ -49,7 +49,7 @@ export default {
             const asciiArt = response.data?.result || response.data?.response;
             
             await sock.sendMessage(jid, {
-                text: `\u250C\u2500\u29ED *ASCII Art: ${text}*\n\u2502\n\`\`\`\n${asciiArt}\n\`\`\`\n\u2502\n\u2502 Text Art Created\n\u2514\u2500\u29ED`
+                text: `\u250C\u2500\u29ED *ASCII Art: ${text}*\n\u2502\n\`\`\`\n${asciiArt}\n\`\`\`\n\u2502\n\u251C\u25C6 Text Art Created\n\u2514\u2500\u29ED`
             }, { quoted: m });
             
         } catch (error) {
@@ -69,7 +69,7 @@ export default {
                 }, { quoted: m });
             } else {
                 await sock.sendMessage(jid, {
-                    text: `\u250C\u2500\u29ED *Error*\n\u2502 ASCII art failed\n\u2502 Try: ${PREFIX}ascii heart\n\u2514\u2500\u29ED`
+                    text: `\u250C\u2500\u29ED *Error*\n\u251C\u25C6 ASCII art failed\n\u251C\u25C6 Try: ${PREFIX}ascii heart\n\u2514\u2500\u29ED`
                 }, { quoted: m });
             }
         }

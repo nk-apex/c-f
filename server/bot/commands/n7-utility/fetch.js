@@ -87,7 +87,7 @@ export default {
     
     // Show help if no arguments
     if (args.length === 0) {
-      await sock.sendMessage(jid, { text: `╭─⌈ 🎯 *FETCH* ⌋\n├─⊷ *.fetch <url>*\n│  └⊷ Fetch data from URL\n├─⊷ *.fetch <url> -d*\n│  └⊷ Download media files\n├─⊷ *.fetch <url> -j*\n│  └⊷ Pretty JSON format\n├─⊷ *.fetch <url> -h*\n│  └⊷ Show response headers\n├─⊷ *.fetch <url> -r*\n│  └⊷ Raw response\n├─⊷ Reply to URL with *.fetch*\n╰─── *${getBotName()}* ───` }, { quoted: m });
+      await sock.sendMessage(jid, { text: `╭─⌈ 🎯 *FETCH* ⌋\n├─⊷ *.fetch <url>*\n├◆  └⊷ Fetch data from URL\n├─⊷ *.fetch <url> -d*\n├◆  └⊷ Download media files\n├─⊷ *.fetch <url> -j*\n├◆  └⊷ Pretty JSON format\n├─⊷ *.fetch <url> -h*\n├◆  └⊷ Show response headers\n├─⊷ *.fetch <url> -r*\n├◆  └⊷ Raw response\n├─⊷ Reply to URL with *.fetch*\n╰─── *${getBotName()}* ───` }, { quoted: m });
       return;
     }
     

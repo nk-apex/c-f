@@ -619,9 +619,9 @@ function createDiceVisual(playerRoll, botRoll) {
     
     return `
 ┌─────────┐    ┌─────────┐
-│         │    │         │
-│    ${playerEmoji}    │ VS │    ${botEmoji}    │
-│         │    │         │
+├◆         │    │         │
+├◆    ${playerEmoji}    │ VS │    ${botEmoji}    │
+├◆         │    │         │
 └─────────┘    └─────────┘
     `.trim();
 }
@@ -629,34 +629,34 @@ function createDiceVisual(playerRoll, botRoll) {
 async function showHelp(sock, m, chatId, userData) {
     const helpText = `╭─⌈ 🎲 *DICE GAME* ⌋
 │
-│ 💰 *Balance:* ${userData.points} 🪙
+├◆ 💰 *Balance:* ${userData.points} 🪙
 │
 ├─⊷ *.dice*
-│  └⊷ Roll the dice
+├◆  └⊷ Roll the dice
 │
 ├─⊷ *.dice 100*
-│  └⊷ Bet 100 on a roll
+├◆  └⊷ Bet 100 on a roll
 │
 ├─⊷ *.dice 100 double*
-│  └⊷ Double or nothing mode
+├◆  └⊷ Double or nothing mode
 │
 ├─⊷ *.dice 100 triple*
-│  └⊷ Triple mode
+├◆  └⊷ Triple mode
 │
 ├─⊷ *.dice battle @user 200*
-│  └⊷ Battle another player
+├◆  └⊷ Battle another player
 │
 ├─⊷ *.dice accept / decline*
-│  └⊷ Accept or decline a battle
+├◆  └⊷ Accept or decline a battle
 │
 ├─⊷ *.dice stats*
-│  └⊷ Your statistics
+├◆  └⊷ Your statistics
 │
 ├─⊷ *.dice leaderboard*
-│  └⊷ Top players
+├◆  └⊷ Top players
 │
 ├─⊷ *.dice daily*
-│  └⊷ Daily free points
+├◆  └⊷ Daily free points
 │
 ╰───`;
     

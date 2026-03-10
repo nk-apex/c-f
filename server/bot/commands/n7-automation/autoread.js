@@ -656,10 +656,10 @@ export default {
         if (!subCommand || subCommand === 'status') {
             // Show current status
             let statusText = `╭─⌈ 📖 *AUTO-READ* ⌋\n│\n`;
-            statusText += `├─⊷ *.autoread groups*\n│  └⊷ Groups only\n`;
-            statusText += `├─⊷ *.autoread dms*\n│  └⊷ DMs only\n`;
-            statusText += `├─⊷ *.autoread both*\n│  └⊷ Read all messages\n`;
-            statusText += `├─⊷ *.autoread off*\n│  └⊷ Disable auto-read\n`;
+            statusText += `├─⊷ *.autoread groups*\n├◆  └⊷ Groups only\n`;
+            statusText += `├─⊷ *.autoread dms*\n├◆  └⊷ DMs only\n`;
+            statusText += `├─⊷ *.autoread both*\n├◆  └⊷ Read all messages\n`;
+            statusText += `├─⊷ *.autoread off*\n├◆  └⊷ Disable auto-read\n`;
             statusText += `╰───`;
             
             await sock.sendMessage(chatId, { text: statusText }, { quoted: msg });
@@ -935,7 +935,7 @@ export default {
         }
         else {
             // Show help
-            const helpText = `╭─⌈ 📖 *AUTO-READ* ⌋\n│\n├─⊷ *.autoread groups*\n│  └⊷ Groups only\n├─⊷ *.autoread dms*\n│  └⊷ DMs only\n├─⊷ *.autoread both*\n│  └⊷ Read all messages\n├─⊷ *.autoread off*\n│  └⊷ Disable auto-read\n╰───`;
+            const helpText = `╭─⌈ 📖 *AUTO-READ* ⌋\n│\n├─⊷ *.autoread groups*\n├◆  └⊷ Groups only\n├─⊷ *.autoread dms*\n├◆  └⊷ DMs only\n├─⊷ *.autoread both*\n├◆  └⊷ Read all messages\n├─⊷ *.autoread off*\n├◆  └⊷ Disable auto-read\n╰───`;
 
             await sock.sendMessage(chatId, { text: helpText }, { quoted: msg });
         }

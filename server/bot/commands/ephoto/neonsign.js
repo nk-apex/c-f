@@ -30,7 +30,7 @@ export default {
     const text = args.join(' ');
 
     await sock.sendMessage(jid, {
-      text: `┌─⧭ *Processing...*\n│ Effect: Multicolored Neon Signatures\n│ Text: ${text}\n└─⧭`
+      text: `┌─⧭ *Processing...*\n├◆ Effect: Multicolored Neon Signatures\n├◆ Text: ${text}\n└─⧭`
     }, { quoted: m });
 
     try {
@@ -43,20 +43,20 @@ export default {
 
       if (!imageUrl || typeof imageUrl !== 'string') {
         await sock.sendMessage(jid, {
-          text: `┌─⧭ *ERROR*\n│ Failed to generate effect.\n│ Try again later.\n└─⧭`
+          text: `┌─⧭ *ERROR*\n├◆ Failed to generate effect.\n├◆ Try again later.\n└─⧭`
         }, { quoted: m });
         return;
       }
 
       await sock.sendMessage(jid, {
         image: { url: imageUrl },
-        caption: `┌─⧭ *MULTICOLORED NEON SIGNATURES*\n│ Text: ${text}\n│ ID: 591\n└─⧭`
+        caption: `┌─⧭ *MULTICOLORED NEON SIGNATURES*\n├◆ Text: ${text}\n├◆ ID: 591\n└─⧭`
       }, { quoted: m });
 
     } catch (err) {
       console.error('[NEONSIGN] Error:', err.message);
       await sock.sendMessage(jid, {
-        text: `┌─⧭ *ERROR*\n│ ${err.message}\n└─⧭`
+        text: `┌─⧭ *ERROR*\n├◆ ${err.message}\n└─⧭`
       }, { quoted: m });
     }
   },

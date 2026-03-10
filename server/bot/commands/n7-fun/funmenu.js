@@ -12,17 +12,17 @@ export default {
 
     const commandsText = `╭─⊷ *🎭 FUN & TOOLS*
 │
-│  • bf
-│  • gf
-│  • couple
-│  • gay
-│  • getjid
-│  • movie
-│  • trailer
-│  • goodmorning
-│  • goodnight
-│  • channelstatus
-│  • hack
+├◆  • bf
+├◆  • gf
+├◆  • couple
+├◆  • gay
+├◆  • getjid
+├◆  • movie
+├◆  • trailer
+├◆  • goodmorning
+├◆  • goodnight
+├◆  • channelstatus
+├◆  • hack
 │
 ╰─⊷`;
 

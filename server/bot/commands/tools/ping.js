@@ -16,13 +16,13 @@ export default {
         const start = Date.now();
 
         const sentMsg = await sock.sendMessage(msg.key.remoteJid, {
-            text: `\u250C\u2500\u29ED *Pinging...*\n\u2502 Measuring speed...\n\u2514\u2500\u29ED`
+            text: `\u250C\u2500\u29ED *Pinging...*\n\u251C\u25C6 Measuring speed...\n\u2514\u2500\u29ED`
         }, { quoted: msg });
 
         const latency = Date.now() - start;
 
         await sock.sendMessage(msg.key.remoteJid, {
-            text: `\u250C\u2500\u29ED *Foxy Speed*\n\u2502 Response: ${latency}ms\n\u2514\u2500\u29ED`,
+            text: `\u250C\u2500\u29ED *FOX Speed*\n\u251C\u25C6 Response: ${latency}ms\n\u2514\u2500\u29ED`,
             edit: sentMsg.key
         });
     }

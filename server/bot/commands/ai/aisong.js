@@ -13,11 +13,11 @@ export default {
     if (!prompt) {
       await sock.sendMessage(chatId, {
         text: `\u250C\u2500\u29ED *AI Song Generator*\n` +
-              `\u2502 Create custom songs with AI\n` +
+              `\u251C\u25C6 Create custom songs with AI\n` +
               `\u2502\n` +
-              `\u2502 Usage: ${PREFIX}aisong <description>\n` +
-              `\u2502 Example: ${PREFIX}aisong A happy pop\n` +
-              `\u2502 song about summer love\n` +
+              `\u251C\u25C6 Usage: ${PREFIX}aisong <description>\n` +
+              `\u251C\u25C6 Example: ${PREFIX}aisong A happy pop\n` +
+              `\u251C\u25C6 song about summer love\n` +
               `\u2514\u2500\u29ED`
       }, { quoted: m });
       return;
@@ -34,16 +34,16 @@ export default {
           audio: { url: songUrl },
           mimetype: 'audio/mpeg',
           fileName: `ai_song_${Date.now()}.mp3`,
-          caption: `\u250C\u2500\u29ED *AI Song*\n\u2502 "${prompt}"\n\u2514\u2500\u29ED`
+          caption: `\u250C\u2500\u29ED *AI Song*\n\u251C\u25C6 "${prompt}"\n\u2514\u2500\u29ED`
         }, { quoted: m });
       } else {
         await sock.sendMessage(chatId, {
-          text: `\u250C\u2500\u29ED *Error*\n\u2502 No song generated\n\u2514\u2500\u29ED`
+          text: `\u250C\u2500\u29ED *Error*\n\u251C\u25C6 No song generated\n\u2514\u2500\u29ED`
         }, { quoted: m });
       }
     } catch (error) {
       await sock.sendMessage(chatId, {
-        text: `\u250C\u2500\u29ED *Error*\n\u2502 Song generation failed\n\u2502 Try again later\n\u2514\u2500\u29ED`
+        text: `\u250C\u2500\u29ED *Error*\n\u251C\u25C6 Song generation failed\n\u251C\u25C6 Try again later\n\u2514\u2500\u29ED`
       }, { quoted: m });
     }
   }

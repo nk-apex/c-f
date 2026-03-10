@@ -63,14 +63,14 @@ export default {
 ╰──────────────╯
 👋 Hello @everyone
 ╭──────────────╮
-│ 📊 *RESPONSE TIME*     
-│ ⏱️ *${latency}ms*            
+├◆ 📊 *RESPONSE TIME*     
+├◆ ⏱️ *${latency}ms*            
 ╰──────────────╯
 ╭─ 📈 *STATUS* 📈 ─╮
-│ ${latency < 200 ? '✅' : '⚠️'} Ultra Fast  
-│ ${latency < 500 ? '✅' : '⚠️'} Stable      
-│ ${latency < 1000 ? '✅' : '⚠️'} Normal      
-│ ${latency < 2000 ? '⚠️' : '❌'} Slow        
+├◆ ${latency < 200 ? '✅' : '⚠️'} Ultra Fast  
+├◆ ${latency < 500 ? '✅' : '⚠️'} Stable      
+├◆ ${latency < 1000 ? '✅' : '⚠️'} Normal      
+├◆ ${latency < 2000 ? '⚠️' : '❌'} Slow        
 ╰────────────────╯
 ${latency < 500 ? '⚡ *Lightning Fast Response!*' : '📡 *Connection Stable*'}
 `.trim();
@@ -81,14 +81,14 @@ ${latency < 500 ? '⚡ *Lightning Fast Response!*' : '📡 *Connection Stable*'}
 ╰──────────────╯
 👋 Hello @${sender.split("@")[0]}
 ╭──────────────╮
-│ 📊 *RESPONSE TIME*     
-│ ⏱️ *${latency}ms*            
+├◆ 📊 *RESPONSE TIME*     
+├◆ ⏱️ *${latency}ms*            
 ╰──────────────╯
 ╭─ 📈 *STATUS* 📈 ─╮
-│ ${latency < 200 ? '✅' : '⚠️'} Ultra Fast  
-│ ${latency < 500 ? '✅' : '⚠️'} Stable      
-│ ${latency < 1000 ? '✅' : '⚠️'} Normal      
-│ ${latency < 2000 ? '⚠️' : '❌'} Slow        
+├◆ ${latency < 200 ? '✅' : '⚠️'} Ultra Fast  
+├◆ ${latency < 500 ? '✅' : '⚠️'} Stable      
+├◆ ${latency < 1000 ? '✅' : '⚠️'} Normal      
+├◆ ${latency < 2000 ? '⚠️' : '❌'} Slow        
 ╰────────────────╯
 ${latency < 500 ? '⚡ *Lightning Fast Response!*' : '📡 *Connection Stable*'}
 `.trim();

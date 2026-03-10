@@ -82,8 +82,8 @@ export default {
       // Create response message with fake contact reply
       const pingText = `
 ╭━「 *${getBotName()} PONG* 」━╮
-│  ⚡ *Latency:* ${realisticLatency}ms
-│  [${bar}] ${percentage}%
+├◆  ⚡ *Latency:* ${realisticLatency}ms
+├◆  [${bar}] ${percentage}%
 ╰━━━━━━━━━━━━━╯
 _🌕 The Moon Watches..._
 `;

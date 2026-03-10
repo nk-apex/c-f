@@ -1059,16 +1059,16 @@ async function showCategories(sock, m, chatId) {
     let categoriesText = `╭─⌈ 📚 *QUIZ CATEGORIES* ⌋\n│\n`;
     
     Object.entries(QUIZ_CATEGORIES).forEach(([key, cat]) => {
-        categoriesText += `├─⊷ *${cat.emoji} ${cat.name}*\n│  └⊷ .quiz ${key}\n│\n`;
+        categoriesText += `├─⊷ *${cat.emoji} ${cat.name}*\n├◆  └⊷ .quiz ${key}\n│\n`;
     });
     
-    categoriesText += `├─⊷ *.quiz*\n│  └⊷ Random question\n│\n├─⊷ *.quiz stats*\n│  └⊷ Your stats\n│\n╰───`;
+    categoriesText += `├─⊷ *.quiz*\n├◆  └⊷ Random question\n│\n├─⊷ *.quiz stats*\n├◆  └⊷ Your stats\n│\n╰───`;
     
     await sock.sendMessage(chatId, { text: categoriesText }, { quoted: m });
 }
 
 async function showHelp(sock, m, chatId) {
-    const helpText = `╭─⌈ 🎮 *INSTANT QUIZ GAME* ⌋\n│\n├─⊷ *.quiz*\n│  └⊷ Start a random quiz\n│\n├─⊷ *.quiz science/geography/etc*\n│  └⊷ Quiz by category\n│\n├─⊷ *.quiz stats*\n│  └⊷ Your statistics\n│\n├─⊷ *.quiz categories*\n│  └⊷ List all categories\n│\n├─⊷ *Answer:* Reply to any question with A-D\n├─⊷ ⏱️ 5 minutes to answer, multiple users can play\n│\n╰───`;
+    const helpText = `╭─⌈ 🎮 *INSTANT QUIZ GAME* ⌋\n│\n├─⊷ *.quiz*\n├◆  └⊷ Start a random quiz\n│\n├─⊷ *.quiz science/geography/etc*\n├◆  └⊷ Quiz by category\n│\n├─⊷ *.quiz stats*\n├◆  └⊷ Your statistics\n│\n├─⊷ *.quiz categories*\n├◆  └⊷ List all categories\n│\n├─⊷ *Answer:* Reply to any question with A-D\n├─⊷ ⏱️ 5 minutes to answer, multiple users can play\n│\n╰───`;
     
     await sock.sendMessage(chatId, { text: helpText }, { quoted: m });
 }

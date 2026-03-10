@@ -183,9 +183,9 @@ export default {
             const isSelf = target === sender;
             
             const cringeAscii = `
-╔═════════════════╗
-║   C R I N G E   ║
-╚═════════════════╝
+┌─⧭
+├◆ C R I N G E
+└─⧭
     (－‸ლ)
    /     \\
   /   ●   ● \\

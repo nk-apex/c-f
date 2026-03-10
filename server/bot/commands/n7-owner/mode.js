@@ -108,7 +108,7 @@ export default {
                 } else if (mode !== 'buttons' && mode !== 'default' && mode === currentMode) {
                     isCurrent = buttonsActive ? '' : ' ✅';
                 }
-                modeList += `├─⊷ *${PREFIX}mode ${mode}*${isCurrent}\n│  └⊷ ${info.description}\n`;
+                modeList += `├─⊷ *${PREFIX}mode ${mode}*${isCurrent}\n├◆  └⊷ ${info.description}\n`;
             }
             
             let statusLine = `├─⊷ *Current:* ${modes[currentMode]?.name || currentMode}`;
@@ -126,7 +126,7 @@ export default {
         if (!modes[requestedMode]) {
             const validModes = Object.keys(modes).join(', ');
             return sock.sendMessage(chatId, {
-                text: `╭─⌈ ❌ *INVALID MODE* ⌋\n├─⊷ *${PREFIX}mode <name>*\n│  └⊷ ${validModes}\n╰───`
+                text: `╭─⌈ ❌ *INVALID MODE* ⌋\n├─⊷ *${PREFIX}mode <name>*\n├◆  └⊷ ${validModes}\n╰───`
             }, { quoted: msg });
         }
         
@@ -167,7 +167,7 @@ export default {
                     }
                 } else {
                     await sock.sendMessage(chatId, {
-                        text: `╭─⌈ ✅ *BUTTONS MODE ACTIVATED* ⌋\n├─⊷ *🔘 Buttons Mode*\n│  └⊷ All bot responses now use interactive buttons\n│  └⊷ Use *${PREFIX}mode default* to switch back\n╰───`
+                        text: `╭─⌈ ✅ *BUTTONS MODE ACTIVATED* ⌋\n├─⊷ *🔘 Buttons Mode*\n├◆  └⊷ All bot responses now use interactive buttons\n├◆  └⊷ Use *${PREFIX}mode default* to switch back\n╰───`
                     }, { quoted: msg });
                 }
                 
@@ -181,7 +181,7 @@ export default {
                 const currentOperatingMode = this.getCurrentMode();
                 
                 await sock.sendMessage(chatId, {
-                    text: `╭─⌈ ✅ *DEFAULT MODE RESTORED* ⌋\n├─⊷ *📝 Default Mode*\n│  └⊷ Buttons disabled, using normal text responses\n│  └⊷ Operating mode: ${modes[currentOperatingMode]?.name || currentOperatingMode}\n╰───`
+                    text: `╭─⌈ ✅ *DEFAULT MODE RESTORED* ⌋\n├─⊷ *📝 Default Mode*\n├◆  └⊷ Buttons disabled, using normal text responses\n├◆  └⊷ Operating mode: ${modes[currentOperatingMode]?.name || currentOperatingMode}\n╰───`
                 }, { quoted: msg });
                 
                 console.log(`✅ Button mode DISABLED by ${cleaned.cleanNumber}`);
@@ -228,7 +228,7 @@ export default {
                 }
             } else {
                 await sock.sendMessage(chatId, {
-                    text: `╭─⌈ ✅ *MODE UPDATED* ⌋\n├─⊷ *${modeInfo.name}*\n│  └⊷ ${modeInfo.description}\n╰───`
+                    text: `╭─⌈ ✅ *MODE UPDATED* ⌋\n├─⊷ *${modeInfo.name}*\n├◆  └⊷ ${modeInfo.description}\n╰───`
                 }, { quoted: msg });
             }
             

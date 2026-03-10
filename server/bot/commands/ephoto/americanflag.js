@@ -30,7 +30,7 @@ export default {
     const text = args.join(' ');
 
     await sock.sendMessage(jid, {
-      text: `┌─⧭ *Processing...*\n│ Effect: American Flag 3D\n│ Text: ${text}\n└─⧭`
+      text: `┌─⧭ *Processing...*\n├◆ Effect: American Flag 3D\n├◆ Text: ${text}\n└─⧭`
     }, { quoted: m });
 
     try {
@@ -43,20 +43,20 @@ export default {
 
       if (!imageUrl || typeof imageUrl !== 'string') {
         await sock.sendMessage(jid, {
-          text: `┌─⧭ *ERROR*\n│ Failed to generate effect.\n│ Try again later.\n└─⧭`
+          text: `┌─⧭ *ERROR*\n├◆ Failed to generate effect.\n├◆ Try again later.\n└─⧭`
         }, { quoted: m });
         return;
       }
 
       await sock.sendMessage(jid, {
         image: { url: imageUrl },
-        caption: `┌─⧭ *AMERICAN FLAG 3D*\n│ Text: ${text}\n│ ID: 725\n└─⧭`
+        caption: `┌─⧭ *AMERICAN FLAG 3D*\n├◆ Text: ${text}\n├◆ ID: 725\n└─⧭`
       }, { quoted: m });
 
     } catch (err) {
       console.error('[AMERICANFLAG] Error:', err.message);
       await sock.sendMessage(jid, {
-        text: `┌─⧭ *ERROR*\n│ ${err.message}\n└─⧭`
+        text: `┌─⧭ *ERROR*\n├◆ ${err.message}\n└─⧭`
       }, { quoted: m });
     }
   },

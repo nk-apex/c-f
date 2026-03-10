@@ -232,15 +232,15 @@
         
 //         console.log(`
 // ╔════════════════════════════════════════════════╗
-// ║                LID DEBUG ANALYSIS              ║
+// ├◆                LID DEBUG ANALYSIS              ║
 // ╠════════════════════════════════════════════════╣
-// ║ Chat: ${chatId.includes('@g.us') ? 'Group' : 'DM'}
-// ║ Sender: ${senderJid}
-// ║ Type: LID (Linked Device)
-// ║ fromMe: ${isFromMe}
-// ║ isOwner(): ${isOwner}
-// ║ jidManager Owner: ${ownerInfo.cleanNumber ? 'SET' : 'NOT SET'}
-// ║ Issue: ${isFromMe && !isOwner ? 'CRITICAL' : 'Normal'}
+// ├◆ Chat: ${chatId.includes('@g.us') ? 'Group' : 'DM'}
+// ├◆ Sender: ${senderJid}
+// ├◆ Type: LID (Linked Device)
+// ├◆ fromMe: ${isFromMe}
+// ├◆ isOwner(): ${isOwner}
+// ├◆ jidManager Owner: ${ownerInfo.cleanNumber ? 'SET' : 'NOT SET'}
+// ├◆ Issue: ${isFromMe && !isOwner ? 'CRITICAL' : 'Normal'}
 // ╚════════════════════════════════════════════════╝
 // `);
 //     }
@@ -672,19 +672,19 @@ export default {
         
         // Console logging for server-side analysis
         console.log(`
-╔══════════════════════════════════════════════════════════════╗
-║                    DEBUGCHAT ANALYSIS REPORT                 ║
-╠══════════════════════════════════════════════════════════════╣
-║ 📅 Timestamp: ${new Date().toISOString()}
-║ 💬 Chat: ${chatType}
-║ 👤 Sender: ${senderJid}
-║ 🔗 Type: ${cleaned.isLid ? 'Linked Device (LID)' : 'Standard JID'}
-║ 🤖 From Me: ${isFromMe}
-║ 👑 Is Owner: ${isOwner}
-║ 📁 Owner File: ${ownerFileExists ? 'Exists' : 'Missing'}
-║ 🛠️  jidManager: ${ownerInfo.cleanNumber ? 'Initialized' : 'Not Initialized'}
-║ ⚠️  Issues: ${issues.length > 0 ? issues.join('; ') : 'None'}
-╚══════════════════════════════════════════════════════════════╝
+┌─⧭ DEBUGCHAT ANALYSIS REPORT
+
+├──────────────────────────────────────────────────────────────
+├◆ 📅 Timestamp: ${new Date().toISOString()}
+├◆ 💬 Chat: ${chatType}
+├◆ 👤 Sender: ${senderJid}
+├◆ 🔗 Type: ${cleaned.isLid ? 'Linked Device (LID)' : 'Standard JID'}
+├◆ 🤖 From Me: ${isFromMe}
+├◆ 👑 Is Owner: ${isOwner}
+├◆ 📁 Owner File: ${ownerFileExists ? 'Exists' : 'Missing'}
+├◆ 🛠️  jidManager: ${ownerInfo.cleanNumber ? 'Initialized' : 'Not Initialized'}
+├◆ ⚠️  Issues: ${issues.length > 0 ? issues.join('; ') : 'None'}
+└─⧭
 `);
         
         // Log detailed errors to console
