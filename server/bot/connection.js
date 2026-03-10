@@ -77,6 +77,58 @@ const silentLogger = {
   child: () => silentLogger,
 };
 
+// Suppress noisy Baileys/libsignal output at the stream level
+const NOISE_TRIGGERS = [
+  "Closing session:",
+  "Removing old closed session:",
+  "Decrypted message with closed session",
+  "SessionEntry {",
+  "Bad mac",
+  "Bad MAC",
+  "Failed to decrypt",
+  "Session error:",
+  "Failed to decrypt message with any known session",
+  "skipping retry",
+  "retrying msg",
+];
+
+function makeSuppressFilter(origWrite) {
+  let suppress = false;
+  return (chunk, encoding, callback) => {
+    const str = typeof chunk === "string" ? chunk : chunk.toString();
+    const lines = str.split("\n");
+    const filtered = [];
+    for (const line of lines) {
+      if (NOISE_TRIGGERS.some((t) => line.includes(t))) {
+        suppress = true;
+      }
+      if (suppress) {
+        const trimmed = line.trim();
+        // Keep suppressing through indented lines, blank lines, and bare punctuation (closing braces)
+        const isPunctuation = /^[}\]){;,]+$/.test(trimmed);
+        const isIndented = /^\s/.test(line) || trimmed === "" || isPunctuation;
+        if (!isIndented && !NOISE_TRIGGERS.some((t) => line.includes(t))) {
+          suppress = false;
+          filtered.push(line);
+        }
+        // else: skip this line
+      } else {
+        filtered.push(line);
+      }
+    }
+    const out = filtered.join("\n");
+    if (!out || out === "\n" || out.trim() === "") {
+      if (typeof encoding === "function") encoding();
+      else if (typeof callback === "function") callback();
+      return true;
+    }
+    return origWrite(out, encoding, callback);
+  };
+}
+
+process.stdout.write = makeSuppressFilter(process.stdout.write.bind(process.stdout));
+process.stderr.write = makeSuppressFilter(process.stderr.write.bind(process.stderr));
+
 class BotConnection extends EventEmitter {
   constructor() {
     super();

@@ -335,10 +335,24 @@ async function main() {
     printPairingCode(code);
   });
 
+  function detectPlatform() {
+    if (process.env.DYNO) return "Heroku";
+    if (process.env.RAILWAY_ENVIRONMENT || process.env.RAILWAY_PROJECT_ID) return "Railway";
+    if (process.env.REPL_ID || process.env.REPLIT_DEPLOYMENT) return "Replit";
+    if (process.env.FLY_APP_NAME) return "Fly.io";
+    if (process.env.RENDER) return "Render";
+    if (process.env.KOYEB_APP_NAME) return "Koyeb";
+    if (process.env.PTERODACTYL || process.env.P_SERVER_UUID) return "Panel";
+    return "VPS";
+  }
+
+  let hasSentWelcome = false;
+
   botConnection.on("connected", async () => {
     const status = botConnection.getStatus();
     const config = getConfig();
     const cmds = commandLoader.getCommands();
+    const platform = detectPlatform();
     console.log("");
     console.log(c(C.orange, "  ┌─⧭ FOXY ONLINE"));
     console.log(c(C.orange, "  ├◆ ") + c(C.white, "Status: ") + c(C.bright + C.orangeBright, "Connected ✓"));
@@ -347,24 +361,29 @@ async function main() {
     console.log(c(C.orange, "  ├◆ ") + c(C.white, `Prefix: ${config.prefix}`));
     console.log(c(C.orange, "  ├◆ ") + c(C.white, `Commands: ${cmds.length}`));
     console.log(c(C.orange, "  ├◆ ") + c(C.white, `Mode: ${config.mode}`));
+    console.log(c(C.orange, "  ├◆ ") + c(C.white, `Platform: ${platform}`));
     console.log(c(C.orange, "  └─⧭"));
     console.log("");
 
-    try {
-      const sock = botConnection.getSocket();
-      if (sock && status.phoneNumber) {
-        const botJid = status.phoneNumber.includes("@") ? status.phoneNumber : `${status.phoneNumber}@s.whatsapp.net`;
-        const cmds = commandLoader.getCommands();
-        const successMsg = `┌─⧭ FOXY ONLINE
-├◆ Status: Connected
+    if (!hasSentWelcome) {
+      hasSentWelcome = true;
+      try {
+        const sock = botConnection.getSocket();
+        if (sock && status.phoneNumber) {
+          const botJid = status.phoneNumber.includes("@") ? status.phoneNumber : `${status.phoneNumber}@s.whatsapp.net`;
+          const successMsg = `┌─⧭ FOXY ONLINE
+├◆ Status: Connected ✓
 ├◆ Name: ${status.name || "FOXY"}
+├◆ Phone: +${status.phoneNumber}
 ├◆ Prefix: ${config.prefix}
 ├◆ Commands: ${cmds.length}
 ├◆ Mode: ${config.mode}
+├◆ Platform: ${platform}
 └─⧭`;
-        await sock.sendMessage(botJid, { text: successMsg });
-      }
-    } catch (err) {}
+          await sock.sendMessage(botJid, { text: successMsg });
+        }
+      } catch (err) {}
+    }
   });
 
   botConnection.on("disconnected", (reason) => {
