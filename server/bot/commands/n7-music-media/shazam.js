@@ -1,3 +1,4 @@
+import os from 'os';
 import axios from 'axios';
 import { downloadMediaMessage } from '@whiskeysockets/baileys';
 import fs from 'fs';
@@ -8,7 +9,7 @@ import { promisify } from 'util';
 const execAsync = promisify(exec);
 
 async function extractAudioClip(buffer, durationSec = 15) {
-    const tmpDir = path.join(process.cwd(), 'tmp', 'shazam');
+    const tmpDir = path.join(os.tmpdir(), 'foxbot_tmp');
     if (!fs.existsSync(tmpDir)) fs.mkdirSync(tmpDir, { recursive: true });
 
     const ts = Date.now();

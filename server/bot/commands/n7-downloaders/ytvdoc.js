@@ -1,3 +1,4 @@
+import os from 'os';
 import axios from "axios";
 import crypto from "crypto";
 import yts from "yt-search";
@@ -327,7 +328,7 @@ export default {
         return;
       }
 
-      const tempDir = path.join(__dirname, "../temp");
+      const tempDir = path.join(os.tmpdir(), 'foxbot_tmp');
       if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true });
       
       const sanitizedTitle = videoTitle.replace(/[^\w\s.-]/gi, '').substring(0, 50);

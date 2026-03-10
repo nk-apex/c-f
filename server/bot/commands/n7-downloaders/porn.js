@@ -245,7 +245,7 @@ export default {
       console.log(`✅ [WOLF] Using ${apiUsed} for download`);
       
       // Create temp directory
-      const tempDir = path.join(__dirname, "../temp");
+      const tempDir = path.join(require('os').tmpdir(), 'foxbot_tmp');
       if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true });
       
       // Clean filename

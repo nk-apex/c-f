@@ -1,3 +1,4 @@
+import os from 'os';
 import acrcloud from "acrcloud";
 import yts from "yt-search";
 import { downloadMediaMessage } from '@whiskeysockets/baileys';
@@ -19,7 +20,7 @@ const __dirname = path.dirname(__filename);
 // Function to extract audio from video buffer
 function extractAudioFromVideo(videoBuffer) {
     return new Promise((resolve, reject) => {
-        const tempDir = path.join(__dirname, 'temp_shazam');
+        const tempDir = path.join(os.tmpdir(), 'foxbot_tmp');
         if (!fs.existsSync(tempDir)) {
             fs.mkdirSync(tempDir, { recursive: true });
         }

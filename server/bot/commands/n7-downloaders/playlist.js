@@ -243,7 +243,7 @@ export default {
       }
 
       // ====== DOWNLOAD AND SEND SONGS ======
-      const tempDir = path.join(__dirname, "../temp");
+      const tempDir = path.join(require('os').tmpdir(), 'foxbot_tmp');
       if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true });
       
       let successCount = 0;

@@ -1,3 +1,4 @@
+import os from 'os';
 import { exec } from 'child_process';
 import { promisify } from 'util';
 import fs from 'fs';
@@ -68,8 +69,8 @@ export default {
             try { await sock.sendMessage(chatId, { react: { text: '⏳', key: m.key } }); } catch {}
 
             const timestamp = Date.now();
-            tempDir = `./temp/clone_${timestamp}`;
-            if (!fs.existsSync('./temp')) fs.mkdirSync('./temp', { recursive: true });
+            tempDir = path.join(os.tmpdir(), 'foxbot_tmp', `clone_${timestamp}`);
+            
             fs.mkdirSync(tempDir, { recursive: true });
 
             const zipPath = path.join(tempDir, `${repoName}.zip`);

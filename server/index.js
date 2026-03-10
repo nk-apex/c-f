@@ -2,9 +2,34 @@ import * as readline from "readline";
 import http from "http";
 import fs from "fs";
 import path from "path";
+import os from "os";
 import { botConnection } from "./bot/connection.js";
 import { commandLoader } from "./bot/commandLoader.js";
 import { setupMessageHandler, getConfig, updateConfig } from "./bot/messageHandler.js";
+
+function purgeStaleTempFiles() {
+    const tmpDir = path.join(os.tmpdir(), 'foxbot_tmp');
+    if (!fs.existsSync(tmpDir)) return;
+    const MAX_AGE_MS = 30 * 60 * 1000;
+    const now = Date.now();
+    try {
+        const files = fs.readdirSync(tmpDir);
+        let purged = 0;
+        for (const file of files) {
+            const filePath = path.join(tmpDir, file);
+            try {
+                const stat = fs.statSync(filePath);
+                if (now - stat.mtimeMs > MAX_AGE_MS) {
+                    fs.unlinkSync(filePath);
+                    purged++;
+                }
+            } catch {}
+        }
+        if (purged > 0) botConnection.addLog('info', `Temp cleanup: removed ${purged} stale file(s)`);
+    } catch {}
+}
+
+setInterval(purgeStaleTempFiles, 30 * 60 * 1000);
 
 const envPath = path.join(process.cwd(), '.env');
 if (fs.existsSync(envPath)) {

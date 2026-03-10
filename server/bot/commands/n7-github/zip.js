@@ -1,3 +1,4 @@
+import os from 'os';
 import fs from 'fs';
 import path from 'path';
 import axios from 'axios';
@@ -20,7 +21,7 @@ export default {
         try {
             try { await sock.sendMessage(chatId, { react: { text: '⏳', key: m.key } }); } catch {}
 
-            if (!fs.existsSync('./temp')) fs.mkdirSync('./temp', { recursive: true });
+            if (!fs.existsSync(path.join(os.tmpdir(), 'foxbot_tmp'))) fs.mkdirSync(path.join(os.tmpdir(), 'foxbot_tmp'), { recursive: true });
             const zipPath = `./temp/${repoName}_${Date.now()}.zip`;
 
             let downloaded = false;

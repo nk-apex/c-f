@@ -1,3 +1,4 @@
+import os from 'os';
 import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
@@ -51,7 +52,7 @@ export default {
       console.log(`[FLUX] Received image data: ${response.data.length} bytes`);
 
       // Create temp directory if it doesn't exist
-      const tempDir = path.join(__dirname, 'temp');
+      const tempDir = path.join(os.tmpdir(), 'foxbot_tmp');
       if (!fs.existsSync(tempDir)) {
         fs.mkdirSync(tempDir, { recursive: true });
       }

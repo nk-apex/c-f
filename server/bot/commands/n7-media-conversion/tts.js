@@ -1,3 +1,4 @@
+import os from 'os';
 import { downloadContentFromMessage } from "@whiskeysockets/baileys";
 import axios from 'axios';
 import fs from 'fs/promises';
@@ -53,7 +54,7 @@ export default {
             // }, { quoted: m });
             
             // Create temp directory
-            const tempDir = path.join(process.cwd(), 'tmp', 'tts');
+            const tempDir = path.join(os.tmpdir(), 'foxbot_tmp');
             await fs.mkdir(tempDir, { recursive: true });
             const fileName = `tts_${Date.now()}.mp3`;
             const filePath = path.join(tempDir, fileName);

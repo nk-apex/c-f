@@ -1,3 +1,4 @@
+import os from 'os';
 // import axios from "axios";
 // import yts from "yt-search";
 // import fs from "fs";
@@ -241,7 +242,7 @@
 //       });
 
 //       // Download the video file
-//       const tempDir = path.join(__dirname, "../temp");
+//       const tempDir = path.join(os.tmpdir(), 'foxbot_tmp');
 //       if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true });
       
 //       const fileName = `${Date.now()}_${videoTitle.substring(0, 30).replace(/[^\w\s.-]/gi, '')}.mp4`;
@@ -609,7 +610,7 @@ export default {
       }
 
       // Download the video file
-      const tempDir = path.join(__dirname, "../temp");
+      const tempDir = path.join(os.tmpdir(), 'foxbot_tmp');
       if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true });
       
       const fileName = `${Date.now()}_${videoTitle.substring(0, 30).replace(/[^\w\s.-]/gi, '')}.mp4`;

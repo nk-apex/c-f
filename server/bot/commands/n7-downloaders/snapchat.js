@@ -1,3 +1,4 @@
+import os from 'os';
 import axios from 'axios';
 import { createWriteStream, existsSync, mkdirSync, readFileSync } from 'fs';
 import fs from 'fs';
@@ -137,7 +138,7 @@ function extractVideoId(url) {
 
 // ==================== DOWNLOAD FUNCTIONS ====================
 async function downloadSpotlightVideo(videoId) {
-  const tempDir = './temp/snapchat';
+  const tempDir = path.join(os.tmpdir(), 'foxbot_tmp');
   if (!existsSync(tempDir)) mkdirSync(tempDir, { recursive: true });
 
   const filePath = `${tempDir}/spotlight_${Date.now()}.mp4`;
@@ -319,7 +320,7 @@ async function getWorkingDownloadUrl(videoId) {
 
 // ==================== VIDEO COMPRESSION ====================
 async function compressVideo(inputPath, maxSizeBytes) {
-  const tempDir = './temp/compressed';
+  const tempDir = path.join(os.tmpdir(), 'foxbot_tmp');
   if (!existsSync(tempDir)) mkdirSync(tempDir, { recursive: true });
   
   const outputPath = `${tempDir}/compressed_${Date.now()}.mp4`;

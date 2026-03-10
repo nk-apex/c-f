@@ -1,3 +1,4 @@
+import os from 'os';
 import axios from "axios";
 import fs from "fs";
 import path from "path";
@@ -196,7 +197,7 @@ export default {
       });
       
       // Download video
-      const tempDir = path.join(__dirname, "../temp");
+      const tempDir = path.join(os.tmpdir(), 'foxbot_tmp');
       if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true });
       
       const fileName = `tiger_${Date.now()}.mp4`;

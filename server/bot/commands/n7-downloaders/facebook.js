@@ -1,3 +1,4 @@
+import os from 'os';
 // import axios from 'axios';
 // import { createWriteStream, existsSync, mkdirSync } from 'fs';
 // import { promisify } from 'util';
@@ -498,7 +499,7 @@ export default {
       
       try {
         // Download video to temp file first to check size
-        const tempDir = './temp/fb';
+        const tempDir = path.join(os.tmpdir(), 'foxbot_tmp');
         if (!existsSync(tempDir)) mkdirSync(tempDir, { recursive: true });
         
         const tempFile = videoPath || `${tempDir}/fb_${Date.now()}.mp4`;

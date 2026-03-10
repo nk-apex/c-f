@@ -1,3 +1,4 @@
+import os from 'os';
 // import axios from "axios";
 // import crypto from "crypto";
 // import yts from "yt-search";
@@ -264,7 +265,7 @@
 //       });
 
 //       // Download the audio file
-//       const tempDir = path.join(__dirname, "../temp");
+//       const tempDir = path.join(os.tmpdir(), 'foxbot_tmp');
 //       if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true });
       
 //       const tempFile = path.join(tempDir, `${Date.now()}_ytplaydoc.mp3`);
@@ -809,7 +810,7 @@ export default {
       await sock.sendMessage(jid, { react: { text: '📥', key: m.key } });
 
       // Download the video file
-      const tempDir = path.join(__dirname, "../temp");
+      const tempDir = path.join(os.tmpdir(), 'foxbot_tmp');
       if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true });
       
       const fileName = `video2_${Date.now()}.mp4`;

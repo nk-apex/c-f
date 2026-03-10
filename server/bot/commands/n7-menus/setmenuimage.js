@@ -1,3 +1,4 @@
+import os from 'os';
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -252,7 +253,7 @@ export default {
         if (fs.existsSync(wolfbotImgPath)) {
           try { fs.unlinkSync(wolfbotImgPath); } catch {}
         }
-        const tmpDir = path.join(process.cwd(), 'tmp');
+        const tmpDir = path.join(os.tmpdir(), 'foxbot_tmp');
         if (!fs.existsSync(tmpDir)) fs.mkdirSync(tmpDir, { recursive: true });
         const tmpMp4 = path.join(tmpDir, `menuimg_${Date.now()}.mp4`);
         fs.writeFileSync(tmpMp4, imageBuffer);
