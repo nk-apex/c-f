@@ -15,14 +15,11 @@ export default {
     if (args.length === 0) {
       await sock.sendMessage(jid, {
         text: `┌─⧭ *GLOWING TEXT EFFECTS*\n` +
-              `│\n` +
-              `│ Usage: ${PREFIX}glowtext <text>\n` +
-              `│\n` +
-              `│ Example:\n` +
-              `│ ${PREFIX}glowtext Hello World\n` +
-              `│\n` +
-              `│ Effect ID: 706\n` +
-              `└─⧭━━━━━━━━━━━━━━━━━━━⧭─┘`
+              `├◆ Usage: ${PREFIX}glowtext <text>\n` +
+              `├◆ Example:\n` +
+              `├◆ ${PREFIX}glowtext Hello World\n` +
+              `├◆ Effect ID: 706\n` +
+              `└─⧭`
       }, { quoted: m });
       return;
     }

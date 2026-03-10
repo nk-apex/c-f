@@ -15,14 +15,11 @@ export default {
     if (args.length === 0) {
       await sock.sendMessage(jid, {
         text: `┌─⧭ *3D RUBY STONE TEXT*\n` +
-              `│\n` +
-              `│ Usage: ${PREFIX}ruby3d <text>\n` +
-              `│\n` +
-              `│ Example:\n` +
-              `│ ${PREFIX}ruby3d Hello World\n` +
-              `│\n` +
-              `│ Effect ID: 281\n` +
-              `└─⧭━━━━━━━━━━━━━━━━━━━⧭─┘`
+              `├◆ Usage: ${PREFIX}ruby3d <text>\n` +
+              `├◆ Example:\n` +
+              `├◆ ${PREFIX}ruby3d Hello World\n` +
+              `├◆ Effect ID: 281\n` +
+              `└─⧭`
       }, { quoted: m });
       return;
     }

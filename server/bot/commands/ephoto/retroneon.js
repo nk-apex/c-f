@@ -15,14 +15,11 @@ export default {
     if (args.length === 0) {
       await sock.sendMessage(jid, {
         text: `┌─⧭ *RETRO NEON TEXT*\n` +
-              `│\n` +
-              `│ Usage: ${PREFIX}retroneon <text>\n` +
-              `│\n` +
-              `│ Example:\n` +
-              `│ ${PREFIX}retroneon Hello World\n` +
-              `│\n` +
-              `│ Effect ID: 538\n` +
-              `└─⧭━━━━━━━━━━━━━━━━━━━⧭─┘`
+              `├◆ Usage: ${PREFIX}retroneon <text>\n` +
+              `├◆ Example:\n` +
+              `├◆ ${PREFIX}retroneon Hello World\n` +
+              `├◆ Effect ID: 538\n` +
+              `└─⧭`
       }, { quoted: m });
       return;
     }

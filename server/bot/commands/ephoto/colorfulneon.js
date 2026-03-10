@@ -15,14 +15,11 @@ export default {
     if (args.length === 0) {
       await sock.sendMessage(jid, {
         text: `┌─⧭ *COLORFUL NEON LIGHT TEXT*\n` +
-              `│\n` +
-              `│ Usage: ${PREFIX}colorfulneon <text>\n` +
-              `│\n` +
-              `│ Example:\n` +
-              `│ ${PREFIX}colorfulneon Hello World\n` +
-              `│\n` +
-              `│ Effect ID: 797\n` +
-              `└─⧭━━━━━━━━━━━━━━━━━━━⧭─┘`
+              `├◆ Usage: ${PREFIX}colorfulneon <text>\n` +
+              `├◆ Example:\n` +
+              `├◆ ${PREFIX}colorfulneon Hello World\n` +
+              `├◆ Effect ID: 797\n` +
+              `└─⧭`
       }, { quoted: m });
       return;
     }

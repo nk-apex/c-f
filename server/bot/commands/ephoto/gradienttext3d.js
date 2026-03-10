@@ -15,14 +15,11 @@ export default {
     if (args.length === 0) {
       await sock.sendMessage(jid, {
         text: `┌─⧭ *3D GRADIENT TEXT*\n` +
-              `│\n` +
-              `│ Usage: ${PREFIX}gradienttext3d <text>\n` +
-              `│\n` +
-              `│ Example:\n` +
-              `│ ${PREFIX}gradienttext3d Hello World\n` +
-              `│\n` +
-              `│ Effect ID: 600\n` +
-              `└─⧭━━━━━━━━━━━━━━━━━━━⧭─┘`
+              `├◆ Usage: ${PREFIX}gradienttext3d <text>\n` +
+              `├◆ Example:\n` +
+              `├◆ ${PREFIX}gradienttext3d Hello World\n` +
+              `├◆ Effect ID: 600\n` +
+              `└─⧭`
       }, { quoted: m });
       return;
     }

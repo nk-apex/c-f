@@ -15,14 +15,11 @@ export default {
     if (args.length === 0) {
       await sock.sendMessage(jid, {
         text: `┌─⧭ *GALAXY NEON TEXT*\n` +
-              `│\n` +
-              `│ Usage: ${PREFIX}galaxyneon <text>\n` +
-              `│\n` +
-              `│ Example:\n` +
-              `│ ${PREFIX}galaxyneon Hello World\n` +
-              `│\n` +
-              `│ Effect ID: 521\n` +
-              `└─⧭━━━━━━━━━━━━━━━━━━━⧭─┘`
+              `├◆ Usage: ${PREFIX}galaxyneon <text>\n` +
+              `├◆ Example:\n` +
+              `├◆ ${PREFIX}galaxyneon Hello World\n` +
+              `├◆ Effect ID: 521\n` +
+              `└─⧭`
       }, { quoted: m });
       return;
     }

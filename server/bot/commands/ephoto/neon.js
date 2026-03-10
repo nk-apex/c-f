@@ -35,22 +35,18 @@ export default {
     const jid = m.key.remoteJid;
 
     if (args.length === 0) {
-      const list = NEON_EFFECTS.map(e => `│ ${e.id} - ${e.name}`).join('\n');
+      const list = NEON_EFFECTS.map(e => `├◆ ${e.id} - ${e.name}`).join('\n');
       await sock.sendMessage(jid, {
-        text: `┌─⧭ *NEON EFFECTS* ⧭─┐\n` +
-              `│\n` +
-              `│ Usage: ${PREFIX}neon <text>\n` +
-              `│ (picks random neon effect)\n` +
-              `│\n` +
-              `│ Or pick one:\n` +
-              `│ ${PREFIX}neon <id> <text>\n` +
-              `│\n` +
+        text: `┌─⧭ *NEON EFFECTS*\n` +
+              `├◆ Usage: ${PREFIX}neon <text>\n` +
+              `├◆ (picks random neon effect)\n` +
+              `├◆ Or pick one:\n` +
+              `├◆ ${PREFIX}neon <id> <text>\n` +
               `${list}\n` +
-              `│\n` +
-              `│ Examples:\n` +
-              `│ ${PREFIX}neon Hello World\n` +
-              `│ ${PREFIX}neon 68 FOXY\n` +
-              `└─⧭━━━━━━━━━━━━━━━━━━━⧭─┘`
+              `├◆ Examples:\n` +
+              `├◆ ${PREFIX}neon Hello World\n` +
+              `├◆ ${PREFIX}neon 68 FOXY\n` +
+              `└─⧭`
       }, { quoted: m });
       return;
     }

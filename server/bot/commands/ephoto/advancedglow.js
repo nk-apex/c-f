@@ -15,14 +15,11 @@ export default {
     if (args.length === 0) {
       await sock.sendMessage(jid, {
         text: `┌─⧭ *ADVANCED GLOW EFFECTS*\n` +
-              `│\n` +
-              `│ Usage: ${PREFIX}advancedglow <text>\n` +
-              `│\n` +
-              `│ Example:\n` +
-              `│ ${PREFIX}advancedglow Hello World\n` +
-              `│\n` +
-              `│ Effect ID: 74\n` +
-              `└─⧭━━━━━━━━━━━━━━━━━━━⧭─┘`
+              `├◆ Usage: ${PREFIX}advancedglow <text>\n` +
+              `├◆ Example:\n` +
+              `├◆ ${PREFIX}advancedglow Hello World\n` +
+              `├◆ Effect ID: 74\n` +
+              `└─⧭`
       }, { quoted: m });
       return;
     }

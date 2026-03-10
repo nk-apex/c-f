@@ -15,14 +15,11 @@ export default {
     if (args.length === 0) {
       await sock.sendMessage(jid, {
         text: `┌─⧭ *BLACKPINK NEON LOGO*\n` +
-              `│\n` +
-              `│ Usage: ${PREFIX}blackpink <text>\n` +
-              `│\n` +
-              `│ Example:\n` +
-              `│ ${PREFIX}blackpink Hello World\n` +
-              `│\n` +
-              `│ Effect ID: 710\n` +
-              `└─⧭━━━━━━━━━━━━━━━━━━━⧭─┘`
+              `├◆ Usage: ${PREFIX}blackpink <text>\n` +
+              `├◆ Example:\n` +
+              `├◆ ${PREFIX}blackpink Hello World\n` +
+              `├◆ Effect ID: 710\n` +
+              `└─⧭`
       }, { quoted: m });
       return;
     }

@@ -23,22 +23,18 @@ export default {
     const jid = m.key.remoteJid;
 
     if (args.length === 0) {
-      const list = CHRISTMAS_EFFECTS.map(e => `│ ${e.id} - ${e.name}`).join('\n');
+      const list = CHRISTMAS_EFFECTS.map(e => `├◆ ${e.id} - ${e.name}`).join('\n');
       await sock.sendMessage(jid, {
-        text: `┌─⧭ *HOLIDAY EFFECTS* ⧭─┐\n` +
-              `│\n` +
-              `│ Usage: ${PREFIX}christmas <text>\n` +
-              `│ (picks random holiday effect)\n` +
-              `│\n` +
-              `│ Or pick one:\n` +
-              `│ ${PREFIX}christmas <id> <text>\n` +
-              `│\n` +
+        text: `┌─⧭ *HOLIDAY EFFECTS*\n` +
+              `├◆ Usage: ${PREFIX}christmas <text>\n` +
+              `├◆ (picks random holiday effect)\n` +
+              `├◆ Or pick one:\n` +
+              `├◆ ${PREFIX}christmas <id> <text>\n` +
               `${list}\n` +
-              `│\n` +
-              `│ Examples:\n` +
-              `│ ${PREFIX}christmas Merry Xmas\n` +
-              `│ ${PREFIX}christmas 793 Snow Day\n` +
-              `└─⧭━━━━━━━━━━━━━━━━━━━⧭─┘`
+              `├◆ Examples:\n` +
+              `├◆ ${PREFIX}christmas Merry Xmas\n` +
+              `├◆ ${PREFIX}christmas 793 Snow Day\n` +
+              `└─⧭`
       }, { quoted: m });
       return;
     }

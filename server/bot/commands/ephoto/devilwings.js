@@ -15,14 +15,11 @@ export default {
     if (args.length === 0) {
       await sock.sendMessage(jid, {
         text: `┌─⧭ *NEON DEVIL WINGS*\n` +
-              `│\n` +
-              `│ Usage: ${PREFIX}devilwings <text>\n` +
-              `│\n` +
-              `│ Example:\n` +
-              `│ ${PREFIX}devilwings Hello World\n` +
-              `│\n` +
-              `│ Effect ID: 683\n` +
-              `└─⧭━━━━━━━━━━━━━━━━━━━⧭─┘`
+              `├◆ Usage: ${PREFIX}devilwings <text>\n` +
+              `├◆ Example:\n` +
+              `├◆ ${PREFIX}devilwings Hello World\n` +
+              `├◆ Effect ID: 683\n` +
+              `└─⧭`
       }, { quoted: m });
       return;
     }

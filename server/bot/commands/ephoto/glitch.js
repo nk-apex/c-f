@@ -20,22 +20,18 @@ export default {
     const jid = m.key.remoteJid;
 
     if (args.length === 0) {
-      const list = GLITCH_EFFECTS.map(e => `│ ${e.id} - ${e.name}`).join('\n');
+      const list = GLITCH_EFFECTS.map(e => `├◆ ${e.id} - ${e.name}`).join('\n');
       await sock.sendMessage(jid, {
-        text: `┌─⧭ *GLITCH EFFECTS* ⧭─┐\n` +
-              `│\n` +
-              `│ Usage: ${PREFIX}glitch <text>\n` +
-              `│ (picks random glitch effect)\n` +
-              `│\n` +
-              `│ Or pick one:\n` +
-              `│ ${PREFIX}glitch <id> <text>\n` +
-              `│\n` +
+        text: `┌─⧭ *GLITCH EFFECTS*\n` +
+              `├◆ Usage: ${PREFIX}glitch <text>\n` +
+              `├◆ (picks random glitch effect)\n` +
+              `├◆ Or pick one:\n` +
+              `├◆ ${PREFIX}glitch <id> <text>\n` +
               `${list}\n` +
-              `│\n` +
-              `│ Examples:\n` +
-              `│ ${PREFIX}glitch FOXY\n` +
-              `│ ${PREFIX}glitch 677 Hacker\n` +
-              `└─⧭━━━━━━━━━━━━━━━━━━━⧭─┘`
+              `├◆ Examples:\n` +
+              `├◆ ${PREFIX}glitch FOXY\n` +
+              `├◆ ${PREFIX}glitch 677 Hacker\n` +
+              `└─⧭`
       }, { quoted: m });
       return;
     }

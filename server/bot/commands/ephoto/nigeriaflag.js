@@ -15,14 +15,11 @@ export default {
     if (args.length === 0) {
       await sock.sendMessage(jid, {
         text: `┌─⧭ *NIGERIA 3D FLAG*\n` +
-              `│\n` +
-              `│ Usage: ${PREFIX}nigeriaflag <text>\n` +
-              `│\n` +
-              `│ Example:\n` +
-              `│ ${PREFIX}nigeriaflag Hello World\n` +
-              `│\n` +
-              `│ Effect ID: 753\n` +
-              `└─⧭━━━━━━━━━━━━━━━━━━━⧭─┘`
+              `├◆ Usage: ${PREFIX}nigeriaflag <text>\n` +
+              `├◆ Example:\n` +
+              `├◆ ${PREFIX}nigeriaflag Hello World\n` +
+              `├◆ Effect ID: 753\n` +
+              `└─⧭`
       }, { quoted: m });
       return;
     }

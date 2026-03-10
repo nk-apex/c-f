@@ -15,14 +15,11 @@ export default {
     if (args.length === 0) {
       await sock.sendMessage(jid, {
         text: `┌─⧭ *3D PAPER CUT STYLE*\n` +
-              `│\n` +
-              `│ Usage: ${PREFIX}papercut3d <text>\n` +
-              `│\n` +
-              `│ Example:\n` +
-              `│ ${PREFIX}papercut3d Hello World\n` +
-              `│\n` +
-              `│ Effect ID: 658\n` +
-              `└─⧭━━━━━━━━━━━━━━━━━━━⧭─┘`
+              `├◆ Usage: ${PREFIX}papercut3d <text>\n` +
+              `├◆ Example:\n` +
+              `├◆ ${PREFIX}papercut3d Hello World\n` +
+              `├◆ Effect ID: 658\n` +
+              `└─⧭`
       }, { quoted: m });
       return;
     }

@@ -15,14 +15,11 @@ export default {
     if (args.length === 0) {
       await sock.sendMessage(jid, {
         text: `┌─⧭ *3D UNDERWATER TEXT*\n` +
-              `│\n` +
-              `│ Usage: ${PREFIX}underwater3d <text>\n` +
-              `│\n` +
-              `│ Example:\n` +
-              `│ ${PREFIX}underwater3d Hello World\n` +
-              `│\n` +
-              `│ Effect ID: 682\n` +
-              `└─⧭━━━━━━━━━━━━━━━━━━━⧭─┘`
+              `├◆ Usage: ${PREFIX}underwater3d <text>\n` +
+              `├◆ Example:\n` +
+              `├◆ ${PREFIX}underwater3d Hello World\n` +
+              `├◆ Effect ID: 682\n` +
+              `└─⧭`
       }, { quoted: m });
       return;
     }

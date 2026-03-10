@@ -56,22 +56,18 @@ export default {
     const jid = m.key.remoteJid;
 
     if (args.length === 0) {
-      const list = TD_EFFECTS.map(e => `│ ${e.id} - ${e.name}`).join('\n');
+      const list = TD_EFFECTS.map(e => `├◆ ${e.id} - ${e.name}`).join('\n');
       await sock.sendMessage(jid, {
-        text: `┌─⧭ *3D EFFECTS* ⧭─┐\n` +
-              `│\n` +
-              `│ Usage: ${PREFIX}3deffect <text>\n` +
-              `│ (picks random 3D effect)\n` +
-              `│\n` +
-              `│ Or pick one:\n` +
-              `│ ${PREFIX}3deffect <id> <text>\n` +
-              `│\n` +
+        text: `┌─⧭ *3D EFFECTS*\n` +
+              `├◆ Usage: ${PREFIX}3deffect <text>\n` +
+              `├◆ (picks random 3D effect)\n` +
+              `├◆ Or pick one:\n` +
+              `├◆ ${PREFIX}3deffect <id> <text>\n` +
               `${list}\n` +
-              `│\n` +
-              `│ Examples:\n` +
-              `│ ${PREFIX}3deffect FOXY BOT\n` +
-              `│ ${PREFIX}3deffect 427 Avengers\n` +
-              `└─⧭━━━━━━━━━━━━━━━━━━━⧭─┘`
+              `├◆ Examples:\n` +
+              `├◆ ${PREFIX}3deffect FOXY BOT\n` +
+              `├◆ ${PREFIX}3deffect 427 Avengers\n` +
+              `└─⧭`
       }, { quoted: m });
       return;
     }

@@ -15,14 +15,11 @@ export default {
     if (args.length === 0) {
       await sock.sendMessage(jid, {
         text: `┌─⧭ *3D TEXT EFFECT*\n` +
-              `│\n` +
-              `│ Usage: ${PREFIX}3dtexteffect <text>\n` +
-              `│\n` +
-              `│ Example:\n` +
-              `│ ${PREFIX}3dtexteffect Hello World\n` +
-              `│\n` +
-              `│ Effect ID: 172\n` +
-              `└─⧭━━━━━━━━━━━━━━━━━━━⧭─┘`
+              `├◆ Usage: ${PREFIX}3dtexteffect <text>\n` +
+              `├◆ Example:\n` +
+              `├◆ ${PREFIX}3dtexteffect Hello World\n` +
+              `├◆ Effect ID: 172\n` +
+              `└─⧭`
       }, { quoted: m });
       return;
     }

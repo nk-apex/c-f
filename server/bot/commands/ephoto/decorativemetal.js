@@ -15,14 +15,11 @@ export default {
     if (args.length === 0) {
       await sock.sendMessage(jid, {
         text: `┌─⧭ *3D DECORATIVE METAL*\n` +
-              `│\n` +
-              `│ Usage: ${PREFIX}decorativemetal <text>\n` +
-              `│\n` +
-              `│ Example:\n` +
-              `│ ${PREFIX}decorativemetal Hello World\n` +
-              `│\n` +
-              `│ Effect ID: 798\n` +
-              `└─⧭━━━━━━━━━━━━━━━━━━━⧭─┘`
+              `├◆ Usage: ${PREFIX}decorativemetal <text>\n` +
+              `├◆ Example:\n` +
+              `├◆ ${PREFIX}decorativemetal Hello World\n` +
+              `├◆ Effect ID: 798\n` +
+              `└─⧭`
       }, { quoted: m });
       return;
     }

@@ -15,14 +15,11 @@ export default {
     if (args.length === 0) {
       await sock.sendMessage(jid, {
         text: `┌─⧭ *3D CHRISTMAS SNOW*\n` +
-              `│\n` +
-              `│ Usage: ${PREFIX}christmassnow <text>\n` +
-              `│\n` +
-              `│ Example:\n` +
-              `│ ${PREFIX}christmassnow Hello World\n` +
-              `│\n` +
-              `│ Effect ID: 793\n` +
-              `└─⧭━━━━━━━━━━━━━━━━━━━⧭─┘`
+              `├◆ Usage: ${PREFIX}christmassnow <text>\n` +
+              `├◆ Example:\n` +
+              `├◆ ${PREFIX}christmassnow Hello World\n` +
+              `├◆ Effect ID: 793\n` +
+              `└─⧭`
       }, { quoted: m });
       return;
     }

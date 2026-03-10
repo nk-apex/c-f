@@ -24,22 +24,18 @@ export default {
     const jid = m.key.remoteJid;
 
     if (args.length === 0) {
-      const list = LOGO_EFFECTS.map(e => `│ ${e.id} - ${e.name}`).join('\n');
+      const list = LOGO_EFFECTS.map(e => `├◆ ${e.id} - ${e.name}`).join('\n');
       await sock.sendMessage(jid, {
-        text: `┌─⧭ *LOGO 3D EFFECTS* ⧭─┐\n` +
-              `│\n` +
-              `│ Usage: ${PREFIX}logo3d <text>\n` +
-              `│ (picks random logo effect)\n` +
-              `│\n` +
-              `│ Or pick one:\n` +
-              `│ ${PREFIX}logo3d <id> <text>\n` +
-              `│\n` +
+        text: `┌─⧭ *LOGO 3D EFFECTS*\n` +
+              `├◆ Usage: ${PREFIX}logo3d <text>\n` +
+              `├◆ (picks random logo effect)\n` +
+              `├◆ Or pick one:\n` +
+              `├◆ ${PREFIX}logo3d <id> <text>\n` +
               `${list}\n` +
-              `│\n` +
-              `│ Examples:\n` +
-              `│ ${PREFIX}logo3d FOXY\n` +
-              `│ ${PREFIX}logo3d 427 Avengers\n` +
-              `└─⧭━━━━━━━━━━━━━━━━━━━⧭─┘`
+              `├◆ Examples:\n` +
+              `├◆ ${PREFIX}logo3d FOXY\n` +
+              `├◆ ${PREFIX}logo3d 427 Avengers\n` +
+              `└─⧭`
       }, { quoted: m });
       return;
     }

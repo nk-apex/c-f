@@ -23,22 +23,18 @@ export default {
     const jid = m.key.remoteJid;
 
     if (args.length === 0) {
-      const list = GLOW_EFFECTS.map(e => `│ ${e.id} - ${e.name}`).join('\n');
+      const list = GLOW_EFFECTS.map(e => `├◆ ${e.id} - ${e.name}`).join('\n');
       await sock.sendMessage(jid, {
-        text: `┌─⧭ *GLOW EFFECTS* ⧭─┐\n` +
-              `│\n` +
-              `│ Usage: ${PREFIX}glow <text>\n` +
-              `│ (picks random glow effect)\n` +
-              `│\n` +
-              `│ Or pick one:\n` +
-              `│ ${PREFIX}glow <id> <text>\n` +
-              `│\n` +
+        text: `┌─⧭ *GLOW EFFECTS*\n` +
+              `├◆ Usage: ${PREFIX}glow <text>\n` +
+              `├◆ (picks random glow effect)\n` +
+              `├◆ Or pick one:\n` +
+              `├◆ ${PREFIX}glow <id> <text>\n` +
               `${list}\n` +
-              `│\n` +
-              `│ Examples:\n` +
-              `│ ${PREFIX}glow FOXY\n` +
-              `│ ${PREFIX}glow 69 Colorful\n` +
-              `└─⧭━━━━━━━━━━━━━━━━━━━⧭─┘`
+              `├◆ Examples:\n` +
+              `├◆ ${PREFIX}glow FOXY\n` +
+              `├◆ ${PREFIX}glow 69 Colorful\n` +
+              `└─⧭`
       }, { quoted: m });
       return;
     }

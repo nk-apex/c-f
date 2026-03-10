@@ -15,14 +15,11 @@ export default {
     if (args.length === 0) {
       await sock.sendMessage(jid, {
         text: `┌─⧭ *3D GOLDEN GLITTER*\n` +
-              `│\n` +
-              `│ Usage: ${PREFIX}goldenglitter <text>\n` +
-              `│\n` +
-              `│ Example:\n` +
-              `│ ${PREFIX}goldenglitter Hello World\n` +
-              `│\n` +
-              `│ Effect ID: 794\n` +
-              `└─⧭━━━━━━━━━━━━━━━━━━━⧭─┘`
+              `├◆ Usage: ${PREFIX}goldenglitter <text>\n` +
+              `├◆ Example:\n` +
+              `├◆ ${PREFIX}goldenglitter Hello World\n` +
+              `├◆ Effect ID: 794\n` +
+              `└─⧭`
       }, { quoted: m });
       return;
     }

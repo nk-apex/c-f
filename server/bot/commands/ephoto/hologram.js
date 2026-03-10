@@ -15,14 +15,11 @@ export default {
     if (args.length === 0) {
       await sock.sendMessage(jid, {
         text: `┌─⧭ *3D HOLOGRAM TEXT*\n` +
-              `│\n` +
-              `│ Usage: ${PREFIX}hologram <text>\n` +
-              `│\n` +
-              `│ Example:\n` +
-              `│ ${PREFIX}hologram Hello World\n` +
-              `│\n` +
-              `│ Effect ID: 441\n` +
-              `└─⧭━━━━━━━━━━━━━━━━━━━⧭─┘`
+              `├◆ Usage: ${PREFIX}hologram <text>\n` +
+              `├◆ Example:\n` +
+              `├◆ ${PREFIX}hologram Hello World\n` +
+              `├◆ Effect ID: 441\n` +
+              `└─⧭`
       }, { quoted: m });
       return;
     }

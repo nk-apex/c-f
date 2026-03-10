@@ -77,29 +77,25 @@ export default {
     if (args.length === 0) {
       const neonList = Object.entries(EFFECTS)
         .filter(([id]) => [68,69,74,78,117,171,200,395,429,507,521,538,591,677,683,706,710,768,797].includes(Number(id)))
-        .map(([id, name]) => `│ ${id} - ${name}`)
+        .map(([id, name]) => `├◆ ${id} - ${name}`)
         .join('\n');
 
       const tdList = Object.entries(EFFECTS)
         .filter(([id]) => ![68,69,74,78,117,171,200,395,429,507,521,538,591,677,683,706,710,768,797].includes(Number(id)))
-        .map(([id, name]) => `│ ${id} - ${name}`)
+        .map(([id, name]) => `├◆ ${id} - ${name}`)
         .join('\n');
 
       await sock.sendMessage(jid, {
-        text: `┌─⧭ *EPHOTO 360* ⧭─┐\n` +
-              `│\n` +
-              `│ Usage: ${PREFIX}ephoto <id> <text>\n` +
-              `│\n` +
-              `│ ─── NEON EFFECTS ───\n` +
+        text: `┌─⧭ *EPHOTO 360*\n` +
+              `├◆ Usage: ${PREFIX}ephoto <id> <text>\n` +
+              `├◆ ─── NEON EFFECTS ───\n` +
               `${neonList}\n` +
-              `│\n` +
-              `│ ─── 3D EFFECTS ───\n` +
+              `├◆ ─── 3D EFFECTS ───\n` +
               `${tdList}\n` +
-              `│\n` +
-              `│ Example:\n` +
-              `│ ${PREFIX}ephoto 68 Hello World\n` +
-              `│ ${PREFIX}ephoto 427 FOXY\n` +
-              `└─⧭━━━━━━━━━━━━━━━━━━━⧭─┘`
+              `├◆ Example:\n` +
+              `├◆ ${PREFIX}ephoto 68 Hello World\n` +
+              `├◆ ${PREFIX}ephoto 427 FOXY\n` +
+              `└─⧭`
       }, { quoted: m });
       return;
     }
