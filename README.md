@@ -1,122 +1,62 @@
+<!-- Glowing Top Border -->
+<p align="center">
+  <img src="https://i.imgur.com/dBaSKWF.gif" height="40" width="100%">
+</p>
+
 <div align="center">
 
-<img src="https://i.ibb.co/PGYDVrqk/7aa433284119.jpg" alt="FOXY Bot" width="400"/>
+<strong>🦊 𝔽𝕆𝕏𝕐 𝔹𝕆𝕋</strong>
+<br>
+<a href="https://git.io/typing-svg">
+  <img src="https://readme-typing-svg.demolab.com?font=Orbitron&size=50&pause=1000&color=ff6600&center=true&width=910&height=100&lines=FOXY+BOT;WhatsApp+Automation;Made+By+Silent+Wolf" alt="Typing SVG" style="font-size: 50px;"/>
+</a>
 
-# 🦊 FOXY — WhatsApp Bot
+<p align="center">
+  <img style="width: 500px; height: 500px; border-radius: 20px; box-shadow: 0 0 30px #ff6600, 0 0 50px rgba(255, 102, 0, 0.3);" src="https://i.ibb.co/PGYDVrqk/7aa433284119.jpg" alt="FOXY Bot" />
+</p>
 
-**568 commands across 70 categories**
+<h1 style="color: #ff6600; text-shadow: 0 0 10px #ff6600, 0 0 20px #ff6600;">
+<br>
+  <span style="font-size: 42px;"><b></b></span>
+</h1>
 
-[![GitHub repo](https://img.shields.io/badge/GitHub-7silent--wolf%2FFOXY-blue?logo=github)](https://github.com/7silent-wolf/FOXY)
-[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-[![Node.js](https://img.shields.io/badge/Node.js-18%2B-brightgreen?logo=node.js)](https://nodejs.org)
-[![Baileys](https://img.shields.io/badge/Library-Baileys-orange)](https://github.com/WhiskeySockets/Baileys)
+<p align="center" style="color: #ff6600; text-shadow: 0 0 5px #ff6600;">
+  <i>"The fox watches..."</i>
+</p>
+
+<br>
+
+**DEPLOY FOXY**
+<br>
+<a href="https://replit.com/github/7silent-wolf/FOXY" target="_blank">
+  <img src="https://img.shields.io/badge/DEPLOY%20FOXY-100000?style=for-the-badge&logo=replit&logoColor=white&labelColor=darkorange&color=darkorange" alt="DEPLOY FOXY"/>
+</a>
+
+<br>
+
+**SESSION PAIR**
+<br>
+<a href="https://foxypair.xwolf.space" target="_blank">
+  <img src="https://img.shields.io/badge/pair%20code-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=darkblue&color=darkorange" alt="PAIR"/>
+</a>
+
+<br>
+
+**DOWNLOAD ZIP**
+<br>
+<a href="https://github.com/7silent-wolf/FOXY/archive/refs/heads/main.zip" target="_blank">
+  <img src="https://img.shields.io/badge/DOWNLOAD%20ZIP-100000?style=for-the-badge&logo=github&logoColor=white&labelColor=darkorange&color=darkorange" alt="Download zip"/>
+</a>
+
+<br>
 
 </div>
 
----
+<!-- Glowing Bottom Border -->
+<p align="center">
+  <img src="https://i.imgur.com/dBaSKWF.gif" height="40" width="100%">
+</p>
 
-## 🚀 Quick Deploy
-
-### ☁️ Deploy on Replit
-
-[![Run on Replit](https://replit.com/badge/github/7silent-wolf/FOXY)](https://replit.com/github/7silent-wolf/FOXY)
-
-### 📦 Download ZIP
-
-[![Download ZIP](https://img.shields.io/badge/Download-ZIP-blue?logo=github)](https://github.com/7silent-wolf/FOXY/archive/refs/heads/main.zip)
-
-```bash
-# Clone the repo
-git clone https://github.com/7silent-wolf/FOXY.git
-cd FOXY
-npm install
-```
-
----
-
-## 🔗 Pair Your Number
-
-> Get your session ID without scanning a QR code
-
-**👉 [foxypair.xwolf.space](https://foxypair.xwolf.space)**
-
-1. Open the pair site above
-2. Enter your WhatsApp number
-3. Copy the session ID shown
-4. Set it as your `SESSION_ID` environment variable
-
----
-
-## ⚙️ Setup
-
-### Environment Variables
-
-| Variable | Description | Required |
-|---|---|---|
-| `SESSION_ID` | WhatsApp session (`FOXY:~<Base64>`) | ✅ |
-| `PREFIX` | Command prefix (default: `*`) | ❌ |
-| `BOT_NAME` | Bot display name (default: `FOXY`) | ❌ |
-| `OWNER_NUMBER` | Your WhatsApp number | ❌ |
-| `SUPABASE_URL` | Supabase URL for antidelete/autoview | ❌ |
-| `SUPABASE_KEY` | Supabase anon key | ❌ |
-
-### Install & Run
-
-```bash
-npm install
-npm run dev
-```
-
----
-
-## ✨ Features
-
-- 🦊 **568 commands** across 70 categories
-- 🗑️ **Antidelete** — recover deleted messages & statuses
-- 👁️ **Auto View Status** — automatically view contacts' statuses
-- 💬 **Auto React** — react to statuses with 🦊
-- 🤖 **AI Commands** — multiple AI integrations
-- 🎮 **Games** — TicTacToe, Hangman, Snake & more
-- 📸 **Image Generation** — stickers, effects & AI images
-- 🔧 **Group Tools** — antilink, antiflood, promote & more
-- 📋 **Owner Panel** — full bot management from WhatsApp
-
----
-
-## 📁 Project Structure
-
-```
-FOXY/
-├── server/
-│   └── bot/
-│       ├── commands/        # 568 commands in 70 categories
-│       ├── messageHandler.js
-│       ├── config/
-│       └── lib/
-├── loader.js                # Auto-restart loader
-├── settings.js              # Bot configuration
-└── package.json
-```
-
----
-
-## 🔄 Update
-
-To update from the upstream source:
-
-```
-*venup           — Update via ZIP (recommended)
-*update git      — Update via Git
-```
-
----
-
-## 📄 License
-
-MIT © [7silent-wolf](https://github.com/7silent-wolf)
-
----
-
-<div align="center">
-Made with 🦊 by <a href="https://github.com/7silent-wolf">Silent Wolf</a>
-</div>
+<p align="center">
+  <strong><span style="color:#ff6600">FOXY</span>BOT by <span style="color:#ff6600">Silent </span>Wolf</strong>
+</p>
